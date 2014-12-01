@@ -13,5 +13,6 @@ We highly encourage contribution to this book and our open source software.  The
 
 
 ## Contributors
+
 * Brad Wood - ColdBox Evangelist
 * Jorge Reyes - ColdBox Aficionado
