@@ -13,6 +13,7 @@ We highly encourage contribution to this book and our open source software.  The
 
 # Contact Information
 * Twitter: [@coldbox](http://www.twitter.com/coldbox)
+* Facebook: https://www.facebook.com/coldbox
 
 # ColdBox Wiki
 The ColdBox wiki is another great source of knowledge: http://wiki.coldbox.org
