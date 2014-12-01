@@ -9,4 +9,5 @@
    * [About This Book](introduction/about_this_book.md)
 * [Getting Started](getting_started/getting_started.md)
    * [Installation](getting_started/installation.md)
+   * IDE Integrations
 
