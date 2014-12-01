@@ -255,28 +255,28 @@ core as the system renderer (`coldbox.system.web.Renderer`).
 ### New Error Template
 
 By default, we are now not showing any exceptions in the ColdBox default
-error template. You now have to specify the full exception bug template
-if you would like to see the exceptions via the **CustomErrorTemplate**:
+error template for security and encapsulation. You now have to specify the full exception bug template
+if you would like to see the exceptions via the `CustomErrorTemplate` setting:
 
-``` {.coldfusion}
+```javascript
 coldbox = {
     customErrorTemplate = "/coldbox/system/includes/BugReport.cfm"
 };
 ```
 
-This is to be secure by default. The template used is
-**/coldbox/system/includes/BugReport-Public.cfm**
+This is to be secure by default. The default template used is
+`/coldbox/system/includes/BugReport-Public.cfm`
 
 ### Remote Proxies Autowired
 
 You've always been able to get models in a remote proxy (web-accessible
-CFC that extends coldbox.system.remote.ColdBoxProxy) using the
-getModel() method. Now you can also autowire your remote proxies using
-cfproperties just like you do in handlers and WireBox-managed models.
+CFC that extends `coldbox.system.remote.ColdBoxProxy`) using the
+`getModel()` method. Now you can also autowire your remote proxies using
+`cfproperties` just like you do in handlers and WireBox-managed models.
 
 **/remote/myProxy.cfc**
 
-``` {.coldfusion}
+```javascript
 component extends="coldbox.system.remote.ColdBoxProxy" {
     property name='myService' inject='myService';
 
@@ -286,7 +286,7 @@ component extends="coldbox.system.remote.ColdBoxProxy" {
 }
 ```
 
-Note, the autowiring only works for web-accessible remote proxies being
+> **Note** The autowiring only works for web-accessible remote proxies being
 directly invoked. You can extend the ColdBoxProxy by another
 manually-created CFC (such as an ORM eventHandler) but it won't be
 autowired.
@@ -296,6 +296,44 @@ autowired.
 In pre-4.0.0 applications all event handlers were cached in CacheBox
 with specific timeouts. We have found that this just created extra noise
 and complexity for handler CFCs. So now all event handlers will be
-cached as singletons be default (unless specified in the Col
+cached as singletons be default (unless specified in the ColdBox.cfc).
 
+### Bootstrap Enhancement
+
+The ColdBox application bootstrapper, the one used in Application.cfc
+has been completely updated and renamed to **Bootstrap** instead of
+**Coldbox**. This brings in lots of performance enhancements and faster
+startup times to your applications. Just use the included application
+templates or just update the **Coldbox** reference to **Bootstrap**.
+
+### Module Enhancements
+
+There has been tremendous focus on modules in this release as we have
+moved completely to a modular architecture in the core as well. First of
+all, we have moved almost 75% of the source into modules so they can be
+installed a-la-carte by developers. Here are some major updates:
+
+-   New **getModuleSettings() & getModuleConfig()** super type methods.
+    This allows you to get access to any module setting or configuration
+    property rather easily and direct.
+-   All module properties are NOT required anymore except the **name**
+-   Modules no longer register their **models** folder as scan locations
+    to increase performance
+-   try/catch around module unloads, so if a module throws an exception
+    during unload it will be intercepted, unloaded and then thrown an
+    exception. This way it will allow developers to fix the unloading
+    issues instead of basically restarting the entire CFML engine to
+    make it work
+
+#### Module Inception
+
+We have altered the module services to now allow you to nest modules
+within modules up to the Nth degree. Our final move to hiearchical MVC
+is complete. Now you can package a module with other modules that can
+even contain other modules within. It really opens a great opportunity
+for better packaging, delivery and a further break from monolithic
+applications. To use, just create a **modules** folder in your module
+and drop the modules there as well.
+
+#### Module Config New Properties
 </h3>
