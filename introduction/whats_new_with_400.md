@@ -296,15 +296,21 @@ autowired.
 In pre-4.0.0 applications all event handlers were cached in CacheBox
 with specific timeouts. We have found that this just created extra noise
 and complexity for handler CFCs. So now all event handlers will be
-cached as singletons be default (unless specified in the ColdBox.cfc).
+cached as singletons be default (unless specified in the `ColdBox.cfc`).
 
 ### Bootstrap Enhancement
 
-The ColdBox application bootstrapper, the one used in Application.cfc
+The ColdBox application bootstrapper, the one used in `Application.cfc`
 has been completely updated and renamed to **Bootstrap** instead of
 **Coldbox**. This brings in lots of performance enhancements and faster
 startup times to your applications. Just use the included application
 templates or just update the **Coldbox** reference to **Bootstrap**.
+
+```javascript
+component{
+
+}
+```
 
 ### Module Enhancements
 
