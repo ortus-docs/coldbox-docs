@@ -69,6 +69,7 @@ ColdBox is a professional open source software backed by [Ortus Solutions, Corp]
 The source code for this book is hosted in GitHub: https://github.com/ColdBox/coldbox-docs. You can freely contribute to it and submit pull requests.  The contents of this book is copyright by [Ortus Solutions, Corp](http://www.ortussolutions.com) and cannot be altered or reproduced without author's consent.  All content is provided *"As-Is"* and can be freely distributed. 
 
 * The majority of code examples in this book are done in *cfscript*.
+* The majority of code generation and running of examples are done via CommandBox: The ColdFusion (CFML) CLI, Package Manager, REPL - http://www.ortussolutions.com/products/commandbox
 
 
 ## Contributing
