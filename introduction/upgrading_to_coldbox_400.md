@@ -52,12 +52,11 @@ getPlugin("MyPlugin")
 getInstance( "MyPlugin" ) or getModel( "MyPlugin" )
 ```
 
-New Core Modules
-----------------
+## New Core Modules
 
 All internal plugins and lots of functionality has been refactored out
 of the ColdBox Core and into standalone Modules. All of them are in
-[ForgeBox][] and have their own Git repositories. Also, all of them are
+[ForgeBox](http://www.coldbox.org/forgebox) and have their own Git repositories. Also, all of them are
 installable via [CommandBox][]; Our ColdFusion (CFML) CLI, and Package
 Manager.
 
