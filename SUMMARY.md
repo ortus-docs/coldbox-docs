@@ -11,4 +11,5 @@
    * What is MVC
    * [Installation](getting_started/installation.md)
    * IDE Integrations
+   * Creating An Application
 
