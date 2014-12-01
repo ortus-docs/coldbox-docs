@@ -14,7 +14,7 @@
    * Conventions Over Configuration
    * Hello Example
    * Running An Application
-   * Testing An Application
    * Reiniting An Application
+   * Testing An Application
 * Configuration
 
