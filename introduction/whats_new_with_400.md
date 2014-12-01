@@ -329,7 +329,7 @@ moved completely to a modular architecture in the core as well. First of
 all, we have moved almost 75% of the source into modules so they can be
 installed a-la-carte by developers. Here are some major updates:
 
--   New **getModuleSettings() & getModuleConfig()** super type methods.
+-   New `getModuleSettings() & getModuleConfig()` super type methods.
     This allows you to get access to any module setting or configuration
     property rather easily and direct.
 -   All module properties are NOT required anymore except the **name**
