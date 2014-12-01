@@ -12,4 +12,5 @@
    * [Installation](getting_started/installation.md)
    * Creating An Application
    * Conventions Over Configuration
+   * Running An Application
 
