@@ -366,4 +366,68 @@ The ''ModuleConfig.cfc'' has been updated with several new properties:
 | **dependencies** | array | false | [] | An array of dependent module names.  All dependencies will be registered and activated FIRST before the module declaring them. |
 | **modelNamespace** | string | false | *moduleName* | The name of the namespace to use when registering models in WireBox.  By default it uses the name of the module. |
 
+``` {.coldfusion}
+this.autoMapModels = true;
+this.modelNamespace = "store";
+this.aliases = [ "store", "ecommerce", "shop" ];
+this.cfmapping = "cbstore";
+this.dependencies = [ "JavaLoader", "CFCouchbase" ];
+```
+
+#### Module Dependencies
+
+Modules can now declare other module dependencies. This means that
+before the declared module is activated, the dependencies will be
+registered and activated **FIRST** and then the declared module will
+load.
+
+#### Module Aliases
+
+In pre-4.0.0 ColdBox applications the way that you executed module
+handlers was via its registered module name, which had to be the name of
+the module folder on disk. This was ok to a certain point, but it would
+cause issues as it was very restrictive to the name on disk. On ColdBox
+4 you can now give the module different execution aliases so you can
+execute the handler events via the aliases and the module folder name as
+well.
+
+#### Module CF Mappings
+
+Every module can now tell ColdBox what ColdFusion mapping to register
+for it that points to the module root location on disk when deployed.
+This is a huge feature for portability and the ability to influence the
+ColdFusion mappings for you via ColdBox.
+
+#### Module Models Auto Mapped
+
+The entire **models** folder will now be automatically mapped for you in
+WireBox via the **mapDirectory** call with a namespace attached to the
+objects (the name of the module). This way, all models are automatically
+mapped for you so you can just use them. Let's say you have a module
+called **store**:
+
+```javascript
+property name="orderService" inject="OrderService@store";
+```
+
+As you can see it adds a **@moduleName** to discover models that come
+from a module directly.
+
+<div class="mynotes">
+**Note:** You can alter this behavior by setting the
+**this.autoMapModels** configuration setting to false. You can also
+alter the namespace used via the **this.modelNamespace** configuration
+property.
+
+</div>
+#### Module Bundles
+
+You can now bundle your modules into an organizational folder that has
+the convention name of **{name}-bundle**. This is mostly for
+organizational purposes.
+
+    coldbox-bundle
+      * cbstorages
+      * cborm
+      * cbsecurity
 </h3>
