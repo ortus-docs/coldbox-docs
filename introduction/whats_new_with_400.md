@@ -68,7 +68,7 @@ We have created a new action convention in all your handlers called
 trying to execute an action in your handler without the right HTTP Verb.
 It will be then your job to determine what to do next:
 
-``` {.coldfusion}
+```javascript
 function onInvalidHTTPMethod( faultAction, event, rc, prc ){
     return "Yep, onInvalidHTTPMethod works!";
 }
@@ -76,7 +76,7 @@ function onInvalidHTTPMethod( faultAction, event, rc, prc ){
 
 ### HTTP Content Auto Marshalling
 
-The **getHTTPContent** method on the Request Context now takes in two
+The `getHTTPContent` method on the Request Context now takes in two
 boolean arguments:
 
 1.  **json**
@@ -85,7 +85,7 @@ boolean arguments:
 If set, ColdBox will auto-marshall the HTTP Body content from JSON or
 XML to native ColdFusion data types.
 
-``` {.coldfusion}
+```javascript
 myStruct  = event.getHTTPContent( json=true );
 xmlObject = event.getHTTPContent( xml=true );
 ```
@@ -96,18 +96,18 @@ You can now define a-la-carte regex matching on route placeholders. If
 the route matches with that regex in the placeholder the value will now
 be stored in the RC as well:
 
-``` {.coldfusion}
+```javascript
 addRoute( pattern = 'format/:extension-regex:(xml|json)' );
 ```
 
 ### New Global View Helper
 
-You now have a new ColdBox core setting **viewsHelper** which is a
+You now have a new ColdBox core setting `viewsHelper` which is a
 template that will be injected and binded to any layout/view that is
 rendered. This means that finally you have a template that can be
 globally available to any view/layout in your system.
 
-``` {.coldfusion}
+```javascript
 coldbox = {
     viewsHelper = "includes/helpers/ViewHelper.cfm" 
 };
@@ -116,17 +116,17 @@ coldbox = {
 ### Application Template Java Support
 
 All the new ColdBox application templates have been updated to include a
-folder called **lib** inside that is automatically wired for you to
+folder called `lib` inside that is automatically wired for you to
 class load Java classes and jars. All you have to do is drop any jar or
-class file in the **lib** folder and it will be available via
-**createobject(“java”)** anywhere in your app.
+class file in the this folder and it will be available via
+`createobject(“java”)` anywhere in your app.
 
 ### New Core Modules
 
 All internal plugins and lots of functionality has been refactored out
 of the ColdBox Core and into standalone Modules. All of them are in
-[ForgeBox][] and have their own Git repositories. Also, all of them are
-installable via [CommandBox][]; Our ColdFusion (CFML) CLI, and Package
+[ForgeBox](http://www.coldbox.org/forgebox) and have their own Git repositories. Also, all of them are
+installable via [CommandBox](http://www.ortussolutions.com/products/commandbox); Our ColdFusion (CFML) CLI, and Package
 Manager. This has reduced the ColdBox Core by over 75% in source size
 and complexity. Not only t
 
