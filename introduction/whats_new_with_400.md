@@ -352,4 +352,7 @@ applications. To use, just create a **modules** folder in your module
 and drop the modules there as well.
 
 #### Module Config New Properties
+
+The ''ModuleConfig.cfc'' has been updated with several new properties:
+
 </h3>
