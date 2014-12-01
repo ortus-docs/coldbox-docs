@@ -12,6 +12,19 @@
 
 Welcome to the ColdBox Platform documentation book.  This book contains the latest documentation about ColdBox as **version: 4.0.0**
 
+# Versioning
+ColdBox is maintained under the Semantic Versioning guidelines as much as possible.
+
+Releases will be numbered with the following format:
+
+<major>.<minor>.<patch>
+
+And constructed with the following guidelines:
+
+* Breaking backward compatibility bumps the major (and resets the minor and patch)
+* New additions without breaking backward compatibility bumps the minor (and resets the patch)
+* Bug fixes and misc changes bumps the patch
+* 
 # License
 The ColdBox Platform is licensed under the [Apache 2](http://www.apache.org/licenses/LICENSE-2.0.html) License.
 
@@ -30,3 +43,20 @@ We highly encourage contribution to this book and our open source software.  The
 * Google+: https://www.google.com/+ColdboxOrg
 * Vimeo Channel: http://vimeo.com/channels/coldbox
 * ColdBox Wiki: http://wiki.coldbox.org
+
+---
+
+### HONOR GOES TO GOD ABOVE ALL
+Because of His grace, this project exists. If you don't like this, then don't read it, its not for you.
+
+<blockquote>
+"Therefore being justified by faith, we have peace with God through our Lord Jesus Christ:
+By whom also we have access by faith into this grace wherein we stand, and rejoice in hope of the glory of God.
+And not only so, but we glory in tribulations also: knowing that tribulation worketh patience;
+And patience, experience; and experience, hope:
+And hope maketh not ashamed; because the love of God is shed abroad in our hearts by the 
+Holy Ghost which is given unto us. ." Romans 5:5
+</blockquote>
+
+
+
