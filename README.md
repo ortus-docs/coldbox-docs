@@ -21,13 +21,14 @@ The source code for this book is hosted in GitHub: https://github.com/ColdBox/co
 ## Contributing
 We highly encourage contribution to this book and our open source software.  The source code for this book can be found in our [GitHub repository](https://github.com/ColdBox/coldbox-docs) where you can submit pull requests.
 
-# Contact Information
+# Resources
 * Official Site: http://www.coldbox.org
 * Source Code: https://github.com/coldbox/coldbox-platform
 * Bug Tracker: https://ortussolutions.atlassian.net/browse/COLDBOX
 * Twitter: [@coldbox](http://www.twitter.com/coldbox)
 * Facebook: https://www.facebook.com/coldboxplatform
 * Google+: https://www.google.com/+ColdboxOrg
+* Vimeo Channel: http://vimeo.com/channels/coldbox
 
 # ColdBox Wiki
 The ColdBox wiki is another great source of knowledge: http://wiki.coldbox.org
