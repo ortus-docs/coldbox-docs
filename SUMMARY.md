@@ -17,5 +17,5 @@
    * Reiniting An Application
    * Testing An Application
 * Configuration
-* Controllers
+* Event Handlers
 
