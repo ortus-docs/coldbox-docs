@@ -37,8 +37,8 @@ WireBox  2.0.0 is a major release of our Dependency Injection and AOP library wi
 
 ## Major Enhancements
 
--   All LogBox libraries updated
--   All CacheBox libraries updated
+-   All [LogBox](logbox_200.md) libraries updated
+-   All [CacheBox](cachebox_200.md) libraries updated
 
 ### ColdBox DSL Updates
 
