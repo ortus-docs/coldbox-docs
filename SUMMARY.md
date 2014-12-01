@@ -19,4 +19,5 @@
 * Configuration
 * Event Handlers
 * Request Context
+* Layouts & Views
 
