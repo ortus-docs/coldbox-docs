@@ -39,11 +39,20 @@ please try to make mention of it in your code or web site or add a Powered By Co
 # Discussion
 The ColdBox help and discussion group can be found here: https://groups.google.com/forum/#!forum/coldbox
 
-## Reporting a Bug
+# Reporting a Bug
 We all make mistakes from time to time :) So why not let us know about it and help us out.  We also love pull requests, so please star us and fork us: https://github.com/coldbox/coldbox-platform
 * By Email: [bugs@coldbox.org](mailto:bugs@coldbox.org)
 * By Google Group: https://groups.google.com/forum/#!forum/coldbox
 * By Jira: https://ortussolutions.atlassian.net/browse/COLDBOX
+
+# Professional Open Source
+ColdBox is a professional open source software backed by [Ortus Solutions, Corp](http://www.ortussolutions.com/services) offering services like:
+* Custom Development
+* Professional Support & Mentoring
+* Server Tuning
+* Security Hardening
+* Code Reviews
+* [Much More](http://www.ortussolutions.com/services)
 
 # Resources
 * Official Site: http://www.coldbox.org
@@ -57,7 +66,7 @@ We all make mistakes from time to time :) So why not let us know about it and he
 
 
 # About This Book
-The source code for this book is hosted in GitHub: https://github.com/ColdBox/coldbox-docs. You can freely contribute to it and submit pull requests.  The contents of this book is copyright by [Ortus Solutions, Corp](http://www.ortussolutions.com) and cannot be altered or reproduced without author's consent.  All content is provided *"As-Is"* and can be freely distributed.
+The source code for this book is hosted in GitHub: https://github.com/ColdBox/coldbox-docs. You can freely contribute to it and submit pull requests.  The contents of this book is copyright by [Ortus Solutions, Corp](http://www.ortussolutions.com) and cannot be altered or reproduced without author's consent.  All content is provided *"As-Is"* and can be freely distributed. 
 
 * The majority of code examples in this book are done in *cfscript*.
 
