@@ -12,6 +12,7 @@ The source code for this book is hosted in GitHub: https://github.com/ColdBox/co
 We highly encourage contribution to this book and our open source software.  The source code for this book can be found in our [GitHub repository](https://github.com/ColdBox/coldbox-docs) where you can submit pull requests.
 
 # Contact Information
+* Twitter: [@coldbox](www.twitter.com/coldbox)
 
 # ColdBox Wiki
 The ColdBox wiki is another great source of knowledge: http://wiki.coldbox.org
