@@ -39,7 +39,7 @@ please try to make mention of it in your code or web site or add a Powered By Co
 # Discussion
 The ColdBox help and discussion group can be found here: https://groups.google.com/forum/#!forum/coldbox
 
-# Reporting a Bug
+## Reporting a Bug
 We all make mistakes from time to time :) So why not let us know about it and help us out.  We also love pull requests, so please star us and fork us: https://github.com/coldbox/coldbox-platform
 * By Email: [bugs@coldbox.org](mailto:bugs@coldbox.org)
 * By Google Group: https://groups.google.com/forum/#!forum/coldbox
