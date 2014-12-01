@@ -143,3 +143,73 @@ box install ColdBox-Security
 ```bash
 box install validation
 ```
+
+Model Convention
+----------------
+
+The **model** convention has been renamed to **models** to be consistent
+with pluralization. So you must either rename your folder or use Custom
+Conventions in your Configuration CFC.
+
+ColdBox OCM Dropped
+-------------------
+
+References to *getColdboxOCM()* have been removed in preference to
+*getCache()* calls.
+
+JSON Plugin Dropped
+-------------------
+
+Placed in ForgeBox
+
+Validator Plugin Dropped
+------------------------
+
+Removed from core
+
+Datasource Bean Dropped
+-----------------------
+
+The datasource bean has been droped in favor of flat structures. So
+instead of getting a bean representing a datasource structure, you just
+get the structure. So some old code like this:
+
+``` {.coldfusion}
+<!--- Dependencies --->
+<cfproperty name="dsn" inject="coldbox:datasource:mydsn">
+
+<!--- list --->
+<cffunction name="list" output="false" access="public" returntype="query" hint="Return the contacts">
+    <cfset var q = "">
+    
+    <cfquery name="q" datasource="#dsn.getName()#">
+    SELECT * 
+        FROM contacts
+    ORDER BY name asc
+    </cfquery>
+    
+    <cfreturn q>
+    
+</cffunction>
+```
+
+Would become this:
+
+``` {.coldfusion}
+<!--- Dependencies --->
+<cfproperty name="dsn" inject="coldbox:datasource:mydsn">
+
+<!--- list --->
+<cffunction name="list" output="false" access="public" returntype="query" hint="Return the contacts">
+    <cfset var q = "">
+    
+    <cfquery name="q" datasource="#dsn.name#">
+    SELECT * 
+        FROM contacts
+    ORDER BY name asc
+    </cfquery>
+    
+    <cfreturn q>
+    
+</cffunction>
+```
