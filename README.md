@@ -10,7 +10,7 @@
 
 # Welcome to ColdBox
 
-ColdBox is a [conventions-based](http://en.wikipedia.org/wiki/Convention_over_configuration) [MVC](http://en.wikipedia.org/wiki/Model–view–controller) development framework for [ColdFusion](http://en.wikipedia.org/wiki/Adobe_ColdFusion) ([CFML](http://en.wikipedia.org/wiki/ColdFusion_Markup_Language)). It provides a set of reusable code and tools that can be used to increase your development productivity as well as a development standard for working in team environments. ColdBox is natively based on [modular architecture](http://en.wikipedia.org/wiki/Modular_design) which helps address most infrastructure concerns of typical applications.
+ColdBox is a [conventions-based](http://en.wikipedia.org/wiki/Convention_over_configuration) [MVC](http://en.wikipedia.org/wiki/Model–view–controller) development framework for [ColdFusion](http://en.wikipedia.org/wiki/Adobe_ColdFusion) ([CFML](http://en.wikipedia.org/wiki/ColdFusion_Markup_Language)). It provides a set of reusable code and tools that can be used to increase your development productivity as well as a development standard for working in team environments. ColdBox is natively based on [modular architecture](http://en.wikipedia.org/wiki/Modular_design) which helps address most infrastructure concerns of typical web applications.
 
 # Versioning
 ColdBox is maintained under the [Semantic Versioning](http://semver.org) guidelines as much as possible.Releases will be numbered with the following format:
