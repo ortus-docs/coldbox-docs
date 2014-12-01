@@ -145,7 +145,7 @@ box install cbstorages
 -   Feeds
 
 ```bash
-box install feeds
+box install cbfeeds
 ```
 
 -   Commons
@@ -157,7 +157,7 @@ box install cbcommons
 -   i18n
 
 ```bash
-box install i18n
+box install cbi18n
 ```
 
 -   ORM
@@ -169,37 +169,37 @@ box install cborm
 -   ioc
 
 ```bash
-box install ioc
+box install cbioc
 ```
 
 -   JavaLoader
 
 ```bash
-box install javaloader
+box install cbjavaloader
 ```
 
 -   AntiSamy
 
 ```bash
-box install antisamy
+box install cbantisamy
 ```
 
 -   MailServies
 
 ```bash
-box install mailservices
+box install cbmailservices
 ```
 
 -   MessageBox
 
 ```bash
-box install messagebox
+box install cbmessagebox
 ```
 
 -   Soap
 
 ```bash
-box install soap
+box install cbsoap
 ```
 
 -   Security
@@ -211,7 +211,7 @@ box install cbsecurity
 -   Validation
 
 ```bash
-box install validation
+box install cbvalidation
 ```
 
 
