@@ -45,4 +45,91 @@ ColdBox is composed of three internal libraries: WireBox (DI & AOP), CacheBox (C
 - [CacheBox 2.0.0](whats_new/cachebox_200.md)
 - [LogBox 2.0.0](whats_new/logbox_200.md)
 
+Major Updates
+-------------
+
+### Performance Updates
+
+The core has been completely revamped by removing ColdFusion 7/8 code,
+decoupled from many features that are now available as modules and
+rewrites to pure cfscript syntax. The end result is the fastes ColdBox
+release since our 1.0.0 days. In our initial vanilla load tests, normal
+requests would take around 4-6ms to execute.
+
+### Model called Models
+
+The convention has been updated so it matches the other convetions. You
+now must create a **models** folder instead of a **model** folder.
+
+### onInvalidHTTPMethod Handler Convention
+
+We have created a new action convention in all your handlers called
+**onInvalidHTTPMethod** which will be called for you if a request is
+trying to execute an action in your handler without the right HTTP Verb.
+It will be then your job to determine what to do next:
+
+``` {.coldfusion}
+function onInvalidHTTPMethod( faultAction, event, rc, prc ){
+    return "Yep, onInvalidHTTPMethod works!";
+}
+```
+
+### HTTP Content Auto Marshalling
+
+The **getHTTPContent** method on the Request Context now takes in two
+boolean arguments:
+
+1.  **json**
+2.  **xml**
+
+If set, ColdBox will auto-marshall the HTTP Body content from JSON or
+XML to native ColdFusion data types.
+
+``` {.coldfusion}
+myStruct  = event.getHTTPContent( json=true );
+xmlObject = event.getHTTPContent( xml=true );
+```
+
+### SES regex route placeholders
+
+You can now define a-la-carte regex matching on route placeholders. If
+the route matches with that regex in the placeholder the value will now
+be stored in the RC as well:
+
+``` {.coldfusion}
+addRoute( pattern = 'format/:extension-regex:(xml|json)' );
+```
+
+### New Global View Helper
+
+You now have a new ColdBox core setting **viewsHelper** which is a
+template that will be injected and binded to any layout/view that is
+rendered. This means that finally you have a template that can be
+globally available to any view/layout in your system.
+
+``` {.coldfusion}
+coldbox = {
+    viewsHelper = "includes/helpers/ViewHelper.cfm" 
+};
+```
+
+### Application Template Java Support
+
+All the new ColdBox application templates have been updated to include a
+folder called **lib** inside that is automatically wired for you to
+class load Java classes and jars. All you have to do is drop any jar or
+class file in the **lib** folder and it will be available via
+**createobject(“java”)** anywhere in your app.
+
+### New Core Modules
+
+All internal plugins and lots of functionality has been refactored out
+of the ColdBox Core and into standalone Modules. All of them are in
+[ForgeBox][] and have their own Git repositories. Also, all of them are
+installable via [CommandBox][]; Our ColdFusion (CFML) CLI, and Package
+Manager. This has reduced the ColdBox Core by over 75% in source size
+and complexity. Not only t
+
+  [ForgeBox]: http://www.coldbox.org/forgebox
+  [CommandBox]: http://www.ortussolutions.com/products/commandbox
 </h3>
