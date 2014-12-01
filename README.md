@@ -31,7 +31,7 @@ The ColdBox Platform is open source and licensed under the [Apache 2](http://www
 please try to make mention of it in your code or web site or add a Powered By Coldbox icon.
 
 * Copyright by Ortus Solutions, Corp
-* ColdBox is a registered trademark by Ortus Solutions, Corp
+* **ColdBox** is a registered trademark by Ortus Solutions, Corp
 
 
 >**Info**: The ColdBox Websites, Documentation, logo and content have a separate license and they are a separate entity.
