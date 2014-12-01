@@ -6,6 +6,7 @@
        * [CacheBox 2.0.0](introduction/whats_new/cachebox_200.md)
        * [LogBox 2.0.0](introduction/whats_new/logbox_200.md)
    * [Upgrading to ColdBox 4.0.0](introduction/upgrading_to_coldbox_400.md)
+   * About This Book
 * [Getting Started](getting_started.md)
    * [Installation](getting_started/installation.md)
 
