@@ -170,7 +170,7 @@ The datasource bean has been droped in favor of flat structures. So
 instead of getting a bean representing a datasource structure, you just
 get the structure. So some old code like this:
 
-```javascript
+```html
 <!--- Dependencies --->
 <cfproperty name="dsn" inject="coldbox:datasource:mydsn">
 
@@ -191,7 +191,7 @@ get the structure. So some old code like this:
 
 Would become this:
 
-``` {.coldfusion}
+```html
 <!--- Dependencies --->
 <cfproperty name="dsn" inject="coldbox:datasource:mydsn">
 
