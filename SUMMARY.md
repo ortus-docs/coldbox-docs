@@ -4,6 +4,7 @@
    * [What's New With 4.0.0](introduction/whats_new_with_400.md)
        * WireBox 2.0.0
        * CacheBox 2.0.0
+       * LogBox 2.0.0
    * [Upgrading to ColdBox 4.0.0](introduction/upgrading_to_coldbox_400.md)
 * [Getting Started](getting_started.md)
    * [Installation](getting_started/installation.md)
