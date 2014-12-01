@@ -6,6 +6,7 @@ WireBox  2.0.0 is a major release of our Dependency Injection and AOP library wi
 
 ## Release Notes
 
+You can find the release version information here: https://ortussolutions.atlassian.net/browse/WIREBOX/fixforversion/12300
                 
 <h3>Bugs
 </h3>
