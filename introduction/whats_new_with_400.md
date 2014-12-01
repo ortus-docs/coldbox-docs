@@ -17,10 +17,10 @@ in dynamically. How you might say?
 [CommandBox](http://www.ortussolutions.com/products/commandbox), our new ColdFusion (CFML) command line interface,
 package manager and REPL. You can now use CommandBox to install
 dependencies, modules and even ColdBox itself all from our centralized
-code repository: ForgeBox ([1][]). To install ColdBox 4 Bleeding Edge
+code repository: [ForgeBox](http://www.coldbox.org/forgebox). To install ColdBox 4 Bleeding Edge
 you can just type:
 
-``` {.javascript}
+```bash
 box install coldbox-be
 ```
 
