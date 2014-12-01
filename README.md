@@ -1,4 +1,3 @@
-GitBook Example
-=======
+# ColdBox Platform
 
-Welcome in your GitBook!
+Welcome to the ColdBox Platform documentation book.
