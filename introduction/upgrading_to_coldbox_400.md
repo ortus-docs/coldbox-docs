@@ -36,16 +36,15 @@ logBox = {
 };
 ```
 
-Plugins Deprecated
-------------------
+## Plugins Deprecated
 
 ColdBox Plugins have graduated to become just models. The **plugins**
 convention has been removed and all references to plugin injection or
 DSL's have been deprecated. You must now place all your plugins in your
-**models** directory and request them via **getInstance() or
-getModel()** calls.
+**models** directory and request them via `getInstance() or
+getModel()` calls.
 
-``` {.coldfusion}
+```javascript
 // old
 getPlugin("MyPlugin")
 
