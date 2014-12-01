@@ -36,12 +36,8 @@ please try to make mention of it in your code or web site or add a Powered By Co
 
 >**Info**: The ColdBox Websites, Documentation, logo and content have a separate license and they are a separate entity.
 
-
-# About This Book
-The source code for this book is hosted in GitHub: https://github.com/ColdBox/coldbox-docs. You can freely contribute to it and submit pull requests.  The contents of this book is copyright by [Ortus Solutions, Corp](http://www.ortussolutions.com) and cannot be altered or reproduced without author's consent.  All content is provided *"As-Is"* and can be freely distributed.
-
-## Contributing
-We highly encourage contribution to this book and our open source software.  The source code for this book can be found in our [GitHub repository](https://github.com/ColdBox/coldbox-docs) where you can submit pull requests.
+# Discussion
+The ColdBox Google group can be found here: https://groups.google.com/forum/#!forum/coldbox
 
 # Resources
 * Official Site: http://www.coldbox.org
@@ -52,6 +48,13 @@ We highly encourage contribution to this book and our open source software.  The
 * Google+: https://www.google.com/+ColdboxOrg
 * Vimeo Channel: http://vimeo.com/channels/coldbox
 * ColdBox Wiki: http://wiki.coldbox.org
+
+
+# About This Book
+The source code for this book is hosted in GitHub: https://github.com/ColdBox/coldbox-docs. You can freely contribute to it and submit pull requests.  The contents of this book is copyright by [Ortus Solutions, Corp](http://www.ortussolutions.com) and cannot be altered or reproduced without author's consent.  All content is provided *"As-Is"* and can be freely distributed.
+
+## Contributing
+We highly encourage contribution to this book and our open source software.  The source code for this book can be found in our [GitHub repository](https://github.com/ColdBox/coldbox-docs) where you can submit pull requests.
 
 ---
 
