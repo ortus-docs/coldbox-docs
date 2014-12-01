@@ -70,6 +70,7 @@ The source code for this book is hosted in GitHub: https://github.com/ColdBox/co
 
 * The majority of code examples in this book are done in *cfscript*.
 * The majority of code generation and running of examples are done via **CommandBox**: The ColdFusion (CFML) CLI, Package Manager, REPL - http://www.ortussolutions.com/products/commandbox
+* **15% of the proceeds of this book will go to charity to support orphaned kids in El Salvador - http://www.harvesting.org/. So please donate and purchase the printed version of this book.**
 
 
 ## Contributing
@@ -88,6 +89,8 @@ And patience, experience; and experience, hope:
 And hope maketh not ashamed; because the love of God is shed abroad in our hearts by the 
 Holy Ghost which is given unto us. ." Romans 5:5
 </blockquote>
+
+Thank you Lord for 
 
 
 
