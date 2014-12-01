@@ -144,37 +144,33 @@ box install ColdBox-Security
 box install validation
 ```
 
-Model Convention
-----------------
+## Model Convention
 
 The **model** convention has been renamed to **models** to be consistent
 with pluralization. So you must either rename your folder or use Custom
 Conventions in your Configuration CFC.
 
-ColdBox OCM Dropped
--------------------
+## ColdBox OCM Dropped
 
-References to *getColdboxOCM()* have been removed in preference to
-*getCache()* calls.
+References to `getColdboxOCM()` have been removed in preference to
+`getCache()` calls.
 
-JSON Plugin Dropped
--------------------
+
+##JSON Plugin Dropped
 
 Placed in ForgeBox
 
-Validator Plugin Dropped
-------------------------
+## Validator Plugin Dropped
 
 Removed from core
 
-Datasource Bean Dropped
------------------------
+## Datasource Bean Dropped
 
 The datasource bean has been droped in favor of flat structures. So
 instead of getting a bean representing a datasource structure, you just
 get the structure. So some old code like this:
 
-``` {.coldfusion}
+```javascript
 <!--- Dependencies --->
 <cfproperty name="dsn" inject="coldbox:datasource:mydsn">
 
