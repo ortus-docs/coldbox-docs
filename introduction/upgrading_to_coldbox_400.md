@@ -57,7 +57,7 @@ getInstance( "MyPlugin" ) or getModel( "MyPlugin" )
 All internal plugins and lots of functionality has been refactored out
 of the ColdBox Core and into standalone Modules. All of them are in
 [ForgeBox](http://www.coldbox.org/forgebox) and have their own Git repositories. Also, all of them are
-installable via [CommandBox][]; Our ColdFusion (CFML) CLI, and Package
+installable via [CommandBox](http://www.ortussolutions.com/products/commandbox); Our ColdFusion (CFML) CLI, and Package
 Manager.
 
 -   ColdBox Debugger
