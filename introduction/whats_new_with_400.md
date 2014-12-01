@@ -233,7 +233,7 @@ downloaded separately. We have done several updates to the ORM
 extensions like:
 
 -   Railo multi-datasource support
--   Expanded 'createAlias()' method to allow for a **criteria** argument
+-   Expanded `createAlias()` method to allow for a **criteria** argument
     which leverages hibernate's ability to do a where statement on a
     join
 -   Script updates
@@ -241,18 +241,16 @@ extensions like:
 ### New System Renderer
 
 The ColdBox Renderer plugin has been removed and it is now part of the
-core as the system renderer (coldbox.system.web.Renderer).
+core as the system renderer (`coldbox.system.web.Renderer`).
 
 -   It has been migrated to full script and optimized for ColdFusion 9+
     syntax
--   We have also created a new DSL to inject it via WireBox:
-    **coldbox:renderer**
+-   We have also created a new DSL to inject it via WireBox: `coldbox:renderer`
 -   You can also add mixins or alter its behavior by talking to its
-    WireBox mapping (coldbox.system.web.Renderer)
+    WireBox mapping (`Renderer@coldbox`)
 -   All handlers/interceptors/views/layouts have access to the renderer
-    by calling the **getRenderer()** method in the super type
--   The main ColdBox controller has a new method called
-    **getRenderer()** to retrieve the system renderer
+    by calling the `getRenderer()` method in the super type
+-   The main ColdBox controller has a new method called `getRenderer()` to retrieve the system renderer
 
 ### New Error Template
 
