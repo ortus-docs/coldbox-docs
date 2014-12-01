@@ -59,8 +59,9 @@ We all make mistakes from time to time :) So why not let us know about it and he
 # About This Book
 The source code for this book is hosted in GitHub: https://github.com/ColdBox/coldbox-docs. You can freely contribute to it and submit pull requests.  The contents of this book is copyright by [Ortus Solutions, Corp](http://www.ortussolutions.com) and cannot be altered or reproduced without author's consent.  All content is provided *"As-Is"* and can be freely distributed.
 
-## Code Styles
-The majority of examples in this book are done in *cfscript* due to less verbosity and clarity.
+## Book Styles
+* The majority of code examples in this book are done in *cfscript*.
+* 
 
 ## Contributing
 We highly encourage contribution to this book and our open source software.  The source code for this book can be found in our [GitHub repository](https://github.com/ColdBox/coldbox-docs) where you can submit pull requests.
