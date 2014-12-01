@@ -6,7 +6,7 @@ ColdBox 4 is a major release in our ColdBox Platform series and includes
 a new revamped MVC core and all extra functionality has been refactored
 into modules. We have pushed the modular architecture to 1st class
 citizen even in the core itself. There are several [compatibility
-updates][] that you must do in order to upgrade your ColdBox 3.X
+updates](upgrading_to_coldbox_400.md) that you must do in order to upgrade your ColdBox 3.X
 applications to CodlBox 4 standards. You will notice that the source and
 download of ColdBox 4 has been reduced by almost 75% in size. This is
 now due to our modular approach were functionality can just be brought
