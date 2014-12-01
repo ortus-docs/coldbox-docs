@@ -10,6 +10,6 @@
 * [Getting Started](getting_started/getting_started.md)
    * What is MVC
    * [Installation](getting_started/installation.md)
-   * IDE Integrations
    * Creating An Application
+   * IDE Integrations
 
