@@ -27,7 +27,15 @@ And constructed with the following guidelines:
 
 
 # License
-The ColdBox Platform is licensed under the [Apache 2](http://www.apache.org/licenses/LICENSE-2.0.html) License.
+The ColdBox Platform is open source and licensed under the [Apache 2](http://www.apache.org/licenses/LICENSE-2.0.html) License.  If you use ColdBox, 
+please try to make mention of it in your code or web site or add a Powered By Coldbox icon.  
+Please donate, this project lives thanks to your donations.
+
+Please Read The Official License Agreement:
+http://www.coldbox.org/about/license
+
+The ColdBox Websites, logo and content have a separate license and they are a separate entity.
+
 
 # About This Book
 The source code for this book is hosted in GitHub: https://github.com/ColdBox/coldbox-docs. You can freely contribute to it and submit pull requests.  The contents of this book is copyright by [Ortus Solutions, Corp](http://www.ortussolutions.com) and cannot be altered or reproduced without author's consent.  All content is provided *"As-Is"* and can be freely distributed.
