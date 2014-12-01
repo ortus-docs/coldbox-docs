@@ -410,24 +410,25 @@ called **store**:
 property name="orderService" inject="OrderService@store";
 ```
 
-As you can see it adds a **@moduleName** to discover models that come
+As you can see it adds a `@moduleName` to discover models that come
 from a module directly.
 
-<div class="mynotes">
-**Note:** You can alter this behavior by setting the
-**this.autoMapModels** configuration setting to false. You can also
-alter the namespace used via the **this.modelNamespace** configuration
+> **Hint** You can alter this behavior by setting the
+`this.autoMapModels` configuration setting to `false`. You can also
+alter the namespace used via the `this.modelNamespace` configuration
 property.
 
-</div>
+
 #### Module Bundles
 
 You can now bundle your modules into an organizational folder that has
 the convention name of **{name}-bundle**. This is mostly for
 organizational purposes.
 
-    coldbox-bundle
-      * cbstorages
-      * cborm
-      * cbsecurity
+```
+coldbox-bundle
+  * cbstorages
+  * cborm
+  * cbsecurity
+```
 </h3>
