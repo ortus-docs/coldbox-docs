@@ -90,7 +90,7 @@ And hope maketh not ashamed; because the love of God is shed abroad in our heart
 Holy Ghost which is given unto us. ." Romans 5:5
 </blockquote>
 
-Thank you Lord for 
+
 
 
 
