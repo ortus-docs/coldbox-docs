@@ -28,8 +28,7 @@ And constructed with the following guidelines:
 
 # License
 The ColdBox Platform is open source and licensed under the [Apache 2](http://www.apache.org/licenses/LICENSE-2.0.html) License.  If you use ColdBox, 
-please try to make mention of it in your code or web site or add a Powered By Coldbox icon.  
-Please donate, this project lives thanks to your donations.
+please try to make mention of it in your code or web site or add a Powered By Coldbox icon.Please donate, this project lives thanks to your donations.
 
 Please Read The Official License Agreement:
 http://www.coldbox.org/about/license
