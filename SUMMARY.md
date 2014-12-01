@@ -22,4 +22,5 @@
 * Layouts & Views
 * Models
 * Routing
+* Interceptors
 
