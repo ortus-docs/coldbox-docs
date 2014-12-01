@@ -363,5 +363,7 @@ The ''ModuleConfig.cfc'' has been updated with several new properties:
 | **autoMapModels** | boolean | false | true | Will automatically map all model objects under the **models** folder in WireBox using `@modulename` as part of the alias. |
 | **cfmapping** | string | false | *empty* | The ColdFusion mapping that should be registered for you that points to the root of the module. |
 | **disabled** | boolean | false | false | You can manually disable a module from loading and registering |
+| **dependencies** | array | false | [] | An array of dependent module names.  All dependencies will be registered and activated FIRST before the module declaring them. |
+| **modelNamespace** | string | false | *moduleName* | The name of the namespace to use when registering models in WireBox.  By default it uses the name of the module. |
 
 </h3>
