@@ -38,4 +38,9 @@ coldbox help
 coldbox create app MyFirstApp --installTestBox
 ```
 
+## Internal Library Updates
+ColdBox is composed of three internal libraries: WireBox (DI & AOP), CacheBox (Caching), LogBox (Logging). Below you can find what's new with this release for each library:
+
+- [WireBox 2.0.0](
+
 </h3>
