@@ -20,7 +20,7 @@ dependencies, modules and even ColdBox itself all from our centralized
 code repository: [ForgeBox](http://www.coldbox.org/forgebox). To install ColdBox 4 Bleeding Edge
 you can just type:
 
-```
+```bash
 box install coldbox-be
 ```
 
@@ -28,12 +28,12 @@ You can even use CommandBox to generate ColdBox applications, modules,
 handlers, etc. It has a plethora of commands to get you started in a
 fantastic ColdBox Adventure:
 
-```
+```bash
 // Get help on all the ColdBox commands
 coldbox help
 ```
 
-```shell
+```bash
 // create a ColdBox app with TestBox support
 coldbox create app MyFirstApp --installTestBox
 ```
