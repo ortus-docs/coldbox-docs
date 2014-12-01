@@ -10,7 +10,7 @@
 
 # Welcome to ColdBox
 
-ColdBox is the conventions MVC development framework for ColdFusion (CFML).
+ColdBox is a [conventions-based](http://en.wikipedia.org/wiki/Convention_over_configuration) MVC development framework for ColdFusion (CFML).
 
 # Versioning
 ColdBox is maintained under the [Semantic Versioning](http://semver.org) guidelines as much as possible.Releases will be numbered with the following format:
@@ -82,12 +82,8 @@ We highly encourage contribution to this book and our open source software.  The
 Because of His grace, this project exists. If you don't like this, then don't read it, its not for you.
 
 <blockquote>
-"Therefore being justified by faith, we have peace with God through our Lord Jesus Christ:
-By whom also we have access by faith into this grace wherein we stand, and rejoice in hope of the glory of God.
-And not only so, but we glory in tribulations also: knowing that tribulation worketh patience;
-And patience, experience; and experience, hope:
-And hope maketh not ashamed; because the love of God is shed abroad in our hearts by the 
-Holy Ghost which is given unto us. ." Romans 5:5
+"Therefore being justified by **faith**, we have peace with God through our Lord Jesus Christ:
+By whom also we have access by **faith** into this **grace** wherein we stand, and rejoice in hope of the glory of God." Romans 5:5
 </blockquote>
 
 
