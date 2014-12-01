@@ -127,9 +127,92 @@ All internal plugins and lots of functionality has been refactored out
 of the ColdBox Core and into standalone Modules. All of them are in
 [ForgeBox](http://www.coldbox.org/forgebox) and have their own Git repositories. Also, all of them are
 installable via [CommandBox](http://www.ortussolutions.com/products/commandbox); Our ColdFusion (CFML) CLI, and Package
-Manager. This has reduced the ColdBox Core by over 75% in source size
-and complexity. Not only t
+Manager. This has reduced the ColdBox Core by over **75%** in source size
+and complexity. Not only that, but it allows us to be able to release patches and updates for feature functionality without releasing an entire framework release, but just 1 or more modules.
 
-  [ForgeBox]: http://www.coldbox.org/forgebox
-  [CommandBox]: http://www.ortussolutions.com/products/commandbox
+-   ColdBox Debugger
+
+```bash
+box install cbdebugger
+```
+
+-   Storages
+
+```bash
+box install cbstorages
+```
+
+-   Feeds
+
+```bash
+box install feeds
+```
+
+-   Commons
+
+```bash
+box install cbcommons
+```
+
+-   i18n
+
+```bash
+box install i18n
+```
+
+-   ORM
+
+```bash
+box install cborm
+```
+
+-   ioc
+
+```bash
+box install ioc
+```
+
+-   JavaLoader
+
+```bash
+box install javaloader
+```
+
+-   AntiSamy
+
+```bash
+box install antisamy
+```
+
+-   MailServies
+
+```bash
+box install mailservices
+```
+
+-   MessageBox
+
+```bash
+box install messagebox
+```
+
+-   Soap
+
+```bash
+box install soap
+```
+
+-   Security
+
+```bash
+box install cbsecurity
+```
+
+-   Validation
+
+```bash
+box install validation
+```
+
+
 </h3>
