@@ -29,6 +29,4 @@ We highly encourage contribution to this book and our open source software.  The
 * Facebook: https://www.facebook.com/coldboxplatform
 * Google+: https://www.google.com/+ColdboxOrg
 * Vimeo Channel: http://vimeo.com/channels/coldbox
-
-# ColdBox Wiki
-The ColdBox wiki is another great source of knowledge: http://wiki.coldbox.org
+* ColdBox Wiki: http://wiki.coldbox.org
