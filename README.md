@@ -37,11 +37,13 @@ please try to make mention of it in your code or web site or add a Powered By Co
 >**Info**: The ColdBox Websites, Documentation, logo and content have a separate license and they are a separate entity.
 
 # Discussion
-The ColdBox Google group can be found here: https://groups.google.com/forum/#!forum/coldbox
+The ColdBox help and discussion group can be found here: https://groups.google.com/forum/#!forum/coldbox
 
 # Reporting a Bug
 We all make mistakes from time to time :) So why not let us know about it and help us out.  We also love pull requests, so please star us and fork us: https://github.com/coldbox/coldbox-platform
 * By Email: [bugs@coldbox.org](mailto:bugs@coldbox.org)
+* By Google Group: https://groups.google.com/forum/#!forum/coldbox
+* By Jira: https://ortussolutions.atlassian.net/browse/COLDBOX
 
 # Resources
 * Official Site: http://www.coldbox.org
