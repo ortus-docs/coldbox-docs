@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
    * [What's New With 4.0.0](introduction/whats_new_with_400.md)
-       * WireBox 2.0.0
+       * [WireBox 2.0.0](introduction/whats_new/wirebox_200.md)
        * CacheBox 2.0.0
        * LogBox 2.0.0
    * [Upgrading to ColdBox 4.0.0](introduction/upgrading_to_coldbox_400.md)
