@@ -62,84 +62,84 @@ Manager.
 
 -   ColdBox Debugger
 
-``` {.coldfusion}
+```bash
 box install cbdebugger
 ```
 
 -   Storages
 
-``` {.coldfusion}
+```bash
 box install coldbox-storages
 ```
 
 -   Feeds
 
-``` {.coldfusion}
+```bash
 box install feeds
 ```
 
 -   Commons
 
-``` {.coldfusion}
+```bash
 box install cbcommons
 ```
 
 -   i18n
 
-``` {.coldfusion}
+```bash
 box install i18n
 ```
 
 -   ORM
 
-``` {.coldfusion}
+```bash
 box install cborm
 ```
 
 -   ioc
 
-``` {.coldfusion}
+```bash
 box install ioc
 ```
 
 -   JavaLoader
 
-``` {.coldfusion}
+```bash
 box install javaloader
 ```
 
 -   AntiSamy
 
-``` {.coldfusion}
+```bash
 box install antisamy
 ```
 
 -   MailServies
 
-``` {.coldfusion}
+```bash
 box install mailservices
 ```
 
 -   MessageBox
 
-``` {.coldfusion}
+```bash
 box install messagebox
 ```
 
 -   Soap
 
-``` {.coldfusion}
+```bash
 box install soap
 ```
 
 -   Security
 
-``` {.coldfusion}
+```bash
 box install ColdBox-Security
 ```
 
 -   Validation
 
-``` {.coldfusion}
+```bash
 box install validation
 ```
