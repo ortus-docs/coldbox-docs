@@ -20,5 +20,5 @@
 * Event Handlers
 * Request Context
 * Layouts & Views
-* Model Integration
+* Models
 
