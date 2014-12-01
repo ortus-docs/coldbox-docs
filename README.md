@@ -1,6 +1,6 @@
-# ColdBox Platform
+# ColdBox Platform v4.0.0
 
-Welcome to the ColdBox Platform documentation book.
+Welcome to the ColdBox Platform documentation book.  This book contains the latest documentation about ColdBox as of the version shown above.
 
 # License
 ColdBox Platform is licensed under the [Apache 2](http://www.apache.org/licenses/LICENSE-2.0.html) License.
