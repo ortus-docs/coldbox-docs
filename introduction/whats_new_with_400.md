@@ -307,9 +307,13 @@ startup times to your applications. Just use the included application
 templates or just update the **Coldbox** reference to **Bootstrap**.
 
 ```javascript
-component{
+// Inheritance
+component extends="coldbox.system.Bootstrap"{
 
 }
+
+// Non-Inheritance
+
 ```
 
 ### Module Enhancements
