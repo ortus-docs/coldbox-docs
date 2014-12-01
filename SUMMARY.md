@@ -10,4 +10,5 @@
 * [Getting Started](getting_started/getting_started.md)
    * [Installation](getting_started/installation.md)
    * IDE Integrations
+   * Overview
 
