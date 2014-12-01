@@ -52,7 +52,7 @@ Major Updates
 
 The core has been completely revamped by removing ColdFusion 7/8 code,
 decoupled from many features that are now available as modules and
-rewrites to pure cfscript syntax. The end result is the fastes ColdBox
+rewrites to pure `cfscript` syntax. The end result is the fastes ColdBox
 release since our 1.0.0 days. In our initial vanilla load tests, normal
 requests would take around 4-6ms to execute.
 
@@ -64,7 +64,7 @@ now must create a **models** folder instead of a **model** folder.
 ### onInvalidHTTPMethod Handler Convention
 
 We have created a new action convention in all your handlers called
-**onInvalidHTTPMethod** which will be called for you if a request is
+`onInvalidHTTPMethod` which will be called for you if a request is
 trying to execute an action in your handler without the right HTTP Verb.
 It will be then your job to determine what to do next:
 
