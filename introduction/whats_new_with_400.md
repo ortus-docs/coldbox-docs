@@ -214,5 +214,90 @@ box install cbsecurity
 box install cbvalidation
 ```
 
+### New Anti-Forgery Module
+
+We have create a nice anti-forgery module called **csrf** which can be
+found in [ForgeBox](http://www.coldbox.org/forgebox/view/cbcsrf) and in GitHub: <https://github.com/ColdBox/cbox-csrf>. This
+module will enhance your ColdBox applications with Anti-Cross Site
+Request Forgery capabilities. You can also install it via CommandBox
+
+```bash
+box install csrf
+```
+
+### ORM Module Updates
+
+As you know by now, all the ColdBox ORM features are available as a
+module that can be installed in your application via CommandBox or
+downloaded separately. We have done several updates to the ORM
+extensions like:
+
+-   Railo multi-datasource support
+-   Expanded 'createAlias()' method to allow for a **criteria** argument
+    which leverages hibernate's ability to do a where statement on a
+    join
+-   Script updates
+
+### New System Renderer
+
+The ColdBox Renderer plugin has been removed and it is now part of the
+core as the system renderer (coldbox.system.web.Renderer).
+
+-   It has been migrated to full script and optimized for ColdFusion 9+
+    syntax
+-   We have also created a new DSL to inject it via WireBox:
+    **coldbox:renderer**
+-   You can also add mixins or alter its behavior by talking to its
+    WireBox mapping (coldbox.system.web.Renderer)
+-   All handlers/interceptors/views/layouts have access to the renderer
+    by calling the **getRenderer()** method in the super type
+-   The main ColdBox controller has a new method called
+    **getRenderer()** to retrieve the system renderer
+
+### New Error Template
+
+By default, we are now not showing any exceptions in the ColdBox default
+error template. You now have to specify the full exception bug template
+if you would like to see the exceptions via the **CustomErrorTemplate**:
+
+``` {.coldfusion}
+coldbox = {
+    customErrorTemplate = "/coldbox/system/includes/BugReport.cfm"
+};
+```
+
+This is to be secure by default. The template used is
+**/coldbox/system/includes/BugReport-Public.cfm**
+
+### Remote Proxies Autowired
+
+You've always been able to get models in a remote proxy (web-accessible
+CFC that extends coldbox.system.remote.ColdBoxProxy) using the
+getModel() method. Now you can also autowire your remote proxies using
+cfproperties just like you do in handlers and WireBox-managed models.
+
+**/remote/myProxy.cfc**
+
+``` {.coldfusion}
+component extends="coldbox.system.remote.ColdBoxProxy" {
+    property name='myService' inject='myService';
+
+    remote function doRemote() {
+        variables.myService.doSomething();
+    }
+}
+```
+
+Note, the autowiring only works for web-accessible remote proxies being
+directly invoked. You can extend the ColdBoxProxy by another
+manually-created CFC (such as an ORM eventHandler) but it won't be
+autowired.
+
+### Handlers Are Now Singletons
+
+In pre-4.0.0 applications all event handlers were cached in CacheBox
+with specific timeouts. We have found that this just created extra noise
+and complexity for handler CFCs. So now all event handlers will be
+cached as singletons be default (unless specified in the Col
 
 </h3>
