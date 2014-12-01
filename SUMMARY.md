@@ -12,7 +12,7 @@
    * [Installation](getting_started/installation.md)
    * Creating An Application
    * Conventions Over Configuration
+   * Hello Example
    * Running An Application
    * Testing An Application
-   * Hello Example
 
