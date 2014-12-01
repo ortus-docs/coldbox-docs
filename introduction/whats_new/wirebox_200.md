@@ -61,7 +61,7 @@ The *map()* function on the Configuration Binder now has a **force**
 argument which allows you to map no matter if the mapping exists or not
 already.
 
-```js
+```javascript
 map( alias="MyService", force=true )
     .to( "model.MyService" );
 ```
@@ -74,7 +74,7 @@ for modules, so they could enhance WireBox in a ColdBox context.
 However, this also allows you to leverage this in any non-ColdBox
 applications.
 
-```js
+```javascript
 // Register Custom DSL
 controller.getWireBox()
     .registerDSL( namespace="javaloader", path="#moduleMapping#.model.JavaLoaderDSL" );
@@ -99,7 +99,7 @@ my dependent CFCs and leveraging the **byType** injection DSL. You would
 first map the right implementation using the alias as the name of the
 Interface.
 
-```js
+```javascript
 // mappings...
 map( "app.pkg.ISomeObject" ).to( "app.pkg.adb.SomeObject" );
 
