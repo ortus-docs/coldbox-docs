@@ -8,7 +8,8 @@
   \____)   \____/   \________/  (______/   (______/    \____/   (__/   \__) v4.0.0
 ```  
 
-# Welcome to ColdBox
+# ColdBox Manual - Version 4.0.0
+![ColdBox Platform](./images/ColdBoxLogoSquare_125.png)
 
 ColdBox is a [conventions-based](http://en.wikipedia.org/wiki/Convention_over_configuration) [MVC](http://en.wikipedia.org/wiki/Model–view–controller) development framework for [ColdFusion](http://en.wikipedia.org/wiki/Adobe_ColdFusion) ([CFML](http://en.wikipedia.org/wiki/ColdFusion_Markup_Language)). It provides a set of reusable code and tools that can be used to increase your development productivity as well as a development standard for working in team environments. ColdBox is natively based on [modular architecture](http://en.wikipedia.org/wiki/Modular_design) which helps address most infrastructure concerns of typical web applications.
 
@@ -46,6 +47,8 @@ We all make mistakes from time to time :) So why not let us know about it and he
 * By Jira: https://ortussolutions.atlassian.net/browse/COLDBOX
 
 # Professional Open Source
+![Ortus Solutions, Corp](images/ortussolutions_button.png)
+
 ColdBox is a professional open source software backed by [Ortus Solutions, Corp](http://www.ortussolutions.com/services) offering services like:
 * Custom Development
 * Professional Support & Mentoring
@@ -66,17 +69,6 @@ ColdBox is a professional open source software backed by [Ortus Solutions, Corp]
 * ColdBox Wiki: http://wiki.coldbox.org
 
 
-# About This Book
-The source code for this book is hosted in GitHub: https://github.com/ColdBox/coldbox-docs. You can freely contribute to it and submit pull requests.  The contents of this book is copyright by [Ortus Solutions, Corp](http://www.ortussolutions.com) and cannot be altered or reproduced without author's consent.  All content is provided *"As-Is"* and can be freely distributed. 
-
-* The majority of code examples in this book are done in *cfscript*.
-* The majority of code generation and running of examples are done via **CommandBox**: The ColdFusion (CFML) CLI, Package Manager, REPL - http://www.ortussolutions.com/products/commandbox
-* **15% of the proceeds of this book will go to charity to support orphaned kids in El Salvador - http://www.harvesting.org/. So please donate and purchase the printed version of this book.**
-
-
-## Contributing
-We highly encourage contribution to this book and our open source software.  The source code for this book can be found in our [GitHub repository](https://github.com/ColdBox/coldbox-docs) where you can submit pull requests.
-
 ---
 
 ### HONOR GOES TO GOD ABOVE ALL
@@ -86,6 +78,9 @@ Because of His grace, this project exists. If you don't like this, then don't re
 "Therefore being justified by **faith**, we have peace with God through our Lord Jesus Christ:
 By whom also we have access by **faith** into this **grace** wherein we stand, and rejoice in hope of the glory of God." Romans 5:5
 </blockquote>
+
+---
+
 
 
 
