@@ -19,7 +19,7 @@ Shalom Children’s Home (http://www.harvesting.org/) is one of the ministries t
 
 Shalom now cares for over 80 children in El Salvador, from newborns to 18 years old.  They receive shelter, clothing, food, medical care, education and life skills training in a Christian environment.  The home is supported by a child sponsorship program.  
 
-We have personally supported Shalom for over 4 years now; it is a place of blessing for many children in El Salvador that either have no families or have been abandoned.  This is good earth to seed and plant.
+We have personally supported Shalom for over 6 years now; it is a place of blessing for many children in El Salvador that either have no families or have been abandoned.  This is good earth to seed and plant.
 
 ## External Trademarks & Copyrights
 Flash, Flex, ColdFusion, and Adobe are registered trademarks and copyrights of Adobe Systems, Inc. Railo is a trademark and copyright of Railo Technologies, GmbH.
