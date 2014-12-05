@@ -252,6 +252,41 @@ This module makes the same functionality available via these registered WireBox 
 * FileUtils@cbcommons
 
 
+###ioc
+
+```
+box install cbioc
+```
+
+The module replaces the ioc plugin and registers the following mapping in WireBox: `factory@cbioc` which abstracts any IoC engine with typical methods like `getBean()` and `containsBean()`
+
+###Feeds
+
+```
+box install cbfeeds
+```
+
+The `cbfeeds` module replaces the old FeedGenerator Plugin and FeedReader Plugin by registering the following WireBox mappings for you to use:
+
+* `FeedReader@cbfeeds`
+* `feedGenerator@cbfeeds`
+
+###Soap
+
+```
+box install cbsoap
+```
+
+This module replaces the Webservices plugin and registers the following mapping in WireBox: `webservices@cbsoap`.
+
+
+
+
+
+
+
+
+
 ## Model Convention
 
 The **model** convention has been renamed to **models** to be consistent
