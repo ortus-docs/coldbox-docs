@@ -189,12 +189,15 @@ This module replaces the JavaLoader plugin and registers the following mapping i
 box install cbi18n
 ```
 This module us a combination of both the `ResourceBundle` plugin and the `i18n` plugin rolled together now and represented by the following two WireBox mappings:
+
 * `i18n@cbi18n`
 * `resourceService@cbi18n`
+
 This module also adds the following methods into your handlers, views, layouts, etc:
-getFWLocale()
-setFWLocale()
-getResource()
+
+* `getFWLocale()`
+* `setFWLocale()`
+* `getResource()`
 
 
 
