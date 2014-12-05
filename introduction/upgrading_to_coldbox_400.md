@@ -328,6 +328,18 @@ This plugin has been a thin facade to WireBox ever since ColdBox 3.0 came out. W
 ## Autowire Interceptor Dropped
 This interceptor hasn't actually done anything in a while since WireBox now autowires new objects automatically. Remove any references to `coldbox.system.interceptors.Autowire` from your config. There is no need to replace it with anything.
 
+## Logger Plugin Dropped
+This plugin has been a this facade to LogBox ever since ColdBox 3.0 came out. We are now removing the plugin and you can inject LogBox or a specific Logger directly for your logging needs.
+
+## Renderer Plugin Dropped
+The renderer still exists, but not in plugin form. It has become a core part of the framework. If you need access to the renderer, use the `getRenderer()` method in the controller or the coldbox:renderer WireBox DSL.
+
+```js
+var renderer = controller.getRenderer();
+
+property name="renderer" inject="coldbox:renderer";
+```
+
 
 ## Validator Plugin Dropped
 
