@@ -20,6 +20,10 @@ For more information and a full list of features, visit the [ForgeBox page.](htt
 
 ColdFusion 8 support has been dropped.
 
+## Application.cfc Bootstrap changed
+The bootstrap CFC used by `Application.cfc` has been updated from `coldbox.system.Coldbox` to `coldbox.system.Bootstrap`. This is basically just a rename-- all other functionality is the same so a simple find/replace in your `Application.cfc` should fix it up. This is the first change you'll need to make and is mandatory.
+Sample Application.cfc using inheritance
+
 ## Async Loggers Dropped
 
 The Asynchronous loggers in LogBox have been removed in preference to
