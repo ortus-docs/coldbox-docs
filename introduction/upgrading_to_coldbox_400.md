@@ -228,6 +228,29 @@ property name="genericEntityservice" inject="entityservice";
 property name="foobarService" inject="entityservice:foobar";
 ```
 
+### Commons
+
+```
+box install cbcommons
+```
+
+`cbcommons` has a collection of various utilities for you to use which is made up of what used to be the following plugins:
+
+* JVMUtils Plugin
+* Zip Plugin
+* DateUtils Plugin
+* QueryHelper Plugin
+* FileUtils Plugin
+* Utilities Plugin
+
+This module makes the same functionality available via these registered WireBox mappings:
+
+* JVMUtils@cbcommons
+* Zip@cbcommons
+* DateUtils@cbcommons
+* QueryHelper@cbcommons
+* FileUtils@cbcommons
+
 
 ## Model Convention
 
