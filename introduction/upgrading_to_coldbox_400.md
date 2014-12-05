@@ -209,6 +209,10 @@ This module brings you all the ORM virtual services that are in ColdBox 3.x and 
 | Old Path | New Path |
 | -- | -- |
 | coldbox.system.orm.hibernate.VirtualEntityService | cborm.models.VirtualEntityService |
+| coldbox.system.orm.hibernate.ActiveEntity	| cborm.models.ActiveEntity |
+| coldbox.system.orm.hibernate.BaseORMService | cborm.models.BaseORMService |
+
+
 
 
 
