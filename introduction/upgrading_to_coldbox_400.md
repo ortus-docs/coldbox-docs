@@ -59,7 +59,7 @@ logBox = {
 };
 ```
 
-## Plugins Deprecated
+## Plugins Removed
 
 ColdBox Plugins have graduated to become just models. The **plugins**
 convention has been removed and all references to plugin injection or
