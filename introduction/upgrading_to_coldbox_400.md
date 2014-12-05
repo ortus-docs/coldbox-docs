@@ -332,7 +332,7 @@ This interceptor hasn't actually done anything in a while since WireBox now auto
 This plugin has been a this facade to LogBox ever since ColdBox 3.0 came out. We are now removing the plugin and you can inject LogBox or a specific Logger directly for your logging needs.
 
 ## Renderer Plugin Dropped
-The renderer still exists, but not in plugin form. It has become a core part of the framework. If you need access to the renderer, use the `getRenderer()` method in the controller or the coldbox:renderer WireBox DSL.
+The renderer still exists, but not in plugin form. It has become a core part of the framework. If you need access to the renderer, use the `getRenderer()` method in the controller or the `coldbox:renderer` WireBox DSL.
 
 ```js
 var renderer = controller.getRenderer();
