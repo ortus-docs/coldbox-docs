@@ -1,2 +1,20 @@
 # Author
 
+## Luis Fernando Majano Lainez
+Luis Majano is a Computer Engineer with over 13 years of software development and systems architecture experience. He was born in San Salvador, El Salvador in the late 70’s, during a period of economical instability and civil war.  He lived in El Salvador until 1995 and then moved to Miami, Florida where he completed his Bachelors of Science in Computer Engineering at Florida International University.  Luis resides in Rancho Cucamonga, California with his beautiful wife Veronica, baby girl Alexia and in-coming baby!
+He is the CEO of Ortus Solutions, a consulting firm specializing in ColdFusion, Java development and all open source professional services under the ColdBox and ContentBox stack. 
+He is the creator of ColdBox, ContentBox, WireBox, MockBox, LogBox and anything “BOX”, and contributes to many open source ColdFusion projects.  He is also the Adobe ColdFusion user group manager for the Inland Empire. You can read his blog at www.luismajano.com
+Luis has a passion for Jesus, tennis, golf, volleyball and anything electronic.
+Random Author Facts:
+I played volleyball in the Salvadorean National Team at the tender age of 17
+The Lord of the Rings and The Hobbit is something I read every 5 years. (Geek!)
+My first ever computer was a Texas Instrument TI-86 that my parents gave me in 1986.  After some time digesting my very first BASIC book, I had written my own tic-tac-toe game at the age of 9. (Extra geek!)
+
+
+> “Trust in the LORD with all your heart, and do not lean on your own understanding.” – Proverbs 3:5
+
+
+## Contributors
+
+* Brad Wood - ColdBox Evangelist
+* Jorge Reyes - ColdBox Aficionado
