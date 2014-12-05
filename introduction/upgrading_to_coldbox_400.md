@@ -212,8 +212,21 @@ This module brings you all the ORM virtual services that are in ColdBox 3.x and 
 | coldbox.system.orm.hibernate.ActiveEntity	| cborm.models.ActiveEntity |
 | coldbox.system.orm.hibernate.BaseORMService | cborm.models.BaseORMService |
 
+Unfortunately, due to the way that ORM is loaded by ColdFusion, if you are using the ORM EventHandler or ActiveEntity or any ColdBox Proxies that require ORM, you must create an Application Mapping in the `Application.cfc` like this:
 
+```js
+this.mappings[ "/cborm" ] = COLDBOX_APP_ROOT_PATH & "modules/cborm";
+```
 
+This module also comes with two new WireBox DSL namespaces for injecting entity services:
+
+```
+// Inject a global ORM service
+property name="genericEntityservice" inject="entityservice";
+
+// Inject a Virtual entity service according to entityName
+property name="foobarService" inject="entityservice:foobar";
+```
 
 
 ## Model Convention
