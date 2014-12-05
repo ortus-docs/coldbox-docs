@@ -6,6 +6,13 @@ The source code for this book is hosted in GitHub: https://github.com/ColdBox/co
 * All ColdFusion examples designed to run on the open soure Railo Platform or Adobe ColdFusion 9.0.2+
 
 
+## External Trademarks & Copyrights
+Flash, Flex, ColdFusion, and Adobe are registered trademarks and copyrights of Adobe Systems, Inc. Railo is a trademark and copyright of Railo Technologies, GmbH.
+
+## Notice of Liability
+The information in this book is distributed “as is”, without warranty.  The author and Ortus Solutions, Corp shall not have any liability to any person or entity with respect to loss or damage caused or alleged to be caused directly or indirectly by the content of this training book, software and resources described in it.
+
+
 ## Contributing
 We highly encourage contribution to this book and our open source software.  The source code for this book can be found in our [GitHub repository](https://github.com/ColdBox/coldbox-docs) where you can submit pull requests.
 
@@ -21,8 +28,3 @@ Shalom now cares for over 80 children in El Salvador, from newborns to 18 years 
 
 We have personally supported Shalom for over 6 years now; it is a place of blessing for many children in El Salvador that either have no families or have been abandoned.  This is good earth to seed and plant.
 
-## External Trademarks & Copyrights
-Flash, Flex, ColdFusion, and Adobe are registered trademarks and copyrights of Adobe Systems, Inc. Railo is a trademark and copyright of Railo Technologies, GmbH.
-
-## Notice of Liability
-The information in this book is distributed “as is”, without warranty.  The author and Ortus Solutions, Corp shall not have any liability to any person or entity with respect to loss or damage caused or alleged to be caused directly or indirectly by the content of this training book, software and resources described in it.
