@@ -79,8 +79,9 @@ property name="myPlugin" inject="model:myPlugin@module";
 ```
 
 ### Plugin Base Class
-With the removal of plugins, `coldbox.system.Plugin` no longer exists. If you have custom-written plugins that used some of the convenience variables such as controller, logbox, or wirebox that came from this base class, you'll need to inject them using the appropriate injection DSL. If you were using any of the convenience methods such as getRequestContext() or getRequestCollection() should be delegated to the appropriate service or the ColdBox controller.
-Any variables or methods related to instance.pluginName, instance.pluginVersion, etc serve no purpose now and can be removed from the code.
+With the removal of plugins, `coldbox.system.Plugin` no longer exists. If you have custom-written plugins that used some of the convenience variables such as controller, logbox, or wirebox that came from this base class, you'll need to inject them using the appropriate injection DSL. If you were using any of the convenience methods such as `getRequestContext()` or `getRequestCollection()` should be delegated to the appropriate service or the ColdBox controller.
+
+Any variables or methods related to `instance.pluginName, instance.pluginVersion,` etc serve no purpose now and can be removed from the code.
 
 ## New Core Modules
 
