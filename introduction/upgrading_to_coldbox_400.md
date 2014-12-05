@@ -107,6 +107,24 @@ All of these plugins have been refactored into the `cbstorages` module.
 box install cbstorages
 ```
 
+Instead of using:
+
+```js
+getPlugin( 'SessionStorage' )
+getPlugin( 'ApplicationStorage' )
+getPlugin( 'CookieStorage' )
+etc...
+```
+
+You will instead call
+
+```js
+getInstance( 'sessionStorage@cbstorages' )
+getInstance( 'applicationStorage@cbstorages' )
+getInstance( 'cookieStorage@cbstorages' )
+etc...
+```
+
 ## Model Convention
 
 The **model** convention has been renamed to **models** to be consistent
