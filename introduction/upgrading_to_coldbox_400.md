@@ -199,7 +199,12 @@ This module also adds the following methods into your handlers, views, layouts, 
 * `setFWLocale()`
 * `getResource()`
 
+###ORM
+```
+box install cborm
+```
 
+This module brings you all the ORM virtual services that are in ColdBox 3.x and replaces the `ORMService` Plugin, but note that the component paths have been updated. Instead of starting with `coldbox.system` they start with `cborm`.
 
 
 ## Model Convention
