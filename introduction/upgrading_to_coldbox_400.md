@@ -71,9 +71,11 @@ Plugins are an old ColdBox convention but their baggage doesn't really serve a p
 ```javascript
 // old
 getPlugin("MyPlugin")
+property name="myPlugin" inject="coldbox:plugin:myPlugin";
 
 // new
-getInstance( "MyPlugin" ) or getModel( "MyPlugin" )
+getInstance( "MyPlugin@module" ) or getModel( "MyPlugin@module" )
+property name="myPlugin" inject="model:myPlugin@module";
 ```
 
 ## New Core Modules
