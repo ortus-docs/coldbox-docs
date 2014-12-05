@@ -21,6 +21,6 @@ This is a highly-configurable logging library which can be set up to relay messa
 ##CacheBox 
 ![](../images/CacheBox.png)
 
-A highly-versatile caching aggregator and enterprise cache that allows for multiple named caching stores as well as granular control over cache behaviors and eviction policies.  CacheBox can interface out of the box with Ehcache, Adobe ColdFusion cache and any Railo cache.
+A highly-versatile caching aggregator and enterprise cache that allows for multiple named caching stores as well as granular control over cache behaviors and eviction policies. CacheBox can interface out of the box with Ehcache, Adobe ColdFusion cache and any Railo cache.
 
 
