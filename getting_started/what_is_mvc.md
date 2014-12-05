@@ -13,4 +13,5 @@ Controllers are the traffic cops of your application. They direct flow control, 
 ## Views
 The Views are what the users see and interact with. They are the templates used to render your application out for the web browser. Typically this means HTML. 
 
+## ColdBox MVC
 ColdBox embraces this standard and provides customizable conventions for how your app will be organized in a way that makes sense to programmers who have to maintain your code in the future.
