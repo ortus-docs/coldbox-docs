@@ -17,3 +17,12 @@ You can download CommandBox from the official site: http://www.ortussolutions.co
 
 So make sure you choose your desired installation path.
 
+### HomeBrew Installation
+If you use [HomeBrew](http://brew.sh) in your mac, you can run the following to install CommandBox:
+
+```bash
+brew install https://github.com/Ortus-Solutions/commandbox/raw/master/build/commandbox.rb
+```
+
+
+
