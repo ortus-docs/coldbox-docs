@@ -9,3 +9,11 @@ The first step in our journey is to install CommandBox.  [CommandBox](http://www
 
 >**Note** : However, you can use your own ColdFusion server setup as you see fit.  We use CommandBox as everything is scriptable and fast!
 
+### Download CommandBox
+You can download CommandBox from the official site and install in your preferred Operating System (Windows, Mac, *unix).  CommandBox comes in two flavors:
+
+1. No Java Runtime (30mb)
+2. Embedded Runtime (80mb)
+
+So make sure you choose your desired installation path.
+
