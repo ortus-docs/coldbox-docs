@@ -340,6 +340,14 @@ var renderer = controller.getRenderer();
 property name="renderer" inject="coldbox:renderer";
 ```
 
+##HTMLHelper Plugin Dropped
+
+The functionality provided by the HTMLHelper plugin is still available in the core of ColdBox but now as a model. Access it by using the new WireBox mapping: `HTMLHelper@coldbox`. Views and layouts still have access to the HTMLHelper via the variable `html` like always. This has not changed.
+
+##XMLConverter Plugin Dropped
+
+The functionality provided by the XMLConverter plugin is still available in the core of ColdBox but now as a model. Access it by using the new WireBox mapping: `xmlConverter@coldbox`.
+
 
 ## Validator Plugin Dropped
 
