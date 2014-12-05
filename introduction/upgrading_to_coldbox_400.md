@@ -291,9 +291,19 @@ This module replaces the Security interceptor. The interceptor still exists, but
 ## WireBox DSL Namespaces
 Some of these were covered above, but for completeness, here is a comprehensive list of the WireBox DSL Namespaces that are removed.
 
-
-
-
+| **Removed DSL** | **Replacement DSL** |
+| -- | -- |
+| **ocm** | **cachebox:default** 
+| **ocm:{keyName}** | **cachebox:default:{keyName}** 
+| **coldbox:plugin:{pluginName}** | **model:{modelName@module}** 
+| **coldbox:myplugin:{pluginName}** | **model:{modelName@module}** 
+| **coldbox:myplugin:{pluginName@moduleName}** | **model:{modelName@module}** 
+| **coldbox:fwconfigbean** | The configbean CFC doesn't exist any longer, but the same data is available as a struct with **coldbox:fwSettings** 
+| **coldbox:configbean** | The configbean CFC doesn't exist any longer, but the same data is available as a struct with **coldbox:configSettings** 
+| **coldbox:cacheManager** | **cachebox:default** 
+| **coldbox:mailsettingsbean** | The same data is available as a struct with **coldbox:setting:mailSettings** 
+| **coldbox:debuggerService** | **debuggerService@cbdebugger** as long as the cbdebugger module is installed 
+| **coldbox:validationManager** | **validationManager@validation** as long as the cbvalidation module is installed
 
 
 ## Model Convention
@@ -310,7 +320,7 @@ References to `getColdboxOCM()` have been removed in preference to
 
 ##JSON Plugin Dropped
 
-Placed in ForgeBox
+The JSON plugin is no longer used in ColdBox in favor of native CFML serialization. The old plugin is in ForgeBox and can easily be converted to a model or module for use in ColdBox 4 if you need it.
 
 ## Validator Plugin Dropped
 
