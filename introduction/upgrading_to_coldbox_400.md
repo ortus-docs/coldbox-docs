@@ -288,7 +288,8 @@ box install cbsecurity
 
 This module replaces the Security interceptor. The interceptor still exists, but it is wrapped inside this module as `cbsecurity.interceptors.Security` and it is registered with the parent application as soon as the module is loaded so you don't need to register the interceptor manually anymore.
 
-
+## WireBox DSL Namespaces
+Some of these were covered above, but for completeness, here is a comprehensive list of the WireBox DSL Namespaces that are removed.
 
 
 
