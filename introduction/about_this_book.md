@@ -21,7 +21,7 @@ We highly encourage contribution to this book and our open source software.  The
 
 15% of the proceeds of this book will go to charity to support orphaned kids in El Salvador - http://www.harvesting.org/. So please donate and purchase the printed version of this book, every book sold can help a child for almost 2 months.
 
-##External Trademarks & Copyrights
+## External Trademarks & Copyrights
 Flash, Flex, ColdFusion, and Adobe are registered trademarks and copyrights of Adobe Systems, Inc. Railo is a trademark and copyright of Railo Technologies, GmbH.
 
 ## Notice of Liability
