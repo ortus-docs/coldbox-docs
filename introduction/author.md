@@ -12,7 +12,8 @@ Random Author Facts:
 * I played volleyball in the Salvadorean National Team at the tender age of 17
 * The Lord of the Rings and The Hobbit is something I read every 5 years. (Geek!)
 * My first ever computer was a Texas Instrument TI-86 that my parents gave me in 1986.  After some time digesting my very first BASIC book, I had written my own tic-tac-toe game at the age of 9. (Extra geek!)
-
+* I have a geek love for circuits, microcontrollers and overall embedded systems.
+* I have of late (during old age) become a fan of running and bike riding with my family.
 
 > “Trust in the LORD with all your heart, and do not lean on your own understanding.” – Proverbs 3:5
 
