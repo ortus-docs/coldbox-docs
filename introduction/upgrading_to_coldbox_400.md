@@ -321,6 +321,14 @@ The ColdBox OCM (Object Cache Manager) has been a thin facade to CacheBox ever s
 
 The JSON plugin is no longer used in ColdBox in favor of native CFML serialization. The old plugin is in ForgeBox and can easily be converted to a model or module for use in ColdBox 4 if you need it.
 
+## BeanFactory Plugin Dropped
+
+This plugin has been a thin facade to WireBox ever since ColdBox 3.0 came out. We are now removing the plugin and you can inject WireBox directly to get object instances. Or better yet, use our injection DSLs to inject the object instance you want directly.
+
+## Autowire Interceptor Dropped
+This interceptor hasn't actually done anything in a while since WireBox now autowires new objects automatically. Remove any references to coldbox.system.interceptors.Autowire from your config. There is no need to replace it with anything.
+
+
 ## Validator Plugin Dropped
 
 Removed from core
