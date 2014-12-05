@@ -24,5 +24,7 @@ If you use [HomeBrew](http://brew.sh) in your mac, you can run the following to 
 brew install https://github.com/Ortus-Solutions/commandbox/raw/master/build/commandbox.rb
 ```
 
+### Starting CommandBox
+Once you download and expand CommandBox you will have the `box.exe` or `box` binary, which you can place in your Windows Path or *Unix `/usr/bin` folder to have it available system wide.  Then just open the binary and CommandBox will unpack itself your user's directory: `{User}/.CommandBox`.
 
 
