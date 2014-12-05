@@ -14,6 +14,8 @@ Random Author Facts:
 * My first ever computer was a Texas Instrument TI-86 that my parents gave me in 1986.  After some time digesting my very first BASIC book, I had written my own tic-tac-toe game at the age of 9. (Extra geek!)
 * I have a geek love for circuits, microcontrollers and overall embedded systems.
 * I have of late (during old age) become a fan of running and bike riding with my family.
+ 
+Keep Jesus number one in your life and in your heart.  I did and it changed my life from desolotation, defeat and failure to an abundant life full of love, thankfulness, joy and overwhelming peace.  As this world breathes failure and fear upon any life, Jesus brings power, love and a sound mind to everybody! 
 
 > “Trust in the LORD with all your heart, and do not lean on your own understanding.” – Proverbs 3:5
 
