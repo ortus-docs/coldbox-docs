@@ -17,6 +17,7 @@
    * Running An Application
    * Reiniting An Application
    * Testing An Application
+   * What is ColdBox
 * Configuration
 * Event Handlers
 * Request Context
