@@ -128,6 +128,28 @@ etc...
 >**Note** : The API for the actual storage CFCs is the same.
 
 
+###MessageBox
+
+```
+box install cbmessagebox
+```
+
+This module replaces the MessageBox plugin and registers the following mapping in WireBox: messagebox@cbmessagebox.
+
+### AntiSamy
+`box install cbantisamy`
+This module replaces the AntiSamy plugin and registers the following mapping in WireBox: antisamy@cbantisamy.
+MailServies
+box install cbmailservices
+This module replaces the MailService plugin and registers the following mapping in WireBox: mailService@cbmailservices.
+Validation
+box install cbvalidation
+This module replaces the previously-inbuilt validation functionality of ColdBox and the validator Plugin. The ValidationManager is still available under this WireBox mapping: ValidationManager@cbvalidation. It also gives you the following methods in every handler, view, layout, etc:
+validateModel()
+getValidationManager()
+
+
+
 ## Model Convention
 
 The **model** convention has been renamed to **models** to be consistent
