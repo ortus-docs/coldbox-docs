@@ -9,16 +9,6 @@ The source code for this book is hosted in GitHub: https://github.com/ColdBox/co
 ## Contributing
 We highly encourage contribution to this book and our open source software.  The source code for this book can be found in our [GitHub repository](https://github.com/ColdBox/coldbox-docs) where you can submit pull requests.
 
-## Author
-
-> “Trust in the LORD with all your heart, and do not lean on your own understanding.” – Proverbs 3:5
-
-
-## Contributors
-
-* Brad Wood - ColdBox Evangelist
-* Jorge Reyes - ColdBox Aficionado
-
 
 ## Charitable Proceeds
 
