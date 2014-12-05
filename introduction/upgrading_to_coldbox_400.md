@@ -314,8 +314,7 @@ Conventions in your Configuration CFC.
 
 ## ColdBox OCM Dropped
 
-References to `getColdboxOCM()` have been removed in preference to
-`getCache()` calls.
+The ColdBox OCM (Object Cache Manager) has been a thin facade to CacheBox ever since ColdBox 3.0 came out. We are now removing this terminology completely in favor of direct interaction with CacheBox. References to the `getColdboxOCM()` method have been removed. Instead, call `getCache()`.
 
 
 ##JSON Plugin Dropped
