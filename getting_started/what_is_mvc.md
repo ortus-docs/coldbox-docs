@@ -10,7 +10,7 @@
 MVC is a popular design pattern called [Model View Controller](http://en.wikipedia.org/wiki/Model–view–controller) which seeks to promote good maintainable software design by separating your code into 3 main tiers.
 
 ## Model
-The Model is the heart of your application.  Your business logic should mostly live here in the form of services, beans, and DAOs. 
+The Model is the heart of your application.  Your business logic should mostly live here in the form of services, beans, and DAOs.  In ColdBox, all your model objets are managed by WireBox (Dependency Injection Framework).
 
 ## Controllers
 Controllers are the traffic cops of your application. They direct flow control, and interface directly without incoming parameters from form and URL scopes. It is the controller’s job to communicate with the appropriate models for processing, and set up either a view to display results or return marshalled data like JSON, XML, PDF, etc. 
