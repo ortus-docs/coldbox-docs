@@ -1,6 +1,16 @@
 # What is MVC
 
+![](../images/mvc-overview.png)
 
+MVC is a popular design pattern called [Model View Controller](http://en.wikipedia.org/wiki/Model–view–controller) which seeks to promote good maintainable software design by separating your code into 3 main tiers.
 
-MVC is a popular design pattern called [Model View Controller](http://en.wikipedia.org/wiki/Model–view–controller) which seeks to promote good maintainable software design by separating your code into 3 main tiers.  The Model is the heart of your application.  Your business logic should mostly live here in the form of services, beans, and DAOs.  Controllers are the traffic cops of your application.  They direct flow control, and interface directly without incoming parameters from form and URL scopes.  It is the controller’s job to communicate with the appropriate models for processing, and set up either a view to display results or return marshalled data like JSON, XML, PDF, etc.  The Views are what the users see and interact with.  They are the templates used to render your application out for the web browser.  Typically this means HTML.  
+## Model
+The Model is the heart of your application.  Your business logic should mostly live here in the form of services, beans, and DAOs. 
+
+## Controllers
+Controllers are the traffic cops of your application. They direct flow control, and interface directly without incoming parameters from form and URL scopes. It is the controller’s job to communicate with the appropriate models for processing, and set up either a view to display results or return marshalled data like JSON, XML, PDF, etc. 
+
+## Views
+The Views are what the users see and interact with. They are the templates used to render your application out for the web browser. Typically this means HTML. 
+
 ColdBox embraces this standard and provides customizable conventions for how your app will be organized in a way that makes sense to programmers who have to maintain your code in the future.
