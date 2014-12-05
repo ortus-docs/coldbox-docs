@@ -10,7 +10,7 @@
    * [Author](introduction/author.md)
 * [Getting Started](getting_started/getting_started.md)
    * [What is MVC](getting_started/what_is_mvc.md)
-   * What is ColdBox
+   * [What is ColdBox](getting_started/what_is_coldbox.md)
    * [Installation](getting_started/installation.md)
    * Creating An Application
    * Conventions Over Configuration
