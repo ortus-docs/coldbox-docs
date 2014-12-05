@@ -91,6 +91,8 @@ of the ColdBox Core and into standalone Modules. All of them are in
 installable via [CommandBox](http://www.ortussolutions.com/products/commandbox); Our ColdFusion (CFML) CLI, and Package
 Manager.
 
+You can find each of these modules in the main [GitHub repo](https://github.com/ColdBox). Check out the instructions.md files inside the root of each module with additional information on configuration and installation.
+
 -   ColdBox Debugger
 
 ```bash
