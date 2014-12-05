@@ -175,6 +175,26 @@ Debugger settings can still be set in the main `ColdBox.cfc` config in a `debugg
 * `timer@cbdebugger`
 
 
+###JavaLoader
+
+```
+box install cbjavaloader
+```
+
+This module replaces the JavaLoader plugin and registers the following mapping in WireBox: `loader@cbjavaloader`.
+
+###i18n
+
+```
+box install cbi18n
+```
+This module us a combination of both the `ResourceBundle` plugin and the `i18n` plugin rolled together now and represented by the following two WireBox mappings:
+* `i18n@cbi18n`
+* `resourceService@cbi18n`
+This module also adds the following methods into your handlers, views, layouts, etc:
+getFWLocale()
+setFWLocale()
+getResource()
 
 
 
