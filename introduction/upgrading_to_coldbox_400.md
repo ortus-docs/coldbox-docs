@@ -6,6 +6,16 @@ upgrade to this release from previous ColdBox versions. You can also
 check out the [What's New](whats_new_with_400.md) guide to give you a full
 overview of the changes.
 
+## ColdBox 3.x Compatibility Module
+If you want to convert a larger ColdBox 3.x site over piece by piece, we have created a ColdBox Compat module you can install that will give you much of the 3.x functionality back including plugins, ColdBox OCM, `UDFLibraryFile` setting, and WireBox DSL namespaces. You quickly install this module using CommandBox with the following command:
+
+```bash
+box install cbcompat
+```
+
+For more information and a full list of features, visit the [ForgeBox page.](http://www.coldbox.org/forgebox/view/cbcompat)
+
+
 ## ColdFusion 8 Support Dropped
 
 ColdFusion 8 support has been dropped.
