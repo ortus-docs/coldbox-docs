@@ -66,6 +66,8 @@ ColdBox Plugins have graduated to become just models. The **plugins**
 **models** directory and request them via `getInstance() or
 getModel()` calls.
 
+Plugins are an old ColdBox convention but their baggage doesn't really serve a purpose now that we have modules for easy packaging of libraries and WireBox for easy creation of CFCs. Neither of those existed back when Plugins were birthed. It's time to say goodbye to the concept of plugins, but all their functionality will still be here, just with a slightly different (and more standardized) way of creating them.
+
 ```javascript
 // old
 getPlugin("MyPlugin")
