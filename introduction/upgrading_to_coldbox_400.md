@@ -326,7 +326,7 @@ The JSON plugin is no longer used in ColdBox in favor of native CFML serializati
 This plugin has been a thin facade to WireBox ever since ColdBox 3.0 came out. We are now removing the plugin and you can inject WireBox directly to get object instances. Or better yet, use our injection DSLs to inject the object instance you want directly.
 
 ## Autowire Interceptor Dropped
-This interceptor hasn't actually done anything in a while since WireBox now autowires new objects automatically. Remove any references to coldbox.system.interceptors.Autowire from your config. There is no need to replace it with anything.
+This interceptor hasn't actually done anything in a while since WireBox now autowires new objects automatically. Remove any references to `coldbox.system.interceptors.Autowire` from your config. There is no need to replace it with anything.
 
 
 ## Validator Plugin Dropped
