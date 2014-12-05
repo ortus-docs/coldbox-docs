@@ -125,6 +125,9 @@ getInstance( 'cookieStorage@cbstorages' )
 etc...
 ```
 
+>**Note** : The API for the actual storage CFCs is the same.
+
+
 ## Model Convention
 
 The **model** convention has been renamed to **models** to be consistent
