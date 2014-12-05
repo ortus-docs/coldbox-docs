@@ -162,6 +162,22 @@ This module replaces the previously-inbuilt validation functionality of ColdBox 
 * `getValidationManager()`
 
 
+### ColdBox Debugger
+If you want to use the ColdBox debugger, you'll need to install the `cbdebugger` module. Another benifit of this is you can omit this module in production so there's no security concerns with it getting turned on. To install as a development dependency in CommandBox, use the `--saveDev` flag.
+
+```
+box install cbdebugger --saveDev
+```
+
+Debugger settings can still be set in the main `ColdBox.cfc` config in a `debugger` struct. The `DebuggerService` and `Timer` are still available via the following WireBox mappings and can be retrieved via `getInstance()` or property injections.
+
+* `debuggerService@cbdebugger`
+* `timer@cbdebugger`
+
+
+
+
+
 
 ## Model Convention
 
@@ -182,6 +198,7 @@ Placed in ForgeBox
 ## Validator Plugin Dropped
 
 Removed from core
+
 
 ## Datasource Bean Dropped
 
