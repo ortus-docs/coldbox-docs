@@ -93,88 +93,18 @@ Manager.
 
 You can find each of these modules in the main [GitHub repo](https://github.com/ColdBox). Check out the instructions.md files inside the root of each module with additional information on configuration and installation.
 
--   ColdBox Debugger
 
-```bash
-box install cbdebugger
+### Storages
+- Session Storage Plugin
+- Application Storage Plugin
+- Client Storage Plugin
+- Cluster Storage Plugin
+- Cookie Storage Plugin
+
+All of these plugins have been refactored into the `cbstorages` module.
+
 ```
-
--   Storages
-
-```bash
-box install coldbox-storages
-```
-
--   Feeds
-
-```bash
-box install feeds
-```
-
--   Commons
-
-```bash
-box install cbcommons
-```
-
--   i18n
-
-```bash
-box install i18n
-```
-
--   ORM
-
-```bash
-box install cborm
-```
-
--   ioc
-
-```bash
-box install ioc
-```
-
--   JavaLoader
-
-```bash
-box install javaloader
-```
-
--   AntiSamy
-
-```bash
-box install antisamy
-```
-
--   MailServies
-
-```bash
-box install mailservices
-```
-
--   MessageBox
-
-```bash
-box install messagebox
-```
-
--   Soap
-
-```bash
-box install soap
-```
-
--   Security
-
-```bash
-box install ColdBox-Security
-```
-
--   Validation
-
-```bash
-box install validation
+box install cbstorages
 ```
 
 ## Model Convention
