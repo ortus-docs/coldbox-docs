@@ -10,6 +10,8 @@ We highly encourage contribution to this book and our open source software.  The
 
 ## Author
 
+> “Trust in the LORD with all your heart, and do not lean on your own understanding.” – Proverbs 3:5
+
 
 ## Contributors
 
