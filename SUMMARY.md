@@ -10,6 +10,7 @@
    * [Author](introduction/author.md)
 * [Getting Started](getting_started/getting_started.md)
    * [What is MVC](getting_started/what_is_mvc.md)
+   * What is ColdBox
    * [Installation](getting_started/installation.md)
    * Creating An Application
    * Conventions Over Configuration
@@ -17,7 +18,6 @@
    * Running An Application
    * Reiniting An Application
    * Testing An Application
-   * What is ColdBox
 * Configuration
 * Event Handlers
 * Request Context
