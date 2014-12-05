@@ -280,6 +280,14 @@ box install cbsoap
 This module replaces the Webservices plugin and registers the following mapping in WireBox: `webservices@cbsoap`.
 
 
+###Security
+
+```
+box install cbsecurity
+```
+
+This module replaces the Security interceptor. The interceptor still exists, but it is wrapped inside this module as `cbsecurity.interceptors.Security` and it is registered with the parent application as soon as the module is loaded so you don't need to register the interceptor manually anymore.
+
 
 
 
