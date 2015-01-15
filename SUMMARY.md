@@ -12,7 +12,7 @@
    * [What is MVC](getting_started/what_is_mvc.md)
    * [What is ColdBox](getting_started/what_is_coldbox.md)
    * [Installation](getting_started/installation.md)
-   * Creating An Application
+   * [Creating An Application](getting_started/creating_an_application.md)
    * Conventions Over Configuration
    * Hello Example
    * Running An Application
