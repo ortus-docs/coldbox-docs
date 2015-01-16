@@ -109,7 +109,7 @@ globally available to any view/layout in your system.
 
 ```javascript
 coldbox = {
-    viewsHelper = "includes/helpers/ViewHelper.cfm" 
+    viewsHelper = "includes/helpers/ViewHelper.cfm"
 };
 ```
 

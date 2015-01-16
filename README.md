@@ -1,12 +1,12 @@
 ```
-   ____     ____     _____       ______     ______      ____     __     __  
-  / ___)   / __ \   (_   _)     (_  __ \   (_   _ \    / __ \   (_ \   / _) 
- / /      / /  \ \    | |         ) ) \ \    ) (_) )  / /  \ \    \ \_/ /   
-( (      ( ()  () )   | |        ( (   ) )   \   _/  ( ()  () )    \   /    
-( (      ( ()  () )   | |   __    ) )  ) )   /  _ \  ( ()  () )    / _ \    
- \ \___   \ \__/ /  __| |___) )  / /__/ /   _) (_) )  \ \__/ /   _/ / \ \_  
+   ____     ____     _____       ______     ______      ____     __     __
+  / ___)   / __ \   (_   _)     (_  __ \   (_   _ \    / __ \   (_ \   / _)
+ / /      / /  \ \    | |         ) ) \ \    ) (_) )  / /  \ \    \ \_/ /
+( (      ( ()  () )   | |        ( (   ) )   \   _/  ( ()  () )    \   /
+( (      ( ()  () )   | |   __    ) )  ) )   /  _ \  ( ()  () )    / _ \
+ \ \___   \ \__/ /  __| |___) )  / /__/ /   _) (_) )  \ \__/ /   _/ / \ \_
   \____)   \____/   \________/  (______/   (______/    \____/   (__/   \__) v4.0.0
-```  
+```
 
 # ColdBox Manual - Version 4.0.0
 ![ColdBox Platform](./images/ColdBoxLogoSquare_125.png)
@@ -29,7 +29,7 @@ And constructed with the following guidelines:
 
 
 # License
-The ColdBox Platform is open source and licensed under the [Apache 2](http://www.apache.org/licenses/LICENSE-2.0.html) License.  If you use ColdBox, 
+The ColdBox Platform is open source and licensed under the [Apache 2](http://www.apache.org/licenses/LICENSE-2.0.html) License.  If you use ColdBox,
 please try to make mention of it in your code or web site or add a Powered By Coldbox icon.
 
 * Copyright by Ortus Solutions, Corp

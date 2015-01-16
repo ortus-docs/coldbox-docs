@@ -293,16 +293,16 @@ Some of these were covered above, but for completeness, here is a comprehensive 
 
 | **Removed DSL** | **Replacement DSL** |
 | -- | -- |
-| **ocm** | **cachebox:default** 
-| **ocm:{keyName}** | **cachebox:default:{keyName}** 
-| **coldbox:plugin:{pluginName}** | **model:{modelName@module}** 
-| **coldbox:myplugin:{pluginName}** | **model:{modelName@module}** 
-| **coldbox:myplugin:{pluginName@moduleName}** | **model:{modelName@module}** 
-| **coldbox:fwconfigbean** | The configbean CFC doesn't exist any longer, but the same data is available as a struct with **coldbox:fwSettings** 
-| **coldbox:configbean** | The configbean CFC doesn't exist any longer, but the same data is available as a struct with **coldbox:configSettings** 
-| **coldbox:cacheManager** | **cachebox:default** 
-| **coldbox:mailsettingsbean** | The same data is available as a struct with **coldbox:setting:mailSettings** 
-| **coldbox:debuggerService** | **debuggerService@cbdebugger** as long as the cbdebugger module is installed 
+| **ocm** | **cachebox:default**
+| **ocm:{keyName}** | **cachebox:default:{keyName}**
+| **coldbox:plugin:{pluginName}** | **model:{modelName@module}**
+| **coldbox:myplugin:{pluginName}** | **model:{modelName@module}**
+| **coldbox:myplugin:{pluginName@moduleName}** | **model:{modelName@module}**
+| **coldbox:fwconfigbean** | The configbean CFC doesn't exist any longer, but the same data is available as a struct with **coldbox:fwSettings**
+| **coldbox:configbean** | The configbean CFC doesn't exist any longer, but the same data is available as a struct with **coldbox:configSettings**
+| **coldbox:cacheManager** | **cachebox:default**
+| **coldbox:mailsettingsbean** | The same data is available as a struct with **coldbox:setting:mailSettings**
+| **coldbox:debuggerService** | **debuggerService@cbdebugger** as long as the cbdebugger module is installed
 | **coldbox:validationManager** | **validationManager@validation** as long as the cbvalidation module is installed
 
 
@@ -367,15 +367,15 @@ get the structure. So some old code like this:
 <!--- list --->
 <cffunction name="list" output="false" access="public" returntype="query" hint="Return the contacts">
     <cfset var q = "">
-    
+
     <cfquery name="q" datasource="#dsn.getName()#">
-    SELECT * 
+    SELECT *
         FROM contacts
     ORDER BY name asc
     </cfquery>
-    
+
     <cfreturn q>
-    
+
 </cffunction>
 ```
 
@@ -388,15 +388,15 @@ Would become this:
 <!--- list --->
 <cffunction name="list" output="false" access="public" returntype="query" hint="Return the contacts">
     <cfset var q = "">
-    
+
     <cfquery name="q" datasource="#dsn.name#">
-    SELECT * 
+    SELECT *
         FROM contacts
     ORDER BY name asc
     </cfquery>
-    
+
     <cfreturn q>
-    
+
 </cffunction>
 ```
 
