@@ -103,4 +103,13 @@ The CF dot notation path of the CFC that will decorate the system Controller
 
 ## Exception Handling
 
+```js
+coldbox = {
+    //Error/Exception Handling
+	exceptionHandler		= "",
+	onInvalidEvent			= "",
+	customErrorTemplate		= ""
+}
+```
+
 ## Application Aspects 
