@@ -65,6 +65,15 @@ coldbox={
 }
 ```
 
+**applicationHelper**
+
+A list or array of absolute or relative paths to a UDF helper file. The framework will load all the methods found in this helper file globally. Meaning it will be injected in ALL handlers, layouts and views.
+
+**viewsHelper**
+
+A list or array of absolute or relative paths to a UDF helper file. The framework will load all the methods found in this helper in layouts and views only.
+
+
 ## Exception Handling
 
 ## Application Aspects 
