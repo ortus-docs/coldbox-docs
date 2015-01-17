@@ -49,8 +49,6 @@ coldbox={
 ```
 These settings map 1-1 from ColdBox events to the `Application.cfc` life-cycle methods.  The only one that is not is the `defaultEvent`, which selects what event the framework will execute when no incoming event is detected via URL/FORM or REMOTE executions.
 
-
-
 ## Extension Points
 
 ## Exception Handling
