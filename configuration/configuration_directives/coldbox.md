@@ -132,8 +132,21 @@ The relative path from the application's root level of where the custom error te
 coldbox.customErrorTemplate = "/coldbox/system/includes/BugReport.cfm";
 ```
 
+## Application Aspects
+
+```js
+coldbox = {
+    // Persist handlers
+    handlerCaching 			= false,
+    // Activate event caching
+	eventCaching			= false,
+	// Return RC struct on Flex/Soap Calls
+	proxyReturnCollection 	= false
+}
+```
 
 
 
 
-## Application Aspects 
+
+
