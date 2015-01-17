@@ -12,6 +12,8 @@ coldbox = {
 };
 ```
 
+> **Info** : Please note that the `appName` setting is the ONLY mandatory setting.
+
 ## Development Settings
 
 ```js
