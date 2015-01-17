@@ -21,6 +21,7 @@
 * [Configuration](configuration/configuration.md)
    * [Conventions](configuration/conventions.md)
    * [Directory Structure](configuration/directory_structure.md)
+   * [ColdBox.cfc](configuration/coldboxcfc.md)
 * Event Handlers
 * Request Context
 * Layouts & Views

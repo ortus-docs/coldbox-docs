@@ -24,3 +24,13 @@ This will create a Coldbox application with the following structure:
 | lib | Location where you can drop in an Java class or jar to be available to the CFML engine
 | remote | An optional folder where you can store remote proxies, RESTFul or SOAP web services
 | tests | Yes, we have to do it. The location of your TestBox test harness
+
+## Application Templates
+The application templates that ship with ColdBox and are available via CommandBox are:
+
+| Template | Description |
+| -- | -- |
+| Advanced | The advanced template that includes every convention and optional configuration in tag format
+| AdvancedScript | The advanced template that includes every convention and optional configuration in script format
+| Simple | A fairly simple structure
+| SuperSimple | The basics
