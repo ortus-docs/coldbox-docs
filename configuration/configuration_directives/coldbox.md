@@ -26,7 +26,8 @@ coldbox = {
 Protect the reinitialization of the framework URL actions. For security, if this setting is omitted, you will not be able to reinitialize the framework. Setting it to an empty string will allow you to reinitialize without a password. (?fwreinit=1) Always have a password set for public-facing site.
 
 **handlersIndexAutoReload**
-Will scan the conventions directory for new handler CFCs on each request if activated. Turn off for production.
+
+Will scan the conventions directory for new handler CFCs on each request if activated. Use **false** for production, this is only a development true setting.
 
 
 ## Implicit Event Settings
