@@ -34,6 +34,20 @@ Will scan the conventions directory for new handler CFCs on each request if acti
 
 ## Implicit Event Settings
 
+```js
+coldbox={
+	//Implicit Events
+	defaultEvent = "Main.index",
+	requestStartHandler	= "Main.onRequestStart",
+	requestEndHandler = "Main.onRequestEnd",
+	applicationStartHandler = "Main.onAppInit",
+	applicationEndHandler = "Main.onAppEnd",
+	sessionStartHandler = "Main.onSessionEnd",
+	sessionEndHandler = "Main.onSessionStart",
+	missingTemplateHandler = "Main.onMissingTemplate"
+}
+```
+
 ## Extension Points
 
 ## Exception Handling
