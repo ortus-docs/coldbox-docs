@@ -141,10 +141,21 @@ coldbox = {
     // Activate event caching
 	eventCaching			= false,
 	// Return RC struct on Flex/Soap Calls
-	proxyReturnCollection 	= false
+	proxyReturnCollection 	= false,
+	// Activate implicit views
+	implicitViews           = true,
+	// Case for implicit views
+	caseSensitiveImplicitViews = false
 }
 ```
 
+**handlerCaching**
+
+This is useful to be set to false in development and true in production. This tells the framework to cache your event handler objects as singletons.
+
+**eventCaching**
+
+This directive tells ColdBox that when events are executed they will be inspected for caching metadata. This does not mean that ALL events WILL be cached if this setting is turned on. It just activates the inspection mechanisms for whenever you annotate events for caching. See EventHandlers
 
 
 
