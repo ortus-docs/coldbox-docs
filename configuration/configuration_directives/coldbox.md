@@ -10,3 +10,5 @@ The ColdBox directive is where you configure the framework for operation.
 ## Extension Points
 
 ## Exception Handling
+
+## Application Aspects 
