@@ -6,7 +6,6 @@ This element defines custom conventions for your application. By default, the fr
 //Conventions
 conventions = {
 	handlersLocation = "controllers",
-	pluginsLocation  = "plugins",
 	viewsLocation 	 = "views",
 	layoutsLocation  = "views",
 	modelsLocation 	 = "model",
