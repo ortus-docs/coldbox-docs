@@ -124,5 +124,14 @@ This is the event handler that will fire masking a non-existent event that gets 
 
 **customErrroTemplate**
 
+The relative path from the application's root level of where the custom error template exists. This template receives a key in the private request collection called `exception` that contains the exception.  By default ColdBox does not show robust exceptions, you can turn on robust exceptions by choosing the following template:
+
+```
+coldbox.customErrorTemplate = "/coldbox/system/includes/BugReport.cfm"
+```
+
+
+
+
 
 ## Application Aspects 
