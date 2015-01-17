@@ -73,6 +73,9 @@ A list or array of absolute or relative paths to a UDF helper file. The framewor
 
 A list or array of absolute or relative paths to a UDF helper file. The framework will load all the methods found in this helper in layouts and views only.
 
+**modulesExternalLocation**
+A list or array of locations of where ColdBox should look for modules to load into your application. The path can be a cf mapping or `cfinclude` compatible location. Modules are searched and loaded in the order of the declared locations. The first location ColdBox will search for modules is the conventions folder `modules`
+
 
 ## Exception Handling
 
