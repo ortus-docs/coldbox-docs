@@ -161,6 +161,7 @@ This directive tells ColdBox that when events are executed they will be inspecte
 
 **implicitViews**
 
+Allows you to use implicit views in your application and view dispatching. You can get a performance boost if you disable this setting.
 
 **caseSensitiveImplicitViews**
 
