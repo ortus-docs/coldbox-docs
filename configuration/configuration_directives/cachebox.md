@@ -21,8 +21,7 @@ cachebox = {
 	// Default Cache Configuration
 	defaultCache  = "views",
 	// Caches Configuration
-	caches 	 = {},
-	listeners  = []
+	caches 	 = {}
 };
 ```
 
