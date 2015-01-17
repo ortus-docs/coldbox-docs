@@ -82,6 +82,13 @@ The CF include path of where to look for secondary views for your application. S
 
 **layoutsExternalLocation**
 
+The CF include path of where to look for secondary layouts for your application. Secondary layouts look just like normal layouts except the framework looks in the conventions folder first and if not found then searches this location.
+
+**handlersExternalLocation**
+The CF dot notation path of where to look for secondary events for your application. Secondary events look just like normal events except the framework looks in the conventions folder first and if not found then searches this location.
+
+
+
 
 ## Exception Handling
 
