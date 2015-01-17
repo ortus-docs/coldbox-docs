@@ -14,12 +14,13 @@ The CacheBox structure is based on the [CacheBox declaration DSL](http://wiki.co
 ```js
 //cachebox configuration
 cachebox = {
+    // Location of the configuration CFC for CacheBox
 	configFile = "config/CacheBox.cfc",
-	logBoxConfig  = "coldbox.system.cache.config.LogBox",
-	scopeRegistration 	 = {enabled=true,scope=server,key=cacheBox},
+	// Scope registration for CacheBox
+	scopeRegistration = {enabled=true,scope=application,key=cacheBox},
 	defaultCache  = "views",
-	caches 	 = "model",
-	listeners  = "modules"
+	caches 	 = {},
+	listeners  = []
 };
 ```
 
