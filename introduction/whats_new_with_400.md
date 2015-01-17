@@ -58,6 +58,12 @@ rewrites to pure `cfscript` syntax. The end result is the fastes ColdBox
 release since our 1.0.0 days. In our initial vanilla load tests, normal
 requests would take around 4-6ms to execute.
 
+### RunEvent Caching
+The `runEvent` method has been extended to include caching capabilities much similar to what has been available to the `renderView` methods.  This will allow folks to execute internal or widget-like events and be able to use the built-in caching capabilities of ColdBox to cache the results according to the arguments used.  Below are the caching arguments you can use:
+
+> **Info** : Internally ColdBox creates an internal hash of the passed in `event` and `eventArguments` arguments for the cache key.  It also leverages the **template** cache for event caching.
+
+
 ### Model called Models
 
 The convention has been updated so it matches the other convetions. You
