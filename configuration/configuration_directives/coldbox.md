@@ -37,9 +37,9 @@ Will scan the conventions directory for new handler CFCs on each request if acti
 ```js
 coldbox={
 	//Implicit Events
-	defaultEvent = "Main.index",
-	requestStartHandler	= "Main.onRequestStart",
-	requestEndHandler = "Main.onRequestEnd",
+	defaultEvent  = "Main.index",
+	requestStartHandler	 = "Main.onRequestStart",
+	requestEndHandler   = "Main.onRequestEnd",
 	applicationStartHandler = "Main.onAppInit",
 	applicationEndHandler = "Main.onAppEnd",
 	sessionStartHandler = "Main.onSessionEnd",
