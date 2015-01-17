@@ -101,8 +101,6 @@ Please note that the default cache provider used for event caching is the **temp
 <!--- Render with specific event args --->
 #runEvent( event="widgets.users", eventArguments={ filter:true }, cache=true, cacheTimeout=60 )#
 
-
-
 ```
 
 > **Info** : Internally ColdBox creates an internal hash of the passed in `event` and `eventArguments` arguments for the cache key.  It also leverages the **template** cache for event caching.
