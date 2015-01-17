@@ -59,7 +59,7 @@ release since our 1.0.0 days. In our initial vanilla load tests, normal
 requests would take around 4-6ms to execute.
 
 ### RunEvent Caching
-The `runEvent` method has been extended to include caching capabilities much similar to what has been available to the `renderView` methods.  This will allow folks to execute internal or widget-like events and be able to use the built-in caching capabilities of ColdBox to cache the results according to the arguments used.  Below are the caching arguments you can use:
+The `runEvent` method has been extended to include caching capabilities much similar to what has been available to the `renderView` methods.  This will allow folks to execute internal or widget-like events and be able to use the built-in caching capabilities of ColdBox to cache the results according to the arguments used.  Below is the new signature of the method:
 
 ```java
 /**
@@ -87,6 +87,22 @@ function runEvent(
 	cacheSuffix="",
 	cacheProvider="template"
 ){
+```
+
+Please note that the default cache provider used for event caching is the **template** cache, so it must be a valid ColdBox Enabled Cache Provider.  So if we execute our sample widget below, we will be able to leverage its caching arguments:
+
+```html
+<!--- Render with default cache timeouts --->
+#runEvent( event="widgets.users", cache=true )#
+
+<!--- Render with specific cache args --->
+#runEvent( event="widgets.users", cache=true, cacheTimeout=60 )#
+
+<!--- Render with specific event args --->
+#runEvent( event="widgets.users", eventArguments={ filter:true }, cache=true, cacheTimeout=60 )#
+
+
+
 ```
 
 > **Info** : Internally ColdBox creates an internal hash of the passed in `event` and `eventArguments` arguments for the cache key.  It also leverages the **template** cache for event caching.
