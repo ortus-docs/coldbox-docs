@@ -61,6 +61,8 @@ requests would take around 4-6ms to execute.
 ### RunEvent Caching
 The `runEvent` method has been extended to include caching capabilities much similar to what has been available to the `renderView` methods.  This will allow folks to execute internal or widget-like events and be able to use the built-in caching capabilities of ColdBox to cache the results according to the arguments used.  Below are the caching arguments you can use:
 
+
+
 > **Info** : Internally ColdBox creates an internal hash of the passed in `event` and `eventArguments` arguments for the cache key.  It also leverages the **template** cache for event caching.
 
 
