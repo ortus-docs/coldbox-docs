@@ -51,6 +51,20 @@ These settings map 1-1 from ColdBox events to the `Application.cfc` life-cycle m
 
 ## Extension Points
 
+```js
+coldbox={
+	//Extension Points
+	applicationHelper 			= "includes/helpers/ApplicationHelper.cfm",
+	viewsHelper					= "",
+	modulesExternalLocation		= [],
+	viewsExternalLocation		= "",
+	layoutsExternalLocation 	= "",
+	handlersExternalLocation  	= "",
+	requestContextDecorator 	= "",
+	controllerDecorator         = ""
+}
+```
+
 ## Exception Handling
 
 ## Application Aspects 
