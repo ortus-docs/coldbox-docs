@@ -11,6 +11,7 @@
 * [Getting Started](getting_started/getting_started.md)
    * [What is MVC](getting_started/what_is_mvc.md)
    * [What is ColdBox](getting_started/what_is_coldbox.md)
+   * [How ColdBox Works](getting_started/how_coldbox_works.md)
    * [Installation](getting_started/installation.md)
    * [Creating An Application](getting_started/creating_an_application.md)
    * Conventions Over Configuration
@@ -18,11 +19,20 @@
    * Running An Application
    * Reiniting An Application
    * Testing An Application
-* Configuration
+* [Configuration](configuration/configuration.md)
+   * [Conventions](configuration/conventions.md)
+   * [Directory Structure](configuration/directory_structure.md)
+   * [ColdBox.cfc](configuration/coldboxcfc.md)
+       * [Configuration Directives](configuration/configuration_directives.md)
+           * [CacheBox](configuration/configuration_directives/cachebox.md)
+           * [ColdBox](configuration/configuration_directives/coldbox.md)
+       * [Configuration Interceptor](configuration/configuration_interceptor.md)
+   * [Bootstrapper](configuration/bootstrapper.md)
 * Event Handlers
+* [Flash RAM](flash_ram/flash_ram.md)
 * Request Context
 * Layouts & Views
 * Models
 * Routing
-* Interceptors
+* [Interceptors](interceptors/interceptors.md)
 

@@ -14,6 +14,8 @@ in dynamically. How you might say?
 
 ### CommandBox
 
+<img src="../images/CommandBoxLogo.png">
+
 [CommandBox](http://www.ortussolutions.com/products/commandbox), our new ColdFusion (CFML) command line interface,
 package manager and REPL. You can now use CommandBox to install
 dependencies, modules and even ColdBox itself all from our centralized
@@ -55,6 +57,54 @@ decoupled from many features that are now available as modules and
 rewrites to pure `cfscript` syntax. The end result is the fastes ColdBox
 release since our 1.0.0 days. In our initial vanilla load tests, normal
 requests would take around 4-6ms to execute.
+
+### RunEvent Caching
+The `runEvent` method has been extended to include caching capabilities much similar to what has been available to the `renderView` methods.  This will allow folks to execute internal or widget-like events and be able to use the built-in caching capabilities of ColdBox to cache the results according to the arguments used.  Below is the new signature of the method:
+
+```java
+/**
+* Executes events with full life-cycle methods and returns the event results if any were returned.
+* @event The event string to execute, if nothing is passed we will execute the application's default event.
+* @prePostExempt If true, pre/post handlers will not be fired. Defaults to false
+* @private Execute a private event if set, else defaults to public events
+* @defaultEvent The flag that let's this service now if it is the default event running or not. USED BY THE FRAMEWORK ONLY
+* @eventArguments A collection of arguments to passthrough to the calling event handler method
+* @cache.hint Cached the output of the runnable execution, defaults to false. A unique key will be created according to event string + arguments.
+* @cacheTimeout.hint The time in minutes to cache the results
+* @cacheLastAccessTimeout.hint The time in minutes the results will be removed from cache if idle or requested
+* @cacheSuffix.hint The suffix to add into the cache entry for this event rendering
+* @cacheProvider.hint The provider to cache this event rendering in, defaults to 'template'
+*/
+function runEvent(
+	event="",
+	boolean prePostExempt=false,
+	boolean private=false,
+	boolean defaultEvent=false,
+	struct eventArguments={},
+	boolean cache=false,
+	cacheTimeout="",
+	cacheLastAccessTimeout="",
+	cacheSuffix="",
+	cacheProvider="template"
+){
+```
+
+Please note that the default cache provider used for event caching is the **template** cache, so it must be a valid ColdBox Enabled Cache Provider.  So if we execute our sample widget below, we will be able to leverage its caching arguments:
+
+```html
+<!--- Render with default cache timeouts --->
+#runEvent( event="widgets.users", cache=true )#
+
+<!--- Render with specific cache args --->
+#runEvent( event="widgets.users", cache=true, cacheTimeout=60 )#
+
+<!--- Render with specific event args --->
+#runEvent( event="widgets.users", eventArguments={ filter:true }, cache=true, cacheTimeout=60 )#
+
+```
+
+> **Info** : Internally ColdBox creates an internal hash of the passed in `event` and `eventArguments` arguments for the cache key.  It also leverages the **template** cache for event caching.
+
 
 ### Model called Models
 
