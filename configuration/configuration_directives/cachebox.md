@@ -18,7 +18,9 @@ cachebox = {
 	configFile = "config/CacheBox.cfc",
 	// Scope registration for CacheBox
 	scopeRegistration = {enabled=true,scope=application,key=cacheBox},
+	// Default Cache Configuration
 	defaultCache  = "views",
+	// Caches Configuration
 	caches 	 = {},
 	listeners  = []
 };
