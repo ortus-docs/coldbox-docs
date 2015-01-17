@@ -12,7 +12,7 @@ coldbox = {
 };
 ```
 
-> **Info** : Please note that the `appName` setting is the ONLY mandatory setting.
+> **Info** : Please note that the `appName` setting is the ONLY mandatory setting in ANY directive.
 
 ## Development Settings
 
