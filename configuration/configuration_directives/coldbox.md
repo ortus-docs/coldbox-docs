@@ -25,7 +25,14 @@ coldbox = {
 
 **reinitPassword**
 
-Protect the reinitialization of the framework URL actions. For security, if this setting is omitted, you will not be able to reinitialize the framework. Setting it to an empty string will allow you to reinitialize without a password. (?fwreinit=1) Always have a password set for public-facing site.
+Protect the reinitialization of the framework URL actions. For security, if this setting is omitted, you will not be able to reinitialize the framework. Setting it to an empty string will allow you to reinitialize without a password. **Always have a password set for public-facing site.**
+
+```
+// reinit with no password
+http://localhost/?fwreinit=1
+// reinit with password
+http://localhost/?fwreinit=mypass
+`
 
 **handlersIndexAutoReload**
 
