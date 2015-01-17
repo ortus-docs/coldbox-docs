@@ -105,10 +105,12 @@ The CF dot notation path of the CFC that will decorate the system Controller
 
 ```js
 coldbox = {
-    //Error/Exception Handling
+    // Error/Exception Handling handler
 	exceptionHandler		= "",
+	// The handler to execute on invalid events
 	onInvalidEvent			= "",
-	customErrorTemplate		= ""
+	// The default error template
+	customErrorTemplate		= "/coldbox/system/includes/BugReport-Public.cfm"
 }
 ```
 
@@ -127,7 +129,7 @@ This is the event handler that will fire masking a non-existent event that gets 
 The relative path from the application's root level of where the custom error template exists. This template receives a key in the private request collection called `exception` that contains the exception.  By default ColdBox does not show robust exceptions, you can turn on robust exceptions by choosing the following template:
 
 ```
-coldbox.customErrorTemplate = "/coldbox/system/includes/BugReport.cfm"
+coldbox.customErrorTemplate = "/coldbox/system/includes/BugReport.cfm";
 ```
 
 
