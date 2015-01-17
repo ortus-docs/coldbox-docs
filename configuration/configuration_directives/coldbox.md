@@ -159,6 +159,9 @@ This directive tells ColdBox that when events are executed they will be inspecte
 
 **proxyReturnCollection**
 
+This is a boolean setting used when calling the ColdBox proxy's `process()` method from a Flex or SOAP/REST call. If this setting is set to true, the proxy will return back to the remote call the entire request collection structure ALWAYS! If set to false, it will return, whatever the event handler returned back. Our best practice is to always have this false and return appropriate data back.
+
+
 **implicitViews**
 
 Allows you to use implicit views in your application and view dispatching. You can get a performance boost if you disable this setting.
