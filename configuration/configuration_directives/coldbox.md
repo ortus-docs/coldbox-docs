@@ -155,7 +155,7 @@ This is useful to be set to false in development and true in production. This te
 
 **eventCaching**
 
-This directive tells ColdBox that when events are executed they will be inspected for caching metadata. This does not mean that ALL events WILL be cached if this setting is turned on. It just activates the inspection mechanisms for whenever you annotate events for caching. See EventHandlers
+This directive tells ColdBox that when events are executed they will be inspected for caching metadata. This does not mean that ALL events WILL be cached if this setting is turned on. It just activates the inspection mechanisms for whenever you annotate events for caching or using the `runEvent()` caching methods.
 
 
 
