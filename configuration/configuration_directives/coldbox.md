@@ -6,3 +6,7 @@ The ColdBox directive is where you configure the framework for operation.
 ## Development Settings
 
 ## Implicit Event Settings
+
+## Extension Points
+
+## Exception Handling
