@@ -4,8 +4,7 @@ The CacheBox structure is based on the [CacheBox declaration DSL](http://wiki.co
 
 | key | type | required | default | description |
 | -- | -- | -- | -- | -- |
-|scopeRegistration | struct | false | `{enabled=true,scope=server,key=cacheBox}` |	
-| defaultCache | struct | true | --- | The configuration of the default cache which will have an implicit name of default which is a reserved cache name. It also has a default provider of CacheBox which cannot be changed.
+| defaultCache | struct | true | --- | 
 | caches | struct | false | `{}` | A structure where you can create more named caches for usage in your CacheBox factory.
 | listeners | array	| false	| `[]` | An array that will hold all the listeners you want to configure at startup time for your CacheBox instance. If you are running CacheBox within a ColdBox application, this item is not necessary as you can register them via the main ColdBox interceptors section.
 
@@ -28,3 +27,6 @@ An absolute or relative path to the CacheBox configuration CFC or XML file to us
 
 ## ScopeRegisration
 A structure that enables scope registration of the CacheBox factory in either server, cluster, application or session scope.
+
+## DefaultCache
+The configuration of the default cache which will have an implicit name of default which is a reserved cache name. It also has a default provider of CacheBox which cannot be changed.
