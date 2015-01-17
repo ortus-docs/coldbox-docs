@@ -14,6 +14,11 @@ coldbox = {
 
 ## Development Settings
 
+coldbox = {
+	reinitPassword = "h1cker",
+	handlersIndexAutoReload = true
+};
+
 ## Implicit Event Settings
 
 ## Extension Points
