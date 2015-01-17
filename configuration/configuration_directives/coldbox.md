@@ -58,7 +58,7 @@ These settings map 1-1 from ColdBox events to the `Application.cfc` life-cycle m
 
 ## Extension Points
 
-The ColdBox extension points are a great way to create federated applications that can reuse a centralized core instead of the local convetions
+The ColdBox extension points are a great way to create federated applications that can reuse a centralized core instead of the local conventions.  It is also a great way to extend some core classes with your own.
 
 ```js
 coldbox={
