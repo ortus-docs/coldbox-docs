@@ -94,7 +94,11 @@ The CF include path of where to look for secondary layouts for your application.
 **handlersExternalLocation**
 The CF dot notation path of where to look for secondary events for your application. Secondary events look just like normal events except the framework looks in the conventions folder first and if not found then searches this location.
 
+**requestContextDecorator**
+The CF dot notation path of the CFC that will decorate the system Request Context object.
 
+**controllerDecorator**
+The CF dot notation path of the CFC that will decorate the system Controller
 
 
 ## Exception Handling
