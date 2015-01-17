@@ -26,6 +26,7 @@
        * [Configuration Directives](configuration/configuration_directives.md)
            * [CacheBox](configuration/configuration_directives/cachebox.md)
            * [ColdBox](configuration/configuration_directives/coldbox.md)
+           * Conventions
        * [Configuration Interceptor](configuration/configuration_interceptor.md)
    * [Bootstrapper](configuration/bootstrapper.md)
 * Event Handlers
