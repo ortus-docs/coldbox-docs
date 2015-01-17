@@ -14,10 +14,12 @@ coldbox = {
 
 ## Development Settings
 
+```js
 coldbox = {
 	reinitPassword = "h1cker",
 	handlersIndexAutoReload = true
 };
+```
 
 **reinitPassword**
 
