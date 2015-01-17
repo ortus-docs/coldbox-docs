@@ -16,6 +16,8 @@ cachebox = {
 };
 ```
 
+> **Info** : We would recommend you create a `config/CacheBox.cfc` and put all your caching configuration there instead of in the main ColdBox configuration file. This will give you further portability and decoupling.
+
 ## ConfigFile
 An absolute or relative path to the CacheBox configuration CFC or XML file to use instead of declaring the rest of the keys in this structure. So if you do not define a cacheBox structure, the framework will look for the default value: `config/CacheBox.cfc` and it will load it if found. If not found, it will use the default CacheBox configuration found in `/coldbox/system/web/config/CacheBox.cfc`
 
