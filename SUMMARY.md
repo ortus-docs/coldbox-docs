@@ -18,7 +18,9 @@
    * Running An Application
    * Reiniting An Application
    * Testing An Application
-* Configuration
+* [Configuration](configuration/configuration.md)
+   * [Conventions](configuration/conventions.md)
+   * [Directory Structure](configuration/directory_structure.md)
 * Event Handlers
 * Request Context
 * Layouts & Views
