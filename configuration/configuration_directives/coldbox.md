@@ -47,7 +47,7 @@ coldbox={
 	missingTemplateHandler = "Main.onMissingTemplate"
 }
 ```
-These settings map 1-1 from ColdBox events to the `Application.cfc` life-cycle methods.  The only one that is not is the `defaultEvent`, The second required setting. This points to a handler/method combination that the framework will execute when no incoming event is detected via URL/FORM or REMOTE executions.
+These settings map 1-1 from ColdBox events to the `Application.cfc` life-cycle methods.  The only one that is not is the `defaultEvent`, which selects what event the framework will execute when no incoming event is detected via URL/FORM or REMOTE executions.
 
 
 
