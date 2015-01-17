@@ -32,7 +32,7 @@ Protect the reinitialization of the framework URL actions. For security, if this
 http://localhost/?fwreinit=1
 // reinit with password
 http://localhost/?fwreinit=mypass
-`
+```
 
 **handlersIndexAutoReload**
 
