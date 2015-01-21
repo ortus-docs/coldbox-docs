@@ -42,7 +42,7 @@
 * Event Handlers
 * [Flash RAM](flash_ram/flash_ram.md)
 * Request Context
-* Layouts & Views
+* [Layouts & Views](views/index.md)
 * Models
 * Routing
 * [Interceptors](interceptors/interceptors.md)
