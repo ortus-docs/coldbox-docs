@@ -32,7 +32,7 @@
            * [Flash](configuration/configuration_directives/flash.md)
            * [InterceptorSettings](configuration/configuration_directives/interceptorsettings.md)
            * [Interceptors](configuration/configuration_directives/interceptors.md)
-           * Layouts
+           * [Layouts](configuration/configuration_directives/layouts.md)
            * [LayoutSettings](configuration/configuration_directives/layoutsettings.md)
            * [LogBox](configuration/configuration_directives/logbox.md)
            * [Modules](configuration/configuration_directives/modules.md)
