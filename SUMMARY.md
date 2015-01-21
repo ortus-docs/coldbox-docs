@@ -36,7 +36,7 @@
            * [LogBox](configuration/configuration_directives/logbox.md)
            * [Modules](configuration/configuration_directives/modules.md)
            * [Settings](configuration/configuration_directives/settings.md)
-           * WireBox
+           * [WireBox](configuration/configuration_directives/wirebox.md)
        * [Configuration Interceptor](configuration/configuration_interceptor.md)
    * [Bootstrapper](configuration/bootstrapper.md)
 * Event Handlers
