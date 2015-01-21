@@ -13,3 +13,8 @@ flash = {
 	autoSave = true // automatically save flash scopes at end of a request and on relocations.
 };
 ```
+
+**scope**
+
+The ColdFusion scope to store the Flash data on or the instantiation path of your custom Flash object.
+
