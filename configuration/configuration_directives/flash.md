@@ -5,8 +5,10 @@ This directive is how you will configure the [Flash RAM](../../flash_ram/flash_r
 ```js
 // flash scope configuration
 flash = {
+    // The implementation to use
 	scope = "session",
-	properties = {}, // constructor properties for the flash scope implementation
+	// constructor properties for the flash scope implementation
+	properties = {},
 	// automatically inflate flash data into the RC scope
 	inflateToRC = true, 
 	// automatically inflate flash data into the PRC scope
