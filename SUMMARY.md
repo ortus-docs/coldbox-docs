@@ -36,6 +36,7 @@
            * LogBox
            * Modules
            * Settings
+           * WireBox
        * [Configuration Interceptor](configuration/configuration_interceptor.md)
    * [Bootstrapper](configuration/bootstrapper.md)
 * Event Handlers
