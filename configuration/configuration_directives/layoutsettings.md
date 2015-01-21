@@ -1,6 +1,6 @@
 # LayoutSettings
 
-This structure is used in order to control de directives of the ColdBox layout manager.
+This structure is used in order to control the directives of the [ColdBox layout manager](../../views/layouts_views.md).
 
 ```js
 //Layout Settings
