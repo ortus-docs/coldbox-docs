@@ -28,7 +28,7 @@
            * [ColdBox](configuration/configuration_directives/coldbox.md)
            * [Conventions](configuration/configuration_directives/conventions.md)
            * [Datasources](configuration/configuration_directives/datasources.md)
-           * Environments
+           * [Environments](configuration/configuration_directives/environments.md)
        * [Configuration Interceptor](configuration/configuration_interceptor.md)
    * [Bootstrapper](configuration/bootstrapper.md)
 * Event Handlers
