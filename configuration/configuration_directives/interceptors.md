@@ -6,8 +6,9 @@ This is an array of interceptor definitions that you will use to register in you
 //Register interceptors as an array, we need order
 interceptors = [
 	//Autowire
-	{class="coldbox.system.interceptors.Autowire",
-	 properties={useSetterInjection=false}
+	{ class="mypath.MyInterceptor",
+	  name="MyInterceptor",
+	  properties={useSetterInjection=false}
 	},
 	//SES
 	{class="coldbox.system.interceptors.SES", name="MySES"}
