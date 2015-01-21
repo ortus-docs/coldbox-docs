@@ -22,3 +22,5 @@ interceptors = [
 	{ class="coldbox.system.interceptors.SES", name="MySES" }
 ];
 ```
+
+> **Warning** : Important: Order of declaration matters! Also, when declaring multiple instances of the same CFC (interceptor), make sure you use the name attribute in order to distinguish them. If not, only one will be registered (the last one declared).
