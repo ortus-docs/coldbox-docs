@@ -5,12 +5,20 @@ This is an array of interceptor definitions that you will use to register in you
 ```js
 //Register interceptors as an array, we need order
 interceptors = [
-	//Autowire
+
+    { 
+        // The CFC instantiation path
+        class="",
+        // The alias to register in WireBox, if not defined it uses the name of the CFC
+        name="",
+        // A struct of data to configure the interceptor with.
+        properties={}
+    }
+
 	{ class="mypath.MyInterceptor",
 	  name="MyInterceptor",
 	  properties={useSetterInjection=false}
 	},
-	//SES
-	{class="coldbox.system.interceptors.SES", name="MySES"}
+	{ class="coldbox.system.interceptors.SES", name="MySES" }
 ];
 ```
