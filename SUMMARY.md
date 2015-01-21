@@ -35,6 +35,7 @@
            * LayoutSettings
            * LogBox
            * Modules
+           * Settings
        * [Configuration Interceptor](configuration/configuration_interceptor.md)
    * [Bootstrapper](configuration/bootstrapper.md)
 * Event Handlers
