@@ -47,5 +47,5 @@
 * Models
 * Routing
 * [Interceptors](interceptors/interceptors.md)
-* Modules
+* [Modules](modules/index.md)
 
