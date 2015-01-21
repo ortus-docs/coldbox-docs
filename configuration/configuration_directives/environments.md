@@ -27,7 +27,7 @@ function development(){
 	coldbox.reinitPassword = "";
 	
 	// Add dev only interceptors
-	arrayAppend( interceptors, {class="coldbox.system.interceptors.Logger} );
+	arrayAppend( interceptors, {class="#appMapping#.interceptors.CustomLogger} );
 }
 ```
 
