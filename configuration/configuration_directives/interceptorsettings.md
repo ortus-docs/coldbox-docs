@@ -16,7 +16,7 @@ This tells the interceptor service to throw an exception if the state announced 
 
 **customInterceptionPoints**
 
-This key is a comma delimited list of custom interception points you will be registering for execution. This is the way to provide an observer-observable pattern to your applications. Again, please see the [Interceptors](../interceptors/interceptors.md) section for more information. Just note that here is where you register the custom interception points separated by a comma if more than one. This is needed so when interceptors are registered for execution points, these points will also be searched and registered for.
+This key is a comma delimited list of custom interception points you will be registering for execution. This is the way to provide an observer-observable pattern to your applications. Again, please see the [Interceptors](../../interceptors/interceptors.md) section for more information. Just note that here is where you register the custom interception points separated by a comma if more than one. This is needed so when interceptors are registered for execution points, these points will also be searched and registered for.
 
 
 
