@@ -31,7 +31,7 @@
            * [Environments](configuration/configuration_directives/environments.md)
            * [Flash](configuration/configuration_directives/flash.md)
            * [InterceptorSettings](configuration/configuration_directives/interceptorsettings.md)
-           * Interceptors
+           * [Interceptors](configuration/configuration_directives/interceptors.md)
            * LayoutSettings
        * [Configuration Interceptor](configuration/configuration_interceptor.md)
    * [Bootstrapper](configuration/bootstrapper.md)
