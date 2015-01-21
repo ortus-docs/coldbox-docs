@@ -30,7 +30,7 @@
            * [Datasources](configuration/configuration_directives/datasources.md)
            * [Environments](configuration/configuration_directives/environments.md)
            * [Flash](configuration/configuration_directives/flash.md)
-           * InterceptorSettings
+           * [InterceptorSettings](configuration/configuration_directives/interceptorsettings.md)
        * [Configuration Interceptor](configuration/configuration_interceptor.md)
    * [Bootstrapper](configuration/bootstrapper.md)
 * Event Handlers
