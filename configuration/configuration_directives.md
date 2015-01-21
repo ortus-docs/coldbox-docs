@@ -28,13 +28,13 @@ Inside of this configuration method you will place several core and third-party 
 | [coldbox](configuration_directives/coldbox.md) | struct | The main coldbox directives structure that holds all the coldbox settings.
 | [conventions](configuration_directives/conventions.md) | struct | A structure where you will configure the application convention names
 | [datasources](configuration_directives/datasources.md) | struct | An optional metadata structure for datasource definitions. THEY ARE NOT COLDFUSION REGISTRATIONS
-| environments | struct | A structure where you will configure environment detection patterns
-| flash | struct | A structure where you will configure the [FlashRAM](flash_ram/flash_ram.md)
-| interceptorSettings | struct | An optional structure to configure application wide interceptor behavior
-| interceptors | array | An optional array of interceptor declarations for your application
-| layoutSettings | struct | A structure where you define how the layout manager behaves in your application
-| layouts | array | An array of layout declarations for implicit layout-view-folder pairings in your application
-| logbox | struct | An optional structure to configure the logging and messaging in your application via LogBox
-| modules | struct | An optional structure to configure application wide module behavior
-| settings | struct | A structure where you can put your own application settings
-| wirebox | struct | An optional structure used to define how WireBox is loaded
+| [environments](configuration_directives/environments.md) | struct | A structure where you will configure environment detection patterns
+| [flash](configuration_directives/flash.md) | struct | A structure where you will configure the [FlashRAM](flash_ram/flash_ram.md)
+| [interceptorSettings](configuration_directives/interceptorsettings.md) | struct | An optional structure to configure application wide interceptor behavior
+| [interceptors](configuration_directives/interceptors.md) | array | An optional array of interceptor declarations for your application
+| [layoutSettings](layoutsettings.md) | struct | A structure where you define how the layout manager behaves in your application
+| [layouts](configuration_directives/layouts.md) | array | An array of layout declarations for implicit layout-view-folder pairings in your application
+| [logbox](configuration_directives/logbox.md) | struct | An optional structure to configure the logging and messaging in your application via LogBox
+| [modules](configuration_directives/modules.md) | struct | An optional structure to configure application wide module behavior
+| [settings](configuration_directives/settings.md) | struct | A structure where you can put your own application settings
+| [wirebox](configuration_directives/wirebox.md) | struct | An optional structure used to define how WireBox is loaded
