@@ -33,6 +33,7 @@
            * [InterceptorSettings](configuration/configuration_directives/interceptorsettings.md)
            * [Interceptors](configuration/configuration_directives/interceptors.md)
            * LayoutSettings
+           * LogBox
        * [Configuration Interceptor](configuration/configuration_interceptor.md)
    * [Bootstrapper](configuration/bootstrapper.md)
 * Event Handlers
