@@ -13,3 +13,25 @@ environments = {
 };
 ```
 
+In the above example, I declare a **development** key with a value list of a regular expressions. So if I am in a host that starts with **cf9** this will match and set the environment setting equal to **development** and then look for a development method in this CFC and execute it:
+
+```js
+/**
+* Executed whenever the development environment is detected
+*/
+function development(){
+	// Override coldbox directives
+	coldbox.handlerCaching = false;
+	coldbox.eventCaching = false;
+	coldbox.debugPassword = "";
+	coldbox.reinitPassword = "";
+	
+	// Add dev only interceptors
+	arrayAppend( interceptors, {class="coldbox.system.interceptors.Logger} );
+}
+```
+
+
+
+
+
