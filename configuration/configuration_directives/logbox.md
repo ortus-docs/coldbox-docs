@@ -36,6 +36,9 @@ logBox = {
 };
 ```
 
+> **Info** : If you do not define a logBox DSL structure, the framework will look for the default configuration file config/LogBox.cfc. If it does not find it, then it will use the framework's default logging settings. However, if you DO define the structure DSL, please make sure you define the required keys.
+
+
 **ConfigFile**
 
 You can use a configuration CFC instead of inline configuration by using this setting.  The default value is of `config/LogBox.cfc`, so by convention you can just use that location.  If no values are defined or no config file exists the default configuration file is `coldbox/system/web/config/LogBox.cfc`.
