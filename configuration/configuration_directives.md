@@ -26,7 +26,7 @@ Inside of this configuration method you will place several core and third-party 
 | -- | -- |
 | [cachebox](configuration_directives/cachebox.md) | struct | An optional structure used to configure CacheBox. If not setup the framework will use its default configuration found in `/coldbox/system/web/config/CacheBox.cfc`
 | [coldbox](configuration_directives/coldbox.md) | struct | The main coldbox directives structure that holds all the coldbox settings.
-| conventions | struct | A structure where you will configure the application convention names
+| [conventions](configuration_directives/conventions.md) | struct | A structure where you will configure the application convention names
 | [datasources](configuration_directives/datasources.md) | struct | An optional metadata structure for datasource definitions. THEY ARE NOT COLDFUSION REGISTRATIONS
 | environments | struct | A structure where you will configure environment detection patterns
 | flash | struct | A structure where you will configure the [FlashRAM](flash_ram/flash_ram.md)
