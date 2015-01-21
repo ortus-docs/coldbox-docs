@@ -46,6 +46,6 @@
 * [Layouts & Views](views/index.md)
 * Models
 * Routing
-* Modules
 * [Interceptors](interceptors/interceptors.md)
+* Modules
 
