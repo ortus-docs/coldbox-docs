@@ -35,7 +35,7 @@
            * [LayoutSettings](configuration/configuration_directives/layoutsettings.md)
            * [LogBox](configuration/configuration_directives/logbox.md)
            * [Modules](configuration/configuration_directives/modules.md)
-           * Settings
+           * [Settings](configuration/configuration_directives/settings.md)
            * WireBox
        * [Configuration Interceptor](configuration/configuration_interceptor.md)
    * [Bootstrapper](configuration/bootstrapper.md)
