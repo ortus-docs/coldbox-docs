@@ -31,6 +31,19 @@ function development(){
 }
 ```
 
+## Custom Environment Detection
+If you want your own detection algorithm instead of looking at the `cgi.http_host` variable, then fear not. You will NOT fill out an environments structure but actually create a method with the following signature:
+
+```js
+string public detectEnvironment(){
+}
+```
+
+This method will be executed for you at startup and it must return the name of the environment the application is on.  It will then store it and execute the method if it exists.
+
+
+
+
 
 
 
