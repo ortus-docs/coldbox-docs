@@ -42,4 +42,8 @@ boolean function settingExists( required name, boolean fwSetting=false )
 any function setSetting( required name, required value )
 ```
 
-You can also use the injection DSL `coldbox:setting:{key}` to inject settings in your models or anywhere you like.
+## Injecting Settings
+
+You can use the injection DSL `coldbox:setting:{key}` to inject settings in your models or anywhere you like.
+
+
