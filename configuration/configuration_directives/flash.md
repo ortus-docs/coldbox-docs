@@ -22,5 +22,5 @@ flash = {
 
 **scope**
 
-The ColdFusion scope to store the Flash data on or the instantiation path of your custom Flash object.
+The ColdFusion scope to store the Flash data on or the instantiation path of your custom Flash object.  Available core scopes are: session, client, cluster, cache, and mock.
 
