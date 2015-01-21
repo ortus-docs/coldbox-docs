@@ -7,38 +7,32 @@ The logBox structure is based on the LogBox declaration DSL, see the  [LogBox Do
 logBox = {
     // The configuration file to use for operation, instead of using this structure
     configFile = "config/LogBox.cfc",
-	// Define Appenders
+	// Appenders
 	appenders = {
-	    
-	    // Appender structure
-	    name = {
-	        // The instantiation path
-	        class="",
-	        // The properties
-	        properties={}
-	        // The Custom layout to use
-	        layout = ""
-	    }
-	
-		coldboxTracer = { 
-		  class="coldbox.system.logging.appenders.ColdboxTracerAppender",
-		  layout="coldbox.testing.cases.logging.MockLayout", 
-		  properties = {
-		    name = "awesome"
-		  },
-		  rollingFile = {
-		    class="coldbox.system.logging.appenders.AsyncRollingFileAppender",
-			levelMax="WARN",
-			levelMin="FATAL",
+		appenderName = {
+			class="class.to.appender", 
+			layout="class.to.layout",
+			levelMin=0,
+			levelMax=4,
 			properties={
-			  filePath="/#appMapping#/logs",
-			  autoExpand="true",
-			  fileMaxSize="3000",
-			  fileMaxArchives="5"
+				name  = value,
+				prop2 = value 2
 			}
-		  }
-		}
+	},
+	// Root Logger
+	root = {levelMin="FATAL", levelMax="DEBUG", appenders="*"},
+	// Granualr Categories
+	categories = {
+		"coldbox.system" = { levelMin="FATAL", levelMax="INFO", appenders="*"},
+		"model.security" = { levelMax="DEBUG", appenders="console"}
 	}
+	// Implicit categories
+	debug  = ["coldbox.system.interceptors"],
+	info   = ["model.class", "model2.class2"],
+	warn   = ["model.class", "model2.class2"],
+	error  = ["model.class", "model2.class2"],
+	fatal  = ["model.class", "model2.class2"],
+	off    = ["model.class", "model2.class2"]
 };
 ```
 
