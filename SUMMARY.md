@@ -29,7 +29,7 @@
            * [Conventions](configuration/configuration_directives/conventions.md)
            * [Datasources](configuration/configuration_directives/datasources.md)
            * [Environments](configuration/configuration_directives/environments.md)
-           * Flash
+           * [Flash](configuration/configuration_directives/flash.md)
            * InterceptorSettings
        * [Configuration Interceptor](configuration/configuration_interceptor.md)
    * [Bootstrapper](configuration/bootstrapper.md)
