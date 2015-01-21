@@ -9,6 +9,17 @@ logBox = {
     configFile = "config/LogBox.cfc",
 	// Define Appenders
 	appenders = {
+	    
+	    // Appender structure
+	    name = {
+	        // The instantiation path
+	        class="",
+	        // The properties
+	        properties={}
+	        // The Custom layout to use
+	        layout = ""
+	    }
+	
 		coldboxTracer = { 
 		  class="coldbox.system.logging.appenders.ColdboxTracerAppender",
 		  layout="coldbox.testing.cases.logging.MockLayout", 
