@@ -36,7 +36,7 @@ logBox = {
 };
 ```
 
-> **Info** : If you do not define a logBox DSL structure, the framework will look for the default configuration file config/LogBox.cfc. If it does not find it, then it will use the framework's default logging settings. However, if you DO define the structure DSL, please make sure you define the required keys.
+> **Info** : If you do not define a logBox DSL structure, the framework will look for the default configuration file `config/LogBox.cfc`. If it does not find it, then it will use the framework's default logging settings.
 
 
 **ConfigFile**
