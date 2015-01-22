@@ -1,5 +1,7 @@
 # Using Settings
 
+<img src="../images/ControllerWithSettingStructures.jpg" >
+
 You can use the following methods to retrieve/set/validate settings in your handlers/layouts/views and interceptors:
 
 ```js
