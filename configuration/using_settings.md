@@ -60,6 +60,9 @@ You can use the WireBox injection DSL to inject settings in your models or anywh
 component{
 
     property name="mysetting" inject="coldbox:setting:mysetting";
+    property name="path" inject="coldbox:fwSetting:path";
+    property name="config" inject="coldbox:configSettings";
+    property name="settings" inject="coldbox:fwSettings";
 
 }
 
