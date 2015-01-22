@@ -37,6 +37,16 @@ boolean function settingExists( required name, boolean fwSetting=false )
 any function setSetting( required name, required value )
 ```
 
+You can also get access to these methods via the ColdBox Main Controller:
+
+```js
+controller.getSetting()
+controller.setSetting()
+controller.settingExists()
+controller.getConfigSettings()
+controller.getColdBoxSettings()
+```
+
 # Injecting Settings
 
 You can use the WireBox injection DSL to inject settings in your models or anywhere you like. Below are the available DSL notations:
