@@ -22,6 +22,7 @@
 * [Configuration](configuration/configuration.md)
    * [Conventions](configuration/conventions.md)
    * [Directory Structure](configuration/directory_structure.md)
+   * Using Settings
    * [ColdBox.cfc](configuration/coldboxcfc.md)
        * [Configuration Directives](configuration/configuration_directives.md)
            * [CacheBox](configuration/configuration_directives/cachebox.md)
@@ -40,7 +41,6 @@
            * [WireBox](configuration/configuration_directives/wirebox.md)
        * [Configuration Interceptor](configuration/configuration_interceptor.md)
    * [Bootstrapper](configuration/bootstrapper.md)
-   * Using Settings
 * Event Handlers
 * [Flash RAM](flash_ram/flash_ram.md)
 * Request Context
