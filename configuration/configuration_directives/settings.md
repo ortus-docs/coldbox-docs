@@ -12,7 +12,7 @@ settings = {
 };
 ```
 
-You can read our **Using Settings** section to discover how to use all the settings in your application.
+You can read our [Using Settings](../using_settings.md) section to discover how to use all the settings in your application.
 
 
 
