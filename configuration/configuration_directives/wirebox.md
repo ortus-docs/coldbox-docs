@@ -12,7 +12,7 @@ wirebox = {
 
 **binder**
 
-The location of the WireBox configuration binder to use for the application. If empty, we will use the binder in the config folder called by conventions: WireBox.cfc
+The location of the WireBox configuration binder to use for the application. If empty, we will use the binder in the `config` folder called by conventions: `WireBox.cfc`
 
 **singletonReload**
 
