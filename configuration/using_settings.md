@@ -39,7 +39,11 @@ any function setSetting( required name, required value )
 
 # Injecting Settings
 
-You can use the injection DSL `coldbox:setting:{key}` to inject settings in your models or anywhere you like.
+You can use the WireBox injection DSL to inject settings in your models or anywhere you like. Below are the available DSL notations:
+
+* `coldbox:setting:{key}` : Inject a specified config setting key
+* `coldbox:configSettings` : Inject a reference to the Config Settings
+* `coldbox:fwSettings` : Inject a reference to the ColdBox Settings
 
 ```js
 component{
