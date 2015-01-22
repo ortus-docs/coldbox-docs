@@ -41,3 +41,15 @@ any function setSetting( required name, required value )
 
 You can use the injection DSL `coldbox:setting:{key}` to inject settings in your models or anywhere you like.
 
+```js
+component{
+
+    property name="mysetting" inject="coldbox:setting:mysetting";
+
+}
+
+
+```
+
+
+
