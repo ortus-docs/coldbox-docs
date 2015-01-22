@@ -39,7 +39,7 @@
            * [Settings](configuration/configuration_directives/settings.md)
            * [WireBox](configuration/configuration_directives/wirebox.md)
        * [Configuration Interceptor](configuration/configuration_interceptor.md)
-   * Using Settings
+   * [Using Settings](configuration/using_settings.md)
    * [Bootstrapper](configuration/bootstrapper.md)
 * Event Handlers
 * [Flash RAM](flash_ram/flash_ram.md)
