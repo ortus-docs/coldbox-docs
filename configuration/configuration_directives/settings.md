@@ -12,6 +12,7 @@ settings = {
 };
 ```
 
+You can read our **Using Settings** section to discover how to use all the settings in your application.
 
 
 
