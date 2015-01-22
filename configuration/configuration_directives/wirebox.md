@@ -14,3 +14,5 @@ wirebox = {
 
 A great flag for development. If enabled, on every request WireBox will flush its singleton objects so you can develop without any headaches of reloading.
 
+> **Warning** : This operation can cause some thread issues as it is only meant for development.
+
