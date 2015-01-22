@@ -65,9 +65,9 @@ component{
     property name="settings" inject="coldbox:fwSettings";
 
 }
-
-
 ```
+
+> **Info** : This approach is the one you will use to inject settings in your models.
 
 
 
