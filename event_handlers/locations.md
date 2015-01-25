@@ -12,3 +12,14 @@ coldbox.handlersExternalLocation  = "shared.myapp.handlers";
 ```
 
 > **Note**: If an external event handler has the same name as an internal conventions event, the internal conventions event will take precedence.
+
+##Handler Registration
+
+At application startup, the framework registers all the valid event handler CFCs in these locations (plus handlers inside of modules). So for development it makes sense to activate the following setting in your [Configuration CFC](configuration/configuration_directives/coldbox.md):
+
+```js
+// Reload handlers on each request
+coldbox.handlersIndexAutoReload = true;
+// Deactivate singleton caching of the handlers
+coldbox.handlerCaching = false;
+```
