@@ -41,7 +41,8 @@
        * [Configuration Interceptor](configuration/configuration_interceptor.md)
    * [Using Settings](configuration/using_settings.md)
    * [Bootstrapper](configuration/bootstrapper.md)
-* Event Handlers
+* [Event Handlers](event_handlers/index.md)
+   * [Locations](event_handlers/locations.md)
 * [Flash RAM](flash_ram/flash_ram.md)
 * Request Context
 * [Layouts & Views](views/index.md)
