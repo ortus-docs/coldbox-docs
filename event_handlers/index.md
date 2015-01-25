@@ -35,6 +35,17 @@ Events are determined via a special variable that can be sent in via the FORM or
 
 > **Hint** : You can even change the `event` variable name by updating the `EventName` setting in your `coldbox` configuration directive.
 
+Ok, so now that we know how we can determine what event to execute, how do we write the events since they are used by convention?
+
+### Event Syntax
+So in order to call them you will use the following event syntax notation format:
+
+* no event : Default event by convention is `main.index`
+* event={handler} : Default action method by convention is `index()`
+* event={handler}.{method} : Explicit handler + action method
+* event={package}.{handler}.{method} : Packaged notation
+* event={module}:{package}.{handler}.{method} : Module Notation (See [ColdBox Modules](../modules/index.md))
+
 
 
 
