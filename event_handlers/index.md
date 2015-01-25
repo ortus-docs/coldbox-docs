@@ -40,11 +40,17 @@ Ok, so now that we know how we can determine what event to execute, how do we wr
 ### Event Syntax
 So in order to call them you will use the following event syntax notation format:
 
+```js
+event={module:}{package.}{handler}{.action}
+```
+
 * no event : Default event by convention is `main.index`
 * event={handler} : Default action method by convention is `index()`
 * event={handler}.{method} : Explicit handler + action method
 * event={package}.{handler}.{method} : Packaged notation
 * event={module}:{package}.{handler}.{method} : Module Notation (See [ColdBox Modules](../modules/index.md))
+
+This looks very similar to a java or CFC method call, example: String.getLength(), but without the parenthesis. Once the event variable is set and detected by the framework, the framework will tokenize the event string to retrieve the CFC and action call and validate it against the internal registry of registered events. It then continues to instantiate the event handler CFC or retrieve it from cache, and then finally executes the event handler's action method.
 
 
 
