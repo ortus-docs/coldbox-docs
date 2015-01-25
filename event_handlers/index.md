@@ -24,7 +24,7 @@ component{
 }
 ```
 ### Default Action: index()
-The default action of ANY handlers is the method `index()`.  
+The default action of ANY handlers is the method `index()`.  So if you try to execute an event handler without defining the action, ColdBox will look for the method `index()` to execute for you.
 
 > **Danger** : Event Handler's are not to be used to write business logic.  They should be light and fluffy!
 
