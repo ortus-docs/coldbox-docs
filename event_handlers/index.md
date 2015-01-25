@@ -24,4 +24,5 @@ component{
 }
 ```
 
+> **Danger** : Event Handler's are not to be used to write business logic.  They should be light and fluffy!
 
