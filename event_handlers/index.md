@@ -4,6 +4,7 @@ Event handlers are our **controllers** in the MVC design pattern. So every time 
 
 <img src="../images/ControllerLayer.jpg">
 
+## CFCs
 Event handlers are implemented as CFCs that are responsible for handling requests coming into the application from either a FORM/URL/REST or Remote sources (Flex/Air/SOAP). These event handlers carry the task of controlling your application flow, calling business logic, preparing a display to a user and pretty much controlling flow. 
 
 ```js
