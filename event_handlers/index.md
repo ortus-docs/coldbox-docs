@@ -31,7 +31,7 @@ The default action of ANY handlers is the method `index()`.  So if you try to ex
 
 
 ## How are events called?
-Events are determined via a special variable that can be sent in via the FORM or URL or REMOTELY called `event`.  If no event is detected as an incoming variable, the framework will look in the configuration directives for the `DefaultEvent` and use that instead. If you did not set a `DefaultEvent` setting then the framework will use the following [convention](../configuration/conventions.md) for you:
+Events are determined via a special variable that can be sent in via the FORM or URL or REMOTELY called `event`.  If no event is detected as an incoming variable, the framework will look in the configuration directives for the `DefaultEvent` and use that instead. If you did not set a `DefaultEvent` setting then the framework will use the following [convention](../configuration/conventions.md) for you: `main.index`
 
 > **Hint** : You can even change the `event` variable name by updating the `EventName` setting in your `coldbox` configuration directive.
 
