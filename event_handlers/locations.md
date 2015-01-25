@@ -6,5 +6,9 @@ All your handlers will go in the **handlers** folder of your application templat
 
 ## Event Handlers External Location
 You can also declare a `HandlersExternalLocation` setting in your [Configuration CFC](configuration/configuration_directives/coldbox.md). This will be a dot notation path or instantiation path where more external event handlers can be found (You can use coldfusion mappings).
+
+```js
 coldbox.handlersExternalLocation  = "shared.myapp.handlers";
-Note: If an external event handler has the same name as an internal conventions event, the internal conventions event will take precedence.
+```
+
+> **Note**: If an external event handler has the same name as an internal conventions event, the internal conventions event will take precedence.
