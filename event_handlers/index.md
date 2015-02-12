@@ -14,6 +14,8 @@ Please note that these controllers are treated as **singletons** by ColdBox by d
 
 ```js
 component extends="coldbox.system.EventHandler"{
+
+    function index( event, rc, prc ){}
 }
 ```
 
