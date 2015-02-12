@@ -17,3 +17,22 @@ This event has an extra argument: **missingAction** which is the missing action 
 ## onError()
 
 This is a localized error handler for your event handler. If any type of runtime error occurs in an event handler and this method exists, then the framework will call your method so you can process the error first. If the method does not exist, then normal error procedures ensue.
+
+```js
+// On Error
+function onError(event,faultAction,exception,eventArguments){
+	// prepare a data packet
+	var data = {
+		error = true,
+		messages = exception.message & exception.detail,
+		data = ""
+	}
+
+	// log via the log variable already prepared by ColdBox
+	log.error("Exception when executing #arguments.faultAction# #data.messages#", exception);	
+
+	// render out a json packet according to specs status codes and messages
+	event.renderData(data=data,type="json",statusCode=500,statusMessage="Error ocurred");
+
+}
+```
