@@ -43,7 +43,25 @@ event.setView( view='myView', cache=true, cacheTimeout=60, cacheLastAccessTimeou
 event.setView( view='myView', cache=true, cacheSuffix=prc.language );
 ```
 
+## View Arguments
+Data can be passed from your handler to the view via the **rc** or **prc**. If you want to pass data to a view without polluting **rc** and **prc**, you can pass it directly via the **args** parameter.
 
+```js
+var viewData = {
+  data1 = service.getData1(),
+  data2 = service.getData2()
+};
+
+event.setView( view='myView', args=viewData );
+```
+Access the data in the view like so:
+
+```html
+<cfoutput>
+  Data 1: #args.data1#<br>
+  Data 2: #args.data2#
+</cfoutput>
+```
 
 
 
