@@ -7,7 +7,7 @@ Event handlers are our **controllers** in the MVC design pattern. So every time 
 ## CFCs
 Event handlers are implemented as CFCs that are responsible for handling requests coming into the application from either a FORM/URL/REST or Remote sources (Flex/Air/SOAP). These event handlers carry the task of controlling your application flow, calling business logic, preparing a display to a user and pretty much controlling flow.  
 
-Please note that these controllers are treated as singletons by ColdBox by default.  So make sure you make them thread-safe and var scoped.
+Please note that these controllers are treated as **singletons** by ColdBox by default.  So make sure you make them thread-safe and var scoped.
 
 > **Info** Persistence is controller by the <code>coldbox.handlerCaching</code> directive
 
