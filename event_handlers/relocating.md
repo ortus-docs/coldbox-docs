@@ -21,3 +21,12 @@ void function setNextEvent
 ```
 
 It is **extremely** important that you use this method when relocating instead of the native ColdFusion methods as it allows you to gracefully relocate to other events or external URIs. By graceful, we mean it does a lot more behind the scenes like making sure the flash scope is persisted, logging, post processing interceptions can occurr and safe relocations. So always remember that you relocate via <code>setNextEvent</code> and if I asked you: "Where in the world does event handlers get this method from?", you need to answer: "From the super typed inheritance".
+
+```
+setNextEvent( "home" );
+setNextEvent( event="shop", ssl=true );
+setNextEvent( event="user.view", queryString="id=#rc.id#" );
+setNextEvent( url="http://www.google.com" );
+setNextEvent( uri="/docs/index.html" )
+
+```
