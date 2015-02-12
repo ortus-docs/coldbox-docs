@@ -34,18 +34,18 @@ if( event.valueExists( "name" ) ){
 
 }
 //check if private value exists
-if( event.valueExists( "name" ) ){
+if( event.privateValueExists( "name" ) ){
 
 }
 
 // set a view for rendering
-event.setView('blog/index');
+event.setView( 'blog/index' );
 
 // set a layout for rendering
-event.setLayout('main');
+event.setLayout( 'main' );
 
 // set a view and layout
-event.setView(view="blog/userinfo",layout="ajax");
+event.setView( view="blog/userinfo", layout="ajax" );
 
 ```
 
