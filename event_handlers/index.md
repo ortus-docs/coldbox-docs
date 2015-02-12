@@ -94,6 +94,8 @@ Each method action that you write receives some arguments:
 
 The request context object has tons of methods to help you in setting and getting variables from one layer to another, to getting request metadata, rendering RESTful content, setting HTTP headers and more. It is your information super highway for specific requests. Remember that the API Docs are your best friend!
 
+> **Note** The rc and prc references each method receives are sent for convenience so you can interact with the structures instead of through the event object's methods. Interacting with structures over methods is much more performant.
+
 
 
 
