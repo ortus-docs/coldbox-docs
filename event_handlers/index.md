@@ -27,10 +27,12 @@ Event handler controllers do not require a constructor as the base class already
 **Non-inheritance**
 ```js
 component{
+
 	function init(){
 		// my stuf here
 		return this;
 	}
+	
 }
 ```
 
@@ -38,12 +40,14 @@ component{
 
 ```js
 component extends="coldbox.system.EventHandler"{
-	function init(controller){
+
+	function init( required controller ){
 		// init super
-		super.init(arguments.controller);
+		super.init( arguments.controller );
 		// my stuf here
 		return this;
 	}
+	
 }
 ```
 
