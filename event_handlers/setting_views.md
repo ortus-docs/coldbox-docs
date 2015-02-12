@@ -12,7 +12,7 @@ The view name is the name of the template in the **views** directory without app
 event.setView( 'mydirectory/myView' );
 ```
 
-We recommend that you set your views following the naming convention of your event.  So if your event is **users.index**, your view should be **users/index.cfm**.  This will go a long way with maintainability and consistency.
+We recommend that you set your views following the naming convention of your event.  So if your event is **users.index**, your view should be **users/index.cfm**.  This will go a long way with maintainability and consistency and also will activate **implicit views** where you don't event have to use the set view method call.
 
 ## Arguments
 Here are the arguments for the <code>setView()</code> method:
