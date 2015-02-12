@@ -36,3 +36,14 @@ function onError( event, rc, prc, faultAction, exception, eventArguments ){
 
 }
 ```
+
+
+## onInvalidHTTPMethod()
+
+This method will be called for you if a request is trying to execute an action in your handler without the right HTTP Verb. It will be then your job to determine what to do next:
+
+```js
+function onInvalidHTTPMethod( faultAction, event, rc, prc ){
+    return "Yep, onInvalidHTTPMethod works!";
+}
+```
