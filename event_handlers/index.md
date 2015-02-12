@@ -79,6 +79,12 @@ The default action of ANY handlers is the method `index()`.  So if you try to ex
 
 ### Action Arguments
 
+```js
+function myAction( event, rc, prc ){
+	return "Hi from controller land!";
+}
+```
+
 Each method action that you write receives some arguments:
 
 * **event** : The request context object reference (<code>coldbox.system.web.context.RequestContext</code>)
