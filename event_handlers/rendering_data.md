@@ -35,3 +35,30 @@ function list( event, rc, prc ){
 	event.setView( "users/list" );
 }
 ```
+
+## event.renderData()
+
+Using the <code>renderdata()</code> method of the event object is the most flexible for RESTFul web services or pure data marshalling.
+
+```js
+// xml marshalling
+function getUsersXML(event,rc,prc){
+	var qUsers = getUserService().getUsers();
+	event.renderData(type="XML",data=qUsers);
+}
+//json marshalling
+function getUsersJSON(event,rc,prc){
+	var qUsers = getUserService().getUsers();
+	event.renderData(type="json",data=qUsers);
+}
+
+// restful handler
+function list(event,rc,prc){
+	rc.data = userService.list();
+    event.renderData( data=rc.data, formats="json,jsont,xml,html,pdf" );
+}
+```
+
+
+
+
