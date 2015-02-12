@@ -43,6 +43,7 @@
    * [Bootstrapper](configuration/bootstrapper.md)
 * [Event Handlers](event_handlers/index.md)
    * [Locations](event_handlers/locations.md)
+   * Composed Properties
 * [Flash RAM](flash_ram/flash_ram.md)
 * Request Context
 * [Layouts & Views](views/index.md)
