@@ -92,9 +92,7 @@ Each method action that you write receives some arguments:
 * **prc** : A reference to the private request collection inside of the request context object
 
 
-
-
-> **Info** The request context object has tons of methods to help you in setting and getting variables from one layer to another, to getting request metadata, rendering RESTful content, setting HTTP headers and more. It is your information super highway for specific requests. Remember that the API Docs are your best friend!
+The request context object has tons of methods to help you in setting and getting variables from one layer to another, to getting request metadata, rendering RESTful content, setting HTTP headers and more. It is your information super highway for specific requests. Remember that the API Docs are your best friend!
 
 
 
