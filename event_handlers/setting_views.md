@@ -41,7 +41,6 @@ event.setView( view='myView', cache=true );
 event.setView( view='myView', cache=true, cacheTimeout=60, cacheLastAccessTimeout=20 );
 // Cache a different version of the view for each language the site has
 event.setView( view='myView', cache=true, cacheSuffix=prc.language );
-
 ```
 
 
