@@ -54,7 +54,7 @@ component extends="coldbox.system.EventHandler"{
 ```
 
 ## Method Actions
-Every method in this event handler controller that has an access of `public` is automatically exposed as a runnable event in ColdBox and it will be auto-registered for you. That means there is no extra configuration or XML logic to define them. By convention they become alive once you create them and clients can request them. In ColdBox terms, each of these event handler methods are referred to as **actions**. As you can see from the diagram, ColdBox captures an incoming variable called `event` and uses it to execute the correct event handler CFC and action method.
+Every method in this event handler controller that has an access of `public` is automatically exposed as a runnable event in ColdBox and it will be auto-registered for you. That means there is no extra configuration or XML logic to define them. By convention they become alive once you create them and clients can request them. In ColdBox terms, each of these event handler methods are referred to as **actions**. ColdBox captures an incoming variable (URL/FORM/REMOTE) called `event` and uses it to execute the correct event handler CFC and action method.
 
 ```js
 component{
