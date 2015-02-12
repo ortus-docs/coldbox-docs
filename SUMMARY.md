@@ -52,11 +52,11 @@
    * Model Integration
        * Model Data Binding
        * Advanced Data Binding
-       * Validation
    * Handler Interception Methods
    * [Convention Methods](event_handlers/convention_methods.md)
    * [Rendering Data](event_handlers/rendering_data.md)
    * HTTP Security
+   * Validation
    * Event Caching
 * [Flash RAM](flash_ram/flash_ram.md)
 * Request Context
