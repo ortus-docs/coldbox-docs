@@ -18,14 +18,14 @@ We recommend that you set your views following the naming convention of your eve
 Here are the arguments for the <code>setView()</code> method:
 
 ```js
-* @view.hint The name of the view to set. If a layout has been defined it will assign it, else if will assign the default layout. No extension please
-* @args.hint An optional set of arguments that will be available when the view is rendered
-* @layout.hint You can override the rendering layout of this setView() call if you want to. Else it defaults to implicit resolution or another override.
-* @module.hint The explicit module view
-* @noLayout.hint Boolean flag, wether the view sent in will be using a layout or not. Default is false. Uses a pre set layout or the default layout.
-* @cache.hint True if you want to cache the rendered view.
-* @cacheTimeout.hint The cache timeout in minutes
-* @cacheLastAccessTimeout.hint The last access timeout in minutes
-* @cacheSuffix.hint Add a cache suffix to the view cache entry. Great for multi-domain caching or i18n caching.
-* @cacheProvider.hint The cache provider you want to use for storing the rendered view. By default we use the 'template' cache provider
+* @view The name of the view to set. If a layout has been defined it will assign it, else if will assign the default layout. No extension please
+* @args An optional set of arguments that will be available when the view is rendered
+* @layout You can override the rendering layout of this setView() call if you want to. Else it defaults to implicit resolution or another override.
+* @module The explicit module view
+* @noLayout Boolean flag, wether the view sent in will be using a layout or not. Default is false. Uses a pre set layout or the default layout.
+* @cache True if you want to cache the rendered view.
+* @cacheTimeout The cache timeout in minutes
+* @cacheLastAccessTimeout The last access timeout in minutes
+* @cacheSuffix Add a cache suffix to the view cache entry. Great for multi-domain caching or i18n caching.
+* @cacheProvider The cache provider you want to use for storing the rendered view. By default we use the 'template' cache provider
 ```
