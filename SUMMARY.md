@@ -48,6 +48,7 @@
    * [Get/Set Request Values](event_handlers/getset_request_values.md)
    * Setting Views
    * Relocating
+   * Rendering Data
 * [Flash RAM](flash_ram/flash_ram.md)
 * Request Context
 * [Layouts & Views](views/index.md)
