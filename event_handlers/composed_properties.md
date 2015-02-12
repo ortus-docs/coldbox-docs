@@ -6,6 +6,7 @@ It is imperative that you realize that there is a great object model behind ever
 
 * **cachebox** : A reference to the CacheBox library (<code>coldbox.system.cache.CacheFactory</code>)
 * **controller** : A reference to the Application Controller (<code>coldbox.system.web.Controller</code>)
+* **flash** : A reference to the Application's Flash implementation. (<code>coldbox.system.web.flash.AbstractFlashScope</code>)
 * **LogBox** : A reference to the application LogBox (<code>coldbox.system.logging.LogBox</code>)
 * **Log** : A pre-configured logging logger object (<code>coldbox.system.logging.Logger</code>)
 * **wirebox** : A reference to the application WireBox Injector (<code>coldbox.system.ioc.Injector</code>)
