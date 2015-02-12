@@ -56,8 +56,8 @@
    * [Convention Methods](event_handlers/convention_methods.md)
    * [Rendering Data](event_handlers/rendering_data.md)
    * HTTP Security
-   * Validation
    * Event Caching
+   * Validation
 * [Flash RAM](flash_ram/flash_ram.md)
 * Request Context
 * [Layouts & Views](views/index.md)
