@@ -34,6 +34,18 @@ Here are the arguments for the <code>setView()</code> method:
 ## Cached Views
 You can leverage the caching arguments in the <code>setView()</code> method in order to render and cache the output of the views once the framework renders it.  These cached views will be stored in the **template** cache region, which you can retrieve or purge by talking to it: <code>getCache( 'template' )</code>.
 
+```js
+// Cache in the template cache for the default amount of time
+event.setView( view='myView', cache=true );
+// Cache in the template cache for up to 60 minutes, or 20 minutes after the last time it's been used
+event.setView( view='myView', cache=true, cacheTimeout=60, cacheLastAccessTimeout=20 );
+// Cache a different version of the view for each language the site has
+event.setView( view='myView', cache=true, cacheSuffix=prc.language );
+
+```
+
+
+
 
 
 
