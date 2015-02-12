@@ -77,6 +77,16 @@ The default action of ANY handlers is the method `index()`.  So if you try to ex
 > **Danger** : Event Handler's are not to be used to write business logic.  They should be light and fluffy!
 
 
+### Action Arguments
+
+Each method action that you write receives some arguments:
+
+* **event** : The request context object reference (<code>coldbox.system.web.context.RequestContext</code>)
+* **rc** : A reference to the request collection inside of the request context object
+* **prc** : A reference to the private request collection inside of the request context object
+
+
+
 
 
 
