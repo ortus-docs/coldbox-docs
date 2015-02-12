@@ -4,6 +4,7 @@ Events are determined via a special variable that can be sent in via the FORM or
 
 > **Hint** : You can even change the `event` variable name by updating the `EventName` setting in your `coldbox` configuration directive.
 
+Please note that ColdBox supports both normal variable routing and URL mapping routing, usually referred to as pretty URLs.
 
 ## Event Syntax
 So in order to call them you will use the following event syntax notation format:
