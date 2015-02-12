@@ -49,7 +49,7 @@
 * Request Context
 * [Layouts & Views](views/index.md)
 * Models
-* Routing
+* [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 
