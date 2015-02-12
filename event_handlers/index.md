@@ -24,6 +24,10 @@ component{
 	}
 }
 ```
+
+So what about <code>private</code> functions?  You can still use them in your application as local helpers to a handler object or can be called across handlers via a nice function called <code>runEvent()</code> that we will explore later.
+
+
 ### Default Action: index()
 The default action of ANY handlers is the method `index()`.  So if you try to execute an event handler without defining the action, ColdBox will look for the method `index()` to execute for you.
 
