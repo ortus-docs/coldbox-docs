@@ -61,6 +61,10 @@ component{
 	function index( event, rc, prc ){
 		return "Hi from controller land!";
 	}
+	
+	private function myData( event, rc, prc ){
+	
+	}
 }
 ```
 
