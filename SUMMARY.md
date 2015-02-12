@@ -50,6 +50,7 @@
    * [Setting Views](event_handlers/setting_views.md)
    * [Relocating](event_handlers/relocating.md)
    * Model Integration
+       * Model Data Binding
    * Handler Interception Methods
    * [Convention Methods](event_handlers/convention_methods.md)
    * [Rendering Data](event_handlers/rendering_data.md)
