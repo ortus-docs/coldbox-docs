@@ -10,4 +10,19 @@ Every event handler controller can render data back to its caller in several for
 * PDF
 * Custom
 
+## Handler Return Data
+Handlers can return simple strings or complex objects. If they return simple strings then the strings will be rendered out to the user:
 
+
+
+
+```js
+function index(event,rc,prc){
+	return "<h1>Hello from my handler today at :#now()#</h1>";
+}
+
+function jsondata( event, rc, prc ){
+    var mydata = myservice.getData();
+    return serializeJSON( mydata );
+}
+```
