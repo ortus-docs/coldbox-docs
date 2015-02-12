@@ -25,3 +25,13 @@ function jsondata( event, rc, prc ){
 ```
 
 Complex objects in normal MVC mode will not be rendered out.  They only make sense when you are calling the action via a <code>runEvent()</code> call or from a ColdBox Proxy.
+
+```js
+function list( event, rc, prc ){
+	prc.users = userService.list();
+	if( event.isProxyRequest() ){
+		return prc.users;
+	}
+	event.setView( "users/list" );
+}
+```
