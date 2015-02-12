@@ -36,6 +36,8 @@ component{
 }
 ```
 
+> **Info** You have access to a <code>$super</code> object in this approach.
+
 **Inheritance**
 
 ```js
