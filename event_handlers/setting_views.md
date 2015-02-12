@@ -63,6 +63,12 @@ Access the data in the view like so:
 </cfoutput>
 ```
 
+## No Rendering
+Well, if you don't want to, then you don't have to. The framework gives you a method in the event object that you can use if maybe this specific request should just terminate gracefully and not render anything at all. All you need to do is use the event object to call on the <code>noRender()</code> method.
+
+```
+event.noRender();
+```
 
 
 
