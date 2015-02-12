@@ -6,22 +6,35 @@ We all need values in our applications, and that is why we will interact with th
 
 ```js
 //set a value for views to use
-event.setValue("name", "Luis");
+event.setValue( "name", "Luis" );
+event.setPrivateValue( "name", "Luis" );
 
 // retrieve a value the user sent
-event.getValue("name");
-
+event.getValue( "name" );
 // retrieve a value the user sent or give me a default value
-event.getValue("isChecked",false);
+event.getValue( "isChecked", false );
 
-//param a value
-event.paramValue("user_id","");
+// retrieve a private value
+event.getPrivateValue( "name" );
+// retrieve a private value or give me a default value
+event.getPrivateValue( "isChecked", false );
 
-//remove a value
-event.removeValue("name");
+// param a value
+event.paramValue( "user_id", "" );
+// param a private value
+event.paramPrivateValue( "user_id", "" );
+
+// remove a value
+event.removeValue( "name" );
+// remove a private value
+event.removePrivateValue( "name" );
 
 //check if value exists
-if( event.valueExists("name") ){
+if( event.valueExists( "name" ) ){
+
+}
+//check if private value exists
+if( event.valueExists( "name" ) ){
 
 }
 
