@@ -32,7 +32,9 @@ Here are the arguments for the <code>setView()</code> method:
 
 
 ## Cached Views
-You can leverage the caching arguments in the <code>setView()</code> method in order to render and cache the output of the views once the framework renders it.
+You can leverage the caching arguments in the <code>setView()</code> method in order to render and cache the output of the views once the framework renders it.  These cached views will be stored in the **template** cache region, which you can retrieve or purge by talking to it: <code>getCache( 'template' )</code>.
+
+
 
 
 
