@@ -44,6 +44,7 @@
 * [Event Handlers](event_handlers/index.md)
    * [Locations](event_handlers/locations.md)
    * [Composed Properties](event_handlers/composed_properties.md)
+   * How are events called?
 * [Flash RAM](flash_ram/flash_ram.md)
 * Request Context
 * [Layouts & Views](views/index.md)
