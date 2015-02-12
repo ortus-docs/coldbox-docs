@@ -20,7 +20,7 @@ This is a localized error handler for your event handler. If any type of runtime
 
 ```js
 // On Error
-function onError(event,faultAction,exception,eventArguments){
+function onError( event, rc, prc, faultAction, exception, eventArguments ){
 	// prepare a data packet
 	var data = {
 		error = true,
