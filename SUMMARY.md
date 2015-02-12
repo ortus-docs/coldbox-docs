@@ -52,6 +52,7 @@
    * Model Integration
        * Model Data Binding
        * Advanced Data Binding
+       * Validation
    * Handler Interception Methods
    * [Convention Methods](event_handlers/convention_methods.md)
    * [Rendering Data](event_handlers/rendering_data.md)
