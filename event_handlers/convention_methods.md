@@ -14,4 +14,4 @@ function onMissingAction( event, rc, prc, missingAction, eventArguments ){
 
 This event has an extra argument: **missingAction** which is the missing action that was requested. You can then do any kind of logic against this missing action and decide to do internal processing, error handling or anything you like. The power of this convention method is extraordinary, you have tons of possibilities as you can create virtual events on specific event handlers.
 
-##onError()
+## onError()
