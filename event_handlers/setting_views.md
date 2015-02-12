@@ -29,3 +29,12 @@ Here are the arguments for the <code>setView()</code> method:
 * @cacheSuffix Add a cache suffix to the view cache entry. Great for multi-domain caching or i18n caching.
 * @cacheProvider The cache provider you want to use for storing the rendered view. By default we use the 'template' cache provider
 ```
+
+
+## Cached Views
+You can leverage the caching arguments in the <code>setView()</code> method in order to render and cache the output of the views once the framework renders it.
+
+
+
+
+
