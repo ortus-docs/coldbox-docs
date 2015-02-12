@@ -43,11 +43,26 @@
    * [Bootstrapper](configuration/bootstrapper.md)
 * [Event Handlers](event_handlers/index.md)
    * [Locations](event_handlers/locations.md)
+   * [Composed Properties](event_handlers/composed_properties.md)
+   * [How are events called?](event_handlers/how_are_events_called.md)
+   * Executing Events
+   * [Get/Set Request Values](event_handlers/getset_request_values.md)
+   * [Setting Views](event_handlers/setting_views.md)
+   * [Relocating](event_handlers/relocating.md)
+   * Model Integration
+       * Model Data Binding
+       * Advanced Data Binding
+   * Handler Interception Methods
+   * [Convention Methods](event_handlers/convention_methods.md)
+   * [Rendering Data](event_handlers/rendering_data.md)
+   * HTTP Security
+   * Event Caching
+   * Validation
 * [Flash RAM](flash_ram/flash_ram.md)
 * Request Context
 * [Layouts & Views](views/index.md)
 * Models
-* Routing
+* [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 

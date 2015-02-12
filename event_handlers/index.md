@@ -5,52 +5,98 @@ Event handlers are our **controllers** in the MVC design pattern. So every time 
 <img src="../images/ControllerLayer.jpg">
 
 ## CFCs
-Event handlers are implemented as CFCs that are responsible for handling requests coming into the application from either a FORM/URL/REST or Remote sources (Flex/Air/SOAP). These event handlers carry the task of controlling your application flow, calling business logic, preparing a display to a user and pretty much controlling flow. 
+Event handlers are implemented as CFCs that are responsible for handling requests coming into the application from either a FORM/URL/REST or Remote sources (Flex/Air/SOAP). These event handlers carry the task of controlling your application flow, calling business logic, preparing a display to a user and pretty much controlling flow.  
+
+Please note that these controllers are treated as **singletons** by ColdBox by default.  So make sure you make them thread-safe and var scoped.
+
+> **Info** Persistence is controller by the <code>coldbox.handlerCaching</code> directive
+
 
 ```js
 component extends="coldbox.system.EventHandler"{
+
+    function index( event, rc, prc ){}
 }
 ```
 
-> **Info** : You can also remove the inheritance from the CFC.  However, we highly encourage it as it will give you a faster startup and IDE introspection.
+> **Info** You can also remove the inheritance from the CFC.  However, we highly encourage it as it will give you a faster startup and IDE introspection.
 
-## Method Actions
-Every method in this event handler CFC that has an access of `public` is automatically exposed as a runnable event in ColdBox and it will be auto-registered for you. That means there is no extra configuration or XML logic to define them. By convention they become alive once you create them and clients can request them. In ColdBox terms, each of these event handler methods are referred to as **actions**. As you can see from the diagram, ColdBox captures an incoming variable called `event` and uses it to execute the correct event handler CFC and action method.
+## Constructors
+Event handler controllers do not require a constructor as the base class already provides one.  However, if you want one, you can still create one:
+
+**Non-inheritance**
+```js
+component{
+
+	function init(){
+		// my stuf here
+		return this;
+	}
+	
+}
+```
+
+> **Info** You have access to a <code>$super</code> object in this approach.
+
+**Inheritance**
+
+```js
+component extends="coldbox.system.EventHandler"{
+
+	function init( required controller ){
+		// init super
+		super.init( arguments.controller );
+		// my stuf here
+		return this;
+	}
+	
+}
+```
+
+## Controller Actions
+Every method in this event handler controller that has an access of `public` is automatically exposed as a runnable event in ColdBox and it will be auto-registered for you. That means there is no extra configuration or XML logic to define them. By convention they become alive once you create them and clients can request them. In ColdBox terms, each of these event handler methods are referred to as **actions**. ColdBox captures an incoming variable (URL/FORM/REMOTE) called `event` and uses it to execute the correct event handler  and action method.
 
 ```js
 component{
 	function index( event, rc, prc ){
 		return "Hi from controller land!";
 	}
+	
+	private function myData( event, rc, prc ){
+	
+	}
 }
 ```
+
+So what about <code>private</code> functions?  You can still use them in your application as local helpers to a handler object or can be called across handlers via a nice function called <code>runEvent()</code> that we will explore later.
+
+
 ### Default Action: index()
 The default action of ANY handlers is the method `index()`.  So if you try to execute an event handler without defining the action, ColdBox will look for the method `index()` to execute for you.
 
 > **Danger** : Event Handler's are not to be used to write business logic.  They should be light and fluffy!
 
 
-## How are events called?
-Events are determined via a special variable that can be sent in via the FORM or URL or REMOTELY called `event`.  If no event is detected as an incoming variable, the framework will look in the configuration directives for the `DefaultEvent` and use that instead. If you did not set a `DefaultEvent` setting then the framework will use the following [convention](../configuration/conventions.md) for you: `main.index`
-
-> **Hint** : You can even change the `event` variable name by updating the `EventName` setting in your `coldbox` configuration directive.
-
-Ok, so now that we know how we can determine what event to execute, how do we write the events since they are used by convention?
-
-### Event Syntax
-So in order to call them you will use the following event syntax notation format:
+### Action Arguments
 
 ```js
-event={module:}{package.}{handler}{.action}
+function myAction( event, rc, prc ){
+	return "Hi from controller land!";
+}
 ```
 
-* **no event** : Default event by convention is `main.index`
-* **event={handler}** : Default action method by convention is `index()`
-* **event={handler}.{action}** : Explicit handler + action method
-* **event={package}.{handler}.{action}** : Packaged notation
-* **event={module}:{package}.{handler}.{action}** : Module Notation (See [ColdBox Modules](../modules/index.md))
+Each method action that you write receives some arguments:
 
-This looks very similar to a java or CFC method call, example: String.getLength(), but without the parenthesis. Once the event variable is set and detected by the framework, the framework will tokenize the event string to retrieve the CFC and action call and validate it against the internal registry of registered events. It then continues to instantiate the event handler CFC or retrieve it from cache, and then finally executes the event handler's action method.
+* **event** : The request context object reference (<code>coldbox.system.web.context.RequestContext</code>)
+* **rc** : A reference to the request collection inside of the request context object
+* **prc** : A reference to the private request collection inside of the request context object
+
+
+The request context object has tons of methods to help you in setting and getting variables from one layer to another, to getting request metadata, rendering RESTful content, setting HTTP headers and more. It is your information super highway for specific requests. Remember that the API Docs are your best friend!
+
+> **Note** The **rc** and **prc** references each method receives are sent for convenience so you can interact with the structures instead of through the **event** object's methods. Interacting with structures over methods is much more performant.
+
+
 
 
 
