@@ -25,8 +25,10 @@ This looks very similar to a java or CFC method call, example: String.getLength(
 ```
 // Call the users.cfc index() method
 index.cfm?event=users.index
-// Call the users.cfc inde() method implicitly
+// Call the users.cfc index() method implicitly
 index.cfm?event=users
+// Call the users.cfc index() method via URL mappings
 index.cfm/users/index
+// Call the users.cfc index() method implicitly via URL mappings
 index.cfm/users
 ```
