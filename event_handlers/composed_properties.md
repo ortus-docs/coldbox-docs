@@ -10,3 +10,5 @@ It is imperative that you realize that there is a great object model behind ever
 * **LogBox** : A reference to the application LogBox (<code>coldbox.system.logging.LogBox</code>)
 * **Log** : A pre-configured logging logger object (<code>coldbox.system.logging.Logger</code>)
 * **wirebox** : A reference to the application WireBox Injector (<code>coldbox.system.ioc.Injector</code>)
+* **$super** : A reference to the virtual super class (<code>coldbox.system.EventHandler</code>) Only if using the non-inheritance approach
+
