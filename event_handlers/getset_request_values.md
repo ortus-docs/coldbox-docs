@@ -3,3 +3,40 @@
 We all need values in our applications, and that is why we will interact with the request context in order to place data from our model layer so our views can display it or retreive data from a user's request. So you will either interact with the event object to get/set values or put/read values directly via the received rc and prc references. We recommend using the references as structures are much faster than method calls. However, the event object should not be discarded as it has some pretty cool and funky methods of its own. Below are some examples of its coolness!
 
 > **Note** We would recommend you use the private request collection for setting manual data and using the standard request collection for reading the user's request variables. This way a clear distinction can be made on what was sent from the user and what was set by your code.
+
+```js
+//set a value for views to use
+event.setValue("name", "Luis");
+
+// retrieve a value the user sent
+event.getValue("name");
+
+// retrieve a value the user sent or give me a default value
+event.getValue("isChecked",false);
+
+//param a value
+event.paramValue("user_id","");
+
+//remove a value
+event.removeValue("name");
+
+//check if value exists
+if( event.valueExists("name") ){
+
+}
+
+// set a view for rendering
+event.setView('blog/index');
+
+// set a layout for rendering
+event.setLayout('main');
+
+// set a view and layout
+event.setView(view="blog/userinfo",layout="ajax");
+
+```
+
+
+
+
+
