@@ -46,7 +46,7 @@
    * [Composed Properties](event_handlers/composed_properties.md)
    * [How are events called?](event_handlers/how_are_events_called.md)
    * [Get/Set Request Values](event_handlers/getset_request_values.md)
-   * Setting Views
+   * [Setting Views](event_handlers/setting_views.md)
    * Relocating
    * Rendering Data
    * Convention Methods
