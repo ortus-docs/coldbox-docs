@@ -51,8 +51,8 @@
    * [Relocating](event_handlers/relocating.md)
    * Model Integration
    * Handler Interception Methods
-   * [Rendering Data](event_handlers/rendering_data.md)
    * [Convention Methods](event_handlers/convention_methods.md)
+   * [Rendering Data](event_handlers/rendering_data.md)
    * HTTP Security
    * Event Caching
 * [Flash RAM](flash_ram/flash_ram.md)
