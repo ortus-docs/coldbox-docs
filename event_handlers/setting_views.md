@@ -3,7 +3,7 @@
 The <code>event</code> object is the object that will let you set the views that you want to render, so please explore its API in the CFC Docs. To quickly set a view to render, do the following:
 
 ```js
-event.setView('view');
+event.setView( 'view' );
 ```
 
 The view name is the name of the template in the **views** directory without appending the **.cfm**. So if the view is inside another directory you would do this:
