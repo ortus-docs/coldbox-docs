@@ -54,6 +54,7 @@
    * [Convention Methods](event_handlers/convention_methods.md)
    * HTTP Security
    * Event Caching
+   * Handler Interception Methods
 * [Flash RAM](flash_ram/flash_ram.md)
 * Request Context
 * [Layouts & Views](views/index.md)
