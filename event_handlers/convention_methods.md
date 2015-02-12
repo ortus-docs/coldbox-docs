@@ -15,3 +15,5 @@ function onMissingAction( event, rc, prc, missingAction, eventArguments ){
 This event has an extra argument: **missingAction** which is the missing action that was requested. You can then do any kind of logic against this missing action and decide to do internal processing, error handling or anything you like. The power of this convention method is extraordinary, you have tons of possibilities as you can create virtual events on specific event handlers.
 
 ## onError()
+
+This is a localized error handler for your event handler. If any type of runtime error ocurrs in an event handler and this method exists, then the framework will call your onError() method so you can process the error. If the method does not exist, then normal error procedures ensue.
