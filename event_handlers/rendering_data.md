@@ -13,9 +13,6 @@ Every event handler controller can render data back to its caller in several for
 ## Handler Return Data
 Handlers can return simple strings or complex objects. If they return simple strings then the strings will be rendered out to the user:
 
-
-
-
 ```js
 function index(event,rc,prc){
 	return "<h1>Hello from my handler today at :#now()#</h1>";
@@ -26,3 +23,5 @@ function jsondata( event, rc, prc ){
     return serializeJSON( mydata );
 }
 ```
+
+Complex objects in normal MVC mode will not be rendered out.  They only make sense when you are calling the action via a <code>runEvent()</code> call or from a ColdBox Proxy.
