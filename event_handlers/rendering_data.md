@@ -59,6 +59,40 @@ function list(event,rc,prc){
 }
 ```
 
+As you can see, it is very easy to render data back to the browser or caller. You can even choose plain and send HTML back if you wanted too. You can also render out PDF's from ColdBox using the render data method. The data argument can be either the full binary of the PDF or simple values to be rendered out as a PDF, like views, layouts, strings, etc.
+
+```js
+// from binary
+function pdf(event,rc,prc){
+  var binary = fileReadAsBinary( file.path );
+  event.renderData(data=binary,type="PDF");
+}
+
+// from content
+function pdf(event,rc,prc){
+  event.renderData(data=renderView("views/page"), type="PDF");
+}
+```
+
+There is also a **pdfArgs** argument in the render data method that can take in a structure of name-value pairs that will be used in the <code>cfdocument</code> ([See docs](http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7c21.html)) tag when generating the PDF. This is a great way to pass in arguments to really control the way PDF's are generated uniformly.
+
+
+
+```js
+// from content and with pdfArgs
+function pdf(event,rc,prc){
+  var pdfArgs = { bookmark = "yes", backgroundVisible = "yes", orientation="landscape" };
+  event.renderData(data=renderView("views/page"), type="PDF", pdfArgs=pdfArgs);
+}
+```
+
+
+
+
+
+
+
+
 
 
 
