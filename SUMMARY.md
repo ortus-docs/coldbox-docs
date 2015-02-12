@@ -48,7 +48,7 @@
    * [Get/Set Request Values](event_handlers/getset_request_values.md)
    * [Setting Views](event_handlers/setting_views.md)
    * [Relocating](event_handlers/relocating.md)
-   * Rendering Data
+   * [Rendering Data](event_handlers/rendering_data.md)
    * Convention Methods
 * [Flash RAM](flash_ram/flash_ram.md)
 * Request Context
