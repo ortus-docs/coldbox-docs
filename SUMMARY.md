@@ -46,6 +46,7 @@
    * [Composed Properties](event_handlers/composed_properties.md)
    * [How are events called?](event_handlers/how_are_events_called.md)
    * [Get/Set Request Values](event_handlers/getset_request_values.md)
+   * Setting Views
 * [Flash RAM](flash_ram/flash_ram.md)
 * Request Context
 * [Layouts & Views](views/index.md)
