@@ -49,6 +49,8 @@ event.setView( view="blog/userinfo", layout="ajax" );
 
 ```
 
+> **Important** The most important paradigm shift from procedural to an MVC framework is that you NO LONGER will be talking to URL, FORM, REQUEST or any ColdFusion scope from within your handlers, layouts and views. The request collection already has URL, FORM and REQUEST scope capabilities, so leverage it.
+
 
 
 
