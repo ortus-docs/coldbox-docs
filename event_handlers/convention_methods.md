@@ -16,4 +16,4 @@ This event has an extra argument: **missingAction** which is the missing action 
 
 ## onError()
 
-This is a localized error handler for your event handler. If any type of runtime error ocurrs in an event handler and this method exists, then the framework will call your onError() method so you can process the error. If the method does not exist, then normal error procedures ensue.
+This is a localized error handler for your event handler. If any type of runtime error occurs in an event handler and this method exists, then the framework will call your method so you can process the error first. If the method does not exist, then normal error procedures ensue.
