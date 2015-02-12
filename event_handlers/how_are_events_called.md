@@ -19,3 +19,14 @@ event={module:}{package.}{handler}{.action}
 * **event={module}:{package}.{handler}.{action}** : Module Notation (See [ColdBox Modules](../modules/index.md))
 
 This looks very similar to a java or CFC method call, example: String.getLength(), but without the parenthesis. Once the event variable is set and detected by the framework, the framework will tokenize the event string to retrieve the CFC and action call and validate it against the internal registry of registered events. It then continues to instantiate the event handler CFC or retrieve it from cache, and then finally executes the event handler's action method.
+
+**Examples**
+
+```
+// Call the users.cfc index() method
+index.cfm?event=users.index
+// Call the users.cfc inde() method implicitly
+index.cfm?event=users
+index.cfm/users/index
+index.cfm/users
+```
