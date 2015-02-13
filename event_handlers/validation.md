@@ -1,6 +1,6 @@
 # Validation
 
-ColdBox does not have validation built-in but it is implemented via the <code>cbValidation</code> module.  You can easily install the module in your application via:
+ColdBox Core MVC does not have validation built-in but it is implemented via the offical core  <code>cbValidation</code> module.  You can easily install the module in your application via:
 
 ```bash
 box install cbvalidation
