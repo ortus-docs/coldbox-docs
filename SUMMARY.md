@@ -49,7 +49,7 @@
    * [Get/Set Request Values](event_handlers/getset_request_values.md)
    * [Setting Views](event_handlers/setting_views.md)
    * [Relocating](event_handlers/relocating.md)
-   * Model Integration
+   * [Model Integration](event_handlers/model_integration.md)
        * Model Data Binding
        * Advanced Data Binding
    * Handler Interception Methods
