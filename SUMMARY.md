@@ -55,7 +55,7 @@
    * [Handler Interception Methods](event_handlers/handler_interception_methods.md)
    * [Convention Methods](event_handlers/convention_methods.md)
    * Executing Events
-   * HTTP Security
+   * [HTTP Security](event_handlers/http_security.md)
    * Event Caching
    * Validation
 * Request Context
