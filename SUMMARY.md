@@ -57,7 +57,7 @@
    * [Convention Methods](event_handlers/convention_methods.md)
    * Executing Events
    * [Event Caching](event_handlers/event_caching.md)
-   * Validation
+   * [Validation](event_handlers/validation.md)
 * Request Context
 * [Flash RAM](flash_ram/flash_ram.md)
 * [Layouts & Views](views/index.md)
