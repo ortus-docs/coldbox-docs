@@ -45,7 +45,6 @@
    * [Locations](event_handlers/locations.md)
    * [Composed Properties](event_handlers/composed_properties.md)
    * [How are events called?](event_handlers/how_are_events_called.md)
-   * Executing Events
    * [Get/Set Request Values](event_handlers/getset_request_values.md)
    * [Setting Views](event_handlers/setting_views.md)
    * [Relocating](event_handlers/relocating.md)
@@ -55,6 +54,7 @@
        * Advanced Data Binding
    * [Handler Interception Methods](event_handlers/handler_interception_methods.md)
    * [Convention Methods](event_handlers/convention_methods.md)
+   * Executing Events
    * HTTP Security
    * Event Caching
    * Validation
