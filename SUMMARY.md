@@ -45,19 +45,19 @@
    * [Locations](event_handlers/locations.md)
    * [Composed Properties](event_handlers/composed_properties.md)
    * [How are events called?](event_handlers/how_are_events_called.md)
-   * Executing Events
    * [Get/Set Request Values](event_handlers/getset_request_values.md)
    * [Setting Views](event_handlers/setting_views.md)
    * [Relocating](event_handlers/relocating.md)
-   * Model Integration
+   * [Rendering Data](event_handlers/rendering_data.md)
+   * [Model Integration](event_handlers/model_integration.md)
        * Model Data Binding
        * Advanced Data Binding
-   * Handler Interception Methods
+   * [Handler Interception Methods](event_handlers/handler_interception_methods.md)
+   * [HTTP Security](event_handlers/http_security.md)
    * [Convention Methods](event_handlers/convention_methods.md)
-   * [Rendering Data](event_handlers/rendering_data.md)
-   * HTTP Security
-   * Event Caching
-   * Validation
+   * Executing Events
+   * [Event Caching](event_handlers/event_caching.md)
+   * [Validation](event_handlers/validation.md)
 * Request Context
 * [Flash RAM](flash_ram/flash_ram.md)
 * [Layouts & Views](views/index.md)
