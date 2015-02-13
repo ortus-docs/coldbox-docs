@@ -49,12 +49,12 @@
    * [Get/Set Request Values](event_handlers/getset_request_values.md)
    * [Setting Views](event_handlers/setting_views.md)
    * [Relocating](event_handlers/relocating.md)
+   * [Rendering Data](event_handlers/rendering_data.md)
    * [Model Integration](event_handlers/model_integration.md)
        * Model Data Binding
        * Advanced Data Binding
    * [Handler Interception Methods](event_handlers/handler_interception_methods.md)
    * [Convention Methods](event_handlers/convention_methods.md)
-   * [Rendering Data](event_handlers/rendering_data.md)
    * HTTP Security
    * Event Caching
    * Validation
