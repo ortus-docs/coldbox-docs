@@ -52,7 +52,7 @@
    * [Model Integration](event_handlers/model_integration.md)
        * Model Data Binding
        * Advanced Data Binding
-   * Handler Interception Methods
+   * [Handler Interception Methods](event_handlers/handler_interception_methods.md)
    * [Convention Methods](event_handlers/convention_methods.md)
    * [Rendering Data](event_handlers/rendering_data.md)
    * HTTP Security
