@@ -53,9 +53,9 @@
        * Model Data Binding
        * Advanced Data Binding
    * [Handler Interception Methods](event_handlers/handler_interception_methods.md)
+   * [HTTP Security](event_handlers/http_security.md)
    * [Convention Methods](event_handlers/convention_methods.md)
    * Executing Events
-   * [HTTP Security](event_handlers/http_security.md)
    * [Event Caching](event_handlers/event_caching.md)
    * Validation
 * Request Context
