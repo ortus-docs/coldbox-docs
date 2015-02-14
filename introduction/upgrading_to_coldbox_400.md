@@ -400,8 +400,8 @@ Would become this:
 </cffunction>
 ```
 
+## Exception Bean moved to prc in the exceptionHandler
 
-
-
+If you have configured a global `exceptionHandler` it used to receive the exception as `rc.exceptionBean`.   Now it will be accessible via `prc.exception`.
 
 ```
