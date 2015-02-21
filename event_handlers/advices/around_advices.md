@@ -87,5 +87,21 @@ The arguments received by these interceptors are:
 * <code>prc</code> : The PRC Reference
 
 
+## Exceptions & Only Lists
+
+You can fine tune these interception methods by leveraging two public properties in the handler:
+
+
+* <code>this.aroundhandler_only</code> : A list of actions that the <code>aroundHandler()</code> action will fire ONLY!
+* <code>this.aroundhandler_except</code> : A list of actions that the <code>aroundHandler()</code> action will NOT fire on
+
+```js
+// only fire for the actions: save(), delete()
+this.aroundhandler_only = "save,delete";
+// DO NOT fire for the actions: login(), doLogin(), logout()
+this.aroundhandler_except = "login,doLogin,logout"
+```
+
+
 
 
