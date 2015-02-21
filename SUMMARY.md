@@ -54,8 +54,8 @@
        * Advanced Data Binding
    * [Interception Methods](event_handlers/handler_interception_methods.md)
        * [Pre Advices](event_handlers/advices/pre_advices.md)
-       * Around Advices
        * [Post Advices](event_handlers/advices/post_advices.md)
+       * Around Advices
    * [HTTP Security](event_handlers/http_security.md)
    * [Convention Methods](event_handlers/convention_methods.md)
    * Executing Events
