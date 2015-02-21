@@ -48,7 +48,13 @@ The arguments received by these interceptors are:
 * <code>rc</code> : The RC reference
 * <code>prc</code> : The PRC Reference
 
+### Exceptions & Only Lists
 
+You can fine tune these interception methods by leveraging two public properties in the handler:
+
+
+* <code>this.prehandler_only</code> : A list of actions that the <code>preHandler()</code> action will fire ONLY!
+* <code>this.prehandler_except</code> : A list of actions that the <code>preHandler()</code> action will NOT fire on
 
 
 
