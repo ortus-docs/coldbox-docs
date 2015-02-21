@@ -14,7 +14,7 @@ There are also several simple implicit [AOP](http://en.wikipedia.org/wiki/Aspect
 | around{action} | Executes around the {action} requested ONLY
 
 
-## Pre Advice
+## Pre Advices
 
 With this interceptor you can intercept local event actions and execute things before the requested action executes. You can do it globally by using the <code>preHandler()</code> method or targeted to a specific action <code>pre{actionName}()</code>.
 
