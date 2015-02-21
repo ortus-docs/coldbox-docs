@@ -1,4 +1,4 @@
-# Handler Interception Methods
+# Interception Methods
 
 <img src="../images/eventhandler-prepost.jpg"/>
 
