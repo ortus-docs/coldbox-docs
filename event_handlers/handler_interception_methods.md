@@ -42,6 +42,11 @@ function preList(event,action,eventArguments,rc,prc){
 
 The arguments received by these interceptors are:
 
+* <code>event</code> : The request context reference
+* <code>action</code> : The action name that was intercepted
+* <code>eventArguments</code> : The struct of extra arguments sent to an action if any
+* <code>rc</code> : The RC reference
+* <code>prc</code> : The PRC Reference
 
 
 
