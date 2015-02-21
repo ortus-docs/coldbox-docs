@@ -56,7 +56,7 @@
        * [Pre Advices](event_handlers/advices/pre_advices.md)
        * [Post Advices](event_handlers/advices/post_advices.md)
        * [Around Advices](event_handlers/advices/around_advices.md)
-   * [HTTP Security](event_handlers/http_security.md)
+   * [HTTP Method Security](event_handlers/http_method_security.md)
    * [Convention Methods](event_handlers/convention_methods.md)
    * Executing Events
    * [Event Caching](event_handlers/event_caching.md)
