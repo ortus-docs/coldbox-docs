@@ -78,6 +78,14 @@ function aroundHandler(event,targetAction,eventArguments,rc,prc){
 }
 ```
 
+The arguments received by these interceptors are:
+
+* <code>event</code> : The request context reference
+* <code>targetAction</code> : The action as an UDF reference
+* <code>eventArguments</code> : The struct of extra arguments sent to an action if any
+* <code>rc</code> : The RC reference
+* <code>prc</code> : The PRC Reference
+
 
 
 
