@@ -41,3 +41,5 @@ component{
 	}
 }
 ```
+
+> **Note** The key is the name of the action and the value is a list of allowed HTTP methods. If the action is not listed in the structure, then it means allow all. That's it! Just remember to either use the onError() convention or an exception handler to deal with the security exceptions.
