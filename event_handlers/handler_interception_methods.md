@@ -56,6 +56,18 @@ You can fine tune these interception methods by leveraging two public properties
 * <code>this.prehandler_only</code> : A list of actions that the <code>preHandler()</code> action will fire ONLY!
 * <code>this.prehandler_except</code> : A list of actions that the <code>preHandler()</code> action will NOT fire on
 
+```js
+// only fire for the actions: save(), delete()
+this.prehandler_only = "save,delete";
+// DO NOT fire for the actions: login(), doLogin(), logout()
+this.prehandler_except = "login,doLogin,logout"
+```
+
+
+
+
+
+
 
 
 
