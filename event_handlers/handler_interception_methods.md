@@ -12,3 +12,30 @@ There are also several simple implicit [AOP](http://en.wikipedia.org/wiki/Aspect
 | post{action} | Executes after the {action} requested ONLY |
 | aroundHandler | Executes around any request action (In the same handler CFC)
 | around{action} | Executes around the {action} requested ONLY
+
+
+## Pre Advice
+
+With this interceptor you can intercept local event actions and execute things before the requested action executes. You can do it globally by using the <code>preHandler()</code> method or targeted to a specific action <code>pre{actionName}()</code>.
+
+```js
+// executes before any action
+function preHandler(event,action,eventArguments,rc,prc){
+}
+
+// executes before the list() action ONLY
+function preList(event,action,eventArguments,rc,prc){
+}
+
+// concrete example
+function preHandler(event,action,eventArguments,rc,prc){
+	if( !security.isLoggedIn() ){
+		event.overrideEvent('security.login');
+		log.info("Unauthorized accessed detected!", getHTTPRequestData());
+	}
+}
+function preList(event,action,eventArguments,rc,prc){
+	log.info("Starting executing the list action");
+	getPlugin("Timer").start('list-profile');
+}
+```
