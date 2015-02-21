@@ -36,7 +36,6 @@ function preHandler(event,action,eventArguments,rc,prc){
 }
 function preList(event,action,eventArguments,rc,prc){
 	log.info("Starting executing the list action");
-	getPlugin("Timer").start('list-profile');
 }
 ```
 
@@ -95,8 +94,8 @@ The arguments received by these interceptors are:
 You can fine tune these interception methods by leveraging two public properties in the handler:
 
 
-* <code>this.prehandler_only</code> : A list of actions that the <code>preHandler()</code> action will fire ONLY!
-* <code>this.prehandler_except</code> : A list of actions that the <code>preHandler()</code> action will NOT fire on
+* <code>this.posthandler_only</code> : A list of actions that the <code>postHandler()</code> action will fire ONLY!
+* <code>this.posthandler_except</code> : A list of actions that the <code>postHandler()</code> action will NOT fire on
 
 ```js
 // only fire for the actions: save(), delete()
