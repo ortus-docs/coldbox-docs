@@ -32,13 +32,13 @@ function aroundHandler(event,targetAction,eventArguments,rc,prc){
 			prc   = arguments.prc
 
 		};
-		structAppend(args,eventArguments);
+		structAppend( args, eventArguments );
 		// execute the action now
-		var results = arguments.targetAction(argumentCollection=args);
+		var results = arguments.targetAction( argumentCollection=args );
 	}
 	
 	// log the call
-	log.debug("Ended executing #targetAction.toString()#" );
+	log.debug( "Ended executing #targetAction.toString()#" );
 	
 	// return if it exists
 	if( !isNull( results ) ){ return results; }
@@ -62,16 +62,16 @@ function aroundHandler(event,targetAction,eventArguments,rc,prc){
 			prc   = arguments.prc
 
 		};
-		structAppend(args,eventArguments);
+		structAppend( args, eventArguments );
 		// execute the action now
-		return arguments.targetAction(argumentCollection=args);
+		return arguments.targetAction( argumentCollection=args );
 	}
 	catch(Any e){
 		// log it
 		log.error("Error executing #targetAction.toString()#: #e.message# #e.detail#", e);
 		// set exception in request collection and set view to render
-		event.setValue("exception", e)
-			.setView("errors/generic");
+		event.setValue( "exception", e)
+			.setView( "errors/generic" );
 	
 	}
 
