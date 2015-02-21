@@ -99,9 +99,9 @@ You can fine tune these interception methods by leveraging two public properties
 
 ```js
 // only fire for the actions: save(), delete()
-this.prehandler_only = "save,delete";
+this.posthandler_only = "save,delete";
 // DO NOT fire for the actions: login(), doLogin(), logout()
-this.prehandler_except = "login,doLogin,logout"
+this.posthandler_except = "login,doLogin,logout"
 ```
 
 
