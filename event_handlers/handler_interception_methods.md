@@ -13,3 +13,6 @@ There are several simple implicit [AOP](http://en.wikipedia.org/wiki/Aspect-orie
 | <code>aroundHandler</code> | Executes around any request action (In the same handler CFC)
 | <code>around{action}</code> | Executes around the {action} requested ONLY
 
+<br>
+
+<img src="../images/eventhandler-around.jpg"/>
