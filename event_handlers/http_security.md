@@ -23,3 +23,21 @@ This solution is great and works, but it is not THAT great. We can do better, ho
 ## Allowed Methods Property
 
 Another feature property on an event handler is called <code>this.allowedMethods</code> and it is a declarative structure that you can use to determine what are the allowed HTTP methods for any action on the event handler. If the request action HTTP method is not found in the list then it will look for a <code>onInvalidHTTPMethod()</code> on the handler, call it if found, else ColdBox throws a 405 exception that is uniform across requests.
+
+```js
+component{
+	
+	this.allowedMethods = { 
+		delete = "POST,DELETE",
+		list   = "GET"
+	};
+
+	function list(event,rc,prc){
+		// list only
+	}
+
+	function delete(event,rc,prc){
+		// do delete here.
+	}
+}
+```
