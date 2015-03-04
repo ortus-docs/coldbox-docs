@@ -404,4 +404,8 @@ Would become this:
 
 If you have configured a global `exceptionHandler` it used to receive the exception as `rc.exceptionBean`.   Now it will be accessible via `prc.exception`.
 
-```
+
+
+## afterAspectsLoad interception point removed
+
+Most everything that was considered an "aspect" is now no longer part of the core.  The `afterAspectsLoad` interception point has been removed.  You can still use the `afterConfigurationLoad` interception point that will fire once the framework has loaded.  If you need to work with models or settings that are registered via modules, this interception point is for you.  
