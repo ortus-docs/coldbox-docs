@@ -68,7 +68,7 @@
 * [Flash RAM](flash_ram/flash_ram.md)
 * [Layouts & Views](views/index.md)
 * [Models](models/index.md)
-   * Domain Modeling
+   * [Domain Modeling](models/domain_modeling/index.md)
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
