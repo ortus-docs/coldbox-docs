@@ -13,7 +13,7 @@
    * [What is ColdBox](getting_started/what_is_coldbox.md)
    * [How ColdBox Works](getting_started/how_coldbox_works.md)
        * MVC Lifecycle
-       * Proxy Lifecycle
+       * ColdBox Proxy Lifecycle
    * [Installation](getting_started/installation.md)
    * [Creating An Application](getting_started/creating_an_application.md)
    * Conventions Over Configuration
