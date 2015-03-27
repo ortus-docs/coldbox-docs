@@ -74,7 +74,7 @@
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 * [Flash RAM](flash_ram/flash_ram.md)
-* ColdBox Proxy
 * Testing
+* ColdBox Proxy
 * Controller Decorator
 
