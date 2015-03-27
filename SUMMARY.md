@@ -70,8 +70,8 @@
 * [Layouts & Views](views/index.md)
 * [Models](models/index.md)
    * [Domain Modeling](models/domain_modeling/index.md)
-* [Flash RAM](flash_ram/flash_ram.md)
 * [Interceptors](interceptors/interceptors.md)
+* [Flash RAM](flash_ram/flash_ram.md)
 * [Modules](modules/index.md)
 * ColdBox Proxy
 * Testing
