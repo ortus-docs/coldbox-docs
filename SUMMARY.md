@@ -71,9 +71,9 @@
 * Ajax Integration
 * [Models](models/index.md)
    * [Domain Modeling](models/domain_modeling/index.md)
+* [Flash RAM](flash_ram/flash_ram.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
-* [Flash RAM](flash_ram/flash_ram.md)
 * Testing
 * ColdBox Proxy
 * Controller Decorator
