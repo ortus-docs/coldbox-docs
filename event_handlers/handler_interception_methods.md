@@ -10,12 +10,12 @@ There are several simple implicit [AOP](http://en.wikipedia.org/wiki/Aspect-orie
 
 | Interceptor Method | Description |
 | -- | -- |
-| <code>preHandler</code> | Executes before any requested action (In the same handler CFC)  |
-| <code>pre{action}</code> | Executes before the {action} requested ONLY |
-| <code>postHandler</code> | Executes after any requested action (In the same handler CFC)  |
-| <code>post{action}</code> | Executes after the {action} requested ONLY |
-| <code>aroundHandler</code> | Executes around any request action (In the same handler CFC)
-| <code>around{action}</code> | Executes around the {action} requested ONLY
+| `preHandler` | Executes before any requested action (In the same handler CFC)  |
+| `pre{action}` | Executes before the {action} requested ONLY |
+| `postHandler` | Executes after any requested action (In the same handler CFC)  |
+| `post{action}` | Executes after the {action} requested ONLY |
+| `aroundHandler` | Executes around any request action (In the same handler CFC)
+| `around{action}` | Executes around the {action} requested ONLY
 
 <br>
 
