@@ -67,8 +67,8 @@
 * Request Context
    * Extending The Request Context
 * [Routing](routing/index.md)
-* Ajax Integration
 * [Layouts & Views](views/index.md)
+* Ajax Integration
 * [Models](models/index.md)
    * [Domain Modeling](models/domain_modeling/index.md)
 * [Interceptors](interceptors/interceptors.md)
