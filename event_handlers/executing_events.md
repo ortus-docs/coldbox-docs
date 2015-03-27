@@ -18,3 +18,41 @@ Apart from executing events from the URL/FORM or Remote interfaces, you can also
 */
 function runEvent;
 ```
+
+The interesting aspect of internal executions is that all the same rules apply, so your handlers can return content like widgets, views, or even data. Also, the eventArguments enables you to pass arguments to the method just like method calls:
+
+**Executions**
+```js
+//public event
+runEvent( 'users.save' );
+
+//post exempt
+runEvent( event='users.save', prepostExemp=true );
+
+//Private event
+runEvent( event='users.persist', private=true );
+
+// Run event as a widget
+<cfoutput>#runEvent(event='widgets.userInfo',prePostExempt=true,eventArguments={widget=true});
+
+// Run with Caching
+runEvent( event="users.list", cache=true, cacheTimeout=30 );
+```
+
+**Declaration**
+```js
+// handler responding to widget call
+function userInfo( event, rc, prc, widget=false ){
+
+	prc.userInfo = userService.get( rc.id );
+
+	// set or widget render
+	if( arguments.widget ){
+		return renderView( "widgets/userInfo" );
+	}	
+
+	// else set view
+	event.setView( "widgets/userInfo" );
+
+}
+```
