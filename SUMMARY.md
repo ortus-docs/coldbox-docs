@@ -67,6 +67,7 @@
 * Request Context
    * Extending The Request Context
 * [Routing](routing/index.md)
+* Ajax Integration
 * [Layouts & Views](views/index.md)
 * [Models](models/index.md)
    * [Domain Modeling](models/domain_modeling/index.md)
@@ -75,5 +76,4 @@
 * [Flash RAM](flash_ram/flash_ram.md)
 * ColdBox Proxy
 * Testing
-* Ajax Integration
 
