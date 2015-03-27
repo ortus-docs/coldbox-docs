@@ -75,4 +75,5 @@
 * [Flash RAM](flash_ram/flash_ram.md)
 * ColdBox Proxy
 * Testing
+* Ajax Integration
 
