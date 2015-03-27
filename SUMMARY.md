@@ -65,6 +65,7 @@
    * [Validation](event_handlers/validation.md)
    * Testing Handlers
 * Request Context
+   * Request Context Decorator
 * [Routing](routing/index.md)
 * [Flash RAM](flash_ram/flash_ram.md)
 * [Layouts & Views](views/index.md)
