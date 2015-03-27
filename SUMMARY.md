@@ -77,4 +77,5 @@
 * Testing
 * ColdBox Proxy
 * Controller Decorator
+* Recipes
 
