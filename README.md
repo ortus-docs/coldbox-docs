@@ -72,12 +72,11 @@ ColdBox is a professional open source software backed by [Ortus Solutions, Corp]
 ### HONOR GOES TO GOD ABOVE ALL
 Because of His grace, this project exists. If you don't like this, then don't read it, its not for you.
 
-<blockquote>
-"Therefore being justified by **faith**, we have peace with God through our Lord Jesus Christ:
-By whom also we have access by **faith** into this **grace** wherein we stand, and rejoice in hope of the glory of God." Romans 5:5
-</blockquote>
 
----
+> "Therefore being justified by **faith**, we have peace with God through our Lord Jesus Christ:
+By whom also we have access by **faith** into this **grace** wherein we stand, and rejoice in hope of the glory of God." Romans 5:5
+
+
 
 
 
