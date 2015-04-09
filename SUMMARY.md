@@ -96,7 +96,7 @@
        * [Contacts Handler](coding_activeentity_style/contacts_handler.md)
        * [Views](coding_activeentity_style/views.md)
        * [Summary](coding_activeentity_style/summary.md)
-   * Coding: Virtual Service Layer
+   * [Coding: Virtual Service Layer](coding_virtual_service_layer.md)
        * [ORM](coding_virtual_service_layer/orm.md)
        * [Contacts Handler](coding_virtual_service_layer/contacts_handler.md)
        * [Views](coding_virtual_service_layer/views.md)
