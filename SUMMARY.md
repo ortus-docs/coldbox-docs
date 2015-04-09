@@ -99,6 +99,7 @@
    * Coding: Virtual Service Layer
        * ORM
        * Contacts Handler
+       * Views
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
