@@ -74,7 +74,7 @@
        * [Service Layer](service_layer.md)
        * [Data Layers](data_layers.md)
        * [Book](book.md)
-   * Conventions Location
+   * [Conventions Location](conventions_location.md)
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
