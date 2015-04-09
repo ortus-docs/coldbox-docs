@@ -62,7 +62,7 @@
    * [Event Caching](event_handlers/event_caching.md)
    * [Validation](event_handlers/validation.md)
    * [Best Practices](best_practices.md)
-   * Testing Handlers
+   * [Testing Handlers](testing_handlers.md)
 * Request Context
 * [Flash RAM](flash_ram/flash_ram.md)
 * [Layouts & Views](views/index.md)
