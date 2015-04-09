@@ -93,7 +93,7 @@
    * [Coding: ActiveEntity Style](coding_activeentity_style.md)
        * [ORM](orm.md)
        * [Contact.cfc](contactcfc.md)
-       * Contacts Handler
+       * [Contacts Handler](contacts_handler.md)
        * Views
        * Summary
 * [Routing](routing/index.md)
