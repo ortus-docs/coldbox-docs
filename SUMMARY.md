@@ -71,7 +71,7 @@
 * [Layouts & Views](views/index.md)
 * [Models](models.md)
    * [Domain Modeling](domain_modeling.md)
-       * Service Layer
+       * [Service Layer](service_layer.md)
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
