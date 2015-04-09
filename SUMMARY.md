@@ -98,10 +98,10 @@
        * [Summary](coding_activeentity_style/summary.md)
    * [Coding: Virtual Service Layer](coding_virtual_service_layer.md)
        * [ORM](coding_virtual_service_layer/orm.md)
+       * Contacts
        * [Contacts Handler](coding_virtual_service_layer/contacts_handler.md)
        * [Views](coding_virtual_service_layer/views.md)
        * [Summary](coding_virtual_service_layer/summary.md)
-       * Contacts
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
