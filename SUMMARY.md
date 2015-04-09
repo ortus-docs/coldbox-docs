@@ -83,6 +83,7 @@
        * [ColdBox Namespace](coldbox_namespace.md)
    * [Object Scopes](object_scopes.md)
    * [Mappings Objects](mappings_objects.md)
+   * Coding: Solo Style
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
