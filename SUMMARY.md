@@ -50,7 +50,7 @@
    * [Relocating](event_handlers/relocating.md)
    * [Rendering Data](event_handlers/rendering_data.md)
    * [Model Integration](event_handlers/model_integration.md)
-       * Model Data Binding
+       * [Model Data Binding](model_data_binding.md)
        * Advanced Data Binding
    * [Interception Methods](event_handlers/handler_interception_methods.md)
        * [Pre Advices](event_handlers/advices/pre_advices.md)
