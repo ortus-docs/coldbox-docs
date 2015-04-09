@@ -86,6 +86,7 @@
    * [Coding: Solo Style](coding_solo_style.md)
        * [Datasource](datasource.md)
        * [Contact.cfc](contactcfc.md)
+       * ContactDAO.cfc
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
