@@ -95,7 +95,6 @@
        * [Contact.cfc](contactcfc.md)
        * [Contacts Handler](contacts_handler.md)
        * [Views](views.md)
-       * [Summary](summary.md)
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
