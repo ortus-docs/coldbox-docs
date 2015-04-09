@@ -69,7 +69,7 @@
 * Request Context
 * [Flash RAM](flash_ram/flash_ram.md)
 * [Layouts & Views](views/index.md)
-* Models
+* [Models](models.md)
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
