@@ -101,6 +101,7 @@
        * [Contacts Handler](coding_virtual_service_layer/contacts_handler.md)
        * [Views](coding_virtual_service_layer/views.md)
        * [Summary](coding_virtual_service_layer/summary.md)
+       * Contacts
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
