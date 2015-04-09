@@ -94,7 +94,7 @@
        * [ORM](codying_activeentity_style.md/orm.md)
        * [Contact.cfc](coding_activeentity_style/contactcfc.md)
        * [Contacts Handler](coding_activeentity_style/contacts_handler.md)
-       * Views
+       * [Views](coding_activeentity_style/views.md)
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
