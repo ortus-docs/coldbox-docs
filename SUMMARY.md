@@ -100,6 +100,7 @@
        * ORM
        * Contacts Handler
        * Views
+       * Summary
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
