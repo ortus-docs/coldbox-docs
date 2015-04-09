@@ -81,6 +81,7 @@
        * [Model Object Namespace](model_object_namespace.md)
        * [EntityService Namespace](entityservice_namespace.md)
        * [ColdBox Namespace](coldbox_namespace.md)
+   * Object Scopes
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
