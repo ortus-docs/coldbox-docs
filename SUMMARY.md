@@ -87,6 +87,7 @@
        * [Datasource](datasource.md)
        * [Contact.cfc](contactcfc.md)
        * [ContactDAO.cfc](contactdaocfc.md)
+       * ContactService.cfc
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
