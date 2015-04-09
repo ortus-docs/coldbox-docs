@@ -92,7 +92,7 @@
        * [Summary](summary.md)
    * [Coding: ActiveEntity Style](coding_activeentity_style.md)
        * [ORM](codying_activeentity_style.md/orm.md)
-       * Contact.cfc
+       * [Contact.cfc](coding_activeentity_style/contactcfc.md)
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
