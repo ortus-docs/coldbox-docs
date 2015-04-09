@@ -75,7 +75,7 @@
        * [Data Layers](data_layers.md)
        * [Book](book.md)
    * [Conventions Location](conventions_location.md)
-   * WireBox Binder
+   * [WireBox Binder](wirebox_binder.md)
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
