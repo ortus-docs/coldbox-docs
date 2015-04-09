@@ -84,7 +84,7 @@
    * [Object Scopes](object_scopes.md)
    * [Mappings Objects](mappings_objects.md)
    * [Coding: Solo Style](coding_solo_style.md)
-       * Datasource
+       * [Datasource](datasource.md)
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
