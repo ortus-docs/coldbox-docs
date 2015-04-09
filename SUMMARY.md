@@ -85,6 +85,7 @@
    * [Mappings Objects](mappings_objects.md)
    * [Coding: Solo Style](coding_solo_style.md)
        * [Datasource](datasource.md)
+       * Contact.cfc
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
