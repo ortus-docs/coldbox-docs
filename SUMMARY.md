@@ -76,7 +76,7 @@
        * [Book](book.md)
    * [Conventions Location](conventions_location.md)
    * [WireBox Binder](wirebox_binder.md)
-   * Super Tupe Usage Methods
+   * [Super Tupe Usage Methods](super_tupe_usage_methods.md)
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
