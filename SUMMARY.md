@@ -80,7 +80,7 @@
    * [Injection DSL](injeection_dsl.md)
        * [Model Object Namespace](model_object_namespace.md)
        * [EntityService Namespace](entityservice_namespace.md)
-       * ColdBox Namespace
+       * [ColdBox Namespace](coldbox_namespace.md)
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
