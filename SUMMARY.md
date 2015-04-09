@@ -95,6 +95,7 @@
        * [Contact.cfc](coding_activeentity_style/contactcfc.md)
        * [Contacts Handler](coding_activeentity_style/contacts_handler.md)
        * [Views](coding_activeentity_style/views.md)
+       * Summary
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
