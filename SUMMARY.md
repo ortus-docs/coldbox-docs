@@ -79,7 +79,7 @@
    * [Super Tupe Usage Methods](super_tupe_usage_methods.md)
    * [Injection DSL](injeection_dsl.md)
        * [Model Object Namespace](model_object_namespace.md)
-       * EntityService Namespace
+       * [EntityService Namespace](entityservice_namespace.md)
        * ColdBox Namespace
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
