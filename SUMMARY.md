@@ -72,6 +72,7 @@
 * [Models](models.md)
    * [Domain Modeling](domain_modeling.md)
        * [Service Layer](service_layer.md)
+       * Data Layers
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
