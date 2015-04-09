@@ -10,4 +10,5 @@ ColdBox offers its own dependency injection framework, [WireBox](http://wiki.col
 
 ###Dependency Injection
 
-![](EventHandlerInjection.jpg)
+![](../images/EventHandlerInjection.jpg)
+
