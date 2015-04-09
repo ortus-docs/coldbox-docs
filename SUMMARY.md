@@ -89,7 +89,7 @@
        * [ContactDAO.cfc](contactdaocfc.md)
        * [ContactService.cfc](contactservicecfc.md)
        * [Contacts Handler](contacts_handler.md)
-       * Summary
+       * [Summary](summary.md)
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
