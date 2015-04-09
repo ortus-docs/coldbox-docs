@@ -14,7 +14,7 @@
    * [How ColdBox Works](getting_started/how_coldbox_works.md)
        * [ColdBox Life Cycles](coldbox_life_cycles.md)
            * [MVC Lifecycle](mvc_lifecycle.md)
-           * Proxy Lifecycle
+           * [Proxy Lifecycle](proxy_lifecycle.md)
    * [Installation](getting_started/installation.md)
    * [Creating An Application](getting_started/creating_an_application.md)
    * Conventions Over Configuration
