@@ -61,6 +61,7 @@
    * [Executing Events](event_handlers/executing_events.md)
    * [Event Caching](event_handlers/event_caching.md)
    * [Validation](event_handlers/validation.md)
+   * Best Practices
 * Request Context
 * [Flash RAM](flash_ram/flash_ram.md)
 * [Layouts & Views](views/index.md)
