@@ -20,3 +20,9 @@ ColdBox offers its own dependency injection framework, [WireBox](http://wiki.col
  
 It will be your choice to pick an approach, but we mostly concentrate on property injection as you will see from our examples.
 
+> **Info**  Aggregation differs from ordinary composition in that it does not imply ownership. In composition, when the owning object is destroyed, so are the contained objects. - 'wikipedia'
+
+###Requesting Model Objects
+
+![](EventHandlerModelRequested.jpg)
+
