@@ -94,6 +94,7 @@
        * [ORM](orm.md)
        * Contact.cfc
        * Contacts Handler
+       * Views
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
