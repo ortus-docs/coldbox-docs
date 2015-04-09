@@ -82,7 +82,7 @@
        * [EntityService Namespace](entityservice_namespace.md)
        * [ColdBox Namespace](coldbox_namespace.md)
    * [Object Scopes](object_scopes.md)
-   * Mappings Objects
+   * [Mappings Objects](mappings_objects.md)
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
