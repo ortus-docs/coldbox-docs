@@ -90,6 +90,7 @@
        * [ContactService.cfc](contactservicecfc.md)
        * [Contacts Handler](contacts_handler.md)
        * [Summary](summary.md)
+   * Coding: ActiveEntity Style
 * [Routing](routing/index.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
