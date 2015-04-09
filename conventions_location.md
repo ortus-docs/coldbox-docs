@@ -1,2 +1,3 @@
 # Conventions Location
 
+All your model objects will be located under your model folder of your application root by convention ([See Conventions](http://wiki.coldbox.org/wiki/DirectoryStructure-Conventions.cfm)). For a more secure installation, place your models outside of the web root and use a ColdFusion Mapping to access them. Simply add additional scan locations to your WireBox config which points to your external folder.
