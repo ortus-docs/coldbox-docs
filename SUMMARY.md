@@ -126,7 +126,7 @@
            * [View Routing](Routing/view_routing.md)
            * [Pattern Placeholders](Routing/pattern_placeholders.md)
            * [Numeric Placeholder](Routing/numeric_placeholder.md)
-           * Alpha Placeholder
+           * [Alpha Placeholder](Routing/alpha_placeholder.md)
            * Dynamic handler/action Placeholders
            * Regular Expression Placeholder
            * Optional Placeholders
