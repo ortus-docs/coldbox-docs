@@ -130,6 +130,7 @@
            * Dynamic handler/action Placeholders
            * Regular Expression Placeholder
            * Optional Placeholders
+           * Adding variables per route
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 * ColdBox Proxy
