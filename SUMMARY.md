@@ -132,6 +132,7 @@
            * [Optional Placeholders](Routing/optional_placeholders.md)
            * [Adding variables per route](Routing/adding_variables_per_route.md)
        * Route Responses
+   * Route Conditions
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 * ColdBox Proxy
