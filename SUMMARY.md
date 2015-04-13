@@ -78,7 +78,7 @@
    * [Request Context Decorator](request_context_decorator.md)
        * [For What Can I Use This?](RequestContextDecorator/for_what_can_i_use_this.md)
        * [Configuration](RequestContenteDecorator/configuration.md)
-       * Conclusion
+       * [Conclusion](RequestContextDecorator/conclusion.md)
 * [Flash RAM](flash_ram/flash_ram.md)
 * [Layouts & Views](views/index.md)
 * [Models](models.md)
