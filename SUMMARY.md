@@ -120,7 +120,7 @@
    * [Routes Configuration](Routing/routes_configuration.md)
    * [URL Mappings](Routing/url_mappings.md)
        * [Adding Routes](Routing/adding_routes.md)
-           * Routing by Convention
+           * [Routing by Convention](Routing/routing_by_convention.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 * ColdBox Proxy
