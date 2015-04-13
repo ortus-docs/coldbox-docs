@@ -73,6 +73,7 @@
    * [Interceptors](RequestContext/interceptors.md)
    * [Plugins](RequestContext/plugins.md)
    * [What Can I Do With It?](what_can_i_do_with_it.md)
+   * Extending The Request Context
 * [Flash RAM](flash_ram/flash_ram.md)
 * [Layouts & Views](views/index.md)
 * [Models](models.md)
