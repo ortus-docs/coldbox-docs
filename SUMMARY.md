@@ -123,6 +123,7 @@
            * [Routing by Convention](Routing/routing_by_convention.md)
            * [Handler Routing](Routing/handler_routing.md)
            * [RESTful Action Routing](Routing/restful_action_routing.md)
+           * View Routing
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 * ColdBox Proxy
