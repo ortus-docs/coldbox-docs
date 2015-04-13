@@ -126,6 +126,7 @@
            * [View Routing](Routing/view_routing.md)
            * [Pattern Placeholders](Routing/pattern_placeholders.md)
            * [Numeric Placeholder](Routing/numeric_placeholder.md)
+           * Alpha Placeholder
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 * ColdBox Proxy
