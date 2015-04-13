@@ -67,7 +67,7 @@
    * [Best Practices](best_practices.md)
    * [Testing Handlers](testing_handlers.md)
 * [Request Context](request_context.md)
-   * How Does It Work
+   * [How Does It Work](how_does_it_work.md)
 * [Flash RAM](flash_ram/flash_ram.md)
 * [Layouts & Views](views/index.md)
 * [Models](models.md)
