@@ -131,7 +131,7 @@
            * [Regular Expression Placeholder](Routing/regular_expression_placeholder.md)
            * [Optional Placeholders](Routing/optional_placeholders.md)
            * [Adding variables per route](Routing/adding_variables_per_route.md)
-       * Route Responses
+       * [Route Responses](Routing/route_responses.md)
    * [Route Conditions](Routing/route_conditions.md)
    * [URL Mapping Namespaces](Routing/url_mapping_namespaces.md)
    * [Module Routes](Routing/module_routes.md)
