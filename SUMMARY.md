@@ -71,7 +71,7 @@
    * [Event Handlers](RequestContext/event_handlers.md)
    * [Views](RequestContext/views.md)
    * [Interceptors](RequestContext/interceptors.md)
-   * Plugins
+   * [Plugins](RequestContext/plugins.md)
 * [Flash RAM](flash_ram/flash_ram.md)
 * [Layouts & Views](views/index.md)
 * [Models](models.md)
