@@ -117,6 +117,7 @@
 * [Routing](routing/index.md)
    * [Requirements](routing/requirements.md)
        * [Rewrite Rules](Routing/rewrite_rules.md)
+   * Routes Configuration
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 * ColdBox Proxy
