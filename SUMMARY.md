@@ -132,10 +132,10 @@
            * [Optional Placeholders](Routing/optional_placeholders.md)
            * [Adding variables per route](Routing/adding_variables_per_route.md)
        * [Route Responses](Routing/route_responses.md)
+       * [Route Conditions](Routing/route_conditions.md)
        * [Module Routes](Routing/module_routes.md)
        * [URL Mapping Namespaces](Routing/url_mapping_namespaces.md)
        * [With Clousures](Routing/with_clousures.md)
-       * [Route Conditions](Routing/route_conditions.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 * ColdBox Proxy
