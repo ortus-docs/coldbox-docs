@@ -69,6 +69,7 @@
 * [Request Context](request_context.md)
    * [How Does It Work](how_does_it_work.md)
    * [Event Handlers](RequestContext/event_handlers.md)
+   * Views
 * [Flash RAM](flash_ram/flash_ram.md)
 * [Layouts & Views](views/index.md)
 * [Models](models.md)
