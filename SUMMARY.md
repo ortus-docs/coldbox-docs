@@ -130,7 +130,7 @@
            * [Dynamic handler/action Placeholders](Routing/dynamic_handleraction_placeholders.md)
            * [Regular Expression Placeholder](Routing/regular_expression_placeholder.md)
            * [Optional Placeholders](Routing/optional_placeholders.md)
-           * Adding variables per route
+           * [Adding variables per route](Routing/adding_variables_per_route.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 * ColdBox Proxy
