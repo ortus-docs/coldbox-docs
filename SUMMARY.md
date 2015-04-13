@@ -125,7 +125,7 @@
            * [RESTful Action Routing](Routing/restful_action_routing.md)
            * [View Routing](Routing/view_routing.md)
            * [Pattern Placeholders](Routing/pattern_placeholders.md)
-           * Numeric Placeholder
+           * [Numeric Placeholder](Routing/numeric_placeholder.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 * ColdBox Proxy
