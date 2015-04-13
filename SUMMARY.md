@@ -136,6 +136,7 @@
        * [URL Mapping Namespaces](Routing/url_mapping_namespaces.md)
        * [Module Routes](Routing/module_routes.md)
        * [With Clousures](Routing/with_clousures.md)
+   * Pathinfo Providers
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 * ColdBox Proxy
