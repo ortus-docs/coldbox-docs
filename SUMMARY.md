@@ -135,7 +135,7 @@
    * [Route Conditions](Routing/route_conditions.md)
    * [URL Mapping Namespaces](Routing/url_mapping_namespaces.md)
    * [Module Routes](Routing/module_routes.md)
-   * With Clousures
+   * [With Clousures](Routing/with_clousures.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 * ColdBox Proxy
