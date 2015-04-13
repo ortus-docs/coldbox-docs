@@ -68,7 +68,7 @@
    * [Testing Handlers](testing_handlers.md)
 * [Request Context](request_context.md)
    * [How Does It Work](how_does_it_work.md)
-   * Event Handlers
+   * [Event Handlers](RequestContext/event_handlers.md)
 * [Flash RAM](flash_ram/flash_ram.md)
 * [Layouts & Views](views/index.md)
 * [Models](models.md)
