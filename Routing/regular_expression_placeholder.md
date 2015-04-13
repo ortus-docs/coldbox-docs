@@ -11,7 +11,7 @@ addRoute(pattern="/api/regex:(xml|json)/",
          action="execute");
 ```
 
-> **Note** If you use the regex() DSL then no variable will be created in the request collection. Only the regex is evaluated in the placeholder
+> **Info** If you use the regex() DSL then no variable will be created in the request collection. Only the regex is evaluated in the placeholder
 
 #### constraints
 
