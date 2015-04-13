@@ -128,7 +128,7 @@
            * [Numeric Placeholder](Routing/numeric_placeholder.md)
            * [Alpha Placeholder](Routing/alpha_placeholder.md)
            * [Dynamic handler/action Placeholders](Routing/dynamic_handleraction_placeholders.md)
-           * Regular Expression Placeholder
+           * [Regular Expression Placeholder](Routing/regular_expression_placeholder.md)
            * Optional Placeholders
            * Adding variables per route
 * [Interceptors](interceptors/interceptors.md)
