@@ -15,7 +15,7 @@ You can use the following methods to fine tune the configuration and operation:
 |setBaseURL( string ) |The base URL to use for URL writing and relocations. This is usally includes the web address to your application wether it is in the root or embedded in a folder. e.g. http://www.coldbox.org/, http://mysite.com/index.cfm''|
 |setLooseMatching( boolean ) |By default URL pattern matching starts at the beginning of the URL, however, you can choose loose matching so it searches anywhere in the URL.|
 |setExtensionDetection( boolean ) |By default ColdBox detects URL extensions like json, xml, html, pdf which can allow you to build awesome RESTful web services.|
-|setValidExtensions( list ) |Tell the interceptor what valid extensions your application can listen to. By default it listens to: json,jsont,xml,cfm,cfml,html,htm,rss,pdf|
+|setValidExtensions( list ) |Tell the interceptor what valid extensions your application can listen to. By default it listens to: *json,jsont,xml,cfm,cfml,html,htm,rss,pdf*|
 |setThrowOnInvalidExtensions( boolean ) |By default ColdBox does not throw an exception when an invalid extension is detected. If true, then the interceptor will throw a 406 Invalid Requested Format Extension: {extension} exception.|
 |setAutoReload( boolean ) |By default all URL mapping routes are processed on application startup and cached. You can enable auto reloading of the routes in each request just in case your are in development and want to see change of URL mappings immediately. TURN TO FALSE IN PRODUCTION|
 |includeRoutes( path ) |Gives you the ability to include other routing configuration files. Great for separation and module SES rewriting.|
