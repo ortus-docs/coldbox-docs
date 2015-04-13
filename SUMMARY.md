@@ -116,6 +116,7 @@
        * [Summary](coding_virtual_service_layer/summary.md)
 * [Routing](routing/index.md)
    * [Requirements](routing/requirements.md)
+       * Rewrite Rules
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 * ColdBox Proxy
