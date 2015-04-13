@@ -138,7 +138,7 @@
        * [With Clousures](Routing/with_clousures.md)
    * [Pathinfo Providers](Routing/pathinfo_providers.md)
    * [event.buildLink()](Routing/eventbuildlink.md)
-   * HTML base tag
+   * [HTML base tag](Routing/html_base_tag.md)
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 * ColdBox Proxy
