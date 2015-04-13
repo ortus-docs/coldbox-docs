@@ -133,6 +133,7 @@
            * [Adding variables per route](Routing/adding_variables_per_route.md)
        * Route Responses
    * [Route Conditions](Routing/route_conditions.md)
+   * URL Mapping Namespaces
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 * ColdBox Proxy
