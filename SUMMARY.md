@@ -137,6 +137,7 @@
        * [Module Routes](Routing/module_routes.md)
        * [With Clousures](Routing/with_clousures.md)
    * [Pathinfo Providers](Routing/pathinfo_providers.md)
+   * event.buildLink()
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 * ColdBox Proxy
