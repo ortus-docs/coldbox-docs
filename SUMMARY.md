@@ -127,7 +127,7 @@
            * [Pattern Placeholders](Routing/pattern_placeholders.md)
            * [Numeric Placeholder](Routing/numeric_placeholder.md)
            * [Alpha Placeholder](Routing/alpha_placeholder.md)
-           * Dynamic handler/action Placeholders
+           * [Dynamic handler/action Placeholders](Routing/dynamic_handleraction_placeholders.md)
            * Regular Expression Placeholder
            * Optional Placeholders
            * Adding variables per route
