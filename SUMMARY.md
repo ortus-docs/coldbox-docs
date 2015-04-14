@@ -182,5 +182,5 @@
    * [Returnint HTML](Ajax_Integration/returnint_html.md)
        * [Event Handler Return](Ajax_Integration/event_handler_return.md)
        * [Render HTML](Ajax_Integration/render_html.md)
-       * Layout+View
+       * [Layout+View](Ajax_Integration/layout+view.md)
 
