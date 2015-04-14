@@ -7,3 +7,5 @@ Interceptors can be declared in the ConfigurationCFC or programmatically at runt
 * properties - A structure of configuration properties for the interceptor
 
 
+> **Info** Remember that order is important!
+
