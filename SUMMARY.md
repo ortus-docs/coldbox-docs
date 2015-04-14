@@ -144,4 +144,5 @@
 * ColdBox Proxy
 * [Layouts & Views Guide](layouts_&_views_guide.md)
    * [Response Types](layouts/response_types.md)
+   * Rendering Views
 
