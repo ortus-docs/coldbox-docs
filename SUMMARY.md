@@ -191,4 +191,5 @@
 * [Interceptors](interceptors/index.md)
    * [ForgeBox Interceptors](interceptors/forgebox_interceptors.md)
    * [Event Driven Programming](interceptors/event_driven_programming.md)
+   * Resources
 
