@@ -142,5 +142,5 @@
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 * ColdBox Proxy
-* Layouts & Views Guide
+* [Layouts & Views Guide](layouts_&_views_guide.md)
 
