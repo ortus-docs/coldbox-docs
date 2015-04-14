@@ -7,5 +7,7 @@ All rendered layouts have associated events that are announced whenever the layo
 |preLayoutRender |<ul><li>layout - The name of the layout to render</li><li>view - The name of the view to render if any</li><li>module - The module name of the layout if any</li><li>args - The arguments to pass into the layout + view (if any)</li><li>viewModule - The name of the module the view will be rendered from </li></ul>|Executed before any layout is rendered|
 |postLayoutRender |All of the data above plus: <ul><li>renderedLayout - The layout + view contents that was rendered </li></ul>|Executed after a layout was rendered|
 
-> **Important** You can disable the layout events on a per-rendering basis by passing the prePostExempt argument as true when calling renderLayout() methods. 
+> **Important** You can disable the layout events on a per-rendering basis by passing the prePostExempt argument as true when calling `renderLayout()` methods. 
+
+
 
