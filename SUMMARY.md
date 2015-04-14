@@ -170,5 +170,5 @@
        * [Layout Events](Layouts/layout_events.md)
    * [Rendering Data](Layouts/rendering_data.md)
        * [Global Parameters](Layouts/global_parameters.md)
-       * JSON Parameters
+       * [JSON Parameters](Layouts/json_parameters.md)
 
