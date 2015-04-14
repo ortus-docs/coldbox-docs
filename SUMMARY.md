@@ -159,4 +159,5 @@
        * [Rendering Collections](rendering_collections.md)
        * [View Helpers](view_helpers.md)
        * [View Events](view_events.md)
+   * Layouts
 
