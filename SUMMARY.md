@@ -169,4 +169,5 @@
        * [Layouts From A Module](Layouts/layouts_from_a_module.md)
        * [Layout Events](Layouts/layout_events.md)
    * [Rendering Data](Layouts/rendering_data.md)
+       * Global Parameters
 
