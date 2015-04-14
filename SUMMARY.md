@@ -178,4 +178,5 @@
    * [Viewlets (Portable Events)](Layouts/viewlets_portable_events.md)
        * [Funky Viewlets](funky_viewlets.md)
    * [Tips And Tricks](Layouts/tips_and_tricks.md)
+* Ajax Integration
 
