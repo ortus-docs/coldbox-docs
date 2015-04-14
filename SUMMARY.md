@@ -143,4 +143,5 @@
 * [Modules](modules/index.md)
 * ColdBox Proxy
 * [Layouts & Views Guide](layouts_&_views_guide.md)
+   * Response Types
 
