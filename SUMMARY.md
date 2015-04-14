@@ -179,5 +179,5 @@
        * [Funky Viewlets](funky_viewlets.md)
    * [Tips And Tricks](Layouts/tips_and_tricks.md)
 * [Ajax Integration](ajax_integration.md)
-   * Returnint HTML
+   * [Returnint HTML](Ajax_Integration/returnint_html.md)
 
