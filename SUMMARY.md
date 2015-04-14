@@ -196,4 +196,5 @@
    * [How do they work?](interceptors/how_do_they_work.md)
        * [Conventions](interceptors/conventions.md)
        * [eventpattern annotation](interceptors/eventpattern_annotation.md)
+   * Interceptor Declaration
 
