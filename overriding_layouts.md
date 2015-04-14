@@ -9,3 +9,18 @@ event.setLayout( name )
 This is great, so we can change the way views are rendered on the fly programmatically. We can switch the content to a PDF in an instant. So let's do that
 
 ```js
+function home(event,rc,prc){
+	
+	if( event.valueExists('print') ){
+		event.setLayout('layout.PDF');
+	}
+
+	// logic here
+	
+	// set view
+	event.setView('general/home');
+
+}
+```
+
+
