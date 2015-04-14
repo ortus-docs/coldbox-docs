@@ -182,4 +182,5 @@
    * [Returnint HTML](Ajax_Integration/returnint_html.md)
        * [Event Handler Return](Ajax_Integration/event_handler_return.md)
        * Render HTML
+       * Layout+View
 
