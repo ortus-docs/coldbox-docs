@@ -197,5 +197,5 @@
        * [Conventions](interceptors/conventions.md)
        * [eventpattern annotation](interceptors/eventpattern_annotation.md)
    * [Interceptor Declaration](interceptors/interceptor_declaration.md)
-       * Configuration File
+       * [Configuration File](interceptors/configuration_file.md)
 
