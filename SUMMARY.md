@@ -188,4 +188,5 @@
    * [ColdBox Proxy](Ajax_Integration/coldbox_proxy.md)
        * [Techniques](Ajax_Integration/techniques.md)
    * [ColdBox Debugger](Ajax_Integration/coldbox_debugger.md)
+* Interceptors
 
