@@ -11,3 +11,4 @@
 |location |string|false|---|Optional argument used to set the HTTP Location header|
 |formats |string or list|false|---|The formats list or array that ColdBox should respond to using the passed in data argument. You can pass any of the valid types (JSON,JSONP,JSONT,XML,WDDX,PLAIN,HTML,TEXT,PDF). For PDF and HTML we will try to render the view by convention based on the incoming event.|
 |formatsView|string|false|*implicit event*|The view that should be used for rendering HTML/PLAIN/PDF. By default ColdBox uses the name of the event as an implicit view.|
+
