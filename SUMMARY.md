@@ -152,5 +152,5 @@
        * [View Caching](Layouts/view_caching.md)
        * [Handler Return Rendering](Layouts/handler_return_rendering.md)
        * [Render Nothing](Layouts/render_nothing.md)
-       * Inline Rendering
+       * [Inline Rendering](Layouts/inline_rendering.md)
 
