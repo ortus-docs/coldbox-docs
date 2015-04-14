@@ -151,4 +151,5 @@
        * [Views From A Module](Layouts/views_from_a_module.md)
        * [View Caching](Layouts/view_caching.md)
        * [Handler Return Rendering](Layouts/handler_return_rendering.md)
+       * Render Nothing
 
