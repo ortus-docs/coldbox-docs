@@ -80,7 +80,6 @@
        * [Configuration](RequestContenteDecorator/configuration.md)
        * [Conclusion](RequestContextDecorator/conclusion.md)
 * [Flash RAM](flash_ram/flash_ram.md)
-* [Layouts & Views](views/index.md)
 * [Models](models.md)
    * [Domain Modeling](domain_modeling.md)
        * [Service Layer](service_layer.md)
