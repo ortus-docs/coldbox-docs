@@ -160,4 +160,5 @@
        * [View Helpers](view_helpers.md)
        * [View Events](view_events.md)
    * [Layouts](Layouts/layouts.md)
+       * Basic Layouts
 
