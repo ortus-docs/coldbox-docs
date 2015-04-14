@@ -177,4 +177,5 @@
    * [Helpers UDF's](Layouts/helpers_udfs.md)
    * [Viewlets (Portable Events)](Layouts/viewlets_portable_events.md)
        * [Funky Viewlets](funky_viewlets.md)
+   * Tips And Tricks
 
