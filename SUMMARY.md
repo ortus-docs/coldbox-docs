@@ -187,5 +187,5 @@
        * [RenderData With Formats](Ajax_Integration/renderdata_with_formats.md)
    * [ColdBox Proxy](Ajax_Integration/coldbox_proxy.md)
        * [Techniques](Ajax_Integration/techniques.md)
-   * ColdBox Debugger
+   * [ColdBox Debugger](Ajax_Integration/coldbox_debugger.md)
 
