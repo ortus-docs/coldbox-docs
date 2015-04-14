@@ -158,5 +158,5 @@
        * [Rendering With Local Variables](rendering_with_local_variables.md)
        * [Rendering Collections](rendering_collections.md)
        * [View Helpers](view_helpers.md)
-       * View Events
+       * [View Events](view_events.md)
 
