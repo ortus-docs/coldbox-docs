@@ -149,4 +149,5 @@
        * [Views With No Layout](Layouts/views_with_no_layout.md)
        * [Views With Specific Layout](Layouts/views_with_specific_layout.md)
        * [Views From A Module](Layouts/views_from_a_module.md)
+       * View Caching
 
