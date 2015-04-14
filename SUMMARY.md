@@ -166,6 +166,6 @@
    * [Layouts Helpers](layouts_helpers.md)
    * [Overriding Layouts](overriding_layouts.md)
    * [Implicit Layout/View Declarations](implicit_layoutview_declarations.md)
+       * [Layout Events](Layouts/layout_events.md)
        * [Layouts From A Module](Layouts/layouts_from_a_module.md)
-   * [Layout Events](Layouts/layout_events.md)
 
