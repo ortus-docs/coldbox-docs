@@ -30,3 +30,23 @@ function userinfo(event,rc,prc){
 	return renderView("viewlets/userinfo");
 }
 ```
+This handler code is where the magic happens. I talk to a service layer and place some data on the private request collection my viewlet will use. I then return the results of a `renderView()` call that will render out the exact viewlet I want. You can be more creative and do things like:
+
+* render a layout + view combo
+* render data
+* return your own custom strings
+* etc
+
+> **Important** We would suggest you namespace or prefix your private request collection variables for viewlets in order to avoid collisions from multiple viewlet events in the same execution thread. 
+
+Viewlet Code (viewlets/userinfo.cfm) 
+
+```js
+<cfoutput>
+	<div>User Info Panel</div>
+	<div>Username: #prc.userinfo_qData.username#</div>
+	<div>Last Login: #prc.userinfo_qData.lastLogin#</div>
+</cfoutput>
+```
+
+My view is a normal standard view, it doesn't even know it is a viewlet, remember, views are DUMB!
