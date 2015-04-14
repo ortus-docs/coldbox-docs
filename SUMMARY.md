@@ -189,5 +189,5 @@
        * [Techniques](Ajax_Integration/techniques.md)
    * [ColdBox Debugger](Ajax_Integration/coldbox_debugger.md)
 * [Interceptors](interceptors/index.md)
-   * ForgeBox Interceptors
+   * [ForgeBox Interceptors](interceptors/forgebox_interceptors.md)
 
