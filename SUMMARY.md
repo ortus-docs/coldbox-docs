@@ -183,5 +183,5 @@
        * [Event Handler Return](Ajax_Integration/event_handler_return.md)
        * [Render HTML](Ajax_Integration/render_html.md)
        * [Layout+View](Ajax_Integration/layout+view.md)
-   * Returning DATA (XML/JSON/WDDX/ANY)
+   * [Returning DATA (XML/JSON/WDDX/ANY)](Ajax_Integration/returning_data_xmljsonwddxany.md)
 
