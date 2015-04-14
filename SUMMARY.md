@@ -154,5 +154,5 @@
        * [Render Nothing](Layouts/render_nothing.md)
        * [Inline Rendering](Layouts/inline_rendering.md)
        * [Content Variable Views](content_variable_views.md)
-       * Rendering External Views
+       * [Rendering External Views](Layouts/rendering_external_views.md)
 
