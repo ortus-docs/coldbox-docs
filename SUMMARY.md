@@ -144,5 +144,5 @@
 * [Layouts & Views](layouts_&_views_guide.md)
    * [Response Types](layouts/response_types.md)
    * [Rendering Views](Layouts/rendering_views.md)
-       * Setting Views For Rendering
+       * [Setting Views For Rendering](setting_views_for_rendering.md)
 
