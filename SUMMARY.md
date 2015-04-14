@@ -165,4 +165,5 @@
        * [Default Layout](Layouts/default_layout.md)
    * [Layouts Helpers](layouts_helpers.md)
    * [Overriding Layouts](overriding_layouts.md)
+   * Implicit Layout/View Declarations
 
