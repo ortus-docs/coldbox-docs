@@ -1,4 +1,4 @@
-# Layouts & Views Guide
+# Layouts & Views
 
 ##Introduction
 
