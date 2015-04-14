@@ -175,5 +175,5 @@
        * [Renderdata With Formats](Layouts/renderdata_with_formats.md)
        * [Custom Data Conversion](Layouts/custom_data_conversion.md)
    * [Helpers UDF's](Layouts/helpers_udfs.md)
-   * Viewlets (Portable Events)
+   * [Viewlets (Portable Events)](Layouts/viewlets_portable_events.md)
 
