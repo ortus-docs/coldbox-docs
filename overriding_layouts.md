@@ -23,4 +23,25 @@ function home(event,rc,prc){
 }
 ```
 
+WOW!! That easy! We check if a variable print is sent in and if it is, we override the layout with the event.setLayout() method. Another interesting technique is using some of the implicit execution points of a handler: preHandler() & postHandler(). You can use these implicit events to determine a layout for an entire event handler.
+
+```js
+function preHandler(event,action,eventArguments){
+	event.setLayout('Layout.PDF');
+}
+function postHandler(event,action,eventArguments){
+	event.setLayout('Layout.PDF');
+}
+```
+
+But you can even get more creative and decide to either create a preProcess [Interceptor](http://wiki.coldbox.org/wiki/Interceptor.cfm) or a request start handler and listen for certain environment changes and switch layouts. You can then completely take control of how views will be rendered according to maybe browser type, mobile usage, etc.
+
+```js
+function requestStartHandler(event,rc,prc){
+	if( mobileLayout ){
+		event.setLayout('Layout.Mobile');
+	}
+}
+```
+
 
