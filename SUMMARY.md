@@ -185,5 +185,5 @@
        * [Layout+View](Ajax_Integration/layout+view.md)
    * [Returning DATA (XML/JSON/WDDX/ANY)](Ajax_Integration/returning_data_xmljsonwddxany.md)
        * [RenderData With Formats](Ajax_Integration/renderdata_with_formats.md)
-   * ColdBox Proxy
+   * [ColdBox Proxy](Ajax_Integration/coldbox_proxy.md)
 
