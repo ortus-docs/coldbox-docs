@@ -157,4 +157,5 @@
        * [Rendering External Views](Layouts/rendering_external_views.md)
        * [Rendering With Local Variables](rendering_with_local_variables.md)
        * [Rendering Collections](rendering_collections.md)
+       * View Helpers
 
