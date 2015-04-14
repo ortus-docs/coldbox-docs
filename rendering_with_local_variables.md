@@ -1,0 +1,2 @@
+# Rendering With Local Variables
+
