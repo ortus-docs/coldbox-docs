@@ -192,4 +192,5 @@
    * [ForgeBox Interceptors](interceptors/forgebox_interceptors.md)
    * [Event Driven Programming](interceptors/event_driven_programming.md)
    * [Resources](interceptors/resources.md)
+   * For what can I use them
 
