@@ -237,7 +237,7 @@
    * [Tracing messages to the debug panel](recepies/tracing_messages_to_the_debug_panel.md)
    * [Creating a messagebox css](recepies/creating_a_messagebox_css.md)
    * [Creating a Custom exception template](recepies/creating_a_custom_exception_template.md)
-   * Caching objects
+   * [Caching objects](recepies/caching_objects.md)
    * Creating a 404 template via onInvalidEvent
    * Is there an easy, programmatic way to remove a specific element from the view cache
    * Building a simple Basic HTTP Authentication Interceptor
