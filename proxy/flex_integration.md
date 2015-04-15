@@ -99,3 +99,44 @@ public function getColdBoxProxy():RemoteObject{
 	return cProxy;
 }
 ```
+Now, you might ask, why create a delegate and not a remote object and just call it. Well, the problem lies in that you will always be calling the same method: process() on the proxy, but need to bind the results to different result handlers. Therefore, you need to create a delegate to process your request and assign a results handler for you. There are tons of ways to achieve what I am doing, I am doing the poor man's delegate.
+
+Once I have done this, then I can create some object for me to display the cache in:
+
+```js
+<mx:PieChart id="cachechart"
+        height="190"
+        width="205"
+        showDataTips="true"  x="10" y="450">
+    <mx:series>
+        <mx:PieSeries field="total" nameField="item"
+             labelPosition="callout" />
+    </mx:series>
+</mx:PieChart>
+<mx:Button x="45" y="420" label="Get Cache Chart" click="readCache()"/>
+```
+
+This declares a pie chart object and a push button. Once the button get's clicked on it will execute the readCache method we will cover below.
+
+```js
+/* Read the Cache Objects*/
+public function handleCacheResults(event:ResultEvent):void{
+	var cacheItems:Object = new Object();
+	var key:String;
+	var array:Array = new Array();
+	
+	cacheItems = event.result;
+	for( key in cacheItems ){
+		array.push( { item:key, total: cacheItems[key] });
+	}
+	var collection:ArrayCollection = new ArrayCollection(array);
+	cachechart.dataProvider = collection;
+}
+/* Call the proxy for cache objects*/
+public function readCache():void{
+	var cProxy:RemoteObject = getColdBoxProxy();
+	cProxy.process.addEventListener("result",handleCacheResults );
+	cProxy.process({event:"ehFlex.getCacheItemTypes"});
+}
+```
+
