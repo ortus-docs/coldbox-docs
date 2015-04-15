@@ -147,6 +147,7 @@
    * [The Base Proxy Object](proxy/the_base_proxy_object.md)
    * [The Event Handlers](proxy/the_event_handlers.md)
        * [Distinguishing Request Types](proxy/distinguishing_request_types.md)
+       * RenderData()
 * [Layouts & Views](layouts_&_views_guide.md)
    * [Response Types](layouts/response_types.md)
    * [Rendering Views](Layouts/rendering_views.md)
