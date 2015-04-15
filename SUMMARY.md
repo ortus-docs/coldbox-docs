@@ -243,5 +243,4 @@
    * [Building a simple Basic HTTP Authentication Interceptor](recepies/building_a_simple_basic_http_authentication_interceptor.md)
 * [Runnable Code Examples](run/index.md)
    * Consume RSS Feed in ColdBox
-   * Using WireBox to Create Objects
 
