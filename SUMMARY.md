@@ -222,4 +222,5 @@
 * [Flash RAM](flash_ram/index.md)
    * [Flash Storage](flash_ram/flash_storage.md)
    * [Using Flash RAM](using_flash_ram.md)
+   * Creating Your Own Flash Scope
 
