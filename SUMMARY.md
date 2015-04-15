@@ -246,5 +246,4 @@
    * Using WireBox to Create Objects
    * Using Wirebox to Autowire Objects
    * WireBox AOP- Using the Method Logger Aspect
-   * WireBox AOP for Easy Security
 
