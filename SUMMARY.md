@@ -238,4 +238,5 @@
    * Creating a messagebox css
    * Creating a Custom exception template
    * Caching objects
+   * Creating a 404 template via onInvalidEvent
 
