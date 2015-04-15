@@ -11,37 +11,6 @@ The ColdBox proxy enables remote applications or technologies like Flex, AIR, SO
 We not only give you the ability to do remote calls but also to monitor them. ColdBox has an execution monitor that can help you debug and analyze remote calls if you are in debug mode. This allows you to know what happens on asynchrounous calls from Flex/Air/SOAP, etc. The remote functionality of the framework enables you to actually create any amount of front ends using the same reusable ColdBox and model code. The code is the same, you create event handlers, you interact with a request collection, with core and custom plugins, but you don't set views or layouts because the framework is now a remote framework for your model. So what do you do, well, return data, arrays, xml, value objects. Anything, right from within the event handlers or setup a configuration setting that tells the framework to always return the request collection. You can also just create remote proxies to your service components (if using a service layers approach), so you can go directly to any object factory to request for services, interact with them and return results. The ColdBox proxy gives you flexibility in all aspects.
 
 
-
-
-
-##### Proxy Example
-
-The concept of a [Proxy](http://en.wikipedia.org/wiki/Proxy_pattern) is to give access to another system. As Wikipedia mentions:
-
-> "A proxy, in its most general form, is a class functioning as an interface to something else. The proxy could interface to anything: a network connection, a large object in memory, a file, or some other resource that is expensive or impossible to duplicate" <small> Wikipedia </small>
-
-The proxy will give you access to your entire ColdBox application assets but also allow you to proxy in request to the normal ColdBox event model. You will do this via our `process()` method. This method expects a event argument to be passed to it which is the event that will be executed for you and all the other arguments passed to this method will be converted and merged into the [RequestContext](http://wiki.coldbox.org/wiki/RequestContext.cfm)'s request collection. Then your event handlers can respond to these requests just like normal requests and even return data back to the caller. The advanced ColdBox template gives you a sample proxy object in your *remote/MyProxy.cfc* folder.
-
-```js
-<cfcomponent name="MyProxy" output="false" extends="coldbox.system.remote.ColdboxProxy">
-
-	<cffunction name="yourRemoteCall" output="false" access="remote" returntype="YourType" hint="Your Hint">
-		<cfset var results = "">
-		
-		<---  Set the event to execute --->
-		<cfset arguments.event = "">
-		
-		<---  Call to process a coldbox event cycle, always check the results as they might not exist. --->
-		<cfset results = super.process(argumentCollection=arguments)>
-		
-		<cfreturn results>
-	</cffunction>
-	
-</cfcomponent>
-```
-
-This simple proxy object extends the ColdBox Proxy class that gives you all the remote abilities. Then it is up to you to create methods that will respond to either Flex/Air/Soap or now with ColdFusion 10; Restful services.
-
 ### The Base Proxy Object
 As you can see from the code above, this proxy inherits from the coldbox.system.remote.ColdboxProxy class. This is the key to it all, this base class has all the necessary hooks for your proxy to work. Why is it inherited? Why not just use that one? Well, the answer is that every project is different and I believe in empowering the developer. Therefore, you have your own class in which you can expose any other remote methods as you need. You only need to know the methods that are available to you from the base class. The following are the most commonly used methods in the base proxy class, for an in-depth review of the methods, please visit the [CFC API](http://apidocs.coldbox.org/):
 
