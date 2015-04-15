@@ -212,4 +212,5 @@
        * [Debugger Events](interceptors/debugger_events.md)
        * [ORM Events](interceptors/orm_events.md)
        * [CacheBox Events](interceptors/cachebox_events.md)
+   * Interceptor Output Buffer
 
