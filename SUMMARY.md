@@ -150,7 +150,7 @@
        * RenderData()
    * [Proxy Events](proxy/proxy_events.md)
    * [Ajax Data Binding & More](proxy/ajax_data_binding_&_more.md)
-   * Flex Integration
+   * [Flex Integration](proxy/flex_integration.md)
 * [Layouts & Views](layouts_&_views_guide.md)
    * [Response Types](layouts/response_types.md)
    * [Rendering Views](Layouts/rendering_views.md)
