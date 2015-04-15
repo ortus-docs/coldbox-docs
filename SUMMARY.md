@@ -231,7 +231,7 @@
    * [My First Custom Plugin](recepies/my_first_custom_plugin.md)
    * [My First Interceptor](recepies/my_first_interceptor.md)
    * [My First Context Decorator](recepies/my_first_context_decorator.md)
-   * How to time your code
+   * [How to time your code](recepies/how_to_time_your_code.md)
    * Object factory custom plugin
    * Loading a custom ColdBox configuration file
    * Tracing messages to the debug panel
