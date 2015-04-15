@@ -248,4 +248,5 @@
    * WireBox AOP for Easy Security
    * TestBox Samples
    * Consume RSS Feed in ColdBox
+   * Using WireBox to Create Objects
 
