@@ -235,7 +235,7 @@
    * [Object factory custom plugin](recepies/object_factory_custom_plugin.md)
    * [Loading a custom ColdBox configuration file](recepies/loading_a_custom_coldbox_configuration_file.md)
    * [Tracing messages to the debug panel](recepies/tracing_messages_to_the_debug_panel.md)
-   * Creating a messagebox css
+   * [Creating a messagebox css](recepies/creating_a_messagebox_css.md)
    * Creating a Custom exception template
    * Caching objects
    * Creating a 404 template via onInvalidEvent
