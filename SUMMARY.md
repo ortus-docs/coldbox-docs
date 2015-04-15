@@ -233,7 +233,7 @@
    * [My First Context Decorator](recepies/my_first_context_decorator.md)
    * [How to time your code](recepies/how_to_time_your_code.md)
    * [Object factory custom plugin](recepies/object_factory_custom_plugin.md)
-   * Loading a custom ColdBox configuration file
+   * [Loading a custom ColdBox configuration file](recepies/loading_a_custom_coldbox_configuration_file.md)
    * Tracing messages to the debug panel
    * Creating a messagebox css
    * Creating a Custom exception template
