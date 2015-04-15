@@ -238,7 +238,7 @@
    * [Creating a messagebox css](recepies/creating_a_messagebox_css.md)
    * [Creating a Custom exception template](recepies/creating_a_custom_exception_template.md)
    * [Caching objects](recepies/caching_objects.md)
-   * Creating a 404 template via onInvalidEvent
+   * [Creating a 404 template via onInvalidEvent](recepies/creating_a_404_template_via_oninvalidevent.md)
    * Is there an easy, programmatic way to remove a specific element from the view cache
    * Building a simple Basic HTTP Authentication Interceptor
 
