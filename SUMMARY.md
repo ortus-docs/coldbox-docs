@@ -211,5 +211,5 @@
        * [Module Events](interceptors/module_events.md)
        * [Debugger Events](interceptors/debugger_events.md)
        * [ORM Events](interceptors/orm_events.md)
-       * CacheBox Events
+       * [CacheBox Events](interceptors/cachebox_events.md)
 
