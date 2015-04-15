@@ -97,3 +97,28 @@ As you can see from the code, you do some property tests, if all are successful 
 
 Interceptors work by you implementing the core execution points that you can find in the Interceptor Chapter. Below we implement the afterConfigurationLoad method. This methods executes after the framework loads and the config file has been parsed and loaded. Please note that not only can you intercept core framework execution points, but you can make up your own by using custom interception points. This gives you the ability to use a methodology of broadcast-listener approaches.
 
+> **Info** All intercepted methods receive the event object and a structure of intercepted data. 
+
+```js
+
+
+<cffunction name="afterConfigurationLoad" access="public" returntype="void" hint="Executes after the framework and application configuration loads, but before the aspects get configured. " output="false" >
+<---************************************************************** --->
+<cfargument name="event">
+<cfargument name="interceptData">
+<---************************************************************** --->
+<cfscript>
+//all properties set, just read in the xml file and parse it
+var xmlDoc = "";
+
+//read and parse
+xmlDoc = XMLParse( getProperty('expandedXMLFile') );
+
+//set in the application settings
+getController().setSetting( getProperty('varName'), xmlDoc );
+
+</cfscript>
+</cffunction>
+```
+
+The method will be executed, and the interceptor will read and parse the xml file declared. Then inject it to the application settings as a variable using properties. Well, that's it folks. What a simple but an example that can be super useful when expanded on.
