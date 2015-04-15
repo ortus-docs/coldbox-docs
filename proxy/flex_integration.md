@@ -87,3 +87,15 @@ public function faultHandler(event:FaultEvent):void{
 	Alert.show(event.fault.toString());
 }
 ```
+We then declare our mini proxy delegate. Again, this is for sample purposes, you must encapsulate this into a class of its own and even expand on it to make it a true delegate.
+
+```js
+/* UTILITY METHOD TO GET A CBPROXY OBJECT, You can separate all this to a delegate class*/
+public function getColdBoxProxy():RemoteObject{
+	var cProxy:RemoteObject = new RemoteObject( "ColdFusion" );
+	cProxy.source= cbProxyPath;
+	cProxy.showBusyCursor = true;
+	cProxy.addEventListener( FaultEvent.FAULT, faultHandler );
+	return cProxy;
+}
+```
