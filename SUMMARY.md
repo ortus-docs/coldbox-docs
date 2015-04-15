@@ -201,5 +201,5 @@
        * [Programmatically](interceptors/programmatically.md)
    * [Custom Events](interceptors/custom_events.md)
        * [Configuration Registration](interceptors/configuration_registration.md)
-       * Programmatic Registration
+       * [Programmatic Registration](interceptors/programmatic_registration.md)
 
