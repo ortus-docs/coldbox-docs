@@ -209,4 +209,5 @@
        * [Object Creating Events](interceptors/object_creating_events.md)
        * [Layout-View Events](interceptors/layout-view_events.md)
        * [Module Events](interceptors/module_events.md)
+       * Debugger Events
 
