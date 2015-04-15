@@ -152,6 +152,7 @@
    * [Ajax Data Binding & More](proxy/ajax_data_binding_&_more.md)
    * [Flex Integration](proxy/flex_integration.md)
    * [Standard Return Types](proxy/standard_return_types.md)
+   * Execution Profiler Monitor
 * [Layouts & Views](layouts_&_views_guide.md)
    * [Response Types](layouts/response_types.md)
    * [Rendering Views](Layouts/rendering_views.md)
