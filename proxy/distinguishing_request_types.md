@@ -1,0 +1,2 @@
+# Distinguishing Request Types
+
