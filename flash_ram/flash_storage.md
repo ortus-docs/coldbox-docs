@@ -26,3 +26,50 @@ Below is a nice chart of all the keys in this configuration structure so you can
 |inflateToPRC |boolean|false|false|Whatever variables you put into the Flash RAM, they will also be inflated or copied into the private request collection for you automatically|
 |autoPurge |boolean|false|true|This is what makes the Flash RAM work, it cleans itself for you. Be careful when setting this to false as it then becomes your job to do the cleaning|
 |autoSave |boolean|false|true|The Flash RAM saves itself at the end of requests and on relocations via setNextEvent(). If you do not want auto-saving, then turn it off and make sure you save manually|
+
+### Core Flash Implementations
+
+The included flash implementations for ColdBox are:
+
+|Name|Class|Description|
+|--|--|--|
+|Sesison|coldbox.system.web.flash.SessionFlash |Persists variables in session scope|
+|Cluster|coldbox.system.web.flash.ClusterFlash |Persists variables in cluster scope via Railo only|
+|Client|coldbox.system.web.flash.ClientFlash |Persists variables in client scope|
+|Mock|coldbox.system.web.flash.MockFlash |Mocks the storage of Flashed variables. Great for unit/integration testing.|
+|Cache|coldbox.system.web.flash.ColdboxCacheFlash |Persists variables in the ColdBox Cache|
+
+
+###### Configuration Properties
+
+Each RAM implementation can also use properties in order to alter its behavior upon construction via the properties configuration struct. Below are the properties our core implementations can use:
+
+Session Flash Settings:
+* none
+
+Cluster Flash SettingsL
+* none
+
+Clien Flash Settings
+* none
+
+Mock Flash Settings
+* none
+
+Cache Flash Settings
+* none
+
+Cache Flash Settings
+|Setting|Type|Required|Default|Description|
+|--|--|--|--|--|
+|cacheName|string|false|default|The cache provider name declared in [CacheBox](http://http://wiki.coldbox.org/wiki/CacheBox.cfm) to be used to store the user's flash RAM content.|
+
+
+```js
+// flash scope configuration
+flash = {
+	scope = "cache",
+	properties = { cacheName="cluster" }
+};
+```
+
