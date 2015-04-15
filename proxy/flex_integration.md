@@ -142,3 +142,7 @@ public function readCache():void{
 
 The *readCache* method basically calls the *getColdBoxProxy* delegate method to get a remote object for the proxy. It then creates an event listener for it and calls the proxy. The listener is called *handleCacheResults* which then manipulates the results and renders the cache.
 
+
+> **Important** Please note that this is a sample Flex application that does not adhere to any Flex MVC techniques or enterprise best practices. It is here to learn how to call the proxy from it and start your process into flex-ColdBox integration. I highly suggest creating a separate AS3 class that will act as a ColdBox delegate that can call your methods, set call back handlers and fault handlers. 
+
+
