@@ -234,4 +234,5 @@
    * How to time your code
    * Object factory custom plugin
    * Loading a custom ColdBox configuration file
+   * Tracing messages to the debug panel
 
