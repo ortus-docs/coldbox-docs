@@ -48,3 +48,5 @@ Here is our sample view:
   <p>Please check to make sure you entered the page address correctly and try again.</p>
 </div>
 ```
+
+That's it my friends. ColdBox, making development easy again! 
