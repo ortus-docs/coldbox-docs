@@ -154,6 +154,7 @@
    * [Standard Return Types](proxy/standard_return_types.md)
    * [Execution Profiler Monitor](proxy/execution_profiler_monitor.md)
    * [Caveats & Gotchas](proxy/caveats_&_gotchas.md)
+   * Conclusion
 * [Layouts & Views](layouts_&_views_guide.md)
    * [Response Types](layouts/response_types.md)
    * [Rendering Views](Layouts/rendering_views.md)
