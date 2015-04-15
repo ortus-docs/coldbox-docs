@@ -33,3 +33,44 @@ Template Sample
 	</cfscript>
 </cffunction>
 ```
+
+CFC Sample
+
+```js
+//cfc
+<cfcomponent name="dateUtil" output="false">
+
+<---  formatDate --->
+<cffunction name="formatDate" output="false" access="public" returntype="string" hint="Format dates">
+	<cfargument name="datestr" type="string" required="true" default="" hint="The date string"/>
+	<cfargument name="format" type="string" required="true" default="full" hint="the formating: full, short, medium"/>
+	<cfscript>
+		if( not isDate(arguments.datestr) ){
+			return arguments.datestr;
+		}
+		if( not reFindNoCase("^(short|medium|full)$",arguments.format) ){
+			arguments.format = "full";
+		}
+		return dateFormat(arguments.datestr,arguments.format);
+	</cfscript>
+</cffunction>
+
+</cfcomponent>
+```
+
+Ok, you have created your first helper. All it does is have the ability to format dates for printing. These are centrally located and can be used throughout any part of the framework easily. So let's use them.
+
+### Helper Usage
+We now created the helpers, how do we use them? Using our includeUDF() method. So let's look at a sample view code that will need this helper.
+
+```js
+<---< Include Helper --->
+<cfset includeUDF('helpers/dateutil')>
+
+<div>
+Welcome Luis, your last login was done on #formatdate(rc.oUser.getLoginDate())#
+</div>
+
+<p>The current date is #formatdate(now(),"short")#</p>
+```
+That's it! By using the include UDF and the path to the library to load, ColdBox will take care of the rest.
