@@ -223,4 +223,5 @@
    * [Flash Storage](flash_ram/flash_storage.md)
    * [Using Flash RAM](using_flash_ram.md)
    * [Creating Your Own Flash Scope](flash_ram/creating_your_own_flash_scope.md)
+   * Summary
 
