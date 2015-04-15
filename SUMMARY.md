@@ -205,4 +205,5 @@
        * [Usage](interceptors/usage.md)
        * [Announcing Interceptions](interceptors/announcing_interceptions.md)
    * [Core Interception Points](interceptors/core_interception_points.md)
+       * Application Life Cycle
 
