@@ -218,4 +218,5 @@
    * [Reporting Methods](interceptors/reporting_methods.md)
    * [Interceptor Asynchronicity](interceptors/interceptor_asynchronicity.md)
    * [Conclusion](interceptors/conclusion.md)
+* Controller Decorator
 
