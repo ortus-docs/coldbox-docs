@@ -244,5 +244,4 @@
 * [Runnable Code Examples](run/index.md)
    * Consume RSS Feed in ColdBox
    * Using WireBox to Create Objects
-   * Using Wirebox to Autowire Objects
 
