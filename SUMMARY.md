@@ -237,4 +237,5 @@
    * Tracing messages to the debug panel
    * Creating a messagebox css
    * Creating a Custom exception template
+   * Caching objects
 
