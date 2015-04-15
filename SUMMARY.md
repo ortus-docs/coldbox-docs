@@ -215,5 +215,5 @@
    * [Interceptor Output Buffer](interceptors/interceptor_output_buffer.md)
        * [Output Buffer Argument](interceptors/output_buffer_argument.md)
    * [Unregistering Interceptors](interceptors/unregistering_interceptors.md)
-   * Reporting Methods
+   * [Reporting Methods](interceptors/reporting_methods.md)
 
