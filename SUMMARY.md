@@ -244,4 +244,5 @@
 * [Runnable Code Examples](run/index.md)
    * ColdBox MVC Hello World
    * Using Wirebox to Autowire Objects
+   * WireBox AOP- Using the Method Logger Aspect
 
