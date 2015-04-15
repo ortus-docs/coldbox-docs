@@ -239,4 +239,5 @@
    * Creating a Custom exception template
    * Caching objects
    * Creating a 404 template via onInvalidEvent
+   * Is there an easy, programmatic way to remove a specific element from the view cache
 
