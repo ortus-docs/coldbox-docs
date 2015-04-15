@@ -141,6 +141,7 @@
 * [Interceptors](interceptors/interceptors.md)
 * [Modules](modules/index.md)
 * [ColdBox Proxy](proxy/index.md)
+   * Getting Started
 * [Layouts & Views](layouts_&_views_guide.md)
    * [Response Types](layouts/response_types.md)
    * [Rendering Views](Layouts/rendering_views.md)
