@@ -244,9 +244,9 @@
 * [Runnable Code Examples](run/index.md)
    * ColdBox MVC Hello World
    * Consume RSS Feed in ColdBox
+   * Using WireBox to Create Objects
    * Using Wirebox to Autowire Objects
    * WireBox AOP- Using the Method Logger Aspect
    * WireBox AOP for Easy Security
    * TestBox Samples
-   * Using WireBox to Create Objects
 
