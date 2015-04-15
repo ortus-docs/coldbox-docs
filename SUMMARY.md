@@ -233,4 +233,5 @@
    * My First Context Decorator
    * How to time your code
    * Object factory custom plugin
+   * Loading a custom ColdBox configuration file
 
