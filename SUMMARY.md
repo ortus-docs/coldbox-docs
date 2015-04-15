@@ -203,5 +203,5 @@
        * [Configuration Registration](interceptors/configuration_registration.md)
        * [Programmatic Registration](interceptors/programmatic_registration.md)
        * [Usage](interceptors/usage.md)
-       * Announcing Interceptions
+       * [Announcing Interceptions](interceptors/announcing_interceptions.md)
 
