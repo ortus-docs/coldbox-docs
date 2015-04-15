@@ -208,5 +208,5 @@
        * [Application Life Cycle](interceptors/application_life_cycle.md)
        * [Object Creating Events](interceptors/object_creating_events.md)
        * [Layout-View Events](interceptors/layout-view_events.md)
-       * Module Events
+       * [Module Events](interceptors/module_events.md)
 
