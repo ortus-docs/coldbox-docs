@@ -224,5 +224,5 @@
    * [Using Flash RAM](using_flash_ram.md)
    * [Creating Your Own Flash Scope](flash_ram/creating_your_own_flash_scope.md)
    * [Summary](flash_ram/summary.md)
-* Recepies
+* [Recepies](recepies/index.md)
 
