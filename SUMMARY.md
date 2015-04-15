@@ -217,4 +217,5 @@
    * [Unregistering Interceptors](interceptors/unregistering_interceptors.md)
    * [Reporting Methods](interceptors/reporting_methods.md)
    * [Interceptor Asynchronicity](interceptors/interceptor_asynchronicity.md)
+   * Conclusion
 
