@@ -227,4 +227,5 @@
 * [Recepies](recepies/index.md)
    * Using Helper UDF's and CFC's
    * My First Event Handler
+   * My First Custom Exception Handler
 
