@@ -13,7 +13,7 @@
 |sessionEnd |<ul><li>sessionReference - A reference to the session structure</li><li>applicationReference - A reference to the application structure</li></ul>|This occurs when a user's session ends|
 |preProcess |---|This occurs after a request is received and made ready for processing. This simulates an on request start interception point. Please note that this interception point occurs before the request start handler. |
 |preEvent |<ul><li>processedEvent - The event that is about to be executed</li><li>eventArguments - A structure of arguments (if any) the event got executed with</li></ul>|This occurs before ANY event execution, whether it is the current event or called via the run event method. It is important to note that this interception point occurs before the preHandler convention. (See Event Handler Guide Chapter) |
-|postEvent|<ul><li>processedEvent - The event that is about to be executed</li><li>eventArguments - A structure of arguments (if any) the event got executed with</li></ul>|This occurs after ANY event execution, whether it is the current event or called via the run event method. It is important to note that this interception point occurs after the postHandler convention (See Event Handler 
-Chapter) |
-||||
-||||
+|postEvent|<ul><li>processedEvent - The event that is about to be executed</li><li>eventArguments - A structure of arguments (if any) the event got executed with</li></ul>|This occurs after ANY event execution, whether it is the current event or called via the run event method. It is important to note that this interception point occurs after the postHandler convention (See Event Handler Chapter) |
+|postProcess |---|This occurs after rendering, usually the last step in an execution. This simulates an on request end interception point. |
+|preProxyResults |{proxyResults} |This occurs right before any ColdBox proxy calls are returned. This is the last chance to modify results before they are returned.|
+
