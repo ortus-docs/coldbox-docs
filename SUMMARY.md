@@ -149,6 +149,7 @@
        * [Distinguishing Request Types](proxy/distinguishing_request_types.md)
        * RenderData()
    * [Proxy Events](proxy/proxy_events.md)
+   * Ajax Data Binding & More
 * [Layouts & Views](layouts_&_views_guide.md)
    * [Response Types](layouts/response_types.md)
    * [Rendering Views](Layouts/rendering_views.md)
