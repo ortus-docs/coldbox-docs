@@ -1,0 +1,2 @@
+# Interceptor Output Buffer
+
