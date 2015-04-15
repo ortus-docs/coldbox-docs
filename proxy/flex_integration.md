@@ -141,3 +141,4 @@ public function readCache():void{
 ```
 
 The *readCache* method basically calls the *getColdBoxProxy* delegate method to get a remote object for the proxy. It then creates an event listener for it and calls the proxy. The listener is called *handleCacheResults* which then manipulates the results and renders the cache.
+
