@@ -225,4 +225,5 @@
    * [Creating Your Own Flash Scope](flash_ram/creating_your_own_flash_scope.md)
    * [Summary](flash_ram/summary.md)
 * [Recepies](recepies/index.md)
+   * Using Helper UDF's and CFC's
 
