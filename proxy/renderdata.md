@@ -28,3 +28,5 @@ string function getUsers(string format="json"){
 	return process(argumentCollection=arguments);
 }
 ```
+This handler can now respond to HTMl requests, SOAP requests, Flex/Air Requests and even RESTFul requests. How about that!
+
