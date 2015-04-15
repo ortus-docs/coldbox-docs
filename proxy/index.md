@@ -35,3 +35,9 @@ This tells the framework where in the web server (sub-folder) your application i
 ```
 
 > **Infor** The AppMapping value is an instantiation path value
+
+##### Proxy Example
+
+The concept of a [Proxy](http://en.wikipedia.org/wiki/Proxy_pattern) is to give access to another system. As Wikipedia mentions:
+
+> "A proxy, in its most general form, is a class functioning as an interface to something else. The proxy could interface to anything: a network connection, a large object in memory, a file, or some other resource that is expensive or impossible to duplicate" by Wikipedia 
