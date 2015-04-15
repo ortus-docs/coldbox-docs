@@ -10,17 +10,7 @@ The ColdBox proxy enables remote applications or technologies like Flex, AIR, SO
 
 We not only give you the ability to do remote calls but also to monitor them. ColdBox has an execution monitor that can help you debug and analyze remote calls if you are in debug mode. This allows you to know what happens on asynchrounous calls from Flex/Air/SOAP, etc. The remote functionality of the framework enables you to actually create any amount of front ends using the same reusable ColdBox and model code. The code is the same, you create event handlers, you interact with a request collection, with core and custom plugins, but you don't set views or layouts because the framework is now a remote framework for your model. So what do you do, well, return data, arrays, xml, value objects. Anything, right from within the event handlers or setup a configuration setting that tells the framework to always return the request collection. You can also just create remote proxies to your service components (if using a service layers approach), so you can go directly to any object factory to request for services, interact with them and return results. The ColdBox proxy gives you flexibility in all aspects.
 
-### Getting Started
 
-Most remote APIs are strongly typed so it makes sense to create as many ColdBox proxy objects as you see fit. Don't just create one proxy with 1000 methods on it. Try to apply identity to these objects as well. We also recommend you create a remote folder in your application where you can store all your remote proxy objects.
-
-```js
-/Application
-  /remote
-    + MyProxy.cfc
-```
-
-The concept behind the ColdBox proxy is to create CFC's that extend our proxy class: coldbox.system.remote.ColdboxProxy. This will give you the ability to locate and talk to your running ColdBox application. However, since some of these requests won't be done via HTTP but other protocols like Flex/Air, your ColdBox application must know where in your server the application is located in. By default, when using HTTP calls, ColdBox can auto-locate your application with no issues at all, but with Flex/AIR or other protocols you must set this location in your Application.cfc.
 
 ##### AppMapping
 In your Application.cfc you will find a directive called: COLDBOX_APP_MAPPING:
