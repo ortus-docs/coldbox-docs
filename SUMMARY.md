@@ -235,4 +235,5 @@
    * Object factory custom plugin
    * Loading a custom ColdBox configuration file
    * Tracing messages to the debug panel
+   * Creating a messagebox css
 
