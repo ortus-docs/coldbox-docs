@@ -101,3 +101,29 @@ The method that I create next is the getValue method. This will actually decorat
 
 
 ###### An extra method: getSESSelf()
+
+```js
+<cffunction name="getSESSelf" returntype="string" access="Public" output="false">
+<cfscript>
+var self = "index.cfm/";
+	
+self = self & getCurrentHandler() & "/" & getCurrentAction();
+	
+return self;
+</cfscript>
+</cffunction>
+```
+
+This basically constructs the following:
+
+```js
+index.cfm/{handler}/{action}
+```
+
+Very useful on navigation:
+
+```js
+<a href="#event.getSESSelf()#">My Link</a>
+```
+
+And that is it my folks, you have a working decorator. One last important note, is that by calling the getController() method, you have access to your application settings, plugins, interceptors and so much more. So you can build even more powerful request context objects.
