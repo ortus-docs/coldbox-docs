@@ -153,6 +153,7 @@
    * [Flex Integration](proxy/flex_integration.md)
    * [Standard Return Types](proxy/standard_return_types.md)
    * [Execution Profiler Monitor](proxy/execution_profiler_monitor.md)
+   * Caveats & Gotchas
 * [Layouts & Views](layouts_&_views_guide.md)
    * [Response Types](layouts/response_types.md)
    * [Rendering Views](Layouts/rendering_views.md)
