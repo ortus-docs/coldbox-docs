@@ -247,4 +247,5 @@
    * WireBox AOP- Using the Method Logger Aspect
    * WireBox AOP for Easy Security
    * TestBox Samples
+   * Consume RSS Feed in ColdBox
 
