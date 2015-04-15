@@ -207,5 +207,5 @@
    * [Core Interception Points](interceptors/core_interception_points.md)
        * [Application Life Cycle](interceptors/application_life_cycle.md)
        * [Object Creating Events](interceptors/object_creating_events.md)
-       * Layout-View Events
+       * [Layout-View Events](interceptors/layout-view_events.md)
 
