@@ -216,5 +216,5 @@
        * [Output Buffer Argument](interceptors/output_buffer_argument.md)
    * [Unregistering Interceptors](interceptors/unregistering_interceptors.md)
    * [Reporting Methods](interceptors/reporting_methods.md)
-   * Interceptor Asynchronicity
+   * [Interceptor Asynchronicity](interceptors/interceptor_asynchronicity.md)
 
