@@ -214,4 +214,5 @@
        * [CacheBox Events](interceptors/cachebox_events.md)
    * [Interceptor Output Buffer](interceptors/interceptor_output_buffer.md)
        * [Output Buffer Argument](interceptors/output_buffer_argument.md)
+   * Unregistering Interceptors
 
