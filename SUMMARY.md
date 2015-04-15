@@ -200,5 +200,5 @@
        * [Configuration File](interceptors/configuration_file.md)
        * [Programmatically](interceptors/programmatically.md)
    * [Custom Events](interceptors/custom_events.md)
-       * Configuration Registration
+       * [Configuration Registration](interceptors/configuration_registration.md)
 
