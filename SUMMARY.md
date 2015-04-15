@@ -227,7 +227,7 @@
 * [Recepies](recepies/index.md)
    * [Using Helper UDF's and CFC's](recepies/using_helper_udfs_and_cfcs.md)
    * [My First Event Handler](recepies/my_first_event_handler.md)
-   * My First Custom Exception Handler
+   * [My First Custom Exception Handler](recepies/my_first_custom_exception_handler.md)
    * My First Custom Plugin
    * My First Interceptor
    * My First Context Decorator
