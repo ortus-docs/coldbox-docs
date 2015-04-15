@@ -83,7 +83,11 @@ Get a list of all the objects in the temp flash scope.
 Flash Keys: #structKeyList( flash.getKeys() )#
 ```
 
-######
+###### getFlash()
+Get a reference to the permanent storage implementation of the flash scope.
+```js
+<cfdump var="#flash.getFlash()#">
+```
 
 ######
 
