@@ -243,10 +243,10 @@
    * [Building a simple Basic HTTP Authentication Interceptor](recepies/building_a_simple_basic_http_authentication_interceptor.md)
 * [Runnable Code Examples](run/index.md)
    * ColdBox MVC Hello World
+   * Consume RSS Feed in ColdBox
    * Using Wirebox to Autowire Objects
    * WireBox AOP- Using the Method Logger Aspect
    * WireBox AOP for Easy Security
    * TestBox Samples
-   * Consume RSS Feed in ColdBox
    * Using WireBox to Create Objects
 
