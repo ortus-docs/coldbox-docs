@@ -204,4 +204,5 @@
        * [Programmatic Registration](interceptors/programmatic_registration.md)
        * [Usage](interceptors/usage.md)
        * [Announcing Interceptions](interceptors/announcing_interceptions.md)
+   * Core Interception Points
 
