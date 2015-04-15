@@ -144,6 +144,7 @@
    * [Getting Started](proxy/getting_started.md)
        * [AppMapping](proxy/appmapping.md)
        * [Proxy Example](proxy/proxy_example.md)
+   * The Base Proxy Object
 * [Layouts & Views](layouts_&_views_guide.md)
    * [Response Types](layouts/response_types.md)
    * [Rendering Views](Layouts/rendering_views.md)
