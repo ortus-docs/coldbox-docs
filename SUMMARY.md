@@ -44,6 +44,7 @@
        * [Configuration Interceptor](configuration/configuration_interceptor.md)
    * [Using Settings](configuration/using_settings.md)
    * [Bootstrapper](configuration/bootstrapper.md)
+* Getting Started Guide
 * [Event Handlers](event_handlers/index.md)
    * [Locations](event_handlers/locations.md)
    * [Composed Properties](event_handlers/composed_properties.md)
@@ -256,5 +257,4 @@
    * [Is there an easy, programmatic way to remove a specific element from the view cache](recepies/is_there_an_easy,_programmatic_way_to_remove_a_specific_element_from_the_view_cache.md)
    * [Building a simple Basic HTTP Authentication Interceptor](recepies/building_a_simple_basic_http_authentication_interceptor.md)
 * [Runnable Code Examples](run/index.md)
-* Getting Started Guide
 
