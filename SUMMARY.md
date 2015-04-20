@@ -8,6 +8,7 @@
    * [Upgrading to ColdBox 4.0.0](introduction/upgrading_to_coldbox_400.md)
    * [About This Book](introduction/about_this_book.md)
    * [Author](introduction/author.md)
+* Getting Started Guide
 * [Overview](getting_started/getting_started.md)
    * [What is MVC](getting_started/what_is_mvc.md)
    * [What is ColdBox](getting_started/what_is_coldbox.md)
@@ -44,7 +45,6 @@
        * [Configuration Interceptor](configuration/configuration_interceptor.md)
    * [Using Settings](configuration/using_settings.md)
    * [Bootstrapper](configuration/bootstrapper.md)
-* Getting Started Guide
 * [Event Handlers](event_handlers/index.md)
    * [Locations](event_handlers/locations.md)
    * [Composed Properties](event_handlers/composed_properties.md)
