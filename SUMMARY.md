@@ -53,7 +53,7 @@
    * [Setting Views](event_handlers/setting_views.md)
    * [Relocating](event_handlers/relocating.md)
    * [Rendering Data](event_handlers/rendering_data.md)
-   * [Model Integration](event_handlers/model_integration.md)
+   * [Model Integration](model_integration/index.md)
        * [Model Data Binding](model_data_binding.md)
        * [Advanced Data Binding](advanced_data_binding.md)
    * [Interception Methods](event_handlers/handler_interception_methods.md)
