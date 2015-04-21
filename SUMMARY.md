@@ -9,7 +9,7 @@
    * [About This Book](introduction/about_this_book.md)
    * [Author](introduction/author.md)
 * [Getting Started Guide](getting_started_guide/index.md)
-* [Overview](getting_started/getting_started.md)
+* [Overview](overview/index.md)
    * [What is MVC](getting_started/what_is_mvc.md)
    * [What is ColdBox](getting_started/what_is_coldbox.md)
    * [How ColdBox Works](getting_started/how_coldbox_works.md)
