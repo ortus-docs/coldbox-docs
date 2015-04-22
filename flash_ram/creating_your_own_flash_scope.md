@@ -14,7 +14,7 @@ The ColdBox Flash capabilities are very flexible and you can easily create your 
 |flashExists()|boolean|Checks if the flash storage is available and has data in it.|
 |getFlash()|struct|This method needs to return a structure of flash data to reinflate and use during a request.|
 
-> **Important**  It is the developer's responsibility to provide consistent storage locking and synchronizations. 
+> **Important**  It is the developer's responsibility to provide consistent storage locking and synchronizations.
 
 All of the methods must be implemented and they have their unique purposes as you read in the description. Let's see a real life example, below you can see the flash implementation for the session scope:
 
@@ -22,7 +22,7 @@ All of the methods must be implemented and they have their unique purposes as yo
 <cfcomponent output="false" extends="coldbox.system.web.flash.AbstractFlashScope" hint="A ColdBox session flash scope">
 
 <-------------------------------------------- CONSTRUCTOR ------------------------------------------>
-	
+
 	<cfscript>
 		instance = structnew();
 	</cfscript>
@@ -32,9 +32,9 @@ All of the methods must be implemented and they have their unique purposes as yo
     	<cfargument name="controller" type="coldbox.system.web.Controller" required="true" hint="The ColdBox Controller"/>
     	<cfscript>
     		super.init(arguments.controller);
-			
+
 			instance.flashKey = "cbox_flash_scope";
-			
+
 			return this;
     	</cfscript>
     </cffunction>
@@ -61,9 +61,9 @@ All of the methods must be implemented and they have their unique purposes as yo
 				<cfif NOT flashExists()>
 					<cfset session[getFlashKey()] = structNew()>
 				</cfif>
-			</cflock>	
+			</cflock>
 		</cfif>
-		
+
 		<---  Now Save the Storage --->
 		<cfset session[getFlashKey()] = getScope()>
 	</cffunction>
@@ -84,7 +84,7 @@ All of the methods must be implemented and they have their unique purposes as yo
 		<cfif flashExists()>
 			<cfreturn session[getFlashKey()]>
 		</cfif>
-		
+
 		<cfreturn structnew()>
 	</cffunction>
 
@@ -97,7 +97,7 @@ As you can see from the implementation, it is very straightforward to create a u
 <cfcomponent output="false" extends="coldbox.system.web.flash.AbstractFlashScope" hint="A ColdBox client flash scope">
 
 <-------------------------------------------- CONSTRUCTOR ------------------------------------------>
-	
+
 	<cfscript>
 		instance = structnew();
 	</cfscript>
@@ -107,11 +107,11 @@ As you can see from the implementation, it is very straightforward to create a u
     	<cfargument name="controller" type="coldbox.system.web.Controller" required="true" hint="The ColdBox Controller"/>
     	<cfscript>
     		super.init(arguments.controller);
-			
+
 			// Marshaller
 			instance.converter = createObject("component","coldbox.system.core.conversion.ObjectMarshaller").init();
 			instance.flashKey = "cbox_flash";
-			
+
 			return this;
     	</cfscript>
     </cffunction>
@@ -151,7 +151,7 @@ As you can see from the implementation, it is very straightforward to create a u
 		<cfif flashExists()>
 			<cfreturn instance.converter.deserializeObject(client[getFlashKey()])>
 		</cfif>
-		
+
 		<cfreturn structnew()>
 	</cffunction>
 

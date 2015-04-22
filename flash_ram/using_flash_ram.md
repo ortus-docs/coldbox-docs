@@ -17,7 +17,7 @@ The flash scope object is our best practice approach as it clearly demarcates th
 3. If the flash's saveFlash() method is called then the data is immediately serialized and stored in the implementation's persistent storage.
 4. If the application relocates via setNextEvent() or a request finalizes then if there is data in the request bin, it will be serialized and stored in the implementation's storage.
 
-> **Important** By default the Flash RAM queues up serializations for better performance, but you can alter the behavior programmatically or via the configuration file. 
+> **Important** By default the Flash RAM queues up serializations for better performance, but you can alter the behavior programmatically or via the configuration file.
 
 > **Info** If you use the persistVariables() method or any of the persistence arguments on the setNextEvent() method, those variables will be saved and persisted immediately.
 
@@ -111,7 +111,7 @@ Keep all or a single flash temp variable alive for another relocation. Usually c
 function step2(event){
 	// keep variables for step 2 wizard
 	flash.keep('userID,fname,lname');
-	
+
 	// keep al variables
 	flash.keep();
 }
@@ -165,7 +165,7 @@ flash.put(name="userData",value=userWizard,autoPurge=false);
 any putAll(struct map, [boolean saveNow='false'], [boolean keep='true'], [boolean inflateToRC='[runtime expression]'], [boolean inflateToPRC='[runtime expression]'], [boolean autoPurge='[runtime expression]'])
 ```
 
-Same as the put() method but instead you pass in an entire structure of name-value pairs into the flash scope. 
+Same as the put() method but instead you pass in an entire structure of name-value pairs into the flash scope.
 
 ```js
 var map = {
@@ -179,7 +179,7 @@ flash.putAll(map);
 
 // Use them later
 if( flash.get("loggedIn") ){
-	
+
 }
 ```
 
@@ -222,7 +222,7 @@ function saveForm(event){
 	// save post
 	flash.put("notice","Saved the form baby!");
 	// relocate to another event
-	setNextEvent('user.show');	
+	setNextEvent('user.show');
 }
 function show(event){
 	// Nothing to do with flash, inflating by flash object automatically
