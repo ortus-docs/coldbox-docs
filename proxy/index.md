@@ -4,7 +4,7 @@
 
 The ColdBox proxy enables remote applications or technologies like Flex, AIR, SOAP WebServices, RESTful Webservices and AJAX to communicate with ColdBox and provide an event driven model framework for those applications or for it to act as an enhanced service layer. Not only that, but you can reinitialize the entire application, get settings, announce custom or core interceptions, execute events, and so much more. You can create custom interceptor chains for your model that can be executed asynchronously when a user hits a save record button for example. You can create a Service Layer with built-in environmental settings, logging, error handling, event interception and chaining, you name it, and the possibilities are endless.
 
-> The one key feature here, is that ColdBox morphs into a remote event-driven framework and no longer an MVC framework that produces HTML. 
+> The one key feature here, is that ColdBox morphs into a remote event-driven framework and no longer an MVC framework that produces HTML.
 
 ![](ColdBoxProxy.jpg)
 

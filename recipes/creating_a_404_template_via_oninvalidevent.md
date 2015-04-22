@@ -49,4 +49,4 @@ Here is our sample view:
 </div>
 ```
 
-That's it my friends. ColdBox, making development easy again! 
+That's it my friends. ColdBox, making development easy again!

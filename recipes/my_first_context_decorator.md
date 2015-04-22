@@ -29,8 +29,8 @@ The second step is to create the component in the path specified by the value in
              hint="This is a simple custom request context"
              output="false"
              extends="coldbox.system.web.context.RequestContextDecorator">
-        
-       
+
+
 
 </cfcomponent>
 ```
@@ -58,15 +58,15 @@ You can create a special method called configure in your decorator that will be 
 	<cfset var key = "">
 	<---  Get the original collection via the original request context object and call a non-decorated method --->
 	<cfset var rc = getRequestContext().getCollection()>
-	
+
 	<---  I will trim all of the request collection --->
 	<cfloop collection="#rc#" item="key">
-			
+
 		<---  Trim only simple values --->
 		<cfif isSimpleValue(rc[key])>
 			<cfset rc[key] = trim(rc[key])>
 		</cfif>
-			
+
 	</cfloop>
 </cffunction>
 ```
@@ -85,13 +85,13 @@ The method that I create next is the getValue method. This will actually decorat
 <---  ************************************************************* --->
 <cfscript>
 	var originalValue = "";
-	
+
 	//Check if the value exists
 	if( valueExists(arguments.name) ){
 		//Get the original value
 		originalValue = getRequestContext().getValue(argumentCollection=arguments);
 	}
-	
+
 	//Return either the value or an empty string.
 	return originalValue;
 </cfscript>
@@ -106,9 +106,9 @@ The method that I create next is the getValue method. This will actually decorat
 <cffunction name="getSESSelf" returntype="string" access="Public" output="false">
 <cfscript>
 var self = "index.cfm/";
-	
+
 self = self & getCurrentHandler() & "/" & getCurrentAction();
-	
+
 return self;
 </cfscript>
 </cffunction>

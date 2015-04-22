@@ -13,36 +13,36 @@ Our simple security interceptor will be intercepting at preProcess so all incomi
 * Intercepts with HTTP Basic Authentication
 */
 component {
-	
+
 	// Security Service
 	property name="securityService" inject="id:SecurityService";
-	
-	
+
+
 	void function configure(){
 	}
-	
+
 	void function preProcess(event,struct interceptData){
-		
+
 		// Verify Incoming Headers to see if we are authorizing already or we are already Authorized
 		if( !securityService.isLoggedIn() OR len( event.getHTTPHeader("Authorization","") ) ){
-			
+
 			// Verify incoming authorization
 			var credentials = event.getHTTPBasicCredentials();
 			if( securityService.authorize(credentials.username, credentials.password) ){
 				// we are secured woot woot!
 				return;
 			};
-			
+
 			// Not secure!
 			event.setHTTPHeader(name="WWW-Authenticate",value="basic realm=""Please enter your username and password for our Cool App!""");
-			
+
 			// secured content data and skip event execution
 			event.renderData(data="<h1>Unathorized Access<p>Content Requires Authentication</p>",statusCode="401",statusText="Unauthorized")
 				.noExecution();
-		}	
-			
-	}	
-	
+		}
+
+	}
+
 }
 ```
 
@@ -58,17 +58,17 @@ Then we check if a user is logged in or not and if not we either verify their in
 ```js
 // Verify Incoming Headers to see if we are authorizing already or we are already Authorized
 if( !securityService.isLoggedIn() OR len( event.getHTTPHeader("Authorization","") ) ){
-	
+
 	// Verify incoming authorization
 	var credentials = event.getHTTPBasicCredentials();
 	if( securityService.authorize(credentials.username, credentials.password) ){
 		// we are secured woot woot!
 		return;
 	};
-	
+
 	// Not secure!
 	event.setHTTPHeader(name="WWW-Authenticate",value="basic realm=""Please enter your username and password for our Cool App!""");
-	
+
 	// secured content data and skip event execution
 	event.renderData(data="<h1>Unathorized Access<p>Content Requires Authentication</p>",statusCode="401",statusText="Unauthorized")
 		.noExecution();
@@ -89,12 +89,12 @@ component extends="coldbox.system.testing.BaseInterceptorTest" interceptor="simp
 		// mock security service
 		mockSecurityService = getMockBox().createEmptyMock("simpleMVC.model.SecurityService");
 		// inject mock into interceptor
-		interceptor.$property("securityService","variables",mockSecurityService);		
+		interceptor.$property("securityService","variables",mockSecurityService);
 	}
 
 	function testPreProcess(){
-		var mockEvent = getMockRequestContext();		
-		
+		var mockEvent = getMockRequestContext();
+
 		// TEST A
 		// test already logged in and mock authorize so we can see if it was called
 		mockSecurityService.$("isLoggedIn",true).$("authorize",false);
@@ -102,7 +102,7 @@ component extends="coldbox.system.testing.BaseInterceptorTest" interceptor="simp
 		interceptor.preProcess(mockEvent,{});
 		// verify nothing called
 		assertTrue( mockSecurityService.$never("authorize") );
-		
+
 		// TEST B
 		// test NOT logged in and NO credentials, so just challenge
 		mockSecurityService.$("isLoggedIn",false).$("authorize",false);
@@ -118,7 +118,7 @@ component extends="coldbox.system.testing.BaseInterceptorTest" interceptor="simp
 		AssertTrue( mockEvent.$once("setHTTPHeader") );
 		// assert renderdata
 		assertEquals( "401", mockEvent.getRenderData().statusCode );
-		
+
 		// TEST C
 		// Test NOT logged in With basic credentials that are valid
 		mockSecurityService.$("isLoggedIn",false).$("authorize",true);
@@ -132,7 +132,7 @@ component extends="coldbox.system.testing.BaseInterceptorTest" interceptor="simp
 	}
 
 
-} 
+}
 ```
 
 As you can see from our A,B, anc C tests that we use [MockBox](http://wiki.coldbox.org/wiki/MockBox.cfm) to mock the security service, the request context and methods so we can build our interceptor without knowledge of other parts.
@@ -143,36 +143,36 @@ Now that we have our interceptor built and fully tested, let's build the securit
 
 ```js
 component accessors="true" singleton{
-	
+
 	// Dependencies
 	property name="sessionStorage" 	inject="coldbox:plugin:SessionStorage";
-	
+
 	/**
 	* Constructor
 	*/
 	public SecurityService function init(){
-		
+
 		variables.username = "luis";
 		variables.password = "coldbox";
-		
+
 		return this;
 	}
-	
+
 	/**
 	* Authorize with basic auth
 	*/
 	function authorize(username,password){
-		
+
 		// Validate Credentials, we can do better here
 		if( variables.username eq username AND variables.password eq password ){
 			// Set simple validation
 			sessionStorage.setVar("userAuthorized",  true );
 			return true;
 		}
-		
+
 		return false;
 	}
-	
+
 	/**
 	* Checks if user already logged in or not.
 	*/
@@ -192,45 +192,45 @@ We use a simple auth with luis and coldbox as the password. Of course, you would
 
 ```js
 component extends="coldbox.system.testing.BaseModelTest" model="simpleMVC.model.SecurityService"{
-			
+
 	function setup(){
 		super.setup();
 		// init model
-		model.init();	
+		model.init();
 		// mock dependency
-		mockSession = getMockBox().createEmptyMock("coldbox.system.plugins.SessionStorage");	
+		mockSession = getMockBox().createEmptyMock("coldbox.system.plugins.SessionStorage");
 		model.$property("sessionStorage","variables",mockSession);
 	}
 
 	function testauthorize(){
-		
+
 		// A: Invalid
 		mockSession.$("setVar");
 		r = model.authorize("invalid","invalid");
 		assertFalse( r );
 		assertTrue( mockSession.$never("setVar") );
-		
+
 		// B: Valid
 		mockSession.$("setVar");
 		r = model.authorize("luis","coldbox");
 		assertTrue( r );
 		assertTrue( mockSession.$once("setVar") );
-		
-		
+
+
 	}
-	
+
 	function testIsLoggedIn(){
-		
+
 		// A: Invalid
 		mockSession.$("getVar",false);
 		assertFalse( model.isLoggedIn() );
-		
+
 		// B: Valid
 		mockSession.$("getVar",true);
 		assertTrue( model.isLoggedIn() );
 	}
-			
-} 
+
+}
 ```
 
 Again, you can see that now we use our BaseModelTest case and continue to use mocks for our dependencies.
@@ -251,4 +251,4 @@ interceptors = [
 ];
 ```
 
-We just add our Simple Security interceptor and reinit your app via [URLActions](http://wiki.coldbox.org/wiki/URLActions.cfm) or append fwreinit=1 to the URL and you should be now using simple security. 
+We just add our Simple Security interceptor and reinit your app via [URLActions](http://wiki.coldbox.org/wiki/URLActions.cfm) or append fwreinit=1 to the URL and you should be now using simple security.

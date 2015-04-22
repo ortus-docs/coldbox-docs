@@ -22,11 +22,11 @@ Below you can see a sample custom exception handler method that exists in my mai
       getPlugin("MessageBox").setMessage("warning","This page does not exist");
       setNextEvent("forums.índex");
       break;
-				
+
     default:
       //Manually log the errors using the logger plugin.
       getPlugin("Logger").logErrorWithBean(rc.ExceptionBean);
-     
+
   }
   //What else, in this case, nothing, the framework will show the exception template
   </cfscript>

@@ -7,9 +7,9 @@ Below is a simple example of how to create your first event handler. I recommend
 
 ```js
 <cfcomponent name="general" extends="coldbox.system.eventhandler" cache="true" cachetimeout="40" autowire="true">
-	
+
 	<cfproperty name="UserService" type="ioc" scope="variables" />
-	
+
 	<---  This init is mandatory, including the super.init(). --->
 	<cffunction name="init" access="public" returntype="general" output="false">
 	    <cfargument name="controller" type="any">
@@ -17,49 +17,49 @@ Below is a simple example of how to create your first event handler. I recommend
 		<---  Any constructor code here. This code will be executed always before any event handler method below. --->
 		<cfreturn this>
 	</cffunction>
-	
+
 	<cffunction name="preHandler" access="public" returntype="void" output="false">
 	  <cfargument name="event" type="any">
 		<---  Code that gets executed before the event selected for execution in this handler. --->
 	</cffunction>
-	
+
 	<cffunction name="postHandler" access="public" returntype="void" output="false">
 	  <cfargument name="event" type="any">
 		<---  Code that gets executed after the event selected for execution gets executed in this handler. --->
 	</cffunction>
-		
+
 	<cffunction name="dspHello" access="public" returntype="void" output="false">
         <cfargument name="event" type="any">
             <cfset var rc = event.getCollection()>
-           
+
 		    <---  EXIT HANDLERS: --->
             <cfset rc.xehDoit = "ehGeneral.doSomething">
-	   
+
 			<---  Do Your Logic Here to prepare a view --->
-			<cfset event.setValue("welcomeMessage","Welcome to ColdBox!")>	
+			<cfset event.setValue("welcomeMessage","Welcome to ColdBox!")>
 			<---  Set the View To Display, after Logic. The view's Layout is defined in the config.xml --->
 			<cfset event.setView("vwHello")>
 	</cffunction>
-	
+
 	<cffunction name="doSomething" access="public" returntype="void" output="false">
 		<cfargument name="event" type="any">
 		<---  collection reference, I am lazy --->
 		<cfset var rc = event.getCollection()>
-		
+
 		<---  Do Your Logic Here, call to models, etc.--->
 	   	<cfset variables.UserService.createUser( rc.fname, rc.lname )>
-		
+
 		<---  Set the next event to run, after Logic, this relocates the browser--->
 		<cfset setNextEvent("ehGeneral.dspSomething")>
 	</cffunction>
-	
+
 </cfcomponent>
 ```
 
 ### Overview
 As you can see, this event handler contains two public execution methods: dspHello and doSomething, which in turn become ColdBox Events and two implicit events preHandler and postHandler.
 
-> **Infor** All public methods on an event handler become ColdBox Events. 
+> **Infor** All public methods on an event handler become ColdBox Events.
 
 The dspHello method starts of by setting some EXIT HANDLERS. This just means you declare the event handler method combination to a xehNAME variable that will be used in the view/layout to set as exit points. This way, you can tell exactly where your event handlers can go without looking at the views or layouts and if used in multiple locations, you can do modifications in just one place. This is very important to get used to (best practices), since it can really facilitate the overall flow of the application. So remember to always use EXIT HANDLERS.
 
@@ -68,8 +68,8 @@ The method then sets a variable in the request collection with a message and fin
 ```js
 <Layouts>
     <--D<eclare the default layout, MANDATORY-->
-    <DefaultLayout>Layout.Main.cfm</DefaultLayout>		
-		
+    <DefaultLayout>Layout.Main.cfm</DefaultLayout>
+
     <--D<eclare other layouts, with view assignments if needed, else do not write them-->
     <Layout file="Layout.Popup.cfm" name="popup">
         <--Y<ou can declare all the views that you want to appear with the above layout-->
@@ -89,7 +89,7 @@ As you can see, the vwHello is defined in the BigFonts layout. So ColdBox alread
 <cfset event.setLayout("Layout.Popup")>
 <cfset event.setView("vwHello")>
 ```
-By calling the setLayout method. You just overwrote the layout that was implicitly set by your configuration file. So now the view will be rendered using the Layout.Popup.cfm template. Well, not only can you do that, but you can render the view by itself, NO LAYOUT!! WOW!! Truly ColdBox is flexible. How do I do that? 
+By calling the setLayout method. You just overwrote the layout that was implicitly set by your configuration file. So now the view will be rendered using the Layout.Popup.cfm template. Well, not only can you do that, but you can render the view by itself, NO LAYOUT!! WOW!! Truly ColdBox is flexible. How do I do that?
 
 ```js
 <cfset event.setView(name="vwHello",nolayout=true)>
@@ -105,7 +105,7 @@ Now, in the vwHello.cfm we must have a use for that Exit Handler we declared in 
 <form method="post" action="index.cfm" name="myform">
 <input type="hidden" name="event" value="#rc.xehDoit#">
 
-First Name: 
+First Name:
 <input type="text" name="fname" value=""> <br />
 
 Last Name:
@@ -116,7 +116,7 @@ Last Name:
 </cfoutput>
 ```
 
-As you can see, there is a hidden element called event that has the value of the xehDoit Exit Handler variable. So why did I use rc.xehDoit instead of the typical event.getValue() method. Well, simply because ColdBox creates an RC scope for you to use in layouts and views. It auto-"magically" creates this structure that is a reference to the internal request collection to facilitate variable usage. 
+As you can see, there is a hidden element called event that has the value of the xehDoit Exit Handler variable. So why did I use rc.xehDoit instead of the typical event.getValue() method. Well, simply because ColdBox creates an RC scope for you to use in layouts and views. It auto-"magically" creates this structure that is a reference to the internal request collection to facilitate variable usage.
 
 When you submit this form, you will submit the event variable which the framework will retrieve and try to validate. If it validates, it will then instantiate and execute it according to an internal index of registered events. Look at [settings guide](http://wiki.coldbox.org/wiki/ColdboxSettings.cfm) for more information. So you know see that the framework will execute the ehGeneral.doSomething event handler.
 

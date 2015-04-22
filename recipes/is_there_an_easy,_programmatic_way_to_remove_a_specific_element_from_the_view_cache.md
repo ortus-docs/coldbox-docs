@@ -3,7 +3,7 @@
 ### Introduction
 If you use any of the view partial caching mechanisms in Coldbox either through setView() or renderView() you might be asking yourself:
 
-> Is there an easy, programmatic way to remove a specific element from the view cache? 
+> Is there an easy, programmatic way to remove a specific element from the view cache?
 
 The answer is, of course! All view and event caching occurss in a cache provider called template and you can retrieve it like so from your handlers, layouts, views, plugins and interceptors:
 
@@ -29,4 +29,4 @@ There are a few methods that will help you clear views:
 getColdboxOCM('template').clearView('home');
 ```
 
-Very easy! Just send in what you need and it will be purged. 
+Very easy! Just send in what you need and it will be purged.

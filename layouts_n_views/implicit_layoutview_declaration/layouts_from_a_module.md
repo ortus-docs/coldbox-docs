@@ -6,12 +6,12 @@ If you need the set layout to be rendered from a specific [ColdBox Module](http:
 component name="general"{
 
 	function index(event,rc,prc){
-	
+
 		// call some model for data and put into the request collection
 		prc.myQuery = getModel('MyService').getData();
 		// set the view for rendering
 		event.setLayout(layout="admin",module="contentbox");
-	
+
 	}
 
 }

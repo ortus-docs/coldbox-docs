@@ -11,4 +11,4 @@ As you can see, calling the ColdBox proxy from flex or any remote interface is v
 * Create widgets and application monitors.
 * What your imagination dictates.
 
-Indeed, the ColdBox proxy is a great feature to complement your already great ColdBox applications. You can now use a standardized language for application development in all your front-ends. 
+Indeed, the ColdBox proxy is a great feature to complement your already great ColdBox applications. You can now use a standardized language for application development in all your front-ends.

@@ -4,7 +4,7 @@
 
 ### Introduction
 
-Developing an object factory in ColdBox is really easy and it will also give you great benefits. In this small tutorial , I will cover building an object-factory plugin as a singleton pattern implementation. 
+Developing an object factory in ColdBox is really easy and it will also give you great benefits. In this small tutorial , I will cover building an object-factory plugin as a singleton pattern implementation.
 
 ### Overview
 
@@ -44,48 +44,48 @@ Here is the plugin
 		<cfset setpluginName("Object Factory") />
 		<cfset setpluginVersion("1.0") />
 		<cfset setpluginDescription("A Object Factory plugin. It will load object based on lazy-loading tech.") />
-		
+
 		<cfscript>
 		variables.ObjectName		= StructNew();
 		variables.ObjectHolder		= StructNew();
-			
-		// your own settings structure. 		
+
+		// your own settings structure.
 		variables.Mapping = getSetting("Mapping");
 		variables.dsn	  = getDatasource("MyDB").getalias();
-			
-	        // This could be your list of service-controller/manager-objects/etc	
+
+	        // This could be your list of service-controller/manager-objects/etc
 		ObjectName["objGalleryM"] = '#variables.Mapping#.model.GalleryManager';
 		ObjectName["objPhotoM"]	  = '#variables.Mapping#.model.PhotoManager';
 		ObjectName["objBlogM"]    = '#variables.Mapping#.model.BlogManager';
 		</cfscript>
-		
+
 		<cfreturn this />
 	</cffunction>
-	
-	 
+
+
 	<cffunction name="getObject" access="public" returntype="Any" hint="Return initiated object" output="false">
 		<---************************************************************** --->
 		<cfargument name="Name"	type="string" 	required="true" hint="Name of Object">
 		<cfargument name="newInstance"	type="boolean" 	required="false" default="false" hint="new-object-instance or not">
-		
+
 		<cfif structKeyExists(ObjectHolder,arguments.Name) and not arguments.newInstance>
 			<---  if object is intialised and stored then return --->
 			<cfreturn ObjectHolder[arguments.Name] />
 		<cfelse>
 			<---  if object is not intialised or requested as new-instance --->
 			<cflock name="#arguments.Name#Loading" timeout="2">
-				<---  
-					coldbox OCM caching is available, 
+				<---
+					coldbox OCM caching is available,
 					you can get any stored objects and pass to your service-controller/manager/etc
-					 
-					Certainly you can extend up to your requirements	
+
+					Certainly you can extend up to your requirements
 				--->
-				
+
 				<cfset ObjectHolder[arguments.Name] = CreateObject("component","#ObjectName[arguments.Name]#").init(variables.dsn) />
 				<cfreturn ObjectHolder[arguments.Name] />
-			</cflock>	
+			</cflock>
 		</cfif>
-		
+
 	</cffunction>
 </cfcomponent>
 ```

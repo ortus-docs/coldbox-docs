@@ -1,6 +1,6 @@
 # Caching objects
 
-The sample you will see below consists of three parts: 
+The sample you will see below consists of three parts:
 
 1. Setup of an object in cache
 2. Testing of the object in cache
@@ -20,11 +20,11 @@ getController().getColdboxOCM();
 
 As for all the functionality of this wonderful caching system, please look at the [[ColdboxCache | ColdBox Cache] and at the latest [CFC Api](http://www.coldbox.org/api).
 
-> **Important** The ColdBox cache is a java/coldfusion hybrid and therefore it is CASE SENSITIVE! 
+> **Important** The ColdBox cache is a java/coldfusion hybrid and therefore it is CASE SENSITIVE!
 
 ### Step 1: Step of an object in cache
 
-The actual first setup of an object can occur in any point in time, but for this example I will do it in the onAppInit method of my application, which has been declared in my **coldbox.xml.cfm**. This method executes on every application start. 
+The actual first setup of an object can occur in any point in time, but for this example I will do it in the onAppInit method of my application, which has been declared in my **coldbox.xml.cfm**. This method executes on every application start.
 
 
 ```js
@@ -86,25 +86,25 @@ Now that I execute a normal event, I am assured that the generator service will 
   <cfargument name="Event" type="coldbox.system.beans.requestContext">
   <cfset var rc = Event.getCollection()>
   <cfset var gService = getColdboxOCM().get("GService")>
-  
+
   <---  EXIT HANDLERS: --->
   <cfset rc.xehGenerate = "ehGeneral.doGenerate">
-		
+
   <---  Get Setup --->
   <cfset rc.DSNs = getDSNs() />
   <cfset rc.dbType = getDBType()>
   <cfset rc.tables = getTables()>
-		
+
   <---  Get Table XML --->
   <cfset gService.getModel(rc.dbType).setTable(Event.getValue("table")) />
   <cfset gService.getModel(rc.dbType).setComponentPath(Event.getValue("componentPath")) />
   <cfset rc.xmlTable = gService.getModel(rc.dbType).getTableXML() />
-		
+
   <---  Get Generated CFC's --->
   <cfset gService.getModel("xsl").configure(Event.getValue("dsn"),getSetting("xslBasePath")) />
   <---  get an array containing the generated code --->
   <cfset rc.arrComponents = gService.getModel("xsl").getComponents(rc.xmlTable) />
-		
+
   <---  Set the View --->
   <cfset Event.setView("vwGeneration")>
 </cffunction>
@@ -114,4 +114,4 @@ As you can see from the samples above, I present two method examples. By using t
 
 > **Infor** If an object is not found calling the get() method, you will get the value defined in the public property of the cache manager called: NOT_FOUND. To get this variable use getColdboxOCM().NOT_FOUND
 
-Well, I believe this pretty much covers how you can use the ColdBox Object Cache Manager to persist your objects and data in an intelligent and garbage collected fashion. Have fun and enjoy. 
+Well, I believe this pretty much covers how you can use the ColdBox Object Cache Manager to persist your objects and data in an intelligent and garbage collected fashion. Have fun and enjoy.

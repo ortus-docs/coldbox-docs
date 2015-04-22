@@ -8,7 +8,7 @@ This quick guide shows you how easily you can create a set of helper UDF templat
 
 So what does this method do? This method takes in a path to a udf library to load. This library can be a .cfm template or an actual .cfc template. The method will then try to look in your application for it first. If it cannot find it, it will then try to expand the incoming path and locate it. This makes it so easy to create a helpers directory in your application root and just use it.
 
-> **Info** You do not need a .cfc or .cfm extension passed as it will locate it for you. 
+> **Info** You do not need a .cfc or .cfm extension passed as it will locate it for you.
 
 ### The Helpers
 

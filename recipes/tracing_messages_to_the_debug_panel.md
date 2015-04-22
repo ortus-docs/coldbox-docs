@@ -19,7 +19,7 @@ getPlugin("Logger").tracer("method called #mymethod#, arguments #arguments.toStr
 
 The last example is very useful, remember the Java core of Coldfusion. You can grab a complex variable and call its java toString() method to deflate the structure, array, etc. Very useful for logging purposes.
 
-> **Important** The tracing methods on ColdBox can persist tracer methods across relocations, until the debugging panel get's rendered. Very useful in ajax or post submittals. 
+> **Important** The tracing methods on ColdBox can persist tracer methods across relocations, until the debugging panel get's rendered. Very useful in ajax or post submittals.
 
 ### LogBox Integration
 [LogBox](http://wiki.coldbox.org/wiki/LogBox.cfm) does all the logging and messaging in ColdBox applications. You can actually use LogBox to send messages to the tracer panel from any object in your application via the ColdBoxTracer appender.

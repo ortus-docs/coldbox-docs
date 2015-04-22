@@ -42,7 +42,7 @@ Below you will see the code needed to declare a ColdBox interceptor:
 
 That's it. You have now declared an interceptor, it just needs to inherit from the base ColdBox Interceptor class, which is completely optional.
 
-> **Important**  All Interceptors are persisted as singleton objects. Meaning one instance for the entire application. 
+> **Important**  All Interceptors are persisted as singleton objects. Meaning one instance for the entire application.
 
 All interceptors will inherit all the methods found in the framework super type object, which let's you tap into the ColdBox Life Cycle. You can see a listing of those methods in the (See the Live API for the latest updates)
 
@@ -57,7 +57,7 @@ All interceptors will inherit all the methods found in the framework super type 
 
 ### Creating Some Methods
 
-So now lets start creating some cool methods. The first method we will create is the configure method. 
+So now lets start creating some cool methods. The first method we will create is the configure method.
 
 ##### The configure method
 
@@ -67,7 +67,7 @@ In our case, this method checks that all properties are set, set a custom proper
 <cffunction name="Configure" access="public" returntype="void" hint="This is the configuration method for your interceptor" output="false" >
 <cfscript>
 	var theFile = "";
-	
+
 	//verify the properties declared in the configuration file.
 	if ( not propertyExists('xmlFile') ){
 		throw("The property xmlFile does not exist.");
@@ -75,10 +75,10 @@ In our case, this method checks that all properties are set, set a custom proper
 	if ( not propertyExists('varName') {
 		throw("The property varName does not exist.");
 	}
-	
+
 	//Get the File Path
 	theFile = getController().getAppRootPath() & getProperty('xmlFile');
-	
+
 	if ( fileExists(theFile) ){
 		//Save it in the properties
 		setProperty('expandedXMLFile', theFile);
@@ -86,7 +86,7 @@ In our case, this method checks that all properties are set, set a custom proper
 	else{
 		throw("The xml file: #thefile# does not exist. Please review your paths");
 	}
-	
+
 </cfscript>
 </cffunction>
 ```
@@ -97,7 +97,7 @@ As you can see from the code, you do some property tests, if all are successful 
 
 Interceptors work by you implementing the core execution points that you can find in the Interceptor Chapter. Below we implement the afterConfigurationLoad method. This methods executes after the framework loads and the config file has been parsed and loaded. Please note that not only can you intercept core framework execution points, but you can make up your own by using custom interception points. This gives you the ability to use a methodology of broadcast-listener approaches.
 
-> **Info** All intercepted methods receive the event object and a structure of intercepted data. 
+> **Info** All intercepted methods receive the event object and a structure of intercepted data.
 
 ```js
 

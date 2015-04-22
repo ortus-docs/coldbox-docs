@@ -4,7 +4,7 @@
 
 ColdBox supports custom plugins created by YOU! You can now extend the power of the framework to any application specific task that you would like to do. How? Well, all you need is to create the plugin CFC in your plugins convention folder or in your external plugins location folder. After that its just a matter of calling it from anywhere you want. This guide will show you how, but if you have not read the Plugins Guide I recommend you read it first.
 
-> **Important** Any CFC can be a ColdBox plugin and it can exist anywhere in the server. [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) creates plugins since version 3.5 and gives us tremendous flexibility. Inheritance gives you tigther integration to the framework if needed. 
+> **Important** Any CFC can be a ColdBox plugin and it can exist anywhere in the server. [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) creates plugins since version 3.5 and gives us tremendous flexibility. Inheritance gives you tigther integration to the framework if needed.
 
 ### Creating the CFC
 
@@ -28,20 +28,20 @@ The first step to creating your own plugin would be to plan it and decide what y
 
   <cfreturn this>
 </cffunction>
-	
+
 <-------------------------------------------- PUBLIC ------------------------------------------->
 
 <cffunction name="sayhello" output="false" access="public" returntype="string" hint="Say hello">
   <cfreturn "Hello there, my name is #getPluginName()# #getPluginVersion()#">
 </cffunction>
 
-<cffunction name="sayHelloFromEvent" output="false" access="public" returntype="string" hint="Say hello from event object"> 
+<cffunction name="sayHelloFromEvent" output="false" access="public" returntype="string" hint="Say hello from event object">
   <---  Get Event Context --->
   <cfset var event = getRequestContext()>
   <---  Return the name in the event context --->
   <cfreturn "Hello there, my name is #event.getValue("name","")#">
 </cffunction>
-			
+
 <-------------------------------------------- PRIVATE ------------------------------------------->
 
 
@@ -76,12 +76,12 @@ Below is a sample method:
 
 ```js
 <cffunction name="hello" output="false" access="public" returntype="string" hint="Say hello">
-<cfreturn "Hello there, my name is #getpluginName()# #getpluginVersion()# 
+<cfreturn "Hello there, my name is #getpluginName()# #getpluginVersion()#
 			 and I am running on #getSetting("codename",true)# version #getSetting("version", true)#">
 </cffunction>
 ```
 
-> **Important** One thing you can count on for any plugin is that the init() method, which is the constructor, will always be called when the plugin is created. 
+> **Important** One thing you can count on for any plugin is that the init() method, which is the constructor, will always be called when the plugin is created.
 
 ### Getting access to the request context
 
