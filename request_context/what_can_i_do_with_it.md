@@ -15,9 +15,9 @@ The event object has a plethora of methods to help you deal with a request.  We 
 * So much more.
 
 
-### Most Commonly Used Methods
+## Most Commonly Used Methods
 
-Below you can see a listing of the mostly used methods in the request context object:
+Below you can see a listing of the mostly used methods in the request context object. Please note that when interacting with a collection you usually have an equal **private** collection method.
 
 * *buildLink()* : Build a link in SES or non SES mode for you with tons of nice abstractions.
 * *clearCollection()* : Clears the entire collection
