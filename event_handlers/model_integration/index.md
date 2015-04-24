@@ -30,21 +30,21 @@ It will be your choice to pick an approach, but we mostly concentrate on propert
 
 ![](../images/EventHandlerModelRequested.jpg)
 
-The other approach to integrating with model objects is to request them and use them as [associations](http://en.wikipedia.org/wiki/Association_%28object-oriented_programming%29). From who? From either [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) or the [IOC](http://wiki.coldbox.org/wiki/Plugins:IOC.cfm) Plugin. We would recommend requesting objects if they are transient objects or stored in some other volatile storage scope. Retreiving of objects is ok, but if you will be dealing with mostly singleton objects or objects that are created only once, you will gain much more performance by using injection. 
+The other approach to integrating with model objects is to request them and use them as [associations](http://en.wikipedia.org/wiki/Association_%28object-oriented_programming%29). We would recommend requesting objects if they are transient objects or stored in some other volatile storage scope. Retreiving of objects is ok, but if you will be dealing with mostly singleton objects or objects that are created only once, you will gain much more performance by using injection. 
  
  > **Info** Association defines a relationship between classes of objects that allows one object instance to cause another to perform an action on its behalf. - 'wikipedia'
  
- ###A practical example
+ ## A practical example
  
- In this practical example we will see how to integrate with our model layer via [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm), injections and also requesting the objects. Let's say that we have a service object we have built called FunkyService.cfc and by convention we will place it in our applications model folder.
+In this practical example we will see how to integrate with our model layer via WireBox, injections and also requesting the objects. Let's say that we have a service object we have built called `FunkyService.cfc` and by convention we will place it in our applications `models` folder.
  
  ```js
  + application
-  + model
+  + models
      + FunkyService.cfc
 ```
  
-*FunkyService.cfc*
+**FunkyService.cfc**
 
 ```js
 component singleton{
@@ -70,13 +70,13 @@ component singleton{
 
 Our funky service is not that funky after all, but it is simple. So how do we interact with it? Let's build a Funky event handler and work with it.
 
-####Injection
+### Injection
 
 ```js
 component{
 	
-	// Injection
-	property name="funkyService" inject;
+	// Injection via property
+	property name="funkyService" inject="FunkyService";
 
 	function index(event,rc,prc){
 			
@@ -89,7 +89,7 @@ component{
 }
 ```
 
-So by convention, I can create a property and annotate it with a *inject* attribute and ColdBox will look for that model object by name in the model folder, create it, persist it, wire it and return it. If you execute it, you will get something like this:
+So by convention, I can create a property and annotate it with a `inject` attribute and ColdBox will look for that model object by the given name in the `models` folder, create it, persist it, wire it and return it. If you execute it, you will get something like this:
 
 ```js
 <array>
