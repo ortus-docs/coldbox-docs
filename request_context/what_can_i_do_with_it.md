@@ -105,5 +105,3 @@ Please see the online [API](apidocs.ortussolutions.com/coldbox/current) for the 
 * `getDebugpanelFlag()` : Get's the boolean flag if the ColdBox debugger panel will be rendered.
 * `getDefaultLayout()` : Get the name of the default layout.
 * `getDefaultView()` : Get the name of the default view.
-
-Please see the online [API](http://www.coldbox.org/api) for the latest methods and arguments.
