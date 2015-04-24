@@ -9,7 +9,7 @@
 * `populateFromXML()`
 
 
-We suggest you look at the latest [API Docs ](http://apidocs.ortussolutions.com/coldbox/current) for the correct arguments. To use these beauties you can either go to the wirebox reference directly or use the *BeanFactory* plugin. Both accomplish the same:
+We suggest you look at the latest [API Docs ](http://apidocs.ortussolutions.com/coldbox/current) for the correct arguments.
 
 ```js
 wirebox.getObjectPopulator().populateFromXXXX()
