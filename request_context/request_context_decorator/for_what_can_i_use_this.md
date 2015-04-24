@@ -8,7 +8,7 @@ Create a component that extends `coldbox.system.web.context.RequestContextDecora
 
 In order to access the original request context object you will use the provided method called: `getRequestContext()`.
 
-### Declaration
+## Declaration
 
 In the sample below, you can see a custom request context declaration and a configure method. In this example, the configure method will trim all simple values that are found in the request collection.
 
