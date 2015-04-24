@@ -1,15 +1,15 @@
 # Advanced Data Binding
 
-[WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) also sports several advanced data binding techniques:
+[WireBox](http://wirebox.ortusbooks.com/content/wirebox_object_populator/index.html) also sports several advanced data binding techniques:
 
-* populateFromJSON()
-* populateFromQuery()
-* populateFromQueryWithPrefix()
-* populateFromStruct()
-* populateFromXML()
+* `populateFromJSON()`
+* `populateFromQuery()`
+* `populateFromQueryWithPrefix()`
+* `populateFromStruct()`
+* `populateFromXML()`
 
 
-We suggest you look at the latest [API Docs ](http://apidocs.coldbox.org/cbQuickDocs/search/index) for the correct arguments and such. To use these beauties you can either go to the wirebox reference directly or use the *BeanFactory* plugin. Both accomplish the same:
+We suggest you look at the latest [API Docs ](http://apidocs.ortussolutions.com/coldbox/current) for the correct arguments. To use these beauties you can either go to the wirebox reference directly or use the *BeanFactory* plugin. Both accomplish the same:
 
 ```js
 wirebox.getObjectPopulator().populateFromXXXX()
