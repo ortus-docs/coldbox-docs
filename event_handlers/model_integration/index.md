@@ -122,18 +122,20 @@ So by convention, I can create a property and annotate it with a `inject` attrib
 
 Great! Just like that we can interact with our model layer without worrying about creating the objects, persisting them and even wiring them. That is exactly all the benefits that dependency injection and model integration bring to the table.
 
-*Alternative wiring*
+#### Alternative wiring
+
+You can use the value of the `inject` annotation in several ways, below is our recommendation.
 
 ```js
-// Injection using the DSL
+// Injection using the DSL by default name/id lookup
 property name="funkyService" inject="FunkyService";
-// Injection using the DSL
+// Injection using the DSL id namespace
 property name="funkyService" inject="id:FunkyService";
-// Injection using the DSL
+// Injection using the DSL model namespace
 property name="funkyService" inject="model:FunkyService";
 ```
 
-####Requesting
+### Requesting
 
 Let's look at the requesting approach. We can either use the following approaches:
 
@@ -144,25 +146,25 @@ component{
 	
 	function index(event,rc,prc){
 			
-		prc.data = getModel("FunkyService").getFunkyData();
+		prc.data = getModel( "FunkyService" ).getFunkyData();
 
-		event.renderData(data=prc.data,type="xml");
+		event.renderData( data=prc.data, type="xml" );
 	}	
 
 
 }
 ```
 
-Directly to WireBox: 
+Directly via WireBox:
 
 ```js
 component{
 	
 	function index(event,rc,prc){
 			
-		prc.data = wirebox.getInstance("FunkyService").getFunkyData();
+		prc.data = wirebox.getInstance( "FunkyService" ).getFunkyData();
 
-		event.renderData(data=prc.data,type="xml");
+		event.renderData( data=prc.data, type="xml" );
 	}	
 
 
