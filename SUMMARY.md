@@ -8,6 +8,7 @@
    * [Upgrading to ColdBox 4.0.0](introduction/upgrading_to_coldbox_400.md)
    * [About This Book](introduction/about_this_book.md)
    * [Author](introduction/author.md)
+   * What's New With 4.1.0
 * [Overview](overview/index.md)
    * [What is MVC](overview/what_is_mvc.md)
    * [What is ColdBox](overview/what_is_coldbox.md)
