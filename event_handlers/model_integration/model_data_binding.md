@@ -1,6 +1,6 @@
 # Model Data Binding
 
-The framework also offers you the capability to bind incoming FORM/URL/REMOTE data into your model objects by convention. The easiest approach is to use our `populateModel()` function which will populate object from the incoming RC collection.
+The framework also offers you the capability to bind incoming FORM/URL/REMOTE data into your model objects by convention.  This is done via [WireBox's object population](http://wirebox.ortusbooks.com/content/wirebox_object_populator/index.html) capabilities. The easiest approach is to use our `populateModel()` function which will populate object from the incoming RC collection.
 
 ```js
 populateModel(any model, [any scope=''], [boolean trustedSetter='false'], [any include=''], [any exclude=''], [boolean ignoreEmpty='false'], [any nullEmptyInclude=''], [any nullEmptyExclude=''], [boolean composeRelationships='false']) 
