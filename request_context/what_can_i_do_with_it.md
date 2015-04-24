@@ -90,20 +90,20 @@ Some Samples:
 </form>
 ```
 
-Please see the online [API](http://www.coldbox.org/api)for the latest methods and arguments.
+Please see the online [API](apidocs.ortussolutions.com/coldbox/current) for the latest methods and arguments.
 
 ### Request Metadata Methods
 
-* *getCurrentAction()* : Get the current execution action (method)
-* *getCurrentEvent()* : Get's the current incoming event, full syntax.
-* *getCurrentHandler()* : Get the handler or handler/package path.
-* *getCurrentLayout()* : Get the current set layout for the view to render.
-** getCurrentView()* : Get the current set view 
-* *getCurrentModule()* : The name of the current executing module
-* *getCurrentRoutedNamespace()* : The current routed URL mapping namespace if found.
-* *getCurrentRoutedURL()* : The current routed URL if matched.
-* *getDebugpanelFlag()* : Get's the boolean flag if the ColdBox debugger panel will be rendered.
-* *getDefaultLayout()* : Get the name of the default layout.
-* *getDefaultView()* : Get the name of the default view.
+* `getCurrentAction()` : Get the current execution action (method)
+* `getCurrentEvent()` : Get's the current incoming event, full syntax.
+* `getCurrentHandler()` : Get the handler or handler/package path.
+* `getCurrentLayout()` : Get the current set layout for the view to render.
+**`getCurrentView()` : Get the current set view 
+* `getCurrentModule()` : The name of the current executing module
+* `getCurrentRoutedNamespace()` : The current routed URL mapping namespace if found.
+* `getCurrentRoutedURL()` : The current routed URL if matched.
+* `getDebugpanelFlag()` : Get's the boolean flag if the ColdBox debugger panel will be rendered.
+* `getDefaultLayout()` : Get the name of the default layout.
+* `getDefaultView()` : Get the name of the default view.
 
 Please see the online [API](http://www.coldbox.org/api) for the latest methods and arguments.
