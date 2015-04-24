@@ -171,7 +171,7 @@ component{
 }
 ```
 
-Both approaches do exactly the same, in all reality getModel() does a wirebox.getInstance(), it is a facade method that is easier to remember. If you run this, you will also see that it works and everything is fine and dandy. However, the biggest difference can be seen with some practical math:
+Both approaches do exactly the same, in all reality `getModel()` does a `wirebox.getInstance()` callback (Uncle Bob), it is a facade method that is easier to remember. If you run this, you will also see that it works and everything is fine and dandy. However, the biggest difference can be seen with some practical math:
 
 ```js
 1000 Requests made
