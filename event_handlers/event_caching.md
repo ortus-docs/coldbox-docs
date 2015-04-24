@@ -77,15 +77,15 @@ getCache( "template" ).clearEvent('blog.dspBlog');
 getCache( "template" ).clearEvent('blog.dspBlog','id=12345')
 ```
 
-##this.event_cache_suffix
+### this.event_cache_suffix
 
-Do you remember this feature property? This property is great for adding your own dynamic suffixes when using event caching. All you need to do is create a public property called EVENT_CACHE_SUFFIX and populate it with something you want. Then the event caching mechanisms will automatically append the suffix and thus create event caching using this suffix for the entire handler.
+Do you remember this feature property? This property is great for adding your own dynamic suffixes when using event caching. All you need to do is create a public property called `EVENT_CACHE_SUFFIX` and populate it with something you want. Then the event caching mechanisms will automatically append the suffix and thus create event caching using this suffix for the entire handler.
 
 `this.EVENT_CACHE_SUFFIX = "My Suffix";`
 
 > **Info** This suffix will be appended to ALL events that are marked for caching within the handler in question ONLY. 
 
-##OnRequestCapture - Influence Cache Keys
+## OnRequestCapture - Influence Cache Keys
 
 We have provided an interception point in ColdBox that allows you to add variables into the request collection before a snapshot is made so you can influence the cache key of a cacheable event. What this means is that you can use it to mix in variables into the request collection that can make this events unique for a user, a specific language, country, etc. This is a great way to leverage event caching on multi-lingual or session based sites.
 
