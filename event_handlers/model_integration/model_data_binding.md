@@ -80,10 +80,10 @@ component{
 		
 		var person = populateModel( "Person" );
 		
-		writeDump(person);abort;
+		writeDump( person );abort;
 	}
 
 }
 ```
 
-In the dump you will see that the *name* and *email* properties have been binded, cool it works.
+In the dump you will see that the `name` and `email` properties have been binded.
