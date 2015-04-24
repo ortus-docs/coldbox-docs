@@ -43,9 +43,9 @@ function showEntry(event,rc,prc) cache="true" cacheTimeout="30" cacheLastAccessT
 > **Alert** DO NOT cache events as unlimited timeouts. Also, all events can have an unlimited amount of permutations, so make sure they expire and you purge them constantly. Every event + URL/FORM variable combination will produce a new cacheable entry. 
 
 
-##Storage
+## Storage
 
-All event and view caching are stored in a named cache called template which all ColdBox applications have by default. You can open or create a new [CacheBox](http://wiki.coldbox.org/wiki/CacheBox.cfm) configuration object and decide where the storage is, timeouts, providers, etc. You have complete control of how event and view caching is stored.
+All event and view caching are stored in a named cache called `template` which all ColdBox applications have by default. You can open or create a new [CacheBox](http://cachebox.ortusbooks.com) configuration object and decide where the storage is, timeouts, providers, etc. You have complete control of how event and view caching is stored.
 
 ##Purging
 We also have a great way to purge these events programmatically via our cache provider interface. You will have to either retrieve or [inject](http://wiki.coldbox.org/wiki/WireBox.cfm) a reference to the template cache provider and then call methods on it.
