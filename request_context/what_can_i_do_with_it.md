@@ -1,6 +1,6 @@
 # What Can I Do With It?
 
-The event object has a plethora of methods to help you deal with a request:
+The event object has a plethora of methods to help you deal with a request.  We suggest looking at the [API Docs](apidocs.ortussolutions.com/coldbox/current) for further inspection.
 
 * Getting a reference to the collection
 * Appending structures to the collection
@@ -15,9 +15,9 @@ The event object has a plethora of methods to help you deal with a request:
 * So much more.
 
 
-### Most Commonly Used Methods
+## Most Commonly Used Methods
 
-Below you can see a listing of the mostly used methods in the request context object:
+Below you can see a listing of the mostly used methods in the request context object. Please note that when interacting with a collection you usually have an equal **private** collection method.
 
 * *buildLink()* : Build a link in SES or non SES mode for you with tons of nice abstractions.
 * *clearCollection()* : Clears the entire collection
@@ -37,7 +37,6 @@ Below you can see a listing of the mostly used methods in the request context ob
 * *setValue()* : set a value
 * *setLayout()* : Set the layout to use for this request
 * *setView()* : Used to set a view to render
-* *showDebugPanel()* : Sets whether the ColdBox debugging panel will be rendered or not.
 * *valueExists()* : Checks if a value exists in the collection.
 * *renderData()* : Marshall data to JSON, JSONP, XML, WDDX, PDF, HTML, etc.
 
@@ -79,9 +78,6 @@ Some Samples:
 
 </cfif>
 
-//Don't show the debug panel for this request
-<cfset event.showDebugPanel(false)>
-
 //Tell the framework to stop processing gracefully, no renderings
 <cfset event.noRender()>
 
@@ -90,20 +86,18 @@ Some Samples:
 </form>
 ```
 
-Please see the online [API](http://www.coldbox.org/api)for the latest methods and arguments.
+Please see the online [API](apidocs.ortussolutions.com/coldbox/current) for the latest methods and arguments.
 
 ### Request Metadata Methods
 
-* *getCurrentAction()* : Get the current execution action (method)
-* *getCurrentEvent()* : Get's the current incoming event, full syntax.
-* *getCurrentHandler()* : Get the handler or handler/package path.
-* *getCurrentLayout()* : Get the current set layout for the view to render.
-** getCurrentView()* : Get the current set view 
-* *getCurrentModule()* : The name of the current executing module
-* *getCurrentRoutedNamespace()* : The current routed URL mapping namespace if found.
-* *getCurrentRoutedURL()* : The current routed URL if matched.
-* *getDebugpanelFlag()* : Get's the boolean flag if the ColdBox debugger panel will be rendered.
-* *getDefaultLayout()* : Get the name of the default layout.
-* *getDefaultView()* : Get the name of the default view.
-
-Please see the online [API](http://www.coldbox.org/api) for the latest methods and arguments.
+* `getCurrentAction()` : Get the current execution action (method)
+* `getCurrentEvent()` : Get's the current incoming event, full syntax.
+* `getCurrentHandler()` : Get the handler or handler/package path.
+* `getCurrentLayout()` : Get the current set layout for the view to render.
+**`getCurrentView()` : Get the current set view 
+* `getCurrentModule()` : The name of the current executing module
+* `getCurrentRoutedNamespace()` : The current routed URL mapping namespace if found.
+* `getCurrentRoutedURL()` : The current routed URL if matched.
+* `getDebugpanelFlag()` : Get's the boolean flag if the ColdBox debugger panel will be rendered.
+* `getDefaultLayout()` : Get the name of the default layout.
+* `getDefaultView()` : Get the name of the default view.

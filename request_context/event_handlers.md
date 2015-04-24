@@ -2,9 +2,9 @@
 
 All event handlers receive 3 arguments whenever you declare actions in them:
 
-* event - The request context object
-* rc - A reference to the request collection structure
-* prc - A reference to the private request collection structure
+* `event` - The request context object
+* `rc` - A reference to the request collection structure
+* `prc` - A reference to the private request collection structure
 
 `function list(event,rc,prc){}`
 

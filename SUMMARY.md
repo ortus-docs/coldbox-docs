@@ -72,10 +72,7 @@
    * [Event Handlers](request_context/event_handlers.md)
    * [Views](request_context/views.md)
    * [Interceptors](request_context/interceptors.md)
-   * [Plugins](request_context/plugins.md)
    * [What Can I Do With It?](request_context/what_can_i_do_with_it.md)
-   * [Extending The Request Context](request_context/extending_the_request_context.md)
-   * [Summary](request_context/summary.md)
    * [Request Context Decorator](request_context/request_context_decorator/index.md)
        * [For What Can I Use This?](request_context/request_context_decorator/for_what_can_i_use_this.md)
        * [Configuration](request_context/request_context_decorator/configuration.md)
@@ -256,4 +253,5 @@
    * [Is there an easy, programmatic way to remove a specific element from the view cache](recipes/is_there_an_easy,_programmatic_way_to_remove_a_specific_element_from_the_view_cache.md)
    * [Building a simple Basic HTTP Authentication Interceptor](recipes/building_a_simple_basic_http_authentication_interceptor.md)
 * [Runnable Code Examples](run/index.md)
+* [Testing](testing/index.md)
 

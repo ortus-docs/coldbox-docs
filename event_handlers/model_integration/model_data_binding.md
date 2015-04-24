@@ -1,24 +1,42 @@
 # Model Data Binding
 
-[WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) also offers you the capability to bind incoming FORM/URL/REMOTE data into your model objects by convention. The easiest approach is to use our populateModel() function call:
+The framework also offers you the capability to bind incoming FORM/URL/REMOTE data into your model objects by convention.  This is done via [WireBox's object population](http://wirebox.ortusbooks.com/content/wirebox_object_populator/index.html) capabilities. The easiest approach is to use our `populateModel()` function which will populate object from the incoming RC collection.
 
 ```js
-populateModel(any model, [any scope=''], [any<Boolean> trustedSetter='false'], [any include=''], [any exclude=''])
+populateModel(any model, [any scope=''], [boolean trustedSetter='false'], [any include=''], [any exclude=''], [boolean ignoreEmpty='false'], [any nullEmptyInclude=''], [any nullEmptyExclude=''], [boolean composeRelationships='false']) 
 ```
 
-This will try to match incoming variable names to setters or properties in your domain objects and then populate them for you.
+This will try to match incoming variable names to setters or properties in your domain objects and then populate them for you.  It can even do ORM entities with ALL of their respective relationships. Here is a snapshot of the method:
 
-|Argument|Type|Required|Default|Description|
-|--|--|--|--|--|
-|model|any|true|---|The name of the model to get and populate or the actual model object reference.|
-|scope|string|false||Use scope injection instead of setters population. Ex: scope=variables.instance.|
-|trustedSetter|boolean|false|false|If set to true, the setter method will be called even if it does not exist in the model object|
-|include|string|false||A list of keys to include in the population|
-|exclude|string|false||A list of keys to exclude in the population|
+```js
+/**
+* Populate a model object from the request Collection
+* @model.hint The name of the model to get and populate or the acutal model object. If you already have an instance of a model, then use the populateBean() method
+* @scope.hint Use scope injection instead of setters population. Ex: scope=variables.instance.
+* @trustedSetter.hint If set to true, the setter method will be called even if it does not exist in the object
+* @include.hint A list of keys to include in the population
+* @exclude.hint A list of keys to exclude in the population
+* @ignoreEmpty.hint Ignore empty values on populations, great for ORM population
+* @nullEmptyInclude.hint A list of keys to NULL when empty
+* @nullEmptyExclude.hint A list of keys to NOT NULL when empty
+* @composeRelationships.hint Automatically attempt to compose relationships from memento
+*/
+function populateModel(
+	required model,
+	scope="",
+	boolean trustedSetter=false,
+	include="",
+	exclude="",
+	boolean ignoreEmpty=false,
+	nullEmptyInclude="",
+	nullEmptyExclude="",
+	boolean composeRelationships=false
+)
+```
 
 Let's do a quick sample:
 
-Person.cfc 
+**Person.cfc** 
 
 ```js
 component accessors="true"{
@@ -33,9 +51,7 @@ component accessors="true"{
 }
 ```
 
-Then here is our form (using our awesome HTML helper):
-
-editor.cfm 
+**editor.cfm **
 
 ```js
 <cfoutput>
@@ -51,9 +67,7 @@ editor.cfm
 </cfoutput>
 ```
 
-And our event handler to process it:
-
-person.cfc 
+**Event Handler -> person.cfc** 
 
 ```js
 component{
@@ -64,12 +78,12 @@ component{
 	
 	function show(event,rc,prc){
 		
-		var person = populateModel("Person");
+		var person = populateModel( "Person" );
 		
-		writeDump(person);abort;
+		writeDump( person );abort;
 	}
 
 }
 ```
 
-In the dump you will see that the *name* and *email* properties have been binded, cool it works.
+In the dump you will see that the `name` and `email` properties have been binded.

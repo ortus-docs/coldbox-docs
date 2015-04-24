@@ -10,4 +10,4 @@ You can find much more information about this module in the following resources:
 
 * **Source**: https://github.com/coldbox/cbox-validation
 * **Documentation**: http://wiki.coldbox.org/wiki/Validation.cfm
-* **ForgeBox** : http://www.coldbox.org/forgebox/view/cbvalidation
+* **ForgeBox** : http://forgebox.io/view/cbvalidation
