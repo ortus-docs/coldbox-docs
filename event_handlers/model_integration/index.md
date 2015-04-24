@@ -8,11 +8,15 @@ We have a complete section dedicated to the [Model Layer](../models/index.md) bu
 
 ColdBox offers its own dependency injection framework, [WireBox](http://wirebox.ortusbooks.com), which allows you by convention to talk to your model objects. However, ColdBox also allows you to connecto to third-party dependency injection frameworks via our *IOC* module: http://forgebox.io/view/cbioc
 
-###Dependency Injection
+#Dependency Injection
 
 ![](../images/EventHandlerInjection.jpg)
 
- Your event handlers can be autowired with dependencies from either WireBox, ColdSpring, or any custom object factory by means of our[ injection DSL](wiki.coldbox.org/wiki/WireBox.cfm#Injection_DSL). By autowiring dependencies into event handlers, they will become part of the life span of the event handlers and thus gain on the performance that an event handler is wired with all necessary parts upon creation. This is a huge benefit and we encourage you to use injection whenever possible. Please note that injection [aggregates](http://en.wikipedia.org/wiki/Object_composition) model objects into your event handlers. The [Injection DSL](http://wiki.coldbox.org/wiki/WireBox.cfm) can be applied to: 
+Your event handlers can be autowired with dependencies from any dependency injection framework. By autowiring dependencies into event handlers, they will become part of the life span of the event handlers (singleton) and thus gain on the performance that an event handler is wired with all necessary parts upon creation. This is a huge benefit and we encourage you to use injection whenever possible.
+
+> **Info** As a rule of thumb, injection only singletons into singletons.
+
+Please note that injection [aggregates](http://en.wikipedia.org/wiki/Object_composition) model objects into your event handlers. The [Injection DSL](http://wirebox.ortusbooks.com/content/injection_dsl/index.html) can be applied to: 
  
  * cfproperties
  * constructor arguments
