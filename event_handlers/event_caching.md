@@ -62,19 +62,19 @@ Methods for eent purging:
 
 ```js
 //Trigger to purge all Events
-getColdBoxOCM("template").clearAllEvents();
+getCache( "template" ).clearAllEvents();
 
 //Trigger to purge all events synchronously
-getColdBoxOCM("template").clearAllEvents(async=false);
+getCache( "template" ).clearAllEvents(async=false);
 
 //Purge all events from the blog handler
-getColdBoxOCM("template").clearEvent('blog');
+getCache( "template" ).clearEvent('blog');
 
 //Purge all permutations of the blog.dspBlog event
-getColdBoxOCM("template").clearEvent('blog.dspBlog');
+getCache( "template" ).clearEvent('blog.dspBlog');
 
 //Purge the blog.dspBlog event with entry of 12345
-getColdBoxOCM("template").clearEvent('blog.dspBlog','id=12345')
+getCache( "template" ).clearEvent('blog.dspBlog','id=12345')
 ```
 
 ##this.event_cache_suffix
