@@ -3,7 +3,7 @@
 We have a complete section dedicated to the [Model Layer](../models/index.md) but we wanted to review a little here since event handlers need to talk to the model layer all the time. By default you can interact with your models from your event handlers in two ways:
 
 *  Dependency Injection (Aggregation)
-*  Request Model Objects (Usage)
+*  Request Model Objects (Association)
 
 
 ColdBox offers its own dependency injection framework, [WireBox](http://wirebox.ortusbooks.com), which allows you by convention to talk to your model objects. However, ColdBox also allows you to connecto to third-party dependency injection frameworks via our *IOC* module: http://forgebox.io/view/cbioc
