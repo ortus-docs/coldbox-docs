@@ -8,7 +8,7 @@ We have a complete section dedicated to the [Model Layer](../models/index.md) bu
 
 ColdBox offers its own dependency injection framework, [WireBox](http://wirebox.ortusbooks.com), which allows you by convention to talk to your model objects. However, ColdBox also allows you to connecto to third-party dependency injection frameworks via our *IOC* module: http://forgebox.io/view/cbioc
 
-#Dependency Injection
+## Dependency Injection
 
 ![](../images/EventHandlerInjection.jpg)
 
@@ -18,7 +18,7 @@ Your event handlers can be autowired with dependencies from any dependency injec
 
 Please note that injection [aggregates](http://en.wikipedia.org/wiki/Object_composition) model objects into your event handlers. The [Injection DSL](http://wirebox.ortusbooks.com/content/injection_dsl/index.html) can be applied to: 
  
- * cfproperties
+ * `cfproperty`
  * constructor arguments
  * setter methods
  
@@ -26,11 +26,11 @@ It will be your choice to pick an approach, but we mostly concentrate on propert
 
 > **Info**  Aggregation differs from ordinary composition in that it does not imply ownership. In composition, when the owning object is destroyed, so are the contained objects. - 'wikipedia'
 
-###Requesting Model Objects
+## Requesting Model Objects
 
 ![](../images/EventHandlerModelRequested.jpg)
 
- The other approach to integrating with model objects is to request them and use them as [associations](http://en.wikipedia.org/wiki/Association_%28object-oriented_programming%29). From who? From either [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) or the [IOC](http://wiki.coldbox.org/wiki/Plugins:IOC.cfm) Plugin. We would recommend requesting objects if they are transient objects or stored in some other volatile storage scope. Retreiving of objects is ok, but if you will be dealing with mostly singleton objects or objects that are created only once, you will gain much more performance by using injection. 
+The other approach to integrating with model objects is to request them and use them as [associations](http://en.wikipedia.org/wiki/Association_%28object-oriented_programming%29). From who? From either [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) or the [IOC](http://wiki.coldbox.org/wiki/Plugins:IOC.cfm) Plugin. We would recommend requesting objects if they are transient objects or stored in some other volatile storage scope. Retreiving of objects is ok, but if you will be dealing with mostly singleton objects or objects that are created only once, you will gain much more performance by using injection. 
  
  > **Info** Association defines a relationship between classes of objects that allows one object instance to cause another to perform an action on its behalf. - 'wikipedia'
  
