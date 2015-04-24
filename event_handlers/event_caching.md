@@ -113,5 +113,5 @@ box install cbdebugger
 ```
 
 
-![](images/cachemonitor.jpg)
+![](../images/cachemonitor.jpg)
 
