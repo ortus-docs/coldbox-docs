@@ -13,7 +13,5 @@ We suggest you look at the latest [API Docs ](http://apidocs.ortussolutions.com/
 
 ```js
 wirebox.getObjectPopulator().populateFromXXXX()
-
-getPlugin("BeanFactory").populateFromXXXX()
 ```
 
