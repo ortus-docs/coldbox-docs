@@ -1,6 +1,6 @@
 # Model Data Binding
 
-[WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) also offers you the capability to bind incoming FORM/URL/REMOTE data into your model objects by convention. The easiest approach is to use our populateModel() function call:
+The framework also offers you the capability to bind incoming FORM/URL/REMOTE data into your model objects by convention. The easiest approach is to use our `populateModel()` function which will populate object from the incoming RC collection.
 
 ```js
 populateModel(any model, [any scope=''], [any<Boolean> trustedSetter='false'], [any include=''], [any exclude=''])
