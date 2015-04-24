@@ -73,7 +73,6 @@
    * [Views](request_context/views.md)
    * [Interceptors](request_context/interceptors.md)
    * [What Can I Do With It?](request_context/what_can_i_do_with_it.md)
-   * [Summary](request_context/summary.md)
    * [Request Context Decorator](request_context/request_context_decorator/index.md)
        * [For What Can I Use This?](request_context/request_context_decorator/for_what_can_i_use_this.md)
        * [Configuration](request_context/request_context_decorator/configuration.md)
