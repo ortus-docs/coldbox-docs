@@ -4,7 +4,7 @@ The ColdBox Proxy also has a different life cycle that you can follow: See Reque
 
 ```js
 component{
-	
+
 	function preProxyResults(event, interceptData){
 		log.debug("Proxy request finalized: ", interceptData.proxyResults );
 	}

@@ -14,16 +14,16 @@ The proxy will give you access to your entire ColdBox application assets but als
 
 	<cffunction name="yourRemoteCall" output="false" access="remote" returntype="YourType" hint="Your Hint">
 		<cfset var results = "">
-		
+
 		<---  Set the event to execute --->
 		<cfset arguments.event = "">
-		
+
 		<---  Call to process a coldbox event cycle, always check the results as they might not exist. --->
 		<cfset results = super.process(argumentCollection=arguments)>
-		
+
 		<cfreturn results>
 	</cffunction>
-	
+
 </cfcomponent>
 ```
 

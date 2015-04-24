@@ -24,7 +24,7 @@ var getArtists = function(){
         <cfset var ReturnValue = "" />
         <---  It’s very interesting.. how I am interacting with service-layer, just bypassing controller layer --->
         <cfset ReturnValue = getModel("ArtService").getArtist(argumentCollection=arguments) />
-        
+
         <cfreturn ReturnValue>
 </cffunction>
 
@@ -32,13 +32,13 @@ var getArtists = function(){
         <cfset var qry  =  "" />
         <---  CFSELECT (bind )  --->
         <cfset var TwoDimensionalArray =  ArrayNew(2) />
-        
+
         <---  Get Qry Directly from ArtService.cfc --->
         <cfset qry = getModel("ArtService").getArtist() />
-        
+
         <cfset TwoDimensionalArray[1][1] = '0' />
         <cfset TwoDimensionalArray[1][2] = 'Please select' />
-        
+
         <cfloop query="qry">
                 <cfset TwoDimensionalArray[qry.CurrentRow + 1][1] = trim(qry.ARTISTID)>
                 <cfset TwoDimensionalArray[qry.CurrentRow + 1][2] = trim(qry.FIRSTNAME & chr(32) & qry.LASTNAME)>
