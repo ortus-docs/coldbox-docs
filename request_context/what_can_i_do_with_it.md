@@ -37,7 +37,6 @@ Below you can see a listing of the mostly used methods in the request context ob
 * *setValue()* : set a value
 * *setLayout()* : Set the layout to use for this request
 * *setView()* : Used to set a view to render
-* *showDebugPanel()* : Sets whether the ColdBox debugging panel will be rendered or not.
 * *valueExists()* : Checks if a value exists in the collection.
 * *renderData()* : Marshall data to JSON, JSONP, XML, WDDX, PDF, HTML, etc.
 
@@ -78,9 +77,6 @@ Some Samples:
 <cfif not event.valueExists('username')>
 
 </cfif>
-
-//Don't show the debug panel for this request
-<cfset event.showDebugPanel(false)>
 
 //Tell the framework to stop processing gracefully, no renderings
 <cfset event.noRender()>
