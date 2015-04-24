@@ -1,7 +1,5 @@
 # Advanced Data Binding
 
-# Advanced Data Binding
-
 [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) also sports several advanced data binding techniques:
 
 * populateFromJSON()
