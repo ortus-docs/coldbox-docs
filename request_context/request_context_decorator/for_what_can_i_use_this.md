@@ -38,34 +38,4 @@ As you can see from the code above, the possibilities to change behavior are end
 
 ### Controller Calling
 
-The request context decorator receives a reference to the ColdBox controller object and it can be retrieved by using the getController() method. This will give you the ability to call plugins, settings, interceptions and much more, right from your decorator object. This really enhances your request context object, by being able to talk to any part of your application:
-
-```js
-<---  Let's use the json plugin to inflate a value --->
-<cffunction name="getValue" returntype="Any" access="Public" output="false">
-	<---************************************************************** --->
-	<cfargument name="name" 		type="string" 	required="true">
-	<cfargument name="defaultValue" type="any" 		required="false" default="NONE">
-	<---************************************************************** --->
-	<cfscript>
-		var originalValue = "";
-		
-		//Check if the value exists via original object, else return blank
-		if( getRequestContext().valueExists(arguments.name) ){
-			originalValue = getRequestContext().getValue(argumentCollection=arguments);
-			//check if simple
-			if( isSimpleValue(originalValue) ){
-				/* json decoding*/
-				if ( (left(originalValue,1) eq "[" AND right(originalValue,1) eq "]") OR
-				     (left(originalValue,1) eq "{" AND right(originalValue,1) eq "}") 
-				){
-					originalValue = getController().getPlugin("json").decode(replace(originalValue,"'","""","all"));
-				}
-			}
-		}
-		
-		return originalValue;
-	</cfscript>
-</cffunction>
-```
-
+The request context decorator receives a reference to the ColdBox `controller` object and it can be retrieved by using the `getController()` method. This will give you the ability to call plugins, settings, interceptions and much more, right from your decorator object. 
