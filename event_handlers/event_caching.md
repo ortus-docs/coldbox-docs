@@ -6,9 +6,9 @@ Almost all of the entire life cycle is skipped, the content is just delivered. B
 
 ![](../images/EventCachingFlow.jpg)
 
-##Enabling Event Caching
- 
- To enable event caching, you will need to set a setting in your [ConfigurationCFC](http://wiki.coldbox.org/wiki/ConfigurationCFC.cfm) called EventCaching which is a Boolean variable.
+## Enabling Event Caching
+
+To enable event caching, you will need to set a setting in your `ColdBox.cfc` called `EventCaching` to `true`. This tels ColdBox to be ready to read action metadata for cacheable events.
  
  ```js
  coldbox.eventCaching = true;
@@ -30,20 +30,6 @@ Almost all of the entire life cycle is skipped, the content is just delivered. B
 > **Important** Please be aware that you should not cache output with 0 timeouts (forever). Always use a timeout. 
 
 ```js
-//Sample event caching
-<cffunction name="showEntry" access="public" output="false" cache="true" cacheTimeout="30" cacheLastAccessTimeout="15">
-	<cfargument name="event">
-	<cfargument name="rc">
-	<cfargument name="prc">
-	<cfscript>
-		//get Entry
-		prc.entry = getEntryService().getEntry(event.getValue('entryID',0));
-		
-		//set view
-		event.setView('blog/showEntry');
-	</cfscript>
-</cffunction>
-
 // In Script
 function showEntry(event,rc,prc) cache="true" cacheTimeout="30" cacheLastAccessTimeout="15"{
 	//get Entry
