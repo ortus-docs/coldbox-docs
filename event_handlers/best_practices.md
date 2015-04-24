@@ -10,7 +10,7 @@ In conclusion, organize your handlers as you would a domain model, put in practi
 
 ##Executing other events (Event Chaining)
 
-The best practice on event execution would be via the runEvent() method. However, please note that running events via this method does a complete life cycle execution. So do not abuse it. If you find that you need to chain events or are getting more complex, we suggest upgrading your code to use [ColdBox Interceptors](http://wiki.coldbox.org/wiki/EventHandlers.cfm#Event_Caching). This is a much more flexible and decoupled way of providing executing code chains.
+The best practice on event execution would be via the `runEvent()` method. However, please note that running events via this method does a complete life cycle execution. So do not abuse it. If you find that you need to chain events or are getting more complex, we suggest upgrading your code to use [ColdBox Interceptors](http://wiki.coldbox.org/wiki/EventHandlers.cfm#Event_Caching). This is a much more flexible and decoupled way of providing executing code chains.
 
 ##Naming Conventions
 
