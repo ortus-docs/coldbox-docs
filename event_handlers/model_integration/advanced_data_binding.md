@@ -9,9 +9,4 @@
 * `populateFromXML()`
 
 
-We suggest you look at the latest [API Docs ](http://apidocs.ortussolutions.com/coldbox/current) for the correct arguments.
-
-```js
-wirebox.getObjectPopulator().populateFromXXXX()
-```
-
+We suggest you look at the latest [API Docs ](http://apidocs.ortussolutions.com/coldbox/current) for the correct arguments or the latest [Object Populator](http://wirebox.ortusbooks.com/content/wirebox_object_populator/index.html) documentation.
