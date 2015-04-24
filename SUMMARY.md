@@ -76,7 +76,6 @@
    * [Request Context Decorator](request_context/request_context_decorator/index.md)
        * [For What Can I Use This?](request_context/request_context_decorator/for_what_can_i_use_this.md)
        * [Configuration](request_context/request_context_decorator/configuration.md)
-       * [Conclusion](request_context/request_context_decorator/conclusion.md)
 * [Models](models/index.md)
    * [Domain Modeling](models/domain_modeling/index.md)
        * [Service Layer](models/models/domain_modeling/service_layer.md)
