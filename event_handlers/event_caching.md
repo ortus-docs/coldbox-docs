@@ -47,19 +47,18 @@ function showEntry(event,rc,prc) cache="true" cacheTimeout="30" cacheLastAccessT
 
 All event and view caching are stored in a named cache called `template` which all ColdBox applications have by default. You can open or create a new [CacheBox](http://cachebox.ortusbooks.com) configuration object and decide where the storage is, timeouts, providers, etc. You have complete control of how event and view caching is stored.
 
-##Purging
-We also have a great way to purge these events programmatically via our cache provider interface. You will have to either retrieve or [inject](http://wiki.coldbox.org/wiki/WireBox.cfm) a reference to the template cache provider and then call methods on it.
+## Purging
+We also have a great way to purge these events programmatically via our cache provider interface.
 
 ```js
-templateCache = getColdBoxOCM("template");
-templateCache = cachebox.getCache("template");
+templateCache = cachebox.getCache( "template" );
 ```
 
 Methods for eent purging:
 
-* clearEvent(string eventSnippet, string querystring=""): Clears all the event permutations from the cache according to snippet and querystring. Be careful when using incomplete event name with query strings as partial event names are not guaranteed to match with query string permutations
-* clearEventMulti(eventsnippets,string querystring=""): Clears all the event permutations from the cache according to the list of snippets and querystrings. Be careful when using incomplete event name with query strings as partial event names are not guaranteed to match with query string permutations
-* clearAllEvents([boolean async=true]) : Can clear ALL cached events in one shot and can be run asynchronously.
+* `clearEvent(string eventSnippet, string querystring="")`: Clears all the event permutations from the cache according to snippet and querystring. Be careful when using incomplete event name with query strings as partial event names are not guaranteed to match with query string permutations
+* `clearEventMulti(eventsnippets,string querystring="")`: Clears all the event permutations from the cache according to the list of snippets and querystrings. Be careful when using incomplete event name with query strings as partial event names are not guaranteed to match with query string permutations
+* `clearAllEvents([boolean async=true])` : Can clear ALL cached events in one shot and can be run asynchronously.
 
 ```js
 //Trigger to purge all Events
