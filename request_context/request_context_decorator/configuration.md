@@ -1,6 +1,6 @@
 # Configuration
 
-The last step in this guide is to show you how to declare your decorator in your ColdBox configuration file. Look at the sample snippet below:
+To tell ColdBox to use the decorator open your `ColdBox.cfc` and add the following `coldbox` setting:
 
 `coldbox.requestContextDecorator = "model.myRequestContext"`
 
