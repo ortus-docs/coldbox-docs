@@ -7,3 +7,4 @@ The request context object is bound to the framework release and as we all know,
 
 > "A decorator pattern allows new/additional behavior to be added to an existing method of an object dynamically." <small>Wikipedia </small>
 
+![](../../../DecoratorPattern.png)
