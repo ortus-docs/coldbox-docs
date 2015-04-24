@@ -1,6 +1,6 @@
 # How Does It Work
 
-The framework will merge the incoming URL/FORM/REMOTE variables into a single structure called the request collection structure that will live inside the request context object. We also internally create a second collection called the private request collection that is useful to store data and objects that have no outside effect.
+The framework will merge the incoming URL/FORM/REMOTE variables into a single structure called the request collection structure (**RC**) that will live inside the request context object. We also internally create a second collection called the private request collection that is useful to store data and objects that have no outside effect.
 
 > **Info** As best practice, store data in the private collection and leave the request collection intact with the client's request data.
 
