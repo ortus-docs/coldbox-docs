@@ -72,7 +72,6 @@
    * [Event Handlers](request_context/event_handlers.md)
    * [Views](request_context/views.md)
    * [Interceptors](request_context/interceptors.md)
-   * [Plugins](request_context/plugins.md)
    * [What Can I Do With It?](request_context/what_can_i_do_with_it.md)
    * [Extending The Request Context](request_context/extending_the_request_context.md)
    * [Summary](request_context/summary.md)
