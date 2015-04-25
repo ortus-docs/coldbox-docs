@@ -34,4 +34,5 @@ Below you can see the full life-cycle for MVC requests:
 
 ![](../images/ColdBoxLifecycles.jpg)
 
+### Proxy Lifecycle
 
