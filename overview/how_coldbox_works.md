@@ -36,3 +36,6 @@ Below you can see the full life-cycle for MVC requests:
 
 ### Proxy Lifecycle
 
+ColdBox also has a proxy feature for building SOAP webservices or Flex/Air integration called [ColdBox Proxy](../proxy/index.md).  Below you can see the life-cycle for that process:
+
+![](../images/ColdBoxLifecyclesProxy.jpg)
