@@ -30,5 +30,8 @@ A typical basic request to a ColdBox application looks like this:
 * The view’s HTML is wrapped in the rendered layout (`/layouts/main.cfm`)
 * Page is returned to the browser
 
+Below you can see the full life-cycle for MVC requests:
+
+![](../../images/ColdBoxLifecycles.jpg)
 
 
