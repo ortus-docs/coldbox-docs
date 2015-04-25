@@ -2,4 +2,4 @@
 
 ##The MVC Request Lifecycle
 
-![](ColdBoxLifecycles.jpg)
+![](../../ColdBoxLifecycles.jpg)
