@@ -43,3 +43,4 @@ File        471 Jan 15,2015 14:01:18 robots.txt
 
 > **Tip** You can also leverage the `--installColdBox` and `--installColdBoxBE` flags to create and install ColdBox in one command.
 
+As you can see it creates all the necessary folders for you to work with. We are now ready to start our application and spice it up.
