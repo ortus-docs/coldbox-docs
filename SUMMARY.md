@@ -13,9 +13,6 @@
    * [What is MVC](overview/what_is_mvc.md)
    * [What is ColdBox](overview/what_is_coldbox.md)
    * [How ColdBox Works](overview/how_coldbox_works.md)
-       * [ColdBox Life Cycles](overview/coldbox_life_cycles/index.md)
-           * [MVC Lifecycle](overview/coldbox_life_cycles/mvc_lifecycle.md)
-           * [Proxy Lifecycle](overview/coldbox_life_cycles/proxy_lifecycle.md)
    * [Installation](overview/installation.md)
    * [Creating An Application](overview/creating_an_application.md)
    * Conventions Over Configuration
