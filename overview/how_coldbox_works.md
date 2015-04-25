@@ -32,6 +32,6 @@ A typical basic request to a ColdBox application looks like this:
 
 Below you can see the full life-cycle for MVC requests:
 
-![](../../images/ColdBoxLifecycles.jpg)
+![](../images/ColdBoxLifecycles.jpg)
 
 
