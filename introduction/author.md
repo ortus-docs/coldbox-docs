@@ -21,7 +21,17 @@ Random Author Facts:
 
 > “Trust in the LORD with all your heart, and do not lean on your own understanding.” – Proverbs 3:5
 
-## Brad Wood
+## Contributors
+### Jorge Emilio Reyes Bendeck
+
+Jorge is an Industrial and Systems Engineer born in El Salvador. After finishing his Bachelor studies at the Monterrey Institute of Technology and Higher Education [ITESM](http://www.itesm.mx/wps/wcm/connect/ITESM/Tecnologico+de+Monterrey/English), Mexico, he went back to his home country where he worked as the COO of[ Industrias Bendek S.A.](http://www.si-ham.com/). In 2012 he left El Salvador and moved to Switzerland in persuit of the love of his life. He married her and today he resides in Basel with his lovely wife Marta and their daughter Sofía.
+
+Jorge started working as project manager and business developer at Ortus Solutions, Corp. in 2013, . At Ortus he fell in love with software development and now enjoys taking part on software development projects and software documentation! He is a fellow Cristian who loves to play the guitar, worship and rejoice in the Lord!
+
+>Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!
+<br><small>2 Corinthians 5:17</small>
+
+### Brad Wood
 
 Brad grew up in southern Missouri where he systematically disassembled every toy he ever owned which occasionally led to unintentional shock therapy (TVs hold charge long after they've been unplugged, you know)  After high school he majored in Computer Science with a music minor at [MidAmerica Nazarene University](http://www.mnu.edu) (Olathe, KS).   Today he lives in Kansas City with his wife and three girls where he still disassembles most of his belongings (including automobiles) just with a slightly higher success rate of putting them back together again.)  Brad enjoys church, all sorts of international food, and the great outdoors.
 
