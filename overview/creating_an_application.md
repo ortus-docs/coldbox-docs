@@ -39,6 +39,7 @@ File        471 Jan 15,2015 14:01:18 robots.txt
 
 > **Info** Remember you can use the tab-completion to get all the necessary input and arguments into the commands.
 
-That will create a new ColdBox app configured and ready for you.
+<br>
 
 > **Tip** You can also leverage the `--installColdBox` and `--installColdBoxBE` flags to create and install ColdBox in one command.
+
