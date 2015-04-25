@@ -15,7 +15,6 @@
    * [How ColdBox Works](overview/how_coldbox_works.md)
    * [Installation](overview/installation.md)
    * [Creating An Application](overview/creating_an_application.md)
-   * Hello Example
    * Running An Application
    * Reiniting An Application
    * Testing An Application
