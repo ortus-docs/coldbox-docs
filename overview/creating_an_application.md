@@ -14,6 +14,8 @@ We will be using the `AdvancedScript` template to start.  So go again into comma
 coldbox create app name=MyApp skeleton=AdvancedScript
 ```
 
+This is what it will generate:
+
 ```
 Dir           0 Apr 25,2015 11:04:05 coldbox
 Dir           0 Apr 25,2015 11:04:11 config
