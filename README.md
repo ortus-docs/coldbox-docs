@@ -64,7 +64,7 @@ ColdBox is a professional open source software backed by [Ortus Solutions, Corp]
 * Facebook: https://www.facebook.com/coldboxplatform
 * Google+: https://www.google.com/+ColdboxOrg
 * Vimeo Channel: http://vimeo.com/channels/coldbox
-* ColdBox Wiki: http://wiki.coldbox.org
+
 
 
 ---
