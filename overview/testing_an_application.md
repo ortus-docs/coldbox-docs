@@ -46,3 +46,9 @@ To execute your application template tests and the generated tests just browse t
 
 Everything is already pre-wired for you and ready for you to do full life-cycle integration testing.  Don't believe me? Try it out, go change your `echo()` action to the following code and re-run your test:
 
+```js
+function echo(event,rc,prc){
+	event.setFunkyView("hello/echo");
+}	
+```
+
