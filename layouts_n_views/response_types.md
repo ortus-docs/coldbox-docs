@@ -4,7 +4,7 @@ The event handlers will be the objects in question that will be responding to us
 
 * Set a view to be rendered back to the user (with or without a layout) 
 * Render data in multiple view formats: JSON, XML, WDDX, HTML, TEXT or CUSTOM
-* Render nothing
+* Do nothing or the infamous White Screen of Death
 * Do an HTTP redirect to another event (part of our event handler guide via setNextEvent())
 
 ### Conventions
