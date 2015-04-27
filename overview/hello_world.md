@@ -35,3 +35,13 @@ component{
 }
 ```
 
+The two actions are already wired to display the appropriate views by calling the `setView()` method in the request context event object.  However, let's change the `index()` action to just render out `Hello World` for us.
+
+```js
+function index(event,rc,prc){
+    return "Hello World!";
+}
+```
+
+That's it! Let's run this puppy now!
+
