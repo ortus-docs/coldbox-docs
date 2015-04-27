@@ -1,6 +1,6 @@
 # Implicit Layout/View Declarations
 
-Now that we have seen what layouts and views are, where they are located and some samples, let's dig deeper. There is a special section in the configuration file of an application just for layouts and views. This section is the layouts section and you can find much more in detail information in the [Configuration CFC](http://wiki.coldbox.org/wiki/ConfigurationCFC.cfm) guide. Let's look at a sample declaration below:
+Now that we have seen what layouts and views are, where they are located and some samples, let's dig deeper. There is a special section in the configuration file of an application just for layouts and views called `layouts` that you can use to implicity match views to specific layouts. 
 
 ```js
 //Register Layouts
