@@ -23,7 +23,7 @@ All your layouts will go in the `layouts` folder and all your views will go in t
 
 ![](../images/ColdBoxMajorClasses.jpg)
 
-It is imperative to know who does the rendering in ColdBox and that is the Renderer class that you can see from our diagram above. As you can tell from the diagram, it includes your layouts and/or views into itself in order to render out content. So by this association and inheritance all layouts and views have some variables and methods at their disposal since they get absorbed into the object. You can visit the API docs to learn about all the Renderer methods. All of the following property members exist in all layouts and views rendered by the Renderer:
+It is imperative to know who does the rendering in ColdBox and that is the Renderer class that you can see from our diagram above. As you can tell from the diagram, it includes your layouts and/or views into itself in order to render out content. So by this association and inheritance all layouts and views have some variables and methods at their disposal since they get absorbed into the object. You can visit the [API docs](http://apidocs.ortussolutions.com/coldbox/current) to learn about all the Renderer methods. All of the following property members exist in all layouts and views rendered by the Renderer:
 
 
 |Property|Description|
@@ -39,7 +39,7 @@ It is imperative to know who does the rendering in ColdBox and that is the Rende
 |log|A pre-configured LogBox [Logger](http://wiki.coldbox.org/wiki/LogBox.cfm) object for this specific class object (*coldbox.system.logging.Logger*)|
 |wirebox|A reference to the [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) object factory (*coldbox.system.ioc.Injector*)|
 
-As you can see, all views and layouts have direct reference to the request collections so it makes it incredibly easy to get and put data into it. Also, remember that the Renderer inherits from the base ColdBox Plugin class which in turn inherits from the FrameworkSuperType class. So all methods are at your disposal if needed.
+As you can see, all views and layouts have direct reference to the request collections so it makes it incredibly easy to get and put data into it. Also, remember that the Renderer inherits from the Framework SuperType so all methods are at your disposal if needed.
 
 > **Important** Do not put any type of business logic in layouts and views, it does not belong there! 
 
