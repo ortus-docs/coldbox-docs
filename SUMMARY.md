@@ -15,10 +15,10 @@
    * [How ColdBox Works](overview/how_coldbox_works.md)
    * [Installation](overview/installation.md)
    * [Creating An Application](overview/creating_an_application.md)
+   * Hello World
    * [Running An Application](overview/running_an_application.md)
    * Reiniting An Application
    * Testing An Application
-   * Hello World
 * [Configuration](configuration/index.md)
    * [Conventions](configuration/conventions.md)
    * [Directory Structure](configuration/directory_structure.md)
