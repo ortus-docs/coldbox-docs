@@ -15,9 +15,8 @@ What in the world is this? Well, imagine a portal, in which each section of the 
 </div>
 ```
 
-This code just renders out the results of a `runEvent()` method call. I would suggest you look at [the API docs](http://apidocs.ortussolutions.com/coldbox/current) to discover all parameters to the `runEvent()` method call. The prePostExempt argument makes the execution of the event faster as it skips any preEvent/postEvent interception calls.
+This code just renders out the results of a `runEvent()` method call. I would suggest you look at [the API docs](http://apidocs.ortussolutions.com/coldbox/current) to discover all arguments to the `runEvent()` method call. The `prePostExempt` argument makes the execution of the event faster as it skips any preEvent/postEvent interception calls.
 
-> **Info** To learn more about the `runEvent()` method, please refer to the online API Docs
 
 Event Code (viewlets.userinfo)
 
