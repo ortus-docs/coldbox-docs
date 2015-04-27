@@ -48,4 +48,4 @@ That's it, we use the `setView()` method to set the view `general/index.cfm` to 
 </cfoutput>
 ```
 
-I am using our cool HTML Helper (`coldbox.system.core.dynamic.HTMLHelper`( class that is smart enough to render tables, data, HTML 5 elements etc and even bind to ColdFusion ORM entities. All layouts/views have access to the HTML helper.
+I am using our cool HTML Helper (`coldbox.system.core.dynamic.HTMLHelper`) class that is smart enough to render tables, data, HTML 5 elements etc and even bind to ColdFusion ORM entities. All layouts/views have access to the HTML helper.
