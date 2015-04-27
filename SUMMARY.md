@@ -73,8 +73,8 @@
        * [For What Can I Use This?](request_context/request_context_decorator/for_what_can_i_use_this.md)
        * [Configuration](request_context/request_context_decorator/configuration.md)
 * [Layouts & Views](layouts_n_views/index.md)
-   * ColdBox Renderer
    * [Response Types](layouts_n_views/response_types.md)
+   * ColdBox Renderer
    * [Rendering Views](layouts_n_views/rendering_views/index.md)
        * [Setting Views For Rendering](layouts_n_views/rendering_views/setting_views_for_rendering.md)
        * [Implicit Views](layouts_n_views/rendering_views/implicit_views.md)
