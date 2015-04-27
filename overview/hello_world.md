@@ -14,5 +14,5 @@ Created /Users/lmajano/tmp/myapp/handlers/hello.cfc
 Created /Users/lmajano/tmp/myapp/tests/specs/integration/helloTest.cfc
 ```
 
-This will create the `hello.cfc` event handler controller in the `handlers` directory and create two action methods on it called `index() and echo`.  It will by default also create a folder called `hello` in the `views` directory and create a `index.cfm and echo.cfm` inside of it.  Finally, it will also generate an integration test for your `hello` event handler inside of the `tests/integration` folder.  Wow! Pretty snazzy command!
+This will create the `hello.cfc` event handler controller in the `handlers` directory and create two action methods on it called `index() and echo`.  It will by default also create a folder called `hello` in the `views` directory and create a `index.cfm and echo.cfm` inside of it.  Finally, it will also generate an integration test for your `hello` event handler inside of the `tests/integration/helloTest` folder.  Wow! Pretty snazzy command!
 
