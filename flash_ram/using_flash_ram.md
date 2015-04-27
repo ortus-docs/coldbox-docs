@@ -22,7 +22,9 @@ The `flash` scope object is our best practice approach as it clearly demarcates 
 > **Info** If you use the `persistVariables()` method or any of the persistence arguments on the `setNextEvent()` method, those variables will be saved and persisted immediately.
 
 
-To review the Flash Scope methods, please [go to the API](http://apidocs.coldbox.org/) and look for the correct implementation or the AbstractFlashScope. Please note that the majority of a Flash scope methods return itself so you can concatenate method calls. Below are the main methods that you can use to interact with the Flash RAM object:
+To review the Flash Scope methods, please [go to the API](http://apidocs.ortussolutions.com/coldbox/current) and look for the correct implementation or the `AbstractFlashScope`. 
+
+> **Info** Please note that the majority of a Flash scope methods return itself so you can concatenate method calls. Below are the main methods that you can use to interact with the Flash RAM object:
 
 
 ###### clear()
