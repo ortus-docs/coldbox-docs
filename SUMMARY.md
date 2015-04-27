@@ -211,7 +211,6 @@
    * [Caveats & Gotchas](proxy/caveats_&_gotchas.md)
    * [Conclusion](proxy/conclusion.md)
 * [Recipes](recipes/index.md)
-   * [Using Helper UDF's and CFC's](recipes/using_helper_udfs_and_cfcs.md)
    * [My First Event Handler](recipes/my_first_event_handler.md)
    * [My First Custom Exception Handler](recipes/my_first_custom_exception_handler.md)
    * [My First Custom Plugin](recipes/my_first_custom_plugin.md)
