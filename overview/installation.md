@@ -1,6 +1,6 @@
 # Installation
 
-In this overview we will investigate on getting started quickly and showcasing how to build ColdBox applications by leveraging our CLI, [CommandBox](http://www.ortussolutions.com/products/commandbox).  To get started open the CommandBox binary or enter the shell by typing `box` in your terminal or console.  Then let's create a new folder and install ColdBox.
+In this overview we will investigate on getting started quickly and showcasing how to build ColdBox applications by leveraging our CLI, [CommandBox](http://www.ortussolutions.com/products/commandbox).  To get started open the CommandBox binary or enter the shell by typing `box` in your terminal or console.  Then let's create a new folder and install ColdBox into our first application.
 
 ```bash
 mkdir myapp
