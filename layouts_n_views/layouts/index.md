@@ -4,4 +4,4 @@ A layout is simply an HTML file that acts as your shell where views can be rende
 
 > **Important** Another important aspect of layouts is that they can also consume other layouts as well. So you can create nested layouts very easily via the renderLayout() method.
 
-![](LayoutViewCombinations.png)
+![](../../images/LayoutViewCombinations.png)
