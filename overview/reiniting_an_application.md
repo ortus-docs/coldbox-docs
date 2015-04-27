@@ -19,3 +19,16 @@ You can also pass an optional password to it if you have used the `coldbox.reini
 ```bash
 coldbox reinit password=test
 ```
+
+## URL action
+
+You will use the `fwreinit` URL action which can be anything or if you have setup a password, the password.
+
+```
+// no password
+index.cfm?fwreinit=1
+
+// password
+index.cfm?fwreinit=mypassword
+```
+
