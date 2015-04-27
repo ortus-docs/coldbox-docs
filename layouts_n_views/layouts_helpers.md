@@ -24,3 +24,10 @@ That's it. Just append Helper to the layout or folder name and there you go, the
 
 > **Caution** Please note that layout helpers will be inheritenly available to any view rendered inside of the layout. 
 
+## Application wide helpers
+You can also use the `coldbox.viewsHelper` directive to tell the framework what helper file to use for ALL layouts rendered:
+
+```
+coldbox.viewsHelper = "includes/helpers/viewsHelper.cfm;
+```
+
