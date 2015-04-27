@@ -48,8 +48,8 @@ Then we can perform several operations on views:
 * `clearAllViews([boolean async=true])` : Can clear ALL cached views in one shot and can be run asynchronously.
 
 ```js
-cachebox.getCache('template').clearView('general/index');
-cachebox.getCache('template').clearAllViews(async=true);
-cachebox.getCache('template').clearMultiView('general/index','index','home');
+cachebox.getCache( 'template' ).clearView('general/index');
+cachebox.getCache( 'template' ).clearAllViews(async=true);
+cachebox.getCache( 'template' ).clearMultiView('general/index','index','home');
 ```
 
