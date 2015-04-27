@@ -17,5 +17,3 @@ component name="general"{
 }
 ```
 
-By using the module argument, you are explicitely telling the ColdBox renderer to look for the view inside of the passed module name.
-
