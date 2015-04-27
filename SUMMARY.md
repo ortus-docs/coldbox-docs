@@ -218,7 +218,7 @@
    * [Execution Profiler Monitor](proxy/execution_profiler_monitor.md)
    * [Caveats & Gotchas](proxy/caveats_&_gotchas.md)
    * [Conclusion](proxy/conclusion.md)
-* [Ajax Integration](ajax_integration/index.md)
+* [Ajax Integration](Ajax_Integration/index.md)
    * [Returnint HTML](ajax_integration/returnint_html.md)
        * [Event Handler Return](ajax_integration/event_handler_return.md)
        * [Render HTML](ajax_integration/render_html.md)
