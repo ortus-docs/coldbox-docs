@@ -20,4 +20,4 @@ That commamnd will issue the startup of an embedded CFML engine on a port and op
 
 You can now execute your hello world action by either clicking on the `hello` link in the **Registered Event Handlers** section or navigation to the following URL to execute the action: `http://localhost:{port}/index.cfm/hello`.  You will notice there is no `index` in the URL, this is because `index` is the default action for events.  However, you can add it if you like as well: `http://localhost:{port}/index.cfm/hello/index`.
 
-> **Info** ColdBox will parse the incoming URL route to form an executable event string. The default convention for the URL routing is `/:handler/:action`
+> **Info** ColdBox will parse the incoming URL route to form an executable event string. The default convention for the URL routing is `/:module/:package/:handler/:action`
