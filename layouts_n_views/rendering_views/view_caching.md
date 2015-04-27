@@ -29,7 +29,7 @@ component name="general"{
 }
 ```
 
-#### Purging Views
+## Purging Views
 
 So now that our views are cached, how do I purge them programmatically? Well, you need to talk to the template cache provider.
 
