@@ -7,18 +7,6 @@ The event handlers will be the objects in question that will be responding to us
 * Do nothing or the infamous White Screen of Death
 * Do an HTTP redirect to another event via `setNextEvent`
 
-## Conventions
-
-Let's do a recap of our conventions for layouts and view locations:
-
-```js
-+ application
-  + layouts
-  + views
-```
-
-All your layouts will go in the `layouts` folder and all your views will go in the `views` folder.
-
 ## ColdBox Renderer
 
 ![](../images/ColdBoxMajorClasses.jpg)
