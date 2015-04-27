@@ -19,7 +19,7 @@ The `flash` scope object is our best practice approach as it clearly demarcates 
 
 > **Caution** By default the Flash RAM queues up serializations for better performance, but you can alter the behavior programmatically or via the configuration file.
 
-> **Info** If you use the persistVariables() method or any of the persistence arguments on the setNextEvent() method, those variables will be saved and persisted immediately.
+> **Info** If you use the `persistVariables()` method or any of the persistence arguments on the `setNextEvent()` method, those variables will be saved and persisted immediately.
 
 
 To review the Flash Scope methods, please [go to the API](http://apidocs.coldbox.org/) and look for the correct implementation or the AbstractFlashScope. Please note that the majority of a Flash scope methods return itself so you can concatenate method calls. Below are the main methods that you can use to interact with the Flash RAM object:
