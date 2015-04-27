@@ -49,6 +49,7 @@ Using the <code>renderdata()</code> method of the event object is the most flexi
 * WDDX
 * CUSTOM
 
+Below are a few examples:
 
 ```js
 // xml marshalling
