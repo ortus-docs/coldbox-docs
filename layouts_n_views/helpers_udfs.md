@@ -6,15 +6,10 @@ ColdBox provides you with a way to actually inject your layouts/views with custo
 * `viewsHelper` - Global helper for all layouts and views only
 
 ```js
-coldbox.udfLibrary = 'includes/helpers/applicationHelper.cfm';
-```
-```js
-<cfset includeUDF('includes/helpers/viewHelper.cfm')>
+coldbox.applicationHelper = 'includes/helpers/applicationHelper.cfm';
+coldbox.viewsHelper = "includes/helpers/viewsHelper.cfm";
 ```
 
-* The includeUDF method call will find the template and inject it to the layout/view combination
-* The UDFLibrary setting injects the UDF's in the template to the handlers/layouts and views.
-
-> **Important** If you try to inject a method that already exists, the call will fail and ColdFusion will throw an exception. Also, try not to abuse mixins, if you have too many consider refactoring into model objects or plugins. 
+> **Caution** If you try to inject a method that already exists, the call will fail and ColdFusion will throw an exception. Also, try not to abuse mixins, if you have too many consider refactoring into model objects or plugins. 
 
 
