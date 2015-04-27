@@ -10,14 +10,14 @@ All of these methods interact with the Flash RAM object but the last two methods
 
 ## Flash Scope Object
 
-The `flash` scope object is our best practice approach as it clearly demarcates the code that the developer is using the flash scope for persistence. Any flash scope must inherit from our AbstractFlashScope and has access to several key methods that we will cover in this section. However, let's start with how the flash scope stores data:
+The `flash` scope object is our best practice approach as it clearly demarcates the code that the developer is using the flash scope for persistence. Any flash scope must inherit from our `AbstractFlashScope` and has access to several key methods that we will cover in this section. However, let's start with how the flash scope stores data:
 
 1. The flash persistence methods are called for saving data, the data is stored in an internal temporary request bin and awaiting serialization and persistence either through relocation or termination of the request.
 2. If the flash methods are called with immediate save arguments, then the data is immediately serialized and stored in the implementation's persistent storage.
-3. If the flash's saveFlash() method is called then the data is immediately serialized and stored in the implementation's persistent storage.
+3. If the flash's `saveFlash()` method is called then the data is immediately serialized and stored in the implementation's persistent storage.
 4. If the application relocates via setNextEvent() or a request finalizes then if there is data in the request bin, it will be serialized and stored in the implementation's storage.
 
-> **Important** By default the Flash RAM queues up serializations for better performance, but you can alter the behavior programmatically or via the configuration file.
+> **Caution** By default the Flash RAM queues up serializations for better performance, but you can alter the behavior programmatically or via the configuration file.
 
 > **Info** If you use the persistVariables() method or any of the persistence arguments on the setNextEvent() method, those variables will be saved and persisted immediately.
 
