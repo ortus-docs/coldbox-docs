@@ -108,7 +108,6 @@
    * [Helpers UDF's](layouts_n_views/helpers_udfs.md)
    * [Viewlets (Portable Events)](layouts_n_views/viewlets_portable_events.md)
        * [Funky Viewlets](layouts_n_views/funky_viewlets.md)
-   * [Tips And Tricks](layouts_n_views/tips_and_tricks.md)
 * [Models](models/index.md)
    * [Domain Modeling](models/domain_modeling/index.md)
        * [Service Layer](models/models/domain_modeling/service_layer.md)
