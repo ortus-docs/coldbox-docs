@@ -40,6 +40,51 @@ Using the <code>renderdata()</code> method of the event object is the most flexi
 * WDDX
 * CUSTOM
 
+Here is the method signature:
+
+```js
+/**
+* Use this method to tell the framework to render data for you. The framework will take care of marshalling the data for you
+* @type.hint The type of data to render. Valid types are JSON, JSONP, JSONT, XML, WDDX, PLAIN/HTML, TEXT, PDF. The deafult is HTML or PLAIN. If an invalid type is sent in, this method will throw an error
+* @data.hint The data you would like to marshall and return by the framework
+* @contentType.hint The content type of the data. This will be used in the cfcontent tag: text/html, text/plain, text/xml, text/json, etc. The default value is text/html. However, if you choose JSON this method will choose application/json, if you choose WDDX or XML this method will choose text/xml for you.
+* @encoding.hint The default character encoding to use.  The default encoding is utf-8
+* @statusCode.hint The HTTP status code to send to the browser. Defaults to 200
+* @statusText.hint Explains the HTTP status code sent to the browser.
+* @location.hint Optional argument used to set the HTTP Location header
+* @jsonCallback.hint Only needed when using JSONP, this is the callback to add to the JSON packet
+* @jsonQueryFormat.hint JSON Only: query or array format for encoding. The default is CF query standard
+* @jsonAsText.hint If set to false, defaults content mime-type to application/json, else will change encoding to plain/text
+* @xmlColumnList.hint XML Only: Choose which columns to inspect, by default it uses all the columns in the query, if using a query
+* @xmlUseCDATA.hint XML Only: Use CDATA content for ALL values. The default is false
+* @xmlListDelimiter.hint XML Only: The delimiter in the list. Comma by default
+* @xmlRootName.hint XML Only: The name of the initial root element of the XML packet
+* @pdfArgs.hint All the PDF arguments to pass along to the CFDocument tag.
+* @formats.hint The formats list or array that ColdBox should respond to using the passed in data argument. You can pass any of the valid types (JSON,JSONP,JSONT,XML,WDDX,PLAIN,HTML,TEXT,PDF). For PDF and HTML we will try to render the view by convention based on the incoming event
+* @formatsView.hint The view that should be used for rendering HTML/PLAIN/PDF. By default ColdBox uses the name of the event as an implicit view
+* @isBinary.hint Bit that determines if the data being set for rendering is binary or not.
+*/
+function renderData(
+	type="HTML",
+	required data,
+	contentType="",
+	encoding="utf-8",
+	numeric statusCode=200,
+	statusText="",
+	location="",
+	jsonCallback="",
+ 	jsonQueryFormat="query",
+	boolean jsonAsText=false,
+	xmlColumnList="",
+	boolean xmlUseCDATA=false,
+	xmlListDelimiter=",",
+	xmlRootName="",
+	struct pdfArgs={},
+	formats="",
+	formatsView="",
+	boolean isBinary=false
+)
+```
 Below are a few examples:
 
 ```js
