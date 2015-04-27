@@ -22,5 +22,5 @@ Then we can create the following templates
 
 That's it. Just append Helper to the layout or folder name and there you go, the framework will use it as a helper for that layout specifically. 
 
-> **Important** Please note that layout helpers will be inheritenly available to any view rendered inside of the layout. 
+> **Caution** Please note that layout helpers will be inheritenly available to any view rendered inside of the layout. 
 
