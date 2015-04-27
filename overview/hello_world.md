@@ -45,3 +45,4 @@ function index(event,rc,prc){
 
 That's it! Let's run this puppy now!
 
+> **Info** The `coldbox create` command namespace has a plethora of creation and generation commands, check them out by typing `coldbox create help`
