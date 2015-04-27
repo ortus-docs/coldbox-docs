@@ -6,6 +6,7 @@ We have now seen how to set views to be rendered from our handlers. However, we 
 2. `renderExternalView()`
 3. `renderLayout()`
 
+Check out the latest [API Docs](http://apidocs.ortussolutions.com/coldbox/current) for the latest arguments:
 
 ```js
 <cfoutput>
