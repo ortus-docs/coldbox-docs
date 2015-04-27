@@ -17,7 +17,7 @@
    * [Creating An Application](overview/creating_an_application.md)
    * [Hello World](overview/hello_world.md)
    * [Running An Application](overview/running_an_application.md)
-   * Reiniting An Application
+   * [Reiniting An Application](overview/reiniting_an_application.md)
    * Testing An Application
 * [Configuration](configuration/index.md)
    * [Conventions](configuration/conventions.md)
