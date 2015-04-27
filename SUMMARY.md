@@ -131,7 +131,7 @@
    * [Pathinfo Providers](Routing/pathinfo_providers.md)
    * [event.buildLink()](Routing/eventbuildlink.md)
    * [HTML base tag](Routing/html_base_tag.md)
-* [Interceptors](interceptors/interceptors.md)
+* [Interceptors](interceptors/index.md)
 * [Modules](modules/index.md)
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
