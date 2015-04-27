@@ -31,13 +31,15 @@ component name="general"{
 
 ## Purging Views
 
-So now that our views are cached, how do I purge them programmatically? Well, you need to talk to the template cache provider.
+So now that our views are cached, how do I purge them programmatically? Well, you need to talk to the `template` cache provider and use the clearing methods:
 
 ```js
 // get a reference to the template cache
-cache = cachebox.getCache('template');
-// or
-cache = getColdBoxOCM('template');
+cache = cachebox.getCache( 'template' );
+// or via shortcut notation
+cache = getCache( "template" );
+// or injection
+property name="cache" inject="cachebox:template";
 ```
 
 Then we can perform several operations on views:
