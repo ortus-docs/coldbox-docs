@@ -37,7 +37,7 @@ File        392 Jul 10,2013 14:07:56 index.cfm
 File        471 Jan 15,2015 14:01:18 robots.txt
 ```
 
-> **Info** Remember you can use the tab-completion to get all the necessary input and arguments into the commands.
+> **Info** Remember you can use the tab-completion to get all the necessary input and arguments into the commands.  You can also use the `app-wizard` command and CommandBox will prompt for all your options in a nice CLI wizard.
 
 <br>
 
