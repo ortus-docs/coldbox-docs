@@ -53,3 +53,9 @@ function echo(event,rc,prc){
 ```
 
 You will get an error now: **component [coldbox.system.web.context.RequestContext] has no function with name [setFunkyView]**. Fix it and re-run it. Ok, hold on to something..... You are now doing live integration testing my friend.  Simple, but yet accomplishing.
+
+## CommandBox Runner
+
+You can also execute the runner via CommandBox. So let's tell CommandBox where your runner is located:
+
+```bash
