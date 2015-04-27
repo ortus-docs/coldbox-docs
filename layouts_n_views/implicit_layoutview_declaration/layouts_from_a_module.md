@@ -1,6 +1,6 @@
 # Layouts From A Module
 
-If you need the set layout to be rendered from a specific [ColdBox Module](http://wiki.coldbox.org/wiki/Modules.cfmhttp://) then use the module argument alongside any other argument combination:
+If you need the set layout to be rendered from a specific module then use the `module` argument alongside any other argument combination:
 
 ```js
 component name="general"{
@@ -10,7 +10,7 @@ component name="general"{
 		// call some model for data and put into the request collection
 		prc.myQuery = getModel('MyService').getData();
 		// set the view for rendering
-		event.setLayout(layout="admin",module="contentbox");
+		event.setLayout( layout="admin", module="contentbox" );
 
 	}
 
