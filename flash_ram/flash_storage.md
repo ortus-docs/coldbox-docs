@@ -1,8 +1,8 @@
 # Flash Storage
 
-There are times where you need to store user related variables in some kind of permanent storage then relocate the user into another section of your application, be able to retrieve the data, use it and then clean it. All of these tedious operations are definitely doable by why reinvent the wheel if we can have the platform give us a tool for maintaing conversation variables across requests. The key point for Flash RAM is where will the data be stored so that it is unique per user. ColdFusion gives us several persistent scopes that we can use and we have also created several flash storages for this purpose. Since the ColdBox flash scope is based on an interface, the flash scope storage can be virtually anywhere. You will find all of these implementations in the following package: coldbox.system.web.flash. In order to choose what implementation to use in your application you need to tell the [ConfigurationCFC](http://wiki.coldbox.org/wiki/ConfigurationCFC.cfm) which one to use via flash configuration structure:
+There are times where you need to store user related variables in some kind of permanent storage then relocate the user into another section of your application, be able to retrieve the data, use it and then clean it. All of these tedious operations are definitely doable by why reinvent the wheel if we can have the platform give us a tool for maintaing conversation variables across requests. The key point for Flash RAM is where will the data be stored so that it is unique per user. ColdFusion gives us several persistent scopes that we can use and we have also created several flash storages for this purpose. Since the ColdBox flash scope is based on an interface, the flash scope storage can be virtually anywhere. You will find all of these implementations in the following package: coldbox.system.web.flash. In order to choose what implementation to use in your application you need to tell the `ColdBox.cfc` which one to use via flash configuration structure:
 
-### Configuration
+## Configuration
 
 ```js
 // flash scope configuration
@@ -27,7 +27,7 @@ Below is a nice chart of all the keys in this configuration structure so you can
 |autoPurge |boolean|false|true|This is what makes the Flash RAM work, it cleans itself for you. Be careful when setting this to false as it then becomes your job to do the cleaning|
 |autoSave |boolean|false|true|The Flash RAM saves itself at the end of requests and on relocations via setNextEvent(). If you do not want auto-saving, then turn it off and make sure you save manually|
 
-### Core Flash Implementations
+## Core Flash Implementations
 
 The included flash implementations for ColdBox are:
 
@@ -40,30 +40,24 @@ The included flash implementations for ColdBox are:
 |Cache|coldbox.system.web.flash.ColdboxCacheFlash |Persists variables in the ColdBox Cache|
 
 
-###### Configuration Properties
+### Configuration Properties
 
-Each RAM implementation can also use properties in order to alter its behavior upon construction via the properties configuration struct. Below are the properties our core implementations can use:
+Each RAM implementation can also use properties in order to alter its behavior upon construction via the `properties` configuration struct. Below are the properties our core implementations can use:
 
-Session Flash Settings:
+**Session Flash Settings**
 * none
 
-Cluster Flash SettingsL
+**Cluster Flash Settings**
 * none
 
-Clien Flash Settings
+**Client Flash Settings**
 * none
 
-Mock Flash Settings
+**Mock Flash Settings**
 * none
 
-Cache Flash Settings
-* none
-
-Cache Flash Settings
-|Setting|Type|Required|Default|Description|
-|--|--|--|--|--|
-|cacheName|string|false|default|The cache provider name declared in [CacheBox](http://http://wiki.coldbox.org/wiki/CacheBox.cfm) to be used to store the user's flash RAM content.|
-
+**Cache Flash Settings**
+* `cacheName` : The cache provider name declared in CacheBox
 
 ```js
 // flash scope configuration
