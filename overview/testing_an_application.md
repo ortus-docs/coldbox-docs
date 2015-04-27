@@ -8,8 +8,6 @@ install testbox --saveDev
 
 Please note the `--saveDev` flag we used. This tells CommandBox that this dependency is only for testing purposes and not for distribution or production usage.  Check out the `box.json` under the `devDependencies`.
 
-## Integration Tests
-Let's run the integration tests that came with the application template and the hello world we generated.
 
 ## Test Harness
 Every ColdBox application template comes with a pre-set testing harness under the `/tests` folder:
