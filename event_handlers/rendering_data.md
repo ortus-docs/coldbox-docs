@@ -85,7 +85,7 @@ function renderData(
 	boolean isBinary=false
 )
 ```
-Below are a few examples:
+Below are a few simple examples:
 
 ```js
 // xml marshalling
@@ -98,15 +98,6 @@ function getUsersJSON(event,rc,prc){
 	var qUsers = getUserService().getUsers();
 	event.renderData( type="json", data=qUsers );
 }
-
-// restful handler with various formats
-function list(event,rc,prc){
-	rc.data = userService.list();
-    event.renderData( data=rc.data, formats="json,jsont,xml,html,pdf" );
-}
-
-// Various formats with specific views
-event.renderData( data=MyData, formats="xml,json,html,pdf", formatsView="data/MyView");
 ```
 
 As you can see, it is very easy to render data back to the browser or caller. You can even choose plain and send HTML back if you wanted too. You can also render out PDF's from ColdBox using the render data method. The data argument can be either the full binary of the PDF or simple values to be rendered out as a PDF, like views, layouts, strings, etc.
