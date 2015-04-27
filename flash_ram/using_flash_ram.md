@@ -2,8 +2,8 @@
 
 There are several ways to interact with the ColdBox Flash RAM:
 
-* Using the flash scope object (Best Practice)
-* Using the persistVariables() method from the super type and coldbox controller (coldbox.system.web.Controller)
+* Using the `flash` scope object (Best Practice)
+* Using the `persistVariables()` method from the super type and ColdBox Controller
 * Using the persistence arguments in the setNextEvent() method from the super type and coldbox controller (coldbox.system.web.Controller)
 
 All of these methods interact with the Flash RAM object but the last two methods not only place variables in the temporary storage bin but actualy serialize the data into the Flash RAM storage immediately. The first approach queues up the variables for serialization and at the end of a request it serializes the variables into the correct storage scope, thus saving precious serialization time. In the next section we will learn what all of this means.
