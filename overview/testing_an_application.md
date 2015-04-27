@@ -1,2 +1,32 @@
 # Testing An Application
 
+ColdBox tightly integrates with [TestBox](http://www.ortussolutions.com/products/testbox), the Behavior Driven Development Testing Framework for ColdFusion (CFML).  We can easily do unit and integration testing for our application.  Let's run the integration tests that came with the application template and the hello world we generated.
+
+## Test Harness
+Every ColdBox application template comes with a pre-set testing harness under the `/tests` folder:
+
+```
+Dir           0 Apr 25,2015 11:04:11 resources
+Dir           0 Apr 25,2015 11:04:11 results
+Dir           0 Apr 25,2015 11:04:11 specs
+File        817 Apr 13,2015 18:04:34 Application.cfc
+File        693 Jan 15,2015 14:01:18 runner.cfm
+File       5164 Jan 15,2015 14:01:20 test.xml
+```
+
+All your test specifications will go under the `specs` directory and in the appropriate sub-directory:
+
+```
+Dir           0 Apr 27,2015 11:04:11 integration
+Dir           0 Apr 25,2015 11:04:11 modules
+Dir           0 Dec 16,2013 19:12:32 unit
+File          0 Jan 15,2015 14:01:18 all_tests_go_here.txt
+```
+
+Under the `integration` tests you will find the test bundles that come with the application template and the ones we generated:
+
+```
+File       1857 Apr 27,2015 11:04:11 helloTest.cfc
+File       3236 Jan 21,2015 16:01:56 MainBDDTest.cfc
+File       4398 Jan 15,2015 14:01:20 MainTest.cfc
+```
