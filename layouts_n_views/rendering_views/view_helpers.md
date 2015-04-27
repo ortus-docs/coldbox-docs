@@ -40,7 +40,7 @@ That's it. Just append Helper to the view or folder name and there you go, the f
 * Helper functions or properties
 * Dynamic JavaScript or CSS
 
-> **Info** External views can also use our helper conventions
+> **Hint** External views can also use our helper conventions
 
 ## Application wide helpers
 You can also use the `coldbox.viewsHelper` directive to tell the framework what helper file to use for ALL views and layouts rendered:
