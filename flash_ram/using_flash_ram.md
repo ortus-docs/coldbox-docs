@@ -27,7 +27,7 @@ To review the Flash Scope methods, please [go to the API](http://apidocs.ortusso
 > **Info** Please note that the majority of a Flash scope methods return itself so you can concatenate method calls. Below are the main methods that you can use to interact with the Flash RAM object:
 
 
-###### clear()
+### clear()
 
 Clears the temporary storage bin
 
@@ -35,13 +35,13 @@ Clears the temporary storage bin
 flash.clear();
 ```
 
-###### clearFlash()
+### clearFlash()
 Clears the persistence flash storage implementation
 ```js
 flash.clearFlash();
 ```
 
-###### discard()
+### discard()
 ```js
 any discard([string keys=''])
 ```
@@ -54,7 +54,7 @@ flash.discard();
 // dicard some keys
 flash.discard('userID,userKey,cardID');
 ```
-###### exists()
+### exists()
 ```js
 boolean exists(string name)
 ```
@@ -64,7 +64,7 @@ if( flash.exists('notice') ){
  // do something
 }
 ```
-###### get()
+### get()
 ```js
 any get(string name, [any default])
 ```
@@ -79,31 +79,31 @@ cardID = flash.get("cardID");
 <div class="notice">#flash.get("notice","")#</div>
 ```
 
-###### getKey()
+### getKey()
 Get a list of all the objects in the temp flash scope.
 ```js
 Flash Keys: #structKeyList( flash.getKeys() )#
 ```
 
-###### getFlash()
+### getFlash()
 Get a reference to the permanent storage implementation of the flash scope.
 ```js
 <cfdump var="#flash.getFlash()#">
 ```
 
-###### getScope()
+### getScope()
 Get the flash temp request storage used throughout a request until flashed at the end of a request.
 ```js
 <cfdump var="#flash.getScope()#">
 ```
-###### isEmpty()
+### isEmpty()
 Check if the flash scope is empty or not
 ```js
 <cfif !flash.isEmpty()>
 </cfif>
 ```
 
-###### keep()
+### keep()
 ```js
 any keep([string keys=''])
 ```
@@ -119,7 +119,7 @@ function step2(event){
 }
 ```
 
-###### persistRC()
+### persistRC()
 ```js
 any persistRC([string include=''], [string exclude=''], [boolean saveNow='false'])
 ```
@@ -139,7 +139,7 @@ setNextEvent('wizard.step2');
 flash.persistRC(include="email,addressData",savenow=true);
 ```
 
-###### put()
+### put()
 ```js
 any put(string name, any value, [boolean saveNow='false'], [boolean keep='true'], [boolean inflateToRC=FROMConfig], [boolean inflateToPRC=FROMConfig], [boolean autoPurge=FROMConfig)
 ```
@@ -162,7 +162,7 @@ flash.put(name="userData",value=userData,inflateToRC=false,inflateToPRC=true);
 flash.put(name="userData",value=userWizard,autoPurge=false);
 ```
 
-###### putAll()
+### putAll()
 ```js
 any putAll(struct map, [boolean saveNow='false'], [boolean keep='true'], [boolean inflateToRC='[runtime expression]'], [boolean inflateToPRC='[runtime expression]'], [boolean autoPurge='[runtime expression]'])
 ```
@@ -185,7 +185,7 @@ if( flash.get("loggedIn") ){
 }
 ```
 
-###### remove()
+### remove()
 ```js
 any remove(string name, [boolean saveNow='false'])
 ```
@@ -198,10 +198,10 @@ flash.remove('notice');
 // mark object and remove immediately from flash storage
 flash.remove('notice',true);
 ```
-###### removeFlash()
+### removeFlash()
 Remove the entire flash storage. We recommend using the clearing methods instead.
 
-###### saveFlash()
+### saveFlash()
 Save the flash storage immediately. This process looks at the temporary request flash scope and serializes if it needs to and persists to the correct flash storage on demand.
 
 > **Info** We would advice to not overuse this method as some storage scopes might have delays and serializations
@@ -210,14 +210,14 @@ Save the flash storage immediately. This process looks at the temporary request 
 flash.saveFlash();
 ```
 
-###### size()
+### size()
 Get the number of the items in flash scope
 
 ```js
 You have #flash.size()# items in your cart!
 ```
 
-###### More Examples
+### More Examples
 ```js
 // handler code:
 function saveForm(event){
