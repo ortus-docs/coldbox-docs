@@ -1,5 +1,5 @@
 # How ColdBox Works
-ColdBox uses both implicit and explicit invocation methods to execute events and render content back to a user.  You have one single configuration CFC: `config/Coldbox.cfc`, from where you can configure your entire application (No logic, just configuration data) and a set of folder/file conventions. This configuration file activates certain aspects of your application and configures all the implicit events that mostly reflect the events in the `Application.cfc` that ColdFusion exposes to you.
+ColdBox uses both implicit and explicit invocation methods to execute events and render content back to a user.  You have one single configuration CFC: `config/Coldbox.cfc`, from where you can configure your entire application and a set of folder/file conventions. This configuration file activates certain aspects of your application and configures all the implicit events that mostly reflect the events in the `Application.cfc` that ColdFusion exposes to you.
 
 >Remember that this framework will not solve all your problems. It is a standard, a foundation on which to develop on and thanks to its software programming aspects that it provides.  However, it is up to you to create GOOD code, this is not a magical framework that will make your code better. It will help you, but at the end of the day, it is your responsibility.
 
