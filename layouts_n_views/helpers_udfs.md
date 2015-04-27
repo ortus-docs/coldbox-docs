@@ -10,6 +10,6 @@ coldbox.applicationHelper = 'includes/helpers/applicationHelper.cfm';
 coldbox.viewsHelper = "includes/helpers/viewsHelper.cfm";
 ```
 
-> **Caution** If you try to inject a method that already exists, the call will fail and ColdFusion will throw an exception. Also, try not to abuse mixins, if you have too many consider refactoring into model objects or plugins. 
+> **Caution** If you try to inject a method that already exists, the call will fail and the CFML engine will throw an exception. Also, try not to abuse mixins, if you have too many consider refactoring into model objects or plugins. 
 
 
