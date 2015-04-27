@@ -10,8 +10,8 @@ This is a nifty little feature that enables you to create nice helper templates 
 
 Then we can create the following templates
 
-* *homeHelper.cfm* : Helper for the home.cfm view.
-* *generalHelper.cfm* : Helper for any view in the general folder.
+* `homeHelper.cfm` : Helper for the home.cfm view.
+* `generalHelper.cfm` : Helper for any view in the general folder.
 
 
 ```js
