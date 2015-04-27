@@ -170,7 +170,7 @@ event.renderData( data=MyData, formats="xml,json,html,pdf", formatsView="data/My
 
 ### Custom Data Conversion
 
-You can do custom data conversion by convention when marshalling CFCs. If you pass in a CFC as the data argument and that CFC has a method called $renderdata(), then the marshalling utility will call that function for you instead of using the internal marshalling utilities. You can pass in the custom content type for encoding as well:
+You can do custom data conversion by convention when marshalling CFCs. If you pass in a CFC as the `data` argument and that CFC has a method called `$renderdata()`, then the marshalling utility will call that function for you instead of using the internal marshalling utilities. You can pass in the custom content type for encoding as well:
 
 The call to *renderdata* from your handlers: 
 
