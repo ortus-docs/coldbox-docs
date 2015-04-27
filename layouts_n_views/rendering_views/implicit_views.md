@@ -15,9 +15,9 @@ component name="general"{
 
 > **Caution** If using implicit views, please note that the name of the view will ALWAYS be in lower case. So please be aware of this limitation. I would suggest creating SES URL Mappings with explicit event declarations so case and location can be controlled. When using implicit views you will also loose fine rendering control. 
 
-##### Case Sensitivity
+## Case Sensitivity
 
-The ColdBox rendering engine can also be tweaked to use case-insensitive or sensitive implicit views by creating a setting called: caseSensitiveImplicitViews in your configuration file. The default is to turn all implicit views to lower case, so the value is always false.
+The ColdBox rendering engine can also be tweaked to use case-insensitive or sensitive implicit views by creating a setting called: `coldbox.caseSensitiveImplicitViews` in your configuration file. The default is to turn all implicit views to lower case, so the value is always false.
 
 ```js
 settings = {
