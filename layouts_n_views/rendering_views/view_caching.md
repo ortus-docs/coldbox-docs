@@ -1,6 +1,6 @@
 # View Caching
 
-You can also pass in the caching arguments below and your view will be rendered once and then cached for further renderings. Every ColdBox application has two active cache regions by default: default and template. All view and event caching renderings go into the template cache.
+You can also pass in the caching arguments below and your view will be rendered once and then cached for further renderings. Every ColdBox application has two active cache regions: `default and template`. All view and event caching renderings go into the `template` cache.
 
 |Argument|Type|Required|Default|Description|
 |--|--|--|--|--|
