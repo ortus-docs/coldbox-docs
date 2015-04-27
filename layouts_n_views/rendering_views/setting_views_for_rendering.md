@@ -1,10 +1,7 @@
 # Setting Views For Rendering
 
-Usually, event handlers are the objects in charge of setting views for rendering. However, ANY object that has access to the request context object can do this also. This is done by using the setView() method in the request context object. Let's see the signature of this magnificent method:
+Usually, event handlers are the objects in charge of setting views for rendering. However, ANY object that has access to the request context object can do this also. This is done by using the `setView()` method in the request context object.
 
-```js
-setView([string view], [boolean nolayout='false'], [boolean cache='false'], [string cacheTimeout=''], [string cacheLastAccessTimeout=''], [string cacheSuffix=''], [string layout], [string module])
-```
 
 > **Info** Setting a view does not mean that it gets rendered immediately. It means that it is deposited in the request context. The framework will later on in the execution process pick those variables up and do the actual rendering. To do immediate rendering you will use the inline rendering methods describe later on.
 
