@@ -74,7 +74,7 @@
        * [Configuration](request_context/request_context_decorator/configuration.md)
 * [Layouts & Views](layouts_n_views/index.md)
    * [Response Types](layouts_n_views/response_types.md)
-   * ColdBox Renderer
+   * [ColdBox Renderer](layouts_n_views/coldbox_renderer.md)
    * [Rendering Views](layouts_n_views/rendering_views/index.md)
        * [Setting Views For Rendering](layouts_n_views/rendering_views/setting_views_for_rendering.md)
        * [Implicit Views](layouts_n_views/rendering_views/implicit_views.md)
