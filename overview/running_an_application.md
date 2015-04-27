@@ -16,6 +16,6 @@ That commamnd will issue the startup of an embedded CFML engine on a port and op
 
 ![](../images/app_template.png)
 
-> **Info** The `server` namespace in CommandBox has some great commands to interact with the embedded server, so type `server help` to see all the help about the server namespace.
+> **Info** The `server` namespace in CommandBox has some great commands to interact with the embedded server, so type `server help` to see all the help about the server namespace.  You can change ports, SSL, rewrite rules and a lot more.
 
 You can now execute your hello world action by either clicking on the `hello` link in the **Registered Event Handlers** section or navigation to the following URL to execute the action: `http://localhost:{port}/index.cfm/hello`.  You will notice there is no `index` in the URL, this is because `index` is the default action for events.  However, you can add it if you like as well: `http://localhost:{port}/index.cfm/hello/index`.
