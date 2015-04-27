@@ -7,9 +7,9 @@ All rendered views have associated events that are announced whenever the view i
 |preViewRender |<ul><li>view - The name of the view to render</li><li>cache - If the view will be cached</li><li>cacheTimeout - The cache timeout</li><li>cacheLastAccessTimeout - The idle timeout of the view</li><li>cacheSuffix - A suffix to append to the cacheable key name</li><li>module - The module name of the view if any</li><li>args - The arguments to pass into the view</li><li>collection - The collection this view will iterate on</li><li>collectionAs - The alias of the collection name</li><li>collectionStartRow - The start row of the collection iteration</li><li>collectionMaxRows - The max rows of the collection iteration</li><li>collectionDelim - The delimiter used for the collection iteration </li>|Executed before a view is about to be rendered|
 |postViewRender |All of the data above plus:<ul><li>renderedView - The view contents that was rendered </li></ul>|Executed after a view was rendered|
 
-> **Important** You can disable the view events on a per-rendering basis by passing the prePostExempt argument as true when calling renderView() methods.
+> **Caution** You can disable the view events on a per-rendering basis by passing the prePostExempt argument as true when calling renderView() methods.
 
-#### Sample Interceptor
+## Sample Interceptor
 
 Here is a sample interceptor that trims any content before it is renderer:
 

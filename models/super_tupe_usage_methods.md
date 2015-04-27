@@ -1,6 +1,6 @@
 # Super Tupe Usage Methods
 
-![](ColdBoxMajorClasses.jpg)
+![](../images/ColdBoxMajorClasses.jpg)
 
  The following usage methods are available in all handlers, plugins and interceptors thanks to our Framework Super Type and will be used so you can retrieve, populate and validate model objects. 
  

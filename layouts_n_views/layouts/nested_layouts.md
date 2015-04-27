@@ -3,10 +3,10 @@
 You can also wrap layouts within other layouts and get incredible reusability. This is accomplished by using a method from our glorious Renderer plugin: renderLayout(). As always, refer to the CFC API for the latest method arguments and capabilities.
 
 ```js
-renderLayout([any layout], [any view], [any module], [any args])
+renderLayout([any layout], [any module=''], [any view=''], [struct args={}], [any viewModule=''], [boolean prePostExempt='false'])
 ```
 
-So if I wanted to wrap my basic layout, we just showed you (basic.cfm), in a PDF wrapper layout (pdf.cfm) I could do the following:
+So if I wanted to wrap my basic layout in a PDF wrapper layout (`pdf.cfm`) I could do the following:
 
 ```js
 <cfdocument pagetype="letter" format="pdf">
@@ -35,5 +35,5 @@ So if I wanted to wrap my basic layout, we just showed you (basic.cfm), in a PDF
 </cfdocument>
 ```
 
-That's it! The renderLayout() method is extremely power as it can allow you to not only nest layouts but actually render a-la-carte layout/view combinations also.
+That's it! The `renderLayout()` method is extremely power as it can allow you to not only nest layouts but actually render a-la-carte layout/view combinations also.
 

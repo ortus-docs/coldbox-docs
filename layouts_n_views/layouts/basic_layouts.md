@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title><cfoutput>#rc.title#</cfoutput></title>
+<title><cfoutput>#prc.title#</cfoutput></title>
 
 <---< SES base --->
 <cfoutput>
@@ -21,9 +21,6 @@
 #renderView(view='tags/header',cache=true,cacheTimeout='30')#
 
 <div id="content">
-       <---< Use a plugin helper to render a UI messagebox --->
-       #getPlugin("messagebox").renderit()#
-	   
        <---< Render the set view below: NO Arguments --->
        #renderView()#
 </div>

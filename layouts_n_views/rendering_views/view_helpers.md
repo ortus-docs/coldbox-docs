@@ -1,6 +1,6 @@
 # View Helpers
 
-This is a nifty little feature that enables you to create nice helper templates on a per-view or per-folder basis. If the framework detects the helper, it will inject it into the rendering view so you can use methods, properties or whatever. All you need to do is follow a set of conventions. Let's say we have a view in the following location:
+This is a nifty little feature that enables you to create nice helper templates on a per-view, per-folder and per-application basis. If the framework detects the helper, it will inject it into the rendering view so you can use methods, properties or whatever. All you need to do is follow a set of conventions. Let's say we have a view in the following location:
 
 ```js
 /views
@@ -10,8 +10,8 @@ This is a nifty little feature that enables you to create nice helper templates 
 
 Then we can create the following templates
 
-* *homeHelper.cfm* : Helper for the home.cfm view.
-* *generalHelper.cfm* : Helper for any view in the general folder.
+* `homeHelper.cfm` : Helper for the home.cfm view.
+* `generalHelper.cfm` : Helper for any view in the general folder.
 
 
 ```js
@@ -22,7 +22,7 @@ Then we can create the following templates
     +generalHelper.cfm
 ```
 
-homeHelper.cfm
+**homeHelper.cfm**
 
 ```js
 <cfscript>
@@ -41,5 +41,12 @@ That's it. Just append Helper to the view or folder name and there you go, the f
 * Dynamic JavaScript or CSS
 
 > **Info** External views can also use our helper conventions
+
+## Application wide helpers
+You can also use the `coldbox.viewsHelper` directive to tell the framework what helper file to use for ALL views and layouts rendered:
+
+```
+coldbox.viewsHelper = "includes/helpers/viewsHelper.cfm;
+```
 
 
