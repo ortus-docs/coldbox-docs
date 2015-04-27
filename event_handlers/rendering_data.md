@@ -96,7 +96,7 @@ function getUsersXML(event,rc,prc){
 //json marshalling
 function getUsersJSON(event,rc,prc){
 	var qUsers = getUserService().getUsers();
-	event.renderData( type="json", data=qUsers );
+	event.renderData( type="json", data=qUsers, statusCode=403 );
 }
 ```
 
