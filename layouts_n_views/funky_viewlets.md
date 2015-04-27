@@ -25,5 +25,5 @@ What have I done? I have added a custom argument to my action signature: `boolea
 </div>
 ```
 
-That easy! Just add another argument called eventArguments and now you can pass extra arguments to your event actions and cook up some funky viewlets!
+That easy! Just add another argument called `eventArguments` and now you can pass extra arguments to your event actions and cook up some funky viewlets!
 
