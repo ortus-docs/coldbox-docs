@@ -17,7 +17,13 @@ component name="general"{
 		// call some model for data and put into the request collection
 		prc.myQuery = getModel('MyService').getData();	
 		// view with caching parameters
-		event.setView(view="general/index",cache=true,cacheTimeout=60,cacheLastAccessTimeout=15,cacheSuffix=getfwLocale());
+		event.setView(
+		    view="general/index",
+		    cache=true,
+		    cacheTimeout=60,
+		    cacheLastAccessTimeout=15,
+		    cacheSuffix=getfwLocale()
+		);
 	}
 
 }
