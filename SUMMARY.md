@@ -66,7 +66,6 @@
    * [Testing Handlers](event_handlers/testing_handlers.md)
 * [Request Context](request_context/index.md)
    * [How Does It Work](request_context/how_does_it_work.md)
-   * [Event Handlers](request_context/event_handlers.md)
    * [Views](request_context/views.md)
    * [Interceptors](request_context/interceptors.md)
    * [What Can I Do With It?](request_context/what_can_i_do_with_it.md)
