@@ -21,7 +21,7 @@ File        693 Jan 15,2015 14:01:18 runner.cfm
 File       5164 Jan 15,2015 14:01:20 test.xml
 ```
 
-All your test specifications will go under the `specs` directory and in the appropriate sub-directory:
+Every harness has its own unique `Application.cfc` which must mimic your application's settings.  It also comes with an HTML runner called `runner.cfm` and an ANT runner called `test.xml`.  All your test bundles and specifications will go under the `specs` directory and in the appropriate sub-directory:
 
 ```
 Dir           0 Apr 27,2015 11:04:11 integration
