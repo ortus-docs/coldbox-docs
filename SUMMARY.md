@@ -73,6 +73,7 @@
        * [For What Can I Use This?](request_context/request_context_decorator/for_what_can_i_use_this.md)
        * [Configuration](request_context/request_context_decorator/configuration.md)
 * [Layouts & Views](layouts_n_views/index.md)
+   * ColdBox Renderer
    * [Response Types](layouts_n_views/response_types.md)
    * [Rendering Views](layouts_n_views/rendering_views/index.md)
        * [Setting Views For Rendering](layouts_n_views/rendering_views/setting_views_for_rendering.md)
@@ -109,7 +110,6 @@
    * [Viewlets (Portable Events)](layouts_n_views/viewlets_portable_events.md)
        * [Funky Viewlets](layouts_n_views/funky_viewlets.md)
    * [Tips And Tricks](layouts_n_views/tips_and_tricks.md)
-   * ColdBox Renderer
 * [Models](models/index.md)
    * [Domain Modeling](models/domain_modeling/index.md)
        * [Service Layer](models/models/domain_modeling/service_layer.md)
