@@ -38,7 +38,17 @@ function list( event, rc, prc ){
 
 ## event.renderData()
 
-Using the <code>renderdata()</code> method of the event object is the most flexible for RESTFul web services or pure data marshalling.
+Using the <code>renderdata()</code> method of the event object is the most flexible for RESTFul web services or pure data marshalling.  Out of the box ColdBox can marshall data (structs,queries,arrays,complex or even ORM entities) into the following output formats:
+
+* XML
+* JSON
+* JSONP
+* HTML
+* TEXT
+* PDF
+* WDDX
+* CUSTOM
+
 
 ```js
 // xml marshalling
