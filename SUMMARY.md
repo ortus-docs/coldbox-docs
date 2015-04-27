@@ -19,7 +19,7 @@
    * [Running An Application](overview/running_an_application.md)
    * [Reiniting An Application](overview/reiniting_an_application.md)
    * Testing An Application
-   * IDE Integration
+* IDE Integration
 * [Configuration](configuration/index.md)
    * [Conventions](configuration/conventions.md)
    * [Directory Structure](configuration/directory_structure.md)
