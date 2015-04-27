@@ -18,7 +18,7 @@
    * [Hello World](overview/hello_world.md)
    * [Running An Application](overview/running_an_application.md)
    * [Reiniting An Application](overview/reiniting_an_application.md)
-   * Testing An Application
+   * [Testing An Application](overview/testing_an_application.md)
    * [IDE Integration](overview/ide_integration.md)
 * [Configuration](configuration/index.md)
    * [Conventions](configuration/conventions.md)
