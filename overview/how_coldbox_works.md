@@ -1,5 +1,5 @@
 # How ColdBox Works
-ColdBox uses both implicit and explicit invocation methods to execute events and render content back to a user.  You have one single configuration CFC: `Coldbox.cfc`, from where you can configure your entire application (No logic, just configuration data) and a set of folder/file conventions. This configuration file activates certain aspects of your application and configures all the implicit events that mostly reflect the events in the `Application.cfc` that ColdFusion exposes to you.
+ColdBox uses both implicit and explicit invocation methods to execute events and render content back to a user.  You have one single configuration CFC: `config/Coldbox.cfc`, from where you can configure your entire application and a set of folder/file conventions. This configuration file activates certain aspects of your application and configures all the implicit events that mostly reflect the events in the `Application.cfc` that ColdFusion exposes to you.
 
 >Remember that this framework will not solve all your problems. It is a standard, a foundation on which to develop on and thanks to its software programming aspects that it provides.  However, it is up to you to create GOOD code, this is not a magical framework that will make your code better. It will help you, but at the end of the day, it is your responsibility.
 
@@ -30,5 +30,12 @@ A typical basic request to a ColdBox application looks like this:
 * The view’s HTML is wrapped in the rendered layout (`/layouts/main.cfm`)
 * Page is returned to the browser
 
+Below you can see the full life-cycle for MVC requests:
 
+![](../images/ColdBoxLifecycles.jpg)
 
+### Proxy Lifecycle
+
+ColdBox also has a proxy feature for building SOAP webservices or Flex/Air integration called [ColdBox Proxy](../proxy/index.md).  Below you can see the life-cycle for that process:
+
+![](../images/ColdBoxLifecyclesProxy.jpg)

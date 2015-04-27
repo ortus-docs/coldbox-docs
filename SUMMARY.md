@@ -6,23 +6,20 @@
        * [CacheBox 2.0.0](introduction/whats_new/cachebox_200.md)
        * [LogBox 2.0.0](introduction/whats_new/logbox_200.md)
    * [What's New With 4.1.0](introduction/whats_new_with_410.md)
-   * [Upgrading to ColdBox 4.0.0](introduction/upgrading_to_coldbox_400.md)
+   * [Upgrading to ColdBox 4](introduction/upgrading_to_coldbox_400.md)
    * [About This Book](introduction/about_this_book.md)
    * [Author](introduction/author.md)
 * [Overview](overview/index.md)
    * [What is MVC](overview/what_is_mvc.md)
    * [What is ColdBox](overview/what_is_coldbox.md)
    * [How ColdBox Works](overview/how_coldbox_works.md)
-       * [ColdBox Life Cycles](overview/coldbox_life_cycles/index.md)
-           * [MVC Lifecycle](overview/coldbox_life_cycles/mvc_lifecycle.md)
-           * [Proxy Lifecycle](overview/coldbox_life_cycles/proxy_lifecycle.md)
    * [Installation](overview/installation.md)
    * [Creating An Application](overview/creating_an_application.md)
-   * Conventions Over Configuration
-   * Hello Example
-   * Running An Application
-   * Reiniting An Application
-   * Testing An Application
+   * [Hello World](overview/hello_world.md)
+   * [Running An Application](overview/running_an_application.md)
+   * [Reiniting An Application](overview/reiniting_an_application.md)
+   * [Testing An Application](overview/testing_an_application.md)
+   * [IDE Integration](overview/ide_integration.md)
 * [Configuration](configuration/index.md)
    * [Conventions](configuration/conventions.md)
    * [Directory Structure](configuration/directory_structure.md)

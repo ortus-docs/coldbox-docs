@@ -1,4 +1,4 @@
-# Upgrading to ColdBox 4.0.0
+# Upgrading to ColdBox 4
 
 The
 major compatibility issues will be covered as well as how to smoothly
