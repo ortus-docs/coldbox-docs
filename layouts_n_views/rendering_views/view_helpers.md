@@ -1,6 +1,6 @@
 # View Helpers
 
-This is a nifty little feature that enables you to create nice helper templates on a per-view or per-folder basis. If the framework detects the helper, it will inject it into the rendering view so you can use methods, properties or whatever. All you need to do is follow a set of conventions. Let's say we have a view in the following location:
+This is a nifty little feature that enables you to create nice helper templates on a per-view, per-folder and per-application basis. If the framework detects the helper, it will inject it into the rendering view so you can use methods, properties or whatever. All you need to do is follow a set of conventions. Let's say we have a view in the following location:
 
 ```js
 /views
