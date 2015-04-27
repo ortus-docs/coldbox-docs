@@ -1,6 +1,6 @@
 # Layouts From A Module
 
-If you need the set layout to be rendered from a specific module then use the `module` argument alongside any other argument combination:
+If you need the set layout to be rendered from a specific module then use the `module` argument from the `setLayout() or renderLayout()` methods:
 
 ```js
 component name="general"{
