@@ -24,7 +24,7 @@
    * [Conventions](configuration/conventions.md)
    * [Directory Structure](configuration/directory_structure.md)
    * [ColdBox.cfc](configuration/coldboxcfc/index.md)
-       * [Configuration Directives](configuration/coldboxcfc/index.md)
+       * [Configuration Directives](configuration/coldboxcfc/configuration_directives/index.md)
            * [CacheBox](configuration/coldboxcfc/configuration_directives/cachebox.md)
            * [ColdBox](configuration/coldboxcfc/configuration_directives/coldbox.md)
            * [Conventions](configuration/coldboxcfc/configuration_directives/conventions.md)
