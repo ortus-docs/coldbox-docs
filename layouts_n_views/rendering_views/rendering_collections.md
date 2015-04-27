@@ -1,12 +1,12 @@
 # Rendering Collections
 
-You have a few arguments in the renderView() method that deal with collection rendering:
+You have a few arguments in the `renderView()` method that deal with collection rendering. Meaning you can pass any array or query and the Renderer will iterate over that collection and render out the view as many times as the records in the colleciton.
 
-* collection : A data collection that can be a query or an array of objects, structs or whatever
-* collectionAs : The name of the variable in the variables scope that will hold the collection pivot.
-* collectionStartRow : Defaults to 1 or your offset row for the collection rendering
-* collectionMaxRows : Defaults to show all rows or you can cap the rendering display
-* collectionDelim : An optional delimiter to use to separate the collection renderings. By default it is empty.
+* `collection` : A data collection that can be a query or an array of objects, structs or whatever
+* `collectionAs` : The name of the variable in the variables scope that will hold the collection pivot.
+* `collectionStartRow` : Defaults to 1 or your offset row for the collection rendering
+* `collectionMaxRows` : Defaults to show all rows or you can cap the rendering display
+* `collectionDelim` : An optional delimiter to use to separate the collection renderings. By default it is empty.
 
 Once you call `renderView()` with a collection, the renderer will render the view once for each member in the collection. The views have access to the collection via arguments.collection or the member currently iterating. The name of the member being iterated as is by convention the same name as the view. So if we do this in any layout or simple view:
 
