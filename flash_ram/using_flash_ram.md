@@ -8,9 +8,9 @@ There are several ways to interact with the ColdBox Flash RAM:
 
 All of these methods interact with the Flash RAM object but the last two methods not only place variables in the temporary storage bin but actualy serialize the data into the Flash RAM storage immediately. The first approach queues up the variables for serialization and at the end of a request it serializes the variables into the correct storage scope, thus saving precious serialization time. In the next section we will learn what all of this means.
 
-### Flash Scope Object
+## Flash Scope Object
 
-The flash scope object is our best practice approach as it clearly demarcates the code that the developer is using the flash scope for persistence. Any flash scope must inherit from our AbstractFlashScope and has access to several key methods that we will cover in this section. However, let's start with how the flash scope stores data:
+The `flash` scope object is our best practice approach as it clearly demarcates the code that the developer is using the flash scope for persistence. Any flash scope must inherit from our AbstractFlashScope and has access to several key methods that we will cover in this section. However, let's start with how the flash scope stores data:
 
 1. The flash persistence methods are called for saving data, the data is stored in an internal temporary request bin and awaiting serialization and persistence either through relocation or termination of the request.
 2. If the flash methods are called with immediate save arguments, then the data is immediately serialized and stored in the implementation's persistent storage.
