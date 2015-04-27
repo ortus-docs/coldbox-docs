@@ -16,6 +16,3 @@ component name="general"{
 
 }
 ```
-
-By using the module argument, you are explicitely telling the ColdBox renderer to look for the layout inside of the passed module layout's convention.
-
