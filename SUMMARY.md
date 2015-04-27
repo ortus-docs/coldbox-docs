@@ -82,7 +82,6 @@
        * [Views With Specific Layout](layouts_n_views/rendering_views/views_with_specific_layout.md)
        * [Views From A Module](layouts_n_views/rendering_views/views_from_a_module.md)
        * [View Caching](layouts_n_views/rendering_views/view_caching.md)
-       * [Handler Return Rendering](layouts_n_views/rendering_views/handler_return_rendering.md)
        * [Render Nothing](layouts_n_views/rendering_views/render_nothing.md)
        * [Inline Rendering](layouts_n_views/rendering_views/inline_rendering.md)
        * [Content Variable Views](layouts_n_views/rendering_views/content_variable_views.md)
