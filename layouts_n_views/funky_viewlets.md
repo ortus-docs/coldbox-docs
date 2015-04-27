@@ -1,6 +1,6 @@
 # Funky Viewlets
 
-ColdBox also allows you to have Funky Viewlets and yes that is a real technical term. Funky viewlets allows you to pass arguments to the runEvent() method calls so you can simulate normal method calls and pass extra arguments to the events. So let's make our previous viewlet into a funky viewlet:
+ColdBox also allows you to have Funky Viewlets and yes that is a real technical term. Funky viewlets allows you to pass arguments to the `runEvent()` method calls so you can simulate normal method calls and pass extra arguments to the events. So let's make our previous viewlet into a funky viewlet:
 
 ```js
 function userinfo(event,rc,prc,boolean widget=false){
