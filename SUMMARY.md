@@ -18,6 +18,7 @@
    * [Running An Application](overview/running_an_application.md)
    * Reiniting An Application
    * Testing An Application
+   * Hello World
 * [Configuration](configuration/index.md)
    * [Conventions](configuration/conventions.md)
    * [Directory Structure](configuration/directory_structure.md)
