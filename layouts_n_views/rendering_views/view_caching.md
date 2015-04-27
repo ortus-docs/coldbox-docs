@@ -43,9 +43,9 @@ property name="cache" inject="cachebox:template";
 ```
 
 Then we can perform several operations on views:
-* clearView(string viewSnippet): Used to clear a view from the cache by using a snippet matched according to name + cache suffix.
-* clearMultiView(any viewSnippets): Clear using a list or array of view snippets.
-* clearAllViews([boolean async=true]) : Can clear ALL cached views in one shot and can be run asynchronously.
+* `clearView(string viewSnippet)`: Used to clear a view from the cache by using a snippet matched according to name + cache suffix.
+* `clearMultiView(any viewSnippets)`: Clear using a list or array of view snippets.
+* `clearAllViews([boolean async=true])` : Can clear ALL cached views in one shot and can be run asynchronously.
 
 ```js
 cachebox.getCache('template').clearView('general/index');
