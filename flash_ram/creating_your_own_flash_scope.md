@@ -2,10 +2,10 @@
 
 The ColdBox Flash capabilities are very flexible and you can easily create your own Flash Implementations by doing two things:
 
-1. Create a CFC that inherits from coldbox.system.web.flash.AbstractFlashScope
+1. Create a CFC that inherits from `coldbox.system.web.flash.AbstractFlashScope`
 2. Implement the following functions: `clearFlash(), saveFlash(), flashExists(), and getFlash()`
 
-### Implementable Methods
+## Implementable Methods
 
 |Method|ReturnType|Description|
 |--|--|--|
@@ -14,7 +14,7 @@ The ColdBox Flash capabilities are very flexible and you can easily create your 
 |flashExists()|boolean|Checks if the flash storage is available and has data in it.|
 |getFlash()|struct|This method needs to return a structure of flash data to reinflate and use during a request.|
 
-> **Important**  It is the developer's responsibility to provide consistent storage locking and synchronizations.
+> **Caution**  It is the developer's responsibility to provide consistent storage locking and synchronizations.
 
 All of the methods must be implemented and they have their unique purposes as you read in the description. Let's see a real life example, below you can see the flash implementation for the session scope:
 
