@@ -39,7 +39,7 @@ That's it, we use the `setView()` method to set the view `general/index.cfm` to 
  
 > **Info** Is best practice view locations should simulate handler location + action name. So if the event is general.index, there should be a general folder in the root views folder with a view called index.cfm.
 
-#### Let's look at the view code:
+**Let's look at the view code:**
 
 ```js
 <cfoutput>
@@ -48,4 +48,4 @@ That's it, we use the `setView()` method to set the view `general/index.cfm` to 
 </cfoutput>
 ```
 
-I am using our cool [HTML Helper](http://wiki.coldbox.org/wiki/Plugins:HTMLHelper.cfm) plugin that is smart enough to render tables, data, HTML 5 elements etc and even bind to ColdFusion ORM entities. All layouts/views have access to the HTML helper.
+I am using our cool HTML Helper (`coldbox.system.core.dynamic.HTMLHelper`( class that is smart enough to render tables, data, HTML 5 elements etc and even bind to ColdFusion ORM entities. All layouts/views have access to the HTML helper.
