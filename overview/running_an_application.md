@@ -6,4 +6,4 @@ Now that we have created our application, our first event handler controller and
 server start
 ```
 
-That commamnd will issue the startup of an embedded CFML engine on a port and open the browser for you!
+That commamnd will issue the startup of an embedded CFML engine on a port and open the browser for you!  The `server` namespace in CommandBox has some great commands to interact with the embedded server, so type `server help` to see all the help about the server namespace.
