@@ -31,8 +31,8 @@ So let's see the collection view now:
 
 You can see that I just call methods on the member as if I was looping (which we are for you). But you will also see two little variables here: 
 
-* _counter : A variable created for you that tells you in which record we are currently looping on
-* _items : A variable created for you that tells you how many records exist in the collection
+* `_counter` : A variable created for you that tells you in which record we are currently looping on
+* `_items` : A variable created for you that tells you how many records exist in the collection
 
 This will then render that specific dynamic HTML view as many times as their are records in the rc.comments array and concatenate them all for you. In my case, I separate each iteration with a simple <hr/> but you can get fancy and creative.
 
