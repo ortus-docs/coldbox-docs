@@ -139,7 +139,6 @@
    * [Flash Storage](flash_ram/flash_storage.md)
    * [Using Flash RAM](flash_ram/using_flash_ram.md)
    * [Creating Your Own Flash Scope](flash_ram/creating_your_own_flash_scope.md)
-   * [Summary](flash_ram/summary.md)
 * [Routing](routing/index.md)
    * [Requirements](routing/requirements.md)
        * [Rewrite Rules](Routing/rewrite_rules.md)
