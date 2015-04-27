@@ -37,3 +37,11 @@ File       1857 Apr 27,2015 11:04:11 helloTest.cfc
 File       3236 Jan 21,2015 16:01:56 MainBDDTest.cfc
 File       4398 Jan 15,2015 14:01:20 MainTest.cfc
 ```
+
+## Executing The Runner
+
+To execute your application template tests and the generated tests just browse to the URL: `http://127.0.0.1:{port}/tests/runner.cfm` and you will get a full integration report:
+
+![](../images/overview_testing.png)
+
+Everything is already pre-wired for you and ready for you to do full life-cycle integration testing.
