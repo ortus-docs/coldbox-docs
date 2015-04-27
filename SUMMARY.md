@@ -75,7 +75,7 @@
 * [Layouts & Views](layouts_n_views/index.md)
    * [Response Types](layouts_n_views/response_types.md)
    * [ColdBox Renderer](layouts_n_views/coldbox_renderer.md)
-   * [Rendering Views](layouts_n_views/rendering_views/index.md)
+   * [Views](layouts_n_views/rendering_views/index.md)
        * [Setting Views For Rendering](layouts_n_views/rendering_views/setting_views_for_rendering.md)
        * [Implicit Views](layouts_n_views/rendering_views/implicit_views.md)
        * [Views With No Layout](layouts_n_views/rendering_views/views_with_no_layout.md)
