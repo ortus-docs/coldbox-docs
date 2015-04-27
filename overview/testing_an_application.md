@@ -56,6 +56,19 @@ You will get an error now: **component [coldbox.system.web.context.RequestContex
 
 ## CommandBox Runner
 
-You can also execute the runner via CommandBox. So let's tell CommandBox where your runner is located:
+You can also execute the runner via CommandBox. So let's tell CommandBox where your runner is located, just change the `{port}` to your port assigned.
 
 ```bash
+package set testbox.runner=http://127.0.0.1:{port}/tests/runner.cfm
+```
+
+Then use the `testbox run` command:
+
+```bash
+testbox run
+```
+
+You will then execute your tests and get a text report from it.
+
+
+
