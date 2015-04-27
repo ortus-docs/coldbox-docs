@@ -211,7 +211,6 @@
    * [Caveats & Gotchas](proxy/caveats_&_gotchas.md)
    * [Conclusion](proxy/conclusion.md)
 * [Recipes](recipes/index.md)
-   * [My First Event Handler](recipes/my_first_event_handler.md)
    * [My First Custom Exception Handler](recipes/my_first_custom_exception_handler.md)
    * [My First Custom Plugin](recipes/my_first_custom_plugin.md)
    * [My First Interceptor](recipes/my_first_interceptor.md)
