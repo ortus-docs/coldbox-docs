@@ -9,8 +9,8 @@ Just like views, layouts can also have helpers on a per-layout, per-layout-folde
 ```
 
 Then we can create the following templates
-* *mainHelper.cfm* : Helper for the main.cfm layout.
-* *generalHelper.cfm* : Helper for any layout in the general folder.
+* `mainHelper.cfm` : Helper for the main.cfm layout.
+* `generalHelper.cfm` : Helper for any layout in the general folder.
 
 ```js
 /layouts
