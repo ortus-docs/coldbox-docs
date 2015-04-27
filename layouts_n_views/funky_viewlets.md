@@ -17,11 +17,11 @@ function userinfo(event,rc,prc,boolean widget=false){
 }
 ```
 
-What have I done? I have added a custom argument to my action signature: bolean widget=false. Then I split the rendering depending on this incoming argument. WOW! So how do I call my funky viewlet?
+What have I done? I have added a custom argument to my action signature: `boolean widget=false`. Then I split the rendering depending on this incoming argument. WOW! So how do I call my funky viewlet?
 
 ```js
 <div id="leftbar">
-#runEvent(event='viewlets.userinfo',prepostExempt=true,eventArguments={widget=true})#
+#runEvent( event='viewlets.userinfo', eventArguments={widget=true} )#
 </div>
 ```
 
