@@ -1,37 +1,11 @@
 # Inline Rendering
 
-We have now seen how to set views to be rendered from our handlers. However, we can use three cool methods to render views and layouts on-demand, much how cfinclude is used. These methods exist in the Renderer plugin and several facade methods exist in the super type so you can call it from any plugin, handler, interceptor, view or layout:
+We have now seen how to set views to be rendered from our handlers. However, we can use three cool methods to render views and layouts on-demand. These methods exist in the Renderer and several facade methods exist in the super type so you can call it from any handler, interceptor, view or layout.  If you need rendering capabilities in your model layer, we suggest using the following injection: `property name="renderer" inject="provider:coldbox:renderer";`
 
-#### renderView()
+1. `renderView()`
+2. `renderExternalView()`
+3. `renderLayout()`
 
-Render inline views from the parent application or from specific modules according to arguments:
-
-|Argument|Type|Required|Default|Description|
-|--|--|--|--|--|
-|view|string|false|look in request collection |The name of the view to render|
-|cache|boolean|false|false|Cache the view to be rendered|
-|cacheTimeout|numeric|false|(provider default) |The timeout in minutes or whatever the cache provider defines|
-|cacheLastAccessTimeout |numeric|false|(provider default) |The idle timeout in minutes or whatever the cache provider defines|
-|cacheSuffix |string|false|---|Adds a suffix key to the cached key. Used for providing uniqueness to the cacheable entry|
-|cacheProvider |string|false|*template*|Uses the passed in cache provider instead of the default template cache region|
-|module|string|false|---|The name of the module to render the view from|
-|args|struct|false|{}|Local arguments to pass into the view rendering|
-|collection|any|false|---|A collection to use by this Renderer to render the view as many times as the items in the collection (Array or Query)|
-|collectionAs |any|false|---|The name of the collection variable in the partial rendering. If not passed, we will use the name of the view by convention|
-|prepostExempt |boolean|false|false|If true, pre/post view interceptors will not be fired. By default they do fire|
-
-#### renderExternalView()
-
-Render inline views from anywhere in the server according to arguments:
-
-|Argument|Type|Required|Default|Description|
-|--|--|--|--|--|
-|layout|string|true|---|The name of the explicit layout to render|
-|view|string|false|---|The name of the view to render this layout with|
-|module|string|false|---|The name of the module to render the view from|
-|args|struct|false|{}|Local arguments to pass into the view rendering|
-
-Some Examples
 
 ```js
 <cfoutput>
