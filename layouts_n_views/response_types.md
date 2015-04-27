@@ -7,7 +7,7 @@ The event handlers will be the objects in question that will be responding to us
 * Do nothing or the infamous White Screen of Death
 * Do an HTTP redirect to another event via `setNextEvent`
 
-### Conventions
+## Conventions
 
 Let's do a recap of our conventions for layouts and view locations:
 
@@ -17,11 +17,9 @@ Let's do a recap of our conventions for layouts and view locations:
   + views
 ```
 
-All your layouts will go in the layouts folder and all your views will go in the views folder.
+All your layouts will go in the `layouts` folder and all your views will go in the `views` folder.
 
-> **Info** Also remember that ColdBox allows you to change your conventions via the application configuration CFC. 
-
-### ColdBox Render
+## ColdBox Render
 
 ![](LayoutsViewsUML.jpg)
 
