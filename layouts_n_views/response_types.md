@@ -19,7 +19,7 @@ Let's do a recap of our conventions for layouts and view locations:
 
 All your layouts will go in the `layouts` folder and all your views will go in the `views` folder.
 
-## ColdBox Render
+## ColdBox Renderer
 
 ![](LayoutsViewsUML.jpg)
 
