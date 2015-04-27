@@ -18,7 +18,7 @@ File        112 Apr 25,2015 11:04:05 box.json
 > **Info** You can also install the latest bleeding edge version by using the `coldbox-be` slug instead: `install coldbox-be`
 
 ## Mapping Installation
-You can also install ColdBox outside of your webroot (secured) by just creating a global administrator mapping or a per-application mapping:
+You can also install ColdBox outside of your webroot (secured) by just creating a global administrator mapping or a per-application mapping by adding the following to your `Application.cfc`:
 
 ```js
 
