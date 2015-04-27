@@ -88,6 +88,10 @@ function renderData(
 Below are a few simple examples:
 
 ```js
+// htmol marshalling
+function renderHTML(event,rc,prc){
+    event.renderData( data="<h1>My HTML</h1>" );
+}
 // xml marshalling
 function getUsersXML(event,rc,prc){
 	var qUsers = getUserService().getUsers();
