@@ -1,6 +1,11 @@
 # Helpers UDF's
 
-ColdBox provides you with a way to actually inject your layouts/views with custom UDF's, so they can act as helpers. This is called mixin methods and can be done via the includeUDF() method provided to the renderer plugin or via the UDFLibrary setting in your configuration file. The method is a provided way for you to dynamically load UDF's into your views/layouts at runtime and the UDFLibrary setting is a convention that acts globally on all layouts, views and event handlers.
+ColdBox provides you with a way to actually inject your layouts/views with custom UDF's, so they can act as helpers. This is called mixin methods and can be done via the `includeUDF()` method in the supertype or via the following settings:
+
+* `applicationHelper` - Global helper for layouts, views, interceptors and handlers
+* `viewsHelper` - Global helper for all layouts and views only
+
+UDFLibrary setting in your configuration file. The method is a provided way for you to dynamically load UDF's into your views/layouts at runtime and the UDFLibrary setting is a convention that acts globally on all layouts, views and event handlers.
 
 ```js
 coldbox.udfLibrary = 'includes/helpers/applicationHelper.cfm';
