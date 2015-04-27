@@ -104,7 +104,10 @@ function getUsersJSON(event,rc,prc){
 }
 ```
 
-As you can see, it is very easy to render data back to the browser or caller. You can even choose plain and send HTML back if you wanted too. You can also render out PDF's from ColdBox using the render data method. The data argument can be either the full binary of the PDF or simple values to be rendered out as a PDF, like views, layouts, strings, etc.
+As you can see, it is very easy to render data back to the browser or caller. You can even choose plain and send HTML back if you wanted too. 
+
+### Render PDFs
+You can also render out PDF's from ColdBox using the render data method. The data argument can be either the full binary of the PDF or simple values to be rendered out as a PDF, like views, layouts, strings, etc.
 
 ```js
 // from binary
