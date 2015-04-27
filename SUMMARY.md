@@ -96,7 +96,7 @@
        * [Nested Layouts](layouts_n_views/layouts/nested_layouts.md)
        * [Overriding Layouts](layouts_n_views/overriding_layouts.md)
        * [Layout Helpers](layouts_n_views/layouts_helpers.md)
-   * [Implicit Layout/View Declarations](layouts_n_views/implicit_layoutview_declarations/index.md)
+   * [Implicit Layout/View Declarations](layouts_n_views/implicit_layoutview_declaration/index.md)
        * [Layouts From A Module](layouts_n_views/implicit_layoutview_declaration/layouts_from_a_module.md)
        * [Layout Events](layouts_n_views/implicit_layoutview_declaration/layouts_events.md)
    * [Rendering Data](layouts_n_views/rendering_data.md)
