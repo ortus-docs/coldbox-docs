@@ -2,7 +2,7 @@
 The ColdBox configuration CFC is the heart of your ColdBox application. It contains the initialization variables for your application and extra information used by third-party modules and ultimately how your application boots up.  In itself, it is also an event listener or [ColdBox Interceptor](interceptors/interceptors.md), so it can listen to life-cycle events.
 
 
-<img src="../images/Coldbox-cfc.jpg">
+<img src="../../images/Coldbox-cfc.jpg">
 
 This CFC is instantiated by ColdBox and decorated at runtime so you can take advantage of some dependencies.
 

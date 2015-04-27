@@ -32,5 +32,6 @@ The application templates that ship with ColdBox and are available via CommandBo
 | -- | -- |
 | Advanced | The advanced template that includes every convention and optional configuration in tag format
 | AdvancedScript | The advanced template that includes every convention and optional configuration in script format
+| rest | A RESTFul services application
 | Simple | A fairly simple structure
 | SuperSimple | The basics
