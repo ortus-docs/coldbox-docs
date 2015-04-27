@@ -1,6 +1,6 @@
 # Default Layout
 
-All ColdBox applications give you the capability of choosing a default layout that can be used to render all your views in. This is done by choosing that default layout in your [Configuration CFC](http://wiki.coldbox.org/wiki/ConfigurationCFC.cfm) in the layoutSettings structure:
+The default layout in a ColdBox application is `layouts/main.cfm` by convention.  You can change this by using the `layoutSettings` in your `Configuration.cfc`.
 
 ```js
 //Layout Settings
@@ -8,11 +8,8 @@ layoutSettings = {
 	defaultLayout = "basic.cfm"
 }
 ```
-
-With this little configuration snippet, all set views or main views that do not define a layout will use the default one by convention.
-
-#### Default View
-The Default View element is a very cool feature of the layout manager. This element allows you to declare the name of the view to render if the event handler does not set a view for rendering.
+# Default View
+There is no default view in ColdBox, but you can configure one by using the same `layoutSettings` configuration directive and the `defaultView` directive:
 
 ```js
 //Layout Settings
@@ -21,4 +18,6 @@ layoutSettings = {
 	defaultView   = "noview.cfm"
 }
 ```
+
+This means that if no view is set in the request context, ColdBox will fallback to this view for rendering.
 
