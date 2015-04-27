@@ -5,14 +5,15 @@ ColdBox also allows you to have Funky Viewlets and yes that is a real technical 
 ```js
 function userinfo(event,rc,prc,boolean widget=false){
 
-	// place data in prc and prefix it to avoid collisions
-	prc.userinfo_qData = userService.getUserInfo();
+	// place data in prc
+	prc.userData = userService.getUserInfo();
 
 	// render out content as widget or normal procedures
 	if( arguments.widget ){
-		return renderView("viewlets/userinfo");
+		return renderView( view="viewlets/userinfo", args={ data = prc.userData } );
+	} else {
+	    event.setView('viewelts/userinfo');
 	}
-	event.setView('viewelts/userinfo');
 }
 ```
 
