@@ -210,7 +210,6 @@
    * [Execution Profiler Monitor](proxy/execution_profiler_monitor.md)
    * [Caveats & Gotchas](proxy/caveats_&_gotchas.md)
    * [Conclusion](proxy/conclusion.md)
-* [Controller Decorator](controller_decorator/index.md)
 * [Recepies](recipes/index.md)
    * [Using Helper UDF's and CFC's](recipes/using_helper_udfs_and_cfcs.md)
    * [My First Event Handler](recipes/my_first_event_handler.md)
@@ -228,6 +227,7 @@
    * [Creating a 404 template via onInvalidEvent](recipes/creating_a_404_template_via_oninvalidevent.md)
    * [Is there an easy, programmatic way to remove a specific element from the view cache](recipes/is_there_an_easy,_programmatic_way_to_remove_a_specific_element_from_the_view_cache.md)
    * [Building a simple Basic HTTP Authentication Interceptor](recipes/building_a_simple_basic_http_authentication_interceptor.md)
+* [Controller Decorator](controller_decorator/index.md)
 * [Runnable Code Examples](run/index.md)
 * [Testing](testing/index.md)
 
