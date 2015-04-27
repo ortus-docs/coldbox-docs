@@ -1,6 +1,6 @@
 # Implicit Layout/View Declarations
 
-Now that we have seen what layouts and views are, where they are located and some samples, let's dig deeper. There is a special section in the configuration file of an application just for layouts and views called `layouts` that you can use to implicity match views to specific layouts. 
+Now that we have seen what layouts and views are, where they are located and some samples, let's dig deeper. Let's discover the power of implicit layout/view declarations:
 
 ```js
 //Register Layouts
