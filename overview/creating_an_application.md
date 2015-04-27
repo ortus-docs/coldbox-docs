@@ -1,6 +1,6 @@
 # Creating An Application
 
-Now that we have ColdBox installed we can create our application.  CommandBox and ColdBox come bundled with some application templates:
+Now that we have ColdBox installed we can create our application.  CommandBox and ColdBox come bundled with some easy to use application templates:
 
 * **Advanced** : A tag based advanced template
 * **AdvancedScript** : A script based advanced template
