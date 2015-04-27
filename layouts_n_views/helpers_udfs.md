@@ -5,8 +5,6 @@ ColdBox provides you with a way to actually inject your layouts/views with custo
 * `applicationHelper` - Global helper for layouts, views, and handlers
 * `viewsHelper` - Global helper for all layouts and views only
 
-UDFLibrary setting in your configuration file. The method is a provided way for you to dynamically load UDF's into your views/layouts at runtime and the UDFLibrary setting is a convention that acts globally on all layouts, views and event handlers.
-
 ```js
 coldbox.udfLibrary = 'includes/helpers/applicationHelper.cfm';
 ```
