@@ -229,4 +229,5 @@
 * [Runnable Code Examples](run/index.md)
 * [Testing](testing/index.md)
    * [Testing Concepts](testing/testing_concepts.md)
+   * Non-Functional Testing
 
