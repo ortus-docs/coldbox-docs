@@ -15,6 +15,6 @@ However, we just wrote 4 routes for this when we can just use optional variables
 /blog/:year-numeric?/:month-numeric?/:day-numeric?
 ```
 
-> **Info** Just remember that an optional placeholder cannot be followed by a non-optional one. It doesn't make sense.
+> **Caution** Just remember that an optional placeholder cannot be followed by a non-optional one. It doesn't make sense.
 
 
