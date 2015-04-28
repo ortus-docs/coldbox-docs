@@ -1,3 +1,7 @@
 # Eclipse MXUnit Plugin Caveats
 
 If you will be doing your testing from Eclipse then you must alter the location of the MXUnit Remote Facade via the MXUnit Eclipse Plugin. You can do this by reading our [Sample Chapter](https://ortus-public.s3.amazonaws.com/CBOX204-IntroToMXUnit.pdf) from our 204 training course, visiting the [MXUnit documentation](http://www.mxunit.org/) or by doing the following:
+
+* Right Click on your project
+* Click on MXunit Properties
+
