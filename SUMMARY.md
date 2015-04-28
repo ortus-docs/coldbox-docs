@@ -232,5 +232,5 @@
        * [Functional Testing](testing/testing_concepts/functional_testing.md)
        * [Non-Functional Testing](testing/testing_concepts/non-functional_testing.md)
        * [Bugs Cost Money](testing/testing_concepts/bugs_cost_money.md)
-       * Static Testing
+       * [Static Testing](testing/testing_concepts/static_testing.md)
 
