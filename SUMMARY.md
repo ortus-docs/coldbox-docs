@@ -222,7 +222,7 @@
        * [Module Routes Files](modules/ses-url_mapppings/module_routes_files.md)
    * [Retrieving & Interacting With Module Settings](modules/retrieving_&_interacting_with_module_settings/index.md)
        * [ColdBox Injection DSL](modules/retrieving_&_interacting_with_module_settings/coldbox_injection_dsl.md)
-   * Request Context Module Methods
+   * [Request Context Module Methods](modules/request_context_module_methods.md)
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
        * [AppMapping](proxy/appmapping.md)
