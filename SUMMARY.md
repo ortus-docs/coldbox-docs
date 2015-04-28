@@ -197,7 +197,7 @@
 * [Modules](modules/index.md)
    * [Locations](modules/locations.md)
    * [Parent Configuration](modules/parent_configuration.md)
-   * Conventions
+   * [Conventions](modules/conventions/index.md)
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
        * [AppMapping](proxy/appmapping.md)
