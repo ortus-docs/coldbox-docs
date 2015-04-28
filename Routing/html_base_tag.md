@@ -1,10 +1,9 @@
 # HTML base tag
 
-Well, for the base tag you can use either the sesBaseURL setting, if using minimal URL support, or the htmlBaseURL setting if using the index.cfm in the URL. Both of these settings are set by the interceptor at configuration time and available for your usage via the `getSetting()` method.
+The `base` tag in HTML allows you to tell the browser what is the base URL for assets in your application. This is great for SES or routed URLs as the base URL is hidden by default.  We definitely recommend using this HTML tag reference as it will simplify your asset retrievals.
 
 ```js
 <base href="#getSetting('htmlBaseURL')#">
-<base href="#getSetting('sesBaseURL')#">
 ```
 
-This tells the browsers how to find your assets when using URL mappings or SES URLs. 
+If you do not use this tag, then every asset reference must be an absolute URL reference. 
