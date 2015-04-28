@@ -22,12 +22,14 @@ The key in the structure must match the name of the placeholder and the value is
 
 ```js
 // route with custom constraints
-addRoute(pattern="/api/:format/",
-     handler="api",
-     action="execute",
-     contraints={
-      format = "(xml|json)"
-     });
+addRoute(
+    pattern="/api/:format/",
+    handler="api",
+    action="execute",
+    contraints={
+        format = "(xml|json)"
+    }
+);
 ```
 
      
