@@ -1,8 +1,8 @@
 # Rewrite Rules
 
-Here are just a few of those rewrite rules for you:
+Here are just a few of those rewrite rules for you for major rewrite engines. You can spice them up as needed.
 
-#### .htaccess
+## .htaccess
 
 ```js
 # Helicon ISAPI_Rewrite configuration file
@@ -21,7 +21,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.cfm/%{REQUEST_URI} [QSA,L]
 ```
 
-#### IIS7 web.config
+## IIS7 web.config
 
 ```js
 <configuration>
@@ -63,7 +63,7 @@ RewriteRule ^(.*)$ index.cfm/%{REQUEST_URI} [QSA,L]
 </configuration>
 ```
 
-#### SES Interceptor
+## SES Interceptor
 
 The SES interceptor is the class in ColdBox that provides you with URL Mapping and RESTful support. You will have this declared (or need to declare) in your [ConfigurationCFC](http://wiki.coldbox.org/wiki/ConfigurationCFC.cfm):
 
