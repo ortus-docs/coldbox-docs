@@ -229,5 +229,5 @@
 * [Runnable Code Examples](run/index.md)
 * [Testing](testing/index.md)
    * [Testing Concepts](testing/testing_concepts/index.md)
-       * Functional Testing
+       * [Functional Testing](testing/testing_concepts/functional_testing.md)
 
