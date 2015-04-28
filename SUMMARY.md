@@ -244,4 +244,5 @@
    * [Integration Testing](testing/integration_testing/index.md)
        * [Test Annotations](testing/integration_testing/test_annotations.md)
        * [Common Methods](testing/integration_testing/common_methods.md)
+       * Life-Cycle Events
 
