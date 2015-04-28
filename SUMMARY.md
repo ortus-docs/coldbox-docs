@@ -210,7 +210,7 @@
        * [Loading New Methods](modules/module_service/loading_new_methods.md)
        * [Loading A-la-carte Modules](modules/module_service/loading_a-la-carte_modules.md)
        * [Module Events](modules/module_service/module_event.md)
-   * The Modules Configuration Object
+   * [The Modules Configuration Object](modules/the_modules_configuration_object/index.md)
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
        * [AppMapping](proxy/appmapping.md)
