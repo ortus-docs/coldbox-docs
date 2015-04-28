@@ -18,3 +18,6 @@ This testing support class will create your plugin, and decorate with mocking ca
 All of the mock objects are essentially the dependencies of plugin objects. You have complete control over them as they are already mocked for you. We actually use this approach to test all shipped ColdBox plugins.
 
 > **Important**  We do not initialize your plugins for you. This is your job as you might need some mocking first. 
+
+Basic Setup
+
