@@ -20,7 +20,7 @@ http://localhost/dade/miami/page/3
 
 A route is a declared URL pattern that if matched it will translate such URL into either an event or a view to be dispatched with the appropriate variable assignments in the request collection.  Example: `blog/:year/:month?/:day?`.
 
-## Benefits
+## Routing Benefits
 
 There are several benefits that you will get by using our routing system:
 
