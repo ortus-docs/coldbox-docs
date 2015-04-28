@@ -1,16 +1,23 @@
 # Requirements
 
+Routing is enabled by default in the ColdBox application templates in order to work with URL's like this:
+
+`http://localhost/index.cfm/home/about`
+
+As you can see they still contain the `index.cfm` in the URL.  In order to enable full URL rewrites in order to eliminate that `index.cfm` you must have a rewrite enabled webserver like Apache, nginx or IIS or a Java rewrite filter.
+
+`http://localhost/home/about`
+
+CommandBox has built in rewrites powered by Tuckey and you can enable a server with rewrites by running:
+
+```
+server start --rewritesEnabled
+```
 
 
 > **Caution**  Some J2EE servlet containers do not support the forwarding of SES parameters via the routing template (`index.cfm`) out of the box. You might need to enable full URL rewriting either through a web server or a J2EE filter. 
 
-If you do not use full URL rewrites, the URL might look like this:
 
-`http://localhost/index.cfm/home/about`
-
-The following is with full URL enabled, which eliminates the `index.cfm`:
-
-`http://localhost/home/about`
 
 ## Some Resources
 
