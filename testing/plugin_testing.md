@@ -21,3 +21,49 @@ All of the mock objects are essentially the dependencies of plugin objects. You 
 
 Basic Setup
 
+```js
+component extends="coldbox.system.testing.BasePluginTest" plugin="myapp.plugins.CoolPlugin"{
+
+  // Just create test methods, no need to use the setup() method unless you want to:
+  function setup(){
+      super.setup();
+      // test custom constructor
+      plugin.init();
+  }
+
+}
+```
+
+Real Sample 
+
+```js
+<cfcomponent extends="coldbox.system.testing.BasePluginTest" plugin="coldbox.system.plugins.HTMLHelper">
+<cfscript>
+function testaddAssetJS(){
+	var mockEvent = getMockRequestContext();
+	mockRequestService.$("getContext", mockEvent);
+	
+	// mock the plugin's htmlhead method
+	plugin.$("$htmlhead");
+	
+	// Call method to test
+	plugin.addAsset('test.js,luis.js');
+	
+	debug( plugin.$callLog().$htmlhead);
+	
+	// test duplicate call
+	assertEquals('<script src="test.js" type="text/javascript"></script><script src="luis.js" type="text/javascript"></script>' , plugin.$callLog().$htmlhead[1][1] );
+	plugin.addAsset('test.js');
+	assertEquals(1, arrayLen(plugin.$callLog().$htmlHead) );
+}
+
+function testTableORM(){
+	data = entityLoad("User");
+	
+	str = plugin.table(data=data,includes="firstName");
+	debug(str);
+	assertEquals('<table><thead><tr><th>firstName</th></tr></thead><tbody><tr><td>Joe</td></tr><tr><td>Luis</td></tr></tbody></table>',str);
+}
+</cfscript>
+</cfcomponent>
+```
