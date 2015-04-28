@@ -7,4 +7,4 @@ addRoute( pattern="/contact-us", view="static/contact");
 addRoute( pattern="/newsletter", view="static/newsletter", noLayout=true );
 ```
 
-> **Info** No event will be executed.
+> **Info** Remember that no event will be executed.
