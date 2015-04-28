@@ -238,4 +238,5 @@
        * [Testing Vocabulary](testing/testing_concepts/testing_vocabulary.md)
        * [Testing Tools](testing/testing_concepts/testing_tools.md)
    * [MXUnit Installation](testing/mxunit_installation.md)
+   * Testing Templates
 
