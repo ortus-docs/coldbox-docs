@@ -15,3 +15,20 @@ This testing support class will create your model object, and decorate with mock
 
 > **Important** We do not initialize your model objects for you. This is your job as you might need some mocking first. 
 
+Basic Setup
+
+```js
+component extends="coldbox.system.testing.BaseModelTest" model="myApp.model.User"{
+
+  function setup(){
+     super.setup();
+     user = model;
+  }
+
+  function testisActive(){
+    assertEquals( false, user.isActive() );
+  }
+
+}
+```
+
