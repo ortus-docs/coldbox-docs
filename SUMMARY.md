@@ -202,7 +202,7 @@
    * [Module Layout](modules/module_layout/index.md)
        * [Changing The Module Layout](modules/module_layout/changing_the_module_layout.md)
    * [Module Service](modules/module_service/index.md)
-       * Module Lifecycle
+       * [Module Lifecycle](modules/module_service/module_lifecycle.md)
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
        * [AppMapping](proxy/appmapping.md)
