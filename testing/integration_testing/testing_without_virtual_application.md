@@ -8,3 +8,5 @@ component extends="coldbox.system.testing.BaseTestCase"{
 	this.loadColdBox = false;
 }
 ```
+
+That's it! You will be able to use anything from the BaseTestCase but the virtual application will not be loaded.
