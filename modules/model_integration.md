@@ -16,3 +16,4 @@ property name="forgeService" inject="id:forgeService@forgeBox";
 property name="forgeService" inject="forgeService@forgeBox";
 ```
 
+This tells WireBox to create a model object named *forgeService@forgeBox* and inject it for you.
