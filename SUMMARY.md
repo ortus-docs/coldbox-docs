@@ -196,7 +196,7 @@
    * [Conclusion](interceptors/conclusion.md)
 * [Modules](modules/index.md)
    * [Locations](modules/locations.md)
-   * Parent Configuration
+   * [Parent Configuration](modules/parent_configuration.md)
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
        * [AppMapping](proxy/appmapping.md)
