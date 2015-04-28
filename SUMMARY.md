@@ -253,4 +253,5 @@
        * [Testing Without Virtual Application](testing/integration_testing/testing_without_virtual_application.md)
        * [Rendering Results](testing/integration_testing/rendering_results.md)
    * [Plugin Testing](testing/plugin_testing.md)
+   * Handlers Isolation Testing
 
