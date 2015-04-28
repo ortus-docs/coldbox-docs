@@ -234,5 +234,5 @@
        * [Bugs Cost Money](testing/testing_concepts/bugs_cost_money.md)
        * [Static Testing](testing/testing_concepts/static_testing.md)
        * [Dynamic Testing](testing/testing_concepts/dynamic_testing.md)
-       * Developer Focus
+       * [Developer Focus](testing/testing_concepts/developer_focus.md)
 
