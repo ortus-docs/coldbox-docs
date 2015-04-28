@@ -162,7 +162,7 @@
        * [Module Routes](Routing/module_routes.md)
        * [With Clousures](Routing/with_clousures.md)
    * [Pathinfo Providers](Routing/pathinfo_providers.md)
-   * [event.buildLink()](Routing/eventbuildlink.md)
+   * [Building Routable Links](Routing/eventbuildlink.md)
    * [HTML base tag](Routing/html_base_tag.md)
 * [Interceptors](interceptors/index.md)
    * [ForgeBox Interceptors](interceptors/forgebox_interceptors.md)
