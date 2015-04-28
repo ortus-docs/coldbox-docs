@@ -18,3 +18,4 @@ What this does, is create the override structure that you need. So now, you can 
          + main.cfm
 ```
 
+These features are great for skinning modules or just overriding view capabilities a-la-carte. So please take note of them as it is very powerful.
