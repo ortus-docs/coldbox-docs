@@ -8,19 +8,14 @@ interceptors = [
 ]
 ```
 
+By convention the interceptor will look for `config/Routes.cfm` as your configuration file. If you want to change this, then declare a property of the interceptor with a path to your configuration file:
 
 ```js
 interceptors = [
-  {class="coldbox.system.interceptors.SES"}
-];
-```
-
-By convention the interceptor will look for *config/Routes.cfm* as your configuration file. If you want to change this, then declare a property of the interceptor with a path to your configuration file:
-
-```js
-interceptors = [
-  {class="coldbox.system.interceptors.SES",
-   properties = {configFile = "myconfig/path/Routes.cfm"} }
+    {
+        class="coldbox.system.interceptors.SES",
+        properties = { configFile = "myconfig/path/Routes.cfm" } 
+    }
 ];
 ```
 
