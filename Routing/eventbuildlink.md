@@ -1,7 +1,15 @@
 # Building Routable Links
 
+In your views, layouts and handlers you can use the `buildLink` method provided by the request context object to build routable links in your applicaiton.
+
 ```js
-public any buildLink(string linkto, [boolean translate='true'], [boolean ssl='false'], [string baseURL=''], [string queryString=''])
+buildLink(
+    any linkTo, 
+    [boolean translate='true'], 
+    [boolean ssl], 
+    [any baseURL=''], 
+    [any queryString='']
+) 
 ```
 
 The request context has a method called buildLink() that will build SES URLs for you. Just pass in the route or event and it will create the appropriate URL for you:
