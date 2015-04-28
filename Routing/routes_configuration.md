@@ -19,10 +19,11 @@ interceptors = [
 ];
 ```
 
-Once the SES interceptor loads in your application it will create two settings for you:
+## Generated Settings
+Once the SES interceptor loads in your application it will create two settings for you inside of the ColdBox Controller:
 
-* SESBaseURL : The location path to your application that will be setup in your *Routes.cfm*
-* HTMLBaseURL : The same path as SESBaseURL but without any *index.cfm *in it (Just in case you are using index.cfm rewrite). This is a setting used most likely by the HTML <base> tag.
+* `SESBaseURL` : The location path to your application that will be setup in your *Routes.cfm*
+* `HTMLBaseURL` : The same path as SESBaseURL but without any *index.cfm *in it (Just in case you are using index.cfm rewrite). This is a setting used most likely by the HTML <base> tag.
 
 
 Inside of your Routes.cfm template is where you will use our routing DSL (Domain Specific Language) to define configuration parameters for your routing, RESTful URIs and to create URL mappings.
