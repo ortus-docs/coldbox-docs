@@ -5,18 +5,20 @@ Here are just a few of those rewrite rules for you for major rewrite engines. Yo
 ## .htaccess
 
 ```js
-RewriteEngine On
-RepeatLimit 0
+RewriteEngine on
+#if this call related to adminstrators or non rewrite folders, you can add more here.
+RewriteCond %{REQUEST_URI} ^/(.*(CFIDE|cfide|CFFormGateway|jrunscripts|railo-context|lucee|mapping-tag|fckeditor)).*$
+RewriteRule ^(.*)$ - [NC,L]
 
-#dealing with cf-administrator,railo-administrator, etc
-RewriteRule ^/(CFIDE|cfide|CFFormGateway|jrunscripts|lucee|railo-context|fckeditor) - [L,I]
+#Images, css, javascript and docs, add your own extensions if needed.
+RewriteCond %{REQUEST_URI} \.(bmp|gif|jpe?g|png|css|js|txt|xls|ico|swf)$
+RewriteRule ^(.*)$ - [NC,L]
 
-#dealing with flash / flex communication, cf-administrator,railo-administrator, etc
-RewriteRule ^/(flashservices|flex2gateway|flex-remoting) - [L,I]
-
+#The ColdBox index.cfm/{path_info} rules.
+RewriteRule ^$ index.cfm [QSA,NS]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.cfm/%{REQUEST_URI} [QSA,L]
+RewriteRule ^(.*)$ index.cfm%{REQUEST_URI} [QSA,L,NS]
 ```
 
 ## nginx
