@@ -254,4 +254,5 @@
        * [Rendering Results](testing/integration_testing/rendering_results.md)
    * [Plugin Testing](testing/plugin_testing.md)
    * [Handlers Isolation Testing](testing/handlers_isolation_testing.md)
+   * Interceptor Testing
 
