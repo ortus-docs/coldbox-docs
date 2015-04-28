@@ -39,6 +39,7 @@ addRoute(
 |module|string|false|---|Add this route to a named module|
 |moduleRouting |boolean|false|false|Called internally by addModuleRoutes to add a module routing route only.|
 |namespace |string|false|---|The namespace to add this route to|
+|namespaceRouting |string|false|---|Called internally by addNamespaceRoutes to add a namespaced routing route.|
 |ssl|boolean|false|false|Makes the route SSL only if true, else for either SSL or non SSL. If SSL, the interceptor will relocate to the same route but in SSL|
 |append |boolean|false|true|By default all routes are stored in first come first served order, but you can pre-pend to the first position if so desired.|
 |response |string or closure or UDF |false|---|A simple string to return if the route matched or a closure to execute that must return a string to return back to the user. No ColdBox events will be fired automatically and response will be sent immediately|
@@ -46,6 +47,6 @@ addRoute(
 |statusText |string|false|---|The status text header to send with your response if using the response arguments|
 |condition|closure or UDF|false|---|A closure or UDF that MUST return *boolean* as a secondary check on the pattern matching and receives the matched *requeststring* as a parameter. Great for not only doing pattern matching but also CUSTOM conditions.|
 
-This is the meat and potatoes for enabling routing. You use this method to declare routes that will be dispatched by the interceptor. The syntax of these are similar to Ruby on Rails. The idea is that the number of variables in a URL will be the first indicator of which course to use. Basically, the interceptor goes through each rule in a top-down format and tries to match the incoming URL to the route. If a route matches it will try to create the appropriate event and extra variables in order to respond to a request.
 
-> **Important** You can pass any named argument and value to this method and the interceptor will create a new variable with the name of the argument in the request collection for you. This can be used as an alternative to using the matchVariables argument. 
+> **Caution** You can pass any named argument and value to this method and the interceptor will create a new variable with the name of the argument in the request collection for you. This can be used as an alternative to using the matchVariables argument. 
+
