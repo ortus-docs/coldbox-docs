@@ -16,3 +16,4 @@
 ```
 
 > **Important** The AppMapping setting is the most important one. This is how your test connects to a location of a ColdBox application to test. 
+
