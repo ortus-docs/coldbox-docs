@@ -5,13 +5,11 @@ Here are just a few of those rewrite rules for you for major rewrite engines. Yo
 ## .htaccess
 
 ```js
-# Helicon ISAPI_Rewrite configuration file
-# Version 3.1.0.48
 RewriteEngine On
 RepeatLimit 0
 
 #dealing with cf-administrator,railo-administrator, etc
-RewriteRule ^/(CFIDE|cfide|CFFormGateway|jrunscripts|railo-context|fckeditor) - [L,I]
+RewriteRule ^/(CFIDE|cfide|CFFormGateway|jrunscripts|lucee|railo-context|fckeditor) - [L,I]
 
 #dealing with flash / flex communication, cf-administrator,railo-administrator, etc
 RewriteRule ^/(flashservices|flex2gateway|flex-remoting) - [L,I]
@@ -31,7 +29,7 @@ RewriteRule ^(.*)$ index.cfm/%{REQUEST_URI} [QSA,L]
                <rule name="Application Adminsitration" stopProcessing="true">
                     <match url="^(.*)$" />
                     <conditions logicalGrouping="MatchAll">
-                        <add input="{SCRIPT_NAME}" pattern="^/(.*(CFIDE|cfide|CFFormGateway|jrunscripts|railo-context|fckeditor)).*$" ignoreCase="false" />
+                        <add input="{SCRIPT_NAME}" pattern="^/(.*(CFIDE|cfide|CFFormGateway|jrunscripts|lucee|railo-context|fckeditor)).*$" ignoreCase="false" />
                     </conditions>
                     <action type="None" />
                 </rule>
