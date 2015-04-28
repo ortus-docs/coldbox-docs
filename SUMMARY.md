@@ -233,5 +233,4 @@
    * [Developer Foucs](testing/developer_foucs.md)
    * [Testing Vocabulary](testing/testing_vocabulary.md)
    * [Testing Tools](testing/testing_tools.md)
-   * [Testing Concepts](testing_concepts.md)
 
