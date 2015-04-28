@@ -4,3 +4,4 @@ The first step in starting with testing in your ColdBox applications is to get t
 
 * Download MXUnit 204 Chapter - https://ortus-public.s3.amazonaws.com/CBOX204-IntroToMXUnit.pdf
 
+This guide will show you how to install MXUnit, its basics and then how to install the Eclipse Plugin so you can do TDD via Adobe ColdFusion Builder or CFEclipse.
