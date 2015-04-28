@@ -158,7 +158,7 @@
            * [Adding variables per route](Routing/adding_variables_per_route.md)
        * [Route Responses](Routing/route_responses.md)
        * [Route Conditions](Routing/route_conditions.md)
-       * [URL Mapping Namespaces](Routing/url_mapping_namespaces.md)
+       * [Routing Namespaces](Routing/url_mapping_namespaces.md)
        * [Module Routes](Routing/module_routes.md)
        * [With Clousures](Routing/with_clousures.md)
    * [Pathinfo Providers](Routing/pathinfo_providers.md)
