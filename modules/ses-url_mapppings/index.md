@@ -14,3 +14,36 @@ addModuleRoutes(pattern="/admin",module="admin");
 ```
 
 What the previous method calls do is bind a static URL entry pattern to a module. So if the framework detects an incoming URL with the starting point to be /blog, it will then match the simpleblog routes. Once matched, it will now try to match the rest of the incoming URL with the module's custom routes. Let's do a full example, below are some custom routes for my blog module in its *ModuleConfig.cfc*:
+
+```js
+// In my ModuleConfig.cfc
+routes = [
+  {pattern="/", handler="blog", action="showPosts"},
+    {pattern="/:year-numeric/:month-numeric?", handler="blog", action="showPosts"}
+    {pattern="/comment/:action", handler="comments"}
+]
+```
+
+Now, let's say the URL that is incoming is:
+
+```js
+http://mysite.com/blog
+```
+
+Then this will resolve to the */blog* pattern in the host that says, now look in the module simpleblog for routes. The left over part of the URL is nothing or / so the pattern that matches is my first declared pattern:
+
+```js
+{pattern="/", handler="blog", action="showPosts"}
+```
+
+This means, that we will execute the modules' blog handler and the showPosts method. Now, let's say the next URL that comes is:
+
+```js
+http://mysite.com/blog/2009/09
+```
+
+Then this will match the *simpleblog* module via the static /blog entry point and then it tries to find a match for */2009/09* in the modules' routes and it does! So in conclusion, to enable module SES or URL Mappings you must do two things:
+
+1. Define your routes in the ModuleConfig configuration object
+2. Add the entry point for the module routes wherever you see fit in the host application's Routes.cfm configuration file by using the addModuleRoutes() method.
+
