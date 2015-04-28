@@ -8,7 +8,9 @@ interceptors = [
 ]
 ```
 
-By convention the interceptor will look for `config/Routes.cfm` as your configuration file. If you want to change this, then declare a property of the interceptor with a path to your configuration file:
+## Configuration Router - `Routes.cfm`
+
+By convention the interceptor will look for `config/Routes.cfm` as your configuration router. If you want to change this, then declare a property of the interceptor with a path to your configuration file:
 
 ```js
 interceptors = [
@@ -18,6 +20,8 @@ interceptors = [
     }
 ];
 ```
+
+In this file you will place all configuration settings for the routing table and construct all the necessary routing for your application.  Please note also that when using ColdBox Modules, each module can have its own routing table as well.
 
 ## Generated Settings
 Once the SES interceptor loads in your application it will create two settings for you inside of the ColdBox Controller:
