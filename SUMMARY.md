@@ -230,5 +230,5 @@
 * [Testing](testing/index.md)
    * [Testing Concepts](testing/testing_concepts.md)
    * [Non-Functional Testing](testing/non-functional_testing.md)
-   * Bugs Cost Money
+   * [Bugs Cost Money](testing/bugs_cost_money.md)
 
