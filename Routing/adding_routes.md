@@ -47,6 +47,8 @@ addRoute(
 |statusText |string|false|---|The status text header to send with your response if using the response arguments|
 |condition|closure or UDF|false|---|A closure or UDF that MUST return *boolean* as a secondary check on the pattern matching and receives the matched *requeststring* as a parameter. Great for not only doing pattern matching but also CUSTOM conditions.|
 
+We will start discovering all the different routing techniques you can use with this wonderful little method.
 
-> **Caution** You can pass any named argument and value to this method and the interceptor will create a new variable with the name of the argument in the request collection for you. This can be used as an alternative to using the matchVariables argument. 
+
+> **Hint** You can pass any named argument and value to this method and the interceptor will create a new variable with the name of the argument in the request collection for you. This can be used as an alternative to using the matchVariables argument. 
 
