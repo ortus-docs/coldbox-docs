@@ -228,7 +228,6 @@
    * [Building a simple Basic HTTP Authentication Interceptor](recipes/building_a_simple_basic_http_authentication_interceptor.md)
 * [Runnable Code Examples](run/index.md)
 * [Testing](testing/index.md)
-   * [Bugs Cost Money](testing/bugs_cost_money.md)
    * [Static Testing](testing/static_testing.md)
    * [Dynamic Testing](testing/dynamic_testing.md)
    * [Developer Foucs](testing/developer_foucs.md)
