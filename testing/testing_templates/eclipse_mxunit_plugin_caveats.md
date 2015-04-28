@@ -1,0 +1,2 @@
+# Eclipse MXUnit Plugin Caveats
+
