@@ -226,7 +226,7 @@
    * [Layout and View Renderings](modules/layout_and_view_renderings/index.md)
        * [Layout/View Discovery](modules/layout_and_view_renderings/layoutview_discovery.md)
        * [Overriding Views](modules/layout_and_view_renderings/overriding_views.md)
-       * Overriding Layouts
+       * [Overriding Layouts](modules/layout_and_view_renderings/overriding_layouts.md)
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
        * [AppMapping](proxy/appmapping.md)
