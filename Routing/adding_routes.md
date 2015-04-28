@@ -2,7 +2,26 @@
 
 
 ```js
-public any addRoute(string pattern, [string handler], [any action], [boolean packageResolverExempt='false'], [string matchVariables], [string view], [boolean viewNoLayout='false'], [boolean valuePairTranslation='true'], [any constraints=''], [string module=''], [string moduleRouting=''], [string namespace=''], [string namespaceRouting=''], [boolean ssl='false'], [boolean append='true'])
+addRoute(
+	string pattern, 
+	[string handler], 
+	[any action], 
+	[boolean packageResolverExempt='false'], 
+	[string matchVariables], 
+	[string view], 
+	[boolean viewNoLayout='false'], 
+	[boolean valuePairTranslation='true'], 
+	[any constraints=''], 
+	[string module=''], 
+	[string moduleRouting=''], 
+	[string namespace=''], 
+	[string namespaceRouting=''], 
+	[boolean ssl='false'], 
+	[boolean append='true'], 
+	[any response], 
+	[numeric statusCode], 
+	[string statusText], 
+	[any condition])
 ```
 
 |Argument|Type|Required|Default|Description|
