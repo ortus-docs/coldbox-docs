@@ -232,5 +232,5 @@
    * [Non-Functional Testing](testing/non-functional_testing.md)
    * [Bugs Cost Money](testing/bugs_cost_money.md)
    * [Static Testing](testing/static_testing.md)
-   * Dynamic Testing
+   * [Dynamic Testing](testing/dynamic_testing.md)
 
