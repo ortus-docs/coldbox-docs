@@ -8,8 +8,8 @@ addRoute(pattern=":handler/:action?");
 
 The URL pattern in the default route includes two special position holders:
 
-* :handler - The handler to relocate to (Including Package and Module)
-* :action - The action to relocate to
+* `:handler` - The handler to relocate to (It can include Package and Module)
+* `:action` - The action to relocate to or a RESTFul map (We will see later)
 
 With one route you can potentially write an entire application because once a route is deteceted, any extra name-value pair in the URL will be translated to variables in the request collection for you.
 
