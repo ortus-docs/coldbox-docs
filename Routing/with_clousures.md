@@ -1,6 +1,6 @@
 # With Clousures
 
-We have created some cool context methods to allow for the prefixing of any of the addRoute() arguments by using what we call with closures. This allows you to prefix repetitive patterns in route declarations. The best way to see how it works is by example:
+We have created some cool context methods to allow for the prefixing of any of the `addRoute()` arguments by using what we call **with** closures. This allows you to prefix repetitive patterns in route declarations. The best way to see how it works is by example:
 
 ```js
 addRoute(pattern="/news", handler="public.news", action="index");
