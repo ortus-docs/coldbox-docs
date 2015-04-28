@@ -15,3 +15,6 @@ This testing support class will create your handler, and decorate with mocking c
 * mockLogBox : A mock LogBox class in use by the target handler
 * mockFlash : A mock flash scope in use by the target handler
 
+All of the mock objects are essentially the dependencies of handler objects. You have complete control over them as they are already mocked for you.
+
+> **Important** We do not initialize your handlers for you. So if you have a init() method, you need to call it manually. Also note that this CFC is in isolation, you will have to mock all of its depenencies if needed. 
