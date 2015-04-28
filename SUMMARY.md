@@ -208,7 +208,7 @@
        * [Module Unloading](modules/module_service/module_unloading.md)
        * [Common Methods](modules/module_service/common_methods.md)
        * [Loading New Methods](modules/module_service/loading_new_methods.md)
-       * Loading A-la-carte Modules
+       * [Loading A-la-carte Modules](modules/module_service/loading_a-la-carte_modules.md)
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
        * [AppMapping](proxy/appmapping.md)
