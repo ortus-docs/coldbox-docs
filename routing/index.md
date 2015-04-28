@@ -18,7 +18,7 @@ http://localhost/dade/miami/page/3
 
 ## What is a route?
 
-> A route is a declared URL pattern that if matched it will translate such URL into either an event or a view to be dispatched. 
+A route is a declared URL pattern that if matched it will translate such URL into either an event or a view to be dispatched with the appropriate variable assignments in the request collection.  Example: `blog/:year/:month?/:day?`.
 
 ## Benefits
 
