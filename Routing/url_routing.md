@@ -1,6 +1,6 @@
-# URL Mappings
+# URL Routing
 
-URL mapping or routing is done via our routing methods:
+There are several routing methods you will use to create routes for your application:
 
 * *addRoute()* - Add URL routing to controllers and actions with RESTful capabilities
 * *addNamespace()* - Ability to group routes on a specific URL pattern entry point
