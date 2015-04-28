@@ -205,7 +205,7 @@
        * [Module Lifecycle](modules/module_service/module_lifecycle.md)
        * [Module Registration](modules/module_service/module_registration.md)
        * [Module Activation](modules/module_service/module_activation.md)
-       * Module Unloading
+       * [Module Unloading](modules/module_service/module_unloading.md)
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
        * [AppMapping](proxy/appmapping.md)
