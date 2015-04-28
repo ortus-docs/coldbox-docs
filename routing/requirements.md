@@ -1,14 +1,12 @@
 # Requirements
 
-Routing is provided by our SES interceptor and it is enabled by default in all application templates:
+Routing is provided by our SES interceptor and it is enabled by default in all application templates in your `ColdBox.cfc` configuration file:
 
 ```
 interceptors = [
     { class="coldbox.system.interceptors.SES" }
 ]
 ```
-
-By default all  application templates and generated applications have SES support built in via our SES interceptor. This is declared in your configuration file ColdBox.cfc. This will allow you to build URI's by fowarding them through the index.cfm.
 
 > **Important**  Some J2EE servlet containers do not support the forwarding of SES parameters via the routing template out of the box. You might need to enable full URL rewriting either through a web server or a J2EE filter. 
 
