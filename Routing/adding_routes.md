@@ -1,6 +1,6 @@
 # Adding Routes
 
-The main method to add HTML and RESTFul routes is the `addRoute()` method:
+The main method to add HTML and RESTFul routes is the `addRoute()` method, of which you can see the signature below:
 
 ```js
 addRoute(
