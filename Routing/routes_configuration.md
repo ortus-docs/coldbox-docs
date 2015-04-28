@@ -26,9 +26,9 @@ Once the SES interceptor loads in your application it will create two settings f
 * `HTMLBaseURL` : The same path as `SESBaseUR`L but without any `index.cfm` in it (Just in case you are using `index.cfm` rewrite). This is a setting used most likely by the HTML `<base>` tag.
 
 
-Inside of your Routes.cfm template is where you will use our routing DSL (Domain Specific Language) to define configuration parameters for your routing, RESTful URIs and to create URL mappings.
+Inside of your `Routes.cfm` template is where you will use our routing DSL (Domain Specific Language) to define configuration parameters for your routing, RESTful URIs and to create URL mappings.
 
-> **Important** The routes configuration file gets executed within the interceptor, so ALL interceptor methods are available for your usage. You can use tier detection, settings, etc. 
+> **Caution** The routes configuration file gets executed within the interceptor, so ALL interceptor methods are available for your usage. You can use tier detection, settings, etc. 
 
 ### Configuration Methods
 
