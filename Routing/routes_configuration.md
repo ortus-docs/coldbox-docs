@@ -1,5 +1,31 @@
 # Routes Configuration
 
+## SES Interceptor
+
+The SES interceptor is the class in ColdBox that provides you with URL Mapping and RESTful support. You will have this declared (or need to declare) in your [ConfigurationCFC](http://wiki.coldbox.org/wiki/ConfigurationCFC.cfm):
+
+
+```js
+interceptors = [
+  {class="coldbox.system.interceptors.SES"}
+];
+```
+
+By convention the interceptor will look for *config/Routes.cfm* as your configuration file. If you want to change this, then declare a property of the interceptor with a path to your configuration file:
+
+```js
+interceptors = [
+  {class="coldbox.system.interceptors.SES",
+   properties = {configFile = "myconfig/path/Routes.cfm"} }
+];
+```
+
+Once the SES interceptor loads in your application it will create two settings for you:
+
+* SESBaseURL : The location path to your application that will be setup in your *Routes.cfm*
+* HTMLBaseURL : The same path as SESBaseURL but without any *index.cfm *in it (Just in case you are using index.cfm rewrite). This is a setting used most likely by the HTML <base> tag.
+
+
 Inside of your Routes.cfm template is where you will use our routing DSL (Domain Specific Language) to define configuration parameters for your routing, RESTful URIs and to create URL mappings.
 
 > **Important** The routes configuration file gets executed within the interceptor, so ALL interceptor methods are available for your usage. You can use tier detection, settings, etc. 
