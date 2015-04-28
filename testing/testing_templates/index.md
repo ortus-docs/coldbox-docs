@@ -1,2 +1,3 @@
 # Testing Templates
 
+![](../../TestingTemplate.png)
