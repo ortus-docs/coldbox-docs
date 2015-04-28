@@ -8,13 +8,15 @@ interceptors = [
 ]
 ```
 
-> **Caution**  Some J2EE servlet containers do not support the forwarding of SES parameters via the routing template out of the box. You might need to enable full URL rewriting either through a web server or a J2EE filter. 
+> **Caution**  Some J2EE servlet containers do not support the forwarding of SES parameters via the routing template (`index.cfm`) out of the box. You might need to enable full URL rewriting either through a web server or a J2EE filter. 
+
+If you do not use full URL rewrites, the URL might look like this:
 
 `http://localhost/index.cfm/home/about`
 
-`http://localhost/home/about`
+The following is with full URL enabled, which eliminates the `index.cfm`:
 
-Then you will need to enable URL rewriting at the web server level or use a J2EE rewrite filter. The most common are listed below:
+`http://localhost/home/about`
 
 ## Some Resources
 
