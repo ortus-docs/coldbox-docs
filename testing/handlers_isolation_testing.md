@@ -18,3 +18,23 @@ This testing support class will create your handler, and decorate with mocking c
 All of the mock objects are essentially the dependencies of handler objects. You have complete control over them as they are already mocked for you.
 
 > **Important** We do not initialize your handlers for you. So if you have a init() method, you need to call it manually. Also note that this CFC is in isolation, you will have to mock all of its depenencies if needed. 
+
+Basic Setup
+
+```js
+/**
+* @handler myApp.handler.User
+* @UDFLibraryFile /myApp/includes/helpers/AppHelper.cfm
+*/
+component extends="coldbox.system.testing.BaseHandlerTest"{
+
+  // Just create test methods, no need to use the setup() method unless you want to:
+  function setup(){
+      super.setup();
+      mockUserService = getMockBox().createEmptyMock("myapp.model.user.UserService");
+      // wire in my mock dependencies as this handler already has mocking capabilities
+      handler.$property("userService","variables",mockUserService);
+  }
+
+}
+```
