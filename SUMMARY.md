@@ -195,6 +195,7 @@
    * [Interceptor Asynchronicity](interceptors/interceptor_asynchronicity.md)
    * [Conclusion](interceptors/conclusion.md)
 * [Modules](modules/index.md)
+   * Locations
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
        * [AppMapping](proxy/appmapping.md)
