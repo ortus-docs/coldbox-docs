@@ -37,5 +37,5 @@ As you can see, we start our URL mapping DSL with the `with()` method and pass i
 |module|The module prefix|
 |namespace|The namespace prefix|
 
-> **Caution** It is extremely important that you close the with closures with an endWith() call or all subsequent addRoutes() calls, will be using the last with closure you declared. 
+> **Caution** It is extremely important that you close the with closures with an `endWith()` call or all subsequent `addRoutes()` calls, will be using the last with closure you declared. 
 
