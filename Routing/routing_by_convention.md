@@ -1,6 +1,6 @@
 # Routing by Convention
 
-The default route is:
+The default route which is declared for you in the `Routes.cfm` is:
 
 ```js
 addRoute(pattern=":handler/:action?");
