@@ -239,5 +239,5 @@
        * [Testing Tools](testing/testing_concepts/testing_tools.md)
    * [MXUnit Installation](testing/mxunit_installation.md)
    * [Testing Templates](testing/testing_templates/index.md)
-       * Eclipse MXUnit Plugin Caveats
+       * [Eclipse MXUnit Plugin Caveats](testing/testing_templates/eclipse_mxunit_plugin_caveats.md)
 
