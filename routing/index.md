@@ -24,9 +24,9 @@ A route is a declared URL pattern that if matched it will translate such URL int
 
 ```js
 addRoute(
-    pattern="/blog/:year-numeric{4}/:month?/:day?",
-    handler="blog",
-    action="list"
+    pattern = "/blog/:year-numeric{4}/:month?/:day?",
+    handler = "blog",
+    action  = "list"
 );
 ```
     
