@@ -19,6 +19,34 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.cfm/%{REQUEST_URI} [QSA,L]
 ```
 
+## nginx
+
+```
+################### LOCATION: ROOT #####################
+location / {
+     # First attempt to serve real files or directory, else it sends it to the @rewrite location for processing
+     try_files $uri $uri/ @rewrite;
+}
+
+################### @REWRITE: COLDBOX SES RULES #####################
+# Rewrite for ColdBox (only needed if you want SES urls with this framework)
+# If you don't use SES urls you could do something like this
+# location ~ \.(cfm|cfml|cfc)(.*)$ {
+location @rewrite {
+  rewrite ^/(.*)? /index.cfm/$request_uri last;
+  rewrite ^ /index.cfm last;
+}
+
+################### CFM/CFC RAILO HANDLER #####################
+# The above locations will just redirect or try to serve cfml files
+# We need this to tell NGinx that if we receive the following requests to pass them to Railo
+location ~ \.(cfm|cfml|cfc|jsp)(.*)$ {
+# Include our connector
+include railo.conf;
+}
+
+```
+
 ## IIS7 web.config
 
 ```js
