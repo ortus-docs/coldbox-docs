@@ -1,6 +1,6 @@
-# Routing
+# ColdBox URL Routing
 
-ColdBox URL Mappings will give you support for creating Search Engine Safe (SES) URLs, RESTful services, and overall URL routing your way. We would love to take credit for this feature, but it was inspired by Rails and our good friend Adam Fortuna's ColdCourse project. By convention URL mapping support will allow you to create URL's without using the *?event=this.that¶m1=val* formats by more like the following example:
+ColdBox URL Routing will give you support for creating Search Engine Safe (SES) URLs, RESTful services, and overall URL routing your way.  By convention URL routing  will allow you to create URL's without using nasty parameter delimeters like `?event=this.that&m1=val`.
 
 ```js
 // Old Style
