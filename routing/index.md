@@ -8,7 +8,7 @@ http://localhost/index.cfm?event=home.about&page=2
 http://localhost/index.cfm?city=24&page=3&county=234324324
 ```
 
-You can have the same event but with a URL like this:
+You can have the same event URL but with a nicer routing interface:
 
 ```js
 // Routing Style
