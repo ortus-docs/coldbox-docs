@@ -207,6 +207,7 @@
        * [Module Activation](modules/module_service/module_activation.md)
        * [Module Unloading](modules/module_service/module_unloading.md)
        * [Common Methods](modules/module_service/common_methods.md)
+       * Loading New Methods
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
        * [AppMapping](proxy/appmapping.md)
