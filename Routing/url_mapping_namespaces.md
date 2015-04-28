@@ -23,5 +23,5 @@ with(namespace="blog", handler="blog")
 .endWith();
 ```
 
-> **Info** You can also register multiple URL patterns that point to the same namespace
+> **Hint** You can also register multiple URL patterns that point to the same namespace
 
