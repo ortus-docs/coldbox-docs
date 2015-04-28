@@ -243,4 +243,5 @@
    * [ColdBox Testing Classes](testing/coldbox_testing_classes.md)
    * [Integration Testing](testing/integration_testing/index.md)
        * [Test Annotations](testing/integration_testing/test_annotations.md)
+       * Common Methods
 
