@@ -1,4 +1,4 @@
-# event.buildLink()
+# Building Routable Links
 
 ```js
 public any buildLink(string linkto, [boolean translate='true'], [boolean ssl='false'], [string baseURL=''], [string queryString=''])
