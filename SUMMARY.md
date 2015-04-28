@@ -225,6 +225,7 @@
    * [Request Context Module Methods](modules/request_context_module_methods.md)
    * [Layout and View Renderings](modules/layout_and_view_renderings/index.md)
        * [Layout/View Discovery](modules/layout_and_view_renderings/layoutview_discovery.md)
+       * Overriding Views
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
        * [AppMapping](proxy/appmapping.md)
