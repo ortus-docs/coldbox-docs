@@ -36,7 +36,7 @@ Inside of your `Routes.cfm` template is where you will use our routing DSL (Doma
 
 ## Configuration Methods
 
-You can use the following methods to fine tune the configuration and operation:
+You can use the following methods to fine tune the configuration and operation of the routing dispatcher:
 
 |Method|Description|
 |--|--|
