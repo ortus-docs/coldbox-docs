@@ -233,5 +233,5 @@
    * [Bugs Cost Money](testing/bugs_cost_money.md)
    * [Static Testing](testing/static_testing.md)
    * [Dynamic Testing](testing/dynamic_testing.md)
-   * Developer Foucs
+   * [Developer Foucs](testing/developer_foucs.md)
 
