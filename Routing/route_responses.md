@@ -1,6 +1,6 @@
 # Route Responses
 
-Ability to route responses inline via *addRoute()* with parameters: response, statusCode and statusText. The response argument can be a string or a closure or UDF. The closure and UDF will receive a rc argument which represents the request collection parsed already for you. The simple string can also contain replacement strings that are binded to the parsed parameters from the pattern by using {key} replacements. You can even execute *runEvent()* within your closure and delegate to whatever event you want instead of auto-routing:
+You can route responses inline via `addRoute()` with parameters: `response, statusCode and statusText`. The `response` argument can be a string or a closure or UDF. The closure and UDF will receive a `rc` argument which represents the request collection parsed already for you. The simple string can also contain replacement strings that are binded to the parsed parameters from the pattern by using `{key}` replacements. You can even execute `runEvent()` within your closure and delegate to whatever event you want instead of auto-routing:
 
 
 ```js
