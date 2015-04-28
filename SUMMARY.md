@@ -213,7 +213,7 @@
    * [The Modules Configuration Object](modules/the_modules_configuration_object/index.md)
        * [Public Module Properties/Directives](modules/the_modules_configuration_object/public_module_propertiesdirectives.md)
        * [The Decorated Variables](modules/the_modules_configuration_object/the_decorated_variables.md)
-       * The configure() Method
+       * [The configure() Method](modules/the_modules_configuration_object/the_configure_method.md)
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
        * [AppMapping](proxy/appmapping.md)
