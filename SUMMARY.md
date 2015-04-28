@@ -230,7 +230,7 @@
        * [Default Module Layout](modules/layout_and_view_renderings/default_module_layout.md)
        * [Explicit Module Renderings](modules/layout_and_view_renderings/explicit_module_renderings.md)
    * [Model Integration](modules/model_integration.md)
-   * Module Plugins
+   * [Module Plugins](modules/module_plugins.md)
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
        * [AppMapping](proxy/appmapping.md)
