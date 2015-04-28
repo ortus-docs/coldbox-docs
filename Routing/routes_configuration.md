@@ -1,8 +1,6 @@
 # Routes Configuration
 
-## SES Interceptor
-
-The SES interceptor is the class in ColdBox that provides you with URL Mapping and RESTful support. You will have this declared (or need to declare) in your [ConfigurationCFC](http://wiki.coldbox.org/wiki/ConfigurationCFC.cfm):
+The `SES` interceptor is the class in ColdBox that provides you with URL Routing and RESTful support
 
 
 ```js
