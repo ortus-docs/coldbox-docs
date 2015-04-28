@@ -217,6 +217,7 @@
        * [Environment Control](modules/the_modules_configuration_object/environment_control.md)
        * [Interceptor Methods: onLoad(), onUnLoad(), etc](modules/the_modules_configuration_object/interceptor_methods_onload,_onunload,_etc.md)
    * [Module Event Executions](modules/module_event_executions.md)
+   * SES Default Route Execution
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
        * [AppMapping](proxy/appmapping.md)
