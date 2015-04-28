@@ -5,3 +5,5 @@ If you will be doing your testing from Eclipse then you must alter the location 
 * Right Click on your project
 * Click on MXunit Properties
 
+![](../../MXUnitProjectProperties.jpg)
+
