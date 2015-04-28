@@ -30,7 +30,7 @@ Inside of your `Routes.cfm` template is where you will use our routing DSL (Doma
 
 > **Caution** The routes configuration file gets executed within the interceptor, so ALL interceptor methods are available for your usage. You can use tier detection, settings, etc. 
 
-### Configuration Methods
+## Configuration Methods
 
 You can use the following methods to fine tune the configuration and operation:
 
