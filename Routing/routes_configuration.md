@@ -2,6 +2,14 @@
 
 The `SES` interceptor is the class in ColdBox that provides you with URL Routing and RESTful support
 
+Routing is provided by our SES interceptor and it is enabled by default in all application templates in your `ColdBox.cfc` configuration file:
+
+```
+interceptors = [
+    { class="coldbox.system.interceptors.SES" }
+]
+```
+
 
 ```js
 interceptors = [
