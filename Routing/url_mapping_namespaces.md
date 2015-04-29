@@ -1,13 +1,13 @@
 # URL Mapping Namespaces
 
-You can create a-la-carte namespaces for URL routes. Namespaces are cool groupings of routes according to a specific URL entry point. So you can say that all URLs that start with /testing will be found in the testing namespace and it will iterate through the namespace routes until it matches one of them. Much how modules work, where you have a module entry point, now you can create virtual entry point to ANY route by namespacing it. This route can be a module a non-module, package, or whatever you like. You start off by registering the namespace using the addNamespace(pattern, namespace) method:
+You can create a-la-carte namespaces for URL routes. Namespaces are cool groupings of routes according to a specific URL entry point. So you can say that all URLs that start with /testing will be found in the testing namespace and it will iterate through the namespace routes until it matches one of them. Much how modules work, where you have a module entry point, now you can create virtual entry point to ANY route by namespacing it. This route can be a module a non-module, package, or whatever you like. You start off by registering the namespace using the `addNamespace(pattern, namespace)` method:
 
 ```js
 addNamespace(pattern="/testing", namespace="test");
 addNamespace(pattern="/news", namespace="blog");
 ```
 
-Once a namespace is registered you can add routes to it via the addRoute() method or the with() closure.
+Once a namespace is registered you can add routes to it via the `addRoute()` method or the `with()` closure.
 
 ```js
 // Via addRoute
@@ -23,5 +23,5 @@ with(namespace="blog", handler="blog")
 .endWith();
 ```
 
-> **Info** You can also register multiple URL patterns that point to the same namespace
+> **Hint** You can also register multiple URL patterns that point to the same namespace
 

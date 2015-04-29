@@ -1,6 +1,6 @@
 # With Clousures
 
-We have created some cool context methods to allow for the prefixing of any of the addRoute() arguments by using what we call with closures. This allows you to prefix repetitive patterns in route declarations. The best way to see how it works is by example:
+We have created some cool context methods to allow for the prefixing of any of the `addRoute()` arguments by using what we call **with** closures. This allows you to prefix repetitive patterns in route declarations. The best way to see how it works is by example:
 
 ```js
 addRoute(pattern="/news", handler="public.news", action="index");
@@ -24,7 +24,7 @@ with(pattern="/news", handler="public.news")
 .endWith();
 ```
 
-As you can see, we start our URL mapping DSL with the *with()* method and pass in any argument the *addRoute()* method declares. In this case we pass a pattern and a handler. Meaning any *addRoute()* method that is concatenated in the with closure will be prefixed with that pattern and handler. Once we concatenate the last *addRoute()*, then we finalize the closure with the .*endWith()*; demarcation. BOOM! The patterns look so much manageable and declarable. The arguments you can use for prefixing or defaulting are:
+As you can see, we start our URL mapping DSL with the `with()` method and pass in any argument the `addRoute()` method declares. In this case we pass a pattern and a handler. Meaning any `addRoute()` method that is concatenated in the with closure will be prefixed with that pattern and handler. Once we concatenate the last `addRoute()`, then we finalize the closure with the `.endWith()` demarcation. BOOM! The patterns look so much manageable and declarable. The arguments you can use for prefixing or defaulting are:
 
 |Argument|Description|
 |--|--|
@@ -37,5 +37,5 @@ As you can see, we start our URL mapping DSL with the *with()* method and pass i
 |module|The module prefix|
 |namespace|The namespace prefix|
 
-> **Important** It is extremely important that you close the with closures with an endWith() call or all subsequent addRoutes() calls, will be using the last with closure you declared. 
+> **Caution** It is extremely important that you close the with closures with an `endWith()` call or all subsequent `addRoutes()` calls, will be using the last with closure you declared. 
 

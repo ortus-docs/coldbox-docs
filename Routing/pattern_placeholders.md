@@ -1,8 +1,8 @@
 # Pattern Placeholders
 
-In your URL pattern you can also use the same : syntax to denote a variable position holder. These position holders are alpha-numeric by default:
+In your URL pattern you can also use the same `:` syntax to denote a variable position holder. These position holders are **alpha-numeric** by default:
 
-`addRoute(pattern="blog/:year/:month?/:day?");`
+`addRoute( pattern="blog/:year/:month?/:day?" );`
 
 Once a URL is matched to the route, those placeholders will become request collection variables:
 

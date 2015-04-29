@@ -1,27 +1,55 @@
 # Rewrite Rules
 
-Here are just a few of those rewrite rules for you:
+Here are just a few of those rewrite rules for you for major rewrite engines. You can spice them up as needed.
 
-#### .htaccess
+## .htaccess
 
 ```js
-# Helicon ISAPI_Rewrite configuration file
-# Version 3.1.0.48
-RewriteEngine On
-RepeatLimit 0
+RewriteEngine on
+#if this call related to adminstrators or non rewrite folders, you can add more here.
+RewriteCond %{REQUEST_URI} ^/(.*(CFIDE|cfide|CFFormGateway|jrunscripts|railo-context|lucee|mapping-tag|fckeditor)).*$
+RewriteRule ^(.*)$ - [NC,L]
 
-#dealing with cf-administrator,railo-administrator, etc
-RewriteRule ^/(CFIDE|cfide|CFFormGateway|jrunscripts|railo-context|fckeditor) - [L,I]
+#Images, css, javascript and docs, add your own extensions if needed.
+RewriteCond %{REQUEST_URI} \.(bmp|gif|jpe?g|png|css|js|txt|xls|ico|swf)$
+RewriteRule ^(.*)$ - [NC,L]
 
-#dealing with flash / flex communication, cf-administrator,railo-administrator, etc
-RewriteRule ^/(flashservices|flex2gateway|flex-remoting) - [L,I]
-
+#The ColdBox index.cfm/{path_info} rules.
+RewriteRule ^$ index.cfm [QSA,NS]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.cfm/%{REQUEST_URI} [QSA,L]
+RewriteRule ^(.*)$ index.cfm%{REQUEST_URI} [QSA,L,NS]
 ```
 
-#### IIS7 web.config
+## nginx
+
+```
+################### LOCATION: ROOT #####################
+location / {
+     # First attempt to serve real files or directory, else it sends it to the @rewrite location for processing
+     try_files $uri $uri/ @rewrite;
+}
+
+################### @REWRITE: COLDBOX SES RULES #####################
+# Rewrite for ColdBox (only needed if you want SES urls with this framework)
+# If you don't use SES urls you could do something like this
+# location ~ \.(cfm|cfml|cfc)(.*)$ {
+location @rewrite {
+  rewrite ^/(.*)? /index.cfm/$request_uri last;
+  rewrite ^ /index.cfm last;
+}
+
+################### CFM/CFC RAILO HANDLER #####################
+# The above locations will just redirect or try to serve cfml files
+# We need this to tell NGinx that if we receive the following requests to pass them to Railo
+location ~ \.(cfm|cfml|cfc|jsp)(.*)$ {
+# Include our connector
+include railo.conf;
+}
+
+```
+
+## IIS7 web.config
 
 ```js
 <configuration>
@@ -31,7 +59,7 @@ RewriteRule ^(.*)$ index.cfm/%{REQUEST_URI} [QSA,L]
                <rule name="Application Adminsitration" stopProcessing="true">
                     <match url="^(.*)$" />
                     <conditions logicalGrouping="MatchAll">
-                        <add input="{SCRIPT_NAME}" pattern="^/(.*(CFIDE|cfide|CFFormGateway|jrunscripts|railo-context|fckeditor)).*$" ignoreCase="false" />
+                        <add input="{SCRIPT_NAME}" pattern="^/(.*(CFIDE|cfide|CFFormGateway|jrunscripts|lucee|railo-context|fckeditor)).*$" ignoreCase="false" />
                     </conditions>
                     <action type="None" />
                 </rule>
@@ -63,27 +91,28 @@ RewriteRule ^(.*)$ index.cfm/%{REQUEST_URI} [QSA,L]
 </configuration>
 ```
 
-#### SES Interceptor
+## Tuckey Rewrite
 
-The SES interceptor is the class in ColdBox that provides you with URL Mapping and RESTful support. You will have this declared (or need to declare) in your [ConfigurationCFC](http://wiki.coldbox.org/wiki/ConfigurationCFC.cfm):
-
-
-```js
-interceptors = [
-  {class="coldbox.system.interceptors.SES"}
-];
 ```
-
-By convention the interceptor will look for *config/Routes.cfm* as your configuration file. If you want to change this, then declare a property of the interceptor with a path to your configuration file:
-
-```js
-interceptors = [
-  {class="coldbox.system.interceptors.SES",
-   properties = {configFile = "myconfig/path/Routes.cfm"} }
-];
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.2//EN" "http://tuckey.org/res/dtds/urlrewrite3.2.dtd">
+<urlrewrite>
+	<rule>
+        <note>ContentBox Media URLs</note>
+        <condition type="request-uri" operator="equal">^/__media/.*$</condition>
+        <from>^/(.*)$</from>
+        <to type="passthrough">/index.cfm/$1</to>
+    </rule>
+	<rule>
+		<note>Generic Front-Controller URLs</note>
+		<condition type="request-uri" operator="notequal">/(index.cfm|robots.txt|osd.xml|flex2gateway|cfide|cfformgateway|railo-context|lucee|admin-context|modules/contentbox-dsncreator|modules/contentbox-installer|modules/contentbox|files|images|js|javascripts|css|styles|config).*</condition>
+		<condition type="request-uri" operator="notequal">\.(bmp|gif|jpe?g|png|css|js|txt|xls|ico|swf|woff|ttf|otf)$</condition>
+		<!-- For some reason this is not working now.
+		<condition type="request-filename" operator="notdir"/>
+		<condition type="request-filename" operator="notfile"/>
+		-->
+		<from>^/(.+)$</from>
+		<to type="passthrough">/index.cfm/$1</to>
+	</rule>
+</urlrewrite>
 ```
-
-Once the SES interceptor loads in your application it will create two settings for you:
-
-* SESBaseURL : The location path to your application that will be setup in your *Routes.cfm*
-* HTMLBaseURL : The same path as SESBaseURL but without any *index.cfm *in it (Just in case you are using index.cfm rewrite). This is a setting used most likely by the HTML <base> tag.

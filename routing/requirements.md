@@ -1,16 +1,25 @@
 # Requirements
 
-By default all [ColdBox](http://wiki.coldbox.org/wiki/ConfigurationCFC.cfm) application templates and generated applications have SES support built in via our SES interceptor. This is declared in your configuration file ColdBox.cfc. This will allow you to build URI's by fowarding them through the index.cfm.
-
-> **Important**  Some J2EE servlet containers do not support the forwarding of SES parameters via the routing template out of the box. You might need to enable full URL rewriting either through a web server or a J2EE filter. 
+Routing is enabled by default in the ColdBox application templates in order to work with URL's like this:
 
 `http://localhost/index.cfm/home/about`
 
+As you can see they still contain the `index.cfm` in the URL.  In order to enable full URL rewrites in order to eliminate that `index.cfm` you must have a rewrite enabled webserver like Apache, nginx or IIS or a Java rewrite filter.
+
 `http://localhost/home/about`
 
-Then you will need to enable URL rewriting at the web server level or use a J2EE rewrite filter. The most common are listed below:
+CommandBox has built in rewrites powered by Tuckey and you can enable a server with rewrites by running:
 
-#### Some Resources
+```
+server start --rewritesEnabled
+```
+
+
+> **Caution**  Some J2EE servlet containers do not support the forwarding of SES parameters via the routing template (`index.cfm`) out of the box. You might need to enable full URL rewriting either through a web server or a J2EE filter. 
+
+
+
+## Some Resources
 
 * [Apache mod_rewrite](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) via .htaccess or configuration files (Free)
 * [Helicon Tech](http://www.helicontech.com/) ISAPI rewrite filter for IIS (Paid)
