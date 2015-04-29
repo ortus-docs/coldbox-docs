@@ -261,7 +261,6 @@
    * [Conclusion](testing/conclusion.md)
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
-       * [AppMapping](proxy/appmapping.md)
        * [Proxy Example](proxy/proxy_example.md)
    * [The Base Proxy Object](proxy/the_base_proxy_object.md)
    * [The Event Handlers](proxy/the_event_handlers.md)
