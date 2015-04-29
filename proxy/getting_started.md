@@ -24,4 +24,4 @@ This tells the framework where in the web server (sub-folder) your application i
 <cfset COLDBOX_APP_MAPPING   = "apps.myApp">
 ```
 
-> **Infor** The AppMapping value is an instantiation path value
+> **Info** The `COLDBOX_APP_MAPPING` value is an instantiation path value
