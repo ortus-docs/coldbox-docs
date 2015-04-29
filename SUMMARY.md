@@ -213,7 +213,7 @@
    * [URL Routing](modules/ses-url_mapppings/index.md)
        * [Default Route Execution](modules/ses_default_route_execution.md)
        * [Module Routes Files](modules/ses-url_mapppings/module_routes_files.md)
-   * [Retrieving & Interacting With Module Settings](modules/retrieving_&_interacting_with_module_settings/index.md)
+   * [Module Settings](modules/retrieving_&_interacting_with_module_settings/index.md)
    * [Request Context Module Methods](modules/request_context_module_methods.md)
    * [Layout and View Renderings](modules/layout_and_view_renderings/index.md)
        * [Layout/View Discovery](modules/layout_and_view_renderings/layoutview_discovery.md)
