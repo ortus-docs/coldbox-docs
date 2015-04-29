@@ -16,9 +16,7 @@ Here are some common methods of our ColdBox proxy object.  However, we encourage
 |loadColdBox()	|Gives you the ability to load any external coldbox application in the application scope. Great for remotely loading any coldbox application, it can be located anywhere.|
 |getRemotingUtil()	| Return a utility class to manipulate output and buffer |
 
-You can use any of those methods in your own proxy or even override them. With this in mind, you can create a set of remote objects that inherit from the ColdBox proxy that will be your proxy layer to any remote communication if necessary or just have a main proxy component used to call in to your events.
-
-### Expanding Theory
+## Expanding Theory
 
 Below is a custom method that I created in my own application proxy for retrieving application settings. I DO NOT recommend this, since it will expose your settings. This is just a sample
 
