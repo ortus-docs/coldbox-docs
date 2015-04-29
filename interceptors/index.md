@@ -6,7 +6,12 @@ Interceptors are CFC listeners that react on incoming events.  Events can be ann
 
 
 ## Event Driven Programming
-The way that interceptors are used is usually referred to as event-driven programming, which can be very similiar if you are already doing any JavaScript or AngularJS coding.
+The way that interceptors are used is usually referred to as event-driven programming, which can be very similiar if you are already doing any JavaScript or AngularJS coding.  You can listen and execute intercepting points anywhere you like in your application, you can even produce content whenever you announce:
+
+```js
+<!--- Announce an event in the div --->
+<div>#announceInterception( 'onSidebar' )#</div>
+```
 
 However, we went a step further with ColdBox interceptors and created the hooks necessary in order to implement an event-driven programming pattern into the entire interceptor service. Ok ok, what does this mean? It means, that you are not restricted to the pre-defined interception points that ColdBox provides, you can create your own WOW! Really? Yes, you can very easily declare execution points via the configuration file or register at runtime, create your interceptors with the execution point you declared (Conventions baby!!) and then just announce interceptions in your code via the interception API.
 
