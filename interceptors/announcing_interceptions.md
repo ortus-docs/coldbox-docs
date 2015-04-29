@@ -3,14 +3,12 @@
 The last piece of the puzzle is how to announce events.  You will do so via the inherited super type method  `announceInterception()` that all your handlers,plugins and even the interceptors themselves have or via the interceptor service `process()` method.  This method accepts an incoming data struct which will be broadcasted alongside your event:
 
 ```js
-<---  prepare interception structure --->
-<cfset var data = structnew()>
-<cfset data.timeIntercepted = now()>
-<cfset data.user = event.getValue("oUser")>
-<cfset data.event = event.getCurrentEvent()>
-
 <---  Broadcast Interception --->
-<cfset announceInterception('onLog', data)>
+<cfset announceInterception( 'onLog', {
+    time = now(),
+    user = event.getValue( "user" ),
+    dataset = prc.dataSet
+} )>
 
 <---  Alternate Broadcast Interception Syntax --->
 <cfset getController().getInterceptorService().processState(state,interceptData)>
