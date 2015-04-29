@@ -1,6 +1,6 @@
 # RenderData()
 
-The ColdBox Proxy also has the ability to use the [RequestContext](http://wiki.coldbox.org/wiki/RequestContext.cfm)'s `renderData()` method. So you can build a system that just uses this functionality to transform data into multiple requests. Even have the ability for the same handler to respond to REST/SOAP and MVC all in one method:
+The ColdBox Proxy also has the ability to use the request context's `renderData()` method. So you can build a system that just uses this functionality to transform data into multiple requests. Even have the ability for the same handler to respond to REST/SOAP and MVC all in one method:
 
 Event Handler:
 
