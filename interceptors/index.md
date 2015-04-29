@@ -9,7 +9,7 @@ Interceptors are CFC listeners that react on incoming events.  Events can be ann
 The way that interceptors are used is usually referred to as event-driven programming, which can be very similiar if you are already doing any JavaScript or AngularJS coding.  You can listen and execute intercepting points anywhere you like in your application, you can even produce content whenever you announce:
 
 ```js
-<!--- Announce an event in the div --->
+<!--- Announce an event in the div and produce content --->
 <div>#announceInterception( 'onSidebar' )#</div>
 ```
 
