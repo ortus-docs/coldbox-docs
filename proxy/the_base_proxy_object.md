@@ -5,19 +5,16 @@ Here are some common methods of our ColdBox proxy object.  However, we encourage
 |Method|Description|
 |--|--|
 |announceInterception(state, data) |Processes a remote interception.|
-|getBean()|Get a bean from the ioc plugin|
 |getCacheBox()	|Get a reference to [CacheBox](http://wiki.coldbox.org/wiki/CacheBox.cfm)|
-|getColdboxOCM(cacheName='default')	|Get a reference to a named cache provider|
+|getCache(cacheName='default')	|Get a reference to a named cache provider|
 |getController() |Returns the ColdBox controller instance |
 |getInterceptor()	|Get a named interceptor |
-|getIoCFactory()	|Get the IoC factory object |
 |getLogBox()	|Get a reference to LogBox|
 |getModel(name,dsl,initArguments)	|Get a [Wirebox](http://wiki.coldbox.org/wiki/Wirebox.cfm) model object|
-|getPlugin()	|Get a core or custom plugin |
 |getWireBox()	|Get a reference to [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm)|
 |process() |Processes a remote call that will execute a coldbox event and returns data/objects back. |
 |loadColdBox()	|Gives you the ability to load any external coldbox application in the application scope. Great for remotely loading any coldbox application, it can be located anywhere.|
-|tracer()	|Ability to send tracer messages to the debugger |
+|getRemotingUtil()	| Return a utility class to manipulate output and buffer |
 
 You can use any of those methods in your own proxy or even override them. With this in mind, you can create a set of remote objects that inherit from the ColdBox proxy that will be your proxy layer to any remote communication if necessary or just have a main proxy component used to call in to your events.
 
