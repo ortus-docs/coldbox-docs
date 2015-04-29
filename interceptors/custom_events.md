@@ -1,8 +1,8 @@
 # Custom Events
 
-As we discussed before, you can also define your own events for your application. You can do this via the ConfigurationCFC or programmatically as well.
+Apart from all the announced events by the framework, you can also register your own custom events.
 
-Instructional Video
+**Instructional Video**
 
 <a href="https://vimeo.com/17409335">![](video_customInterceptionPoints.png)</a>
 
