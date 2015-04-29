@@ -44,7 +44,7 @@ Let's do some real examples, I am building a simple module with 1 layout and 1 v
        + index.cfm
 ```
 
-Now, in my handler code I just want to render the view by using our typical event.setView() method calls or implicit views.
+Now, in my handler code I just want to render the view by using our typical `event.setView()` method calls or implicit views.
 
 ```js
 
