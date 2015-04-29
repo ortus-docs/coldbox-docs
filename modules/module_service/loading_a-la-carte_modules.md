@@ -21,5 +21,5 @@ You will then issue the following:
 controller.getModuleService().registerAndActivateModule('Calendar','shared.modules')
 ```
 
-> **Important** The instantiation path does NOT include the name of the module on disk as the name is the module name you already pass into the method.
+> **Caution** The instantiation path does NOT include the name of the module on disk as the name is the module name you already pass into the method.
 
