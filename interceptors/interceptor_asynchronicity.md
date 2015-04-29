@@ -1,6 +1,6 @@
 # Interceptor Asynchronicity
 
-In honor of one of my favorite bands and album, [The Police](http://en.wikipedia.org/wiki/Synchronicity_(The_Police_album) - [Synchronicity](http://www.youtube.com/watch?v=CMBufJmTTSA), we have added asynchrounous capabilities to ColdBox Interceptors. These features are thanks to the sponsorship of Guardly, Inc, Alert, Connect, Stay Safe. So please make sure to check them out and thank them for sponsoring this great feature set. The core interceptor service and announcement methods have some arguments that can turn asynchronicity on or off and can return a structure of threading data.
+In honor of one of my favorite bands and album, [The Police](http://en.wikipedia.org/wiki/Synchronicity_(The_Police_album) - [Synchronicity](http://www.youtube.com/watch?v=CMBufJmTTSA), we have some asynchrounous capabilities in ColdBox Interceptors. These features are thanks to the sponsorship of Guardly, Inc, Alert, Connect, Stay Safe. So please make sure to check them out and thank them for sponsoring this great feature set. The core interceptor service and announcement methods have some arguments that can turn asynchronicity on or off and can return a structure of threading data.
 
 ```js
 any announceInterception(state, interceptData, async, asyncAll, asyncAllJoin, asyncJoinTimeout, asyncPriority);
