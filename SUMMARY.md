@@ -225,6 +225,7 @@
    * [Module CF Mappings](modules/module_cf_mappings.md)
    * [Module Dependencies](modules/module_dependencies.md)
    * Module Bundles
+   * Module Inception
 * [Testing](testing/index.md)
    * [Testing Concepts](testing/testing_concepts/index.md)
        * [Functional Testing](testing/testing_concepts/functional_testing.md)
