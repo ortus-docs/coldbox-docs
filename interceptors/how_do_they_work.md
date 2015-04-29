@@ -4,6 +4,19 @@ Interceptors are CFC's that can either extend ColdBox base class: `coldbox.syste
 
 ![](../images/ColdBoxMajorClasses.jpg)
 
+```js
+/**
+* My Interceptor
+*/
+component extends="coldbox.system.Interceptor"{
+	
+	function configure(){}
+
+	function preProcess(event, interceptData, buffer){}
+}
+```
+
+
 
 ## Registration
 Interceptors can be declared in your configuration file `Coldbox.cfc` under the `interceptors` struct or they can be registered manually via the system's interceptor service.
