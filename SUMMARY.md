@@ -270,7 +270,6 @@
    * [Flex Integration](proxy/flex_integration.md)
    * [Standard Return Types](proxy/standard_return_types.md)
    * [Caveats & Gotchas](proxy/caveats_&_gotchas.md)
-   * [Conclusion](proxy/conclusion.md)
 * [Recipes](recipes/index.md)
    * [My First Custom Exception Handler](recipes/my_first_custom_exception_handler.md)
    * [My First Custom Plugin](recipes/my_first_custom_plugin.md)
