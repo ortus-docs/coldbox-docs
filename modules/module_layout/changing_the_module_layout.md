@@ -5,11 +5,11 @@ If you are picky and you would like to change the folder layout for your module,
 ```js
 // Module Conventions
 conventions = {
-  handlersLocation = "handlers",
-  viewsLocation = "views",
-  layoutsLocation = "layouts",
-  pluginsLocation = "plugins",
-  modelsLocation = "model"
+  handlersLocation  = "handlers",
+  viewsLocation     = "views",
+  layoutsLocation   = "layouts",
+  pluginsLocation   = "plugins",
+  modelsLocation    = "model"
 };
 ```
 
