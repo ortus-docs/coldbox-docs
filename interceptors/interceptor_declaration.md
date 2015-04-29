@@ -7,5 +7,16 @@ Interceptors can be declared in the `Coldbox.cfc` or programmatically at runtime
 * `properties` - A structure of configuration properties for the interceptor
 
 
+```js
+interceptors = [
+    { 
+        class   = "cfc.path",
+        name    = "unique.name + wirebox ID",
+        properties = { 
+            //configuraiton struct
+        }
+]
+```
+
 > **Info** Remember that order is important!
 
