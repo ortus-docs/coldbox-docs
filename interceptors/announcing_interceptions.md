@@ -16,3 +16,5 @@ announceInterception( 'onLog', {
 // Announce via interceptor service
 controller.getInterceptorService().processState( "onRecordInsert", {} );
 ```
+
+> **Hint** Announcing events can also get some asynchronous love, read the Interceptor Asynchronicity for some asynchronous love.
