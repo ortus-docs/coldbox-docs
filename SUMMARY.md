@@ -261,7 +261,6 @@
    * [Conclusion](testing/conclusion.md)
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
-       * [Proxy Example](proxy/proxy_example.md)
    * [The Base Proxy Object](proxy/the_base_proxy_object.md)
    * [The Event Handlers](proxy/the_event_handlers.md)
        * [Distinguishing Request Types](proxy/distinguishing_request_types.md)
