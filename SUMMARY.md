@@ -222,8 +222,8 @@
        * [Default Module Layout](modules/layout_and_view_renderings/default_module_layout.md)
        * [Explicit Module Renderings](modules/layout_and_view_renderings/explicit_module_renderings.md)
    * [Models](modules/model_integration.md)
-   * [Module Plugins](modules/module_plugins.md)
    * Module CF Mappings
+   * [Module Plugins](modules/module_plugins.md)
 * [Testing](testing/index.md)
    * [Testing Concepts](testing/testing_concepts/index.md)
        * [Functional Testing](testing/testing_concepts/functional_testing.md)
