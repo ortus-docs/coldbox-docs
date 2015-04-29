@@ -10,6 +10,12 @@ Most remote APIs are strongly typed so it makes sense to create as many ColdBox 
 
 The concept behind the ColdBox proxy is to create CFC's that extend our proxy class: `coldbox.system.remote.ColdboxProxy`. This will give you the ability to locate and talk to your running ColdBox application. 
 
+```js
+component extends="coldbox.system.remote.ColdboxProxy"{
+
+}
+```
+
 ## AppMapping
 
 However, since some of these requests won't be done via HTTP but other protocols like Flex/Air, your ColdBox application must know where in your server the application is located in. By default, when using HTTP calls, ColdBox can auto-locate your application with no issues at all, but with Flex/AIR or other protocols you must set this location in your `Application.cfc` via the `COLDBOX_APP_MAPPING` directive.
