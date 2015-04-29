@@ -20,7 +20,11 @@ All asynchronous calls will return a structure of thread information back to you
 
 
 ```js
-threadData = announceInterception(state="onLogin", interceptData={ user=user }, asyncAll=true);
+threadData = announceInterception(
+    state           = "onLogin", 
+    interceptData   = { user=user }, 
+    asyncAll        = true
+);
 ```
 
 Now that you have seen all asynchronous arguments and their features, let's investigate each use case one by one.
