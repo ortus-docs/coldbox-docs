@@ -1,6 +1,6 @@
-# SES-URL Mapppings
+# URL Routing
 
-SES Routing is the default routing and execution mechanisms for ColdBox. Creating URL Mappings has great benefits and incredible extensibility. If you are not familiar with them, please review our [URL Mappings & SES section](http://wiki.coldbox.org/wiki/URLMappings.cfm). We reviewed that you can have custom routes for each module, and that is fantastic. However, in order for the routes to become active you must add an entry point in the module configuration object so that entry point can be registered for you in the host application.
+URL Routing is the default routing and execution mechanisms for ColdBox. Creating URL Mappings has great benefits and incredible extensibility. If you are not familiar with them, please review our [URL Mappings & SES section](http://wiki.coldbox.org/wiki/URLMappings.cfm). We reviewed that you can have custom routes for each module, and that is fantastic. However, in order for the routes to become active you must add an entry point in the module configuration object so that entry point can be registered for you in the host application.
 
 You can also add these entry points manually in the host application's SES Routing file: *config/Routes.cfm*. Why? Well, remember that routing is all about order, we must define our routes in order so they can be discovered. Thus, we need to manually go into our host application's Routes.cfm template and insert the module routes where we see fit. We do this by using a method called addModuleRoutes().
 
