@@ -1,6 +1,6 @@
 # Module Event Executions
 
-Module event executions are done almost exactly the same way we are used to in our ColdBox applications using event syntax patterns. By now we understand that an event comes in via the URL/FORM or Remotely to the framework and then the framework decides what event to execute. We also know that we can abstract our incoming events by using the ColdBox URL Mappings and SES support, but at the end of the day, we will always have an event variable in the request collection that tells the framework what event to execute. The typical event syntax pattern we have learned is:
+Module event executions are done almost exactly the same way we are used to in our ColdBox applications using event syntax patterns. By now we understand that an event comes in via the URL/FORM or Remotely to the framework and then the framework decides what event to execute. We also know that we can abstract our incoming events by using the ColdBox URL Routing, but at the end of the day, we will always have an `event` variable in the request collection that tells the framework what event to execute. The typical event syntax pattern we have learned is:
 
 ```js
 // Pattern
