@@ -19,5 +19,5 @@ function preRender( event, interceptData, buffer ){
 }
 ```
 
-> **Important** Each execution point will have its own clean buffer to work with. As each interception point has finalized execution, the output buffer is flushed, only if content exists. 
+> **Caution** Each execution point will have its own clean buffer to work with. As each interception point has finalized execution, the output buffer is flushed, only if content exists. 
 
