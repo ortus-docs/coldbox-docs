@@ -1,2 +1,0 @@
-# ColdBox MVC Hello World
-
