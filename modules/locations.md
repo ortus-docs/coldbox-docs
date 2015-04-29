@@ -11,5 +11,5 @@ coldbox = {
 };
 ```
 
-In the example above, ColdBox will first register all the modules in the local application conventions folder, modules, and then look in order of declaration of the external locations. You might be asking yourself, what happens if there is another module in the external location with the same name as in another location? Or even in the conventions? Well, the first one found takes precedence. So if we have a module called funky in our conventions folder and also in our external locations, only the one in the conventions will load as it is discovered first.
+In the example above, ColdBox will first register all the modules in the local application conventions folder, `modules`, and then look in order of declaration of the external locations. You might be asking yourself, what happens if there is another module in the external location with the same name as in another location? Or even in the conventions? Well, the first one found takes precedence. So if we have a module called funky in our conventions folder and also in our external locations, only the one in the conventions will load as it is discovered first.
 
