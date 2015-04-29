@@ -12,11 +12,11 @@ var threadData = announceInterception(
 
 > **Caution** Please remember that you are also sharing state between interceptors via the `event` and `interceptData`, so make sure you either lock or are careful in asynchronous land.
 
-### Configuration Arguments
+## Configuration Arguments
 
 You can also combine this call with the following arguments:
 
-* `asyncPriority` : The priority level of each of the spawned threads. By default it uses normal priority level 
+* `asyncPriority` : The priority level of each of the spawned threads. By default it uses `normal` priority level 
 * `asyncJoinTimeout` : The timeout in milliseconds to wait for all spawned threads. By default it is set to 0, which waits until ALL threads finalize no matter how long they take.
 * `asyncAllJoin` : The flag that determines if the caller should wait for all spawned threads or should just spawn all threads and continue immediately. By default, it waits until all spawned threads finalize.
 
