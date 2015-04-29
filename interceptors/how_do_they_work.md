@@ -17,7 +17,7 @@ interceptors = [
             //configuraiton struct
         }
 ]
-
+```
 
 ## `configure()`
 The interceptor has one important method that you can use for configuration, called `configure()`. This method will be called right after the interceptor gets created and injected with your configuration file properties. 
