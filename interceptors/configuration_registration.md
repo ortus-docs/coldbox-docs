@@ -14,3 +14,4 @@ interceptorSettings = {
 };
 ```
 
+The `customInterceptionPoints` is what interest us.  This can be a list or an array of events your system can broadcast.
