@@ -2,21 +2,21 @@
 
 The default order of overrides ColdBox offers is both `viewParentLookup & layoutParentLookup` to **true**. This means that if the layout or view requested to be rendered by a module exists in the overrides section of the host application, then the host application's layout or view will be rendered instead. Let's investigate the order of discover:
 
-![](../../ModulesViewLookupTrue.jpg)![](../../ModulesViewLookupFalse.jpg)
+![](../../images/ModulesViewLookupTrue.jpg)![](../../images/ModulesViewLookupFalse.jpg)
 
-viewParentLookup = true 
+**viewParentLookup = true **
 
-1. Host override module specific (e.g. {HOST}/views/modules/myModule/myView.cfm)
-2. Host override common (e.g. {HOST}/views/modules/myView.cfm)
-3. Module view (e.g. /modules/myModule/views/myView.cfm)
-4. Default view discovery from host (e.g. {HOST}/views/myView.cfm)
+1. Host override module specific `(e.g. {HOST}/views/modules/myModule/myView.cfm)`
+2. Host override common `(e.g. {HOST}/views/modules/myView.cfm)`
+3. Module view `(e.g. /modules/myModule/views/myView.cfm)`
+4. Default view discovery from host `(e.g. {HOST}/views/myView.cfm)`
 
-viewParentLookup = false 
+**viewParentLookup = false **
 
-1. Module view (e.g. /modules/myModule/views/myView.cfm)
-2. Host override module specific (e.g. {HOST}/views/modules/myModule/myView.cfm)
-3. Host override common (e.g. {HOST}/views/modules/myView.cfm)
-4. Default view discovery from host (e.g. {HOST}/views/myView.cfm)
+1. Module view `(e.g. /modules/myModule/views/myView.cfm)`
+2. Host override module specific `(e.g. {HOST}/views/modules/myModule/myView.cfm)`
+3. Host override common `(e.g. {HOST}/views/modules/myView.cfm)`
+4. Default view discovery from host `(e.g. {HOST}/views/myView.cfm)`
 
 ![](../../ModulesLayoutLookupTrue.jpg)![](../../ModulesLayoutLookupFalse.jpg)
 
