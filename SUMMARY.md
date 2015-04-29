@@ -186,7 +186,7 @@
    * [Reporting Methods](interceptors/reporting_methods.md)
    * [Interceptor Asynchronicity](interceptors/interceptor_asynchronicity.md)
        * [Async Announcements](interceptors/async_announcements.md)
-       * Async Listeners With Join
+       * [Async Listeners With Join](interceptors/async_listeners_with_join.md)
        * Async Listeners No Join
        * Asynchronous Annotations
 * [Modules](modules/index.md)
