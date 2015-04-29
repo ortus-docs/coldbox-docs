@@ -11,7 +11,7 @@ var threadData = announceInterception(
 );
 ```
 
-### Configuration Arguments
+## Configuration Arguments
 
 You can also combine this call with the following arguments:
 
