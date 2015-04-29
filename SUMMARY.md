@@ -224,7 +224,7 @@
    * [Models](modules/model_integration.md)
    * [Module CF Mappings](modules/module_cf_mappings.md)
    * [Module Dependencies](modules/module_dependencies.md)
-   * Module Bundles
+   * [Module Bundles](modules/module_bundles.md)
    * Module Inception
 * [Testing](testing/index.md)
    * [Testing Concepts](testing/testing_concepts/index.md)
