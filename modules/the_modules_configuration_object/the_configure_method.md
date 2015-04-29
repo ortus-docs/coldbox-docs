@@ -53,11 +53,6 @@ function configure(){
     mysite   = {name="mySite", dbType="mysql", username="root", password="root"}
   };
   
-  // web services
-  webservices = {
-    google = "http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&topic=h&num=3&output=rss"
-  };
-  
   // SES Routes
   routes = [
     // load the routes.cfm in the config folder of the module
