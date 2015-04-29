@@ -5,10 +5,9 @@ The first case involves where you want to completely detach an interception call
 ```js
 threadData = announceInterception(
     state           = "onPageCreate", 
-    interceptData   = {}, 
+    interceptData   = { page= local.page }, 
     asyncAll        = true
 );
-```
 ```
 
 ### Configuration Arguments
