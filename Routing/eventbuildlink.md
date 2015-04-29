@@ -12,7 +12,7 @@ buildLink(
 ) 
 ```
 
-ust pass in the routed URL or event and it will create the appropriate URL for you:
+Just pass in the routed URL or event and it will create the appropriate routed URL for you:
 
 ```js
 <a href="#event.buildLink( 'home.about' )#">About</a>
