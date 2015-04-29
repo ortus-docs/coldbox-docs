@@ -188,7 +188,7 @@
        * [Async Announcements](interceptors/async_announcements.md)
        * [Async Listeners With Join](interceptors/async_listeners_with_join.md)
        * [Async Listeners No Join](interceptors/async_listeners_no_join.md)
-       * Asynchronous Annotations
+       * [Asynchronous Annotations](interceptors/asynchronous_annotations.md)
 * [Modules](modules/index.md)
    * [Locations](modules/locations.md)
    * [Parent Configuration](modules/parent_configuration.md)
