@@ -188,6 +188,7 @@
        * Async Announcements
        * Async Listeners With Join
        * Async Listeners No Join
+       * Asynchronous Annotations
 * [Modules](modules/index.md)
    * [Locations](modules/locations.md)
    * [Parent Configuration](modules/parent_configuration.md)
