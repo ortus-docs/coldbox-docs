@@ -264,7 +264,7 @@
    * [The Base Proxy Object](proxy/the_base_proxy_object.md)
    * [The Event Handlers](proxy/the_event_handlers.md)
        * [Distinguishing Request Types](proxy/distinguishing_request_types.md)
-       * RenderData()
+       * [RenderData()](proxy/renderdata.md)
    * [Proxy Events](proxy/proxy_events.md)
    * [Ajax Data Binding & More](proxy/ajax_data_binding_&_more.md)
    * [Flex Integration](proxy/flex_integration.md)
