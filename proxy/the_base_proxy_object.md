@@ -1,6 +1,6 @@
 # The Base Proxy Object
 
-Here are some common methods of our ColdBox proxy object.  However, we encourage you to see the API docs for that latest and greatest.
+Here are some common methods of our ColdBox proxy object.  However, we encourage you to see the [API docs](http://apidocs.ortussolutions.com/coldbox/current) for that latest and greatest.
 
 |Method|Description|
 |--|--|
