@@ -169,7 +169,6 @@
        * [Conventions](interceptors/conventions.md)
        * [eventpattern annotation](interceptors/eventpattern_annotation.md)
    * [Interceptor Declaration](interceptors/interceptor_declaration.md)
-       * [Configuration File](interceptors/configuration_file.md)
        * [Programmatically](interceptors/programmatically.md)
    * [Interceptor Registration](interceptors/interceptor_registration.md)
    * [Custom Events](interceptors/custom_events.md)
