@@ -1,18 +1,14 @@
 # Interceptor Registration
 
-You can also register CFCs as interceptors programmatically by talking to the application's Interceptor Service:
+You can also register CFCs as interceptors programmatically by talking to the application's Interceptor Service that lives inside the main ColdBox controller.  You can access this service like so:
 
 ```js
-interceptors = [
-	{class="coldbox.system.interceptors.SES", properties={}},
-	{class="interceptors.RequestTrim", properties={trimAll=true}},
-	{class="coldbox.system.interceptors.Security", name="AppSecurity", properties={
-		rulesSource 	= "model",
-		rulesModel		= "securityRuleService@cb",
-		rulesModelMethod = "getSecurityRules",
-		validatorModel = "securityService@cb"}
-	}}
-];
+// via the controller
+controller.getInterceptorService();
+
+// dependency injection
+property name="interceptorService" inject="coldbox:interceptorService";
+
 ```
 
 Once you have a handle on the interceptor service you can use the following methods to register interceptors:
