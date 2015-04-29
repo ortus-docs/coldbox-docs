@@ -10,3 +10,4 @@ When you declare a module and you define a `models` folder then the framework au
 property name="orderService" inject="OrderService@store";
 ```
 
+> **Hint** You can alter this behavior by setting the `this.autoMapModels` configuration setting to **false**. You can also alter the namespace used via the `this.modelNamespace` configuration property.
