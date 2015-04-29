@@ -4,8 +4,8 @@ We have also extended the interceptor registration process so you can annotate i
 
 |Argument|Type|Required|Default Value|Description|
 |--|--|--|--|--|
-|async|none|false|false|If the annotation exists, then ColdBox will execute the interception point in a separate thread only if not in a thread already.|
-|asyncPriority|string : *low,normal,high* |false|*normal*|The thread priority that will be sent to each cfthread call that is made by the system.|
+| `async` |none|false|false|If the annotation exists, then ColdBox will execute the interception point in a separate thread only if not in a thread already.|
+| `asyncPriority` |string : *low,normal,high* |false|*normal*|The thread priority that will be sent to each cfthread call that is made by the system.|
 
 This allows you the flexibility to determine in code which points are threaded, which is a great way to use for emails, logging, etc.
 
