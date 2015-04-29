@@ -17,17 +17,6 @@ The intercepting method returns `boolean` or `void`.  If boolean then it means s
 * **False** or `void` continue execution
 
 
-
-
-The return boolean variable is very important because it tells the interceptor service whether to continue executing interceptors in the chain or not. Ok, what chain, well you can have as many interceptor objects listening to the same interception point. So if interceptors are declared like so:
-
-* interceptor X - preProcess
-* interceptor Y - preProcess
-* interceptor Z - preProcess
-
-
-Let's say that interceptor Y returns a true from the *preProcess* method, then interceptor Z will never get executed, the chain is broken now.
-
 ```js
 component extends="coldbox.system.Interceptor"{
 
@@ -44,9 +33,9 @@ component extends="coldbox.system.Interceptor"{
 }
 ```
 
-Also remember that all interceptors are created by [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm), so you can use dependency injection, configuration binder's, and even [AOP](http://wiki.coldbox.org/wiki/WireBox-AOP.cfm) on interceptor objects. Here is a more complex sample:
+Also remember that all interceptors are created by WireBox, so you can use dependency injection, configuration binder's, and even [AOP](http://wirebox.ortusbooks.com) on interceptor objects. Here is a more complex sample:
 
-HTTP Security Example: 
+**HTTP Security Example:** 
 
 ```js
 /**
