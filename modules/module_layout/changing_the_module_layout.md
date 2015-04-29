@@ -8,7 +8,7 @@ conventions = {
   handlersLocation  = "handlers",
   viewsLocation     = "views",
   layoutsLocation   = "layouts",
-  modelsLocation    = "model"
+  modelsLocation    = "models"
 };
 ```
 
