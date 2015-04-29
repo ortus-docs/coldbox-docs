@@ -1,6 +1,6 @@
 # Building Routable Links
 
-In your views, layouts and handlers you can use the `buildLink` method provided by the request context object to build routable links in your applicaiton.
+In your views, layouts and handlers you can use the `buildLink` method provided by the request context object to build routable links in your application.
 
 ```js
 buildLink(
