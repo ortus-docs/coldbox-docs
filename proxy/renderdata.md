@@ -13,7 +13,6 @@ function list(event,rc,prc){
 **Proxy: **
 ```js
 string function getUsers(string format="json"){
-	validateFormat( arguments.format );
 	arguments.event = "users.list";
 	return process(argumentCollection=arguments);
 }
