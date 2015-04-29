@@ -171,7 +171,7 @@
    * [Interceptor Declaration](interceptors/interceptor_declaration.md)
        * [Configuration File](interceptors/configuration_file.md)
        * [Programmatically](interceptors/programmatically.md)
-   * Interceptor Registration
+   * [Interceptor Registration](interceptors/interceptor_registration.md)
    * [Custom Events](interceptors/custom_events.md)
        * [Configuration Registration](interceptors/configuration_registration.md)
        * [Programmatic Registration](interceptors/programmatic_registration.md)
