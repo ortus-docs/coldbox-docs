@@ -171,7 +171,7 @@
    * [Interceptor Declaration](interceptors/interceptor_declaration.md)
    * [Interceptor Registration](interceptors/interceptor_registration.md)
    * [Core Interception Points](interceptors/core_interception_points.md)
-       * [Application Life Cycle](interceptors/application_life_cycle.md)
+       * [Application Life Cycle Events](interceptors/application_life_cycle.md)
        * [Object Creating Events](interceptors/object_creating_events.md)
        * [Layout-View Events](interceptors/layout-view_events.md)
        * [Module Events](interceptors/module_events.md)
