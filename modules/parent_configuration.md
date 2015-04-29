@@ -5,8 +5,11 @@ There are a few parent application settings when dealing with modules. In your `
 
 ```
 modules = {
-  autoReload = false,
-  include = [],
-  exclude = ["paidModule1","paidModule2"]
+    // reload and unload modules in every request
+    autoReload = false,
+    // An array or list of the module names that will load ONLY
+    include = [],
+    // An array or list of the module names that will be EXCLUDED
+    exclude = ["paidModule1","paidModule2"]
 };
 ```
