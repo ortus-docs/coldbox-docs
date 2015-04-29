@@ -26,15 +26,4 @@ The interceptor has one important method that you can use for configuration, cal
 
 As you can see on the diagram, the interceptor class is part of the ColdBox framework super type family, and thus inheriting the functionality of the framework.
 
-```js
-/**
-* My Interceptor
-*/
-component extends="coldbox.system.Interceptor"{
-	
-	function configure(){}
-
-	function preProcess(event, interceptData, buffer){}
-}
-```
 
