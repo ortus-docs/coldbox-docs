@@ -48,8 +48,4 @@ This means, that we will execute the modules' `blog` handler and the `showPosts`
 http://mysite.com/blog/2009/09
 ```
 
-Then this will match the *simpleblog* module via the static /blog entry point and then it tries to find a match for */2009/09* in the modules' routes and it does! So in conclusion, to enable module SES or URL Mappings you must do two things:
-
-1. Define your routes in the ModuleConfig configuration object
-2. Add the entry point for the module routes wherever you see fit in the host application's Routes.cfm configuration file by using the addModuleRoutes() method.
-
+Then this will match the `simpleblog` module via the static `/blog` entry point and then it tries to find a match for `/2009/09` in the modules' routes and it does! 
