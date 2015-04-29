@@ -40,8 +40,6 @@ The proxy will give you access to your entire ColdBox application assets but als
 </cfcomponent>
 ```
 
-This simple proxy object extends the ColdBox Proxy class that gives you all the remote abilities. Then it is up to you to create methods that will respond to either Flex/Air/Soap or now with ColdFusion 10; Restful services.
-
 ## AppMapping
 
 However, since some of these requests won't be done via HTTP but other protocols like Flex/Air, your ColdBox application must know where in your server the application is located in. By default, when using HTTP calls, ColdBox can auto-locate your application with no issues at all, but with Flex/AIR or other protocols you must set this location in your `Application.cfc` via the `COLDBOX_APP_MAPPING` directive.
