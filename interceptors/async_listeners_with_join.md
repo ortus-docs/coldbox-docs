@@ -10,6 +10,8 @@ var threadData = announceInterception(
 );
 ```
 
+> **Caution** Please remember that you are also sharing state between interceptors via the `event` and `interceptData`, so make sure you either lock or are careful in asynchronous land.
+
 ### Configuration Arguments
 
 You can also combine this call with the following arguments:
