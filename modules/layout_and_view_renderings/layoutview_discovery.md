@@ -28,10 +28,10 @@ The default order of overrides ColdBox offers is both `viewParentLookup & layout
 4. Default layout discovery from host `(e.g. {HOST}/layouts/Default.cfm)`
 
 **layoutParentLookup = false **
-1. Module layout (e.g. /modules/myModule/layouts/myLayouts.cfm)
-2. Host override module specific (e.g. {HOST}/layouts/modules/myModule/myLayout.cfm)
-3. Host override common (e.g. {HOST}/layouts/modules/myLayout.cfm)
-4. Default layout discovery from host (e.g. {HOST}/layouts/Default.cfm)
+1. Module layout `(e.g. /modules/myModule/layouts/myLayouts.cfm)`
+2. Host override module specific `(e.g. {HOST}/layouts/modules/myModule/myLayout.cfm)`
+3. Host override common `(e.g. {HOST}/layouts/modules/myLayout.cfm)`
+4. Default layout discovery from host `(e.g. {HOST}/layouts/Default.cfm)`
 
 Let's do some real examples, I am building a simple module with 1 layout and 1 view. Here is my directory structure for them:
 
