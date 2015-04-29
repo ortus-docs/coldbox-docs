@@ -1,6 +1,6 @@
 # The configure() Method
 
-Once the public properties are set, we are now ready to configure our module. You will do this by creating a simple method called *configure()* and adding variables to the following configuration structures:
+Once the public properties are set, we are now ready to configure our module. You will do this by creating a simple method called `configure()` and adding variables to the following configuration structures:
 
 
 |Property|Type|Description|
