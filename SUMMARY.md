@@ -203,7 +203,7 @@
        * [Loading New Methods](modules/module_service/loading_new_methods.md)
        * [Loading A-la-carte Modules](modules/module_service/loading_a-la-carte_modules.md)
        * [Module Events](modules/module_service/module_event.md)
-   * [The Modules Configuration Object](modules/the_modules_configuration_object/index.md)
+   * [ModuleConfig](modules/the_modules_configuration_object/index.md)
        * [Public Module Properties/Directives](modules/the_modules_configuration_object/public_module_propertiesdirectives.md)
        * [The Decorated Variables](modules/the_modules_configuration_object/the_decorated_variables.md)
        * [The configure() Method](modules/the_modules_configuration_object/the_configure_method.md)
