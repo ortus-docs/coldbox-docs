@@ -11,11 +11,11 @@ The buffer is unique per interception point but available to the entire chain of
 
 ```js
 // Using methods, meaning you inherited from Interceptor or registered at configuration time.
-function preRender(event,interceptData,buffer){
+function preRender( event, interceptData, buffer ){
 	//clear all of it first, just in case.
 	clearBuffer();
 	//Append to buffer
-	appendToBuffer('<h1>This software is copyright by Funky Joe!</h1>');	
+	appendToBuffer( '<h1>This software is copyright by Funky Joe!</h1>' );	
 }
 ```
 
