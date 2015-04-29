@@ -1,5 +1,7 @@
 # Modules
 
+![](../images/Modules.png)
+
 ColdBox Modules are self-contained subsets of a ColdBox application that can be dropped in to any ColdBox application and become alive as part of the host application. They will bring re-usability and extensibility to any ColdBox application, as now you can break them down further into a collection of modules.  CommandBox will also help you manage, install, track and uninstall modules. This concept has been around in software design for a long time as it is always essential to partition a system into manageable modules or parts.
 
 > "In structured design and data-driven design, a module is a generic term used to describe a named and addressable group of program statements" by Craig Borysowich (Chief Technology Tactician)
