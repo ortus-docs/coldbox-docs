@@ -34,5 +34,5 @@ As you can see, we can prefix the event syntax with a module name and then follo
 > **Hint** Please remember that this is great for securing your applications as the event patterns you can match against with regular expressions will help you tremendously, as you can pinpoint modules directly.
 
 
-In summary, the event syntax has been updated to support module executions via the *{module:} prefix*. However, please note that our preference is to abstract URLs and incoming event variables (via FORM/URL) by using ColdBox URL Mappings. In the next section we will revise how to make module URL Mappings work.
+In summary, the event syntax has been updated to support module executions via the `{module:}` prefix. However, please note that our preference is to abstract URLs and incoming event variables (via FORM/URL) by using ColdBox URL Routing. In the next section we will revise how to make module URL Routings work.
 
