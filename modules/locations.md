@@ -1,6 +1,6 @@
 # Locations
 
-A typical ColdBox application will have a directory called modules. Here is where you will place all your ColdBox modules in and giving each one of them a unique folder name. However, you can also tell ColdBox to not only look in the conventions folder for your modules but anywhere in the server you like with the ColdBox configuration directive: ModulesExternalLocation. This setting is an array of locations you want to tell ColdBox to look for modules. Each array element is the instantiation location which can use ColdFusion mappings or an absolute reference from the root of your application.
+A typical ColdBox application will have a directory called `modules`, if not just create it. Here is where you will place all your ColdBox modules in and giving each one of them a unique folder name. However, you can also tell ColdBox to not only look in the conventions folder for your modules but anywhere in the server you like with the ColdBox configuration directive: `coldbox.modulesExternalLocation`. This setting is an array of locations you want to tell ColdBox to look for modules. Each array element is the instantiation location which can use ColdFusion mappings or an absolute reference from the root of your application.
 
 > **Important** Internally each of those entries will be expanded for you, so please be aware of this. 
 
