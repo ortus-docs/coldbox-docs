@@ -10,5 +10,3 @@ unregister( 'preProcess' );
 controller.getInterceptorService()
 	.unregister( interceptorName="MyInterceptor", state="preProcess" );
 ```
-
-By using the code above in my interceptor, I would have unregistered it from the preProcess execution point or any point I pass.
