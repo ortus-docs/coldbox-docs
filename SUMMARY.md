@@ -192,8 +192,6 @@
 * [Modules](modules/index.md)
    * [Locations](modules/locations.md)
    * [Parent Configuration](modules/parent_configuration.md)
-   * [Conventions](modules/conventions/index.md)
-       * [Changing The Conventions](modules/conventions/changing_the_conventions.md)
    * [Module Layout](modules/module_layout/index.md)
        * [Changing The Module Layout](modules/module_layout/changing_the_module_layout.md)
    * [Module Service](modules/module_service/index.md)
