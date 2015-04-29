@@ -1,6 +1,6 @@
 # Announcing Interceptions
 
-That is awesome, I declared them and then I code them, but how do they get executed? Well, there is a special method called announceInterception() that all your handlers,plugins and even the interceptors themselves receive via the framework super type. You can call this method with some data and all events listening will be dispatched:
+The last piece of the puzzle is how to announce events.  You will do so via the inherited super type method  `announceInterception()` that all your handlers,plugins and even the interceptors themselves have or via the interceptor service `process()` method.  This method accepts an incoming data struct which will be broadcasted alongside your event:
 
 ```js
 <---  prepare interception structure --->
