@@ -37,6 +37,6 @@ Below are all the possible combinations of a module layout, you will notice that
     + model    (optional)
 ```
 
-As you can see, the only mandatory resources for a module is the directory name in which it lives and a ModuleConfig.cfc. The module developer can choose to implement a simple module or a very complex module. All folders are optional and only what is used will be loaded, but they must follow the [ColdBox directory conventions](http://wiki.coldbox.org/wiki/DirectoryStructure-Conventions.cfmhttp://). Not only are modules reusable and extensible, but you can easily create a module with dual functionality: A standalone application or a module. This is true reusability and flexibility. I don't know about you, but this is really exciting (Geek Alert!).
+As you can see, the only mandatory resources for a module is the directory name in which it lives and a `ModuleConfig.cfc`. The module developer can choose to implement a simple module or a very complex module. All folders are optional and only what is used will be loaded. Not only are modules reusable and extensible, but you can easily create a module with dual functionality: A standalone application or a module. This is true reusability and flexibility. I don't know about you, but this is really exciting (Geek Alert!).
 
 ![](../../ModulesFolderLayout.png)
