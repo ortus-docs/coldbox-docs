@@ -8,4 +8,4 @@ layoutSettings = {
 };
 ```
 
-> **Important** The set default layout MUST exist in the layouts folder of your module and the declaration must have the .cfm extension attached. 
+> **Caution** The set default layout MUST exist in the layouts folder of your module and the declaration must have the .cfm extension attached. 
