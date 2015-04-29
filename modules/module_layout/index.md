@@ -28,6 +28,7 @@ Below are all the possible combinations of a module layout, you will notice that
 +Modules
   + {ModuleName - Unique}
     + ModuleConfig.cfc (The module configuration object Mandatory)
+    + box.json (optional - if using CommandBox)
     + handlers (optional)
     + layouts  (optional)
     + views    (optional)
