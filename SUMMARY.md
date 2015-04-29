@@ -165,7 +165,6 @@
    * [Building Routable Links](Routing/eventbuildlink.md)
    * [HTML base tag](Routing/html_base_tag.md)
 * [Interceptors](interceptors/index.md)
-   * [ForgeBox Interceptors](interceptors/forgebox_interceptors.md)
    * [Event Driven Programming](interceptors/event_driven_programming.md)
    * [Resources](interceptors/resources.md)
    * [For what can I use them](interceptors/for_what_can_i_use_them.md)
