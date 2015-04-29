@@ -4,8 +4,6 @@ Now, what if you want to distinguish between a normal request and a proxy reques
 
 * `isProxyRequest` : This boolean method determines what type of request is being executed.
 
-This is extremely useful if you are doing path operations. Why? Well, when you call a coldfusion component via flash remoting or live data cycle services, the expandPath, getCurrentTemplatePath, getBaseTemplatePath, and other template path methods will always give you the path according to the file you are currently executing. This is due to how ColdFusion deals with remote calls. So you can use the method below to distinguish and load accordingly:
-
 ```js
 <---  Use the isProxyRequest() --->
 <cfif event.isProxyRequest()>
