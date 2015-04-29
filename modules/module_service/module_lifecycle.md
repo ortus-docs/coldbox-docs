@@ -10,7 +10,5 @@ However, before we start reviewing the module service methods let's review how m
 4. All main application interceptors are loaded and configured
 5. ColdBox is marked as initialized
 6. Module service calls on `activateAllModules()` so it begins activating only the registered modules one by one. This registers the module's SES URL Mappings, model objects, etc
-7. afterConfigurationLoad interceptors are fired
-8. ColdBox aspects such as Validation Manager, i18n, javaloader, IoC factories are loaded
-9. afterAspectsLoad interceptors are fired
+7. `afterConfigurationLoad` interceptors are fired
 
