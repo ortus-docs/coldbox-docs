@@ -24,8 +24,7 @@ public any registerInterceptor([any interceptorClass], [any interceptorObject], 
 public any registerInterceptionPoint(any interceptorKey, any state, any oInterceptor)
 ```
 
-Here are a few samples of objects that can register themselves:
-
+**Examples**
 ```js
 // register yourself to listen to all events declared
 controller.getInterceptorService()
