@@ -7,7 +7,7 @@ Every interceptor has the following methods that enable you to add content to an
 * `getBufferString():string`
 * `getBufferObject():coldbox.system.core.util.RequestBuffer`
 
-The buffer is unique per interception point but available to the entire chain of execution within an interception point. Once the interception point is executed, the interceptor service will check to see if the output buffer has content, if it does it will advice to write the output to the ColdFusion output stream. This way, you can produce output very cleanly from your interception points, without adding any messy-encapsulation breaking *output=true* tags to your interceptors. (BAD PRACTICE). This is an elegant solution that can work for both core and custom interception points.
+The buffer is unique per interception point but available to the entire chain of execution within an interception point. Once the interception point is executed, the interceptor service will check to see if the output buffer has content, if it does it will advice to write the output to the ColdFusion output stream. This way, you can produce output very cleanly from your interception points, without adding any messy-encapsulation breaking `output=true` tags to your interceptors. (**BAD PRACTICE**). This is an elegant solution that can work for both core and custom interception points.
 
 ```js
 // Using methods, meaning you inherited from Interceptor or registered at configuration time.
