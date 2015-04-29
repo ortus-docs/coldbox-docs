@@ -6,11 +6,11 @@ ColdBox Modules are self-contained subsets of a ColdBox application that can be 
 
 The key to the statement is that these modules are named and addressable, which is exactly what ColdBox Modules will offer to your application. So by building an application with a methodology of modules, you will inherently achieve:
 
-* Manageability (i.e., small and simple parts that can be easily understood and worked on)
-* Independence (i.e., a module can live on its own if necessary and tested outside of its environments, produces very nice low coupling between core and modules)
-* Isolation (i.e., some modules can be completely isolated and decoupled)
-* Extensibility (i.e., you can easily extend ANY application by just building on top of the modular architecture)
-* Reusability (i.e., modules have independence and can therefore be shared and reused)
-* Sanitability (Yes! That's a word) from the root Sanity
+* **Manageability** (i.e., small and simple parts that can be easily understood and worked on)
+* **Independence** (i.e., a module can live on its own if necessary and tested outside of its environments, produces very nice low coupling between core and modules)
+* **Isolation** (i.e., some modules can be completely isolated and decoupled)
+* **Extensibility** (i.e., you can easily extend ANY application by just building on top of the modular architecture)
+* **Reusability** (i.e., modules have independence and can therefore be shared and reused)
+* **Sanitability** (Yes! That's a word) from the root Sanity
 
 ColdBox Modules will change the way you approach application development as you can now have a foundation architecture that can scale easily and provide you enough manageability to reduce maintenance and increase development. Such a design means that development, testing and maintenance becomes easier, faster and with a much lower cost. **Welcome to a brave new world!**
