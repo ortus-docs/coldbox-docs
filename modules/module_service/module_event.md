@@ -13,17 +13,17 @@ Fired before a module is about to be activated.
 Fired after a module has been successfully activated
 
 **Data:**
-moduleLocation - The location of the loaded module
-moduleName - The name of the module
-moduleConfig - The module configuration structure
+* `moduleLocation` - The location of the loaded module
+* `moduleName` - The name of the module
+* `moduleConfig` - The module configuration structure
 
-## preModuleLoad
+## preModuleUnload
 Fired before a module is about to be unloaded
 
 **Data:**
 * `moduleName` - The name of the module
 
-## preModuleLoad
+## postModuleUnload
 Fired after a module has been unloaded
 
 **Data:**
