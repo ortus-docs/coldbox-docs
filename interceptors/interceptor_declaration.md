@@ -19,7 +19,7 @@ interceptors = [
 ]
 ```
 
-**Example:**
+**Example**
 
 ```js
 interceptors = [
