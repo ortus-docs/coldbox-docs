@@ -8,4 +8,4 @@ routes = [
 ];
 ```
 
-This will look for a routes.cfm template in your module config folder and load it. Please note that you do not need to specify a .cfm if you don't want to. You can load as many route files as you like.
+This will look for a `routes.cfm` template in your module's `config` folder and load it. Please note that you do not need to specify a `.cfm` if you don't want to. You can load as many route files as you like.

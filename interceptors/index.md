@@ -9,7 +9,7 @@ Interceptors are CFC listeners that react on incoming events.  Events can be ann
 The way that interceptors are used is usually referred to as event-driven programming, which can be very similiar if you are already doing any JavaScript or AngularJS coding.  You can listen and execute intercepting points anywhere you like in your application, you can even produce content whenever you announce:
 
 ```html
-<!--- Announce an event in the div and produce content --->
+<!-- Announce an event in the div and produce content -->
 <div>#announceInterception( 'onSidebar' )#</div>
 ```
 
@@ -19,6 +19,7 @@ The way that interceptors are used is usually referred to as event-driven progra
 If you are familiar with design patterns, custom interceptors can give you an implementation of observer/observable listener objects, much like any event-driven system can provide you. In a nutshell, an observer is an object that is registered to listen for certain types of events, let's say as an example `onError` is a custom interception point and we create a CFC that has this `onError` method. Whenever in your application you announce or broadcast that an event of type onError occurred, this CFC will be called by the ColdBox interceptor service.
 
 **Interceptor Example**
+
 ```js
 component extends="coldbox.system.Interceptor"{
     

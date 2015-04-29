@@ -1,6 +1,7 @@
 # Overriding Layouts
 
-Now, let's say you want to override the layout for a module. Go to the host application's layouts folder and create a folder called modules and then a folder according to the module name, in our case simpleModule:
+Now, let's say you want to override the layout for a module. Go to the host application's layouts folder and create a folder called `modules` and then a folder according to the module name, in our case `simpleModule`:
+
 ```js
 /MyApp
   + layouts 

@@ -2,4 +2,4 @@
 
 Below you can see a diagram of what happens when modules get deactivated and unloaded
 
-![](../../ModulesUnload.jpg)
+![](../../images/ModulesUnload.jpg)

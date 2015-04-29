@@ -1,19 +1,13 @@
-# Model Integration
+# Models
 
-When you declare a module and you define a model folder then the framework will register that folder as a scan location to the main parent's model integration [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) injector. This means, that whatever model object you place in the module's model folder will be available application wide. Not only that, but you can specifically create object bindings for the module by using the injected WireBox binder object. We suggest you always do object bindings as you can then request them with no issues at all. By default scan locations are done in order of search, so you could not be guaranteed to get the object you like.
+When you declare a module and you define a `models` folder then the framework automatically register all models in that folder for you using a namespace of `@moduleName`.  This means that all models are registered according to their CFC name plus the namespace.
 
+> **Info** Internally, ColdBox uses WireBox's `mapDirectory()` to map the entire `models` directory for you.
 
+ Let's say you have a module called `store` and a `OrderService.cfc` inside of the `models` folder.  That object will have a WireBox id of `OrderService@store`.
+ 
 ```js
-// WireBox Binder configuration
-binder.map("forgeService@forgebox")
-  .to("#moduleMapping#.model.ForgeService");
+property name="orderService" inject="OrderService@store";
 ```
 
-Here is a sample of autowiring my model objects from my module in my module's handlers:
-
-```js
-property name="forgeService" inject="id:forgeService@forgeBox";
-property name="forgeService" inject="forgeService@forgeBox";
-```
-
-This tells WireBox to create a model object named *forgeService@forgeBox* and inject it for you.
+> **Hint** You can alter this behavior by setting the `this.autoMapModels` configuration setting to **false**. You can also alter the namespace used via the `this.modelNamespace` configuration property.

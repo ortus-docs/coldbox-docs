@@ -1,6 +1,6 @@
 # Module Service
 
-The beauty of ColdBox Modules is that you have an internal module service that you can tap to in order to dynamically interact with the ColdBox Modules. This service is available by talking to the main ColdBox controller and calling its *getModuleService()* method:
+The beauty of ColdBox Modules is that you have an internal module service that you can tap to in order to dynamically interact with the ColdBox Modules. This service is available by talking to the main ColdBox controller and calling its `getModuleService()` method or via dependency injection.
 
 ```js
 // get module service from handlers, plugins, layouts, interceptors or views.

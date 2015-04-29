@@ -1,6 +1,6 @@
 # Loading A-la-carte Modules
 
-You can also use the same moduel service methods to load ANY module in ANY ColdFusion reachable location. This is huge for applications that need granular control of loading and unloading of modules. You will do this with our magic method:
+You can also use the same module service methods to load ANY module in ANY ColdFusion reachable location. This is huge for applications that need granular control of loading and unloading of modules. You will do this with our magic method:
 
 ```js
 registerAndActivateModule(moduleName,[instantiationpath])
@@ -21,5 +21,5 @@ You will then issue the following:
 controller.getModuleService().registerAndActivateModule('Calendar','shared.modules')
 ```
 
-> **Important** The instantiation path does NOT include the name of the module on disk as the name is the module name you already pass into the method.
+> **Caution** The instantiation path does **NOT** include the name of the module on disk as the name is the module name you already pass into the method.
 
