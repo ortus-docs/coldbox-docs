@@ -6,7 +6,11 @@ We reviewed that you can have custom routes for each module, and that is fantast
 this.entryPoint = "/mymodule";
 ```
 
-You can also add these entry points manually in the host application's SES Routing file: *config/Routes.cfm*. Why? Well, remember that routing is all about order, we must define our routes in order so they can be discovered. Thus, we need to manually go into our host application's Routes.cfm template and insert the module routes where we see fit. We do this by using a method called addModuleRoutes().
+## Parent Manual Routing
+
+You can also add these entry points manually in the host application's routing file: `config/Routes.cfm`. However, you will loose all module portability.
+
+Why? Well, remember that routing is all about order, we must define our routes in order so they can be discovered. Thus, we need to manually go into our host application's Routes.cfm template and insert the module routes where we see fit. We do this by using a method called addModuleRoutes().
 
 * addModuleRoutes(pattern, module) : Insert the module routes at this location in the configuration file with the applied URL pattern.
 
