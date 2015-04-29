@@ -11,7 +11,7 @@ This allows you the flexibility to determine in code which points are threaded, 
 
 ```js
 
-function preProcess(event, interceptData) async asyncPriority="low"{
+function preProcess( event, interceptData ) async asyncPriority="low"{
 	// Log current request information
 	log.info("Executing request: #event.getCurrentEvent()#", getHTTPRequestData() );	
 }
