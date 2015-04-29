@@ -1,6 +1,6 @@
 # Interceptor Methods: onLoad(), onUnLoad()
 
-The module configuration object is also treated as a [ColdBox Interceptor](http://wiki.coldbox.org/wiki/Interceptors.cfm) once it is created and configured. This means that the object itself can be registered on ALL of the framework's interception points by just creating the appropriate methods. Also, you have two special methods that you can create on the configuration object and they will come alive, much like Application.cfc event methods. These methods are:
+The module configuration object is also treated as an Interceptor once it is created and configured. This means that the object itself can be registered on ALL of the framework's interception points by just creating the appropriate methods. Also, you have two special methods that you can create on the configuration object and they will come alive, much like Application.cfc event methods. These methods are:
 
 * onLoad() : Called when the module is loaded and activated
 * onUnLoad() : Called when the module is unloaded from memory
