@@ -15,7 +15,7 @@ var threadData = announceInterception(
 
 You can also combine this call with the following arguments:
 
-* `asyncPriority` : The priority level of each of the spawned threads. By default it uses normal priority level 
+* `asyncPriority` : The priority level of each of the spawned threads. By default it uses `normal` priority level 
 
 ```js
 var threadData = announceInterception(
