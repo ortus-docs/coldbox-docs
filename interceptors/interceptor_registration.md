@@ -28,14 +28,18 @@ public any registerInterceptionPoint(any interceptorKey, any state, any oInterce
 ```js
 // register yourself to listen to all events declared
 controller.getInterceptorService()
-	.registerInterceptor(interceptorObject=this);
+	.registerInterceptor( interceptorObject=this );
 
 // register yourself to listen to all events declared and register new events: onError, onLogin
 controller.getInterceptorService()
-	.registerInterceptor(interceptorObject=this, customPoints="onError,onLogin");
+	.registerInterceptor( interceptorObject=this, customPoints="onError,onLogin" );
 
 // Register yourself to listen to ONLY the afterInstanceAutowire event
 controller.getInterceptorService()
-	.registerInterceptionPoint(interceptorKey="MyService",state="afterInstanceAutowire",oInterceptor=this);
+	.registerInterceptionPoint( 
+	    interceptorKey="MyService", 
+	    state="afterInstanceAutowire", 
+	    oInterceptor=this
+	 );
 ```
 
