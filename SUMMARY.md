@@ -269,7 +269,6 @@
    * [Ajax Data Binding & More](proxy/ajax_data_binding_&_more.md)
    * [Flex Integration](proxy/flex_integration.md)
    * [Standard Return Types](proxy/standard_return_types.md)
-   * [Execution Profiler Monitor](proxy/execution_profiler_monitor.md)
    * [Caveats & Gotchas](proxy/caveats_&_gotchas.md)
    * [Conclusion](proxy/conclusion.md)
 * [Recipes](recipes/index.md)
