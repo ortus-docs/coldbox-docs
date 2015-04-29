@@ -177,7 +177,6 @@
        * [Module Events](interceptors/module_events.md)
        * [CacheBox Events](interceptors/cachebox_events.md)
    * [Interceptor Output Buffer](interceptors/interceptor_output_buffer.md)
-       * [Output Buffer Argument](interceptors/output_buffer_argument.md)
    * [Custom Events](interceptors/custom_events.md)
        * [Configuration Registration](interceptors/configuration_registration.md)
        * [Programmatic Registration](interceptors/programmatic_registration.md)
