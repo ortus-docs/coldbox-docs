@@ -10,10 +10,10 @@ threadData = announceInterception(
 );
 ```
 
-### Configuration Arguments
+## Configuration Arguments
 
 You can also combine this call with the following arguments:
-* asyncPrirority : The priority level of the detached thread. By default it uses normal priority level 
+* `asyncPrirority` : The priority level of the detached thread. By default it uses normal priority level 
 
 ```js
 var threadData = announceInterception(state="onPageCreate", interceptData={}, async=true, asyncPriority="low");
