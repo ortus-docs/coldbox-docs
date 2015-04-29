@@ -9,3 +9,7 @@ You can read through our one-page [CommandBox Getting Started Guide](http://ortu
 http://www.ortussolutions.com/products/commandbox
 
 You should now be seeing a prompt that looks like this:
+
+![CommandBox Terminal](../images/commandbox-terminal.png)
+
+## Create A New Site
