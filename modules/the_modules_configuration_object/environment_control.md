@@ -1,6 +1,6 @@
 # Environment Control
 
-If you are using per-environment control in your parent application via the [ConfigurationCFC](http://wiki.coldbox.org/wiki/ConfigurationCFC.cfm), you can also use that in your Module Configuration object. So the same conventions that are used in the parent configuration can be used in the module; having the name of the environment match a method name in your module config. So if the following environments are declared in your parent configuration file and the dev environment is detected, the dev() method is called in your parent:
+If you are using per-environment control in your parent application via the `ColdBox.cfc`, you can also use that in your Module Configuration object. So the same conventions that are used in the parent configuration can be used in the module; having the name of the environment match a method name in your module config. So if the following environments are declared in your parent configuration file and the dev environment is detected, the dev() method is called in your parent:
 
 ```js
 environments = {
