@@ -2,6 +2,10 @@
 
 We reviewed that you can have custom routes for each module, and that is fantastic. However, in order for the routes to become active you must add an entry point (`this.entrypoint`) in the module configuration object so that entry point can be registered for you in the host application.
 
+```js
+this.entryPoint = "/mymodule";
+```
+
 You can also add these entry points manually in the host application's SES Routing file: *config/Routes.cfm*. Why? Well, remember that routing is all about order, we must define our routes in order so they can be discovered. Thus, we need to manually go into our host application's Routes.cfm template and insert the module routes where we see fit. We do this by using a method called addModuleRoutes().
 
 * addModuleRoutes(pattern, module) : Insert the module routes at this location in the configuration file with the applied URL pattern.
