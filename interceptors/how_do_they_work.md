@@ -16,6 +16,11 @@ component extends="coldbox.system.Interceptor"{
 }
 ```
 
+You can use CommandBox to create interceptors as well:
+
+```bash
+coldbox create interceptor help
+```
 
 
 ## Registration
