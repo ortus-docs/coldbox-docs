@@ -16,7 +16,7 @@ The asynchronous arguments are listed in the table below:
 |asyncPriority |string : *low,normal,high* |false|normal|The thread priority that will be sent to each *cfthread* call that is made by the system.|
 |asyncJoinTimeout |numeric|false|0|This argument is only used when using the *asyncAll* and *asyncAllJoin=true* arguments. This argument is the number of milliseconds the calling thread should wait for all the threaded CFC listeners to execute. By default it waits until all threads finalize. |
 
-All asynchronous calls will return a structure of thread information back to you when using the announceInterception() method or directly in the interceptor service, the processState() method. The structure contains information about all the threads that where created during the call and their respective information like: status, data, errors, monitoring, etc.
+All asynchronous calls will return a structure of thread information back to you when using the `announceInterception()` method or directly in the interceptor service, the `processState()` method. The structure contains information about all the threads that where created during the call and their respective information like: status, data, errors, monitoring, etc.
 
 
 ```js
@@ -25,7 +25,7 @@ threadData = announceInterception(state="onLogin", interceptData={ user=user }, 
 
 Now that you have seen all asynchronous arguments and their features, let's investigate each use case one by one.
 
-#### Async Announcement
+## Async Announcement
 
 The first case involves where you want to completely detach an interception call into the background. You will accomplish this by using the async=true argument. This will then detach the execution of the interception into a separate thread and return to you a structure containing information about the thread it created for you. This is a great way to send work jobs, emails, processing and more to the background instead of having the calling thread wait for execution.
 
@@ -33,7 +33,7 @@ The first case involves where you want to completely detach an interception call
 var threadData = announceInterception(state="onPageCreate", interceptData={}, async=true);
 ```
 
-###### Configuration Arguments
+### Configuration Arguments
 
 You can also combine this call with the following arguments:
 * asyncPrirority : The priority level of the detached thread. By default it uses normal priority level 
@@ -41,7 +41,7 @@ You can also combine this call with the following arguments:
 ```js
 var threadData = announceInterception(state="onPageCreate", interceptData={}, async=true, asyncPriority="low");
 ```
-#### Async Listeners With Join
+## Async Listeners With Join
 
 The second use case is where you want to run the interception but multi-thread all the interceptor CFCs that are listening to that interception point. So let's say we have our onPageCreate announcement and we have 3 interceptors that are listening to that interception point. Then by using the asyncAll=true argument, ColdBox will create 3 separate threads, one for each of those interceptors and execute their methods in their appropriate threads. This is a great way to delegate long running processes simultaneously on a specific piece of data. Also, by default, the caller will wait for all of those 3 threads to finalize before continuing execution. So it is a great way to process data and wait until it has become available.
 
@@ -49,7 +49,7 @@ The second use case is where you want to run the interception but multi-thread a
 var threadData = announceInterception(state="onPageCreate", interceptData={}, asyncAll=true);
 ```
 
-###### Configuration Arguments
+### Configuration Arguments
 
 You can also combine this call with the following arguments:
 * asyncPrirority : The priority level of each of the spawned threads. By default it uses normal priority level 
@@ -60,7 +60,7 @@ You can also combine this call with the following arguments:
 var threadData = announceInterception(state="onPageCreate", interceptData={}, asyncAll=true, asyncAllJoin=false);
 ```
 
-#### Async Listeners No Join
+## Async Listeners No Join
 
 The third use case is exactly the same scenario as above but with the exception that the caller will not wait for the spawned threads at all. This is accomplished by using the asyncAllJoin=false flag. This tells ColdBox to just spawn, return back a structure of thread information and continue execution of the calling code.
 
@@ -68,7 +68,7 @@ The third use case is exactly the same scenario as above but with the exception 
 var threadData = announceInterception(state="onPageCreate", interceptData={}, asyncAll=true, asyncAllJoin=false);
 ```
 
-###### Configuration Arguments
+### Configuration Arguments
 
 You can also combine this call with the following arguments:
 
@@ -78,7 +78,7 @@ You can also combine this call with the following arguments:
 var threadData = announceInterception(state="onPageCreate", interceptData={}, asyncAll=true, asyncAllJoin=true, asyncPriority="high");
 ```
 
-#### Asynchronous Annotations
+## Asynchronous Annotations
 
 We have also extended the interceptor registration process so you can annotate interception points to denote threading. You will do so with the following two annotations:
 
