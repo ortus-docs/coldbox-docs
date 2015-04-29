@@ -1,5 +1,7 @@
 # The Base Proxy Object
 
+Here are some common methods of our ColdBox proxy object.  However, we encourage you to see the API docs for that latest and greatest.
+
 |Method|Description|
 |--|--|
 |announceInterception(state, data) |Processes a remote interception.|
