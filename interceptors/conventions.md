@@ -13,7 +13,7 @@ boolean function {point}( event, interceptData, buffer );
 ## Return type
 
 The intercepting method returns `boolean` or `void`.  If boolean then it means something: 
-* **True** means break the chain of execution
+* **True** means break the chain of execution, so no other interceptors in the chain will fire.
 * **False** or void continue execution
 
 
