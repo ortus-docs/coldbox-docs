@@ -14,9 +14,18 @@ var threadData = announceInterception(
 
 You can also combine this call with the following arguments:
 
-* `asyncPrirority` : The priority level of each of the spawned threads. By default it uses normal priority level 
+* `asyncPriority` : The priority level of each of the spawned threads. By default it uses normal priority level 
 * `asyncJoinTimeout` : The timeout in milliseconds to wait for all spawned threads. By default it is set to 0, which waits until ALL threads finalize no matter how long they take.
 * `asyncAllJoin` : The flag that determines if the caller should wait for all spawned threads or should just spawn all threads and continue immediately. By default, it waits until all spawned threads finalize.
 
 ```js
 var threadData = announceInterception(state="onPageCreate", interceptData={}, asyncAll=true, asyncAllJoin=false);
+var threadData = announceInterception(
+    state           = "onPageCreate", 
+    interceptData   = {}, 
+    asyncAll        = true,
+    asyncAllJoin    = false,
+    asyncJoinTimeout = 30,
+    asyncPriority   = "high"
+);
+```
