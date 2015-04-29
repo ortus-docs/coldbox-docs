@@ -5,7 +5,7 @@ The module configuration object is also treated as an Interceptor once it is cre
 * `onLoad()` : Called when the module is loaded and activated
 * `onUnLoad()` : Called when the module is unloaded from memory
 
-This gives you great hooks for you to do bootup and shutdown commands for this specific module. You can build a [Drupal](http://drupal.org/) or [Wordpress](http://wordpress.org/) like application very easily all built in to the developing platform.
+This gives you great hooks for you to do bootup and shutdown commands for this specific module. You can build a [ContentBox](http://ortussolutions.com/products/contentbox/) or [Wordpress](http://wordpress.org/) like application very easily all built in to the developing platform.
 
 ```js
 function onLoad(){
