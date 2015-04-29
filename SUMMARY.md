@@ -208,7 +208,7 @@
        * [The Decorated Variables](modules/the_modules_configuration_object/the_decorated_variables.md)
        * [The configure() Method](modules/the_modules_configuration_object/the_configure_method.md)
        * [Environment Control](modules/the_modules_configuration_object/environment_control.md)
-       * [Lifecycle Methods](modules/the_modules_configuration_object/interceptor_methods_onload,_onunload,_etc.md)
+       * [Interceptor Events](modules/the_modules_configuration_object/interceptor_methods_onload,_onunload,_etc.md)
    * [Module Event Executions](modules/module_event_executions.md)
    * [SES Default Route Execution](modules/ses_default_route_execution.md)
    * [SES-URL Mapppings](modules/ses-url_mapppings/index.md)
