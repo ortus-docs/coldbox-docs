@@ -2,11 +2,11 @@
 
 The event handlers that you will produce for remote interaction are exactly the same as your other handlers, with the exception that they have a return type and return data back to the caller; our proxies. Then our proxies can strong type the return data elements:
 
-Handler:
+**Handler:**
 
 ```js
-function getCachekEys(event,rc,prc){
-	return getColdBoxOCM( rc.cacheProvider ).getKeys();
+function getCacheKeys(event,rc,prc){
+	return getCache( rc.cacheProvider ).getKeys();
 }
 
 function listUsers(event,rc,prc){
@@ -20,7 +20,9 @@ function listUsers(event,rc,prc){
 }
 ```
 
-Proxy:
+> **Hint** The request context has a method called `isProxyRequest()` which tells the application if the request is coming from a ColdBox proxy.
+
+**Proxy:**
 ```js
 array function getCachekEys(string cacheProvider='default'){
 	arguments.event = "proxy.getCacheKeys";
