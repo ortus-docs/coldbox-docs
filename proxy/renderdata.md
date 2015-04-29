@@ -6,16 +6,8 @@ Event Handler:
 
 ```js
 function list(event,rc,prc){
-	event.paramValue("format","html");
-
 	prc.data = userService.list();
-
-	switch(rc.format){
-		case "json" : case "xml" : { event.renderData(data=prc.users,type=rc.format); }
-		default : {
-			event.setView("users/list");
-		}
-	}
+    event.renderData( data=prc.users, formats="xml,json,html" );
 }
 ```
 
