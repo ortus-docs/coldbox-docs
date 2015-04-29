@@ -14,4 +14,4 @@ interceptorSettings = {
 };
 ```
 
-The `customInterceptionPoints` is what interest us.  This can be a list or an array of events your system can broadcast.
+The `customInterceptionPoints` is what interest us.  This can be a list or an array of events your system can broadcast.  This way, whenever interceptors are registered, they will be inspected for those events.
