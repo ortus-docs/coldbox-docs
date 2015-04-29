@@ -2,7 +2,7 @@
 
 ![](../../images/ModuleConfig.jpg)
 
- At runtime, the configuration object will be created by ColdBox and decorated with the following private properties (available in the variables scope): 
+ At runtime, the configuration object will be created by ColdBox and decorated with the following private properties (available in the `variables` scope): 
  
  
  |Property|Description|
