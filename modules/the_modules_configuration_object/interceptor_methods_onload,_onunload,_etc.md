@@ -1,6 +1,10 @@
-# Interceptor Methods: onLoad(), onUnLoad()
+# Interceptor Events
 
-The module configuration object is also treated as an Interceptor once it is created and configured. This means that the object itself can be registered on ALL of the framework's or application's interception points by just creating the appropriate methods. Also, you have two special life-cycle methods:
+The module configuration object is also treated as an Interceptor once it is created and configured. 
+
+## Life-cycle Events
+
+There are two life-cycle callback events you can declare in your `ModuleConfig.cfc`:
 
 * `onLoad()` : Called when the module is loaded and activated
 * `onUnLoad()` : Called when the module is unloaded from memory
@@ -23,6 +27,8 @@ function onUnLoad(){
 }
 ```
 
+
+## Custom Events
 Also, remember that the configuration object itself is an interceptor so you can declare all of the framework's interception points in the configuration object and they will be registered as interceptors.
 
 ```js
