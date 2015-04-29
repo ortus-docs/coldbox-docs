@@ -8,6 +8,16 @@ Interceptors are CFC's that can either extend ColdBox base class: `coldbox.syste
 ## Registration
 Interceptors can be declared in your configuration file `Coldbox.cfc` under the `interceptors` struct or they can be registered manually via the system's interceptor service.
 
+```js
+interceptors = [
+    { 
+        class   = "cfc.path",
+        name    = "unique.name + wirebox ID",
+        properties = { 
+            //configuraiton struct
+        }
+]
+
 
 ## `configure()`
 The interceptor has one important method that you can use for configuration, called `configure()`. This method will be called right after the interceptor gets created and injected with your configuration file properties. 
