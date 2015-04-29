@@ -10,8 +10,7 @@ function list(event,rc,prc){
 }
 ```
 
-Proxy: 
-
+**Proxy: **
 ```js
 string function getUsers(string format="json"){
 	validateFormat( arguments.format );
