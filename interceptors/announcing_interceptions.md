@@ -17,4 +17,4 @@ announceInterception( 'onLog', {
 controller.getInterceptorService().processState( "onRecordInsert", {} );
 ```
 
-> **Hint** Announcing events can also get some asynchronous love, read the Interceptor Asynchronicity for some asynchronous love.
+> **Hint** Announcing events can also get some asynchronous love, read the [Interceptor Asynchronicity](interceptor_asynchronicity.md) for some asynchronous love.
