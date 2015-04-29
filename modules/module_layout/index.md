@@ -38,11 +38,3 @@ Below are all the possible combinations of a module layout, you will notice that
 ```
 
 As you can see, the only mandatory resources for a module is the directory name in which it lives and a `ModuleConfig.cfc`. The module developer can choose to implement a simple module or a very complex module. All folders are optional and only what is used will be loaded. Not only are modules reusable and extensible, but you can easily create a module with dual functionality: A standalone application or a module. This is true reusability and flexibility. I don't know about you, but this is really exciting (Geek Alert!).
-
-```
-Dir           0 Apr 29,2015 16:04:47 handlers
-Dir           0 Apr 29,2015 16:04:47 models
-Dir           0 Apr 29,2015 16:04:47 views
-File       3603 Apr 29,2015 16:04:47 ModuleConfig.cfc
-
-```
