@@ -180,7 +180,7 @@
    * [Custom Events](interceptors/custom_events.md)
        * [Configuration Registration](interceptors/configuration_registration.md)
        * [Programmatic Registration](interceptors/programmatic_registration.md)
-       * [Usage](interceptors/usage.md)
+       * [Listening](interceptors/usage.md)
        * [Announcing Interceptions](interceptors/announcing_interceptions.md)
    * [Unregistering Interceptors](interceptors/unregistering_interceptors.md)
    * [Reporting Methods](interceptors/reporting_methods.md)
