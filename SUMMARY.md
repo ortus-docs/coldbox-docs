@@ -221,7 +221,7 @@
        * [Overriding Layouts](modules/layout_and_view_renderings/overriding_layouts.md)
        * [Default Module Layout](modules/layout_and_view_renderings/default_module_layout.md)
        * [Explicit Module Renderings](modules/layout_and_view_renderings/explicit_module_renderings.md)
-   * [Model Integration](modules/model_integration.md)
+   * [Models](modules/model_integration.md)
    * [Module Plugins](modules/module_plugins.md)
 * [Testing](testing/index.md)
    * [Testing Concepts](testing/testing_concepts/index.md)
