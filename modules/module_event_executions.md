@@ -24,7 +24,7 @@ event=cms:page.show
 event=admin:dashboard
 ```
 
-As you can see, we can prefix the event syntax with a module name and then followed by a colon `{module}:`. This is how ColdBox can know to what module or section to redirect the execution to. Please remember that this is great for securing your applications as the event patterns you can match against with regular expressions will help you tremendously, as you can pinpoint modules directly. You can even execute the runEvent() methods and target modules:
+As you can see, we can prefix the event syntax with a module name and then followed by a colon `{module}:`. This is how ColdBox can know to what module to redirect the execution to. Please remember that this is great for securing your applications as the event patterns you can match against with regular expressions will help you tremendously, as you can pinpoint modules directly. You can even execute the runEvent() methods and target modules:
 
 ```js
 // Execute a viewlet in a module called viewlets:
