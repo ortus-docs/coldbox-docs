@@ -21,3 +21,32 @@ function preRender( event, interceptData, buffer ){
 
 > **Hint** Each execution point will have its own clean buffer to work with. As each interception point has finalized execution, the output buffer is flushed, only if content exists. 
 
+## Output Buffer Argument
+
+Here are some examples using the `buffer` argument:
+
+```js
+function onSidebar(event, interceptData, buffer){
+	savecontent variable="local.data"{
+		/// HTML HERE
+	}
+
+	arguments.buffer.append( local.data );
+}
+
+// using argument
+function preRender(event,interceptData,buffer){
+	//clear all of it first, just in case.
+	arguments.buffer.clear();
+	//Append to buffer
+	arguments.buffer.append('<h1>This software is copyright by Funky Joe!</h1>');	
+}
+```
+
+Here are some common methods on the buffer object:
+
+* append(str) Append strings to the buffer
+* clear() Clear the entire buffer
+* length() Get size of the buffer
+* getString() Get the entire string in the buffer
+* getBufferObject() Get the actual java String Builder object
