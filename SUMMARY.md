@@ -175,7 +175,6 @@
        * [Object Creating Events](interceptors/object_creating_events.md)
        * [Layout-View Events](interceptors/layout-view_events.md)
        * [Module Events](interceptors/module_events.md)
-       * [ORM Events](interceptors/orm_events.md)
        * [CacheBox Events](interceptors/cachebox_events.md)
    * [Custom Events](interceptors/custom_events.md)
        * [Configuration Registration](interceptors/configuration_registration.md)
