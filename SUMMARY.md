@@ -224,6 +224,7 @@
    * [Models](modules/model_integration.md)
    * [Module CF Mappings](modules/module_cf_mappings.md)
    * [Module Dependencies](modules/module_dependencies.md)
+   * Module Bundles
 * [Testing](testing/index.md)
    * [Testing Concepts](testing/testing_concepts/index.md)
        * [Functional Testing](testing/testing_concepts/functional_testing.md)
