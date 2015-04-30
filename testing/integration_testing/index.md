@@ -42,3 +42,10 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/root"{
 We will explain later the life-cycle methods and the `run()` method where you will be writing your specs.
 
 > **Hint** Please refer to our BDD primer to start: http://testbox.ortusbooks.com/content/primers/bdd/index.html
+
+## CommandBox Generation
+You can use CommandBox to generate integration tests:
+
+```bash
+coldbox create integration-test help
+```
