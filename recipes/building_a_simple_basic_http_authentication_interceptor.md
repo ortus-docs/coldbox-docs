@@ -1,10 +1,10 @@
 # Building a simple Basic HTTP Authentication Interceptor
 
-### Introduction
+## Introduction
 
 In this recipe we will create a simple interceptor that will be in charge of challenging users with HTTP Basic Authentication. It features the usage of all the new RESTful methods in our Request Context that will make this interceptor really straightforward. We will start by knowing that this interceptor will need a security service to verify security, so we will also touch on this.
 
-### The Interceptor
+## The Interceptor
 Our simple security interceptor will be intercepting at preProcess so all incoming requests are inspected for security. Remember that I will also be putting best practices in place and will be creating some unit tests and mocking for all classes. So check out our interceptor:
 
 
@@ -77,7 +77,7 @@ if( !securityService.isLoggedIn() OR len( event.getHTTPHeader("Authorization",""
 
 The renderData() is essential in not only setting the 401 status codes but also concatenating to a noExecution() method so it bypasses any event as we want to secure them.
 
-#### Interceptor Test
+## Interceptor Test
 
 So to make sure this works, here is our Interceptor Test Case with all possibilities for our Security Interceptor.
 
@@ -135,9 +135,9 @@ component extends="coldbox.system.testing.BaseInterceptorTest" interceptor="simp
 }
 ```
 
-As you can see from our A,B, anc C tests that we use [MockBox](http://wiki.coldbox.org/wiki/MockBox.cfm) to mock the security service, the request context and methods so we can build our interceptor without knowledge of other parts.
+As you can see from our A,B, anc C tests that we use MockBox to mock the security service, the request context and methods so we can build our interceptor without knowledge of other parts.
 
-### Security Service
+## Security Service
 
 Now that we have our interceptor built and fully tested, let's build the security service.
 
