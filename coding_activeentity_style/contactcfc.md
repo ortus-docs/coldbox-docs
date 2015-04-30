@@ -1,6 +1,6 @@
 # Contact.cfc
 
-An object that represents a contact and self-validates using [ColdBox Validation](http://wiki.coldbox.org/wiki/Validation.cfm), and is an awesome [ORM:ActiveEntity](http://wiki.coldbox.org/wiki/ORM:ActiveEntity.cfm):
+An object that represents a contact and self-validates using [ColdBox Validation Module](http://wiki.coldbox.org/wiki/Validation.cfm), and is an awesome [ORM:ActiveEntity](http://wiki.coldbox.org/wiki/ORM:ActiveEntity.cfm):
 
 ```js
 /**
