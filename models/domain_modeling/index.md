@@ -29,7 +29,7 @@ There are several ways I can go about this and your design will depend on the to
 
 ## ORM Extensions
 
-Since some of the examples in this section require the usage of ColdFusion ORM and the ColdBox ORM Extensions module, let's use CommandBox to install them in our application in two easy steps:
+Since some of the examples in this section require the usage of ColdFusion ORM and the ColdBox ORM Extensions module (https://github.com/ColdBox/cbox-cborm), let's use CommandBox to install them in our application in two easy steps:
 
 **1. Install Module**
 ```
@@ -42,4 +42,3 @@ Open your `Application.cfc` and add a mapping to this module:
 this.mappings[ "/cborm" ] 	= COLDBOX_APP_ROOT_PATH & "modules/coldbox-bundle/cborm";
 ```
 
-That's it.  Th
