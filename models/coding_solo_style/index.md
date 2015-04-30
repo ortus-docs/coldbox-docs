@@ -7,7 +7,7 @@ Now that we have seen all the theory and stuff, let's get down to business and d
 ```js
 + handlers 
   + contacts.cfc
-+ model
++ models
   + ContactService.cfc
   + ContactDAO.cfc
   + Contact.cfc
