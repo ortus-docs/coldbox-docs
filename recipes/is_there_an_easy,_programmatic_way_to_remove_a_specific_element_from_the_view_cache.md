@@ -25,7 +25,7 @@ There are a few methods that will help you clear views:
 * `clearViewMulti(viewSnippets)` - Clear multiple view snippets with a list or array of snippets
 
 ```js
-getColdboxOCM('template').clearView('home');
+getCache( "template" ).clearView('home');
 ```
 
 Very easy! Just send in what you need and it will be purged.
