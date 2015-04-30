@@ -20,9 +20,9 @@ property name="cache" inject="cachebox:template">
 ## Clearing methods
 
 There are a few methods that will help you clear views:
-* clearView(viewSnippet) - Clear views with a snippet
-* clearAllViews(async) - Clear all views
-* clearViewMulti(viewSnippets) - Clear multiple view snippets with a list or array of snippets
+* `clearView(viewSnippet)` - Clear views with a snippet
+* `clearAllViews(async)` - Clear all views
+* `clearViewMulti(viewSnippets)` - Clear multiple view snippets with a list or array of snippets
 
 ```js
 getColdboxOCM('template').clearView('home');
