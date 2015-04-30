@@ -14,6 +14,17 @@ coldbox create app name=MyRestAPP skeleton=rest --installColdBox
 server start --rewritesEnable
 ```
 
+You will then see the following JSON output:
+
+```js
+{
+    data: "Welcome to my ColdBox RESTFul Service",
+    error: false,
+    messages: [ ],
+    errorcode: "0"
+}
+```
+
 ## Quick Reference Card
 Below you can download our quick reference card on RESTFul APIs
  
