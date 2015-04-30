@@ -41,7 +41,6 @@ install cbvalidation
 
 You can find the documentation and source in its repository: https://github.com/ColdBox/cbox-validation
 
-
 ## Book Catalog
 
 Let's say that I want to build a simple book catalog and I want to be able to do the following:
