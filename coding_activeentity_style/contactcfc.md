@@ -12,7 +12,7 @@ Then spice it up with the validation constraints
 /**
 * A cool Contact entity
 */
-component persistent="true" table="contacts" extends="coldbox.system.orm.hibernate.ActiveEntity"{
+component persistent="true" table="contacts" extends="cborm.models.ActiveEntity"{
 
 	// Primary Key
 	property name="contactID" fieldtype="id" column="contactID" generator="native" setter="false";
