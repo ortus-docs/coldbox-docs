@@ -28,6 +28,6 @@ It might be that testing is tedious and takes time to get into the flow of Behav
 ## Resources
 
 * [Wikipedia](http://en.wikipedia.org/wiki/Unit_test)
-* [MXUnit](http://mxunit.org/)
+* [TestBox](http://ortussolutions.com/products/testbox)
 * [ColdBox CheatShee](http://www.coldbox.org/downloads/ColdboxCheatSheet.pdf)t
 
