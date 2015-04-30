@@ -4,7 +4,7 @@
 
 The super type offers 2 methods for interacting with your model layer:
 
-* `getModel()` - Retrieve a model object
+* `getModel()` - Retrieve a model object (Instead of injection)
 * `populateModel()` - Retrieve and/or populate a model object from the request collection.
 
 
