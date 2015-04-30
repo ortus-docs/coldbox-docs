@@ -26,5 +26,5 @@ function init(myDAO){
 }
 ```
 
-The value of the `inject` attribute is what we call our injection DSL. This string represents the concept of retrieving an object WireBox knows about, which can be an object path, an object ID, a setting, a datasource, your custom data, etc. You can see al the different Injection DSL's in the WireBox documentation: ([See Injection DSL](http://wirebox.ortusbooks.com/content/injection_dsl/index.html)). Below are just the most common ones we will use:
+The value of the `inject` attribute is what we call our injection DSL. This string represents the concept of retrieving an object WireBox knows about, which can be an object path, an object ID, a setting, a datasource, your custom data, etc. You can see al the different Injection DSL's in the WireBox documentation: ([See Injection DSL](http://wirebox.ortusbooks.com/content/injection_dsl/index.html)). Let's review the most common ones.
 
