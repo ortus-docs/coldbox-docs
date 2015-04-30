@@ -2,6 +2,12 @@
 
 Here is our service layer and we have added some logging just for fun :). Notice that this object is a singleton and has some dependency injection.
 
+```
+coldbox create model name=ContactService persistence=singleton --open
+```
+
+Then spice it up
+
 ```js
 component accessors="true"{
 	
@@ -54,5 +60,5 @@ component accessors="true"{
 
 Now, some observations of the code:
 
-* We use the populator object that is included in [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) to make our lives easier so we can populate objects from queries and deal with objects. 
-* We also inject a reference to the object factory [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) so it can create Contact objects for us. Why? Well what if those objects had dependencies as well.
+* We use the populator object that is included in WireBox to make our lives easier so we can populate objects from queries and deal with objects. 
+* We also inject a reference to the object factory WireBox so it can create `Contact` objects for us. Why? Well what if those objects had dependencies as well.

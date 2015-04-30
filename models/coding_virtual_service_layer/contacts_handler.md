@@ -1,5 +1,12 @@
 # Contacts Handler
+
 That's right, go to the handler now, no need of data layers or services, we build them for you! 
+
+```bash
+coldbox create handler name=contacts actions=index,editor,delete,save
+```
+
+Now spice it up
 
 ```js
 /**
@@ -24,7 +31,7 @@ component{
 	function delete(event,rc,prc){
 		event.paramValue("id",0);
 		contactService.deleteByID( rc.id );
-		getPlugin("MessageBox").info("Contact Removed!");
+		flash.put( "notice", "Contact Removed!" );
 		setNextEvent("contacts");
 	}
 
@@ -34,11 +41,11 @@ component{
 		var vResults = validateModel( contact );
 		if( !vResults.hasErrors() ){
 			contactService.save( contact );
-			getPlugin("MessageBox").info("Contact Saved!");
+			flash.put( "notice", "Contact Saved!" );
 			setNextEvent("contacts");
 		}
 		else{
-			getPlugin("MessageBox").error(messageArray=vResults.getAllErrors());
+			flash.put( "errors", vResults.getAllErrors() );
 			return editor(event,rc,prc);
 		}
 	}

@@ -1,6 +1,12 @@
 # Contact.cfc
 
-An object that represents a contact and self-validates using [ColdBox Validation](http://wiki.coldbox.org/wiki/Validation.cfm):
+An object that represents a contact and self-validates using the `cbvalidation` module.
+
+```
+coldbox create model name=Contact --open
+```
+
+Then spice up with some properties and constraints:
 
 ```js
 component accessors="true"{

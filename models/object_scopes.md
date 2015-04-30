@@ -1,15 +1,15 @@
 # Object Scopes
 
-You can very easily add persistence to your domain objects via our annotations or binder configuration. This is of great benefit as you can control where these objects will be scoped in the ColdFusion engine. The available scopes are:
+You can very easily add persistence to your model+ objects via our annotations or binder configuration. The available scopes are:
 
-* transient or no scope : The default scope. Meaning objects have no scope, they are recreated every single time you request them.
-* singleton : Objects are created once and live until your Application expires
-* cachebox : You can store your objects in any CacheBox provider and even provide timeouts for them
-* session : Store them in the ColdFusion session scope
-* server : Store them in the ColdFusion server scope
-* request : Store them in the ColdFusion request scope
-* application : Store them in the ColdFusion application scope
-* CUSTOM : You can build your own scopes as well.
+* `transient or no scope` : The default scope. Meaning objects have no scope, they are recreated every single time you request them.
+* `singleton` : Objects are created once and live until your Application expires
+* `cachebox` : You can store your objects in any CacheBox provider and even provide timeouts for them
+* `session` : Store them in the ColdFusion `session` scope
+* `server` : Store them in the ColdFusion `server` scope
+* `request` : Store them in the ColdFusion `request` scope
+* `application` : Store them in the ColdFusion `application` scope
+* `CUSTOM` : You can build your own scopes as well.
 
 
 ```js
@@ -32,4 +32,9 @@ component name="MyService" scope="request"{}
 component name="MyService" scope="session"{}
 ```
 
-> **Importante** ease note that using annotations is optional, you can configure every object in our configuration binder as well.
+> **Hint** Pease note that using annotations is optional, you can configure every object in our configuration binder as well.
+
+---
+
+* Persistence DSL: http://wirebox.ortusbooks.com/content/mapping_dsl/persistence_dsl.html
+* Object Persistence & Thread Safety: http://wirebox.ortusbooks.com/content/object_persistence_&_thread_safety/index.html

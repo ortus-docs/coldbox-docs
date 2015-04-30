@@ -1,6 +1,6 @@
 # Book
 
-So what can Book.cfc do. It can have the following private properties: 
+So what can `Book.cfc` do. It can have the following private properties: 
 
 * name
 * id
@@ -34,16 +34,18 @@ Back to the book service object. This service will need a datasource name (which
 
 I can also now think of a few methods that I can have on my book service:
 
-* *getBook([id:string])*:Book This method will create or retrieve a book by id.
-* *searchBook(criteria:string)*:query This method can return a query or array of Books if needed
-* *saveBook(book:Book)* Save or Update a book
-* *deleteBook(book:Book)* Delete a book
+* `getBook([id:string])`:Book This method will create or retrieve a book by id.
+* `searchBook(criteria:string)`:query This method can return a query or array of Books if needed
+* `saveBook(book:Book)` Save or Update a book
+* `deleteBook(book:Book)` Delete a book
 
 ![](../../images/modelguide_bookservice.png)
 
 
-I recommend you model these class relationships in [UML class diagrams](http://www.agilemodeling.com/artifacts/classDiagram.htm) to get a better feeling of it. Anyways, that's it, we are doing domain modeling. We have defined a domain object called Book and a companion BookService object that will handle book operations. Now once you build them and UNIT TEST THEM, yes UNIT TEST THEM. Then you can use them in your handlers in order to interact with them. As you can see, most of the business rules and logic are encapsulated by these domain objects and not written in your event handlers. This creates a very good design for portability, sustainability and maintainability. So let's start actually seeing how to write all of this instead of imagining it. Below you can see a more complete class diagram of this simple example.
+I recommend you model these class relationships in [UML class diagrams](http://www.agilemodeling.com/artifacts/classDiagram.htm) to get a better feeling of the design. Anyways, that's it, we are doing domain modeling. We have defined a domain object called `Book` and a companion `BookService` object that will handle book operations. 
+
+Now once you build them and UNIT TEST THEM, yes UNIT TEST THEM. Then you can use them in your handlers in order to interact with them. As you can see, most of the business rules and logic are encapsulated by these domain objects and not written in your event handlers. This creates a very good design for portability, sustainability and maintainability. So let's start actually seeing how to write all of this instead of imagining it. Below you can see a more complete class diagram of this simple example.
 
 ![](../../images/simplemodelclassdiagram.png)
 
-So now that you excercised your mind and modeled your problem, you are ready to start coding and learning how to put this baby together!
+> **Hint** Note that sometimes the design in UML will not reflect the end product.  UML is our guide but not the final product.
