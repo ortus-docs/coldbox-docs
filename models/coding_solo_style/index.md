@@ -1,6 +1,8 @@
 # Coding: Solo Style
 
-Now that we have seen all the theory and stuff, let's get down to business and do some examples. We will start with the full coding approach with no ORM and then spice it up with ORM, so you can see how awesome ORM can be. The examples will not show the entire application being built, but enought to get you started with the process of modeling everything. Here is a layout of what we will build:
+![](../../images/MVC+objects.png)
+
+Now that we have seen all the theory and stuff, let's get down to business and do some examples. We will start with the full coding approach with **no** ORM and then spice it up with ORM, so you can see how awesome ORM can be. The examples will not show the entire application being built, but enought to get you started with the process of modeling everything. Here is a layout of what we will build:
 
 ```js
 + handlers 
