@@ -1,6 +1,6 @@
 # Book
 
-So what can Book.cfc do. It can have the following private properties: 
+So what can `Book.cfc` do. It can have the following private properties: 
 
 * name
 * id
@@ -34,10 +34,10 @@ Back to the book service object. This service will need a datasource name (which
 
 I can also now think of a few methods that I can have on my book service:
 
-* *getBook([id:string])*:Book This method will create or retrieve a book by id.
-* *searchBook(criteria:string)*:query This method can return a query or array of Books if needed
-* *saveBook(book:Book)* Save or Update a book
-* *deleteBook(book:Book)* Delete a book
+* `getBook([id:string])`:Book This method will create or retrieve a book by id.
+* `searchBook(criteria:string)`:query This method can return a query or array of Books if needed
+* `saveBook(book:Book)` Save or Update a book
+* `deleteBook(book:Book)` Delete a book
 
 ![](../../images/modelguide_bookservice.png)
 
