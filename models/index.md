@@ -13,10 +13,7 @@ WireBox, is our dependency injection and AOP framework, that will do all the mag
 * An Injection DSL (Domain Specific Language) has been created to facilitate dependencies
 * Easily determine what scope model objects should be persisted in: Transients, Singletons, Cache, Request, Session, etc.
 * Easily create a configuration binder to create aliases or complex object relationships (Java, WebServices, RSS, etc.)
-* Easily populate model objects or even ORM entity objects with data from a request: populateModel()
-* Easily compose ORM relationships from request data using populateModel()
-* Easily [validate](http://wiki.coldbox.org/wiki/Validation.cfm) model objects using our awesome [ValidBox](http://wiki.coldbox.org/wiki/Validation.cfm) validation engine and validateModel()
-* Integrate with ColdFusion ORM via our [ActiveEntity](http://wiki.coldbox.org/wiki/ORM:ActiveEntity.cfm) class if you like Active Record pattern or
-* Integrate with ColdFusion ORM via our [ORM Service](http://wiki.coldbox.org/wiki/ORM:BaseORMService.cfm) or [Virtual Entity Services](http://wiki.coldbox.org/wiki/ORM:VirtualEntityService.cfm).
+* Easily do FORM data binding or advanced ORM data binding
+* Easily compose ORM relationships from request data
 
 Wow! You can do all that? Yes and much more. So let's begin.
