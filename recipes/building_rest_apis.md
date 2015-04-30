@@ -101,7 +101,8 @@ component {
 }
 ```
 
-Defining URL Routes
+##Defining URL Routes
+
 Now that we have this skeleton in place to represent our user resource, let's move on show how you can have full control of the URL as well as mapping HTTP verbs to specific handler actions. The default route for our user.cfc handler is /api/user, but what if we want the resource in the URL to be completely different than the handler name convention? To do this, use the /config/routes.cfm file to declare URL routes we want the application to capture and define how to process them.
 Let's add the following new routes to our /config/routes.cfm file BEFORE the default route.
 
