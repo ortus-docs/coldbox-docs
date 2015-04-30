@@ -16,7 +16,7 @@ The whole point of the model layer is that it is separate from the other 2 layer
 > A Service Layer defines an application's boundary [Cockburn PloP] and its set of available operations from the perspective of interfacing client layers. It encapsulates the application's business logic, controlling transactions and coor-dinating responses in the implementation of its operations. 
 <small>[Martin Fowler](http://martinfowler.com/eaaCatalog/serviceLayer.html)</small>
 
-A service layer approach is a way to architect enterprise applications in which there is a layer that acts as a service or mediator to your domain models, data layers and so forth. This layer is the one that event handlers or remote coldbox proxies can talk to in order to interact with the domain model. There are basically two approaches when building a service layer:
+A service layer approach is a way to architect enterprise applications in which there is a layer that acts as a service or mediator to your domain models, data layers and so forth. This layer is the one that event handlers or remote ColdBox proxies can talk to in order to interact with the domain model. There are basically two approaches when building a service layer:
 
 1. Designing the services around functionality that might encompass several domain model objects. This is our preferred approach as it creates a more rich service layer and you will not have class explosion.
 2. Designing a service for each business object, which in turn matches a table or set of tables in the permanent storage. This approach is easy to follow, but the consequences are the responsibilities that could be grouped are not and you will end up with class explosion.
