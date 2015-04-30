@@ -6,12 +6,12 @@ This namespace is a combination of namespaces that are only active when used wit
 |--|--|
 |coldbox |Get the coldbox controller reference|
 |coldbox:flash |Get a reference to the application's flash scope object|
-|coldbox:setting:{setting} |Get the coldbox application {setting} setting and inject it |
-|coldbox:setting:{setting}@{module} |Get the coldbox application {setting} from the {module} and inject it |
+|coldbox:setting:{setting} |Get the coldbox application *{setting}* setting and inject it |
+|coldbox:setting:{setting}@{module} |Get the coldbox application *{setting}* from the *{module}* and inject it |
 |coldbox:plugin:{plugin} |Get the {plugin} plugin and inject it |
-|coldbox:myPlugin:{MyPlugin} |Get the {MyPlugin} custom plugin and inject it |
-|coldbox:myPlugin:{MyPlugin}@{module} |Get the {MyPlugin} custom plugin from the {module} module and inject it |
-|coldbox:datasource:{alias} |Get a new datasource bean according to {alias}|
+|coldbox:myPlugin:*{MyPlugin}* |Get the *{MyPlugin}* custom plugin and inject it |
+|coldbox:myPlugin:{MyPlugin}@{module} |Get the *{MyPlugin}* custom plugin from the *{module}* module and inject it |
+|coldbox:datasource:{alias} |Get a new datasource bean according to *{alias}*|
 |coldbox:configBean |Get a new config bean object and inject it |
 |coldbox:mailsettingsbean |Get a new mail settings bean and inject it |
 |coldbox:loaderService |Get a reference to the loader service |
@@ -21,18 +21,19 @@ This namespace is a combination of namespaces that are only active when used wit
 |coldbox:handlerService |Get a reference to the handler service |
 |coldbox:interceptorService |Get a reference to the interceptor service |
 |coldbox:moduleService |Get a reference to the ColdBox Module Service|
-|coldbox:interceptor:{name} |Get a reference of a named interceptor {name}|
+|coldbox:interceptor:{name} |Get a reference of a named interceptor *{name}*|
 |coldbox:cacheManager |get the cache manager |
 |coldbox:fwConfigBean |Get a configuration bean object with ColdBox settings instead of Application settings|
 |coldbox:fwSetting:{setting} |Get a setting from the ColdBox settings instead of the Application settings|
-|coldbox:moduleSettings:{module} |Inject the entire {module} settings structure|
-|coldbox:moduleConfig:{module} |Inject the entire {module} configurations structure|
-|ioc |Get the named ioc bean and inject it. Name comes from the cfproperty, setter or argument name|
-|ioc:{beanName} |Get the ioc bean according to {beanName}|
+|coldbox:moduleSettings:{module} |Inject the entire *{module}* settings structure|
+|coldbox:moduleConfig:{module} |Inject the entire *{module}* configurations structure|
+|ioc|Get the named ioc bean and inject it. Name comes from the cfproperty, setter or argument name|
+|ioc:{beanName} |Get the ioc bean according to *{beanName}*|
 |javaLoader:{class} |Create an object from the [JavaLoader](http://wiki.coldbox.org/wiki/Plugins:JavaLoader.cfm) plugin and its set of loaded java libraries|
 |webservice:{alias} |Get a webservice object using an {alias} that matches in your coldbox configuration file.|
 
-```js
+
+```javascript
 // some examples
 property name="logbox" inject="logbox";
 property name="rootLogger" inject="logbox:root";
