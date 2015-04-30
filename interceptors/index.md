@@ -12,6 +12,11 @@ The way that interceptors are used is usually referred to as event-driven progra
 ```html
 <!-- Announce an event in the div and produce content -->
 <div>#announceInterception( 'onSidebar' )#</div>
+
+// Announce inside a function
+if( userCreated ){
+    announceInterception( 'onUserCreate', { user = prc.oUser } );
+}
 ```
 
 
