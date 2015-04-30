@@ -20,10 +20,6 @@ This namespace is a combination of namespaces that are only active when used wit
 |coldbox:fwSetting:{setting} |Get a setting from the ColdBox settings instead of the Application settings|
 |coldbox:moduleSettings:{module} |Inject the entire *{module}* settings structure|
 |coldbox:moduleConfig:{module} |Inject the entire *{module}* configurations structure|
-|ioc|Get the named ioc bean and inject it. Name comes from the cfproperty, setter or argument name|
-|ioc:{beanName} |Get the ioc bean according to *{beanName}*|
-|javaLoader:{class} |Create an object from the [JavaLoader](http://wiki.coldbox.org/wiki/Plugins:JavaLoader.cfm) plugin and its set of loaded java libraries|
-|webservice:{alias} |Get a webservice object using an {alias} that matches in your coldbox configuration file.|
 
 
 ```javascript
