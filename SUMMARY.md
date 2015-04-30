@@ -104,7 +104,7 @@
        * [Funky Viewlets](layouts_n_views/funky_viewlets.md)
 * [Models](models/index.md)
    * [Domain Modeling](models/domain_modeling/index.md)
-       * [Service Layer](models/models/domain_modeling/service_layer.md)
+       * [Service Layer](models/domain_modeling/service_layer.md)
        * [Data Layers](models/models/domain_modeling/data_layers.md)
        * [Book](models/models/domain_modeling/book.md)
    * [Conventions Location](models/conventions_location.md)
