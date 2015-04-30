@@ -57,3 +57,4 @@ component{
 }
 ```
 
+Now that you have finished, go execute the contacts and interact with it.
