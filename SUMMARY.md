@@ -124,7 +124,6 @@
        * [ContactDAO.cfc](models/coding_solo_style/contactdaocfc.md)
        * [ContactService.cfc](models/coding_solo_style/contactservicecfc.md)
        * [Contacts Handler](models/coding_solo_style/contacts_handler.md)
-       * [Summary](models/coding_solo_style/summary.md)
    * [Coding: ActiveEntity Style](coding_activeentity_style/index.md)
        * [ORM](coding_activeentity_style/orm.md)
        * [Contact.cfc](coding_activeentity_style/contactcfc.md)
