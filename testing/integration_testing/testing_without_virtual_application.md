@@ -9,4 +9,4 @@ component extends="coldbox.system.testing.BaseTestCase"{
 }
 ```
 
-That's it! You will be able to use anything from the BaseTestCase but the virtual application will not be loaded.
+That's it! You will be able to use anything from the` BaseTestCase` but the virtual application will not be loaded.
