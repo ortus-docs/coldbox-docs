@@ -1,19 +1,19 @@
 # ORM
 
-You will first make sure your contacts datsource exists in the Administrator and then we can declare our ORM settings in our Application.cfc
+You will first make sure your `contacts` datsource exists in the Administrator and then we can declare our ORM settings in our `Application.cfc`
 
 ```js
 // ORM Settings
 this.ormEnabled 	  = true;
 this.datasource		  = "contacts";
 this.ormSettings	  = {
-	cfclocation = "model",
+	cfclocation = "models",
 	dbcreate	= "update",
 	logSQL 		= true,
 	flushAtRequestEnd = false,
 	autoManageSession = false,
 	eventHandling 	  =  true,
-	eventHandler	  = "coldbox.system.orm.hibernate.WBEventHandler"
+	eventHandler	  = "cborm.models.EventHandler"
 };
 
 ORMReload();
