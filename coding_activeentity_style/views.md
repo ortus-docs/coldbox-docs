@@ -7,7 +7,14 @@ Here are the views as well, which are pre-created via CommandBox handler creatio
 ```js
 <cfoutput>
 <h1>Contacts</h1>
-#getPlugin("MessageBox").renderit()#
+
+<cfif flash.exists( "notice" )>
+    <div class="alert alert-info">#flash.get( "notice" )#</div>
+</cfif>
+<cfif flash.exists( "errors" )>
+    <div class="alert alert-danger">#flash.get( "errors" ).toString()#</div>
+</cfif>
+
 #html.href(href='contacts.editor',text="Create Contact")#
 <br><br>
 <cfloop array="#prc.contacts#" index="contact">
