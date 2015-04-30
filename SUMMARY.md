@@ -265,7 +265,7 @@
    * [Caveats & Gotchas](proxy/caveats_&_gotchas.md)
 * [Recipes](recipes/index.md)
    * [Runnable Code Examples](run/index.md)
-   * [My First Custom Exception Handler](recipes/my_first_custom_exception_handler.md)
+   * [ColdBox Exception Handling](recipes/coldbox_exception_handling.md)
    * [My First Custom Plugin](recipes/my_first_custom_plugin.md)
    * [My First Interceptor](recipes/my_first_interceptor.md)
    * [My First Context Decorator](recipes/my_first_context_decorator.md)
