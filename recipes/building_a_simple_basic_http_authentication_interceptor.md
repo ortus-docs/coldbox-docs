@@ -237,13 +237,11 @@ Again, you can see that now we use our `BaseModelTest` case and continue to use 
 
 ## Interceptor Declaration
 
-We are pretty much done, so we can open our [ConfigurationCFC](http://wiki.coldbox.org/wiki/ConfigurationCFC.cfm) in our config/Coldbox.cfc and look for the interceptors section as we will be adding our simple security interceptor.
+Open your `Coldbox.cfc` configuration file and add it.
 
 ```js
 //Register interceptors as an array, we need order
 interceptors = [
-	//Autowire
-	{class="coldbox.system.interceptors.Autowire"},
 	//SES
 	{class="coldbox.system.interceptors.SES"},
 	// Security
