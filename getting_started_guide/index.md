@@ -36,3 +36,5 @@ CommandBox> start
 ```
 
 In a few seconds, a browser window will appear with your running application. This is a full server with access to the web administrator where you can add data sources, mappings, or adjust the server settings. Notice the handy icon added to your system tray as well. 
+
+![](coldbox_app_skeleton.png)
