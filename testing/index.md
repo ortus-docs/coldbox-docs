@@ -7,7 +7,7 @@ ColdBox has already all the hooks in place to provide Behavior and Test Driven D
 > TestBox is a testing framework for ColdFusion (CFML) that is based on BDD (Behavior Driven Development) for providing a clean obvious syntax for writing tests. It also includes MockBox for mocking and stubbing.
 
 ## Installing TestBox
-So let's get started by opening a CommandBox prompt in your application and installing TestBox.
+So let's get started by opening a CommandBox prompt (`box`) in your application root and installing TestBox.
 
 ```bash
 // stable
