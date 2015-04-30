@@ -4,7 +4,14 @@
 
 REST APIs are a popular and easy way to add HTTP endpoints to your web applications to act as web services for third parties or even other internal systems. REST is simpler and requires less verbosity and overhead than other protocols such as SOAP or XML-RPC. 
 
-Creating a fully-featured REST API is easy with the ColdBox Platform. Everything you need for creating routes, massaging data, and enforcing security comes out of the box. Below you can download our quick reference card on RESTFul APIs
+Creating a fully-featured REST API is easy with the ColdBox Platform. Everything you need for creating routes, massaging data, and enforcing security comes out of the box. We even have an application template just for REST, so you can use CommandBox to create your first RESTFul app:
+
+```bash
+coldbox create app name=MyRestAPP skeleton=rest --installColdBox
+```
+
+## Quick Reference Card
+Below you can download our quick reference card on RESTFul APIs
  
 [Download RefCard](https://github.com/ColdBox/cbox-refcards/raw/master/ColdBox%20REST%20APIs/ColdBox-REST-APIs-Refcard.pdf)
 
