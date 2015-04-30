@@ -2,6 +2,12 @@
 
 That's right, go to the handler now, no need of data layers or services, we build them for you! This time, we show you the entire CRUD operations as Active Entity makes life easy!
 
+```bash
+coldbox create handler name=contacts actions=index,editor,delete,save
+```
+
+Then spice it up
+
 ```js
 /**
 * I am a new handler
