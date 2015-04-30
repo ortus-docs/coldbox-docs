@@ -23,3 +23,18 @@ coldbox = {
 ```
 
 This event can the be used for logging the exception, relocating to a fail page or aborting the request. By default once the exception handler executes, ColdBox will continue the request by presenting the user the default ColdBox error page or a customized error template of your choosing via the `coldbox.customErrorTemplate` setting. ColdBox will also place an object in the **private** request collection called `exception`. This object models the entire exception and request data that created the exception. You can then use it to get any information needed to handle the exception.
+
+```js
+function onException(event,rc,prc){
+	// Log the exception via LogBox
+	log.error( rc.exceptionBean.getMessage() & rc.exceptionBean.getDetail(), rc.exceptionBean.getMemento() );
+
+	// Flash where the exception occurred
+	flash.put("exceptionURL", event.getCurrentRoutedURL() );
+
+	// Relocate to fail page
+	setNextEvent("main.fail");
+}
+```
+
+> **Caution** Please note that if you set a view for rendering or renderdata in this exception handler, nothing will be rendered. The framework is in exception mode and will not allow any custom renderings or views as that could also produce exceptions as well.
