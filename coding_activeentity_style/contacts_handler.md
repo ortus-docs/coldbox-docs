@@ -41,7 +41,7 @@ component{
 			setNextEvent("contacts");
 		}
 		else{
-			getPlugin("MessageBox").error(messageArray=contact.getValidationResults().getAllErrors());
+			flash.put( "errors", contact.getValidationResults().getAllErrors() );
 			return editor(event,rc,prc);
 		}
 	}
