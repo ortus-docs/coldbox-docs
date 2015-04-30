@@ -21,5 +21,4 @@ it( "+homepage renders", function(){
 	var event = execute( event="main.index", renderResults=true );
 	expect(	event.getValue( name="cbox_handler_results", private=true ) ).toBe( "Hola Luis" );
 });
-
 ```
