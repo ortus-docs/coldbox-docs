@@ -269,7 +269,6 @@
    * [ColdBox Exception Handling](recipes/coldbox_exception_handling.md)
    * [Controller Decorator](controller_decorator/index.md)
    * [Loading a custom ColdBox configuration file](recipes/loading_a_custom_coldbox_configuration_file.md)
-   * [Creating a messagebox css](recipes/creating_a_messagebox_css.md)
    * [Caching objects](recipes/caching_objects.md)
    * [Creating a 404 template via onInvalidEvent](recipes/creating_a_404_template_via_oninvalidevent.md)
    * [Is there an easy, programmatic way to remove a specific element from the view cache](recipes/is_there_an_easy,_programmatic_way_to_remove_a_specific_element_from_the_view_cache.md)
