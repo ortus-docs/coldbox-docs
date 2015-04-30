@@ -249,7 +249,6 @@
        * [Handler Returning Results](testing/integration_testing/handler_returning_results.md)
        * [Testing Without Virtual Application](testing/integration_testing/testing_without_virtual_application.md)
        * [Rendering Results](testing/integration_testing/rendering_results.md)
-   * [Plugin Testing](testing/plugin_testing.md)
    * [Handlers Isolation Testing](testing/handlers_isolation_testing.md)
    * [Interceptor Testing](testing/interceptor_testing.md)
    * [Model Object Testing](testing/model_object_testing/index.md)
