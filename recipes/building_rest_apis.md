@@ -161,7 +161,8 @@ This route will match `api/user` and `api/person`, but not `/api/contact`
 
 > **Hint** If a route is not matched it will be skipped and the next route will be inspected. If you want to validated parameters and return custom error messages inside your handler, then don't put the validations on the route.
 
-As you can see, you have many options to craft the URL routes your API will use. Routes can be as long as you need. You can even nest levels for URLs like /api/users/contact/address/27 which would refer to the address resource inside the contact belonging to a user. More info here
+As you can see, you have many options to craft the URL routes your API will use. Routes can be as long as you need. You can even nest levels for URLs like `/api/users/contact/address/27` which would refer to the address resource inside the contact belonging to a user.
+
 Returning Representations (Data)
 REST does not dictate the format of data you use to represent your data. It can be JSON, XML, WDDX, plain text, or something else of your choosing.
 renderData()
