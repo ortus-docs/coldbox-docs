@@ -112,10 +112,10 @@
    * [Super Type Usage Methods](models/super_type_usage_methods.md)
    * [Injection DSL](models/injection_dsl/index.md)
        * [Model Object Namespace](models/injection_dsl/model_object_namespace.md)
-       * [EntityService Namespace](models/injection_dsl/entityservice_namespace.md)
        * [ColdBox Namespace](models/injection_dsl/coldbox_namespace.md)
        * CacheBox Namespace
        * LogBox Namespace
+       * [EntityService Namespace](models/injection_dsl/entityservice_namespace.md)
        * WireBox Namespace
    * [Object Scopes](models/object_scopes.md)
    * [Mappings Objects](models/mappings_objects.md)
