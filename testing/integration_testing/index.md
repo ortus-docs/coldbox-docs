@@ -44,10 +44,12 @@ We will explain later the life-cycle methods and the `run()` method where you wi
 > **Hint** Please refer to our BDD primer to start: http://testbox.ortusbooks.com/content/primers/bdd/index.html
 
 ## CommandBox Generation
-You can use CommandBox to generate integration tests:
+Also remember that you can use CommandBox to generate integration tests with a few simple commands:
 
 ```bash
 coldbox create integration-test handler=main actions=index,save,run --open
 # help
 coldbox create integration-test help
 ```
+
+> **Info** Please also note that whenever you create a handler, interceptor or model with CommandBox it will automatically create the integration or unit test for you.
