@@ -3,7 +3,7 @@
 Here is our service layer and we have added some logging just for fun :). Notice that this object is a singleton and has some dependency injection.
 
 ```
-coldbox create model name=Contact --open
+coldbox create model name=ContactService persistence=singleton --open
 ```
 
 Then spice it up
