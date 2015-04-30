@@ -8,7 +8,6 @@ If you use any of the view partial caching mechanisms in Coldbox either through 
 The answer is, of course! All view and event caching occurss in a cache provider called template and you can retrieve it like so from your handlers, layouts, views, plugins and interceptors:
 
 ```js
-var cache = getColdBoxOCM("template");
 var cache = cachebox.getCache("template");
 ```
 
