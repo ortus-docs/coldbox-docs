@@ -16,7 +16,7 @@ install testbox-be --saveDev
 
 
 ## Benefits
-It might be that testing is tedious and takes time to get into the flow of Test Driven Development. However, there are incredible benefits to testing:
+It might be that testing is tedious and takes time to get into the flow of Behavior/Test Driven Development. However, there are incredible benefits to testing:
 
 * Can improve code quality
 * Quick error discovery
