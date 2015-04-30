@@ -1,10 +1,10 @@
 # Building a simple Basic HTTP Authentication Interceptor
 
-### Introduction
+## Introduction
 
 In this recipe we will create a simple interceptor that will be in charge of challenging users with HTTP Basic Authentication. It features the usage of all the new RESTful methods in our Request Context that will make this interceptor really straightforward. We will start by knowing that this interceptor will need a security service to verify security, so we will also touch on this.
 
-### The Interceptor
+## The Interceptor
 Our simple security interceptor will be intercepting at preProcess so all incoming requests are inspected for security. Remember that I will also be putting best practices in place and will be creating some unit tests and mocking for all classes. So check out our interceptor:
 
 
@@ -77,7 +77,7 @@ if( !securityService.isLoggedIn() OR len( event.getHTTPHeader("Authorization",""
 
 The renderData() is essential in not only setting the 401 status codes but also concatenating to a noExecution() method so it bypasses any event as we want to secure them.
 
-#### Interceptor Test
+## Interceptor Test
 
 So to make sure this works, here is our Interceptor Test Case with all possibilities for our Security Interceptor.
 
@@ -135,9 +135,9 @@ component extends="coldbox.system.testing.BaseInterceptorTest" interceptor="simp
 }
 ```
 
-As you can see from our A,B, anc C tests that we use [MockBox](http://wiki.coldbox.org/wiki/MockBox.cfm) to mock the security service, the request context and methods so we can build our interceptor without knowledge of other parts.
+As you can see from our A,B, anc C tests that we use MockBox to mock the security service, the request context and methods so we can build our interceptor without knowledge of other parts.
 
-### Security Service
+## Security Service
 
 Now that we have our interceptor built and fully tested, let's build the security service.
 
@@ -188,7 +188,7 @@ component accessors="true" singleton{
 
 We use a simple auth with luis and coldbox as the password. Of course, you would get fancy and store these in a database and have a nice object model around it. For this purposes was having a simple 1 time username and password. We also use the SessionStorage plugin in order to interact with the session scope with extra pizass and the most important thing: We can mock it!
 
-#### Security Service Test
+## Security Service Test
 
 ```js
 component extends="coldbox.system.testing.BaseModelTest" model="simpleMVC.model.SecurityService"{
@@ -233,17 +233,15 @@ component extends="coldbox.system.testing.BaseModelTest" model="simpleMVC.model.
 }
 ```
 
-Again, you can see that now we use our BaseModelTest case and continue to use mocks for our dependencies.
+Again, you can see that now we use our `BaseModelTest` case and continue to use mocks for our dependencies.
 
-### Interceptor Declaration
+## Interceptor Declaration
 
-We are pretty much done, so we can open our [ConfigurationCFC](http://wiki.coldbox.org/wiki/ConfigurationCFC.cfm) in our config/Coldbox.cfc and look for the interceptors section as we will be adding our simple security interceptor.
+Open your `Coldbox.cfc` configuration file and add it.
 
 ```js
 //Register interceptors as an array, we need order
 interceptors = [
-	//Autowire
-	{class="coldbox.system.interceptors.Autowire"},
 	//SES
 	{class="coldbox.system.interceptors.SES"},
 	// Security
@@ -251,4 +249,4 @@ interceptors = [
 ];
 ```
 
-We just add our Simple Security interceptor and reinit your app via [URLActions](http://wiki.coldbox.org/wiki/URLActions.cfm) or append fwreinit=1 to the URL and you should be now using simple security.
+We just add our Simple Security interceptor and reinit your application and you should be now using simple security.

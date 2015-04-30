@@ -1,6 +1,6 @@
 # My First Context Decorator
 
-### Introduction
+## Introduction
 
 In order to understand this quick hands on guide, you must first understand what a decorator is and how it applies to ColdBox. For that, please read the Request Context Decorator Guide. That guide will show you why use a decorator and how. This guide is just a quick hands on that will show you the following:
 
