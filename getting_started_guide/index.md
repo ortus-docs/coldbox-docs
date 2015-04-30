@@ -32,10 +32,10 @@ CommandBox>
 Now that our shiny new MVC app is ready to go, let's fire it up using the embedded server built into CommandBox.  You don't need any other software installed on your PC for this to work.  CommandBox has it all!
 
 ```bash
-CommandBox> start
+CommandBox> start --rewritesEnable
 ```
 
-In a few seconds, a browser window will appear with your running application. This is a full server with access to the web administrator where you can add data sources, mappings, or adjust the server settings. Notice the handy icon added to your system tray as well. 
+In a few seconds, a browser window will appear with your running application. This is a full server with access to the web administrator where you can add data sources, mappings, or adjust the server settings. Notice the handy icon added to your system tray as well.  The `--rewritesEnable` flag will turn on some basic URL rewriting so we have nice, pretty URLs. 
 
 ![Default ColdBox App Template](../images/app_template.png)
 
@@ -89,3 +89,18 @@ CommandBox> coldbox create handler helloWorld index,add,edit,list
 That's it!  You don't need to add any specicial configuration to decalre your handler.  Now we have a new handler called `helloWorld` with actions `index`, `add`, `edit`, and `list`.   The command also created a test case for our handler as well as stubbed-out views for each of the actions.  
 
 Now, let's re-initalize the framework to pick up our new handler by typing `?fwreinit=1` at the end of the URL.  
+
+Let's hit this new controller we created with a URL like so.  Your port number will probalby be different.
+
+> http://127.0.0.1:43272/helloWorld
+
+Normally the url would have `index.cfm` before the `/hellowWorld` bit, but our `--rewritesEnable` flag when we started the server makes this nicer URL possible.
+
+## Install Packages
+
+ColdBox's MVC is simple, but it's true power comes from the wide selection of modules you can install into your app to get additional functionality.  You can checkout the full list of modules available on the Forgebox site.
+> forgebox.io/type/modules
+
+Here's some useful examples:
+
+ 
