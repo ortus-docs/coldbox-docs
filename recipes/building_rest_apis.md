@@ -159,7 +159,7 @@ For full control, you can specify your own regex pattern to match parts of the r
 
 This route will match `api/user` and `api/person`, but not `/api/contact`
 
-#### Size Restrictions
+#### Placeholder Quantifiers
 
 You can also add the common regex `{}` size restrictor to restrict how many digits a placeholder should have or be between:
 
