@@ -55,7 +55,11 @@ Let's consider a resource we need to represent called `user`. Resources should u
 
 
 Here are a few pointers when using the HTTP verbs:
+
+```
 http://www.example.com/api/user
+```
+
 GET /api/user will return a representation of all the users. It is permissible to use a query string to control pagination or filtering.
 POST /api/user/ will create a new user
 GET /api/user/53 will return a representation of user 53
