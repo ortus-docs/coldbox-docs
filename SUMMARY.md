@@ -105,7 +105,7 @@
 * [Models](models/index.md)
    * [Domain Modeling](models/domain_modeling/index.md)
        * [Service Layer](models/domain_modeling/service_layer.md)
-       * [Data Layers](models/models/domain_modeling/data_layers.md)
+       * [Data Layers](models/domain_modeling/data_layers.md)
        * [Book](models/models/domain_modeling/book.md)
    * [Conventions Location](models/conventions_location.md)
    * [WireBox Binder](models/wirebox_binder.md)
