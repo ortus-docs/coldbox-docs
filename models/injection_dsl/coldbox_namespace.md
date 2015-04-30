@@ -30,5 +30,4 @@ This namespace is a combination of namespaces that are only active when used wit
 property name="moduleService" inject="coldbox:moduleService";
 property name="producer" inject="coldbox:interceptor:MessageProducer";
 property name="appPath" inject="coldbox:fwSetting:ApplicationPath";
-
 ```
