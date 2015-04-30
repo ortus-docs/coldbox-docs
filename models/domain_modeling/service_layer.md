@@ -1,4 +1,4 @@
-# Service Layer
+# Service Layer Is The Model
 
 I want to apply best practices and use a service layer approach for my application and model design. I will then use these service objects in my handlers in order to do the business logic for me. Repeat after me: 
 
