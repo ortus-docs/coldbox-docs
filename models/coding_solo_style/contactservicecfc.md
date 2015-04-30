@@ -2,6 +2,12 @@
 
 Here is our service layer and we have added some logging just for fun :). Notice that this object is a singleton and has some dependency injection.
 
+```
+coldbox create model name=Contact --open
+```
+
+Then spice it up
+
 ```js
 component accessors="true"{
 	
