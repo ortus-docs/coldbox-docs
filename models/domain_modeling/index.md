@@ -15,6 +15,8 @@ There are tons of great UML resources and tools. Here are some great tools for y
 * Learning UML - http://shop.oreilly.com/product/9780596009823.do
 * UML in a nutshell - http://shop.oreilly.com/product/9780596007959.do?green=87D3081D-5A0D-50F7-9757-95B7E8779516&cmp=af-mybuy-9780596007959.IP
 
+## Book Catalog
+
 Let's say that I want to build a simple book catalog and I want to be able to do the following:
 
 * List how many books I have
