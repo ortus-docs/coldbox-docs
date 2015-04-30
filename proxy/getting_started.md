@@ -43,7 +43,7 @@ component extends="coldbox.system.remote.ColdboxProxy"{
         
         var results = super.process( argumentCollection=arguments );
         
-        return results ?: []
+        return results ?: [];
     }
 }
 
