@@ -27,6 +27,6 @@ In this example, we also use `dbcreate="update"` as we want ColdFusion ORM to bu
 Now open your `ColdBox.cfc` and add the following to activate ORM injections:
 
 ```js
-orm = { injection = {enabled=true} };
+orm = { injection = { enabled=true } };
 ```
 
