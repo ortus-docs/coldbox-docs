@@ -4,11 +4,9 @@
 
 The super type offers 2 methods for interacting with your model layer:
 
-```js
-getModel([any name], [any dsl], [any<struct> initArguments={}])
+* `getModel()` - Retrieve a model object
+* `populateModel()` - Retrieve and/or populate a model object from the request collection.
 
-public Any populateModel(any model, [any scope=''], [boolean trustedSetter='false'], [any include=''], [any exclude=''], [boolean ignoreEmpty='false'], [string nullEmptyInclude=''], [string nullEmptyExclude=''], [boolean composeRelationships='false'])
-```
 
 ##getModel()
 
