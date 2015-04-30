@@ -28,9 +28,25 @@ Most remote APIs are strongly typed so it makes sense to create as many ColdBox 
     + MyProxy.cfc
 ```
 
+Here is a sample proxy object that just proxies a remote call
 
 
 ```js
+component extends="coldbox.system.remote.ColdboxProxy"{
+
+    /**
+    * Get user data
+    * @id The id of the user list to return
+    */
+    array function getData( required numeric id ){
+        arguments.event = "users.getdata";
+        
+        var results = super.process( argumentCollection=arguments );
+        
+        return results ?: []
+    }
+}
+
 <cfcomponent name="MyProxy" output="false" extends="coldbox.system.remote.ColdboxProxy">
 
 	<cffunction name="yourRemoteCall" output="false" access="remote" returntype="YourType" hint="Your Hint">
