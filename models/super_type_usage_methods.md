@@ -95,29 +95,4 @@ var user = ormService.populate( target=ormService.new("User"), memento=data, com
 // in this example, "role" will be composed, but "favColors" will be excluded
 ```
 
-##validateModel()
 
-Uses [ValidBox](http://wiki.coldbox.org/wiki/Validation.cfm), our very own form and object validation engine, or any third party connected validation engine. The results of the validation call is a validation results object that must adhere to our validation interface: coldbox.system.validation.result.IValidationResult and most likely it will be: coldbox.system.validation.result.ValidationResult. By now you should now that the best way to find out about the methods in these objects is to look for them in our [API Docs](http://apidocs.coldbox.org/).
-
-|Constraint|Type|Default|Description|
-|--|--|--|--|
-|target|any|---|The object to validate or a structure of name-value pairs to validate, this can be the request collection or the private collection or any structure you would like to validate.|
-|fields|string|*|By default it will validate all the fields in the constraints structure or you can validate only certain fields.|
-|excludeFields |strings|---|The fields to exclude in the validation|
-|constraints |string or structure |empty|Optional constraints to validate the form or object with. By default it look in the object for the constraints. You can pass a shared name (from your configuration file) or a structure of constraints.|
-|locale|string|empty|The optional i18n locale to validate with. You can retrieve the current user's locale via getFWLocale(). All the validation messages will be taken from your resource bundles, if defined!|
-
-I know we have not seen how to [validate](http://wiki.coldbox.org/wiki/Validation.cfm) yet, we will shortly, but also take a peek at our Validation docs as well.
-
-```js
-var user = populateModel( entityNew("User") );
-var vResults = validateModel( user );
-if( vResults.hasErrors() ){
-	getPlugin("MessageBox").error(messageArray=vResults.getAllErrors());
-	setNextEvent('users.edit');
-}
-else{
-	userService.save( user );
-	setNextEvent('users.list');
-}
-```
