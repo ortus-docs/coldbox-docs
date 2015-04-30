@@ -18,7 +18,6 @@ Here are the basics to follow for integration testing:
 /**
 * My integration test bundle
 */
-component  
-	extends="coldbox.system.testing.BaseTestCase” appMapping=“/root”{
+component extends="coldbox.system.testing.BaseTestCase” appMapping=“/root”{
 }
 ```
