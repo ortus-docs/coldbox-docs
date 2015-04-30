@@ -44,7 +44,7 @@ In a few seconds, a browser window will appear with your running application. Th
 ColdBox uses easy conventions to define the controllers and views in your app.  Let's open up our main app controller in your default editor to have a looksie.
 
 ```bash
-CommandBox> edit /handlers/main.cfc
+CommandBox> edit handlers/main.cfc
 ```
 
 At the top, you'll see a method named "index".  This represents the default action that runs for this controller.  
@@ -60,7 +60,7 @@ function index(event,rc,prc){
 Now let's take a look in the "main/index" view.  It's located int he `views` folder.
 
 ```bash
-CommandBox> edit /views/main/index.cfm
+CommandBox> edit views/main/index.cfm
 ```
 
 This line of code near the top of the view is what outputs the `prc.welcomeMessage` variable we set in the controller.
@@ -141,7 +141,7 @@ We can also add the word `singleton` to the component declaration.  This will te
 component singleton {
 
     function sayHello(){
-    	return 'Hello World!';
+    	return 'Hey, you sexy thing!';
     }
     
 }
@@ -152,7 +152,7 @@ component singleton {
 Ok, let's open up that `helloWorld` handler we created a while back.  Remember, you can hit tab while typing to auto-complete your file names.
 
 ```bash
-CommandBox> edit /handlers/helloWorld.cfc
+CommandBox> edit handlers/helloWorld.cfc
 ```
 
 We'll inject our `greeterService` and the `cbmessagebox` service into the handler by adding these properties to the top of `/handlers/hellowWorld.cfc`.  This will put the instance of our services in the variables scope where we can access it in our action methods.
@@ -160,11 +160,21 @@ We'll inject our `greeterService` and the `cbmessagebox` service into the handle
 ```javascript
 component {
 	property name='greeterService' inject='greeterService';
-	property name='messsageBox' inject='messagebox@cbmessagebox';
+	property name='messageBox' inject='messagebox@cbmessagebox';
 
     ...
 }
 ```
 
-And now in our `index` method, we'll set the output of our service into a success message.
+And now in our `index` method, we'll set the output of our service into an `info` message.
+
+```javascript
+function index(event,rc,prc){
+	messsageBox.info( greeterService.sayHello() );
+	event.setView("helloWorld/index");
+}	
+```
+
+One final piece.  Open up the default layout located in `layouts/Main.cfm` and find the `#renderView()#'.  Add this line right before it.
+
 
