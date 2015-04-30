@@ -28,6 +28,9 @@ testbox help
 # generations
 testbox create help
 
+# run tests
+testbox run help
+
 # coldbox creation help
 codlbox create help
 ```
