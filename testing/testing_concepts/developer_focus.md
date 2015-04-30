@@ -1,7 +1,7 @@
 # Developer Focus
 
 
-This guide is writtent for developers, so what is our focus? Our focus is to get awareness about the different aspects of testing and what are some of the testing focuses for the development phase:
+This section is writtent for developers, so what is our focus? Our focus is to get awareness about the different aspects of testing and what are some of the testing focuses for the development phase:
 
 * Unit Testing - We should be testing all the CFCs we create in our applications. Especially when dealing with Object Oriented systems, we need to have mocking and stubbing capabilities (See MockBox).
 * Integration Testing - Unit tests can only expose issues at the CFC level, but what happens when we put everything together? Integration testing in ColdBox allows you to test requests just like if they where executed from the browser. So all your application loads, interceptions, caching, dependency injection, ORM, database, etc.
