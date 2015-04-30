@@ -68,8 +68,18 @@ http://www.example.com/api/user
 
 > **Info** GET, PUT, and DELETE methods should be idempotent which means repeated requests to the same URI don't do anything. Repeated POST calls however, would create multiple users.
 
-In ColdBox, the easiest way to represent our "/api/user" resource is to create a handler called "user.cfc" in the /handlers/api/ directory. In this instance, ColdBox will consider the "api" to be a handler package. Here in my handler, I have stubbed out actions for each of the operations I need to perform against my user resource.
-/handlers/api/user.cfc
+In ColdBox, the easiest way to represent our `/api/user` resource is to create a handler called `user.cfc` in the `/handlers/api/` directory. In this instance, ColdBox will consider the `api` to be a handler package. You can leverage CommandBox for this:
+
+```bash
+coldbox create handler name=api.user actions=index,view,save,remove
+```
+
+> **Hint** This command will create all the necessary files for you and even the integration tests for you.
+
+Here in my handler, I have stubbed out actions for each of the operations I need to perform against my user resource.
+
+**/handlers/api/user.cfc**
+```js
 component {
 
   function index( event, rc, prc ) {
@@ -89,6 +99,8 @@ component {
   }
 
 }
+```
+
 Defining URL Routes
 Now that we have this skeleton in place to represent our user resource, let's move on show how you can have full control of the URL as well as mapping HTTP verbs to specific handler actions. The default route for our user.cfc handler is /api/user, but what if we want the resource in the URL to be completely different than the handler name convention? To do this, use the /config/routes.cfm file to declare URL routes we want the application to capture and define how to process them.
 Let's add the following new routes to our /config/routes.cfm file BEFORE the default route.
