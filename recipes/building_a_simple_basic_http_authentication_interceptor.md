@@ -188,7 +188,7 @@ component accessors="true" singleton{
 
 We use a simple auth with luis and coldbox as the password. Of course, you would get fancy and store these in a database and have a nice object model around it. For this purposes was having a simple 1 time username and password. We also use the SessionStorage plugin in order to interact with the session scope with extra pizass and the most important thing: We can mock it!
 
-#### Security Service Test
+## Security Service Test
 
 ```js
 component extends="coldbox.system.testing.BaseModelTest" model="simpleMVC.model.SecurityService"{
