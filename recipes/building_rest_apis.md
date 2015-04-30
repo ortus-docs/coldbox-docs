@@ -133,16 +133,24 @@ You can see if that if action is a string, all HTTP verbs will be mapped there, 
 
 ### Route Placeholders
 
-The `:userID` part of the route pattern is a placeholder. It matches whatever text is in the URL in that position. The value of the text that is matched will be available to you in the request collection as rc.userID. You can get even more specific about what kind of text you want to match in your route pattern.
-Numeric Pattern Matcher
-Append -numeric to the end of the placeholder to only match numbers.
-addRoute( pattern = 'user/:userID-numeric' );
-This route will match user/123 but not user/bob.
-Alphabetic Pattern Matcher
+The `:userID` part of the route pattern is a placeholder. It matches whatever text is in the URL in that position. The value of the text that is matched will be available to you in the request collection as `rc.userID`. You can get even more specific about what kind of text you want to match in your route pattern.
+
+#### Numeric Pattern Matcher
+
+Append `-numeric` to the end of the placeholder to only match numbers.
+
+`addRoute( pattern = 'user/:userID-numeric' );`
+
+This route will match `user/123` but not `user/bob`.
+
+#### Alphabetic Pattern Matcher
+
 Append -alpha to the end of the placeholder to only match upper and lowercase letters.
 addRoute( pattern = 'page/:slug-alpha' );
 This route will match page/contactus but not page/contact-us3.
-Regex Pattern Matcher
+
+#### Regex Pattern Matcher
+
 For full control, you can specify your own regex pattern to match parts of the route
 addRoute( pattern = 'api/regex:(user|person)' );
 This route will match api/user and api/person, but not /api/contact
