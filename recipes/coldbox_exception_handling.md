@@ -130,7 +130,9 @@ component extends="coldbox.system.Interceptor"{
 		log.warning( "Invalid page detected: #arguments.interceptData.invalidEvent#");
 
 		// Set the invalid event to run
-		arguments.interceptData.ehBean.setHandler("Main").setMethod("pageNotFound");
+		arguments.interceptData.ehBean
+		    .setHandler("Main")
+		    .setMethod("pageNotFound");
 
 		// Override
 		arguments.interceptData.override = true;
