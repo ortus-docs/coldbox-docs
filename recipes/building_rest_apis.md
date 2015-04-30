@@ -33,14 +33,23 @@ Below you can download our quick reference card on RESTFul APIs
 
 ## Introduction To REST
 
-REST stands for Representational State Transfer and builds upon the basic idea that data is represented as resources and accessed via a URI, or unique address. An HTTP client (such as a browser, or the CFHTTP tag) can send requests to a URI to interact with it. The HTTP verb (GET, POST, etc) sent in the header of the request tells the server how the client want to interact with that resource.
+REST stands for **Representational State Transfer** and builds upon the basic idea that data is represented as **resources** and accessed via a **URI**, or unique address. An HTTP client (such as a browser, or the `CFHTTP` tag) can send requests to a URI to interact with it. The HTTP verb (GET, POST, etc) sent in the header of the request tells the server how the client want to interact with that resource.
+
 As far as how your data is formatted or how you implement security is left up to you. REST is less prescriptive than other standards such as SOAP (which uses tons of heavy XML and strictly-typed parameters). This makes it more natural to understand and easier to test and debug.
-To use REST in ColdBox ensure you have the SES interceptor enabled (Which is enabled by default for all applications). Make sure the following interceptor is defined in your /config/ColdBox.cfc configuration file. More info here.
+
+To use REST in ColdBox ensure you have the SES interceptor enabled (Which is enabled by default for all applications). Make sure the following interceptor is defined in your `/config/ColdBox.cfc` configuration file.
+
+```js
 interceptors = [
   {class="coldbox.system.interceptors.SES"}
 ];
-Defining Resources
-A REST API can define its resources on its own domain (http://api.example.com), or after a static placeholder that differentiates it from the rest of the app (http://www.example.com/api/). We'll use the latter for these examples. Let's consider a resource we need to represent called "user". Resources should usually be nouns. If you have a verb in your URL, you're probably doing it wrong. It is also important to note that REST is a style of URL architecture not a mandate, so it is an open avenue of sorts. However, you must stay true to its concepts of resources and usage of the HTTP verbs. Here are a few pointers when using the HTTP verbs:
+```
+
+## Defining Resources
+
+A REST API can define its resources on its own domain (`http://api.example.com`), or after a static placeholder that differentiates it from the rest of the app (`http://www.example.com/api/`). We'll use the latter for these examples. 
+
+Let's consider a resource we need to represent called "user". Resources should usually be nouns. If you have a verb in your URL, you're probably doing it wrong. It is also important to note that REST is a style of URL architecture not a mandate, so it is an open avenue of sorts. However, you must stay true to its concepts of resources and usage of the HTTP verbs. Here are a few pointers when using the HTTP verbs:
 http://www.example.com/api/user
 GET /api/user will return a representation of all the users. It is permissible to use a query string to control pagination or filtering.
 POST /api/user/ will create a new user
