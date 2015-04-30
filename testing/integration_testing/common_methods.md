@@ -1,6 +1,6 @@
 # Common Methods
 
-The base test cases all inherit from TestBox so here are a few of the common methods:
+The base test cases all inherit from TestBox so here are a few of the common methods you can find in every test bundle CFC (http://testbox.ortusbooks.com/content/test_bundles/index.html):
 
 ```js
 // quick assertion methods
