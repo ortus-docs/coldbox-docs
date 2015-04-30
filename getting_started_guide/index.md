@@ -22,3 +22,17 @@ CommandBox> cd C:\playground
 ```
 
 Now let's ask CommandBox to create a new ColdBox site for us.  The `--installColdBox` flag will also install the latest version of the ColdBox Platform alongside our new app skeleton.
+
+```bash
+CommandBox>  
+```
+
+## Start It Up
+
+Now that our shiny new MVC app is ready to go, let's fire it up using the embedded server built into CommandBox.  You don't need any other software installed on your PC for this to work.  CommandBox has it all!
+
+```bash
+CommandBox> start
+```
+
+In a few seconds, a browser window will appear with your running application. This is a full server with access to the web administrator where you can add data sources, mappings, or adjust the server settings. Notice the handy icon added to your system tray as well. 
