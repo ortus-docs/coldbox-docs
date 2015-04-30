@@ -135,10 +135,24 @@ CommandBox> coldbox create model GreeterService sayHello --open
 
 The `--open` is a nice shortcut that opens our new model in our default editor after creating it.  Let's finish implementing the `sayHello()` method by adding this return statement and save the file.
 
+We can also add the word `singleton` to the component declaration.  This will tell WireBox to only create one instance of our service.
+
 ```javascript
-function sayHello(){
-	return 'Hello World!';
+component singleton {
+
+    function sayHello(){
+    	return 'Hello World!';
+    }
+    
 }
 ```
 
+## Tie It All Together
 
+Ok, let's open up that `helloWorld` handler we created a while back.  Remember, you can hit tab while typing to auto-complete your file names.
+
+```bash
+CommandBox> edit /handlers/helloWorld.cfc
+```
+
+We'll inject 
