@@ -51,3 +51,5 @@ coldbox create integration-test handler=main actions=index,save,run --open
 # help
 coldbox create integration-test help
 ```
+
+Please also note that whenever you create a handler, interceptor or model with CommandBox it will automatically create the integration or unit test for you.
