@@ -109,7 +109,7 @@
        * [Book](models/domain_modeling/book.md)
    * [Conventions Location](models/conventions_location.md)
    * [WireBox Binder](models/wirebox_binder.md)
-   * [Super Tupe Usage Methods](models/super_tupe_usage_methods.md)
+   * [Super Type Usage Methods](models/super_tupe_usage_methods.md)
    * [Injection DSL](models/injection_dsl/index.md)
        * [Model Object Namespace](models/injection_dsl/model_object_namespace.md)
        * [EntityService Namespace](models/injection_dsl/entityservice_namespace.md)
