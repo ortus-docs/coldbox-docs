@@ -26,7 +26,6 @@ testbox help
 codlbox create help
 ```
 
-
 ## Benefits
 It might be that testing is tedious and takes time to get into the flow of Behavior/Test Driven Development. However, there are incredible benefits to testing:
 
