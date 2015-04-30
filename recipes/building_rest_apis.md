@@ -225,18 +225,30 @@ http://www.example.com/api/user.xml
 http://www.example.com/api/user.text
 ```
 
-ColdBox has built-in support for detecting an extension in the URL and will save it into the request collection in a variable called format. What's even better is that renderData() can find the the format variable and automatically render your data in the appropriate way. All you need to do is pass in a list of valid rendering formats and renderData() will do the rest.
-  function index( event, rc, prc ) {
-	var qUsers = getUserService().getUsers();
-	// Correct format auto-detected from the URL
-	event.renderData( data=qUsers, formats="json,xml,text" );
-  }
-Handler Return Data
+ColdBox has built-in support for detecting an extension in the URL and will save it into the request collection in a variable called `format`. What's even better is that `renderData()` can find the format variable and automatically render your data in the appropriate way. All you need to do is pass in a list of valid rendering formats and `renderData()` will do the rest.
+
+```js
+function index( event, rc, prc ) {
+var qUsers = getUserService().getUsers();
+// Correct format auto-detected from the URL
+event.renderData( data=qUsers, formats="json,xml,text" );
+}
+```
+
+### Handler Return Data
+
 You can also return a string representation of the data directly from the method if you want to manually create it. It is important that you return a string. Complex data can't be sent over HTTP.
+
 In this example, there are no views or layouts in play-- just raw data being returned from our handler.
-  function index( event, rc, prc ) {
-    return 'This is the result of my REST call';
-  }
+
+```js
+function index( event, rc, prc ) {
+return 'This is the result of my REST call';
+}
+```
+
+> **Info** This approach allows the user to render back any string representation and be able to output any content type they like.
+
 Status Codes
 Status codes are a core concept in HTTP and REST APIs use them to send messages back to the client. Here are a few sample REST status codes and messages.
 200 - OK - Everything is hunky-dory
