@@ -16,7 +16,7 @@ function setMyservice(MyService) inject="MyService"{
 }
 
 // argument injection
-<cfargument name="setting" inject="coldbox:setting:MyDSN">
+<cfargument name="setting" inject="MyService">
 
 /**
 * @myDAO.inject model:MyDAO
@@ -26,5 +26,5 @@ function init(myDAO){
 }
 ```
 
-The value of the inject attribute is what we call our injection DSL. This string represents the concept of retrieving an object WireBox knows about, which can be an object, a setting, a datasource, your custom data, etc. You can see al the different Injection DSL's in the WireBox documentation: ([See Injection DSL](http://wiki.coldbox.org/wiki/WireBox.cfm#Injection_DSL)). Below are just the most common ones we will use:
+The value of the `inject` attribute is what we call our injection DSL. This string represents the concept of retrieving an object WireBox knows about, which can be an object path, an object ID, a setting, a datasource, your custom data, etc. You can see al the different Injection DSL's in the WireBox documentation: ([See Injection DSL](http://wirebox.ortusbooks.com/content/injection_dsl/index.html)). Below are just the most common ones we will use:
 
