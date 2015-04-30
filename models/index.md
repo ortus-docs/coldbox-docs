@@ -1,6 +1,12 @@
 # Models
 
-ColdBox allows you to integrate with the model layer with easy by leveraging **WireBox** as your default dependency injection framework.  However, you can integrate your model layer with any third-party DI framework via our `cbioc` module (https://github.com/ColdBox/cbox-ioc).
+ColdBox allows you to integrate with the model layer with easy by leveraging **WireBox** as your default dependency injection framework.  However, you can integrate your model layer with any third-party DI framework via our `cbioc` module (https://github.com/ColdBox/cbox-ioc) as well.
+
+## Spaghetti Evolution
+
+Remember this:
+
+![](../images/spaghetti.png)
 
 ![](../images/WireBox.png)
 
