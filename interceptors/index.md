@@ -27,7 +27,6 @@ if( userCreated ){
 If you are familiar with design patterns, custom interceptors can give you an implementation of observer/observable listener objects, much like any event-driven system can provide you. In a nutshell, an observer is an object that is registered to listen for certain types of events, let's say as an example `onError` is a custom interception point and we create a CFC that has this `onError` method. Whenever in your application you announce or broadcast that an event of type onError occurred, this CFC will be called by the ColdBox interceptor service.
 
 **Interceptor Example**
-
 ```js
 component extends="coldbox.system.Interceptor"{
     
