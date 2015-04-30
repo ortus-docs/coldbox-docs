@@ -2,7 +2,9 @@
 
 Before we start building our objects we need to know how to tell WireBox to inject objects for us. You can do all this via configuration (Inside the binder) like any other DI framework, but the easieast approach is to use our injection annotation and conventions. The injection DSL can be applied to `cfproperty, cfargument, cffunction` or called via `getModel()` as we saw previously. 
 
-The injection DSL is represented by adding an attribute called `inject` to properties and arguments. This attribute is like your code is shouting, *Hey, I need something here, hello, I need something!*. That something can be another object, setting, cache, etc.
+The injection DSL is represented by adding an attribute called `inject` to properties and arguments. This attribute is like your code shouting, **Hey, I need something here, hello, I need something!**. That something can be another object, setting, cache, etc.
+
+> **Info** If you do not like annotations or find them obtrusive then you don't have to use them :).  Just leverage the WireBox binder to define object dependencies instead.
 
 ```js
 // property injection
