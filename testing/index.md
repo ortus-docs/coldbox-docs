@@ -23,6 +23,7 @@ Please also note that CommandBox ships with tons of commands for interacting wit
 
 ```bash
 testbox help
+codlbox create help
 ```
 
 
