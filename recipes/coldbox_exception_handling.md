@@ -38,3 +38,31 @@ function onException(event,rc,prc){
 ```
 
 > **Caution** Please note that if you set a view for rendering or renderdata in this exception handler, nothing will be rendered. The framework is in exception mode and will not allow any custom renderings or views as that could also produce exceptions as well.
+
+##Global onException Interceptor
+
+This is a standard ColdBox interception point that can be used to intercept whenever a global exception has occurred in the system. The interceptor call is actually made before the global exception handler, any automatic logging or presentation of the error page to the user. This is the first line of defense towards exceptions. You might be asking yourself, what is the difference between writing an `onException()` interceptor and just a simple exception handler? Well, the difference is in the nature of the design. 
+
+Interceptors are designed to be decoupled classes that can react to announced events, thus an event-driven approach. You can have as many CFCs listening to the onException event and react accordingly without them ever knowing about each other and doing one job and one job only. This is a much more flexible and decoupled approach than calling a single event handler where you will procedurally decide what happens in an exception.
+component extends="coldbox.system.Interceptor"{
+	
+	function onException(event, interceptData){
+		// Get the exception
+		var exception = arguments.interceptData.exception;
+
+		// Do some logging only for some type of error and relocate
+		if( exception.type eq "myType" ){
+			log.error( exception.message & exception.detail, exception );
+			// relocate
+			setNextEvent( "page.invalidSave" );
+		}
+	}
+}
+Also remember that you need to register the interceptor in your ConfigurationCFC so ColdBox knows about it:
+interceptors = [
+	
+	// Register exception handler
+	{ class = "interceptors.ExceptionHandler", properties = {} }
+
+];
+Important: Remember that the onException() interceptors execute before the global exception handler, any automatic error logging and presentation of the core or custom error templates.
