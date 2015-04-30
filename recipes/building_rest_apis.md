@@ -103,9 +103,13 @@ component {
 
 ##Defining URL Routes
 
-Now that we have this skeleton in place to represent our user resource, let's move on show how you can have full control of the URL as well as mapping HTTP verbs to specific handler actions. The default route for our user.cfc handler is /api/user, but what if we want the resource in the URL to be completely different than the handler name convention? To do this, use the /config/routes.cfm file to declare URL routes we want the application to capture and define how to process them.
-Let's add the following new routes to our /config/routes.cfm file BEFORE the default route.
+Now that we have this skeleton in place to represent our user resource, let's move on show how you can have full control of the URL as well as mapping HTTP verbs to specific handler actions. 
 
+The default route for our `user.cfc` handler is `/api/user`, but what if we want the resource in the URL to be completely different than the handler name convention? To do this, use the `/config/routes.cfm` file to declare URL routes we want the application to capture and define how to process them.
+
+Let's add the following new routes to our `/config/routes.cfm` file BEFORE the default route.
+
+```js
 // map base route to list users
 addRoute(
   pattern = 'api/user',
@@ -123,10 +127,13 @@ addRoute(
     PUT = 'save',
     DELETE = 'remove'
   });
+```
 
-You can see if that if action is a string, all HTTP verbs will be mapped there, however a struct can also be provided that maps different verbs to different actions. This gives you exact control over how the requests are routed.
-Route Placeholders
-The :userID part of the route pattern is a placeholder. It matches whatever text is in the URL in that position. The value of the text that is matched will be available to you in the request collection as rc.userID. You can get even more specific about what kind of text you want to match in your route pattern.
+You can see if that if action is a string, all HTTP verbs will be mapped there, however a `struct` can also be provided that maps different verbs to different actions. This gives you exact control over how the requests are routed.
+
+### Route Placeholders
+
+The `:userID` part of the route pattern is a placeholder. It matches whatever text is in the URL in that position. The value of the text that is matched will be available to you in the request collection as rc.userID. You can get even more specific about what kind of text you want to match in your route pattern.
 Numeric Pattern Matcher
 Append -numeric to the end of the placeholder to only match numbers.
 addRoute( pattern = 'user/:userID-numeric' );
