@@ -62,11 +62,15 @@ component extends="coldbox.system.Interceptor"{
 }
 ```
 
-Also remember that you need to register the interceptor in your ConfigurationCFC so ColdBox knows about it:
+Also remember that you need to register the interceptor in your configuration file or dynamically so ColdBox knows about it:
+
+```js
 interceptors = [
 	
 	// Register exception handler
 	{ class = "interceptors.ExceptionHandler", properties = {} }
 
 ];
-Important: Remember that the onException() interceptors execute before the global exception handler, any automatic error logging and presentation of the core or custom error templates.
+```
+
+> **Caution** Remember that the `onException()` interceptors execute before the global exception handler, any automatic error logging and presentation of the core or custom error templates.
