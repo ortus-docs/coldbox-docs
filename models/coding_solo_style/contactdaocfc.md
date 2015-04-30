@@ -2,6 +2,12 @@
 
 Our Contact DAO will talk to the datasource object we declared and do a few queries. Notice that this object is a singleton and has some dependency injection.
 
+```
+coldbox create model name=ContactDAO persistence=singleton --open
+```
+
+Then spice it up
+
 ```js
 component accessors="true" singleton{
 	
