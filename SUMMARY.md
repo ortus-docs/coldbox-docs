@@ -236,7 +236,7 @@
        * [Developer Focus](testing/testing_concepts/developer_focus.md)
        * [Testing Vocabulary](testing/testing_concepts/testing_vocabulary.md)
        * [Testing Tools](testing/testing_concepts/testing_tools.md)
-   * [Testing Templates](testing/testing_templates/index.md)
+   * [Test Harness](testing/testing_templates/index.md)
        * [Eclipse MXUnit Plugin Caveats](testing/testing_templates/eclipse_mxunit_plugin_caveats.md)
    * [ColdBox Testing Classes](testing/coldbox_testing_classes.md)
    * [Integration Testing](testing/integration_testing/index.md)
