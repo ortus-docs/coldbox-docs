@@ -72,7 +72,16 @@ This line of code near the top of the view is what outputs the `prc.welcomeMessa
 Try changing the value being set in the handler and refresh your browser to see the change. 
 
 ```javascript
-prc.welcomeMessage = "Hello World!";
+prc.welcomeMessage = "This is my new welcome message";
 
 ```
 
+## Building On
+
+Let's define a new controller now.  Sometimes you'll see these called "handlers".  This is because ColdBox is an event-driven system.  Your controllers act as event handlers to respond to requests, REST API, or remote proxies.   
+
+Pull up CommandBox again and run this command.
+
+```bash
+CommandBox> coldbox create handler helloWorld
+```
