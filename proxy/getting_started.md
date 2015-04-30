@@ -39,7 +39,7 @@ component extends="coldbox.system.remote.ColdboxProxy"{
     * @id The id of the user list to return
     */
     array function getData( required numeric id ){
-        arguments.event = "users.getdata";
+        arguments.event = "users.getListData";
         
         var results = super.process( argumentCollection=arguments );
         
