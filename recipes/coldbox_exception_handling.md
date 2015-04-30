@@ -9,6 +9,7 @@ ColdBox provides you with several ways to handle different types of exceptions d
 * Global missing template handler
 * Handler `onMissingAction()`
 * Handler `onError()`
+* Handler `onInvalidHTTPMethod`
 
 ## Global Exception Handler
 
