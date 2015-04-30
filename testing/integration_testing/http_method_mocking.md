@@ -13,7 +13,7 @@ function run(){
     
       it( "+homepage renders", function(){
         prepareMock( getRequestContext() )
-    	.$(“getHTTPMethod”, “DELETE”);
+    	    .$(“getHTTPMethod”, “DELETE”);
         FORM.userID = 123;
         var event = execute( event=“user.delete“ );
       });	
