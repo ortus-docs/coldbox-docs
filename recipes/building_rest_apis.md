@@ -9,7 +9,8 @@ Creating a fully-featured REST API is easy with the ColdBox Platform. Everything
 [Download RefCard](https://github.com/ColdBox/cbox-refcards/raw/master/ColdBox%20REST%20APIs/ColdBox-REST-APIs-Refcard.pdf)
 
 
-Introduction To REST
+## Introduction To REST
+
 REST stands for Representational State Transfer and builds upon the basic idea that data is represented as resources and accessed via a URI, or unique address. An HTTP client (such as a browser, or the CFHTTP tag) can send requests to a URI to interact with it. The HTTP verb (GET, POST, etc) sent in the header of the request tells the server how the client want to interact with that resource.
 As far as how your data is formatted or how you implement security is left up to you. REST is less prescriptive than other standards such as SOAP (which uses tons of heavy XML and strictly-typed parameters). This makes it more natural to understand and easier to test and debug.
 To use REST in ColdBox ensure you have the SES interceptor enabled (Which is enabled by default for all applications). Make sure the following interceptor is defined in your /config/ColdBox.cfc configuration file. More info here.
