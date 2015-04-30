@@ -9,7 +9,7 @@ Here are some terms that we need to start getting familiar with:
 * **Test Data**: A collection of pre-defined data or mocked data used to run against our test cases
 * **Test Harness**: A collection of software and test data configured to test a program unit by running it under varying conditions and monitoring its behavior and outputs.
 * **TDD**: Test Driven Development - A software development process that relies on the repetition of a very short development cycle: first the developer writes a failing automated test case that defines a desired improvement or new function, then produces code to pass that test and finally refactors the new code to acceptable standards.
-* **BDD**: Behavior Driven Development
+* **BDD**: BDD stands for behavior driven development and is highly based on creating specifications and expectations of results in a readable DSL (Domain Specifc Language).
 * **Mock Object**: Simulated objects that mimic the behavior of real objects in controlled ways
 * **Stub Object**: Simulated objects that have no behavior or implementations and can be controlled and injected with functionality
 * **Assertions**: The function to test if a predicate is true or false: X>1, 4=5
