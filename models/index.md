@@ -8,6 +8,11 @@ Remember this:
 
 ![](../images/spaghetti.png)
 
+Did you get some spine shivers like I just did.  WOW! That is the traditional spaghetti coding style.  Hopefully by now leveraging ColdBox we go into MVC heaven:
+
+![](../images/MVC.png)
+
+
 ![](../images/WireBox.png)
 
 WireBox, is our dependency injection and AOP framework, that will do all the magic of building, wiring objects with dependencies and helping your persist objects in some state (singletons, transients, request, etc). The main purpose for model integration is to make developer's development workflow easier! And we all like that Easy button! 
