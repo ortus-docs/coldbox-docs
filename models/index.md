@@ -10,7 +10,7 @@ WireBox, is our dependency injection and AOP framework, that will do all the mag
 
 * Easily create and retrieve model objects by using one method: `getModel()`
 * Easily handle model or handler dependencies by using `cfproperty` and constructor argument conventions.
-* A conventions DSL (Domain Specific Language) has been created to facilitate what needs to be injected in the models
+* An Injection DSL (Domain Specific Language) has been created to facilitate dependencies
 * Easily determine what scope model objects should be persisted in: Transients, Singletons, Cache, Request, Session, etc.
 * Easily create a configuration binder to create aliases or complex object relationships (Java, WebServices, RSS, etc.)
 * Easily populate model objects or even ORM entity objects with data from a request: populateModel()
