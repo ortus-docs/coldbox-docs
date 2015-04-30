@@ -10,12 +10,12 @@ Here are the annotations you can add to your testing bundle CFC.
 |loadColdBox|bollean|false|true|If you call super.init() on the test case, this flag tells the base test case to load up the virtual testing application or not. This flag is mostly used for advanced testing cases, by default it always load ColdBox in Base Test Cases.|
 
 ```js
-<cfcomponent extends="coldbox.system.testing.BaseTestCase" appMapping="/apps/MyApp">
-</cfcomponent>
+component extends="coldbox.system.testing.BaseTestCase" appMapping="/apps/MyApp"{
 
-<cfcomponent extends="coldbox.system.testing.BaseTestCase" appMapping="/apps/MyApp" configMapping="apps.MyApp.test.resources.Config">
-</cfcomponent>
+component extends="coldbox.system.testing.BaseTestCase"
+    appMapping="/apps/MyApp" 
+    configMapping="apps.MyApp.test.resources.Config"{
 ```
 
-> **Important** The AppMapping setting is the most important one. This is how your test connects to a location of a ColdBox application to test. 
+> **Caution** The AppMapping setting is the most important one. This is how your test connects to a location of a ColdBox application to test. 
 
