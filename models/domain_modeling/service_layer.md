@@ -11,6 +11,8 @@ The whole point of the model layer is that it is separate from the other 2 layer
 
 ![](../../images/ServiceLayers.jpg)
 
+## What is a service layer?
+
 > A Service Layer defines an application's boundary [Cockburn PloP] and its set of available operations from the perspective of interfacing client layers. It encapsulates the application's business logic, controlling transactions and coor-dinating responses in the implementation of its operations. 
 <small>[Martin Fowler](http://martinfowler.com/eaaCatalog/serviceLayer.html)</small>
 
