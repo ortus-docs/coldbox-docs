@@ -74,3 +74,29 @@ interceptors = [
 ```
 
 > **Caution** Remember that the `onException()` interceptors execute before the global exception handler, any automatic error logging and presentation of the core or custom error templates.
+
+
+
+## Global Invalid Event Handler
+
+The global invalid event handler allows you to configure an event to execute whenever ColdBox detects that the requested event does not exist. This is a great way to present the user with page not found exceptions and 404 error codes. The setting is called `coldbox.onInvalidEvent` and can be set in your configuration `ColdBox.cfc`. The value of the setting is the event that will handle these missing events.
+
+```js
+coldbox = {
+	...
+	onInvalidEvent = "main.pageNotFound"
+	...
+};
+```
+
+Please note the importance of setting a 404 header as this identifies to the requester that the requested event does not exist in your system. Also note that if you do not set a view for rendering or render data back, the request might most likely fail as it will try to render the implicit view according to the incoming event. ColdBox will also place the invalid event requested in the private request collection with the value of invalidevent.
+function pageNotFound(event,rc,prc){
+	// Log a warning
+	log.warning( "Invalid page detected: #prc.invalidEvent#");
+
+	// Do a quick page not found and 404 error
+	event.renderData( data="<h1>Page Not Found</h1>", statusCode=404 );
+
+	// Set a page for rendering and a 404 header
+	event.setView( "main/pageNotFound" ).setHTTPHeader( "404", "Page Not Found" );
+}
