@@ -403,11 +403,16 @@ component{
 }
 ```
 
-The key is the name of the action and the value is a list of allowed HTTP methods. If the action is not listed in the structure, then it means allow all. If the request action HTTP method is not found in the list then it throws a 405 exception. You can catch this scenario and still return a properly-formatted response to your clients by using the onError() convention in your handler or an exception handler which applies to the entire app.
-Error Handling
-ColdBox REST APIs can use all the same error faculties that an ordinary ColdBox application has. You can read about them here. we'll cover two of the most common ways here.
-Handler onError()
-If you create a method called onError() in a handler, ColdBox will automatically call that method for runtime errors that occur while executing any of the actions in that handler. This allows for localized error handling that is customized to that resource.
+The key is the name of the action and the value is a list of allowed HTTP methods. If the action is not listed in the structure, then it means allow all. If the request action HTTP method is not found in the list then it throws a 405 exception. 
+You can catch this scenario and still return a properly-formatted response to your clients by using the `onError()` or the `onInvalidHTTPMethod()` convention in your handler or an exception handler which applies to the entire app.
+
+## Error Handling
+ColdBox REST APIs can use all the same error faculties that an ordinary ColdBox application has. We'll cover three of the most common ways here.
+
+### Handler `onError()`
+If you create a method called `onError()` in a handler, ColdBox will automatically call that method for runtime errors that occur while executing any of the actions in that handler. This allows for localized error handling that is customized to that resource.
+
+```js
 // error uniformity for resources
 function onError( event, rc, prc, faultaction, exception ){
 	prc.response = getModel("ResponseObject");
@@ -423,6 +428,8 @@ function onError( event, rc, prc, faultaction, exception ){
 	arguments.event.setHTTPHeader(statusCode="500",statusText="Error executing resource #arguments.exception.message#")
 		.renderData( data=prc.response.getDataPacket(), type="json" );
 }
+```
+
 Global Exception Handler
 The global exception handler will get called for any runtime errors that happen anywhere in the typical flow of your application. This is like the onError() convention but covers the entire application. First, configure the event you want called in the ColdBox.cfc config file. The event must have the handler plus action that you want called.
 /config/ColdBox.cfc
