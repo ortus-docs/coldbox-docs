@@ -47,5 +47,5 @@ I can test this entire handler without me building any views yet. I can even tes
 setnextevent_{argumentName}
 ```
 
-> **Caution** Any relocation produced by the framework via the setNextEvent method will produce some variables in the request collection for you to verify relocations. 
+> **Caution** Any relocation produced by the framework via the `setNextEvent` method will produce some variables in the request collection for you to verify relocations. 
 
