@@ -227,3 +227,26 @@ function onError(event,rc,prc,faultaction,exception){
 		.renderData( data=prc.response.getDataPacket(), type="json" );
 }
 ```
+
+## Handler `onInvalidHTTPMethod()`
+
+This approach allows you to intercept at the handler level whenever an action execution is requested with an invalid HTTP verb. This is a great approach when creating a family of event handlers and you create a base handler with the `onInvalidHTTPMethod()` defined in it. We have found tremendous success with this approach when building ColdBox RESTFul services in order to provide uniformity for all RESTFul handlers.
+
+
+```js
+// error uniformity for resources
+function onError(event,rc,prc,faultaction,exception){
+	prc.response = getModel("ResponseObject");
+	
+	// setup error response
+	prc.response.setError(true);
+	prc.response.addMessage("Error executing resource #arguments.exception.message#");
+	
+	// log exception
+	log.error( "The action: #arguments.faultaction# failed when requesting resource: #arguments.event.getCurrentRoutedURL()#", getHTTPRequestData() );
+	
+	// display
+	arguments.event.setHTTPHeader(statusCode="500",statusText="Error executing resource #arguments.exception.message#")
+		.renderData( data=prc.response.getDataPacket(), type="json" );
+}
+```
