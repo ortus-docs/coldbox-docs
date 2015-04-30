@@ -28,7 +28,7 @@ component{
 	function delete(event,rc,prc){
 		event.paramValue("id",0);
 		entityNew("Contact").deleteByID( rc.id );
-		getPlugin("MessageBox").info("Contact Removed!");
+		flash.put( "notice", "Contact Removed!" );
 		setNextEvent("contacts");
 	}
 
@@ -37,7 +37,7 @@ component{
 		var contact = populateModel( entityNew("Contact").get( rc.id ) );
 		if( contact.isValid() ){
 			contact.save();
-			getPlugin("MessageBox").info("Contact Saved!");
+			flash.put( "notice", "Contact Saved!" );
 			setNextEvent("contacts");
 		}
 		else{
