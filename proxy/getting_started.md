@@ -12,7 +12,9 @@ The concept of a [Proxy](http://en.wikipedia.org/wiki/Proxy_pattern) is to give 
 
 > "A proxy, in its most general form, is a class functioning as an interface to something else. The proxy could interface to anything: a network connection, a large object in memory, a file, or some other resource that is expensive or impossible to duplicate" <small> Wikipedia </small>
 
-The proxy will give you access to your entire ColdBox application assets but also allow you to proxy in request to the normal ColdBox event model. You will do this via our `process()` method. This method expects an `event` argument to be passed to it which is the event string that will be executed for you and all the other arguments passed to this method will be converted and merged into the request collection. Then your event handlers can respond to these requests just like normal requests and even return data back to the caller. The advanced ColdBox template gives you a sample proxy object in your `remote/MyProxy.cfc` folder.
+The proxy will give you access to your entire ColdBox application assets but also allow you to proxy in request to the normal ColdBox event model. You will do this via our `process()` method. This method expects an `event` argument to be passed to it which is the event string that will be executed for you and all the other arguments passed to this method will be converted and merged into the request collection according to their passed name. 
+
+Then your event handlers can respond to these requests just like normal requests and even return data back to the caller. The advanced ColdBox template gives you a sample proxy object in your `remote/MyProxy.cfc` folder.
 
 Most remote APIs are strongly typed so it makes sense to create as many ColdBox proxy objects as you see fit. Don't just create one proxy with 1000 methods on it. Try to apply identity to these objects as well. We also recommend you create a `remote` folder in your application where you can store all your remote proxy objects.
 
