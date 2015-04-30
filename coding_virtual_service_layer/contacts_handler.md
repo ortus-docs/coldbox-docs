@@ -5,7 +5,6 @@ That's right, go to the handler now, no need of data layers or services, we buil
 ```bash
 coldbox create handler name=contacts actions=index,editor,delete,save
 ```
-
 Now spice it up
 
 ```js
