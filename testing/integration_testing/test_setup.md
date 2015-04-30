@@ -1,6 +1,6 @@
 # Test Setup
 
-Now that we know how to start, here is the code for a test. Please note that if you override the setup() method, you must call its parent. If not, the application will not load.
+Here is a spec written for you. Please note that in the `beforeEach()` life-cycle method you need to execute the `setup()` method will will setup a new ColdBox request for each spec you run.
 
 ```js
 component extends="coldbox.system.testing.BaseTestCase" appMapping="/apps/MyApp"{
