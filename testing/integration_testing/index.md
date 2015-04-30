@@ -15,6 +15,9 @@ Here are the basics to follow for integration testing:
 * Most verifications and assertions are done via the contents of the request context object (request collections)
 
 ```js
+/**
+* My integration test bundle
+*/
 component  
 	extends="coldbox.system.testing.BaseTestCase”	appMapping=“/myApp”{
 }
