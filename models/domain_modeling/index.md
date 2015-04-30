@@ -4,7 +4,9 @@ The Model layer represents your data structures and business logic. The domain-s
 
 All you need to understand is that this layer is the layer that runs the logic show! For the following example, I highly encourage you to also do [UML modeling](http://en.wikipedia.org/wiki/Unified_Modeling_Language), so you can visualize class relationships and design.
 
-**UML Resources: There are tons of great UML resources and tools. Here are some great tools for you:**
+## UML Resources
+
+There are tons of great UML resources and tools. Here are some great tools for you:
 
 * Sparx Systems Enterprise Architect - http://www.sparxsystems.com/products/ea/index.html
 * ColdFusion generation templates for Enterprise Architect - https://github.com/lmajano/EA-ColdFusion-CodeGeneration
