@@ -19,7 +19,7 @@ Here is the signature
 * @dsl.hint The DSL string to use to retrieve an instance
 * @initArguments.hint The constructor structure of arguments to passthrough when initializing the instance
 */
-function getModel( name, dsl, initArguments={} ){
+function getModel( name, dsl, initArguments={} ){}
 ```
 
 **Examples**
@@ -35,20 +35,11 @@ var oUser = getModel("MyUser");
 var oUtil = getModel("mypath.utilities.MyUtil");
 ```
 
-##populateModel()
-ColdBox can populate model objects from data in the request collection by matching the name of the form element to the name of a property on the object. You can also populate model objects from JSON, XML, Queries and other structures a-la-carte by talking directly to [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm)'s object populator.
+## populateModel()
 
-|Argument|Required|Default|Description|
-|--|--|--|--|
-|model|true|---|The name/alias or instationation path of a model object or an actual instantiated object to populate. |
-|scope|false|---|If a scope is sent, then WireBox will populate the variables that match the desired scope name with the request ollection name. In other words it injects the values into the appropriate scope you chose instead of calling setter methods.|
-|trustedSetter |false|false|Defaults to false, this flag tells WireBox to call the setter methods without checking if the setter mehod exists. Great for using implicit setters or onMissingMethod setters. |
-|include |false||A list of keys to include from the public request collection when populating.|
-|exclude|false||A list of keys to exclude from the public request collection when populating.|
-|ignoreEmpty|false|false|Ignore empty values on populations, great for ORM population|
-|nullEmptyInclude |false||A list of keys to NULL when empty, specifically for ORM population. You can also specify "*" for all fields|
-|nullEmptyExclude |false||A list of keys to NOT NULL when empty, specifically for ORM population. You can also specify "*" for all fields|
-|composeRelationships |false|false|When true, will automtically attempt to compose relationships from memento|
+ColdBox can populate or bind model objects from data in the request collection by matching the name of the form element to the name of a property on the object. You can also populate model objects from JSON, XML, Queries and other structures a-la-carte by talking directly to [WireBox](http://wirebox.ortusbooks.com/content/wirebox_object_populator/index.html)'s object populator.
+
+
 
 ```js
 
