@@ -36,5 +36,5 @@ component name="MyService" scope="session"{}
 
 ---
 
-Persistence DSL: http://wirebox.ortusbooks.com/content/mapping_dsl/persistence_dsl.html
-Object Persistence & Thread Safety: http://wirebox.ortusbooks.com/content/object_persistence_&_thread_safety/index.html
+* Persistence DSL: http://wirebox.ortusbooks.com/content/mapping_dsl/persistence_dsl.html
+* Object Persistence & Thread Safety: http://wirebox.ortusbooks.com/content/object_persistence_&_thread_safety/index.html
