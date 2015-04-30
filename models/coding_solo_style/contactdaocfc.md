@@ -19,12 +19,12 @@ component accessors="true" singleton{
 	}
 
 	query function getAll(){
-		var q = new Query(datasource="#dsn.getName()#",sql="SELECT * FROM contacts");
+		var q = new Query(datasource="#dsn.name#",sql="SELECT * FROM contacts");
 		return q.execute().getResult();
 	}
 
 	query function getContact(required contactID){
-		var q = new Query(datasource="#dsn.getName()#",sql="SELECT * FROM contacts where contactID = :contactID");
+		var q = new Query(datasource="#dsn.name#",sql="SELECT * FROM contacts where contactID = :contactID");
 		q.addParam(name="contactID",value=arguments.userID,cfsqltype="cf_sql_numeric");
 		return q.execute().getResult();
 	}
