@@ -6,4 +6,4 @@ We have a special module just for helping you monitor and debug ColdBox applicat
 install cbdebugger --saveDev
 ```
 
-Remember that this module is for development so use the `--saveDev` flag.
+Remember that this module is for development so use the `--saveDev` flag.  This will install the ColdBox Debugger module for you.
