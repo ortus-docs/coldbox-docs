@@ -1,6 +1,6 @@
 # The Base Proxy Object
 
-Here are some common methods of our ColdBox proxy object.  However, we encourage you to see the [API docs](http://apidocs.ortussolutions.com/coldbox/current) for that latest and greatest.
+Here are some common methods of our ColdBox proxy object.  However, we encourage you to see the [API docs][apidocs] for that latest and greatest.
 
 |Method|Description|
 |--|--|
@@ -16,3 +16,5 @@ Here are some common methods of our ColdBox proxy object.  However, we encourage
 |loadColdBox()	|Gives you the ability to load any external coldbox application in the application scope. Great for remotely loading any coldbox application, it can be located anywhere.|
 |getRemotingUtil()	| Return a utility class to manipulate output and buffer |
 
+
+[apidocs]: http://apidocs.ortussolutions.com/coldbox/current
