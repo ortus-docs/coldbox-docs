@@ -54,8 +54,6 @@ component{
 			setNextEvent("contacts");
 		}
 	}
-
-
 }
 ```
 
