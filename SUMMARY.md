@@ -265,7 +265,7 @@
    * [Caveats & Gotchas](proxy/caveats_&_gotchas.md)
 * [Recipes](recipes/index.md)
    * [Runnable Code Examples](run/index.md)
-   * Building REST APIs
+   * [Building REST APIs](recipes/building_rest_apis.md)
    * [ColdBox Exception Handling](recipes/coldbox_exception_handling.md)
    * [My First Custom Plugin](recipes/my_first_custom_plugin.md)
    * [My First Interceptor](recipes/my_first_interceptor.md)
