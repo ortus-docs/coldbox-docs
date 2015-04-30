@@ -181,12 +181,18 @@ As you can see, you have many options to craft the URL routes your API will use.
 
 ## Returning Representations (Data)
 REST does not dictate the format of data you use to represent your data. It can be JSON, XML, WDDX, plain text, or something else of your choosing.
-renderData()
-The most common way to return data from your handler's action is to use the event object's renderData() method. It takes complex data and turns it into a string representation. Here are some of the most common formats supported by event.renderData():
-XML
-JSON
-TEXT
-WDDX
+
+### renderData()
+
+The most common way to return data from your handler's action is to use the Request Context `renderData()` method. It takes complex data and turns it into a string representation. Here are some of the most common formats supported by `event.renderData()`:
+* XML
+* JSON
+* TEXT
+* WDDX
+* PDF
+* Custom
+
+```js
 // xml marshalling
 function getUsersXML( event, rc, prc ){
 	var qUsers = getUserService().getUsers();
@@ -197,6 +203,14 @@ function getUsersJSON( event, rc, prc ){
 	var qUsers = getUserService().getUsers();
 	event.renderData( type="json", data=qUsers );
 }
+// pdf marshalling
+function getUsersAsPDF( event, rc, prc ){
+    prc.user = userService.getUser( rc.id );
+    event.renderData( data=renderView( "users/pdf" ), type="pdf" );
+}
+```
+
+
 Format Detection
 Many APIs allow the user to choose the format they want back from the endpoint by appending a file "extension" to the end of the URL.
 http://www.example.com/api/user.json
