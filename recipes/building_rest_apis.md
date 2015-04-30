@@ -434,20 +434,29 @@ function onError( event, rc, prc, faultaction, exception ){
 If you create a method called `onInvalidHTTPMethod()` in a handler, ColdBox will automatically call that method whenever an action is trying to be executed with an invalid HTTP verb. This allows for localized error handling that is customized to that resource.
 
 ```js
-// error uniformity for resources
-function onError( event, rc, prc, faultaction, exception ){
-	prc.response = getModel("ResponseObject");
-	
-	// setup error response
-	prc.response.setError(true);
-	prc.response.addMessage("Error executing resource #arguments.exception.message#");
-	
-	// log exception
-	log.error( "The action: #arguments.faultaction# failed when requesting resource: #arguments.event.getCurrentRoutedURL()#", getHTTPRequestData() );
-	
-	// display
-	arguments.event.setHTTPHeader(statusCode="500",statusText="Error executing resource #arguments.exception.message#")
-		.renderData( data=prc.response.getDataPacket(), type="json" );
+/**
+* on invalid http verbs
+*/
+function onInvalidHTTPMethod( event, rc, prc, faultAction, eventArguments ){
+	// Log Locally
+	log.warn( "InvalidHTTPMethod Execution of (#arguments.faultAction#): #event.getHTTPMethod()#", getHTTPRequestData() );
+	// Setup Response
+	prc.response = getModel( "Response" )
+		.setError( true )
+		.setErrorCode( 405 )
+		.addMessage( "InvalidHTTPMethod Execution of (#arguments.faultAction#): #event.getHTTPMethod()#" )
+		.setStatusCode( 405 )
+		.setStatusText( "Invalid HTTP Method" );
+	// Render Error Out
+	event.renderData( 
+		type		= prc.response.getFormat(),
+		data 		= prc.response.getDataPacket(),
+		contentType = prc.response.getContentType(),
+		statusCode 	= prc.response.getStatusCode(),
+		statusText 	= prc.response.getStatusText(),
+		location 	= prc.response.getLocation(),
+		isBinary 	= prc.response.getBinary()
+	);
 }
 ```
 
