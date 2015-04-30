@@ -1,10 +1,10 @@
 # Interceptor Testing
 
-You can now test interceptors directly with no need of doing integration testing. This way you can unit test interceptors directly very very easily. All you need to do is the following:
+You can test interceptors directly with no need of doing integration testing. This way you can unit test interceptors in isolation. All you need to do is the following:
 
-1. Create a test class that inherits from coldbox.system.testing.BaseInterceptorTest
-2. Create a component annotation called interceptor that equals the full path of the handler CFC to target for unit testing
-3. Create an optional strcuture variable in the variables scope called configProperties in the setup() method before your super.setup() method, if you would like to test the interceptor with your configuration properties structure.
+```bash
+coldbox create interceptor-test path=interceptors.Deploy points=onCreate --open
+```
 
 This testing support class will create your interceptor, and decorate with mocking capabilities via MockBox and mock all the necessary companion objects around interceptors. The following are the objects that are placed in the variables scope for you to use:
 
