@@ -102,5 +102,17 @@ ColdBox's MVC is simple, but it's true power comes from the wide selection of mo
 > forgebox.io/type/modules
 
 Here's some useful examples:
-
+* **cbdebugger** -- For debugging Coldbox apps
+* **cbmessagebox** -- Display nice error/success messages
+* **cborm** -- Awesome ORM Services
+* **cb18n** -- For multilingual sites
+* **BCrypt** -- Industry-standard password hashing
  
+Install `cbmessagebox` from the CommandBox prompt like this:
+
+```bash
+CommandBox> install cbmessagebox
+```
+
+
+
