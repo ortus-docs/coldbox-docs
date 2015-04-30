@@ -33,3 +33,5 @@ component name="MyService" scope="session"{}
 ```
 
 > **Hint** Pease note that using annotations is optional, you can configure every object in our configuration binder as well.
+
+Persistence DSL: http://wirebox.ortusbooks.com/content/mapping_dsl/persistence_dsl.html
