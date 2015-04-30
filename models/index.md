@@ -8,10 +8,14 @@ Remember this:
 
 ![](../images/spaghetti.png)
 
-Did you get some spine shivers like I just did.  WOW! That is the traditional spaghetti coding style.  Hopefully by now leveraging ColdBox we go into MVC heaven:
+Did you get some spine shivers like I just did.  WOW! That is the traditional spaghetti coding style. With ColdBox we are now moving into MVC land and focusing on the model layer.
 
 ![](../images/MVC.png)
 
+However, the model layer can even be subdivided in many layers as well.
+
+
+## WireBox
 
 ![](../images/WireBox.png)
 
