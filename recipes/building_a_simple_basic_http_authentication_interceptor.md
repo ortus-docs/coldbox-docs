@@ -249,4 +249,4 @@ interceptors = [
 ];
 ```
 
-We just add our Simple Security interceptor and reinit your app via [URLActions](http://wiki.coldbox.org/wiki/URLActions.cfm) or append fwreinit=1 to the URL and you should be now using simple security.
+We just add our Simple Security interceptor and reinit your application and you should be now using simple security.
