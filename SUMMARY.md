@@ -251,7 +251,6 @@
        * [HTTP Method Mocking](testing/integration_testing/http_method_mocking.md)
    * [Interceptor Testing](testing/interceptor_testing.md)
    * [Model Object Testing](testing/model_object_testing/index.md)
-       * [ORMTransactionRollback Testing Decorator](testing/model_object_testing/ormtransactionrollback_testing_decorator.md)
    * [Tips & Tricks](testing/tips_&_tricks/index.md)
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
