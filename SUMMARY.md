@@ -118,7 +118,6 @@
        * [WireBox Namespace](models/injection_dsl/wirebox_namespace.md)
        * [EntityService Namespace](models/injection_dsl/entityservice_namespace.md)
    * [Object Scopes](models/object_scopes.md)
-   * [Mappings Objects](models/mappings_objects.md)
    * [Coding: Solo Style](models/coding_solo_style/index.md)
        * [Datasource](models/coding_solo_style/datasource.md)
        * [Contact.cfc](models/coding_solo_style/contactcfc.md)
