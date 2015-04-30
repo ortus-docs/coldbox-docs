@@ -253,14 +253,16 @@ return 'This is the result of my REST call';
 
 Status codes are a core concept in HTTP and REST APIs use them to send messages back to the client. Here are a few sample REST status codes and messages.
 
-200 - OK - Everything is hunky-dory
-202 - Created - The resource was created successfully
-400 - Bad Request - The server couldn't figure out what the client was sending it
-401 - Unauthorized - The client isn't authorized to access this resource
-404 - Not Found - The resource was not found
-500 - Server Error - Something bad happened on the server
+* `200` - OK - Everything is hunky-dory
+* `202` - Created - The resource was created successfully
+* `400` - Bad Request - The server couldn't figure out what the client was sending it
+* `401` - Unauthorized - The client isn't authorized to access this resource
+* `404` - Not Found - The resource was not found
+* `500` - Server Error - Something bad happened on the server
 
-You can easily set status codes as well as the status message with renderData(). HTTP status codes and messages are not part of the response body. They live in the HTTP header.
+You can easily set status codes as well as the status message with `renderData()`. HTTP status codes and messages are not part of the response body. They live in the HTTP header.
+
+```js
 function view( event, rc, prc ){
 	var qUser = getUserService().getUser( rc.userID );
 	if( qUser.recordCount ) {
@@ -276,16 +278,29 @@ function save( event, rc, prc ){
 	// Return back the new userID to the client
 	event.renderData( type="JSON", data={ userID = userIDNew }, statusCode=201, statusMessage="We have created your user");
 }
-Status codes can also be set manually by using the event.setHTTPHeader() method in your handler.
+```
+
+Status codes can also be set manually by using the `event.setHTTPHeader()`method in your handler.
+
+
+```js
 function worldPeace( event, rc, prc ){
 	event.setHTTPHeader( statusCode=501, statusText='Not Implemented' );
 	return 'Try back later.';
 }
-Caching
-One of the great benefits of building your REST API on the ColdBox platform is tapping into great features such as event caching. Event caching allows you to cache the entire response for a resource using the incoming FORM and URL variables as the cache key. To enable event caching, set the following flag to true in your ColdBox config.
-/config/ColdBox.cfc
+```
+
+### Caching
+
+One of the great benefits of building your REST API on the ColdBox platform is tapping into great features such as event caching. Event caching allows you to cache the entire response for a resource using the incoming FORM and URL variables as the cache key. To enable event caching, set the following flag to true in your ColdBox config: `Coldbox.cfc`:
+
+```
 coldbox.eventCaching = true;
-Next, simply add the cache=true annotation to any action you want to be cached. That's it! You can also get fancy, and specify an optional cacheTimeout and cacheLastAccesstimeout (in minutes) to control how long to cache the data.
+```
+
+Next, simply add the `cache=true` annotation to any action you want to be cached. That's it! You can also get fancy, and specify an optional `cacheTimeout` and `cacheLastAccesstimeout` (in minutes) to control how long to cache the data.
+
+```
 // Cache for default timeout
 function showEntry( event, rc, prc ) cache="true" {
 	prc.qEntry = getEntryService().getEntry( event.getValue( 'entryID', 0 ) );		
@@ -297,11 +312,18 @@ function showEntry( event, rc, prc ) cache="true" cacheTimeout="60" cacheLastAcc
 	prc.qEntry = getEntryService().getEntry( event.getValue( 'entryID', 0 ) );		
 	event.renderData( type="JSON", data=prc.qEntry );
 }
-Data is stored in CacheBox's template cache. You can configure this cache to store its contents anywhere including a Couchbase cluster!
-Security
+```
+
+Data is stored in CacheBox's `template` cache. You can configure this cache to store its contents anywhere including a Couchbase cluster!
+
+## Security
+
 Adding authentication to an API is a common task and while there is no standard for REST, ColdBox supports just about anything you might need.
-Requiring SSL
-To prevent man-in-the-middle attacks or HTTP sniffing, we recommend your API require SSL. (This assumes you have purchased an SSL Cert and installed it on your server). When you define you routes, you can add SSL=true and ColdBox will only allow those routes to be access securely/
+
+### Requiring SSL
+To prevent man-in-the-middle attacks or HTTP sniffing, we recommend your API require SSL. (This assumes you have purchased an SSL Cert and installed it on your server). When you define you routes, you can add `SSL=true` and ColdBox will only allow those routes to be access securely
+
+```js
 // Secure Route
 addRoute(
   pattern = 'api/user',
@@ -309,20 +331,33 @@ addRoute(
   action = 'index',
   SSL = true
 );
+````
+
 If your client is capable of handling cookies (like a web browser) you can use the session or client scopes to store login details. Generally speaking, your REST API should be stateless, meaning nothing is stored on the server after the request completes. In this scenario, authentication information is passed along with every request. It can be passed in HTTP headers or as part of the request body. How you do this is up to you.
-Basic HTTP Auth
+
+### Basic HTTP Auth
+
 One of the simplest and easiest forms of authentication is Basic HTTP Auth. Note, this is not the most robust or secure method of authentication and most major APIs such as Twitter and FaceBook have all moved away from it. In Basic HTTP Auth, the client sends a header called Authorization that contains a base 64 encoded concatenation of the username and password.
-You can easily get the username and password using event.getHTTPBasicCredentials().
+
+You can easily get the username and password using `event.getHTTPBasicCredentials()`.
+
+```js
 function preHandler( event, action, eventArguments ){
 	var authDetails = event.getHTTPBasicCredentials();
 	if( !securityService.authenticate( authDetails.username, authDetails.password ) ) {
 		event.renderData( type="JSON", data={ message = 'Please check your credentials' }, statusCode=401, statusMessage="You're not authorized to do that");
 	}
 }
-Custom
-The previous example put the security check in a preHandler() method which will get automatically run prior to each action in that handler. You can implement a broader solution by tapping into any of the ColdBox interception points such as preProcess which is announced at the start of every request. Remember interceptors can include an eventPattern annotation to limit what ColdBox events they apply to.
-In addition to having access to the entire request collection, the event object also has handy methods such as event.getHTTPHeader() to pull specific headers from the HTTP request.
-/interceptors/APISecurity.cfc
+```
+
+### Custom
+
+The previous example put the security check in a `preHandler()` method which will get automatically run prior to each action in that handler. You can implement a broader solution by tapping into any of the ColdBox interception points such as `preProcess` which is announced at the start of every request. Remember interceptors can include an `eventPattern` annotation to limit what ColdBox events they apply to.
+
+In addition to having access to the entire request collection, the event object also has handy methods such as `event.getHTTPHeader()`` to pull specific headers from the HTTP request.
+
+**/interceptors/APISecurity.cfc**
+```js
 /**
 * This interceptor secures all API requests
 */
@@ -338,15 +373,23 @@ component{
 		}
 	}
 }
-Register the interceptor with ColdBox
-/config/ColdBox.cfc
+```
+
+Register the interceptor with ColdBox in your `ColdBox.cfc`:
+
+```
 interceptors = [
   {class="coldbox.system.interceptors.SES"},
   {class="interceptors.APISecurity"}
 ];
+```
+
 As you can see there are many points to apply security to your API. One not covered here would be to tap into WireBox's AOP and place your security checks into an advice that can be bound to whatever API method you need to be secured.
-Restricting HTTP Verbs
-In our route configuration we mapped HTTP verbs to handlers and actions, but what if users try to access resources directly with an invalid HTTP verb? You can easily enforce valid verbs (methods) by adding this.allowedMethods at the top of your handler. In this handler the list() method can only be access via a GET, and the remove() method can only be access via POST and DELETE.
+
+### Restricting HTTP Verbs
+In our route configuration we mapped HTTP verbs to handlers and actions, but what if users try to access resources directly with an invalid HTTP verb? You can easily enforce valid verbs (methods) by adding `this.allowedMethods` at the top of your handler. In this handler the `list()` method can only be access via a GET, and the `remove()` method can only be access via POST and DELETE.
+
+```js
 component{
 	
 	this.allowedMethods = { 
@@ -358,6 +401,8 @@ component{
 
 	function remove( event, rc, prc ){}
 }
+```
+
 The key is the name of the action and the value is a list of allowed HTTP methods. If the action is not listed in the structure, then it means allow all. If the request action HTTP method is not found in the list then it throws a 405 exception. You can catch this scenario and still return a properly-formatted response to your clients by using the onError() convention in your handler or an exception handler which applies to the entire app.
 Error Handling
 ColdBox REST APIs can use all the same error faculties that an ordinary ColdBox application has. You can read about them here. we'll cover two of the most common ways here.
