@@ -133,5 +133,12 @@ Models encapsulate the business logic your application.  They can be services, b
 CommandBox> coldbox create model GreeterService sayHello --open
 ```
 
-The `--open` is a nice shortcut that opens our new model in our default editor after creating it.  
+The `--open` is a nice shortcut that opens our new model in our default editor after creating it.  Let's finish implementing the `sayHello()` method by adding this return statement and save the file.
+
+```javascript
+function sayHello(){
+	return 'Hello World!';
+}
+```
+
 
