@@ -1,6 +1,7 @@
 # Test Annotations
 
 Here are the annotations you can add to your testing bundle CFC.
+
 |Annotation|Type|Required|Default|Description|
 |--|--|--|--|--|
 |appMapping|string|false|/|The application mapping of the ColdBox application to test. By defaults it maps to the root. Extermely important this mapping is a slash notation that points to the root of the ColdBox application to test.|
