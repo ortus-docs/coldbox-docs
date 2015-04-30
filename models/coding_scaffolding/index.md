@@ -1,11 +1,7 @@
-# Coding: Virtual Service Layer
+# Coding: ORM Scaffolding
 
-Now let's build the same thing but using ColdFusion ORM and our [Virtual Service Layer](http://wiki.coldbox.org/wiki/ORM:VirtualEntityService.cfm) approach, in which we will use a service layer but virtually built by ColdBox. This will most likely give you 80% of what you would ever need, but in case you need to create your own and customize, then you would build a service object that extends or virtual or base layer.
+Now let's use the power of ORM and CommandBox to scaffold everything for you :).  The help for this command is here:
 
-
-```js
-+ handlers 
-  + contacts.cfc
-+ models
-  + Contact.cfc
+```bash
+coldbox create orm-crud help
 ```
