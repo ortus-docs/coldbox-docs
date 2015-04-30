@@ -1,6 +1,6 @@
 # WireBox Binder
 
-You can have an optional [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) configuration binder that can fine-tune the WireBox engine and also where you can create fancy object mappings, aliases and even more model locations by convention. Usually you will find this binder by convention in your config/WireBox.cfc location and it looks like this:
+You can have an optional WireBox configuration binder that can fine-tune the WireBox engine and also where you can create object mappings, and even more model locations by convention. Usually you will find this binder by convention in your `config/WireBox.cfc` location and it looks like this:
 
 ```js
 component extends="coldbox.system.ioc.config.Binder"{
