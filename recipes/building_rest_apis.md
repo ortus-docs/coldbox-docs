@@ -430,6 +430,27 @@ function onError( event, rc, prc, faultaction, exception ){
 }
 ```
 
+### Handler `onInvalidHTTPMethod()`
+If you create a method called `onInvalidHTTPMethod()` in a handler, ColdBox will automatically call that method whenever an action is trying to be executed with an invalid HTTP verb. This allows for localized error handling that is customized to that resource.
+
+```js
+// error uniformity for resources
+function onError( event, rc, prc, faultaction, exception ){
+	prc.response = getModel("ResponseObject");
+	
+	// setup error response
+	prc.response.setError(true);
+	prc.response.addMessage("Error executing resource #arguments.exception.message#");
+	
+	// log exception
+	log.error( "The action: #arguments.faultaction# failed when requesting resource: #arguments.event.getCurrentRoutedURL()#", getHTTPRequestData() );
+	
+	// display
+	arguments.event.setHTTPHeader(statusCode="500",statusText="Error executing resource #arguments.exception.message#")
+		.renderData( data=prc.response.getDataPacket(), type="json" );
+}
+```
+
 Global Exception Handler
 The global exception handler will get called for any runtime errors that happen anywhere in the typical flow of your application. This is like the onError() convention but covers the entire application. First, configure the event you want called in the ColdBox.cfc config file. The event must have the handler plus action that you want called.
 /config/ColdBox.cfc
