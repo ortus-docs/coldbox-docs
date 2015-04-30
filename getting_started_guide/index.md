@@ -13,3 +13,12 @@ You should now be seeing a prompt that looks like this:
 ![CommandBox Terminal](../images/commandbox-terminal.png)
 
 ## Create A New Site
+
+Now we're cooking with gas!  Let's create new ColdBox site.  CommandBox comes with built-in commands for scaffolding out new sites as well as installing ColdBox and other libraries.  We'll start by changing into an empty directory were we want our new site to live.  If necessary, you can create a new folder.
+
+```bash
+CommandBox> mkdir C:\playground
+CommandBox> cd C:\playground
+```
+
+Now let's ask CommandBox to create a new ColdBox site for us.  The `--installColdBox` flag will also install the latest version of the ColdBox Platform alongside our new app skeleton.
