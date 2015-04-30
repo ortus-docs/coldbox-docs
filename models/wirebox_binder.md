@@ -51,5 +51,18 @@ Please refer to the full Binder documentation: (http://wirebox.ortusbooks.com/co
 
 ## Mappings
 
-By default, all objects that you place in the `models` folder are available to your application by their name.  So if you create a new model object: `coldbox create model MyService`, you can refer to it as `MyService` in your application.
+By default, all objects that you place in the `models` folder are available to your application by their name.  So if you create a new model object: `models/MyService.cfc`, you can refer to it as `MyService` in your application.  However, if you create a model object: `models/security/SecurityService.cfc` it will be available as `security.SecurityService`.  This is great and dandy, but when refactoring comes to play you will have to refactor all references to the dot-notation paths.  This is where mappings come into play.
 
+WireBox has several methods for mappings, the easiest of them are the following:
+
+* `map( alias ).to( cfc.path )`
+* `mapPath( path )`
+* `mapDirectory( packagePath, include, exclude, influence, filter, namespace )`
+
+```js
+// map the service with an alias.
+map( "SecurityService" ).to( "models.security.SecurityService" );
+
+// map the entire models directory by CFC name as the alias
+mapDirectory( "models" );
+```
