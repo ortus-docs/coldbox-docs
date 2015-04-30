@@ -13,5 +13,10 @@ Now that we have seen all the theory and stuff, let's get down to business and d
   + Contact.cfc
 ```
 
-I will create a DAO for this small example, so we can showcase how to talk to multiple objects.
+I will create a DAO for this small example, so we can showcase how to talk to multiple objects.  You can start a new application with CommandBox if you like:
 
+```
+mkdir solo
+cd solo
+coldbox create app name=solo skeleton=AdvancedScript --installColdBox
+```
