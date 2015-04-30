@@ -122,6 +122,7 @@ The `interceptData` argument receives the following variables:
 
 You must tell ColdBox that you want to override the invalid event (`override = true`) and you must set in the `ehBean` to tell ColdBox what event to execute:
 
+```js
 component extends="coldbox.system.Interceptor"{
 	
 	function onInvalidEvent(event, interceptData){
@@ -135,6 +136,8 @@ component extends="coldbox.system.Interceptor"{
 		arguments.interceptData.override = true;
 	}
 }
+```
+
 Also remember that you need to register the interceptor in your ConfigurationCFC so ColdBox knows about it:
 interceptors = [
 	
