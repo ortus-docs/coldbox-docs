@@ -6,7 +6,7 @@ An object that represents a contact and self-validates using the `cbvalidation` 
 coldbox create model name=Contact --open
 ```
 
-Then spice up with some properties:
+Then spice up with some properties and constraints
 
 ```js
 component accessors="true"{
