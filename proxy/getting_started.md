@@ -18,6 +18,7 @@ Then your event handlers can respond to these requests just like normal requests
 
 > **Hint** The advanced ColdBox templates gives you a sample proxy object in your `remote/MyProxy.cfc` folder.
 
+## Organization 
 Most remote APIs are strongly typed so it makes sense to create as many ColdBox proxy objects as you see fit. Don't just create one proxy with 1000 methods on it. Try to apply identity to these objects as well. We also recommend you create a `remote` folder in your application where you can store all your remote proxy objects.
 
 ```js
