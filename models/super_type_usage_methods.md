@@ -1,15 +1,13 @@
-# Super Tupe Usage Methods
+# Super Type Usage Methods
 
 ![](../images/ColdBoxMajorClasses.jpg)
 
- The following usage methods are available in all handlers, plugins and interceptors thanks to our Framework Super Type and will be used so you can retrieve, populate and validate model objects. 
- 
- ```js
- getModel([any name], [any dsl], [any<struct> initArguments={}])
+The super type offers 2 methods for interacting with your model layer:
+
+```js
+getModel([any name], [any dsl], [any<struct> initArguments={}])
 
 public Any populateModel(any model, [any scope=''], [boolean trustedSetter='false'], [any include=''], [any exclude=''], [boolean ignoreEmpty='false'], [string nullEmptyInclude=''], [string nullEmptyExclude=''], [boolean composeRelationships='false'])
-
-validateModel(any target, [string fields='*'], [any constraints], [string locale=''], [string excludeFields=''])
 ```
 
 ##getModel()
