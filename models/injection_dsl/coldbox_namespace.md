@@ -7,6 +7,7 @@ This namespace is a combination of namespaces that are only active when used wit
 |coldbox |Get the coldbox controller reference|
 |coldbox:flash |Get a reference to the application's flash scope object|
 |coldbox:setting:{setting} |Get the coldbox application *{setting}* setting and inject it |
+|coldbox:fwSetting:{setting} |Get a ColdBox setting *{setting}* and inject it |
 |coldbox:setting:{setting}@{module} |Get the coldbox application *{setting}* from the *{module}* and inject it |
 |coldbox:datasource:{alias} |Get a new datasource struct according to *{alias}*|
 |coldbox:loaderService |Get a reference to the loader service |
@@ -24,16 +25,8 @@ This namespace is a combination of namespaces that are only active when used wit
 
 ```javascript
 // some examples
-property name="logbox" inject="logbox";
-property name="rootLogger" inject="logbox:root";
-property name="logger" inject="logbox:logger:model.com.UserService";
 property name="moduleService" inject="coldbox:moduleService";
 property name="producer" inject="coldbox:interceptor:MessageProducer";
-property name="configBean" inject="coldbox:fwConfigBean";
-property name="producer" inject="interceptor:MessageProducer";
 property name="appPath" inject="coldbox:fwSetting:ApplicationPath";
 
-// JavaLoader goodness
-property name="binaryHeap" inject="javaLoader:org.apache.commons.collections.BinaryHeap";
-property name="email" inject="javaLoader:org.apache.commons.mail.SimpleEmail";
 ```
