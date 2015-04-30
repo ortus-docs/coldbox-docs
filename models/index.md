@@ -12,7 +12,7 @@ Did you get some spine shivers like I just did.  WOW! That is the traditional sp
 
 ![](../images/MVC.png)
 
-However, the model layer can even be subdivided in many layers as well.
+However, the model layer can even be subdivided in many layers as well as we will investigate in this section.
 
 
 ## WireBox
