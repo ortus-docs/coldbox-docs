@@ -1,6 +1,16 @@
 {
-    "plugins": [
+	"gitbook" : ">=2.0.1",
+	"isbn" : "978-1511982085",
+    "plugins" : [
         "richquotes"
     ],
-    "pluginsConfig": {}
+    "pluginsConfig" : {},
+    "pdf" : {
+    	"margin": {
+            "right": 25,
+            "left": 25,
+            "top": 56,
+            "bottom": 56
+        }
+    }
 }
