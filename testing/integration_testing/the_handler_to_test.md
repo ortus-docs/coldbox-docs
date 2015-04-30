@@ -3,37 +3,53 @@
 Let's use a sample event handler so we can test it:
 
 ```js
-component{
+component extends="coldbox.system.EventHandler"{
 
+	// Default Action
 	function index(event,rc,prc){
-		rc.welcomeMessage = "Welcome to ColdBox!";
-        event.setView("general/index");
-    }
-	
-    function doSomething(event,rc,prc){
-		setNextEvent("general.index");
+		prc.welcomeMessage = "Welcome to ColdBox!";
+		event.setView("main/index");
 	}
 
-	function doLogin(event,rc,prc){
-		event.paramValue("username","");
-		event.paramValue("password","");
-		
-		if( !len(rc.username) or !len(rc.password) ){
-			flash.put("notice","Username and password must be filled out!");
-			setNextEvent("general.dspLogin");
-		}
-
-		if( rc.username == "luis" and rc.password = "luis" ){
-			setNextEvent("general.hello")
-		}
-		else{
-			flash.put("notice","Invalid Credentials! Try Again!");
-			setNextEvent("general.dspLogin");
-		}	
+	// Do something
+	function doSomething(event,rc,prc){
+		setNextEvent("main.index");
 	}
 
-	function hello(event,rc,prc){
-		return "Howdy user!";
+	/************************************** IMPLICIT ACTIONS *********************************************/
+
+	function onAppInit(event,rc,prc){
+
+	}
+
+	function onRequestStart(event,rc,prc){
+
+	}
+
+	function onRequestEnd(event,rc,prc){
+
+	}
+
+	function onSessionStart(event,rc,prc){
+
+	}
+
+	function onSessionEnd(event,rc,prc){
+		var sessionScope = event.getValue("sessionReference");
+		var applicationScope = event.getValue("applicationReference");
+	}
+
+	function onException(event,rc,prc){
+		//Grab Exception From private request collection, placed by ColdBox Exception Handling
+		var exception = prc.exception;
+		//Place exception handler below:
+
+	}
+
+	function onMissingTemplate(event,rc,prc){
+		//Grab missingTemplate From request collection, placed by ColdBox
+		var missingTemplate = event.getValue("missingTemplate");
+
 	}
 
 }
