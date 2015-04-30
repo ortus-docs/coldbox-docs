@@ -60,11 +60,11 @@ Here are a few pointers when using the HTTP verbs:
 http://www.example.com/api/user
 ```
 
-* GET /api/user will return a representation of all the users. It is permissible to use a query string to control pagination or filtering.
-* POST /api/user/ will create a new user
-* GET /api/user/53 will return a representation of user 53
-* PUT /api/user/53 will update user 53
-* DELETE /api/user/53 will delete user 53
+* `GET /api/user` will return a representation of all the users. It is permissible to use a query string to control pagination or filtering.
+* `POST /api/user/` will create a new user
+* `GET /api/user/53` will return a representation of user 53
+* `PUT /api/user/53` will update user 53
+* `DELETE /api/user/53` will delete user 53
 
 > **Info** GET, PUT, and DELETE methods should be idempotent which means repeated requests to the same URI don't do anything. Repeated POST calls however, would create multiple users.
 
