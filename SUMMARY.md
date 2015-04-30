@@ -236,7 +236,7 @@
        * [Developer Focus](testing/testing_concepts/developer_focus.md)
        * [Testing Vocabulary](testing/testing_concepts/testing_vocabulary.md)
        * [Testing Tools](testing/testing_concepts/testing_tools.md)
-   * [Test Harness](testing/testing_harness.md)
+   * [Test Harness](testing/test_harness.md)
    * [ColdBox Testing Classes](testing/coldbox_testing_classes.md)
    * [Integration Testing](testing/integration_testing/index.md)
        * [Test Annotations](testing/integration_testing/test_annotations.md)
