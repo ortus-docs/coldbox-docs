@@ -53,7 +53,7 @@ component extends="coldbox.system.remote.ColdboxProxy"{
 However, since some of these requests won't be done via HTTP but other protocols like Flex/Air binary protocols or event gateways, your ColdBox application must know where in your server the application is located in, so the `Application.cfc` methods fire. By default, when using HTTP calls, ColdBox can auto-locate your application with no issues at all, but with Flex/AIR or other protocols you must set this location in your `Application.cfc` via the `COLDBOX_APP_MAPPING` directive **ONLY if not in the webroot of an application**.
 
 ```js
-<cfset COLDBOX_APP_MAPPING   = "">
+COLDBOX_APP_MAPPING   = "";
 ```
 
 This tells the framework where in the web server (sub-folder) your application is located in. By default, your application is the root of your website so this value is empty or `/` and you won't modify this. But if your application is in a sub-folder then add the full instantation path here. So if your application is under `/apps/myApp` then the value would be:
