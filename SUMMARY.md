@@ -134,7 +134,6 @@
        * [Contacts.cfc](coding_virtual_service_layer/contacts.md)
        * [Contacts Handler](coding_virtual_service_layer/contacts_handler.md)
        * [Views](coding_virtual_service_layer/views.md)
-       * [Summary](coding_virtual_service_layer/summary.md)
 * [Flash RAM](flash_ram/index.md)
    * [Flash Storage](flash_ram/flash_storage.md)
    * [Using Flash RAM](flash_ram/using_flash_ram.md)
