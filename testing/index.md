@@ -25,7 +25,7 @@ It might be that testing is tedious and takes time to get into the flow of Behav
 * Encourages refactoring to produce testable code
 * Testing is all about behavior and expectations
 
-### Resources
+## Resources
 
 * [Wikipedia](http://en.wikipedia.org/wiki/Unit_test)
 * [MXUnit](http://mxunit.org/)
