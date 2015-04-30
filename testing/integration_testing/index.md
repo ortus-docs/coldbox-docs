@@ -47,5 +47,7 @@ We will explain later the life-cycle methods and the `run()` method where you wi
 You can use CommandBox to generate integration tests:
 
 ```bash
+coldbox create integration-test handler=main actions=index,save,run --open
+# help
 coldbox create integration-test help
 ```
