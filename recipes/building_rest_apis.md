@@ -208,6 +208,11 @@ function getUsersAsPDF( event, rc, prc ){
     prc.user = userService.getUser( rc.id );
     event.renderData( data=renderView( "users/pdf" ), type="pdf" );
 }
+// Multiple formats
+function listUsers( event, rc, prc ){
+    prc.users = userService.getAll();
+    event.renderData( data=prc.users, formats="json,xml,html,pdf" );
+}
 ```
 
 
