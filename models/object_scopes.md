@@ -1,6 +1,6 @@
 # Object Scopes
 
-You can very easily add persistence to your domain objects via our annotations or binder configuration. This is of great benefit as you can control where these objects will be scoped in the ColdFusion engine. The available scopes are:
+You can very easily add persistence to your model+ objects via our annotations or binder configuration. The available scopes are:
 
 * transient or no scope : The default scope. Meaning objects have no scope, they are recreated every single time you request them.
 * singleton : Objects are created once and live until your Application expires
