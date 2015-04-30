@@ -25,5 +25,7 @@ The best way to determine what you prefer or need is to actually try both approa
 
 ## The Book Services
 
-The `BookService` object will be my API to do operations as mentioned in my requirements and this is the object that will be used by my handlers. My Book object will model a Book's data and behavior. It will be produced, saved and updated by the BookService object and will be used by event handlers in order to populate and validate them with data from the user. The view layer will also use the Book object in order to present the data. As you can see, the event handlers are in charge of talking to the Domain Model for operations/business logic, controlling the user's input requests, populating the correct data into the Book model object and making sure that it is sent to the book service for persistence.
+The `BookService` object will be my API to do operations as mentioned in my requirements and this is the object that will be used by my handlers. My `Book` object will model a Book's data and behavior. It will be produced, saved and updated by the `BookService` object and will be used by event handlers in order to populate and validate them with data from the user. 
+
+The view layer will also use the `Book` object in order to present the data. As you can see, the event handlers are in charge of talking to the Domain Model for operations/business logic, controlling the user's input requests, populating the correct data into the `Book` model object and making sure that it is sent to the book service for persistence.
 
