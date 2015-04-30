@@ -39,11 +39,25 @@ var oUtil = getModel("mypath.utilities.MyUtil");
 
 ColdBox can populate or bind model objects from data in the request collection by matching the name of the form element to the name of a property on the object. You can also populate model objects from JSON, XML, Queries and other structures a-la-carte by talking directly to [WireBox](http://wirebox.ortusbooks.com/content/wirebox_object_populator/index.html)'s object populator.
 
+```js
+/**
+* Populate a model object from the request Collection
+* @model.hint The name of the model to get and populate or the acutal model object. If you already have an instance of a model, then use the populateBean() method
+* @scope.hint Use scope injection instead of setters population. Ex: scope=variables.instance.
+* @trustedSetter.hint If set to true, the setter method will be called even if it does not exist in the object
+* @include.hint A list of keys to include in the population
+* @exclude.hint A list of keys to exclude in the population
+* @ignoreEmpty.hint Ignore empty values on populations, great for ORM population
+* @nullEmptyInclude.hint A list of keys to NULL when empty
+* @nullEmptyExclude.hint A list of keys to NOT NULL when empty
+* @composeRelationships.hint Automatically attempt to compose relationships from memento
+*/
+function populateModel(){}
+```
 
+**Examples**:
 
 ```js
-
-
 var user = ormService.populate( ormService.new("User"), data );
 
 // populate with includes only
