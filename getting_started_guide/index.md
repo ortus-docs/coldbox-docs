@@ -121,18 +121,13 @@ CommandBox> list
 Dependency Hierarchy for myApp (0.0.0)
 ├── cbmessagebox (1.0.0)
 └── coldbox (4.0.0)
-
 ```
 
-We'll use this new module in a few minutes.  But first, we'll create a simple model CFC to round out our `MVC` app.
+Right now our app depends on `coldbox` and `cbmessagebox` to run.  We'll use our new `cbmessagebox` module in a few minutes.  But first, we'll create a simple model CFC to round out our `MVC` app.
 
 ## Creating A Model
 
 Models encapsulate the business logic your application.  They can be services, beans, or DAOs.  We'll use CommandBox to create a `GreeterService` in our new app.
-
-
-
-Right now our app depends on `coldbox` and `cbmessagebox` to run.
 
 
 
