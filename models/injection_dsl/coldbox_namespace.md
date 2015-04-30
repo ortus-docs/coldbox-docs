@@ -15,6 +15,8 @@ This namespace is a combination of namespaces that are only active when used wit
 |coldbox:handlerService |Get a reference to the handler service |
 |coldbox:interceptorService |Get a reference to the interceptor service |
 |coldbox:moduleService |Get a reference to the ColdBox Module Service|
+|coldbox:renderer | Get the ColdBox rendering engine reference |
+|coldbox:dataMarshaller | Get the ColdBox data marshalling reference |
 |coldbox:interceptor:{name} |Get a reference of a named interceptor *{name}*|
 |coldbox:configSettings |Get the application's configuration structure |
 |coldbox:fwSettings |Get the framework's configuration structure |
