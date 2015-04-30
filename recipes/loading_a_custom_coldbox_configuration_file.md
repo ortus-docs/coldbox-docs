@@ -3,7 +3,7 @@
 
 ## Introduction
 
-By convention the `config/ColdBox.cfc` CFC is used as your configuration file. However, you can change the location of this configuration CFC by updating your Application.cfc.
+By convention the `config/ColdBox.cfc` CFC is used as your configuration file. However, you can change the location of this configuration CFC by updating your `Application.cfc`.
 
 ### Application.cfc
 
