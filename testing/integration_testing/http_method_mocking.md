@@ -1,6 +1,6 @@
 # HTTP Method Mocking
 
-There are times when building RESTFul web services that you need to mock the incoming HTTP verb.
+There are times when building RESTFul web services that you need to mock the incoming HTTP verb.  This is done via MockBox:
 
 ```js
 function run(){
