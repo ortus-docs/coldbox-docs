@@ -53,3 +53,10 @@ Below are just a few applications of ColdBox Interceptors:
 * Custom SES support
 * Cache advices on insert and remove
 * Much much more...
+* 
+
+----
+
+<small>
+Intercepting Filters = http://www.corej2eepatterns.com/Patterns2ndEd/InterceptingFilter.htm
+</small>
