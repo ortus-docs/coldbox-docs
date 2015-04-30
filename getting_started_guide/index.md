@@ -41,4 +41,37 @@ In a few seconds, a browser window will appear with your running application. Th
 
 ## Take A Look Around
 
-ColdBox 
+ColdBox uses easy conventions to define the controllers and views in your app.  Let's open up our main app controller in your default editor to have a looksie.
+
+```bash
+CommandBox> edit /handlers/main.cfc
+```
+
+At the top, you'll see a method named "index".  This represents the default action that runs for this controller.  
+
+```javascript
+// Default Action
+function index(event,rc,prc){
+	prc.welcomeMessage = "Welcome to ColdBox!";
+	event.setView("main/index");
+}
+```
+
+Now let's take a look in the "main/index" view.  It's located int he `views` folder.
+
+```bash
+CommandBox> edit /views/main/index.cfm
+```
+
+This line of code near the top of the view is what outputs the `prc.welcomeMessage` variable we set in the controller.
+
+```html
+<h1>#prc.welcomeMessage#</h1>
+```
+
+Try changing the value being set in the handler and refresh your browser to see the change. 
+
+```javascript
+prc.welcomeMessage = "Hello World!";
+
+```
