@@ -267,7 +267,6 @@
    * [Runnable Code Examples](run/index.md)
    * [Building REST APIs](recipes/building_rest_apis.md)
    * [ColdBox Exception Handling](recipes/coldbox_exception_handling.md)
-   * [My First Interceptor](recipes/my_first_interceptor.md)
    * [My First Context Decorator](recipes/my_first_context_decorator.md)
    * [Controller Decorator](controller_decorator/index.md)
    * [How to time your code](recipes/how_to_time_your_code.md)
