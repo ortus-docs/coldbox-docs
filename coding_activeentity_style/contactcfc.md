@@ -1,6 +1,12 @@
 # Contact.cfc
 
-An object that represents a contact and self-validates using [ColdBox Validation Module](http://wiki.coldbox.org/wiki/Validation.cfm), and is an awesome [ORM:ActiveEntity](http://wiki.coldbox.org/wiki/ORM:ActiveEntity.cfm):
+An object that represents a contact and self-validates using [ColdBox Validation Module](http://wiki.coldbox.org/wiki/Validation.cfm), and is an awesome [ActiveEntity](http://wiki.coldbox.org/wiki/ORM:ActiveEntity.cfm) object. Let's use CommandBox to build it:
+
+```bash
+coldbox create orm-entity entityName=contacts primaryKey=contactID properties=firstName,lastName,email --activeEntity --open
+```
+
+Then spice it up with the validation constraints
 
 ```js
 /**
