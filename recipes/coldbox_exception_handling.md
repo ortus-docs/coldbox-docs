@@ -27,7 +27,7 @@ This event can the be used for logging the exception, relocating to a fail page 
 ```js
 function onException(event,rc,prc){
 	// Log the exception via LogBox
-	log.error( rc.exceptionBean.getMessage() & rc.exceptionBean.getDetail(), rc.exceptionBean.getMemento() );
+	log.error( prc.exception.getMessage() & prc.exception.getDetail(), prc.exception.getMemento() );
 
 	// Flash where the exception occurred
 	flash.put("exceptionURL", event.getCurrentRoutedURL() );
