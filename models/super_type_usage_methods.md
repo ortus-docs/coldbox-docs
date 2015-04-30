@@ -10,11 +10,19 @@ The super type offers 2 methods for interacting with your model layer:
 
 ##getModel()
 
-|Argument|Required|Default|Description|
-|--|--|--|--|
-|name|false|---|The name/alias or full instantiantion path of a model object to retrieve from WireBox.|
-|dsl|false|---|The DSL injection string to retrieve an object by instead of using a name/alias or instantation path. ([See WireBox Injection DSL](http://wiki.coldbox.org/wiki/WireBox.cfm#Injection_DSL))|
-|initArguments|false|{}|An optional structure of arguments to initialize the object with|
+Here is the signature
+
+```js
+/**
+* Get a model object
+* @name.hint The mapping name or CFC path to retrieve
+* @dsl.hint The DSL string to use to retrieve an instance
+* @initArguments.hint The constructor structure of arguments to passthrough when initializing the instance
+*/
+function getModel( name, dsl, initArguments={} ){
+```
+
+**Examples**
 
 ```js
 // Retrieve the User.cfc in the model folder
