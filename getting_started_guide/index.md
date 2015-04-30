@@ -155,4 +155,16 @@ Ok, let's open up that `helloWorld` handler we created a while back.  Remember, 
 CommandBox> edit /handlers/helloWorld.cfc
 ```
 
-We'll inject 
+We'll inject our `greeterService` and the `cbmessagebox` service into the handler by adding these properties to the top of `/handlers/hellowWorld.cfc`.  This will put the instance of our services in the variables scope where we can access it in our action methods.
+
+```javascript
+component {
+	property name='greeterService' inject='greeterService';
+	property name='messsageBox' inject='messagebox@cbmessagebox';
+
+    ...
+}
+```
+
+And now in our `index` method, we'll set the output of our service into a success message.
+
