@@ -89,7 +89,11 @@ coldbox = {
 };
 ```
 
-Please note the importance of setting a 404 header as this identifies to the requester that the requested event does not exist in your system. Also note that if you do not set a view for rendering or render data back, the request might most likely fail as it will try to render the implicit view according to the incoming event. ColdBox will also place the invalid event requested in the private request collection with the value of invalidevent.
+Please note the importance of setting a 404 header as this identifies to the requester that the requested event does not exist in your system. Also note that if you do not set a view for rendering or render data back, the request might most likely fail as it will try to render the implicit view according to the incoming event. 
+
+ColdBox will also place the invalid event requested in the **private** request collection with the value of `invalidevent`.
+
+```js
 function pageNotFound(event,rc,prc){
 	// Log a warning
 	log.warning( "Invalid page detected: #prc.invalidEvent#");
@@ -100,3 +104,4 @@ function pageNotFound(event,rc,prc){
 	// Set a page for rendering and a 404 header
 	event.setView( "main/pageNotFound" ).setHTTPHeader( "404", "Page Not Found" );
 }
+```
