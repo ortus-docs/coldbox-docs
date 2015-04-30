@@ -49,3 +49,7 @@ component extends="coldbox.system.ioc.config.Binder"{
 
 Please refer to the full Binder documentation: (http://wirebox.ortusbooks.com/content/configuring_wirebox/index.html) for further inspection.
 
+## Mappings
+
+By default, all objects that you place in the `models` folder are available to your application by their name.  So if you create a new model object: `coldbox create model MyService`, you can refer to it as `MyService` in your application.
+
