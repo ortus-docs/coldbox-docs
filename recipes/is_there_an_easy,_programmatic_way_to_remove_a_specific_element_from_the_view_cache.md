@@ -11,13 +11,13 @@ The answer is, of course! All view and event caching occurss in a cache provider
 var cache = cachebox.getCache("template");
 ```
 
-You can also use the [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) injection DSL
+You can also use the WireBox injection DSL
 
 ```js
 property name="cache" inject="cachebox:template">
 ```
 
-### Clearing methods
+## Clearing methods
 
 There are a few methods that will help you clear views:
 * clearView(viewSnippet) - Clear views with a snippet
