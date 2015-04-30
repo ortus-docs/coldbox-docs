@@ -167,7 +167,9 @@ coldbox = {
 ```
 
 ColdBox will place the path to the requested page as a **private** request collection variable called `missingTemplate`, which you can parse and route or just use.
-function missingTempalte(event,rc,prc){
+
+```js
+function missingTemplate(event,rc,prc){
 	// Log a warning
 	log.warning( "Missing page detected: #rc.missingTemplate#");
 
@@ -177,4 +179,4 @@ function missingTempalte(event,rc,prc){
 	// Set a page for rendering and a 404 header
 	event.setView( "main/pageNotFound" ).setHTTPHeader( "404", "Page Not Found" );
 }
-
+```
