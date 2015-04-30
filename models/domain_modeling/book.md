@@ -48,4 +48,4 @@ Now once you build them and UNIT TEST THEM, yes UNIT TEST THEM. Then you can use
 
 ![](../../images/simplemodelclassdiagram.png)
 
-So now that you excercised your mind and modeled your problem, you are ready to start coding and learning how to put this baby together!
+> **Hint** Note that sometimes the design in UML will not reflect the end product.  UML is our guide but not the final product.
