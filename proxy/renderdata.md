@@ -10,12 +10,13 @@ function list(event,rc,prc){
 }
 ```
 
-**Proxy: **
+**Proxy:**
 ```js
 string function getUsers(string format="json"){
 	arguments.event = "users.list";
 	return process(argumentCollection=arguments);
 }
 ```
+
 This handler can now respond to HTML requests, SOAP requests, Flex/Air Requests and even RESTFul requests. How about that!
 

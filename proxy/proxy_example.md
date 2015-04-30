@@ -1,6 +1,0 @@
-# Proxy Example
-
-
-##### Proxy Example
-
-
