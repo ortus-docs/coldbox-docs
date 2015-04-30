@@ -267,7 +267,7 @@
    * [Runnable Code Examples](run/index.md)
    * [Building REST APIs](recipes/building_rest_apis.md)
    * [ColdBox Exception Handling](recipes/coldbox_exception_handling.md)
-   * Debugging ColdBox Apps
+   * [Debugging ColdBox Apps](recipes/debugging_coldbox_apps.md)
    * [Controller Decorator](controller_decorator/index.md)
    * [Loading a custom ColdBox configuration file](recipes/loading_a_custom_coldbox_configuration_file.md)
    * [Caching objects](recipes/caching_objects.md)
