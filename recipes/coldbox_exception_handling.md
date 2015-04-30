@@ -206,8 +206,11 @@ function onMissingAction(event,rc,prc,missingAction,eventArguments){
 
 ## Handler `onError()`
 
-This approach allows you to intercept at the handler level whenever a runtime exception has ocurred. This is a great approach when creating a family of event handlers and you create a base handler with the onError() defined in it. We have found tremendous success with this approach when building ColdBox RESTFul services in order to provide uniformity for all RESTFul handlers.
-Important: Please note that this only traps runtime exceptions, compiler exceptions will bubble up to a global exception handler or interceptor.
+This approach allows you to intercept at the handler level whenever a runtime exception has ocurred. This is a great approach when creating a family of event handlers and you create a base handler with the `onError()` defined in it. We have found tremendous success with this approach when building ColdBox RESTFul services in order to provide uniformity for all RESTFul handlers.
+
+> **Caution*  Please note that this only traps runtime exceptions, compiler exceptions will bubble up to a global exception handler or interceptor.
+
+```js
 // error uniformity for resources
 function onError(event,rc,prc,faultaction,exception){
 	prc.response = getModel("ResponseObject");
@@ -223,3 +226,4 @@ function onError(event,rc,prc,faultaction,exception){
 	arguments.event.setHTTPHeader(statusCode="500",statusText="Error executing resource #arguments.exception.message#")
 		.renderData( data=prc.response.getDataPacket(), type="json" );
 }
+```
