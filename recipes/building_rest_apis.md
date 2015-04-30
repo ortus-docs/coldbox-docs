@@ -60,12 +60,14 @@ Here are a few pointers when using the HTTP verbs:
 http://www.example.com/api/user
 ```
 
-GET /api/user will return a representation of all the users. It is permissible to use a query string to control pagination or filtering.
-POST /api/user/ will create a new user
-GET /api/user/53 will return a representation of user 53
-PUT /api/user/53 will update user 53
-DELETE /api/user/53 will delete user 53
-Note: GET, PUT, and DELETE methods should be idempotent which means repeated requests to the same URI don't do anything. Repeated POST calls however, would create multiple users.
+* GET /api/user will return a representation of all the users. It is permissible to use a query string to control pagination or filtering.
+* POST /api/user/ will create a new user
+* GET /api/user/53 will return a representation of user 53
+* PUT /api/user/53 will update user 53
+* DELETE /api/user/53 will delete user 53
+
+> **Info** GET, PUT, and DELETE methods should be idempotent which means repeated requests to the same URI don't do anything. Repeated POST calls however, would create multiple users.
+
 In ColdBox, the easiest way to represent our "/api/user" resource is to create a handler called "user.cfc" in the /handlers/api/ directory. In this instance, ColdBox will consider the "api" to be a handler package. Here in my handler, I have stubbed out actions for each of the operations I need to perform against my user resource.
 /handlers/api/user.cfc
 component {
