@@ -473,11 +473,13 @@ coldbox = {
 ```
 
 Then create that action and put your exception handling code inside. You can choose to do error logging, notifications, or custom output here. You can even run other events.
-/handlers/main.cfc
+
+```js
+// /handlers/main.cfc
 component {
 	function onException( event, rc, prc ){
 		// Log the exception via LogBox
-		log.error( rc.exceptionBean.getMessage() & rc.exceptionBean.getDetail(), rc.exceptionBean.getMemento() );
+		log.error( prc.exception.getMessage() & prc.exception.getDetail(), prc.exception.getMemento() );
 	
 		// Flash where the exception occurred
 		flash.put("exceptionURL", event.getCurrentRoutedURL() );
@@ -486,9 +488,16 @@ component {
 		setNextEvent("main.fail");
 	}
 }
-ColdBox Relax
+```
+
+## ColdBox Relax
+
 ColdBox Relax is a set of ReSTful Tools For Lazy Experts. We pride ourselves in helping you (the developer) work smarter and ColdBox Relax is a tool to help you document your projects faster. ColdBox Relax provides you with the necessary tools to automagically model, document and test your ReSTful services. One can think of ColdBox Relax as a way to describe ReSTful web services, test ReSTful web services, monitor ReSTful web services and document ReSTful web services–all while you relax!
-You can read more about Relax on the Official Relax Doc page.
+You can read more about Relax on the Official Relax Doc page or you can install it now via CommandBox:
+
+```
+install relax --saveDev
+```
 
 ----
 <small>
