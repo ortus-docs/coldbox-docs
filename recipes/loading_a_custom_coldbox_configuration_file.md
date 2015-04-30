@@ -14,7 +14,7 @@ Open the Application.cfc and look for the following:
 <cfset COLDBOX_CONFIG_FILE = "">
 ```
 
-The value is a full instantiation path to the [ConfigurationCFC](http://wiki.coldbox.org/wiki/ConfigurationCFC.cfm) you would like to use:
+The value is a full instantiation path to the `ColdBox.cfc` you would like to use:
 
 
 ```js
