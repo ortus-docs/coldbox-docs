@@ -83,5 +83,9 @@ Let's define a new controller now.  Sometimes you'll see these called "handlers"
 Pull up CommandBox again and run this command.
 
 ```bash
-CommandBox> coldbox create handler helloWorld
+CommandBox> coldbox create handler helloWorld index,add,edit,list
 ```
+
+That's it!  You don't need to add any specicial configuration to decalre your handler.  Now we have a new handler called `helloWorld` with actions `index`, `add`, `edit`, and `list`.   The command also created a test case for our handler as well as stubbed-out views for each of the actions.  
+
+Now, let's re-initalize the framework to pick up our new handler by typing `?fwreinit=1` at the end of the URL.  
