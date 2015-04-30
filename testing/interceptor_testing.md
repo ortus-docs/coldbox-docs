@@ -1,6 +1,6 @@
 # Interceptor Testing
 
-You can test interceptors directly with no need of doing integration testing. This way you can unit test interceptors in isolation. All you need to do is the following:
+You can test interceptors directly with no need of doing integration testing via the `BaseInterceptorTest`. This way you can unit test interceptors in isolation. All you need to do is the following:
 
 ```bash
 coldbox create interceptor-test path=interceptors.Deploy points=onCreate --open
