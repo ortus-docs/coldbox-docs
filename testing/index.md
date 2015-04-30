@@ -25,6 +25,9 @@ Please also note that CommandBox ships with tons of commands for interacting wit
 # testbox namespace help
 testbox help
 
+# generations
+testbox create help
+
 # coldbox creation help
 codlbox create help
 ```
