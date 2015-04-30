@@ -8,11 +8,7 @@ This namespace is a combination of namespaces that are only active when used wit
 |coldbox:flash |Get a reference to the application's flash scope object|
 |coldbox:setting:{setting} |Get the coldbox application *{setting}* setting and inject it |
 |coldbox:setting:{setting}@{module} |Get the coldbox application *{setting}* from the *{module}* and inject it |
-|coldbox:plugin:{plugin} |Get the {plugin} plugin and inject it |
-|coldbox:myPlugin:*{MyPlugin}* |Get the *{MyPlugin}* custom plugin and inject it |
-|coldbox:myPlugin:{MyPlugin}@{module} |Get the *{MyPlugin}* custom plugin from the *{module}* module and inject it |
-|coldbox:datasource:{alias} |Get a new datasource bean according to *{alias}*|
-|coldbox:configBean |Get a new config bean object and inject it |
+|coldbox:datasource:{alias} |Get a new datasource struct according to *{alias}*|
 |coldbox:mailsettingsbean |Get a new mail settings bean and inject it |
 |coldbox:loaderService |Get a reference to the loader service |
 |coldbox:requestService |Get a reference to the request service |
