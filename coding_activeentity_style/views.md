@@ -2,7 +2,7 @@
 
 Here are the views as well:
 
-###index.cfm
+##index.cfm
 
 ```js
 <cfoutput>
@@ -21,7 +21,7 @@ Here are the views as well:
 </cfoutput>
 ```
 
-###editor.cfm
+##editor.cfm
 
 Check out our awesome html helper object. It can even build the entire forms according to the Active Entity object and bind the values for you!
 
