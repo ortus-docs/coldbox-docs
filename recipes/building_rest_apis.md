@@ -7,7 +7,11 @@ REST APIs are a popular and easy way to add HTTP endpoints to your web applicati
 Creating a fully-featured REST API is easy with the ColdBox Platform. Everything you need for creating routes, massaging data, and enforcing security comes out of the box. We even have an application template just for REST, so you can use CommandBox to create your first RESTFul app:
 
 ```bash
+## create app
 coldbox create app name=MyRestAPP skeleton=rest --installColdBox
+
+## run it with URL rewrites
+server start --rewritesEnable
 ```
 
 ## Quick Reference Card
