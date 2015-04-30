@@ -115,6 +115,7 @@
        * [EntityService Namespace](models/injection_dsl/entityservice_namespace.md)
        * [ColdBox Namespace](models/injection_dsl/coldbox_namespace.md)
        * LogBox Namespace
+       * WireBox Namespace
    * [Object Scopes](models/object_scopes.md)
    * [Mappings Objects](models/mappings_objects.md)
    * [Coding: Solo Style](models/coding_solo_style/index.md)
