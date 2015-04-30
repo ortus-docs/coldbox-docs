@@ -30,4 +30,5 @@ It might be that testing is tedious and takes time to get into the flow of Behav
 * [Wikipedia](http://en.wikipedia.org/wiki/Unit_test)
 * [TestBox](http://ortussolutions.com/products/testbox)
 * [TestBox BDD Book](http://testbox.ortusbooks.com)
-
+* [ColdFusion Builder TestBox Extensions](http://forgebox.io/view/coldbox-platform-utilities)
+* [Sublime TestBox Extension](https://github.com/lmajano/cbox-coldbox-sublime)
