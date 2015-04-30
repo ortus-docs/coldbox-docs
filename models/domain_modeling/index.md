@@ -27,3 +27,19 @@ Let's say that I want to build a simple book catalog and I want to be able to do
 
 There are several ways I can go about this and your design will depend on the tools you use. If you use an ORM like ColdFusion ORM you most likely will use either an [ActiveEntity](http://wiki.coldbox.org/wiki/ORM:ActiveEntity.cfm) approach or build [virtual service layers](http://wiki.coldbox.org/wiki/ORM:VirtualEntityService.cfm) or build a service layer based on our [Base ORM services](http://wiki.coldbox.org/wiki/ORM:BaseORMService.cfm). If you are not using an ORM, then most likely you will have to build all object, service and data layers manually. We will concentrate first on the last approach in order to do our modeling and then build them out in different ways.
 
+## ORM Extensions
+
+Since some of the examples in this section require the usage of ColdFusion ORM and the ColdBox ORM Extensions module, let's use CommandBox to install them in our application in two easy steps:
+
+**1. Install Module**
+```
+install cborm
+```
+**2. Add Mapping**
+Open your `Application.cfc` and add a mapping to this module:
+
+```js
+this.mappings[ "/cborm" ] 	= COLDBOX_APP_ROOT_PATH & "modules/coldbox-bundle/cborm";
+```
+
+That's it.  Th
