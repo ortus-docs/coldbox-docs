@@ -460,14 +460,18 @@ function onInvalidHTTPMethod( event, rc, prc, faultAction, eventArguments ){
 }
 ```
 
-Global Exception Handler
-The global exception handler will get called for any runtime errors that happen anywhere in the typical flow of your application. This is like the onError() convention but covers the entire application. First, configure the event you want called in the ColdBox.cfc config file. The event must have the handler plus action that you want called.
-/config/ColdBox.cfc
+### Global Exception Handler
+
+The global exception handler will get called for any runtime errors that happen anywhere in the typical flow of your application. This is like the `onError()` convention but covers the entire application. First, configure the event you want called in the `ColdBox.cfc` config file. The event must have the handler plus action that you want called.
+
+```
 coldbox = {
 	...
 	exceptionHandler = "main.onException"
 	...
 };
+```
+
 Then create that action and put your exception handling code inside. You can choose to do error logging, notifications, or custom output here. You can even run other events.
 /handlers/main.cfc
 component {
