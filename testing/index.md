@@ -2,9 +2,18 @@
 
 One of the best things you can do when you develop software applications is TEST! I know nobody likes it, but hey, you need to do it right? With the advocation of frameworks today, you get all these great tools to build your software applications, but how do you test your framework code. ColdBox has revolutionized testing MVC and framework code, since you can unit test your event handlers, interceptors, model objects and even do integration testing and test your entire application with no browser at all. 
 
-ColdBox has already all the hooks in place to provide Behavior and Test Driven Development via [TestBox](http://www.ortussolutions.com/products/testbox) and mocking/stubbing capabilities via MockBox.
+ColdBox has already all the hooks in place to provide Behavior and Test Driven Development via [TestBox](http://www.ortussolutions.com/products/testbox) and mocking/stubbing capabilities via MockBox. So let's get started by opening a CommandBox prompt in your application and installing TestBox.
 
-<a href="https://vimeo.com/23835553">![](../images/testingVimeo.png)</a>
+```bash
+// stable
+install testbox --saveDev
+
+// bleeding edge
+install testbox-be --saveDev
+```
+
+> **Info** The `--saveDev` flag tells CommandBox to save TestBox locally only for testing purposes as it will not be used to send TestBox for production.
+
 
 ### Benefits
 It might be that testing is tedious and takes time to get into the flow of Test Driven Development. However, there are incredible benefits to testing:
