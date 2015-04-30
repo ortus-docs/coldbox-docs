@@ -1,6 +1,6 @@
 # EntityService Namespace
 
-Gives you the ability to easily inject base orm services or binded virtual entity services for you:
+This injection namespace comes from the `cborm` module extensions (https://github.com/ColdBox/cbox-cborm).  It gives you the ability to easily inject base orm services or binded virtual entity services for you:
 
 |DSL|Description|
 |--|--|
