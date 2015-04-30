@@ -14,22 +14,55 @@ This testing support class will create your model object, and decorate with mock
 * mockCacheBox : A mock Cache Factory class
 * mockWireBox : A mock WireBox Injector class
 
-> **Caution** We do not initialize your model objects for you. This is your job as you might need some mocking first. 
+> **Caution** We do not initialize your model objects for you. This is your job as you might need some mocking first.
 
 Basic Setup
 
 ```js
-component extends="coldbox.system.testing.BaseModelTest" model="myApp.model.User"{
+/**
+* The base model test case will use the 'model' annotation as the instantiation path
+* and then create it, prepare it for mocking and then place it in the variables scope as 'model'. It is your
+* responsibility to update the model annotation instantiation path and init your model.
+*/
+component extends="coldbox.system.testing.BaseModelTest" model="UserService"{
+	
+	/*********************************** LIFE CYCLE Methods ***********************************/
 
-  function setup(){
-     super.setup();
-     user = model;
-  }
+	function beforeAll(){
+		// setup the model
+		super.setup();		
+		
+		// init the model object
+		model.init();
+	}
 
-  function testisActive(){
-    assertEquals( false, user.isActive() );
-  }
+	function afterAll(){
+	}
+
+	/*********************************** BDD SUITES ***********************************/
+	
+	function run(){
+
+		describe( "UserService Suite", function(){
+			
+			it( "should save", function(){
+
+			});
+
+			it( "should search", function(){
+
+			});
+
+			it( "should list", function(){
+
+			});
+
+
+		});
+
+	}
 
 }
+
 ```
 
