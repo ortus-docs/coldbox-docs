@@ -105,3 +105,41 @@ function pageNotFound(event,rc,prc){
 	event.setView( "main/pageNotFound" ).setHTTPHeader( "404", "Page Not Found" );
 }
 ```
+
+
+## Global `onInvalidEvent` Interceptor
+
+This is a standard ColdBox interception point that can be used to intercept whenever a requested event in your application was invalid. You might be asking yourself, what is the difference between writing an `onInvalidEvent()` interceptor and just a simple invalid event handler? Well, the difference is in the nature of the design. 
+
+Interceptors are designed to be decoupled classes that can react to announced events, thus an event-driven approach. You can have as many CFCs listening to the `onInvalidEvent` event and react accordingly without them ever knowing about each other and doing one job and one job only. This is a much more flexible and decoupled approach than calling a single event handler where you will procedurally decide what happens in an invalid event.
+
+The `interceptData` argument receives the following variables:
+
+* `invalidEvent` : The invalid event string
+* `ehBean` : The internal ColdBox event handler bean
+* `override` : A boolean indicator that you overwrote the event
+
+
+You must tell ColdBox that you want to override the invalid event (`override = true`) and you must set in the `ehBean` to tell ColdBox what event to execute:
+
+component extends="coldbox.system.Interceptor"{
+	
+	function onInvalidEvent(event, interceptData){
+		// Log a warning
+		log.warning( "Invalid page detected: #arguments.interceptData.invalidEvent#");
+
+		// Set the invalid event to run
+		arguments.interceptData.ehBean.setHandler("Main").setMethod("pageNotFound");
+
+		// Override
+		arguments.interceptData.override = true;
+	}
+}
+Also remember that you need to register the interceptor in your ConfigurationCFC so ColdBox knows about it:
+interceptors = [
+	
+	// Register invalid event handler
+	{ class = "interceptors.InvalidHandler", properties = {} }
+	
+];
+
