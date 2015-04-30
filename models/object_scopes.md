@@ -2,14 +2,14 @@
 
 You can very easily add persistence to your model+ objects via our annotations or binder configuration. The available scopes are:
 
-* transient or no scope : The default scope. Meaning objects have no scope, they are recreated every single time you request them.
-* singleton : Objects are created once and live until your Application expires
-* cachebox : You can store your objects in any CacheBox provider and even provide timeouts for them
-* session : Store them in the ColdFusion session scope
-* server : Store them in the ColdFusion server scope
-* request : Store them in the ColdFusion request scope
-* application : Store them in the ColdFusion application scope
-* CUSTOM : You can build your own scopes as well.
+* `transient or no scope` : The default scope. Meaning objects have no scope, they are recreated every single time you request them.
+* `singleton` : Objects are created once and live until your Application expires
+* `cachebox` : You can store your objects in any CacheBox provider and even provide timeouts for them
+* `session` : Store them in the ColdFusion `session` scope
+* `server` : Store them in the ColdFusion `server` scope
+* `request` : Store them in the ColdFusion `request` scope
+* `application` : Store them in the ColdFusion `application` scope
+* `CUSTOM` : You can build your own scopes as well.
 
 
 ```js
