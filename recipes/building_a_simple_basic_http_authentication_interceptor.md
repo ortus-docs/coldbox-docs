@@ -233,9 +233,9 @@ component extends="coldbox.system.testing.BaseModelTest" model="simpleMVC.model.
 }
 ```
 
-Again, you can see that now we use our BaseModelTest case and continue to use mocks for our dependencies.
+Again, you can see that now we use our `BaseModelTest` case and continue to use mocks for our dependencies.
 
-### Interceptor Declaration
+## Interceptor Declaration
 
 We are pretty much done, so we can open our [ConfigurationCFC](http://wiki.coldbox.org/wiki/ConfigurationCFC.cfm) in our config/Coldbox.cfc and look for the interceptors section as we will be adding our simple security interceptor.
 
