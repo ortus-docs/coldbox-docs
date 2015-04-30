@@ -49,7 +49,12 @@ interceptors = [
 
 A REST API can define its resources on its own domain (`http://api.example.com`), or after a static placeholder that differentiates it from the rest of the app (`http://www.example.com/api/`). We'll use the latter for these examples. 
 
-Let's consider a resource we need to represent called "user". Resources should usually be nouns. If you have a verb in your URL, you're probably doing it wrong. It is also important to note that REST is a style of URL architecture not a mandate, so it is an open avenue of sorts. However, you must stay true to its concepts of resources and usage of the HTTP verbs. Here are a few pointers when using the HTTP verbs:
+Let's consider a resource we need to represent called `user`. Resources should usually be nouns. If you have a verb in your URL, you're probably doing it wrong. 
+
+> **Hint** It is also important to note that REST is a style of URL architecture not a mandate, so it is an open avenue of sorts. However, you must stay true to its concepts of resources and usage of the HTTP verbs. 
+
+
+Here are a few pointers when using the HTTP verbs:
 http://www.example.com/api/user
 GET /api/user will return a representation of all the users. It is permissible to use a query string to control pagination or filtering.
 POST /api/user/ will create a new user
