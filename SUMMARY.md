@@ -115,7 +115,7 @@
        * [ColdBox Namespace](models/injection_dsl/coldbox_namespace.md)
        * [CacheBox Namespace](models/injection_dsl/cachebox_namespace.md)
        * [LogBox Namespace](models/injection_dsl/logbox_namespace.md)
-       * WireBox Namespace
+       * [WireBox Namespace](models/injection_dsl/wirebox_namespace.md)
        * [EntityService Namespace](models/injection_dsl/entityservice_namespace.md)
    * [Object Scopes](models/object_scopes.md)
    * [Mappings Objects](models/mappings_objects.md)
