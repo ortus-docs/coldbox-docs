@@ -18,6 +18,25 @@ Here are the basics to follow for integration testing:
 /**
 * My integration test bundle
 */
-component extends="coldbox.system.testing.BaseTestCase” appMapping=“/root”{
-}
+component extends="coldbox.system.testing.BaseTestCase" appMapping="/root"{
+
+	/*********************************** LIFE CYCLE Methods ***********************************/
+
+	function beforeAll(){
+		super.beforeAll();
+		// do your own stuff here
+	}
+
+	function afterAll(){
+		// do your own stuff here
+		super.afterAll();
+	}
+
+/*********************************** BDD SUITES ***********************************/
+
+	function run(){
+	
+	}
 ```
+
+We will explain later the life-cycle methods and the `run()` method where you will be writing your specs.
