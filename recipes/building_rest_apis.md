@@ -159,6 +159,19 @@ For full control, you can specify your own regex pattern to match parts of the r
 
 This route will match `api/user` and `api/person`, but not `/api/contact`
 
+#### Size Restrictions
+
+You can also add the common regex `{}` size restrictor to restrict how many digits a placeholder should have or be between:
+
+```js
+// two digits
+:state{2}
+
+// 2-4 digits
+:year{2,4}
+
+```
+
 > **Hint** If a route is not matched it will be skipped and the next route will be inspected. If you want to validated parameters and return custom error messages inside your handler, then don't put the validations on the route.
 
 As you can see, you have many options to craft the URL routes your API will use. Routes can be as long as you need. You can even nest levels for URLs like `/api/users/contact/address/27` which would refer to the address resource inside the contact belonging to a user.
