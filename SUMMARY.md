@@ -262,8 +262,6 @@
        * [Distinguishing Request Types](proxy/distinguishing_request_types.md)
        * [RenderData()](proxy/renderdata.md)
    * [Proxy Events](proxy/proxy_events.md)
-   * [Ajax Data Binding & More](proxy/ajax_data_binding_&_more.md)
-   * [Flex Integration](proxy/flex_integration.md)
    * [Standard Return Types](proxy/standard_return_types.md)
    * [Caveats & Gotchas](proxy/caveats_&_gotchas.md)
 * [Recipes](recipes/index.md)
