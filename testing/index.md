@@ -22,7 +22,10 @@ install testbox-be --saveDev
 Please also note that CommandBox ships with tons of commands for interacting with TestBox and ColdBox testing classes.  You can explore them by issuing the following commands or viewing the latest CommandBox API Docs (http://apidocs.ortussolutions.com/commandbox/current)
 
 ```bash
+# testbox namespace help
 testbox help
+
+# coldbox creation help
 codlbox create help
 ```
 
