@@ -253,7 +253,6 @@
    * [Model Object Testing](testing/model_object_testing/index.md)
        * [ORMTransactionRollback Testing Decorator](testing/model_object_testing/ormtransactionrollback_testing_decorator.md)
    * [Tips & Tricks](testing/tips_&_tricks/index.md)
-       * [Mocking HTTP Methods](testing/tips_&_tricks/mocking_http_methods.md)
 * [ColdBox Proxy](proxy/index.md)
    * [Getting Started](proxy/getting_started.md)
    * [The Base Proxy Object](proxy/the_base_proxy_object.md)
