@@ -5,7 +5,7 @@ Now let's build the same thing but using ColdFusion ORM and our `ActiveEntity` a
 ```js
 + handlers 
   + contacts.cfc
-+ model
++ models
   + Contact.cfc
 ```
 
