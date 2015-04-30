@@ -151,3 +151,24 @@ interceptors = [
 ];
 ```
 
+
+##Global Missing Template Handler
+
+The global missing template handler allows you to configure an event to execute whenever ColdBox detects a request to a non-existent CFML page. This is a great way to present the user with page not found exceptions or actually use it to route the request in a dynamic matter, just like if those pages existed on disk. The setting is called coldbox.missingTemplateHandler and can be set in your ColdBox ConfigurationCFC. The value of the setting is the event that will handle these missing pages. Please also note that in order for this functionality to work the method onMissingTemplate() must exist in the Application.cfc with the default ColdBox handler code.
+coldbox = {
+	...
+	missingTemplateHandler = "main.missingTemplate"
+	...
+};
+ColdBox will place the path to the requested page as a request collection variable called missingTemplate, which you can parse and route or just use.
+function missingTempalte(event,rc,prc){
+	// Log a warning
+	log.warning( "Missing page detected: #rc.missingTemplate#");
+
+	// Do a quick page not found and 404 error
+	event.renderData( data="<h1>Page Not Found</h1>", statusCode=404 );
+
+	// Set a page for rendering and a 404 header
+	event.setView( "main/pageNotFound" ).setHTTPHeader( "404", "Page Not Found" );
+}
+
