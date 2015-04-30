@@ -170,6 +170,9 @@ You can also add the common regex `{}` quantifier to restrict how many digits a 
 // 2-4 digits
 :year{2,4}
 
+// 2 or more
+:page{2,}
+
 ```
 
 > **Hint** If a route is not matched it will be skipped and the next route will be inspected. If you want to validated parameters and return custom error messages inside your handler, then don't put the validations on the route.
