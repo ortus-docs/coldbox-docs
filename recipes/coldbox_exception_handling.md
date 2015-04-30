@@ -138,11 +138,14 @@ component extends="coldbox.system.Interceptor"{
 }
 ```
 
-Also remember that you need to register the interceptor in your ConfigurationCFC so ColdBox knows about it:
+Also remember that you need to register the interceptor in your configuration file or dynamically so ColdBox knows about it:
+
+```js
 interceptors = [
 	
 	// Register invalid event handler
 	{ class = "interceptors.InvalidHandler", properties = {} }
 	
 ];
+```
 
