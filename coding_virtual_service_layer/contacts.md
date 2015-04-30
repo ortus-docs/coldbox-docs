@@ -1,6 +1,12 @@
-# Contacts.cfc
+# Contact.cfc
 
-Change the Active Entity example by removing the inheritance.
+Let's use CommandBox to build it:
+
+```bash
+coldbox create orm-entity entityName=contacts primaryKey=contactID properties=firstName,lastName,email --open
+```
+
+Then spice it up with the validation constraints
 
 ```js
 /**
@@ -25,5 +31,4 @@ component persistent="true" table="contacts"{
 	
 }
 ```
-
 
