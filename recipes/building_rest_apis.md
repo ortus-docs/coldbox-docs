@@ -145,15 +145,20 @@ This route will match `user/123` but not `user/bob`.
 
 #### Alphabetic Pattern Matcher
 
-Append -alpha to the end of the placeholder to only match upper and lowercase letters.
-addRoute( pattern = 'page/:slug-alpha' );
-This route will match page/contactus but not page/contact-us3.
+Append `-alpha` to the end of the placeholder to only match upper and lowercase letters.
+
+`addRoute( pattern = 'page/:slug-alpha' );`
+
+This route will match `page/contactus` but not `page/contact-us3`.
 
 #### Regex Pattern Matcher
 
 For full control, you can specify your own regex pattern to match parts of the route
-addRoute( pattern = 'api/regex:(user|person)' );
-This route will match api/user and api/person, but not /api/contact
+
+`addRoute( pattern = 'api/regex:(user|person)' );`
+
+This route will match `api/user` and `api/person`, but not `/api/contact`
+
 Note: If a route is not matched it will be skipped and the next route will be inspected. If you want to validated parameters and return custom error messages inside your handler, then don't put the validations on the route.
 As you can see, you have many options to craft the URL routes your API will use. Routes can be as long as you need. You can even nest levels for URLs like /api/users/contact/address/27 which would refer to the address resource inside the contact belonging to a user. More info here
 Returning Representations (Data)
