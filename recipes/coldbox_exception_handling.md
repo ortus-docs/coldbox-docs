@@ -180,3 +180,46 @@ function missingTemplate(event,rc,prc){
 	event.setView( "main/pageNotFound" ).setHTTPHeader( "404", "Page Not Found" );
 }
 ```
+
+
+
+## Handler `onMissingAction()`
+
+This approach allows you to intercept at the handler level when someone requested an action (method) that does not exist in the specified handler. This is really useful when you want to respond to dynamic requests like `/page/contact-us, /page/hello`, where page points to a `Page.cfc` and the rest of the URL will try to match to an action that does not exist. You can then use that portion of the URL to lookup a dynamic record. However, you can also use it to detect when invalid actions are sent to a specific handler.
+
+```js
+function onMissingAction(event,rc,prc,missingAction,eventArguments){
+	
+	// lookup the missing action in our mini cms
+	prc.page = pageService.findBySlug( arguments.missingAction );
+
+	if( !prc.page.isPersisted() ){
+		prc.missingPage = arguments.missingAction;
+		event.setView( "page/notFound" );
+	}
+
+	// Else present the page in a dynamic layout
+	event.setView( view="page/display", layout=prc.page.getLayout() );
+
+}
+```
+
+## Handler `onError()`
+
+This approach allows you to intercept at the handler level whenever a runtime exception has ocurred. This is a great approach when creating a family of event handlers and you create a base handler with the onError() defined in it. We have found tremendous success with this approach when building ColdBox RESTFul services in order to provide uniformity for all RESTFul handlers.
+Important: Please note that this only traps runtime exceptions, compiler exceptions will bubble up to a global exception handler or interceptor.
+// error uniformity for resources
+function onError(event,rc,prc,faultaction,exception){
+	prc.response = getModel("ResponseObject");
+	
+	// setup error response
+	prc.response.setError(true);
+	prc.response.addMessage("Error executing resource #arguments.exception.message#");
+	
+	// log exception
+	log.error( "The action: #arguments.faultaction# failed when requesting resource: #arguments.event.getCurrentRoutedURL()#", getHTTPRequestData() );
+	
+	// display
+	arguments.event.setHTTPHeader(statusCode="500",statusText="Error executing resource #arguments.exception.message#")
+		.renderData( data=prc.response.getDataPacket(), type="json" );
+}
