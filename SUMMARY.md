@@ -268,7 +268,6 @@
    * [Building REST APIs](recipes/building_rest_apis.md)
    * [ColdBox Exception Handling](recipes/coldbox_exception_handling.md)
    * [Controller Decorator](controller_decorator/index.md)
-   * [Object factory custom plugin](recipes/object_factory_custom_plugin.md)
    * [Loading a custom ColdBox configuration file](recipes/loading_a_custom_coldbox_configuration_file.md)
    * [Tracing messages to the debug panel](recipes/tracing_messages_to_the_debug_panel.md)
    * [Creating a messagebox css](recipes/creating_a_messagebox_css.md)
