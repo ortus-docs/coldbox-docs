@@ -1,6 +1,6 @@
 # Views
 
-Here are the views as well:
+Here are the views as well, which are pre-created via CommandBox handler creation command.
 
 ##index.cfm
 
