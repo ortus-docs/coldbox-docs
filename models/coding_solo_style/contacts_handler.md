@@ -43,14 +43,14 @@ component{
 		event.paramValue("contactID",0);
 		var contact = populateModel( contactService.get( rc.contactID ) );
 		// validate it
-		var vResults = validateModel(contact);
+		var vResults = validateModel( contact );
 		// Check it
 		if( vResults.hasErrors() ){
-			getPlugin("MessageBox").error(messageArray=vResults.getAllErrors());
+			flash.put( "errors", vResults.getAllErrors() );
 			return newContact(event,rc,prc);
 		}
 		else{
-			getPlugin("MessageBox").info("Contact created!");
+			flash.put( "notice", "Contact Saved!" );
 			setNextEvent("contacts");
 		}
 	}
