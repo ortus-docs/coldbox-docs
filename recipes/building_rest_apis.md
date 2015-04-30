@@ -1,10 +1,14 @@
 # Building REST APIs
 
-##Overview
+## Overview
 
-REST APIs are a popular and easy way to add HTTP endpoints to your web applications to act as web services for third parties or even other internal systems. REST is simpler and requires less verbosity and overhead than other protocols such as SOAP or XML-RPC. Creating a fully-featured REST API is easy with the ColdBox Platform. Everything you need for creating routes, massaging data, and enforcing security comes out of the box.
+REST APIs are a popular and easy way to add HTTP endpoints to your web applications to act as web services for third parties or even other internal systems. REST is simpler and requires less verbosity and overhead than other protocols such as SOAP or XML-RPC. 
+
+Creating a fully-featured REST API is easy with the ColdBox Platform. Everything you need for creating routes, massaging data, and enforcing security comes out of the box. Below you can download our quick reference card on RESTFul APIs
  
-Download RefCard
+[Download RefCard](https://github.com/ColdBox/cbox-refcards/raw/master/ColdBox%20REST%20APIs/ColdBox-REST-APIs-Refcard.pdf)
+
+
 Introduction To REST
 REST stands for Representational State Transfer and builds upon the basic idea that data is represented as resources and accessed via a URI, or unique address. An HTTP client (such as a browser, or the CFHTTP tag) can send requests to a URI to interact with it. The HTTP verb (GET, POST, etc) sent in the header of the request tells the server how the client want to interact with that resource.
 As far as how your data is formatted or how you implement security is left up to you. REST is less prescriptive than other standards such as SOAP (which uses tons of heavy XML and strictly-typed parameters). This makes it more natural to understand and easier to test and debug.
@@ -267,3 +271,8 @@ component {
 ColdBox Relax
 ColdBox Relax is a set of ReSTful Tools For Lazy Experts. We pride ourselves in helping you (the developer) work smarter and ColdBox Relax is a tool to help you document your projects faster. ColdBox Relax provides you with the necessary tools to automagically model, document and test your ReSTful services. One can think of ColdBox Relax as a way to describe ReSTful web services, test ReSTful web services, monitor ReSTful web services and document ReSTful web services–all while you relax!
 You can read more about Relax on the Official Relax Doc page.
+
+----
+<small>
+Ref Card - https://github.com/ColdBox/cbox-refcards/raw/master/ColdBox%20REST%20APIs/ColdBox-REST-APIs-Refcard.pdf
+</small>
