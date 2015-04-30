@@ -161,7 +161,7 @@ This route will match `api/user` and `api/person`, but not `/api/contact`
 
 #### Placeholder Quantifiers
 
-You can also add the common regex `{}` size restrictor to restrict how many digits a placeholder should have or be between:
+You can also add the common regex `{}` quantifier to restrict how many digits a placeholder should have or be between:
 
 ```js
 // two digits
