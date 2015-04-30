@@ -116,6 +116,7 @@
        * [ColdBox Namespace](models/injection_dsl/coldbox_namespace.md)
        * LogBox Namespace
        * WireBox Namespace
+       * CacheBox Namespace
    * [Object Scopes](models/object_scopes.md)
    * [Mappings Objects](models/mappings_objects.md)
    * [Coding: Solo Style](models/coding_solo_style/index.md)
