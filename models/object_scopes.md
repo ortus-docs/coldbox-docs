@@ -32,4 +32,4 @@ component name="MyService" scope="request"{}
 component name="MyService" scope="session"{}
 ```
 
-> **Importante** ease note that using annotations is optional, you can configure every object in our configuration binder as well.
+> **Hint** Pease note that using annotations is optional, you can configure every object in our configuration binder as well.
