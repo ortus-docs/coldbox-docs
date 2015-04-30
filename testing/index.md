@@ -15,7 +15,7 @@ install testbox-be --saveDev
 > **Info** The `--saveDev` flag tells CommandBox to save TestBox locally only for testing purposes as it will not be used to send TestBox for production (http://commandbox.ortusbooks.com/content/packages/dependencies.html)
 
 
-### Benefits
+## Benefits
 It might be that testing is tedious and takes time to get into the flow of Test Driven Development. However, there are incredible benefits to testing:
 
 * Can improve code quality
