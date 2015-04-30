@@ -211,7 +211,7 @@ function getUsersAsPDF( event, rc, prc ){
 ```
 
 
-Format Detection
+### Format Detection
 Many APIs allow the user to choose the format they want back from the endpoint by appending a file "extension" to the end of the URL.
 http://www.example.com/api/user.json
 http://www.example.com/api/user.xml
