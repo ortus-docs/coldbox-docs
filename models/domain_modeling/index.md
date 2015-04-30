@@ -32,6 +32,15 @@ this.mappings[ "/cborm" ] 	= COLDBOX_APP_ROOT_PATH & "modules/coldbox-bundle/cbo
 
 The manual addition of the mapping is needed since the ColdFusion ORM loads before anything in our system, so we must tell it beforehand.  We cannot use the ColdBox Module CFMappings unfortunately.
 
+## Validation
+ColdBox has a core validation module you can install to provide you with robust server-side validation of model data.  You can install it via CommandBox:
+
+```bash
+install cbvalidation
+```
+
+You can find the documentation and source in its repository: https://github.com/ColdBox/cbox-validation
+
 
 ## Book Catalog
 
