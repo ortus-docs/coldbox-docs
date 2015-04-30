@@ -3,54 +3,70 @@
 Now that we have seen the handler code, let's see the testing code as well. One important thing to note is that I use URL variables in my tests instead of FORM variables. I use URL because if the tests are executed via the MXUnit Eclipse Plugin they execute via SOAP and ColdFusion does not translate the FORM structure in SOAP web services. If you only test via the browser then you are ok, but if you use the Eclipse Plugin you must use URL scope instead in your tests. The great thing about ColdBox is that it abstracts FORM and URL scope into the request collections!
 
 ```js
-component extends="coldbox.system.testing.BaseTestCase" appmapping="/apps/MyApp"{
+function run(){
 
-	function setup(){
-		super.setup();
-	}
+	describe( "Main Handler", function(){
 
-	function testindex(){
-		var event = execute("general.index");
-		assertEquals("Welcome to ColdBox!", event.getValue("welcomeMessage"));
-    }
-	
-    function testdoSomething(){
-    	var event = execute("general.doSomething");
-		assertEquals("general.index", event.getValue("setnextevent") );
-	}
+		beforeEach(function( currentSpec ){
+			// Setup as a new ColdBox request, VERY IMPORTANT. ELSE EVERYTHING LOOKS LIKE THE SAME REQUEST.
+			setup();
+		});
 
-	function testdspLogin(){
-		var event = execute("general.dspLogin");
-		var prc = event.getCollection(private=true);
-		assertEquals("general.dspLogin", prc.currentView );
-	}
+		it( "+homepage renders", function(){
+			var event = execute( event="main.index", renderResults=true );
+			expect(	event.getValue( name="welcomemessage", private=true ) ).toBe( "Welcome to ColdBox!" );
+		});
 
-	function testdoLoginWithNoData(){
-		var event = execute("general.doLogin");
-		assertTrue( getFlashScope().exists("notice") );
-		assertEquals("general.dspLogin", event.getValue("setnextevent") );
-	}
+		it( "+doSomething relocates", function(){
+			var event = execute( event="main.doSomething" );
+			expect(	event.getValue( "setnextevent", "" ) ).toBe( "main.index" );
+		});
 
-	function testDoLoginWithInvalidData(){
-		URL.username = "joe";
-		URL.password = "hacker";
-		var event = execute("general.doLogin");
-		assertTrue( getFlashScope().exists("notice") );
-		assertEquals("general.dspLogin", event.getValue("setnextevent") );
-	}
+		it( "+app start fires", function(){
+			var event = execute( "main.onAppInit" );
+		});
 
-	function testdoLoginWithGoodData(){
-		URL.username = "luis";
-		URL.password = "luis";
-		var event = execute("general.doLogin");
-		assertFalse( getFlashScope().exists("notice") );
-		assertEquals("general.hello", event.getValue("setnextevent") );
-	}
+		it( "+can handle exceptions", function(){
+			//You need to create an exception bean first and place it on the request context FIRST as a setup.
+			var exceptionBean = createMock( "coldbox.system.web.context.ExceptionBean" )
+				.init( erroStruct=structnew(), extramessage="My unit test exception", extraInfo="Any extra info, simple or complex" );
 
-	function testhello(){
-		var event = execute("general.hello");
-		assertEquals("Howdy user!", event.getValue("cbox_handler_results") );
-	}
+			// Attach to request
+			getRequestContext().setValue( name="exception", value=exceptionBean, private=true );
+
+			//TEST EVENT EXECUTION
+			var event = execute( "main.onException" );
+		});
+
+		describe( "Request Events", function(){
+
+			it( "+fires on start", function(){
+				var event = execute( "main.onRequestStart" );
+			});
+
+			it( "+fires on end", function(){
+				var event = execute( "main.onRequestEnd" );
+			});
+
+		});
+
+		describe( "Session Events", function(){
+
+			it( "+fires on start", function(){
+				var event = execute( "main.onSessionStart" );
+			});
+
+			it( "+fires on end", function(){
+				//Place a fake session structure here, it mimics what the handler receives
+				URL.sessionReference = structnew();
+				URL.applicationReference = structnew();
+				var event = execute( "main.onSessionEnd" );
+			});
+
+		});
+
+
+	});
 
 }
 ```
