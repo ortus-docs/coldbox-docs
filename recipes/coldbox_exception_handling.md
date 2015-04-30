@@ -43,7 +43,7 @@ function onException(event,rc,prc){
 
 This is a standard ColdBox interception point that can be used to intercept whenever a global exception has occurred in the system. The interceptor call is actually made before the global exception handler, any automatic logging or presentation of the error page to the user. This is the first line of defense towards exceptions. You might be asking yourself, what is the difference between writing an `onException()` interceptor and just a simple exception handler? Well, the difference is in the nature of the design. 
 
-Interceptors are designed to be decoupled classes that can react to announced events, thus an event-driven approach. You can have as many CFCs listening to the onException event and react accordingly without them ever knowing about each other and doing one job and one job only. This is a much more flexible and decoupled approach than calling a single event handler where you will procedurally decide what happens in an exception.
+Interceptors are designed to be decoupled classes that can react to announced events, thus an event-driven approach. You can have as many CFCs listening to the `onException` event and react accordingly without them ever knowing about each other and doing one job and one job only. This is a much more flexible and decoupled approach than calling a single event handler where you will procedurally decide what happens in an exception.
 component extends="coldbox.system.Interceptor"{
 	
 	function onException(event, interceptData){
