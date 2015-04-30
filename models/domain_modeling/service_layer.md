@@ -6,10 +6,10 @@ I want to apply best practices and use a service layer approach for my applicati
 
 The whole point of the model layer is that it is separate from the other 2 layers (controller and views). Remember, the model is supposed to live on its own and not be dependent on external layers (Decoupled). From these simple requirements I will create the following classes:
 
-* BookService.cfc - A service layer for book operations
-* Book.cfc - Represents a book in my system
+* `BookService.cfc` - A service layer for book operations
+* `Book.cfc` - Represents a book in my system
 
-![](../images/ServiceLayers.jpg)
+![](../../images/ServiceLayers.jpg)
 
 > A Service Layer defines an application's boundary [Cockburn PloP] and its set of available operations from the perspective of interfacing client layers. It encapsulates the application's business logic, controlling transactions and coor-dinating responses in the implementation of its operations. 
 <small>[Martin Fowler](http://martinfowler.com/eaaCatalog/serviceLayer.html)</small>
