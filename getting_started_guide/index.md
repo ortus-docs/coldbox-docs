@@ -177,4 +177,7 @@ function index(event,rc,prc){
 
 One final piece.  Open up the default layout located in `layouts/Main.cfm` and find the `#renderView()#'.  Add this line right before it.
 
-
+```html
+#getInstance( 'messagebox@cbmessageBox').renderIt()#
+<div class="container">#renderView()#</div>
+```
