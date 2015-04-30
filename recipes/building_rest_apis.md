@@ -217,10 +217,14 @@ function listUsers( event, rc, prc ){
 
 
 ### Format Detection
-Many APIs allow the user to choose the format they want back from the endpoint by appending a file "extension" to the end of the URL.
+Many APIs allow the user to choose the format they want back from the endpoint by appending a file `extension` to the end of the URL:
+
+```
 http://www.example.com/api/user.json
 http://www.example.com/api/user.xml
 http://www.example.com/api/user.text
+```
+
 ColdBox has built-in support for detecting an extension in the URL and will save it into the request collection in a variable called format. What's even better is that renderData() can find the the format variable and automatically render your data in the appropriate way. All you need to do is pass in a list of valid rendering formats and renderData() will do the rest.
   function index( event, rc, prc ) {
 	var qUsers = getUserService().getUsers();
