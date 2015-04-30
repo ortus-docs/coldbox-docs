@@ -17,5 +17,5 @@ component extends="coldbox.system.testing.BaseTestCase"
     configMapping="apps.MyApp.test.resources.Config"{
 ```
 
-> **Caution** The AppMapping setting is the most important one. This is how your test connects to a location of a ColdBox application to test. 
+> **Caution** The `AppMapping` setting is the most important one. This is how your test connects to a location of a ColdBox application to test. 
 
