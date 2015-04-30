@@ -265,6 +265,7 @@
    * [Caveats & Gotchas](proxy/caveats_&_gotchas.md)
 * [Recipes](recipes/index.md)
    * [Runnable Code Examples](run/index.md)
+   * ColdBox Exception Handling
    * [My First Custom Plugin](recipes/my_first_custom_plugin.md)
    * [My First Interceptor](recipes/my_first_interceptor.md)
    * [My First Context Decorator](recipes/my_first_context_decorator.md)
@@ -279,5 +280,4 @@
    * [Creating a 404 template via onInvalidEvent](recipes/creating_a_404_template_via_oninvalidevent.md)
    * [Is there an easy, programmatic way to remove a specific element from the view cache](recipes/is_there_an_easy,_programmatic_way_to_remove_a_specific_element_from_the_view_cache.md)
    * [Building a simple Basic HTTP Authentication Interceptor](recipes/building_a_simple_basic_http_authentication_interceptor.md)
-   * ColdBox Exception Handling
 
