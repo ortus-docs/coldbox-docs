@@ -175,9 +175,13 @@ function index(event,rc,prc){
 }	
 ```
 
-One final piece.  Open up the default layout located in `layouts/Main.cfm` and find the `#renderView()#'.  Add this line right before it.
+One final piece.  Open up the default layout located in `layouts/Main.cfm` and find the `#renderView()#'.  Add this line right before it to render out the message box that we set in our handler.
 
 ```html
 #getInstance( 'messagebox@cbmessageBox').renderIt()#
 <div class="container">#renderView()#</div>
 ```
+
+Now hit your `helloWorld` handler one final time with `?fwreinit=1` in the URL to see it all in action!  (Agagin, your port number will most likely be different.
+
+> http://127.0.0.1:43272/helloWorld?fwreinit=1
