@@ -9,6 +9,7 @@
    * [Upgrading to ColdBox 4](introduction/upgrading_to_coldbox_400.md)
    * [About This Book](introduction/about_this_book.md)
    * [Author](introduction/author.md)
+* [Getting Started Guide](getting_started_guide/index.md)
 * [Overview](overview/index.md)
    * [What is MVC](overview/what_is_mvc.md)
    * [What is ColdBox](overview/what_is_coldbox.md)
