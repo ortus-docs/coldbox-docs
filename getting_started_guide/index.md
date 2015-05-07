@@ -92,7 +92,7 @@ Now, let's re-initalize the framework to pick up our new handler by typing `?fwr
 
 Let's hit this new controller we created with a URL like so.  Your port number will probalby be different.
 
-> http://127.0.0.1:43272/helloWorld
+> 127.0.0.1:43272/helloWorld
 
 Normally the url would have `index.cfm` before the `/hellowWorld` bit, but our `--rewritesEnable` flag when we started the server makes this nicer URL possible.
 
@@ -184,7 +184,7 @@ One final piece.  Open up the default layout located in `layouts/Main.cfm` and f
 
 Now hit your `helloWorld` handler one final time with `?fwreinit=1` in the URL to see it all in action!  (Again, your port number will most likely be different.
 
-> http://127.0.0.1:43272/helloWorld?fwreinit=1
+> 127.0.0.1:43272/helloWorld?fwreinit=1
 
 ## What's Next?
 Congratulations!  In a matter of minutes, you have created a full MVC application.  You installed a community module  from ForgeBox, created a new handler/view and tied in business logic from a service model.  
