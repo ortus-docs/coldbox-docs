@@ -119,8 +119,8 @@ We can see the full list of packages by using the `list` command.
 ```bash
 CommandBox> list
 Dependency Hierarchy for myApp (0.0.0)
-├── cbmessagebox (1.0.0)
-└── coldbox (4.0.0)
++-- cbmessagebox (1.0.0)
++-- coldbox (4.0.0)
 ```
 
 Right now we can see that our app depends on `coldbox` and `cbmessagebox` to run.  We'll use our new `cbmessagebox` module in a few minutes.  But first, we'll create a simple Model CFC to round out our `MVC` app.
@@ -182,9 +182,20 @@ One final piece.  Open up the default layout located in `layouts/Main.cfm` and f
 <div class="container">#renderView()#</div>
 ```
 
-Now hit your `helloWorld` handler one final time with `?fwreinit=1` in the URL to see it all in action!  (Agagin, your port number will most likely be different.
+Now hit your `helloWorld` handler one final time with `?fwreinit=1` in the URL to see it all in action!  (Again, your port number will most likely be different.
 
 > http://127.0.0.1:43272/helloWorld?fwreinit=1
 
-## Next Steps
+## What's Next?
+Congratulations!  In a matter of minutes, you have created a full MVC application.  You installed a community module  from ForgeBox, created a new handler/view and tied in business logic from a service model.  
 
+As easy as that was, you're just scratching the surface of what ColdBox can do for you. Continue reading this book to learn more about:
+* Environment-specific configuration
+* Easy SES URL routing
+* Tons of 3rd party modules
+* Drop-in security system
+* Sweet REST web service support
+
+If you run in issues or just have questions, please jump on our [ColdBox Google Group](https://groups.google.com/forum/#!forum/coldbox) and ask away.
+
+ColdBox is Professional Open Source under the Apache 2.0 license. We'd love to have your help with the product. 
