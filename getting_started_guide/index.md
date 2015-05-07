@@ -99,7 +99,7 @@ Normally the url would have `index.cfm` before the `/hellowWorld` bit, but our `
 ## Install Packages
 
 ColdBox's MVC is simple, but it's true power comes from the wide selection of modules you can install into your app to get additional functionality.  You can checkout the full list of modules available on the Forgebox site.
-> forgebox.io/type/modules
+> [forgebox.io/type/modules](http://forgebox.io/type/modules)
 
 Here's some useful examples:
 * **cbdebugger** -- For debugging Coldbox apps
