@@ -175,7 +175,7 @@ function index(event,rc,prc){
 }	
 ```
 
-One final piece.  Open up the default layout located in `layouts/Main.cfm` and find the `#renderView()#'.  Add this line right before it to render out the message box that we set in our handler.
+One final piece.  Open up the default layout located in `layouts/Main.cfm` and find the `#renderView()#`.  Add this line right before it to render out the message box that we set in our handler.
 
 ```html
 #getInstance( 'messagebox@cbmessageBox').renderIt()#
