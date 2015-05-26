@@ -24,7 +24,7 @@ CommandBox> cd C:\playground
 Now let's ask CommandBox to create a new ColdBox site for us.  The `--installColdBox` flag will also install the latest version of the ColdBox Platform alongside our new app skeleton.
 
 ```bash
-CommandBox>  
+CommandBox>  coldbox create app myApp --installColdBox
 ```
 
 ## Start It Up
