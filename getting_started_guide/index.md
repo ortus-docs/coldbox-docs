@@ -35,11 +35,11 @@ CommandBox> ls
 
 Here's a rundown of the important bits.
 * **coldbox** - This is the ColdBox framework
-* **config** - Configuration files will go here
-* **handlers** - This holds the app's controllers that help map URLs to the correct logic and view.
-* **layouts** - Your HTML layouts that wrap each page. 
 * **models** - This holds your app's CFCs 
-* **
+* **views** - Your HTML views will go here
+* **handlers** - This holds the app's controllers that help map URLs to the correct logic and view.
+* **config** - Configuration files will go here
+* **layouts** - Your HTML layouts that wrap each page. 
 
 ## Start It Up
 
