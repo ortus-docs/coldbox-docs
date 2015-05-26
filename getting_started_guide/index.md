@@ -24,8 +24,21 @@ CommandBox> cd C:\playground
 Now let's ask CommandBox to create a new ColdBox site for us.  The `--installColdBox` flag will also install the latest version of the ColdBox Platform alongside our new app skeleton.
 
 ```bash
-CommandBox>  coldbox create app myApp --installColdBox
+CommandBox> coldbox create app myApp --installColdBox
 ```
+
+This command will place several new folders and files in your working directory.  Let's run the `ls` command to view them.
+
+```bash
+CommandBox> ls
+```
+
+Here's a rundown of the important bits.
+* **coldbox/** - This is the ColdBox framework
+* **models/** - This holds your app's CFCs 
+* **views/** - Your HTML views will go here
+* **handlers/** - This holds the app's controllers
+* **config/** - Modify your apps settings here
 
 ## Start It Up
 
