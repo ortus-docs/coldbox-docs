@@ -2,7 +2,7 @@
 
 The ColdBox MVC Platform is the de-facto enterprise-level MVC framework for CFML developers.  It's professionally backed, highly extensible, and productive.  Getting started with ColdBox is quick and painless.  The only thing you need to begin is [CommandBox](http://www.ortussolutions.com/products/commandbox), a command line tool for CFML developers.   
 
-## Install CommandBox
+## Install CommandBox 
 
 You can read through our one-page [CommandBox Getting Started Guide](http://ortus.gitbooks.io/commandbox-documentation/content/getting_started_guide.html).   Or simply grab the CommandBox executable from the [download page](http://www.ortussolutions.com/products/commandbox#download) and double click it to run.  
 
@@ -99,7 +99,7 @@ Pull up CommandBox again and run this command.
 CommandBox> coldbox create handler helloWorld index,add,edit,list
 ```
 
-That's it!  You don't need to add any specicial configuration to decalre your handler.  Now we have a new handler called `helloWorld` with actions `index`, `add`, `edit`, and `list`.   The command also created a test case for our handler as well as stubbed-out views for each of the actions.  
+That's it!  You don't need to add any specicial configuration to declare your handler.  Now we have a new handler called `helloWorld` with actions `index`, `add`, `edit`, and `list`.   The command also created a test case for our handler as well as stubbed-out views for each of the actions.  
 
 Now, let's re-initalize the framework to pick up our new handler by typing `?fwreinit=1` at the end of the URL.  
 
