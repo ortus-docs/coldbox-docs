@@ -107,7 +107,7 @@ Let's hit this new controller we created with a URL like so.  Your port number w
 
 > 127.0.0.1:43272/helloWorld
 
-Normally the url would have `index.cfm` before the `/hellowWorld` bit, but our `--rewritesEnable` flag when we started the server makes this nicer URL possible.
+Normally the url would have `index.cfm` before the `/helloWorld` bit, but our `--rewritesEnable` flag when we started the server makes this nicer URL possible.
 
 ## Install Packages
 
@@ -168,7 +168,7 @@ Ok, let's open up that `helloWorld` handler we created a while back.  Remember, 
 CommandBox> edit handlers/helloWorld.cfc
 ```
 
-We'll inject our `greeterService` and the `cbmessagebox` service into the handler by adding these properties to the top of `/handlers/hellowWorld.cfc`.  This will put the instance of our services in the variables scope where we can access it in our action methods.
+We'll inject our `greeterService` and the `cbmessagebox` service into the handler by adding these properties to the top of `/handlers/helloWorld.cfc`.  This will put the instance of our services in the variables scope where we can access it in our action methods.
 
 ```javascript
 component {
@@ -183,7 +183,7 @@ And now in our `index` method, we'll set the output of our service into an `info
 
 ```javascript
 function index(event,rc,prc){
-	messsageBox.info( greeterService.sayHello() );
+	messageBox.info( greeterService.sayHello() );
 	event.setView("helloWorld/index");
 }	
 ```
