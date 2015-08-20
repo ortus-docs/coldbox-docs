@@ -21,7 +21,7 @@ cachebox = {
 ## ConfigFile
 An absolute or relative path to the CacheBox configuration CFC or XML file to use instead of declaring the rest of the keys in this structure. So if you do not define a cacheBox structure, the framework will look for the default value: `config/CacheBox.cfc` and it will load it if found. If not found, it will use the default CacheBox configuration found in `/coldbox/system/web/config/CacheBox.cfc`
 
-## ScopeRegisration
+## ScopeRegistration
 A structure that enables scope registration of the CacheBox factory in either server, cluster, application or session scope.
 
 ## DefaultCache
