@@ -33,7 +33,7 @@ The included flash implementations for ColdBox are:
 
 |Name|Class|Description|
 |--|--|--|
-|Sesison|coldbox.system.web.flash.SessionFlash |Persists variables in session scope|
+|Session|coldbox.system.web.flash.SessionFlash |Persists variables in session scope|
 |Cluster|coldbox.system.web.flash.ClusterFlash |Persists variables in cluster scope via Railo only|
 |Client|coldbox.system.web.flash.ClientFlash |Persists variables in client scope|
 |Mock|coldbox.system.web.flash.MockFlash |Mocks the storage of Flashed variables. Great for unit/integration testing.|
@@ -66,4 +66,3 @@ flash = {
 	properties = { cacheName="cluster" }
 };
 ```
-
