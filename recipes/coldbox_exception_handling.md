@@ -172,7 +172,7 @@ ColdBox will place the path to the requested page as a request collection variab
 ```js
 function missingTemplate(event,rc,prc){
 	// Log a warning
-	log.warning( "Missing page detected: #rc.missingTemplate#");
+	log.warn( "Missing page detected: #rc.missingTemplate#");
 
 	// Do a quick page not found and 404 error
 	event.renderData( data="<h1>Page Not Found</h1>", statusCode=404 );
