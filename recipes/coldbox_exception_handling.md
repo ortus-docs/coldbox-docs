@@ -97,7 +97,7 @@ ColdBox will also place the invalid event requested in the **private** request c
 ```js
 function pageNotFound(event,rc,prc){
 	// Log a warning
-	log.warning( "Invalid page detected: #prc.invalidEvent#");
+	log.warn( "Invalid page detected: #prc.invalidEvent#");
 
 	// Do a quick page not found and 404 error
 	event.renderData( data="<h1>Page Not Found</h1>", statusCode=404 );
