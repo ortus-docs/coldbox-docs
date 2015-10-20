@@ -128,7 +128,7 @@ component extends="coldbox.system.Interceptor"{
 	
 	function onInvalidEvent(event, interceptData){
 		// Log a warning
-		log.warning( "Invalid page detected: #arguments.interceptData.invalidEvent#");
+		log.warn( "Invalid page detected: #arguments.interceptData.invalidEvent#");
 
 		// Set the invalid event to run
 		arguments.interceptData.ehBean
