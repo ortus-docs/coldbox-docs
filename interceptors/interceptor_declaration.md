@@ -1,38 +1,53 @@
 # Interceptor Declaration
 
-Interceptors can be declared in the `Coldbox.cfc` or programmatically at runtime. If you declare them in the configuration file, then you have control in the order in which they fire. If you register interceptors programmtically, you won't have control of order of execution. Interceptors are declared as an array of structures in an element called `interceptors`. The elements of the structure are:
+Interceptors can be declared in the `Coldbox.cfc` configuration file or programmatically at runtime. If you register them in the configuration file, then you have control over the order in which they fire. If you register interceptors programmatically, you won't have control over the order of execution.
 
-* `class` - The instantiation path of the CFC.
-* `name` - An optional unique name for the interceptor, if not passed then the name of the CFC will be used. We highly encourage the use of a name to avoid collisions.
-* `properties` - A structure of configuration properties for the interceptor
+In the configuration file, interceptors are declared as an array of structures in an element called `interceptors`. The elements of each interceptor structure are:
+
+* `class` - The required instantiation path of the CFC.
+* `name` - An optional unique name for the interceptor. If this is not passed then the name of the CFC will be used. We highly encourage the use of a name to avoid collisions.
+* `properties` - A structure of configuration properties to be passed to the interceptor
 
 
-**Template**
-```js
+In `ColdBox.cfc`:
+```cfml
+// Interceptors registration
 interceptors = [
-    { 
-        class   = "cfc.path",
-        name    = "unique.name + wirebox ID",
-        properties = { 
-            //configuraiton struct
-        }
-]
+	{ 
+		class = "cfc.path",
+		name = "unique name/wirebox ID",
+		properties = { 
+			// configuration
+		}
+	}
+];
 ```
 
 **Example**
-
-```js
+```cfml
+// Interceptors registration
 interceptors = [
-	{class="coldbox.system.interceptors.SES", properties={}},
-	{class="interceptors.RequestTrim", properties={trimAll=true}},
-	{class="coldbox.system.interceptors.Security", name="AppSecurity", properties={
-		rulesSource 	= "model",
-		rulesModel		= "securityRuleService@cb",
-		rulesModelMethod = "getSecurityRules",
-		validatorModel = "securityService@cb"}
-	}}
+	{
+		class="coldbox.system.interceptors.SES",
+		properties={}
+	},
+	{
+		class="interceptors.RequestTrim",
+		properties={
+			trimAll=true
+		}
+	},
+	{
+		class="coldbox.system.interceptors.Security",
+		name="AppSecurity",
+		properties={
+			rulesSource="model",
+			rulesModel="securityRuleService@cb",
+			rulesModelMethod="getSecurityRules",
+			validatorModel="securityService@cb"
+		}
+	}
 ];
 ```
 
 > **Info** Remember that order is important!
-
