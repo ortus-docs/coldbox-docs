@@ -97,7 +97,7 @@ ColdBox will also place the invalid event requested in the **private** request c
 ```js
 function pageNotFound(event,rc,prc){
 	// Log a warning
-	log.warning( "Invalid page detected: #prc.invalidEvent#");
+	log.warn( "Invalid page detected: #prc.invalidEvent#");
 
 	// Do a quick page not found and 404 error
 	event.renderData( data="<h1>Page Not Found</h1>", statusCode=404 );
@@ -128,7 +128,7 @@ component extends="coldbox.system.Interceptor"{
 	
 	function onInvalidEvent(event, interceptData){
 		// Log a warning
-		log.warning( "Invalid page detected: #arguments.interceptData.invalidEvent#");
+		log.warn( "Invalid page detected: #arguments.interceptData.invalidEvent#");
 
 		// Set the invalid event to run
 		arguments.interceptData.ehBean
@@ -172,7 +172,7 @@ ColdBox will place the path to the requested page as a request collection variab
 ```js
 function missingTemplate(event,rc,prc){
 	// Log a warning
-	log.warning( "Missing page detected: #rc.missingTemplate#");
+	log.warn( "Missing page detected: #rc.missingTemplate#");
 
 	// Do a quick page not found and 404 error
 	event.renderData( data="<h1>Page Not Found</h1>", statusCode=404 );
