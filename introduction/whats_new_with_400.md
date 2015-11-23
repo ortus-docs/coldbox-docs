@@ -7,9 +7,9 @@ a new revamped MVC core and all extra functionality has been refactored
 into modules. We have pushed the modular architecture to 1st class
 citizen even in the core itself. There are several [compatibility
 updates](upgrading_to_coldbox_400.md) that you must do in order to upgrade your ColdBox 3.X
-applications to CodlBox 4 standards. You will notice that the source and
+applications to ColdBox 4 standards. You will notice that the source and
 download of ColdBox 4 has been reduced by almost 75% in size. This is
-now due to our modular approach were functionality can just be brought
+now due to our modular approach where functionality can just be brought
 in dynamically. How you might say?
 
 ### CommandBox
@@ -18,7 +18,7 @@ in dynamically. How you might say?
 
 [CommandBox](http://www.ortussolutions.com/products/commandbox), our new ColdFusion (CFML) command line interface,
 package manager and REPL. You can now use CommandBox to install
-dependencies, modules and even ColdBox itself all from our centralized
+dependencies, modules and even ColdBox itself, all from our centralized
 code repository: [ForgeBox](http://www.coldbox.org/forgebox). To install ColdBox 4 Bleeding Edge
 you can just type:
 
@@ -41,7 +41,7 @@ coldbox create app MyFirstApp --installTestBox
 ```
 
 ## Internal Library Updates
-ColdBox is composed of three internal libraries: WireBox (DI & AOP), CacheBox (Caching), LogBox (Logging). Below you can find what's new with this release for each library:
+ColdBox is composed of three internal libraries: WireBox (DI & AOP), CacheBox (Caching) and LogBox (Logging). Below you can find what's new with this release for each library:
 
 - [WireBox 2.0.0](whats_new/wirebox_200.md)
 - [CacheBox 2.0.0](whats_new/cachebox_200.md)
@@ -54,7 +54,7 @@ Major Updates
 
 The core has been completely revamped by removing ColdFusion 7/8 code,
 decoupled from many features that are now available as modules and
-rewrites to pure `cfscript` syntax. The end result is the fastes ColdBox
+rewrites to pure `cfscript` syntax. The end result is the fastest ColdBox
 release since our 1.0.0 days. In our initial vanilla load tests, normal
 requests would take around 4-6ms to execute.
 
@@ -67,7 +67,7 @@ The `runEvent` method has been extended to include caching capabilities much sim
 * @event The event string to execute, if nothing is passed we will execute the application's default event.
 * @prePostExempt If true, pre/post handlers will not be fired. Defaults to false
 * @private Execute a private event if set, else defaults to public events
-* @defaultEvent The flag that let's this service now if it is the default event running or not. USED BY THE FRAMEWORK ONLY
+* @defaultEvent The flag that let's this service know if it is the default event running or not. USED BY THE FRAMEWORK ONLY
 * @eventArguments A collection of arguments to passthrough to the calling event handler method
 * @cache.hint Cached the output of the runnable execution, defaults to false. A unique key will be created according to event string + arguments.
 * @cacheTimeout.hint The time in minutes to cache the results
@@ -108,7 +108,7 @@ Please note that the default cache provider used for event caching is the **temp
 
 ### Model called Models
 
-The convention has been updated so it matches the other convetions. You
+The convention has been updated so it matches the other conventions. You
 now must create a **models** folder instead of a **model** folder.
 
 ### onInvalidHTTPMethod Handler Convention
@@ -168,12 +168,12 @@ coldbox = {
 All the new ColdBox application templates have been updated to include a
 folder called `lib` inside that is automatically wired for you to
 class load Java classes and jars. All you have to do is drop any jar or
-class file in the this folder and it will be available via
+class file into this folder and it will be available via
 `createobject(“java”)` anywhere in your app.
 
 ### New Core Modules
 
-All internal plugins and lots of functionality has been refactored out
+All internal plugins, and lots of functionality, have been refactored out
 of the ColdBox Core and into standalone Modules. All of them are in
 [ForgeBox](http://www.coldbox.org/forgebox) and have their own Git repositories. Also, all of them are
 installable via [CommandBox](http://www.ortussolutions.com/products/commandbox); Our ColdFusion (CFML) CLI, and Package
@@ -266,7 +266,7 @@ box install cbvalidation
 
 ### New Anti-Forgery Module
 
-We have create a nice anti-forgery module called **csrf** which can be
+We have created a nice anti-forgery module called **csrf** which can be
 found in [ForgeBox](http://www.coldbox.org/forgebox/view/cbcsrf) and in GitHub: <https://github.com/ColdBox/cbox-csrf>. This
 module will enhance your ColdBox applications with Anti-Cross Site
 Request Forgery capabilities. You can also install it via CommandBox
@@ -343,10 +343,10 @@ autowired.
 
 ### Handlers Are Now Singletons
 
-In pre-4.0.0 applications all event handlers were cached in CacheBox
+In pre-4.0.0 applications, all event handlers were cached in CacheBox
 with specific timeouts. We have found that this just created extra noise
 and complexity for handler CFCs. So now all event handlers will be
-cached as singletons be default (unless specified in the `ColdBox.cfc`).
+cached as singletons by default (unless specified in the `ColdBox.cfc`).
 
 ### Bootstrap Enhancement
 
@@ -394,7 +394,7 @@ installed a-la-carte by developers. Here are some major updates:
 #### Module Inception
 
 We have altered the module services to now allow you to nest modules
-within modules up to the Nth degree. Our final move to hiearchical MVC
+within modules up to the Nth degree. Our final move to hierarchical MVC
 is complete. Now you can package a module with other modules that can
 even contain other modules within. It really opens a great opportunity
 for better packaging, delivery and a further break from monolithic
@@ -433,7 +433,7 @@ load.
 
 #### Module Aliases
 
-In pre-4.0.0 ColdBox applications the way that you executed module
+In pre-4.0.0 ColdBox applications, the way that you executed module
 handlers was via its registered module name, which had to be the name of
 the module folder on disk. This was ok to a certain point, but it would
 cause issues as it was very restrictive to the name on disk. On ColdBox
