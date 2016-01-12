@@ -32,7 +32,7 @@ testbox create help
 testbox run help
 
 # coldbox creation help
-codlbox create help
+coldbox create help
 ```
 
 ## Benefits
