@@ -15,7 +15,7 @@ This gives you great hooks for you to do bootup and shutdown commands for this s
 function onLoad(){
   // Register some tables in my database and activate some features
   controller.getWireBox().getInstance('MyModuleService').activate();
-    log.info('Module #this.title# loaded correctly');
+    log.info( 'Module #this.title# loaded correctly' );
 }
 
 function onUnLoad(){
@@ -23,7 +23,7 @@ function onUnLoad(){
   controller.getWireBox().getInstance('MyModuleService').shutdown();
   
   // Log we unloaded
-  log.info('My module unloaded successfully!);
+  log.info( 'My module unloaded successfully!' );
 }
 ```
 
@@ -34,7 +34,7 @@ Also, remember that the configuration object itself is an interceptor so you can
 ```js
 function preProcess(event, interceptData){
   // I just intercepted ALL incoming requests to the application
-  log.info('The event executed is #arguments.event.getCurrentEvent()');
+  log.info('The event executed is #arguments.event.getCurrentEvent()#');
 }
 ```
 
