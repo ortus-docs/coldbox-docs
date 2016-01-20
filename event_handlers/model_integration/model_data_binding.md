@@ -76,7 +76,7 @@ component{
 		event.setView("person/editor");		
 	}
 	
-	function show(event,rc,prc){
+	function save(event,rc,prc){
 		
 		var person = populateModel( "Person" );
 		
