@@ -1,6 +1,6 @@
 # What Can I Do With It?
 
-The event object has a plethora of methods to help you deal with a request.  We suggest looking at the [API Docs](apidocs.ortussolutions.com/coldbox/current) for further inspection.
+The event object has a plethora of methods to help you deal with a request.  We suggest looking at the [API Docs](http://apidocs.ortussolutions.com/coldbox/current) for further inspection.
 
 * Getting a reference to the collection
 * Appending structures to the collection
