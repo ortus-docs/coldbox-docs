@@ -3,7 +3,7 @@
 Let's use CommandBox to build it:
 
 ```bash
-coldbox create orm-entity entityName=contacts primaryKey=contactID properties=firstName,lastName,email --open
+coldbox create orm-entity entityName=contact primaryKey=contactID properties=firstName,lastName,email --open
 ```
 
 Then spice it up with the validation constraints
