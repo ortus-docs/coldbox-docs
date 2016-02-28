@@ -14,7 +14,16 @@ Once you call `renderView()` with a collection, the renderer will render the vie
 #renderView(view='tags/comment',collection=rc.comments)#
 ```
 
-Then the `tags/comment` will be rendered as many times as the collection `rc.comments` has members on it and by convention the name of the variable is comment the same as the view name. If you don't like that, then use the collectionAs argument:
+Then the `tags/comment` will be rendered as many times as the collection `rc.comments` has members on it and by convention the name of the variable is comment the same as the view name.
+
+```js
+<h1>Title: #comment.Title# (#_counter# of #_items#</h1>
+<p>Author: #comment.Author#</p>
+#comment.Comment#
+<hr/>
+```
+
+If you don't like that, then use the collectionAs argument:
 
 ```js
 #renderView(view='tags/comment',collection=rc.comments,collectionAs='MyComment')#
@@ -23,9 +32,9 @@ Then the `tags/comment` will be rendered as many times as the collection `rc.com
 So let's see the collection view now: 
 
 ```js
-<h1>Title: #comment.getTitle()# (#_counter# of #_items#</h1>
-<p>Author: #comment.getAuthor()#</p>
-#comment.getComment()#
+<h1>Title: #MyComment.Title# (#_counter# of #_items#</h1>
+<p>Author: #MyComment.Author#</p>
+#MyComment.Comment#
 <hr/>
 ```
 
