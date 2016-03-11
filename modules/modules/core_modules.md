@@ -4,6 +4,16 @@ There are several core modules that are maintained by Ortus Solutions that will 
 
 > **Info**: They used to be part of the core ColdBox Framework before 4.0.0 modularization.
 
+## `cbfeeds` - Localization & Internationalization
+* Source: https://github.com/ColdBox/cbox-feeds
+* ForgeBox: http://forgebox.io/view/cbfeeds
+
+This module will enhance your ColdBox applications with i18n capabilities, resource bundles and localization.
+
+```
+install cbfeeds
+```
+
 ## `cbi18n` - Localization & Internationalization
 * Source: https://github.com/ColdBox/cbox-i18n
 * ForgeBox: http://forgebox.io/view/cbi18n
