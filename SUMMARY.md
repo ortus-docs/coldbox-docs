@@ -230,7 +230,7 @@
    * [Module Dependencies](modules/module_dependencies.md)
    * [Module Bundles](modules/module_bundles.md)
    * [Module Inception](modules/module_inception.md)
-   * Core Modules
+   * [Core Modules](modules/modules/core_modules.md)
 * [Testing](testing/index.md)
    * [Testing Concepts](testing/testing_concepts/index.md)
        * [Functional Testing](testing/testing_concepts/functional_testing.md)
