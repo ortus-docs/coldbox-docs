@@ -247,6 +247,7 @@
        * [Common Methods](testing/integration_testing/common_methods.md)
        * [Life-Cycle Events](testing/integration_testing/life-cycle_events.md)
        * [Test Setup](testing/integration_testing/test_setup.md)
+       * [The execute() Method](testing/integration_testing/execute.md)
        * [The Handler To Test](testing/integration_testing/the_handler_to_test.md)
        * [The Integration Test](testing/integration_testing/the_integration_test.md)
        * [Handler Returning Results](testing/integration_testing/handler_returning_results.md)
