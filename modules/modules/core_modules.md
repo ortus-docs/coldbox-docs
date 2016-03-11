@@ -14,6 +14,8 @@ OWASP AntiSamy Module that provides XSS cleanup operations to ColdBox 4 applicat
 install cbantisamy
 ```
 
+---
+
 ## `cbcommons` - Common Utilities
 * Source: https://github.com/ColdBox/cbox-commons
 * ForgeBox: http://forgebox.io/view/cbcommons
@@ -29,7 +31,7 @@ A collection of model objects for your using pleasure:
 ```
 install cbcommons
 ```
-
+---
 ## `csrf` - Cross Site Request Forgery
 * Source: https://github.com/ColdBox/cbox-csrf
 * ForgeBox: http://forgebox.io/view/csrf
@@ -39,7 +41,7 @@ A module that protects you against CSRF attacks by generating unique FORM/client
 ```
 install csrf
 ```
-
+---
 ## `cbdebugger` - ColdBox Debugger
 * Source: https://github.com/ColdBox/cbox-debugger
 * ForgeBox: http://forgebox.io/view/cbdebugger
@@ -49,7 +51,7 @@ This module will enhance your application with debugger capabilities, a nice deb
 ```
 install cbdebugger
 ```
-
+---
 ## `cbfeeds` - Feeds Support
 * Source: https://github.com/ColdBox/cbox-feeds
 * ForgeBox: http://forgebox.io/view/cbfeeds
@@ -59,7 +61,7 @@ A nice and fancy way to consume and produce RSS, ATOM feeds the ColdBox way!
 ```
 install cbfeeds
 ```
-
+---
 ## `cbi18n` - Localization & Internationalization
 * Source: https://github.com/ColdBox/cbox-i18n
 * ForgeBox: http://forgebox.io/view/cbi18n
@@ -69,18 +71,17 @@ This module will enhance your ColdBox applications with i18n capabilities, resou
 ```
 install cbi18n
 ```
-
+---
 ## `cbioc` - Third-Party Dependency Injection
 * Source: https://github.com/ColdBox/cbox-ioc
 * ForgeBox: http://forgebox.io/view/cbioc
 
 The ColdBox IOC module allows you to integrate third-party dependency injection and inversion of control frameworks into your ColdBox Applications like Di/1, ColdSpring, etc.
 
-
 ```
 install cbioc
 ```
-
+---
 ## `cbjavaloader` - JavaLoader
 * Source: https://github.com/ColdBox/cbox-javaloader
 * ForgeBox: http://forgebox.io/view/cbjavaloader
@@ -90,7 +91,7 @@ The CB JavaLoader module will interface with Mark Mandel's JavaLoader to allow y
 ```
 install cbjavaloader
 ```
-
+---
 ## `cbmailservices` - Mail Services
 * Source: https://github.com/ColdBox/cbox-mailservices
 * ForgeBox: http://forgebox.io/view/cbmailservices
@@ -103,12 +104,10 @@ The ColdBox Mail services module will allow you to send email the OO way in mult
 
 You can easily add your own mail protocols by building upon our standards.
 
-
-
 ```
 install cbmailservices
 ```
-
+---
 ## `cbmessagebox` - MessageBox
 * Source: https://github.com/ColdBox/cbox-messagebox
 * ForgeBox: http://forgebox.io/view/cbmessagebox
@@ -118,7 +117,7 @@ A nice producer of flash scoped based messages that's skinnable
 ```
 install cbmessagebox
 ```
-
+---
 ## `cborm` - ORM Extensions
 * Source: https://github.com/ColdBox/cbox-cborm
 * ForgeBox: http://forgebox.io/view/cborm
@@ -128,7 +127,7 @@ This module provides you with several enhancements when interacting with the Col
 ```
 install cborm
 ```
-
+---
 ## `cbsecurity` - Security Engine
 * Source: https://github.com/ColdBox/cbox-security
 * ForgeBox: http://forgebox.io/view/cbsecurity
@@ -138,7 +137,7 @@ This module will provide your application with a security rule engine. For more 
 ```
 install cbsecurity
 ```
-
+---
 ## `cbsoap` - SOAP Helper
 * Source: https://github.com/ColdBox/cbox-soap
 * ForgeBox: http://forgebox.io/view/cbsoap
@@ -148,7 +147,7 @@ A module to help you interact with SOAP web services
 ```
 install cbsoap
 ```
-
+---
 ## `cbstorages` - Persistent Storages
 * Source: https://github.com/ColdBox/cbox-storages
 * ForgeBox: http://forgebox.io/view/cbstorages
@@ -158,7 +157,7 @@ A collection of model objects to facade and help with native ColdFusion persiste
 ```
 install cbstorages
 ```
-
+---
 ## `cbvalidation` - Validation
 * Source: https://github.com/ColdBox/cbox-validation
 * ForgeBox: http://forgebox.io/view/cbvalidation
