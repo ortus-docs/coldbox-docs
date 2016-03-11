@@ -30,6 +30,16 @@ A collection of model objects for your using pleasure:
 install cbcommons
 ```
 
+## `csrf` - Cross Site Request Forgery
+* Source: https://github.com/ColdBox/cbox-csrf
+* ForgeBox: http://forgebox.io/view/csrf
+
+A module that protects you against CSRF attacks by generating unique FORM/client tokens and providing your ColdBox application with new functions for protection.
+
+```
+install csrf
+```
+
 ## `cbdebugger` - ColdBox Debugger
 * Source: https://github.com/ColdBox/cbox-debugger
 * ForgeBox: http://forgebox.io/view/cbdebugger
@@ -58,6 +68,27 @@ This module will enhance your ColdBox applications with i18n capabilities, resou
 
 ```
 install cbi18n
+```
+
+## `cbioc` - Third-Party Dependency Injection
+* Source: https://github.com/ColdBox/cbox-ioc
+* ForgeBox: http://forgebox.io/view/cbioc
+
+The ColdBox IOC module allows you to integrate third-party dependency injection and inversion of control frameworks into your ColdBox Applications like Di/1, ColdSpring, etc.
+
+
+```
+install cbioc
+```
+
+## `cbjavaloader` - JavaLoader
+* Source: https://github.com/ColdBox/cbox-javaloader
+* ForgeBox: http://forgebox.io/view/cbjavaloader
+
+The CB JavaLoader module will interface with Mark Mandel's JavaLoader to allow you to do a network class loader, compiler and proxy.
+
+```
+install cbjavaloader
 ```
 
 ## `cbmailservices` - Mail Services
