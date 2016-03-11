@@ -8,7 +8,7 @@ There are several core modules that are maintained by Ortus Solutions that will 
 * Source: https://github.com/ColdBox/cbox-feeds
 * ForgeBox: http://forgebox.io/view/cbfeeds
 
-This module will enhance your ColdBox applications with i18n capabilities, resource bundles and localization.
+A nice and fancy way to consume and produce RSS, ATOM feeds the ColdBox way!
 
 ```
 install cbfeeds
