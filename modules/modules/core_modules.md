@@ -14,4 +14,12 @@ This module provides you with several enhancements when interacting with the Col
 install cborm
 ```
 
+## `cbvalidation` - ORM Extensions
+* Source: https://github.com/ColdBox/cbox-validation
+* ForgeBox: http://forgebox.io/view/cbvalidation
 
+ColdBox sports its own server side validation engine so it can provide you with a unified approach to object and form validation.
+
+```
+install cbvalidation
+```
