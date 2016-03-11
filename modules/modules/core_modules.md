@@ -4,7 +4,33 @@ There are several core modules that are maintained by Ortus Solutions that will 
 
 > **Info**: They used to be part of the core ColdBox Framework before 4.0.0 modularization.
 
-## `cbfeeds` - Localization & Internationalization
+## `cbantisamy` - OWASP AntiSamy
+* Source: https://github.com/ColdBox/cbox-antisamy
+* ForgeBox: http://forgebox.io/view/cbantisamy
+
+OWASP AntiSamy Module that provides XSS cleanup operations to ColdBox 4 applications
+
+```
+install cbantisamy
+```
+
+## `cbcommons` - Common Utilities
+* Source: https://github.com/ColdBox/cbox-commons
+* ForgeBox: http://forgebox.io/view/cbcommons
+
+A collection of model objects for your using pleasure:
+
+* DateUtils
+* FileUtils
+* JVMUtils
+* QueryHelper
+* Zip
+
+```
+install cbcommons
+```
+
+## `cbfeeds` - Feeds Support
 * Source: https://github.com/ColdBox/cbox-feeds
 * ForgeBox: http://forgebox.io/view/cbfeeds
 
@@ -32,6 +58,16 @@ This module provides you with several enhancements when interacting with the Col
 
 ```
 install cborm
+```
+
+## `cbstorages` - Persistent Storages
+* Source: https://github.com/ColdBox/cbox-storages
+* ForgeBox: http://forgebox.io/view/cbstorages
+
+A collection of model objects to facade and help with native ColdFusion persistence structures.
+
+```
+install cbstorages
 ```
 
 ## `cbvalidation` - Validation
