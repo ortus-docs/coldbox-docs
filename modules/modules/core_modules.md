@@ -4,6 +4,16 @@ There are several core modules that are maintained by Ortus Solutions that will 
 
 > **Info**: They used to be part of the core ColdBox Framework before 4.0.0 modularization.
 
+## `cbi18n` - Localization & Internationalization
+* Source: https://github.com/ColdBox/cbox-i18n
+* ForgeBox: http://forgebox.io/view/cbi18n
+
+This module will enhance your ColdBox applications with i18n capabilities, resource bundles and localization.
+
+```
+install cbi18n
+```
+
 ## `cborm` - ORM Extensions
 * Source: https://github.com/ColdBox/cbox-cborm
 * ForgeBox: http://forgebox.io/view/cborm
@@ -14,7 +24,7 @@ This module provides you with several enhancements when interacting with the Col
 install cborm
 ```
 
-## `cbvalidation` - ORM Extensions
+## `cbvalidation` - Validation
 * Source: https://github.com/ColdBox/cbox-validation
 * ForgeBox: http://forgebox.io/view/cbvalidation
 
