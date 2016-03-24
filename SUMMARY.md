@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-   * What's New With 4.2.0
+   * [What's New With 4.2.0](introduction/whats_new_with_420.md)
    * [What's New With 4.1.0](introduction/whats_new_with_410.md)
    * [What's New With 4.0.0](introduction/whats_new_with_400.md)
        * [WireBox 2.0.0](introduction/whats_new/wirebox_200.md)
