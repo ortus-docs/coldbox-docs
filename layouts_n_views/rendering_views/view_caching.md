@@ -53,3 +53,7 @@ cachebox.getCache( 'template' ).clearAllViews(async=true);
 cachebox.getCache( 'template' ).clearMultiView('general/index','index','home');
 ```
 
+## Disable View Caching
+
+To disable view caching for your entire app, set the ColdBox setting `viewCaching` to false in your `config/ColdBox.cfc` file.
+
