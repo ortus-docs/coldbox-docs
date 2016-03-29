@@ -10,4 +10,10 @@ function preProcess(event, interceptData, buffer){
 }
 ```
 
+Note that the config CFC does not have the same variables mixed into it that a "normal" interceptor has.  You can still access everything you need, but will need to get it from the `controller` in the variables scope.
 
+```js
+function preRender(event, interceptData, buffer){
+    controller.getWirebox().getInstance( 'loggerService' ).doSomething();
+}
+```
