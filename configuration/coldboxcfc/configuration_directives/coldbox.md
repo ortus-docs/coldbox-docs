@@ -141,7 +141,9 @@ coldbox = {
     // Persist handlers
     handlerCaching 			= false,
     // Activate event caching
-	eventCaching			= false,
+	eventCaching			= true,
+    // Activate view  caching
+	viewCaching  			= true,
 	// Return RC struct on Flex/Soap Calls
 	proxyReturnCollection 	= false,
 	// Activate implicit views
@@ -158,6 +160,10 @@ This is useful to be set to false in development and true in production. This te
 **eventCaching**
 
 This directive tells ColdBox that when events are executed they will be inspected for caching metadata. This does not mean that ALL events WILL be cached if this setting is turned on. It just activates the inspection mechanisms for whenever you annotate events for caching or using the `runEvent()` caching methods.
+
+**viewCaching**
+
+This directive tells ColdBox that when views are rendered, the `cache=true` parameter will be obeyed.  Turning on this setting will not cause any views to be cached unless you are also passing in the caching parameters to your `renderView()` or `event.setView()` calls.
 
 **proxyReturnCollection**
 
