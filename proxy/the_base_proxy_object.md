@@ -20,3 +20,14 @@ Here are some common methods of our ColdBox proxy object.  However, we encourage
 <small>
 API Docs: http://apidocs.ortussolutions.com/coldbox/current
 </small>
+
+## Autowiring Proxies
+
+You can use mixin injection for Proxy CFCs that extend the base proxy. To do this, add `autowire=true` to the component metadata. The CFML engine creates the CFC, but the base proxy's pseudo constructor will autowire itself.
+
+```js
+component autowire=true {
+  property name='myService' inject='myService';
+  
+}
+```
