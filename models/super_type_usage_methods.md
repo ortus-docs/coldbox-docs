@@ -41,7 +41,7 @@ ColdBox can populate or bind model objects from data in the request collection b
 
 ```js
 /**
-* Populate a model object from the request Collection
+* Populate a model object from the request Collection or a passed in memento structure
 * @model.hint The name of the model to get and populate or the acutal model object. If you already have an instance of a model, then use the populateBean() method
 * @scope.hint Use scope injection instead of setters population. Ex: scope=variables.instance.
 * @trustedSetter.hint If set to true, the setter method will be called even if it does not exist in the object
@@ -51,8 +51,13 @@ ColdBox can populate or bind model objects from data in the request collection b
 * @nullEmptyInclude.hint A list of keys to NULL when empty
 * @nullEmptyExclude.hint A list of keys to NOT NULL when empty
 * @composeRelationships.hint Automatically attempt to compose relationships from memento
+* @memento A structure to populate the model, if not passed it defaults to the request collection
+* @jsonstring If you pass a json string, we will populate your model with it
+* @xml If you pass an xml string, we will populate your model with it
+* @qry If you pass a query, we will populate your model with it
+* @rowNumber The row of the qry parameter to populate your model with
 */
-function populateModel(){}
+function populateModel()
 ```
 
 **Examples**:
