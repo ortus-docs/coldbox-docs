@@ -500,6 +500,22 @@ ColdBox Relax is a set of ReSTful Tools For Lazy Experts. We pride ourselves in 
 install relax --saveDev
 ```
 
+**Please note:** Installing relax via CommandBox installs without the examples, if required you will need to obtain the examples from the Relax Github repo here: https://github.com/ColdBox/coldbox-relax 
+
+To install the examples place them into the models directory in a subdirectory called 'resources' (as per the Github repo), then add the following `relax` structure to your `Coldbox.cfc` file:
+
+```
+relax = {
+    // The location of the relaxed APIs, defaults to models.resources
+    APILocation = "models.resources",
+    // Default API to load, name of the directory inside of resources
+    defaultAPI = "myapi",
+    // History stack size, the number of history items to track in the RelaxURL
+    maxHistory = 10
+};
+```
+
+You can then visit `http://[yourhost]/relax` to view Relax.
 
 You can read more about Relax on the Official Relax Doc page (http://www.ortussolutions.com/products/relax) or at it's repository: https://github.com/coldbox/coldbox-relax
 

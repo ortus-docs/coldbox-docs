@@ -20,3 +20,4 @@ Here are some common methods of our ColdBox proxy object.  However, we encourage
 <small>
 API Docs: http://apidocs.ortussolutions.com/coldbox/current
 </small>
+

@@ -1,16 +1,12 @@
 # Model Data Binding
 
-The framework also offers you the capability to bind incoming FORM/URL/REMOTE data into your model objects by convention.  This is done via [WireBox's object population](http://wirebox.ortusbooks.com/content/wirebox_object_populator/index.html) capabilities. The easiest approach is to use our `populateModel()` function which will populate object from the incoming RC collection.
-
-```js
-populateModel(any model, [any scope=''], [boolean trustedSetter='false'], [any include=''], [any exclude=''], [boolean ignoreEmpty='false'], [any nullEmptyInclude=''], [any nullEmptyExclude=''], [boolean composeRelationships='false']) 
-```
+The framework also offers you the capability to bind incoming FORM/URL/REMOTE data into your model objects by convention.  This is done via [WireBox's object population](http://wirebox.ortusbooks.com/content/wirebox_object_populator/index.html) capabilities. The easiest approach is to use our `populateModel()` function which will populate object from the incoming `rc` (request collection).
 
 This will try to match incoming variable names to setters or properties in your domain objects and then populate them for you.  It can even do ORM entities with ALL of their respective relationships. Here is a snapshot of the method:
 
 ```js
 /**
-* Populate a model object from the request Collection
+* Populate a model object from the request Collection or a passed in memento structure
 * @model.hint The name of the model to get and populate or the acutal model object. If you already have an instance of a model, then use the populateBean() method
 * @scope.hint Use scope injection instead of setters population. Ex: scope=variables.instance.
 * @trustedSetter.hint If set to true, the setter method will be called even if it does not exist in the object
@@ -20,6 +16,11 @@ This will try to match incoming variable names to setters or properties in your 
 * @nullEmptyInclude.hint A list of keys to NULL when empty
 * @nullEmptyExclude.hint A list of keys to NOT NULL when empty
 * @composeRelationships.hint Automatically attempt to compose relationships from memento
+* @memento A structure to populate the model, if not passed it defaults to the request collection
+* @jsonstring If you pass a json string, we will populate your model with it
+* @xml If you pass an xml string, we will populate your model with it
+* @qry If you pass a query, we will populate your model with it
+* @rowNumber The row of the qry parameter to populate your model with
 */
 function populateModel(
 	required model,
@@ -30,7 +31,11 @@ function populateModel(
 	boolean ignoreEmpty=false,
 	nullEmptyInclude="",
 	nullEmptyExclude="",
-	boolean composeRelationships=false
+	boolean composeRelationships=false,
+	struct memento=getRequestCollection(),
+	string jsonstring,
+	string xml,
+	query qry
 )
 ```
 
@@ -76,7 +81,7 @@ component{
 		event.setView("person/editor");		
 	}
 	
-	function show(event,rc,prc){
+	function save(event,rc,prc){
 		
 		var person = populateModel( "Person" );
 		
@@ -86,4 +91,4 @@ component{
 }
 ```
 
-In the dump you will see that the `name` and `email` properties have been binded.
+In the dump you will see that the `name` and `email` properties have been bound.
