@@ -8,6 +8,10 @@ Now that we have ColdBox installed we can create our application.  CommandBox an
 * **Simple** : A traditional simple template
 * **SuperSimple** : The bare-bones template
 
+All of these templates are stored in our Github organization: [coldbox-templates](https://github.com/coldbox-templates).  You can send us pull requests or create more templates if you like.
+
+---
+
 We will be using the `AdvancedScript` template to start.  So go again into commandbox and type:
 
 ```bash
