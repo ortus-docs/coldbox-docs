@@ -270,6 +270,7 @@
    * [Caveats & Gotchas](proxy/caveats_&_gotchas.md)
 * [Recipes](recipes/index.md)
    * [Building REST APIs](recipes/building_rest_apis.md)
+   * Application Templates
    * [ColdBox Exception Handling](recipes/coldbox_exception_handling.md)
    * [Debugging ColdBox Apps](recipes/debugging_coldbox_apps.md)
    * [Controller Decorator](controller_decorator/index.md)
@@ -277,5 +278,4 @@
    * [Is there an easy, programmatic way to remove a specific element from the view cache](recipes/is_there_an_easy,_programmatic_way_to_remove_a_specific_element_from_the_view_cache.md)
    * [Building a simple Basic HTTP Authentication Interceptor](recipes/building_a_simple_basic_http_authentication_interceptor.md)
    * [Runnable Code Examples](run/index.md)
-   * Application Templates
 
