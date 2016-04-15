@@ -270,7 +270,7 @@
    * [Caveats & Gotchas](proxy/caveats_&_gotchas.md)
 * [Recipes](recipes/index.md)
    * [Building REST APIs](recipes/building_rest_apis.md)
-   * Application Templates
+   * [Application Templates](recipes/application_templates.md)
    * [ColdBox Exception Handling](recipes/coldbox_exception_handling.md)
    * [Debugging ColdBox Apps](recipes/debugging_coldbox_apps.md)
    * [Controller Decorator](controller_decorator/index.md)
