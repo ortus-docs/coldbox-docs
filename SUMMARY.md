@@ -275,7 +275,6 @@
    * [ColdBox Exception Handling](recipes/coldbox_exception_handling.md)
    * [Debugging ColdBox Apps](recipes/debugging_coldbox_apps.md)
    * [Controller Decorator](controller_decorator/index.md)
-   * [Loading a custom ColdBox configuration file](recipes/loading_a_custom_coldbox_configuration_file.md)
    * [Clearing the View Cache](recipes/clearing_the_view_cache.md)
    * [Building a simple Basic HTTP Authentication Interceptor](recipes/building_a_simple_basic_http_authentication_interceptor.md)
    * [Runnable Code Examples](run/index.md)
