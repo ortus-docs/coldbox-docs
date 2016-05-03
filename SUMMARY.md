@@ -104,7 +104,7 @@
    * [Helpers UDF's](layouts_n_views/helpers_udfs.md)
    * [Viewlets (Portable Events)](layouts_n_views/viewlets_portable_events.md)
        * [Funky Viewlets](layouts_n_views/funky_viewlets.md)
-   * ColdBox Elixir
+   * [ColdBox Elixir](layouts_n_views/coldbox_elixir.md)
 * [Models](models/index.md)
    * [Domain Modeling](models/domain_modeling/index.md)
        * [Service Layer](models/domain_modeling/service_layer.md)
