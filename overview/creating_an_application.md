@@ -4,6 +4,8 @@ Now that we have ColdBox installed we can create our application.  CommandBox an
 
 * **Advanced** : A tag based advanced template
 * **AdvancedScript** : A script based advanced template
+* **elixir** : A ColdBox Elixir based template
+* **elixir-vuejs** : A ColdBox Elixir + Vue.js based template
 * **rest** : A RESTFul services template
 * **Simple** : A traditional simple template
 * **SuperSimple** : The bare-bones template
