@@ -34,7 +34,7 @@ component extends="coldbox.system.web.ControllerDecorator"{
 		// Add SSL eq true to ALL relocations
 		arguments.ssl = true;
 		// Send the relocation back to the existing controller
-		getController.setNextEvent( argumentCollection=arguments );
+		getController().setNextEvent( argumentCollection=arguments );
 	}
 
 }
