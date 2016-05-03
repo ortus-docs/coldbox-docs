@@ -276,7 +276,7 @@
    * [Debugging ColdBox Apps](recipes/debugging_coldbox_apps.md)
    * [Controller Decorator](controller_decorator/index.md)
    * [Loading a custom ColdBox configuration file](recipes/loading_a_custom_coldbox_configuration_file.md)
-   * [Clearing the View Cache](recipes/is_there_an_easy,_programmatic_way_to_remove_a_specific_element_from_the_view_cache.md)
+   * [Clearing the View Cache](recipes/clearing_the_view_cache.md)
    * [Building a simple Basic HTTP Authentication Interceptor](recipes/building_a_simple_basic_http_authentication_interceptor.md)
    * [Runnable Code Examples](run/index.md)
 
