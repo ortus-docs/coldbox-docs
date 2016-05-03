@@ -1,4 +1,4 @@
-# Is there an easy, programmatic way to remove a specific element from the view cache
+# Clearing the View Cache
 
 ## Introduction
 If you use any of the view partial caching mechanisms in Coldbox either through `setView()` or` renderView()` you might be asking yourself:
