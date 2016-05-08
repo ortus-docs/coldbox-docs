@@ -1,16 +1,33 @@
 {
-	"gitbook" : ">=2.0.1",
-	"isbn" : "978-1511982085",
-    "plugins" : [
-        "richquotes"
-    ],
-    "pluginsConfig" : {},
-    "pdf" : {
-    	"margin": {
-            "right": 25,
+    "gitbook": ">=2.0.1",
+    "isbn": "978-1511982085",
+    "pdf": {
+        "margin": {
+            "bottom": 56,
             "left": 25,
-            "top": 56,
-            "bottom": 56
+            "right": 25,
+            "top": 56
         }
-    }
+    },
+    "plugins": [
+        "richquotes",
+        "edit-link",
+        "github",
+        "advanced-emoji"
+    ],
+    "pluginsConfig": {
+    	"edit-link": {
+            "base": "https://github.com/coldbox/coldbox-docs/tree/development",
+            "label": "Edit This Page"
+        },
+        "github": {
+            "url": "https://github.com/coldbox/coldbox-platform"
+        }
+    },
+    "links": {
+        "sharing": {
+            "facebook": false,
+            "twitter": false
+        }
+    },
 }
