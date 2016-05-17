@@ -86,7 +86,7 @@ Some Samples:
 </form>
 ```
 
-Please see the online [API](apidocs.ortussolutions.com/coldbox/current) for the latest methods and arguments.
+Please see the online [API Docs](http://apidocs.ortussolutions.com/coldbox/current) for the latest methods and arguments.
 
 ### Request Metadata Methods
 
