@@ -33,7 +33,7 @@ Inside of this configuration method you will place several core and third-party 
 | [interceptorSettings](interceptorsettings.html) | struct | An optional structure to configure application wide interceptor behavior
 | [interceptors](interceptors.html) | array | An optional array of interceptor declarations for your application
 | [layoutSettings](layoutsettings.html) | struct | A structure where you define how the layout manager behaves in your application
-| [layouts](configuration_directives/layouts.html) | array | An array of layout declarations for implicit layout-view-folder pairings in your application
+| [layouts](layouts.html) | array | An array of layout declarations for implicit layout-view-folder pairings in your application
 | [logbox](logbox.html) | struct | An optional structure to configure the logging and messaging in your application via LogBox
 | [modules](modules.html) | struct | An optional structure to configure application wide module behavior
 | [settings](settings.html) | struct | A structure where you can put your own application settings
