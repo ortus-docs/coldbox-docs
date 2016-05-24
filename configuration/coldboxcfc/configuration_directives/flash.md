@@ -1,11 +1,11 @@
 # Flash
 
-This directive is how you will configure the [Flash RAM](../../flash_ram/flash_ram.md) for operation.  Below are the configuration keys and their defaults:
+This directive is how you will configure the [Flash RAM](../../../flash_ram/index.md) for operation.  Below are the configuration keys and their defaults:
 
 ```js
 // flash scope configuration
 flash = {
-    // The implementation to use
+    // Available scopes are: session,client,cache,mock or your own class path
 	scope = "session",
 	// constructor properties for the flash scope implementation
 	properties = {},
@@ -19,8 +19,4 @@ flash = {
 	autoSave = true 
 };
 ```
-
-**scope**
-
-The ColdFusion scope to store the Flash data on or the instantiation path of your custom Flash object.  Available core scopes are: session, client, cache, and mock.
 

@@ -1,6 +1,6 @@
-# LayoutSettings
+# `LayoutSettings`
 
-This structure is used in order to control the directives of the [ColdBox layout manager](../../views/index.md).
+This structure allows you to define a system-wide default layout and view.
 
 ```js
 //Layout Settings
@@ -11,3 +11,5 @@ layoutSettings = {
 	defaultView   = "youForgot.cfm"
 };
 ```
+
+> **Hint** Please remember that the default layout is `Main.cfm`
