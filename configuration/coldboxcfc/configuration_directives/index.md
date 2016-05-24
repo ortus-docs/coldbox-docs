@@ -24,17 +24,17 @@ Inside of this configuration method you will place several core and third-party 
 
 | Directive | Type | Description
 | -- | -- |
-| [cachebox](configuration_directives/cachebox.md) | struct | An optional structure used to configure CacheBox. If not setup the framework will use its default configuration found in `/coldbox/system/web/config/CacheBox.cfc`
-| [coldbox](configuration_directives/coldbox.md) | struct | The main coldbox directives structure that holds all the coldbox settings.
-| [conventions](configuration_directives/conventions.md) | struct | A structure where you will configure the application convention names
-| [datasources](configuration_directives/datasources.md) | struct | An optional metadata structure for datasource definitions. THEY ARE NOT COLDFUSION REGISTRATIONS
-| [environments](configuration_directives/environments.md) | struct | A structure where you will configure environment detection patterns
-| [flash](configuration_directives/flash.md) | struct | A structure where you will configure the [FlashRAM](flash_ram/flash_ram.md)
-| [interceptorSettings](configuration_directives/interceptorsettings.md) | struct | An optional structure to configure application wide interceptor behavior
-| [interceptors](configuration_directives/interceptors.md) | array | An optional array of interceptor declarations for your application
-| [layoutSettings](layoutsettings.md) | struct | A structure where you define how the layout manager behaves in your application
-| [layouts](configuration_directives/layouts.md) | array | An array of layout declarations for implicit layout-view-folder pairings in your application
-| [logbox](configuration_directives/logbox.md) | struct | An optional structure to configure the logging and messaging in your application via LogBox
-| [modules](configuration_directives/modules.md) | struct | An optional structure to configure application wide module behavior
-| [settings](configuration_directives/settings.md) | struct | A structure where you can put your own application settings
-| [wirebox](configuration_directives/wirebox.md) | struct | An optional structure used to define how WireBox is loaded
+| [cachebox](cachebox.html) | struct | An optional structure used to configure CacheBox. If not setup the framework will use its default configuration found in `/coldbox/system/web/config/CacheBox.cfc`
+| [coldbox](coldbox.html) | struct | The main coldbox directives structure that holds all the coldbox settings.
+| [conventions](conventions.html) | struct | A structure where you will configure the application convention names
+| [datasources](datasources.html) | struct | An optional metadata structure for datasource definitions. THEY ARE NOT COLDFUSION REGISTRATIONS
+| [environments](environments.html) | struct | A structure where you will configure environment detection patterns
+| [flash](flash.html) | struct | A structure where you will configure the [FlashRAM](flash_ram/flash_ram.md)
+| [interceptorSettings](interceptorsettings.html) | struct | An optional structure to configure application wide interceptor behavior
+| [interceptors](interceptors.html) | array | An optional array of interceptor declarations for your application
+| [layoutSettings](layoutsettings.html) | struct | A structure where you define how the layout manager behaves in your application
+| [layouts](configuration_directives/layouts.html) | array | An array of layout declarations for implicit layout-view-folder pairings in your application
+| [logbox](logbox.html) | struct | An optional structure to configure the logging and messaging in your application via LogBox
+| [modules](modules.html) | struct | An optional structure to configure application wide module behavior
+| [settings](settings.html) | struct | A structure where you can put your own application settings
+| [wirebox](wirebox.html) | struct | An optional structure used to define how WireBox is loaded
