@@ -104,7 +104,7 @@ component{
 
 With the simple example above, all your event caching permutations will be addded the user's locale and thus create entries for different languages.
 
-## Mentoring
+## Monitoring
 
 [CacheBox](http://cachebox.ortusbooks.com) has an intuitive and powerful monitor that can be used via the ColdBox Debugger Module. From the monitor you can purge, expire and view cache elements, etc.
 
