@@ -10,7 +10,7 @@ modules = {
 	// An array of modules to load ONLY
 	include = [],
 	// An array of modules to EXCLUDE for operation
-	exclude = ["paidModule1","paidModule2"]
+	exclude = [ "paidModule1", "paidModule2" ]
 };
 ```
 
