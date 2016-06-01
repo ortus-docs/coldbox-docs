@@ -23,12 +23,12 @@ ColdBox 4.2.0 is a minor release that addresses several issues and introduces so
 * [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-509'>COLDBOX-509</a>] - SES interceptor has poor query string parsing, updated to new algorithm
  
 ### New Features
-<ul>
+
 * [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-477'>COLDBOX-477</a>] - Update testing docs for collaboration and update core for CommandBox development
 * [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-483'>COLDBOX-483</a>] - Add a test browser by default to the test harness
 * [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-492'>COLDBOX-492</a>] - Integration testing `execute` method has two new arguments: `route,querystring` to alow you to do SES route testing
-* [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-493'>COLDBOX-493</a>] - Added a &#39;memento&#39; argument to the &#39;populateModel&#39; method to allow for overriding of what struct to populate with
-* [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-494'>COLDBOX-494</a>] - Added json,xml,query additions to the populateModel() method to allow for more populations
+* [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-493'>COLDBOX-493</a>] - Added a `memento` argument to the `populateModel` method to allow for overriding of what struct to populate with instead of the request collection
+* [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-494'>COLDBOX-494</a>] - Added json,xml,query additions to the `populateModel()` method to allow for more populations from different types of data structures
 * [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-498'>COLDBOX-498</a>] - Update build process for DocBox and travis integrations
 * [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-499'>COLDBOX-499</a>] - Update and Cleanup of app templates
 * [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-500'>COLDBOX-500</a>] - Allow for applications with no ColdBox.cfc config, full convention mode
