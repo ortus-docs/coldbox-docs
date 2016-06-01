@@ -1,6 +1,6 @@
 # Flash
 
-This directive is how you will configure the [Flash RAM](/flash_ram/index.md) for operation.  Below are the configuration keys and their defaults:
+This directive is how you will configure the [Flash RAM](../../flash_ram/index.md) for operation.  Below are the configuration keys and their defaults:
 
 ```js
 // flash scope configuration
