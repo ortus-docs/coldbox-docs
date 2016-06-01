@@ -31,10 +31,10 @@ ColdBox 4.2.0 is a minor release that addresses several issues and introduces so
 * [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-494'>COLDBOX-494</a>] - Added json,xml,query additions to the `populateModel()` method to allow for more populations from different types of data structures
 * [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-498'>COLDBOX-498</a>] - Update build process for DocBox and travis integrations
 * [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-499'>COLDBOX-499</a>] - Update and Cleanup of app templates
-* [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-500'>COLDBOX-500</a>] - Allow for applications with no ColdBox.cfc config, full convention mode
-* [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-501'>COLDBOX-501</a>] - new convenience method on testing request context to retrieve rendered content: getRenderedContent()
-* [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-506'>COLDBOX-506</a>] - Refactor app templates to their own repo
-* [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-507'>COLDBOX-507</a>] - New context method: getHTMLBaseURL() to get a http protocol sensitive request context base url
+* [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-500'>COLDBOX-500</a>] - Allow for applications with no `ColdBox.cfc` config, full convention mode
+* [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-501'>COLDBOX-501</a>] - new convenience method on testing request context to retrieve rendered content: `getRenderedContent()`
+* [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-506'>COLDBOX-506</a>] - Refactor app templates to their own repositories
+* [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-507'>COLDBOX-507</a>] - New context method: `getHTMLBaseURL()` to get a http protocol sensitive request context base url
 
         
 ### Improvements
