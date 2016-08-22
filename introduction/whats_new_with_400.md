@@ -4,7 +4,7 @@
 
 ColdBox 4 is a major release in our ColdBox Platform series and includes
 a new revamped MVC core and all extra functionality has been refactored
-into modules. We have pushed the modular architecture to 1st class
+into modules. We have pushed the modular architecture to a 1st class
 citizen even in the core itself. There are several [compatibility
 updates](upgrading_to_coldbox_400.md) that you must do in order to upgrade your ColdBox 3.X
 applications to ColdBox 4 standards. You will notice that the source and
@@ -27,7 +27,7 @@ box install coldbox-be
 ```
 
 You can even use CommandBox to generate ColdBox applications, modules,
-handlers, etc. It has a plethora of commands to get you started in a
+handlers, etc. It has a plethora of commands to get you started on a
 fantastic ColdBox Adventure:
 
 ```bash
@@ -56,10 +56,10 @@ The core has been completely revamped by removing ColdFusion 7/8 code,
 decoupled from many features that are now available as modules and
 rewrites to pure `cfscript` syntax. The end result is the fastest ColdBox
 release since our 1.0.0 days. In our initial vanilla load tests, normal
-requests would take around 4-6ms to execute.
+requests take around 4-6ms to execute.
 
 ### RunEvent Caching
-The `runEvent` method has been extended to include caching capabilities much similar to what has been available to the `renderView` methods.  This will allow folks to execute internal or widget-like events and be able to use the built-in caching capabilities of ColdBox to cache the results according to the arguments used.  Below is the new signature of the method:
+The `runEvent` method has been extended to include caching capabilities very similar to what has previously been available to the `renderView` methods.  This will allow folks to execute internal or widget-like events and be able to use the built-in caching capabilities of ColdBox to cache the results according to the arguments used.  Below is the new signature of the method:
 
 ```java
 /**
@@ -116,7 +116,7 @@ now must create a **models** folder instead of a **model** folder.
 We have created a new action convention in all your handlers called
 `onInvalidHTTPMethod` which will be called for you if a request is
 trying to execute an action in your handler without the right HTTP Verb.
-It will be then your job to determine what to do next:
+It will then be your job to determine what to do next:
 
 ```javascript
 function onInvalidHTTPMethod( faultAction, event, rc, prc ){
@@ -166,7 +166,7 @@ coldbox = {
 ### Application Template Java Support
 
 All the new ColdBox application templates have been updated to include a
-folder called `lib` inside that is automatically wired for you to
+folder called `lib` which is automatically wired for you to
 class load Java classes and jars. All you have to do is drop any jar or
 class file into this folder and it will be available via
 `createobject(“java”)` anywhere in your app.
@@ -176,7 +176,7 @@ class file into this folder and it will be available via
 All internal plugins, and lots of functionality, have been refactored out
 of the ColdBox Core and into standalone Modules. All of them are in
 [ForgeBox](http://www.coldbox.org/forgebox) and have their own Git repositories. Also, all of them are
-installable via [CommandBox](http://www.ortussolutions.com/products/commandbox); Our ColdFusion (CFML) CLI, and Package
+installable via [CommandBox](http://www.ortussolutions.com/products/commandbox); Our ColdFusion (CFML) CLI and Package
 Manager. This has reduced the ColdBox Core by over **75%** in source size
 and complexity. Not only that, but it allows us to be able to release patches and updates for feature functionality without releasing an entire framework release, but just 1 or more modules.
 
@@ -282,7 +282,7 @@ module that can be installed in your application via CommandBox or
 downloaded separately. We have done several updates to the ORM
 extensions like:
 
--   Railo multi-datasource support
+-   Lucee multi-datasource support
 -   Expanded `createAlias()` method to allow for a **criteria** argument
     which leverages hibernate's ability to do a where statement on a
     join
@@ -379,17 +379,17 @@ moved completely to a modular architecture in the core as well. First of
 all, we have moved almost 75% of the source into modules so they can be
 installed a-la-carte by developers. Here are some major updates:
 
--   New `getModuleSettings() & getModuleConfig()` super type methods.
+-   New `getModuleSettings()` & `getModuleConfig()` super type methods.
     This allows you to get access to any module setting or configuration
-    property rather easily and direct.
--   All module properties are NOT required anymore except the **name**
+    property rather easily and directly.
+-   All module properties are NOT required anymore except the **name**.
 -   Modules no longer register their **models** folder as scan locations
-    to increase performance
+    to increase performance.
 -   try/catch around module unloads, so if a module throws an exception
-    during unload it will be intercepted, unloaded and then thrown an
+    during unload it will be intercepted, unloaded and then throw an
     exception. This way it will allow developers to fix the unloading
     issues instead of basically restarting the entire CFML engine to
-    make it work
+    make it work.
 
 #### Module Inception
 
@@ -481,4 +481,3 @@ coldbox-bundle
   * cborm
   * cbsecurity
 ```
-</h3>

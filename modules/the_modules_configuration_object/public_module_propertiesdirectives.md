@@ -21,7 +21,7 @@ First of all, we must define some public properties that can easily identify or 
 | dependencies | array | false | [] | An array of dependent module names. All dependencies will be registered and activated FIRST before the module declaring them.
 | modelNamespace | string | false | *moduleName* | The name of the namespace to use when registering models in WireBox. By default it uses the name of the module.
 
-Below you can see an example of declaration for the configuration object:
+Below you can see an example of declarations for the configuration object:
 
 ```js
 component{

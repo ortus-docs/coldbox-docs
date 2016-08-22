@@ -207,7 +207,7 @@
        * [Module Activation](modules/module_service/module_activation.md)
        * [Module Unloading](modules/module_service/module_unloading.md)
        * [Common Methods](modules/module_service/common_methods.md)
-       * [Loading New Methods](modules/module_service/loading_new_methods.md)
+       * [Loading New Modules](modules/module_service/loading_new_modules.md)
        * [Loading A-la-carte Modules](modules/module_service/loading_a-la-carte_modules.md)
        * [Module Events](modules/module_service/module_event.md)
    * [ModuleConfig](modules/the_modules_configuration_object/index.md)
