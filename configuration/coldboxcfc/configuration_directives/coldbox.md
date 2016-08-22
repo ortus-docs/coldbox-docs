@@ -12,7 +12,7 @@ coldbox = {
 };
 ```
 
-> **Info** : Please note that there are no mandatory settings as of ColdBox 4.2.0.  If fact, you can remove the config file completely and your app will run.  It will be impossible to reinit the app however without a reinit password set.
+> **Info** : Please note that there are no mandatory settings as of ColdBox 4.2.0.  In fact, you can remove the config file completely and your app will run.  It will be impossible to reinit the app however without a reinit password set.
 
 ## Development Settings
 
