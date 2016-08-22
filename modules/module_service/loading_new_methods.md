@@ -1,4 +1,4 @@
-# Loading New Methods
+# Loading New Modules
 
 
 If you want to load a new module in your application that you have just installed you need to do a series of steps.
