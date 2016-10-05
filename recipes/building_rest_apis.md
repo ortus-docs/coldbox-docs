@@ -8,10 +8,10 @@ Creating a fully-featured REST API is easy with the ColdBox Platform. Everything
 
 ```bash
 ## create app
-coldbox create app name=MyRestAPP skeleton=rest --installColdBox
+coldbox create app name=MyRestAPP skeleton=rest
 
-## run it with URL rewrites
-server start --rewritesEnable
+## Start up a server with rewrites
+server start
 ```
 
 You will then see the following JSON output:
