@@ -44,5 +44,14 @@ component{
 
 > **Note** The key in the structure is the name of the action and the value is a list of allowed HTTP methods. If the action is not listed in the structure, then it means allow all HTTP methods. That's it! Just remember to either use the <code>onError()</code> or <code>onInvalidHTTPMethod()</code> method conventions or an exception handler to deal with the security exceptions.
 
+## Allowed Methods Annotation
+
+You can tag your event actions with a `allowedMethods` annotation and add a list of the allowed HTTP verbs as well.  This gives you a nice directed ability right at the function level instead of a property.  It is also useful when leveraging DocBox documentation.
+
+```js
+function index( event, rc, prc) allowedMethods="GET,POST"{ 
+}
+```
+
 
 
