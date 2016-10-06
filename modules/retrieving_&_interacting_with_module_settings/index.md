@@ -1,6 +1,6 @@
-# Module Settings
+# Retrieving Module Settings
 
-We now understand that the modules configurations are stored in the host parent configuration structure under the `modules` key. You can do a very hefty dot notation to retrieve module settings but we have created a shorthand method that is available in the framework supertype and thus available in all handlers,  interceptors, layouts and views:
+Modules configurations are stored in the host parent configuration structure under a `modules` key according to their name. To retrieve them you can do
 
 * `getModuleSettings( module )` : Returns the structure of module settings by the module name.
 * `getModuleConfig( module )` : Returns the module's configuration structure
