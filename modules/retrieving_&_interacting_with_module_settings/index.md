@@ -5,7 +5,7 @@ Modules configurations are stored in the host parent configuration structure und
 * `getModuleSettings( module )` : Returns the structure of module settings by the module name.
 * `getModuleConfig( module )` : Returns the module's configuration structure
 
-## ColdBox Injection DSL
+# Injecting Module Settings
 
 You can also use our injection DSL to inject module settings and configurations:
 
