@@ -148,6 +148,7 @@ A module to help you interact with SOAP web services
 install cbsoap
 ```
 ---
+
 ## `cbstorages` - Persistent Storages
 * Source: https://github.com/ColdBox/cbox-storages
 * ForgeBox: http://forgebox.io/view/cbstorages
@@ -158,6 +159,22 @@ A collection of model objects to facade and help with native ColdFusion persiste
 install cbstorages
 ```
 ---
+
+## `cbswagger` - Swagger Support for ColdBox Applications
+
+* Source: https://github.com/coldbox-modules/cbSwagger
+* ForgeBox: http://forgebox.io/view/cbSwagger
+
+
+This module automatically generates OpenAPI ( fka Swagger ) documenation from your configured application and module routes. This module utilizes the v3.0 OpenAPI Specification
+
+```
+install cbswagger
+```
+
+---
+
+
 ## `cbvalidation` - Validation
 * Source: https://github.com/ColdBox/cbox-validation
 * ForgeBox: http://forgebox.io/view/cbvalidation
