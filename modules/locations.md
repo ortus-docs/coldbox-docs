@@ -15,8 +15,8 @@ You can also have more external locations that ColdBox will scan for modules by 
 
 ```js
 coldbox = {
-  .. all settings above
-  modulesExternalLocation = ["/shared/modules", "/codedepot/modules/customer1"]
+    ...
+    modulesExternalLocation = [ "/shared/modules", "/codedepot/modules/customer1" ]
 };
 ```
 
