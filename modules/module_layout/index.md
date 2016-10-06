@@ -9,15 +9,15 @@ coldbox create module helloworld
 Here is the output:
 
 ```
-Created /Users/lmajano/tmp/myapp/modules/helloworld
-Created /Users/lmajano/tmp/myapp/modules/helloworld/handlers
-Created /Users/lmajano/tmp/myapp/modules/helloworld/handlers/Home.cfc
-Created /Users/lmajano/tmp/myapp/modules/helloworld/models
-Created /Users/lmajano/tmp/myapp/modules/helloworld/models/models_here.txt
-Created /Users/lmajano/tmp/myapp/modules/helloworld/ModuleConfig.cfc
-Created /Users/lmajano/tmp/myapp/modules/helloworld/views
-Created /Users/lmajano/tmp/myapp/modules/helloworld/views/home
-Created /Users/lmajano/tmp/myapp/modules/helloworld/views/home/index.cfm
+Created /Users/lmajano/tmp/myapp/modules_app/helloworld
+Created /Users/lmajano/tmp/myapp/modules_app/helloworld/handlers
+Created /Users/lmajano/tmp/myapp/modules_app/helloworld/handlers/Home.cfc
+Created /Users/lmajano/tmp/myapp/modules_app/helloworld/models
+Created /Users/lmajano/tmp/myapp/modules_app/helloworld/models/models_here.txt
+Created /Users/lmajano/tmp/myapp/modules_app/helloworld/ModuleConfig.cfc
+Created /Users/lmajano/tmp/myapp/modules_app/helloworld/views
+Created /Users/lmajano/tmp/myapp/modules_app/helloworld/views/home
+Created /Users/lmajano/tmp/myapp/modules_app/helloworld/views/home/index.cfm
 ```
 
 The layout of a ColdBox Module can be almost all of it be optional except for one file: `ModuleConfig.cfc`. This is a simple CFC that boots up your module and tells the host application how your module is loaded, unloaded and behaves. If you are leveraging CommandBox then you can also declare a `box.json` for the module itself in order to declare dependencies and development dependencies for it.
@@ -25,7 +25,7 @@ The layout of a ColdBox Module can be almost all of it be optional except for on
 Below are all the possible combinations of a module layout, you will notice that it is EXACTLY the same as a ColdBox application.
 
 ```js
-+Modules
++Modules_app
   + {ModuleName - Unique}
     + ModuleConfig.cfc (The module configuration object Mandatory)
     + box.json (optional - if using CommandBox)

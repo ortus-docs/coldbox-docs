@@ -10,7 +10,7 @@ component name="general"{
 		// call some model for data and put into the request collection
 		prc.myQuery = getModel('MyService').getData();
 		// set the view for rendering
-		event.setLayout( layout="admin", module="contentbox" );
+		event.setLayout( name="admin", module="contentbox" );
 
 	}
 
