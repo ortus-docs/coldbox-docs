@@ -27,7 +27,8 @@ This will create a Coldbox application with the following structure:
 | tests | Yes, we have to do it. The location of your TestBox test harness
 
 ## Application Templates
-The application templates that ship with ColdBox and are available via CommandBox are:
+
+The official ColdBox application templates can be found in our github page: https://github.com/coldbox-templates.  Please note that CommandBox's `skeleton` argument can use any of the aliases below or any CommandBox endpoint. This means you can have your own templates.
 
 | Template | Description |
 | -- | -- |
