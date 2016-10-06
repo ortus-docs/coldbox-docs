@@ -6,7 +6,7 @@ Once the public properties are set, we are now ready to configure our module. Yo
 |Property|Type|Description|
 |--|--|--|
 |parentSettings|struct|Settings that will be appended and override the host application settings|
-|settings|struct|Custom module settings that will only be available to the module. Please see the retrieving settings section|
+|settings|struct|Custom module settings that will only be available to the module. If `parseParentSettings` is set to true (default), then settings from `config/Coldbox.cfc` for this module will be merged with these settings. (Think of these as default settings in that case.) Please see the retrieving settings section|
 |conventions|struct|A structure that explains the layout of the handlers, plugins, layouts and views of this module.|
 |datasources|struct|A structure of datasource metadata that will append and override the host application datasources configuration|
 |interceptorSettings|struct|A structure of settings for interceptor interactivity which includes the following sub-keys:<ul><li>customInterceptionPoints : A list of custom interception points to add to the application wide interceptor service</li></ul>|
