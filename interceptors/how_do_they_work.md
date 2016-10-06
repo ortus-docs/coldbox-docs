@@ -12,7 +12,7 @@ component extends="coldbox.system.Interceptor"{
 	
 	function configure(){}
 
-	function preProcess(event, interceptData, buffer){}
+	function preProcess( event, interceptData, buffer, rc, prc ){}
 }
 ```
 
