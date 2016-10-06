@@ -38,8 +38,8 @@ function preRender( event, interceptData, buffer, rc, prc ){
 
 Here are some common methods on the buffer object:
 
-* append(str) Append strings to the buffer
-* clear() Clear the entire buffer
-* length() Get size of the buffer
-* getString() Get the entire string in the buffer
-* getBufferObject() Get the actual java String Builder object
+* `append( str )` Append strings to the buffer
+* `clear()` Clear the entire buffer
+* `length()` Get size of the buffer
+* `getString()` Get the entire string in the buffer
+* `getBufferObject()` Get the actual java String Builder object
