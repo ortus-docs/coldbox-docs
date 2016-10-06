@@ -1,4 +1,5 @@
 # Directory Structure
+
 Now that we have seen the [core conventions](conventions.md), we can layout our application.  Most of the time we would recommend you use the shipped application templates in the ColdBox bundle download or by leveraging the CommandBox ColdBox creation commands.
 
 To get started with a structure go into CommandBox interactive shell and let's create a ColdBox application:
