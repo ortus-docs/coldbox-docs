@@ -36,5 +36,6 @@ Inside of this configuration method you will place several core and third-party 
 | [layouts](configuration_directives/layouts.md) | array | An array of layout declarations for implicit layout-view-folder pairings in your application
 | [logbox](configuration_directives/logbox.md) | struct | An optional structure to configure the logging and messaging in your application via LogBox
 | [modules](configuration_directives/modules.md) | struct | An optional structure to configure application wide module behavior
+| [moduleSettings](configuration_directives/moduleSettings.md) | struct | An optional structure to configure individual modules installed in your application.
 | [settings](configuration_directives/settings.md) | struct | A structure where you can put your own application settings
 | [wirebox](configuration_directives/wirebox.md) | struct | An optional structure used to define how WireBox is loaded
