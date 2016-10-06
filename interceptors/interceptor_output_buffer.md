@@ -19,7 +19,7 @@ function preRender( event, interceptData, buffer, rc, prc ){
 Here are some examples using the `buffer` argument:
 
 ```js
-function onSidebar(event, interceptData, buffer){
+function onSidebar( event, interceptData, buffer, rc, prc ){
 	savecontent variable="local.data"{
 		/// HTML HERE
 	}
@@ -28,7 +28,7 @@ function onSidebar(event, interceptData, buffer){
 }
 
 // using argument
-function preRender(event,interceptData,buffer){
+function preRender( event, interceptData, buffer, rc, prc ){
 	//clear all of it first, just in case.
 	arguments.buffer.clear();
 	//Append to buffer
