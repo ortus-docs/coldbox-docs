@@ -48,7 +48,7 @@ ColdBox 4.3.0 is a minor release that addresses several issues and introduces so
 
 * [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-541'>COLDBOX-541</a>] - invokerasync was not passing the buffer
 
- ### Improvements
+### Improvements
 
 * [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-502'>COLDBOX-502</a>] - RequestBuffers now leverage string builders.
 
