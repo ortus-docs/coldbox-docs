@@ -120,6 +120,9 @@ coldbox = {
 
 The event handler to call whenever ANY non-catched exception occurs anywhere in the request lifecycle execution. Before this event is fired, the framework will log the error and place the exception in the prc as `prc.exception`.
 
+**invalidHTTPMethodHandler**
+
+The event handler to call whenever a route or event is accessed with an invalid HTTP method.
 
 **onInvalidEvent**
 
