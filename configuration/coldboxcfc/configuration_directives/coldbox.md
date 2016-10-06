@@ -108,11 +108,13 @@ The CF dot notation path of the CFC that will decorate the system Controller
 ```js
 coldbox = {
     // Error/Exception Handling handler
-	exceptionHandler		= "",
-	// The handler to execute on invalid events
-	onInvalidEvent			= "",
-	// The default error template
-	customErrorTemplate		= "/coldbox/system/includes/BugReport-Public.cfm"
+    exceptionHandler		= "",
+    // Invalid HTTP method Handler
+    invalidHTTPMethodHandler = "",
+    // The handler to execute on invalid events
+    onInvalidEvent = "",
+    // The default error template    
+    customErrorTemplate	 = "/coldbox/system/includes/BugReport-Public.cfm"
 }
 ```
 
