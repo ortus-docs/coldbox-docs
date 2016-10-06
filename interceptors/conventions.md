@@ -3,12 +3,15 @@
 By convention, any interceptor CFC must create a method with the same name as the event they want to listen to.  This method has a return type of `boolean` and receives 3 arguments. So let's explore their rules.
 
 ```js
-boolean function {point}( event, interceptData, buffer );
+boolean function {point}( event, interceptData, buffer, rc, prc );
 ```
 ## Arguments
 * `event` which is the request context object
 * `interceptData` which is a structure of data that the broadcaster sends
 * `buffer` which is a request buffer object you can use to elegantly produce content that is outputted to the user's screen
+* `rc` reference to the request collection struct
+* `prc` reference to the private request collection struct
+
 
 ## Return type
 
