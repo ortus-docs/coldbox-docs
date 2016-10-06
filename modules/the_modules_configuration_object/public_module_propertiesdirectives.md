@@ -14,6 +14,7 @@ First of all, we must define some public properties that can easily identify or 
 | layoutParentLookup |boolean|false|true|If true, coldbox checks for layouts in the parent overrides first, then in the module. If false, coldbox checks for layouts in the module first, then the parent. |
 | entryPoint|route|false|---| The module's  default route (ex:`/forgebox`) that ColdBox will use to create an entry point pattern link into the module. Similar to the default event setting. The SES interceptor will also use this to auto-register the module's routes if used by calling the method `addModuleRoutes()` for you.|
 | activate | boolean | false | true | You can tell ColdBox to register the module but NOT to activate it. By default, all modules activate.
+| parseParentSettings | boolean | false | true | If true, ColdBox will merge any settings found in `moduleSettings[ this.modelNamespace ]` in the `config/ColdBox.cfc` file with the module settings, overriding them where the keys are the same.  Otherwise, settings in the module will override the parent configuration.
 | aliases | array | false | [] | An array of names that can be used to execute the module instead of only the module folder name
 | autoMapModels | boolean | false | true | Will automatically map all model objects under the models folder in WireBox using `@modulename` as part of the alias.
 | cfmapping | string | false | empty | The ColdFusion mapping that should be registered for you that points to the root of the module.
