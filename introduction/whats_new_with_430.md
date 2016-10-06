@@ -30,7 +30,7 @@ ColdBox 4.3.0 is a minor release that addresses several issues and introduces so
 
 * [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-539'>COLDBOX-539</a>] - Private event actions are no longer executable
 
- ### New Features
+### New Features
 
 * [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-371'>COLDBOX-371</a>] - Convention to override a module&#39;s settings in an application or parent module
 
