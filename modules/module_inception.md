@@ -21,17 +21,11 @@ ColdBox 4 allows you to nest modules within modules up to the Nth degree. You ca
 	"contributors"		: [
 		"Brad Wood <bdw429s@gmail.com>", "Curt Gratz <gratz@computerknowhow.com>", "Joel Watson <existdissolve@gmail.com>"
 	],
-	"engines"	: [
-		{ "type" : "railo", "version" : ">4.1" },
-		{ "type" : "lucee", "version" : ">4.5" },
-		{ "type" : "adobe", "version" : ">9.02" }
-	],
 	"dependencies" 	:{
 		"cbvalidation" : "1.0.2"
 	},
 	"ignore":[
         "**/.*",
-        "test",
         "tests",
         "apidocs",
         "*/.md"
