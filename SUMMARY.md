@@ -40,6 +40,7 @@
             * [LayoutSettings](configuration/coldboxcfc/configuration_directives/layoutsettings.md)
             * [LogBox](configuration/coldboxcfc/configuration_directives/logbox.md)
             * [Modules](configuration/coldboxcfc/configuration_directives/modules.md)
+            * [ModuleSettings](configuration/coldboxcfc/configuration_directives/moduleSettings.md)
             * [Settings](configuration/coldboxcfc/configuration_directives/settings.md)
             * [WireBox](configuration/coldboxcfc/configuration_directives/wirebox.md)
         * [Configuration Interceptor](configuration/coldboxcfc/configuration_interceptor.md)
