@@ -4,11 +4,11 @@ Every interception point receives a unique request output buffer that can be use
 
 ```js
 // Using methods, meaning you inherited from Interceptor or registered at configuration time.
-function preRender( event, interceptData, buffer ){
+function preRender( event, interceptData, buffer, rc, prc ){
 	//clear all of it first, just in case.
-	clearBuffer();
+	arguments.buffer.clear();
 	//Append to buffer
-	appendToBuffer( '<h1>This software is copyright by Funky Joe!</h1>' );	
+	arguments.buffer.append( '<h1>This software is copyright by Funky Joe!</h1>' );	
 }
 ```
 
