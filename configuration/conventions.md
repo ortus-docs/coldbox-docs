@@ -9,7 +9,8 @@ The core conventions delineate the contract between ColdBox and you for file/dir
 | Handler Controllers | true | `handlers` | Where all event handler controllers are located |
 | Layouts | false | `layouts` | Where all layouts are located
 | Models | false | `models` | Where all model objects are located
-| Modules | false | `modules` | Where all modules are located
+| Modules | false | `modules` | Where all modules are located that are tracked by CommandBox
+| Custom modules | false | `modules_app` | Where non-tracked custom modules are located
 | Views | false | `views` | Where all views are located
 
 ## Execution Conventions
