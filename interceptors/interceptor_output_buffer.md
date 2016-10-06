@@ -1,13 +1,6 @@
 # Interceptor Output Buffer
 
-Every interceptor has the following methods that enable you to add content to an output buffer that will gracefully be outputted for you at the end of the event.  These methods can also be found in the `buffer` argument that is passed to each intercepting method.
-
-* `clearBuffer():void`
-* `appendToBuffer(string):void`
-* `getBufferString():string`
-* `getBufferObject():coldbox.system.core.util.RequestBuffer`
-
-The buffer is unique per interception point but available to the entire chain of execution within an interception point. Once the interception point is executed, the interceptor service will check to see if the output buffer has content, if it does it will advice to write the output to the ColdFusion output stream. This way, you can produce output very cleanly from your interception points, without adding any messy-encapsulation breaking `output=true` tags to your interceptors. (**BAD PRACTICE**). This is an elegant solution that can work for both core and custom interception points.
+Every interception point receives a unique request output buffer that can be used to elegantly produce output.  Once the interception point is executed, the interceptor service will check to see if the output buffer has content, if it does it will advice to write the output to the ColdFusion output stream. This way, you can produce output very cleanly from your interception points, without adding any messy-encapsulation breaking `output=true` tags to your interceptors. (**BAD PRACTICE**). This is an elegant solution that can work for both core and custom interception points.
 
 ```js
 // Using methods, meaning you inherited from Interceptor or registered at configuration time.
