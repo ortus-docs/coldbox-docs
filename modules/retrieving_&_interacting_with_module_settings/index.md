@@ -23,3 +23,38 @@ The injection DSL pattern is the following:
 * `coldbox:setting:mySetting@module` : You can now inject easily a module setting by using the @module directive.
 * `coldbox:moduleSettings:{module}` : You can now inject the entire module settings structure
 * `coldbox:moduleConfig:{module}` : You can now inject the entire module configuration structure 
+
+# Overriding Module Settings
+
+If you have `parseParentSettings` set to true in your `ModuleConfig.cfc` (which is the default), ColdBox will look for a struct inside the `moduleSettings` struct of your `config/ColdBox.cfc` with a key equal to your module's `this.modelNamespace` (default is the module name) and merge them with your modules `settings` struct (as defined in your module's `configure()` method) with the parent settings overwritting the module settings.  This allows a user of your module to easily overwrite specific settings for their needs.
+
+```js
+// myModule/ModuleConfig.cfc
+component {
+  function configure() {
+    settings = {
+      someSetting = "default",
+      anotherSetting = "default"
+    };
+  }
+}
+
+// config/ColdBox.cfc
+component {
+  function configure() {
+    moduleSettings = {
+      myModule = {
+        someSetting = "overridden" 
+      }
+    };
+  }
+}
+
+// end result
+{
+  someSetting = "overridden",
+  anotherSetting = "default"
+}
+```
+
+If `parseParentSettings` is set to `false`, your module's `settings` will instead overwrite the settings set in the same `moduleSettings` struct.
