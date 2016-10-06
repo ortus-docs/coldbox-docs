@@ -34,6 +34,9 @@ The official ColdBox application templates can be found in our github page: http
 | -- | -- |
 | Advanced | The advanced template that includes every convention and optional configuration in tag format
 | AdvancedScript | The advanced template that includes every convention and optional configuration in script format
+| elixir | Advanced script template with ColdBox elixir support for asset pipelines
+| elixir-bower | Advanced script template with ColdBox elixir support for asset pipelines and bower support
+| elixir-vuewjs | Advanced script template with ColdBox elixir support for asset pipelines and VueJS integration
 | rest | A RESTFul services application
 | Simple | A fairly simple structure
 | SuperSimple | The basics
