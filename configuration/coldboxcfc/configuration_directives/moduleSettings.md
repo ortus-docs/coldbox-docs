@@ -1,33 +1,20 @@
 # ModuleSettings
 
-
-
-The modules structure is used to configure the behavior of the [ColdBox Modules](../../../modules/index.md).
-
-
+This structure is used to house module configurations.  Please refer to each module's documentation on how to create the configuration structures. Below are some examples.
 
 
 
 ```js
 
-modules = {
+component {
 
- // Will auto reload the modules in each request. Great for development but can cause some loading/re-loading issues
+     function configure() {
 
- autoReload = true,
-
- // An array of modules to load ONLY
-
- include = [],
-
- // An array of modules to EXCLUDE for operation
-
- exclude = [ "paidModule1", "paidModule2" ]
-
-};
-
+         moduleSettings = {
+             myModule = {
+                someSetting = "overridden"
+             }
+        };
+    }
+}
 ```
-
-
-
-> **Danger** Please be very careful when using the `autoReload` flag as module routing can be impaird and thread consistency will also suffer. This is PURELY a development flag that you can use at your own risk.
