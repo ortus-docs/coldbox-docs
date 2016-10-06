@@ -42,6 +42,7 @@ component{
     this.modelNamespace = "store";
     this.aliases = [ "store", "ecommerce", "shop" ];
     this.cfmapping = "cbstore";
+    this.parseParentSettings = true;
     this.dependencies = [ "JavaLoader", "CFCouchbase" ];
   
   function configure(){
