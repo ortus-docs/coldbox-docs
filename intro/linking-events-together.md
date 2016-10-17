@@ -23,7 +23,7 @@ We have now seen how to execute events via nice Search Engine Safe URLs.  Behind
 * `/main/index` -> `?event=main.index`
 * `/virtual/hello` -> `?event=virtual.hello`
 * `/admin/users/list` -> `?event=admin.users.list`
-* `/handler/action/name/value -> `event=handler.action&name=value`
+* `/handler/action/name/value -> `?event=handler.action&name=value`
 
 By convention, any name-value pairs detected after a package/handler+action combination will be treated as an incoming `URL` variable.
 
