@@ -24,7 +24,9 @@ We have now seen how to execute events via nice Search Engine Safe URLs.  Behind
 * `/virtual/hello` -> `?event=virtual.hello`
 * `/admin/users/list` -> `?event=admin.users.list`
 * `/handler/action/name/value -> `?event=handler.action&name=value`
+* `/handler/action/name -> `?event=handler.action&name=`
 
-By convention, any name-value pairs detected after an event variable will be treated as an incoming `URL` variable.
+
+By convention, any name-value pairs detected after an event variable will be treated as an incoming `URL` variable. If there is no pair, then the value will be an empty string
 
 
