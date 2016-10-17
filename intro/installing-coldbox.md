@@ -49,7 +49,7 @@ mkdir myapp --cd
 install coldbox
 ```
 
-CommandBox will resolve `coldbox` from ForgeBox (www.forgebox.io), use the latest version available, download and install it in this folder alongside a `box.json` file which represents your application package.
+CommandBox will resolve `coldbox` from ForgeBox ([www.forgebox.io](https://www.forgebox.io)), use the latest version available, download and install it in this folder alongside a `box.json` file which represents your application package.
 
 
 ```
@@ -61,5 +61,14 @@ File 112 Apr 25,2015 11:04:05 box.json
 
 > **Info** You can also install the latest bleeding edge version by using the `coldbox@be` slug instead, or any previous version.
 
+That's it.  CommandBox can now track this version of ColdBox for you in this directory.
+
+## Uninstalling ColdBox
+
+To uninstall ColdBox from this application folder just type `uninstall coldbox`.  That's it!
+
+## Updating ColdBox
+
+To update ColdBox from a previous version, just type `update coldbox`.  That's it!
 
 
