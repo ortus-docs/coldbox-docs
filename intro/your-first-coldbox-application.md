@@ -41,7 +41,7 @@ Event handlers are the controller layer in ColdBox and is what you will be execu
 // Default Action
 function index( event, rc, prc ){ 
     prc.welcomeMessage = "Welcome to ColdBox!";    
-    event.setView("main/index");
+    event.setView( "main/index" );
 }
 ```
 
@@ -50,6 +50,8 @@ Every action in ColdBox receives three arguments:
 * `event` - An object that is used to work with the current request
 * `rc` - A struct that contains both URL/FORM variables (unsafe data)
 * `prc` - A secondary struct that is private only settable from within your application (safe data)
+
+This line `event.setView( "main/index" );` told ColdBox to render a view back to the user found in `views/main/index.cfm`.
 
 
 ## My First Handler & View
