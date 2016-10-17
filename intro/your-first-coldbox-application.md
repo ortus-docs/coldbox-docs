@@ -38,7 +38,7 @@ Now let's create our first controller, which in ColdBox is called Event Handler,
 coldbox create handler name="hello" actions="index"
 ```
 
-This will generate a new handler called `hello.cfc` inside of the `handlers` folder, a view called `index` in the `views/hello` folder and even an integreation test at `tests/specs/integration/helloTest.cfc`. Now go to the following URL to execute the generated action:
+This will generate a new handler called `hello.cfc` inside of the `handlers` folder, a view called `index` in the `views/hello` folder and even an  test at `tests/specs/integration/helloTest.cfc`. Now go to the following URL to execute the generated action:
 
 ```
 http://localhost:{port}/hello/index
