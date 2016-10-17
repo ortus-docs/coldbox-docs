@@ -1,4 +1,4 @@
-# Linking Pages Together
+# Linking Events Together
 
 ColdBox provides you with a nice method for generating links between events by leveraging and object called `event` that is accessible in all of your layouts/views and event handlers.
 
