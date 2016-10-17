@@ -47,7 +47,7 @@ We all make mistakes from time to time :) So why not let us know about it and he
 * By Jira: https://ortussolutions.atlassian.net/browse/COLDBOX
 
 # Professional Open Source
-![Ortus Solutions, Corp](images/ortussolutions_button.png)
+![Ortus Solutions, Corp](/images/ortussolutions_button.png)
 
 ColdBox is a professional open source software backed by [Ortus Solutions, Corp](http://www.ortussolutions.com/services) offering services like:
 * Custom Development
