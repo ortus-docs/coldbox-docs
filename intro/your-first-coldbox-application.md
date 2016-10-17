@@ -98,4 +98,4 @@ Open the view now (`/views/virtual/hello.cfm`) and add the following:
 <h1>Hello from ColdBox Land!</h1>
 ```
 
-Then go execute the virtual event: `http://localhost:{port}/virtual/hello` and you will get the `Hello From ColdBox Land!` displayed!
+Then go execute the virtual event: `http://localhost:{port}/virtual/hello` and you will get the `Hello From ColdBox Land!` displayed!  This is a great way to create dynamic views or even bring in legacy/procedural templates into an MVC framework.
