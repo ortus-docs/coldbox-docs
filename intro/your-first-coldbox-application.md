@@ -53,7 +53,7 @@ You will now see a big `hello.index` outputted to the screen. You have now creat
 
 ## My First Virtual Event
 
-Now let's create a virtual event, which is basically just a view we want to execute, no event handler needed.
+Now let's create a virtual event, which is basically just a view we want to execute with no event handler controller needed.
 
 ```bash
 coldbox create view name="virtual/hello"
