@@ -56,6 +56,8 @@ http://localhost:{port}/handler/action
 http://localhost:{port}/handler
 ```
 
+If no `action` is defined then the default action of `index` will be used.
+
 ## My First Virtual Event
 
 Now let's create a virtual event, which is basically just a view we want to execute with no event handler controller needed.
