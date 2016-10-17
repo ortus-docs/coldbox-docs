@@ -32,3 +32,21 @@ http://localhost:{port}/hello/index
 ```
 
 You will now see a big hello.index page. You have now created your first handler and view combination.
+
+## My First Virtual Event
+
+Now let's create a virtual event, which is basically just a view we want to execute, no event handler needed.
+
+```bash
+coldbox create view name="virtual/hello"
+```
+
+Open the view now (`/views/virtual/hello.cfm`) and add the following:
+
+```html
+<h1>Hello from ColdBox Land!</h1>
+```
+
+Then go execute the virtual event: `http://localhost:{port}/virtual/hello` and you will get the Hello From ColdBox Land! displayed!
+
+Then go to the URL: `http://local
