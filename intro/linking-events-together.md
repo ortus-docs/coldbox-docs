@@ -23,4 +23,6 @@ We have now seen how to execute events via nice Search Engine Safe URLs.  Behind
 * `/main/index` -> `event=main.index`
 * `/virtual/hello` -> `event=virtual.hello`
 * `/admin/users/list` -> `event=admin.users.list`
+* `/handler/action/name/value -> `event=handler.action&name=value`
+
 
