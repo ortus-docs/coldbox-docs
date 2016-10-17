@@ -1,6 +1,6 @@
 # Data Layers
 
-![](.././images/MVC+objects.png)
+![](/images/MVC+objects.png)
 
 If I know that my database operations will get very complex or I want to further add separation of concerns, I could add a third class to the mix: `BookGateway.cfc` or `BookDAO.cfc` that could act as my data gateway object. 
 

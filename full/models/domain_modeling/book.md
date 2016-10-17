@@ -18,7 +18,7 @@ It can then have getters/setters for each property that I want to expose to the 
 * make the object save itself or persist itself (Active Record)
 * and so much more
 
-![](.././images/modelguide_book.png)
+![](/images/modelguide_book.png)
 
 Now, all you OO gurus might be saying, why did he leave the author as a string and not represented by another object. Well, because of simplicity. The best practice, or that code smell you just had, is correct. The author should be encapsulated by its own model object Author that can be aggregated or used by the Book object. I will not get into details about object aggregation and composition, but just understand that if you thought about it, then you are correct. Moving along...
 
@@ -39,13 +39,13 @@ I can also now think of a few methods that I can have on my book service:
 * `saveBook(book:Book)` Save or Update a book
 * `deleteBook(book:Book)` Delete a book
 
-![](.././images/modelguide_bookservice.png)
+![](/images/modelguide_bookservice.png)
 
 
 I recommend you model these class relationships in [UML class diagrams](http://www.agilemodeling.com/artifacts/classDiagram.htm) to get a better feeling of the design. Anyways, that's it, we are doing domain modeling. We have defined a domain object called `Book` and a companion `BookService` object that will handle book operations. 
 
 Now once you build them and UNIT TEST THEM, yes UNIT TEST THEM. Then you can use them in your handlers in order to interact with them. As you can see, most of the business rules and logic are encapsulated by these domain objects and not written in your event handlers. This creates a very good design for portability, sustainability and maintainability. So let's start actually seeing how to write all of this instead of imagining it. Below you can see a more complete class diagram of this simple example.
 
-![](.././images/simplemodelclassdiagram.png)
+![](/images/simplemodelclassdiagram.png)
 
 > **Hint** Note that sometimes the design in UML will not reflect the end product.  UML is our guide but not the final product.
