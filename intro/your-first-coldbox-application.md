@@ -49,7 +49,7 @@ http://localhost:{port}/index.cfm/hello/index
 
 ```
 
-You will now see a big hello.index page. You have now created your first handler and view combination.
+You will now see a big `hello.index` outputted to the screen. You have now created your first handler and view combination.
 
 ## My First Virtual Event
 
