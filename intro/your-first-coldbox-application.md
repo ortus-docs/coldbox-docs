@@ -26,7 +26,7 @@ server start --rewritesEnable
 
 > **Note** This will start up a Lucee open source CFML engine. If you would like an Adobe ColdFusion server then just add to the command: `cfengine=adobe@{version}` where `{version}` can be: `2016,11,10,9`. 
 
-This command will start a server with URL rewrites enabled, open a web browser for you and execute the default event in a ColdBox application: `main.index` which maps to an event handler CFC (controller) `handlers/main.cfc` and the method/action in that CFC alled `index()`. Go open the `handler/main.cfc` and explore the code.
+This command will start a server with URL rewrites enabled, open a web browser for you and execute the default event by convention in a ColdBox application: `main.index` which maps to an event handler CFC (controller) `handlers/main.cfc` and the method/action in that CFC alled `index()`. Go open the `handler/main.cfc` and explore the code.
 
 That's it, you have just created your first application.
 
