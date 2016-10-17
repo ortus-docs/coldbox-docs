@@ -37,6 +37,10 @@ That's it, you have just created your first application.
 
 Event handlers are the controller layer in ColdBox and is what you will be executing via the URL.  Once you started the server and opened the browser, the default event got executed which maps to an event handler CFC (controller) `handlers/main.cfc` and the method/action in that CFC alled `index()`. Go open the `handler/main.cfc` and explore the code.
 
+```
+// Default Action
+function index(event,rc,prc){ prc.welcomeMessage = "Welcome to ColdBox!"; event.setView("main/index");}
+```
 
 
 ## My First Handler & View
