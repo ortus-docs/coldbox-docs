@@ -42,7 +42,7 @@ We will be able to execute a-la-carte commands from our command line or go into 
 
 ## Installing ColdBox
 
-To get started open the CommandBox binary or enter the shell by typing `box` in your terminal or console. Then let's create a new folder and install ColdBox into our first application.
+To get started open the CommandBox binary or enter the shell by typing `box` in your terminal or console. Then let's create a new folder and install ColdBox into our directory.
 
 ```bash
 mkdir myapp --cd
