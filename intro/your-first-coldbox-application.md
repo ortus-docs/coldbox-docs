@@ -28,13 +28,16 @@ server start --rewritesEnable
 
 This command will start a server with URL rewrites enabled, open a web browser for you and execute the default event by convention in a ColdBox application: `main.index`.
 
+That's it, you have just created your first application.
+
+> **Tip** Type `coldbox create app help` to get help on all the options for creating ColdBox applications.
+
+
 ## Event Handlers
 
 Event handlers are the controller layer in ColdBox and is what you will be executing via the URL.  Once you started the server and opened the browser, the default event got executed which maps to an event handler CFC (controller) `handlers/main.cfc` and the method/action in that CFC alled `index()`. Go open the `handler/main.cfc` and explore the code.
 
-That's it, you have just created your first application.
 
-> **Tip** Type `coldbox create app help` to get help on all the options for creating ColdBox applications.
 
 ## My First Handler & View
 
