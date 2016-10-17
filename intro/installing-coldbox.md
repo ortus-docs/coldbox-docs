@@ -64,7 +64,7 @@ File 112 Apr 25,2015 11:04:05 box.json
 
 
 
-> **Info** You can also install the latest bleeding edge version by using the `coldbox-be` slug instead: `install coldbox-be`
+> **Info** You can also install the latest bleeding edge version by using the `coldbox@be` slug instead, or any previous version.
 
 
 
