@@ -49,7 +49,7 @@ http://localhost:{port}/index.cfm/hello/index
 
 ```
 
-You will now see a big `hello.index` outputted to the screen. You have now created your first handler and view combination.  Did you detect a convention here? The sections in the URL are the same as the name of the event handler CFC (`hello`) and method that was generated (`index`).  By convention, this is how you execute events in ColdBox by leveraging the following pattern:
+You will now see a big `hello.index` outputted to the screen. You have now created your first handler and view combination.  Did you detect a convention here? The sections in the URL are the same as the name of the event handler CFC (`hello`) and method that was generated (`index`).  By convention, this is how you execute events in ColdBox by leveraging the following URL pattern:
 
 ```
 http://localhost:{port}/handler/action
