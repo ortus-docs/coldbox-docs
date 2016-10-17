@@ -14,6 +14,6 @@ This code will generate a link to the `main.index` event in a search engine safe
 
 > **Tip** You can visit our API Docs for further information about the `event` object and the `buildLink` method: http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html. For extra credit try to use more of the `buildLink` arguments.
 
-## URL Structure
+## URL Structure & Mappings
 
 ColdBox allows you to manipulate the incoming URL so you can create robust URL strategies especially for RESTFul services.  This is all done by convention and you can configure it via the file `config/routes.cfm` for more granular control.
