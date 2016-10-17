@@ -18,11 +18,11 @@ This code will generate a link to the `main.index` event in a search engine safe
 
 ColdBox allows you to manipulate the incoming URL so you can create robust URL strategies especially for RESTFul services.  This is all done by convention and you can configure it via the file `config/routes.cfm` for more granular control.  
 
-We have now seen how to execute events via nice Search Engine Safe URLs.  Behind the scenes, ColdBox translates the URL into an executable event string.
+We have now seen how to execute events via nice Search Engine Safe URLs.  Behind the scenes, ColdBox translates the URL into an executable event string just like if you where using a normal URL string:
 
-* `/main/index` -> `event=main.index`
-* `/virtual/hello` -> `event=virtual.hello`
-* `/admin/users/list` -> `event=admin.users.list`
+* `/main/index` -> `?event=main.index`
+* `/virtual/hello` -> `?event=virtual.hello`
+* `/admin/users/list` -> `?event=admin.users.list`
 * `/handler/action/name/value -> `event=handler.action&name=value`
 
 By convention, any name-value pairs detected after a package/handler+action combination will be treated as an incoming `URL` variable.
