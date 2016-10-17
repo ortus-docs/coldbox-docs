@@ -1,6 +1,6 @@
 # What is MVC
 
-![](../images/mvc-overview.png)
+![](/images/mvc-overview.png)
 
 <br>
 

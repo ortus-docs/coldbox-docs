@@ -492,7 +492,7 @@ component {
 
 ## ColdBox Relax
 
-![](../images/relax.png)
+![](/images/relax.png)
 
 ColdBox Relax is a set of ReSTful Tools For Lazy Experts. We pride ourselves in helping you (the developer) work smarter and ColdBox Relax is a tool to help you document your projects faster. ColdBox Relax provides you with the necessary tools to automagically model, document and test your ReSTful services. One can think of ColdBox Relax as a way to describe ReSTful web services, test ReSTful web services, monitor ReSTful web services and document ReSTful web services–all while you relax!
 

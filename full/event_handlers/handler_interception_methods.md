@@ -1,6 +1,6 @@
 # Interception Methods
 
-<img src="../images/eventhandler-prepost.jpg"/>
+<img src="/images/eventhandler-prepost.jpg"/>
 
 <br>
 
@@ -19,4 +19,4 @@ There are several simple implicit [AOP](http://en.wikipedia.org/wiki/Aspect-orie
 
 <br>
 
-<img src="../images/eventhandler-around.jpg"/>
+<img src="/images/eventhandler-around.jpg"/>

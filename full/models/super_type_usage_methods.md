@@ -1,6 +1,6 @@
 # Super Type Usage Methods
 
-![](../images/ColdBoxMajorClasses.jpg)
+![](/images/ColdBoxMajorClasses.jpg)
 
 The super type offers 2 methods for interacting with your model layer:
 

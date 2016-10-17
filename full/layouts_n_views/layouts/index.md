@@ -1,6 +1,6 @@
 # Layouts
 
-![](../../images/LayoutViewCombinations.png)
+![](.././images/LayoutViewCombinations.png)
 
 A layout is simply an HTML file that acts as your shell where views can be rendered in and exists in the `layouts` folder of your application. The layouts can be composed of multiple views and one main view. The main view is the view that gets set in the request collection during a request via `event.setView()` usually in your handlers or interceptors. 
 

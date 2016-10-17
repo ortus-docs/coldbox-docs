@@ -4,7 +4,7 @@ The ColdBox controller object is bound to the framework release and as we all kn
 
 > "A decorator pattern allows new/additional behavior to be added to an existing method of an object dynamically." <small>Wikipedia</small>
 
-![](../images/DecoratorPattern.png)
+![](/images/DecoratorPattern.png)
 
 ### For what can I use this?
 

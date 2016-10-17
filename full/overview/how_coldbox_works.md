@@ -4,20 +4,20 @@ ColdBox uses both implicit and explicit invocation methods to execute events and
 >Remember that this framework will not solve all your problems. It is a standard, a foundation on which to develop on and thanks to its software programming aspects that it provides.  However, it is up to you to create GOOD code, this is not a magical framework that will make your code better. It will help you, but at the end of the day, it is your responsibility.
 
 ## Front Controller
-<img src="../images/ColdBoxSimpleMVC.png">
+<img src="/images/ColdBoxSimpleMVC.png">
 
 ColdBox is loaded by the `Application.cfc` and makes use of the Front Controller design pattern as its means of operation. This means that every request comes in through a single template, usually `index.cfm`. Once a request is received by the framework through this front controller, it will parse the request and re-direct appropriately to the correct event handler controller by looking for an `event` variable in the URL or FORM scopes.
 
 ## Request Context
 The incoming URL, FORM and REMOTE variables are merged into a single structure that we call the request collection and since we love objects that collection is stored in an object called Request Context. We also create a secondary collection called the private request collection that cannot be affected by the outside world as nothing is merged into it. You can use it for private request variables and the like.
 
-<img src="../images/RequestCollectionDataBus.jpg">
+<img src="/images/RequestCollectionDataBus.jpg">
 
 The request context object has tons of methods to help you in setting and getting variables from one MVC layer to another, to getting request metadata, rendering RESTful content, setting HTTP headers and more. It is your information super highway for specific requests. Remember that the API Docs are your best friend!
 
 ## Request Lifecycle
 
-<img src="../images/request-lifecycle.png">
+<img src="/images/request-lifecycle.png">
 
 A typical basic request to a ColdBox application looks like this:
 
@@ -32,10 +32,10 @@ A typical basic request to a ColdBox application looks like this:
 
 Below you can see the full life-cycle for MVC requests:
 
-![](../images/ColdBoxLifecycles.jpg)
+![](/images/ColdBoxLifecycles.jpg)
 
 ### Proxy Lifecycle
 
 ColdBox also has a proxy feature for building SOAP webservices or Flex/Air integration called [ColdBox Proxy](../proxy/index.md).  Below you can see the life-cycle for that process:
 
-![](../images/ColdBoxLifecyclesProxy.jpg)
+![](/images/ColdBoxLifecyclesProxy.jpg)

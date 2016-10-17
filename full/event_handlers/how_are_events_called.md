@@ -1,6 +1,6 @@
 # How are events called?
 
-<img src="../images/request-lifecycle.png">
+<img src="/images/request-lifecycle.png">
 
 Events are determined via a special variable that can be sent in via the FORM or URL or REMOTELY called `event`.  If no event is detected as an incoming variable, the framework will look in the configuration directives for the `DefaultEvent` and use that instead. If you did not set a `DefaultEvent` setting then the framework will use the following [convention](../configuration/conventions.md) for you: `main.index`
 

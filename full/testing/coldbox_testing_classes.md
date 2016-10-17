@@ -1,6 +1,6 @@
 # ColdBox Testing Classes
 
-![](../images/ColdBoxTestingClasses.png)
+![](/images/ColdBoxTestingClasses.png)
 
 Before we begin our adventures in testing, let's review what classes does ColdBox give you for testing and where you can find them. From the diagram you can see that our pivot class for testing is the TestBox `BaseSpec` class.
 

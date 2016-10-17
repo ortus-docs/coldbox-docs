@@ -107,7 +107,7 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/"{
 
 To execute your application template tests and the generated tests just browse to the URL: `http://127.0.0.1:{port}/tests/runner.cfm` and you will get a full integration report:
 
-![](../images/overview_testing.png)
+![](/images/overview_testing.png)
 
 Everything is already pre-wired for you and ready for you to do full life-cycle integration testing.  Don't believe me? Try it out, go change your `echo()` action to the following code and re-run your test:
 

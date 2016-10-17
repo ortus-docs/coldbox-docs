@@ -4,7 +4,7 @@ Event caching is extremely useful and easy to use. All you need to do is add sev
 
 Almost all of the entire life cycle is skipped, the content is just delivered. Below you can see the life cycle of both cached and normal events:
 
-![](../images/EventCachingFlow.jpg)
+![](/images/EventCachingFlow.jpg)
 
 ## Enabling Event Caching
 
@@ -113,5 +113,5 @@ box install cbdebugger
 ```
 
 
-![](../images/cachemonitor.jpg)
+![](/images/cachemonitor.jpg)
 
