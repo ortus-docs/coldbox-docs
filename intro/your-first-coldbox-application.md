@@ -17,4 +17,12 @@ So let's create our first app: `coldbox create app MyApp`. This will scaffold th
 
 > **Tip** Type `coldbox create app help` to get help on all the options for creating ColdBox applications.
 
-## My first 
+## My First Handler
+
+Now let's create our first controller, which in ColdBox is called Event Handler, that says hello to you using CommandBox:
+
+```bash
+coldbox create handler name="hello" actions="index"
+```
+
+This will generate a new handler called `hello.cfc` inside of the `handlers` folder, a view called `index` in the `views/hello` folder and even an integreation test at `tests/specs/integration/helloTest.cfc`.
