@@ -1,6 +1,6 @@
 # Linking Events Together
 
-ColdBox provides you with a nice method for generating links between events by leveraging and object called `event` that is accessible in all of your layouts/views and event handlers.
+ColdBox provides you with a nice method for generating links between events by leveraging and object called `event` that is accessible in all of your layouts/views and event handlers.  This `event` object will called the request context object which simulates the incoming request and even contains all of your incoming `FORM` and `URL` variables.
 
 Edit the `views/virtual/hello.cfm` page and wrap the content in a `cfoutput` and create a link to the main ColdBox event, which by convention is `main.index`.
 
