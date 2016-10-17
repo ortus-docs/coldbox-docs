@@ -1,3 +1,5 @@
+# Linking Pages Together
+
 ColdBox provides you with a nice method for generating links between events by leveraging and object called `event` that is accessible in all of your layouts/views and event handlers.
 
 Edit the `views/virtual/hello.cfm` page and wrap the content in a `cfoutput` and create a link to the main ColdBox event, which by convention is `main.index`.
