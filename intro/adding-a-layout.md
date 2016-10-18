@@ -20,9 +20,12 @@ coldbox create layout name="Funky"
 coldbox create view name="main/footer"
 ```
 
-Open the `layouts/Funky.cfm` layout and let's modify it a bit:
+Open the `layouts/Funky.cfm` layout and let's modify it a bit by adding the footer rendering region.
 
 ```html
 <h1>funky Layout</h1>
 <cfoutput>#renderView()#</cfoutput>
+
+<hr>
+#renderView( "main/footer" )#
 ```
