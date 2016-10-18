@@ -39,4 +39,6 @@ http://localhost:{port}/contacts/index.json
 # XML output 
 http://localhost:{port}/contacts/index.json
 
-
+# XML output
+http://localhost:{port}/contacts/index.json
+```
