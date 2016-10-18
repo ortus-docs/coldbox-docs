@@ -75,9 +75,16 @@ Please note that `inject` annotation on the `property` definition.  This tells W
 
 ```js
 any function index( event, rc, prc ){
-
+    prc.aContacts = contactService.getAll();
+    event.setView( "contacts/index" );
 }
 ```
+
+## Presenting Data
+
+Now that we have put the array of contacts into the `prc` struct as `aContacts`, let's display it to the screen using ColdBox's HTML Helper.  
+
+The ColdBox HTML Helper is a companion class that exists in all layouts and views that allows you to generate semantic HTML5 without the needed verbosity of nesting, or binding to ORM/Business objects.
 
 
 
