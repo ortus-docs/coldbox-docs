@@ -24,3 +24,11 @@ function index( event, rc, prc ){
 }
 ```
 
+Let's open the view now: `views/hello/index.cfm` and change it to this:
+
+```html
+<cfoutput>
+<p>Hello #encodeForHTML( rc.name )#, today is #prc.when#</p>
+</cfoutput>
+```
+
