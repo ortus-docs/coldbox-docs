@@ -4,3 +4,8 @@ Let's complete our saga into MVC by developing the **M**, which stands for model
 
 Let's create a simple contact listing, so open up CommandBox and issue the following command:
 
+```bash
+coldbox create model name="ContactService" methods="getAll" persistence="singleton"
+```
+
+This will create a `models/ContactService.cfc` and a companion unit test at `tests/specs/unit/ContactServiceTest.cfc`.
