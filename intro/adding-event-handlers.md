@@ -42,12 +42,12 @@ Now, let's open the handler we created before called `handlers/hello.cfc` and ad
 ```js
 
 function index( event, rc, prc ){
- // param an incoming variable.
- event.paramValue( "name", "nobody" );
- // set a private variable
- prc.when = dateFormat( now(), "full" );
- // set the view to render
- event.setView( "hello/index" );
+    // param an incoming variable.
+    event.paramValue( "name", "nobody" );
+    // set a private variable
+    prc.when = dateFormat( now(), "full" );
+    // set the view to render
+    event.setView( "hello/index" );
 }
 
 ```
