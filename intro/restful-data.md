@@ -46,3 +46,5 @@ http://localhost:{port}/contacts/index.pdf
 ```
 
 > **Tip** You can also avoid the extension and pass a URL argument called `format` with the correct format type: `?format=json`.
+
+You have now created a RESTFul service for your contacts listing, enjoy it.
