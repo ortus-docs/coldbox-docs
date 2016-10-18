@@ -67,10 +67,9 @@ That's it.  CommandBox can now track this version of ColdBox for you in this dir
 
 ## Uninstalling ColdBox
 
-To uninstall ColdBox from this application folder just type `uninstall coldbox`.  That's it!
+To uninstall ColdBox from this application folder just type `uninstall coldbox`.
 
 ## Updating ColdBox
 
-To update ColdBox from a previous version, just type `update coldbox`.  That's it!
-
+To update ColdBox from a previous version, just type `update coldbox`. 
 
