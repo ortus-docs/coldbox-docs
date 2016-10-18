@@ -3,7 +3,38 @@
 ColdBox 4.3.0 is a minor release that addresses several issues and introduces some enhancements. You can see below the release notes.
 
 ## Module Parent Settings
-We have now introduced a standardized approach to defining/overriding module settings in your parent application.  You can now define a `moduleSettings` structure in your `config/ColdBox.cfc` which will hold all the settings for any modules you have installed in your system.
+We have now introduced a standardized approach to defining/overriding module settings in your module and overrides via the parent application.  You can now define a `moduleSettings` structure in your `config/ColdBox.cfc` which will hold all the override settings for any modules you have installed in your system.
+
+Module developers can then create defaults for those settings in a modules's `ModuleConfig.cfc` via the `settings` structure.
+
+```js
+// myModule/ModuleConfig.cfc
+component {
+  function configure() {
+    settings = {
+      someSetting = "default",
+      anotherSetting = "default"
+    };
+  }
+}
+
+// config/ColdBox.cfc
+component {
+  function configure() {
+    moduleSettings = {
+      myModule = {
+        someSetting = "overridden" 
+      }
+    };
+  }
+}
+
+// end result
+{
+  someSetting = "overridden",
+  anotherSetting = "default"
+}
+```
 
 
 ## Release Notes
