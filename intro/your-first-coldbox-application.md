@@ -14,7 +14,7 @@ CommandBox comes with a `coldbox create app` command that can enable you to crea
 
 > You can find all our template skeletons here: [github.com/coldbox-templates](https://github.com/coldbox-templates)
 
-So let's create our first app using the _default_ template:
+So let's create our first app using the _default_ template skeleton _AdvancedScript_:
 
 ```bash
 coldbox create app MyApp
