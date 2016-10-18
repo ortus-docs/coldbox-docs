@@ -20,9 +20,27 @@ So let's create our first app using the _default_ template skeleton _AdvancedScr
 coldbox create app MyApp
 ```
 
-This will scaffold the application and also install ColdBox for you. This is what it will generate:
+This will scaffold the application and also install ColdBox for you. The following folders/files are generated for you:
 
-```+coldbox+config+handlers+includes+interceptors+layouts+lib+models+modules+remote+tests+views+ .project+Application.cfc+box.json+favicon.ico+index.cfm+robots.txt```
+```
++coldbox
++config
++handlers
++includes
++interceptors
++layouts
++lib
++models
++modules
++modules_app
++tests
++views
++Application.cfc
++box.json
++favicon.ico
++index.cfm
++robots.txt
+```
 
 
 
