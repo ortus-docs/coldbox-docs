@@ -6,7 +6,7 @@
   \____\___/|_|\__,_|____/ \___/_/\_\
 ```
 
-# Intro to ColdBox Docs
+# Intro to ColdBox v4.3.0
 
 ![ColdBox Platform](/images/ColdBoxLogo2015_300.png)
 
