@@ -82,10 +82,17 @@ any function index( event, rc, prc ){
 
 ## Presenting Data
 
-Now that we have put the array of contacts into the `prc` struct as `aContacts`, let's display it to the screen using ColdBox's HTML Helper.  
+Now that we have put the array of contacts into the `prc` struct as `aContacts`, let's display it to the screen using ColdBox's HTML Helper. 
 
 The ColdBox HTML Helper is a companion class that exists in all layouts and views that allows you to generate semantic HTML5 without the needed verbosity of nesting, or binding to ORM/Business objects.
 
 > **Note** Please check out the API Docs to discover the HTML Helper: http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/core/dynamic/HTMLHelper.html
+
+Open the `contacts/index.cfm` and add the following to the view:
+
+```html
+
+
+```
 
 
