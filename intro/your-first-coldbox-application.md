@@ -23,6 +23,9 @@ server start --rewritesEnable
 
 This command will start a server with URL rewrites enabled, open a web browser for you and execute the default event by convention in a ColdBox application: `main.index`.
 
+![](/images/app_template.png)
+
+
 That's it, you have just created your first application.
 
 > **Tip** Type `coldbox create app help` to get help on all the options for creating ColdBox applications.
