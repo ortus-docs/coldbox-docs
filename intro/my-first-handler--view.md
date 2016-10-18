@@ -30,6 +30,9 @@ http://localhost:{port}/handler
 
 If no `action` is defined then the default action of `index` will be used.  This is leveraging the RESTFul URL mappings in ColdBox. You can configure them by leveraging the `config/routes.cfm` routing file.
 
+> **Tip** You can find much more information about layouts and views in our [full docs](/full/event_handlers/index.md)
+
+
 ## My First Virtual Event
 
 Now let's create a virtual event, which is basically just a view we want to execute with no event handler controller needed.
@@ -53,4 +56,4 @@ http://localhost:{port}/virtual/hello
 
 You will get the `Hello From ColdBox Land!` displayed! This is a great way to create dynamic views or even bring in legacy/procedural templates into an MVC framework.
 
-> **Tip** You can find much more information about event handlers in our [full docs](/full/event_handlers/index.md)
+> **Tip** You can find much more information about layouts and views in our [full docs](/full/event_handlers/index.md)
