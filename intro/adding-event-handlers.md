@@ -4,7 +4,7 @@
 
 Event handlers are the controller layer in ColdBox and is what you will be executing via the URL or a FORM post. All event handlers are **singletons**, which means they are cached for the duration of the application, so always remember to var scope your variables in your functions. 
 
-Once you started the server and opened the browser, the default event got executed which maps to an event handler CFC (controller) `handlers/main.cfc` and the method/action in that CFC alled `index()`. Go open the `handler/main.cfc` and explore the code.
+Once you started the server in the previous section and opened the browser, the default event got executed which maps to an event handler CFC (controller) `handlers/main.cfc` and the method/action in that CFC alled `index()`. Go open the `handler/main.cfc` and explore the code.
 
 
 ```js
