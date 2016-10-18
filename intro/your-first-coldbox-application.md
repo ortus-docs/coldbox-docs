@@ -42,7 +42,7 @@ function index( event, rc, prc ){
 
 Every action in ColdBox receives three arguments:
 
-* `event` - An object that is used to work with the current request
+* `event` - An object that models and is used to work with the current request
 * `rc` - A struct that contains both URL/FORM variables (unsafe data)
 * `prc` - A secondary struct that is private only settable from within your application (safe data)
 
