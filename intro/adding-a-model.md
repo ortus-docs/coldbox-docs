@@ -11,9 +11,20 @@ coldbox create model name="ContactService" methods="getAll" persistence="singlet
 This will create a `models/ContactService.cfc` and a companion unit test at `tests/specs/unit/ContactServiceTest.cfc`.  Let's open the model object:
 
 ```js
-/*** I am a new Model Object*/component singleton accessors="true"{      ContactService function init(){         return this;     }
+/**
+* I am a new Model Object
+*/
+component singleton accessors="true"{      
 
-     function getAll(){      }}
+    ContactService function init(){         
+        return this;     
+    }
+
+    function getAll(){      
+
+    }
+
+}
 ```
 
 Notice the `singleton` annotation on the component tag.  This tells WireBox that this service should be cached for the entire application life-span. If you remove the annotation, then the service will become a _transient_ object, which means that it will be re-created every time it is requested.
