@@ -30,7 +30,7 @@ Instead of the `event.setView()` method call we had before.  This tells ColdBox 
 ColdBox has the ability to detect formats via URL extensions.  Meaning you can hit the event but adding and extension to the URL.  If no extension is sent then the default of `html` content is selected for you.
 
 ```
-# Default HTML output: The view is presented
+# Default HTML output: The view is presented using no extension or html,cfm
 http://localhost:{port}/contacts/index
 http://localhost:{port}/contacts/index.html
 http://localhost:{port}/contacts/index.cfm
