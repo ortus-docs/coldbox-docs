@@ -54,3 +54,5 @@ You can also use CommandBox to reinit the application:
 ```bash
 coldbox reinit
 ```
+
+> **Tip** You can add a password to the reinit procedures for further security, please see the configuration section.
