@@ -30,7 +30,7 @@ http://localhost:{port}/handler
 
 If no `action` is defined then the default action of `index` will be used.  This is leveraging the RESTFul URL mappings in ColdBox. You can configure them by leveraging the `config/routes.cfm` routing file.
 
-> **Tip** You can find much more information about layouts and views in our [full docs](/full/event_handlers/index.md)
+> **Tip** You can find much more information about event handlers in our [full docs](/full/event_handlers/index.md)
 
 
 ## My First Virtual Event
