@@ -62,6 +62,7 @@ This will create the `handler/contacts.cfc` handler with an `index()` action, th
 
 ```js
 component{ 
+
     property name="contactService" inject="ContactService";
 
     any function index( event, rc, prc ){ 
