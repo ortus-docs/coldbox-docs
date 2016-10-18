@@ -39,7 +39,8 @@ By convention, any name-value pairs detected after an event variable will be tre
 > **Tip** If using full URL rewrites via CommandBox or any other web server, open the `config/routes.cfm` and eliminate the `index.cfm` from the `setBaseURL()` calls. This will remove any `index.cfm` to be generated via `buildLink()` calls.
 
 <br>
-> **Tip** You can find much more information about layouts and views in our [full docs](/full/layouts_n_views/index.md)
+
+> **Tip** You can find much more information about layouts and views in our [full docs](/full/routing/index.md)
 
 
 
