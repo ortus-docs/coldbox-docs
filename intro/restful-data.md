@@ -44,3 +44,5 @@ http://localhost:{port}/contacts/index.xml
 # PDF output
 http://localhost:{port}/contacts/index.pdf
 ```
+
+> **Tip** You can also avoid the extension and pass a URL argument called `format` with the correct format type: `?format=json`.
