@@ -108,7 +108,7 @@ You will get the `Hello From ColdBox Land!` displayed!  This is a great way to c
 
 ## Reiniting The Application
 
-There will be times when you make configuration or disk changes that are not reflected immedidately in the application due to caching.  You can tell the framework to reinit or restart the application for you via the URL by leveraging the special URL variable `fwreinit`.
+There will be times when you make configuration or disk changes that are not reflected immedidately in the application due to caching.  You can tell the framework to reinit or restart the application for you via the URL by leveraging the special URL variable `fwreinit` with any value.
 
 ```
 http://localhost:{port}/?fwreinit=1
