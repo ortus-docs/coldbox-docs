@@ -8,4 +8,8 @@ Let's create a simple contact listing, so open up CommandBox and issue the follo
 coldbox create model name="ContactService" methods="getAll" persistence="singleton"
 ```
 
-This will create a `models/ContactService.cfc` and a companion unit test at `tests/specs/unit/ContactServiceTest.cfc`.
+This will create a `models/ContactService.cfc` and a companion unit test at `tests/specs/unit/ContactServiceTest.cfc`.  Let's open the model object:
+
+```js
+
+```
