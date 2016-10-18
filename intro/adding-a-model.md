@@ -71,6 +71,13 @@ component{
 }
 ```
 
-Please note that `inject` annotation on the `property` definition.  This tells WireBox what model to inject.  By convention it looks in the `models` folder for the value, which in our case is `ContactService`
+Please note that `inject` annotation on the `property` definition.  This tells WireBox what model to inject.  By convention it looks in the `models` folder for the value, which in our case is `ContactService`.  Now let's call it and place some data in the private request collection `prc` so our views can use it.
+
+```js
+any function index( event, rc, prc ){
+
+}
+```
+
 
 
