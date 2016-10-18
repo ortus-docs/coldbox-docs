@@ -48,3 +48,17 @@ http://localhost:{port}/contacts/index.pdf
 > **Tip** You can also avoid the extension and pass a URL argument called `format` with the correct format type: `?format=json`.
 
 You have now created a RESTFul service for your contacts listing, enjoy it.
+
+## Routing
+
+Let's add a new route to our system that is more RESTFul than `/contacts/index.json`.  You will do so by leveraging the application's routing file found at `config/routes.cfm`.  Open it and add the following new route pattern:
+
+```
+addRoute( 
+    pattern = "/api/contacts",
+    handler = "contacts",
+    action = "index"
+);
+```
+
+The `addRoute()` method allows you to register new URL patterns in your application.  We have now created a new URL route called `/api/contacts` that if detected will execute the `contacts.index` event.
