@@ -2,6 +2,8 @@
 
 Out of the box, ColdBox gives you all the RESTFul capabilities you will need to create robust and scalable RESTFul services.  Let's add some RESTFul capabilities to our contact listing we created in the previous section.
 
+> **Tip** You can find much more information about building ColdBox RESTFul services in our [full docs.](/full/recipes/building_rest_apis.md)
+
 ## renderData()
 
 The request context object has a special function called `renderData()` that can take any type of data and marshall it for you to other formats like xml, json, wddx, pdf, text, html or your own type.
