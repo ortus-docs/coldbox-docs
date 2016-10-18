@@ -9,4 +9,4 @@ http://localhost:{port}/handler/action
 http://localhost:{port}/handler
 ```
 
-Also remember, that if no `action` is defined in the incoming URL then the default action of `index` will be used.
+Also remember, that if no `action` is defined in the incoming URL then the default action of `index` will be used.  Now, let's open the handler we created before called 
