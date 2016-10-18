@@ -21,7 +21,7 @@ Every action in ColdBox receives three arguments:
 * `rc` - A struct that contains both URL/FORM variables (unsafe data)
 * `prc` - A secondary struct that is private only settable from within your application (safe data)
 
-This line `event.setView( "main/index" )` told ColdBox to render a view back to the user found in `views/main/index.cfm` using a default layout, which by convention is called `Main.cfm` which can be found in the `/layouts` folder.
+This line `event.setView( "main/index" )` told ColdBox to render a view back to the user found in `views/main/index.cfm` using a default layout, which by convention is called `Main.cfm` which can be found in the `layouts` folder.
 
 
 We have now seen how to add handlers via CommandBox using the `coldbox create handler` command and also execute them by convention by leveraging the following URL pattern:
