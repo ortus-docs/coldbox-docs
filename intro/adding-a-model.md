@@ -28,3 +28,31 @@ component singleton accessors="true"{
 ```
 
 Notice the `singleton` annotation on the component tag.  This tells WireBox that this service should be cached for the entire application life-span. If you remove the annotation, then the service will become a _transient_ object, which means that it will be re-created every time it is requested.
+
+## Add Some Data
+
+Let's mock an array of contacts so we can display them later.
+
+```js
+/**
+* I am a new Model Object
+*/
+
+component singleton accessors="true"{
+
+    ContactService function init(){
+    
+         return this;
+
+    }
+
+
+
+ function getAll(){
+
+
+ }
+
+
+}
+```
