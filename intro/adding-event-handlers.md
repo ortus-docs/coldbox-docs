@@ -1,4 +1,4 @@
-## Event Handlers
+# Event Handlers
 
 <img src="/images/ColdBoxSimpleMVC.png">
 
@@ -23,6 +23,7 @@ Every action in ColdBox receives three arguments:
 
 This line `event.setView( "main/index" )` told ColdBox to render a view back to the user found in `views/main/index.cfm` using a default layout, which by convention is called `Main.cfm` which can be found in the `layouts` folder.
 
+## Executing Events
 
 We have now seen how to add handlers via CommandBox using the `coldbox create handler` command and also execute them by convention by leveraging the following URL pattern:
 
