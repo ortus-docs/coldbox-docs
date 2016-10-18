@@ -32,5 +32,5 @@ Let's open the view now: `views/hello/index.cfm` and change it to this:
 </cfoutput>
 ```
 
-Please note that I used the ColdFusion function `encodeForHTML()` on the public variable.  Why? Because you can never trust the client and what they send, make sure you use the built-in ColdFusion encoding function in order to avoid XSS hacks or worse.
+Please note that I used the ColdFusion function `encodeForHTML()` () on the public variable.  Why? Because you can never trust the client and what they send, make sure you use the built-in ColdFusion encoding function in order to avoid XSS hacks or worse.
 
