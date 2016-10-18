@@ -4,7 +4,7 @@ The `Application.cfc` is one of the most important files in your application as 
 1. Leverage composition and bootstrap ColdBox (**Default**)
 1. Leverage inheritance and bootstrap ColdBox
 
-<img src="/images/Bootstrapper.jpg">
+<img src="https://coldbox.ortusbooks.com/content/images/Bootstrapper.jpg">
 
 > **Hint** : The composition approach allows you to have a more flexible configuration as it will allow you to use per-application mappings for the location of the ColdBox Platform.
 

@@ -2,7 +2,7 @@
 
 It is imperative that you realize that there is a great object model behind every event handler controller that will enable you to do your work more efficiently. The following are the composed properties every event handler has in their <code>variables</code> scope, you do not need to do anything to retreive them, they are already there :)
 
-![Event Handlers](/images/EventHandlers.jpg)
+![Event Handlers](https://coldbox.ortusbooks.com/content/images/EventHandlers.jpg)
 
 * **cachebox** : A reference to the CacheBox library (<code>coldbox.system.cache.CacheFactory</code>)
 * **controller** : A reference to the Application Controller (<code>coldbox.system.web.Controller</code>)

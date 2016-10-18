@@ -3,4 +3,4 @@
 Below you can see a diagram of what happens when modules get activated right after registration:
 
 
-![](/images/ModulesActivation.jpg)
+![](https://coldbox.ortusbooks.com/content/images/ModulesActivation.jpg)

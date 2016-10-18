@@ -10,7 +10,7 @@ ColdBox offers its own dependency injection framework, [WireBox](http://wirebox.
 
 ## Dependency Injection
 
-![](/images/EventHandlerInjection.jpg)
+![](https://coldbox.ortusbooks.com/content/images/EventHandlerInjection.jpg)
 
 Your event handlers can be autowired with dependencies from any dependency injection framework. By autowiring dependencies into event handlers, they will become part of the life span of the event handlers (singleton) and thus gain on the performance that an event handler is wired with all necessary parts upon creation. This is a huge benefit and we encourage you to use injection whenever possible.
 
@@ -28,7 +28,7 @@ It will be your choice to pick an approach, but we mostly concentrate on propert
 
 ## Requesting Model Objects
 
-![](/images/EventHandlerModelRequested.jpg)
+![](https://coldbox.ortusbooks.com/content/images/EventHandlerModelRequested.jpg)
 
 The other approach to integrating with model objects is to request them and use them as [associations](http://en.wikipedia.org/wiki/Association_%28object-oriented_programming%29). We would recommend requesting objects if they are transient objects or stored in some other volatile storage scope. Retreiving of objects is ok, but if you will be dealing with mostly singleton objects or objects that are created only once, you will gain much more performance by using injection. 
  

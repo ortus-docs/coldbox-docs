@@ -1,6 +1,6 @@
 # Using Settings
 
-<img src="/images/ControllerWithSettingStructures.jpg" >
+<img src="https://coldbox.ortusbooks.com/content/images/ControllerWithSettingStructures.jpg" >
 
 ColdBox uses two internal structures in order to configure and run your applications. One is the **ColdBox** settings and the other is the **Configuration** settings, which are created on the application's initial request. The ColdBox Settings and the Configuration Settings reside inside the ColdBox application controller, which is the object that models your application and lives in the `application` scope. 
 

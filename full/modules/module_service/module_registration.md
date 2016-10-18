@@ -2,4 +2,4 @@
 
 Below you can see a diagram of what happens when modules get registered:
 
-![](/images/ModulesRegistration.jpg)
+![](https://coldbox.ortusbooks.com/content/images/ModulesRegistration.jpg)

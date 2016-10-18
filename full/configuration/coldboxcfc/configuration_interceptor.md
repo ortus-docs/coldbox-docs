@@ -1,6 +1,6 @@
 ## Configuration As An Interceptor
 
-<img src="/images/eventdriven.jpg">
+<img src="https://coldbox.ortusbooks.com/content/images/eventdriven.jpg">
 
 Another cool concept for the Configuration CFC is that it is also registered as a [ColdBox Interceptor](../../interceptors/index.md) once the application starts up automatically for you. This means that you can create interception points in this CFC that will be registered upon application startup so you can define startup procedures, listen to events, etc.
 

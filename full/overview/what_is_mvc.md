@@ -1,6 +1,6 @@
 # What is MVC
 
-![](/images/mvc-overview.png)
+![](https://coldbox.ortusbooks.com/content/images/mvc-overview.png)
 
 <br>
 

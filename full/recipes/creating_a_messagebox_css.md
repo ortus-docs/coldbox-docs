@@ -17,19 +17,19 @@ Please override the following css in order to skin your messagebox plugin:
 	font-weight: bold;
 }
 .cbox_messagebox_info{
-	background: #D1E6EF url(/coldbox/system/includes/images/cmsg.gif) no-repeat scroll .5em 50%;
+	background: #D1E6EF url(/coldbox/system/includeshttps://coldbox.ortusbooks.com/content/images/cmsg.gif) no-repeat scroll .5em 50%;
 	border: 1px solid #2580B2;
 	margin: 0.3em;
 	padding: 0pt 1em 0pt 3.5em;
 }
 .cbox_messagebox_warning{
-	background: #FFF2CF url(/coldbox/system/includes/images/wmsg.gif) no-repeat scroll .5em 50%;
+	background: #FFF2CF url(/coldbox/system/includeshttps://coldbox.ortusbooks.com/content/images/wmsg.gif) no-repeat scroll .5em 50%;
 	border: 1px solid #2580B2;
 	margin: 0.3em;
 	padding: 0pt 1em 0pt 3.5em;
 }
 .cbox_messagebox_error{
-	background: #FFFFE0 url(/coldbox/system/includes/images/emsg.gif) no-repeat scroll .5em 50%;
+	background: #FFFFE0 url(/coldbox/system/includeshttps://coldbox.ortusbooks.com/content/images/emsg.gif) no-repeat scroll .5em 50%;
 	border: 1px solid #2580B2;
 	margin: 0.3em;
 	padding: 0pt 1em 0pt 3.5em;
