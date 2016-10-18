@@ -6,4 +6,5 @@
 * [First ColdBox Application](your-first-coldbox-application.md)
 * [Linking Events Together](linking-events-together.md)
 * [Adding Event Handlers](adding-event-handlers.md)
+* [Adding A Layout](adding-a-layout.md)
 
