@@ -61,9 +61,15 @@ coldbox create handler name="contacts" actions="index"
 This will create the `handler/contacts.cfc` handler, the `views/contacts/index.cfm` view and the accompanying integration test `tests/specs/integration/contactsTest.cfc`.  Let's open the handler and a new `property` that will have a reference to our model.
 
 ```js
-component{ property name="contactService" inject="ContactService";
+component{ 
+    property name="contactService" inject="ContactService";
 
- any function index( event, rc, prc ){ event.setView( "contacts/index" ); }}
+    any function index( event, rc, prc ){ 
+        event.setView( "contacts/index" ); 
+    }
+}
 ```
+
+Please note that `inject` annotation on the `property` definition.  This tells WireBox what model to inject.  By convention it looks int the `models` folder for the value, which in our case is `ContactService`
 
 
