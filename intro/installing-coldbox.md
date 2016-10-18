@@ -37,7 +37,9 @@ Once you download and expand CommandBox you will have the `box.exe` or `box` bin
 ![](/images/commandbox-terminal.png)
 
 
-We will be able to execute a-la-carte commands from our command line or go into the interactive shell for multiple commands. We recommend the interactive shell as it is faster and can remain open in your project root.
+We will be able to execute a-la-carte commands from our command line or go into the interactive shell for multiple commands. We recommend the interactive shell as it is faster and can remain open in your project root. 
+
+> **Important** All examples in this book are based on the fact of having an interactive shell open.
 
 
 ## Installing ColdBox
