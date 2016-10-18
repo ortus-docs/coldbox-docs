@@ -6,7 +6,8 @@
   \____\___/|_|\__,_|____/ \___/_/\_\
 ```
 
-# Intro to ColdBox
+# Intro to ColdBox Docs
+
 ![ColdBox Platform](/images/ColdBoxLogo2015_300.png)
 
 ColdBox is a [conventions-based](http://en.wikipedia.org/wiki/Convention_over_configuration) [MVC](http://en.wikipedia.org/wiki/Model–view–controller) development framework for [ColdFusion](http://en.wikipedia.org/wiki/Adobe_ColdFusion) ([CFML](http://en.wikipedia.org/wiki/ColdFusion_Markup_Language)). It provides a set of reusable code and tools that can be used to increase your development productivity as well as a development standard for working in team environments. 
