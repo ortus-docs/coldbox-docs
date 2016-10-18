@@ -71,6 +71,6 @@ component{
 }
 ```
 
-Please note that `inject` annotation on the `property` definition.  This tells WireBox what model to inject.  By convention it looks int the `models` folder for the value, which in our case is `ContactService`
+Please note that `inject` annotation on the `property` definition.  This tells WireBox what model to inject.  By convention it looks in the `models` folder for the value, which in our case is `ContactService`
 
 
