@@ -48,6 +48,16 @@ coldbox = {
 
 This will provide your application with error consistency when building RESTFul services.
 
+## New `allowedMethods` annotation for handlers
+
+Your event handler actions can now define their allowed HTTP methods of execution via the `allowedMethods` annotation:
+
+```js
+function index( event, rc, prc) allowedMethods="GET,POST"{
+...
+}
+```
+
 
 ## Release Notes
 
