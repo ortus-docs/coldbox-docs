@@ -10,3 +10,17 @@ The request context object has a special function called `renderData()` that can
 
 So let's open the `handlers/contact.cfc` and add to our current code:
 
+```js
+any function index( event, rc, prc ){
+    prc.aContacts = contactService.getAll();    
+    event.renderData( data=prc.aContacts, formats="xml,json,html" );
+}
+```
+
+We have added the following line:
+
+```js
+event.renderData( data=prc.aContacts, formats="xml,json,html" );
+```
+
+Instead of the `event.setView()` method call we had before.  This tells ColdBox to render the contacts data in 3 formats: xml, json, and html.  
