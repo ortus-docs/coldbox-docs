@@ -20,7 +20,23 @@ any function index( event, rc, prc ){
 We have added the following line:
 
 ```js
-event.renderData( data=prc.aContacts, formats="xml,json,html" );
+event.renderData( data=prc.aContacts, formats="xml,json,pdf,html" );
 ```
 
-Instead of the `event.setView()` method call we had before.  This tells ColdBox to render the contacts data in 3 formats: xml, json, and html.  
+Instead of the `event.setView()` method call we had before.  This tells ColdBox to render the contacts data in 3 formats: xml, json, and html.  So how would you trigger each format? Via the URL of course.
+
+## Format Detection
+
+ColdBox has the ability to detect formats via URL extensions.  Meaning you can hit the event but adding and extension to the URL.  If no extension is sent then the default of `html` content is selected for you.
+
+```
+# Default HTML output: The view is presented
+http://localhost:{port}/contacts/index
+
+# JSON output
+http://localhost:{port}/contacts/index.json
+
+# XML output 
+http://localhost:{port}/contacts/index.json
+
+
