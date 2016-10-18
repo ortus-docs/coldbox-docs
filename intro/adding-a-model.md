@@ -43,11 +43,21 @@ component singleton accessors="true"{
 
     }
 
-
-
     function getAll(){
         return variables.data;
     }
 
 }
 ```
+
+## Wiring Up Models
+
+We have now created our model so let's tell our event handler about it. Let's create a new handler using CommandBox:
+
+```bash
+coldbox create handler name="contacts" actions="index"
+```
+
+This will create the `handler/contacts.cfc` handler, the `views/contacts/index.cfm` view and the accompanying integration test `tests/specs/integration/contactsTest.cfc`.  Let's open the handler:
+
+
