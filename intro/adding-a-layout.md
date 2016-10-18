@@ -8,7 +8,7 @@ Every time the framework renders a view, it will try to leverage the default lay
 </div>
 ```
 
-The call to the `renderView()` method with no arguments tells the framework to render the view that was set using `event.setView()`.  This is called a **rendering region**.  You can use many rendering regions which typically replace `cfincludes`. 
+The call to the `renderView()` method with no arguments tells the framework to render the view that was set using `event.setView()`.  This is called a **rendering region**.  You can use many rendering regions within layouts or event within views themselves.
 
 Let's create a new simple layout with two rendering regions.  Open up CommandBox and issue the following commands:
 
@@ -29,3 +29,22 @@ Open the `layouts/Funky.cfm` layout and let's modify it a bit by adding the foot
 <hr>
 #renderView( "main/footer" )#
 ```
+
+Now, let's open the handler we created before called `handlers/hello.cfc` and add some code to use our new layout explicitly via adding a `layout` argument to our `setView()` call.
+
+
+```js
+
+function index( event, rc, prc ){
+    // param an incoming variable.
+    event.paramValue( "name", "nobody" );
+    // set a private variable
+    prc.when = dateFormat( now(), "full" );
+    
+    // set the view to render with our new layout
+    event.setView( view="hello/index", layout="Funky" );
+}
+```
+
+Go execute the event now: `http://localhost:{port}/hello/index` and you will see the view rendered with the words `funky layout` and `footer view` at the bottom.  Eureka, you have now created a layout.
+
