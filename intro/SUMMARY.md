@@ -7,4 +7,5 @@
 * [Linking Events Together](linking-events-together.md)
 * [Adding Event Handlers](adding-event-handlers.md)
 * [Adding A Layout](adding-a-layout.md)
+* [Adding A Model](adding-a-model.md)
 
