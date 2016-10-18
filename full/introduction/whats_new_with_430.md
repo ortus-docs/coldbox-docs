@@ -58,6 +58,12 @@ function index( event, rc, prc) allowedMethods="GET,POST"{
 }
 ```
 
+## New convention `modules_app`
+
+With the introduction of CommandBox we can now have tracked modules and un-tracked modules in a ColdBox application.  The default convention for modules called `modules` is now the default location of tracked CommandBox modules.  The new convention `modules_app` is for your own custom un-tracked modules.
+
+What is tracked? Modules that are tracked by CommandBox and usually not added to source control.  CommandBox controls their installation, updating, etc.
+
 
 ## Release Notes
 
