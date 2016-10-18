@@ -43,7 +43,7 @@ That's it, you have just created your first application.
 
 ## Reiniting The Application
 
-There will be times when you make configuration, code or disk changes that are not reflected immedidately in the application due to caching.  You can tell the framework to reinit or restart the application for you via the URL by leveraging the special URL variable `fwreinit` with any value.
+There will be times when you make configuration or code changes that are not reflected immedidately in the application due to caching.  You can tell the framework to reinit or restart the application for you via the URL by leveraging the special URL variable `fwreinit` with any value.
 
 ```
 http://localhost:{port}/?fwreinit=1
