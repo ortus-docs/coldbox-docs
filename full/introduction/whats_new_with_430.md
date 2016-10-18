@@ -72,6 +72,9 @@ All interceptor methods now receive a reference to `rc` and `prc` for convenienc
 function preProcess( event, rc, prc, interceptData, buffer )
 ```
 
+
+
+
 ----
 
 ## Release Notes
@@ -100,7 +103,7 @@ function preProcess( event, rc, prc, interceptData, buffer )
 
 * [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-537'>COLDBOX-537</a>] - ColdBox Cache Flash not discovering session/cookie as app has not loaded first
 
-* [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-539'>COLDBOX-539</a>] - Private event actions are no longer executable
+* [<a href='https://ortussolutions.atlassian.net/browse/COLDBOX-539'>COLDBOX-539</a>] - Private event actions are no longer executable (regression)
 
 ### New Features
 
