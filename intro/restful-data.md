@@ -61,7 +61,12 @@ addRoute(
 );
 ```
 
-The `addRoute()` method allows you to register new URL patterns in your application.  We have now created a new URL route called `/api/contacts` that if detected will execute the `contacts.index` event.  
+The `addRoute()` method allows you to register new URL patterns in your application.  We have now created a new URL route called `/api/contacts` that if detected will execute the `contacts.index` event.  Now reinit the application.
 
 > **Tip** Every time you add new routes make sure you reinit the application: `http://localhost:{port}/?fwreinit`.
 
+You can now visit the new URL pattern and you have successfully built a RESTFul API for your contacts.
+
+```
+http://localhost:{port}/api/contacts.json
+```
