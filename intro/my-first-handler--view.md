@@ -28,7 +28,7 @@ http://localhost:{port}/handler/action
 http://localhost:{port}/handler
 ```
 
-If no `action` is defined then the default action of `index` will be used.
+If no `action` is defined then the default action of `index` will be used.  This is leveraging the RESTFul URL mappings in ColdBox. You can configure them by leveraging the `config/routes.cfm` routing file.
 
 ## My First Virtual Event
 
