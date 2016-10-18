@@ -106,3 +106,8 @@ That's it! Execute the event: `http://localhost:{port}/contacts/index` and view 
 
 ![](/images/request-lifecycle.png)
 
+> **Tip** You can find much more information about models and dependency injection in our [full docs](/full/models/index.md)
+
+
+
+
