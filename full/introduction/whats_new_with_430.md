@@ -36,6 +36,18 @@ component {
 }
 ```
 
+## Global `invalidHTTPMethodHandler`
+
+You can now define a global invalid HTTP method handler in your `coldbox` configuration structure:
+
+```
+coldbox = {
+  invliadHTTPMethodHandler = "main.invalidHTTP"
+}
+```
+
+This will provide your application with error consistency when building RESTFul services.
+
 
 ## Release Notes
 
