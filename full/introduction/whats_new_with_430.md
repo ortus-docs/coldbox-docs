@@ -64,6 +64,15 @@ With the introduction of CommandBox we can now have tracked modules and un-track
 
 What is tracked? Modules that are tracked by CommandBox and usually not added to source control.  CommandBox controls their installation, updating, etc.
 
+## Interceptors get `rc` and `prc` references
+
+All interceptor methods now receive a reference to `rc` and `prc` for convenience:
+
+```
+function preProcess( event, rc, prc, interceptData, buffer )
+```
+
+----
 
 ## Release Notes
 
