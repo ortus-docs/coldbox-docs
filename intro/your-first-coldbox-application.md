@@ -20,7 +20,14 @@ So let's create our first app using the _default_ template skeleton _AdvancedScr
 coldbox create app MyApp
 ```
 
-This will scaffold the application and also install ColdBox for you. Now let's start a server so we can see our application running:
+This will scaffold the application and also install ColdBox for you. This is what it will generate:
+
+```+coldbox+config+handlers+includes+interceptors+layouts+lib+models+modules+remote+tests+views+ .project+Application.cfc+box.json+favicon.ico+index.cfm+robots.txt```
+
+
+
+
+Now let's start a server so we can see our application running:
 
 ```
 server start --rewritesEnable
