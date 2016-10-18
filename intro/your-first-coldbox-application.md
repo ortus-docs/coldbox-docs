@@ -23,7 +23,7 @@ coldbox create app MyApp
 This will scaffold the application and also install ColdBox for you. The following folders/files are generated for you:
 
 ```
-+coldbox
++coldbox // installed by CommandBox
 +config
 +handlers
 +includes
