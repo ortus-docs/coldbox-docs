@@ -58,6 +58,12 @@ We have now created our model so let's tell our event handler about it. Let's cr
 coldbox create handler name="contacts" actions="index"
 ```
 
-This will create the `handler/contacts.cfc` handler, the `views/contacts/index.cfm` view and the accompanying integration test `tests/specs/integration/contactsTest.cfc`.  Let's open the handler:
+This will create the `handler/contacts.cfc` handler, the `views/contacts/index.cfm` view and the accompanying integration test `tests/specs/integration/contactsTest.cfc`.  Let's open the handler and a new `property` that will have a reference to our model.
+
+```js
+component{ property name="contactService" inject="ContactService";
+
+ any function index( event, rc, prc ){ event.setView( "contacts/index" ); }}
+```
 
 
