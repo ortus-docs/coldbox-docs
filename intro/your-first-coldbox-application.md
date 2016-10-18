@@ -2,7 +2,14 @@
 
 CommandBox comes with a `coldbox create app` command that can enable you to create application skeletons using one of our official skeletons or [your own](/full/recipes/application_templates.md):
 
-* **Advanced** (default) : A tag based advanced template* **AdvancedScript** : A script based advanced template* **elixir** : A ColdBox Elixir based template* **elixir-bower** : A ColdBox Elixir + Bower based template* **elixir-vuejs** : A ColdBox Elixir + Vue.js based template* **rest** : A RESTFul services template* **Simple** : A traditional simple template* **SuperSimple** : The bare-bones template
+* **Advanced** (default) : A tag based advanced template
+* **AdvancedScript** : A script based advanced template
+* **elixir** : A ColdBox Elixir based template
+* **elixir-bower** : A ColdBox Elixir + Bower based template
+* **elixir-vuejs** : A ColdBox Elixir + Vue.js based template
+* **rest** : A RESTFul services template
+* **Simple** : A traditional simple template
+* **SuperSimple** : The bare-bones template
 
 
 > You can find all our templates here: [github.com/coldbox-templates](https://github.com/coldbox-templates)
