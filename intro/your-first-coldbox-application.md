@@ -27,11 +27,12 @@ That's it, you have just created your first application.
 
 > **Tip** Type `coldbox create app help` to get help on all the options for creating ColdBox applications.
 
-<img src="/images/ColdBoxSimpleMVC.png">
-
 
 
 ## Event Handlers
+
+<img src="/images/ColdBoxSimpleMVC.png">
+
 
 Event handlers are the controller layer in ColdBox and is what you will be executing via the URL or a FORM post.  Once you started the server and opened the browser, the default event got executed which maps to an event handler CFC (controller) `handlers/main.cfc` and the method/action in that CFC alled `index()`. Go open the `handler/main.cfc` and explore the code.
 
