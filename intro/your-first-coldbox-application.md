@@ -51,7 +51,7 @@ This line `event.setView( "main/index" )` told ColdBox to render a view back to 
 
 ## My First Handler & View
 
-Now let's create our first controller, which in ColdBox is called Event Handler, that says hello to you using CommandBox:
+Now let's create our first controller, which in ColdBox is called Event Handler.  Let's go to CommandBox again:
 
 ```bash
 coldbox create handler name="hello" actions="index"
