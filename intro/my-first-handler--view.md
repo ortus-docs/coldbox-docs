@@ -20,7 +20,7 @@ You will now see a big `hello.index` outputted to the screen. You have now creat
 
 ## Executing Events
 
-Did you detect a convention here? The sections in the URL are the same as the name of the event handler CFC (`hello`) and method that was generated (`index`). By convention, this is how you execute events in ColdBox by leveraging the following URL pattern:
+Did you detect a convention here? The sections in the URL are the same as the name of the event handler CFC (`hello`) and method that was generated (`index`). By convention, this is how you execute events in ColdBox by leveraging the following URL pattern that matches the name of a handler and action method.  You can also nest handlers into folders and you can also pass the name of the folder(s) as well.
 
 ```
 http://localhost:{port}/folder/handler/action
