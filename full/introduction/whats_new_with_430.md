@@ -73,6 +73,43 @@ function preProcess( event, rc, prc, interceptData, buffer )
 ```
 
 
+## String Builders
+
+Internal concatenation tools and interceptor response buffers have been migrated to Java String Builders for a more awesome performance updates.
+
+## Binary HTTP Content
+
+You can now receive and decode binary HTTP content when doing RESTFul services
+
+## Models in Modules accept aliases now
+
+Models in Modules can now have name aliases via the `alias` annotation or binder alias definitions.
+
+## HTTP Method Spoofing
+
+Although we have access to all these HTTP verbs, modern browsers still only support `GET` and `POST`.  With ColdBox and HTTP Method Spoofing, you can take advantage of all the HTTP verbs in your web forms.
+
+By convention, ColdBox will look for an `_method` field in the form scope.  If one exists, the value of this field is used as the HTTP method instead of the method that was made.  For instance, the following block of code would execute with the `DELETE` action instead of the `POST` action:
+
+```html
+<cfoutput>
+<form method="POST" action="#event.buildLink('posts/#prc.post.getId()#')#">
+    <input type="hidden" name="_method" value="DELETE" />
+    <button type="submit">Delete</button>
+</form>
+</cfoutput>
+```
+
+You can manually add these `_method` fields yourselves, or you can take advantage of ColdBox's HTML Helper.
+
+```html
+<cfoutput>
+#html.startForm( action = "posts.#prc.post.getId()#", method="DELETE" )#
+    #html.submitButton( name = "Delete", class = "btn btn-danger" )#
+#html.endForm()#
+</cfoutput>
+```
+
 
 
 ----
