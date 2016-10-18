@@ -27,6 +27,9 @@ That's it, you have just created your first application.
 
 > **Tip** Type `coldbox create app help` to get help on all the options for creating ColdBox applications.
 
+<img src="/images/ColdBoxSimpleMVC.png">
+
+
 
 ## Event Handlers
 
