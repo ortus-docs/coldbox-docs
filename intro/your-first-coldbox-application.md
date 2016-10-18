@@ -24,22 +24,19 @@ This will scaffold the application and also install ColdBox for you. The followi
 
 ```
 +coldbox // installed by CommandBox
-+config
-+handlers
-+includes
-+interceptors
-+layouts
-+lib
-+models
-+modules
-+modules_app
-+tests
-+views
-+Application.cfc
-+box.json
-+favicon.ico
-+index.cfm
-+robots.txt
++config // Application configuration files
++handlers // Your handlers
++includes // static assets
++interceptors // global interceptors
++layouts // Your layouts
++models // Your Models
++modules // CommandBox tracked modules
++modules_app // Custom modules
++tests // Test harness
++views // Your Views
++Application.cfc // Bootstrap
++box.json // CommandBox package descriptor
++index.cfm // Front controller
 ```
 
 
