@@ -1,4 +1,26 @@
-# Adding Event Handlers
+## Event Handlers
+
+<img src="/images/ColdBoxSimpleMVC.png">
+
+Event handlers are the controller layer in ColdBox and is what you will be executing via the URL or a FORM post. All event handlers are singletons, which means they are cached for the duration of the application. Once you started the server and opened the browser, the default event got executed which maps to an event handler CFC (controller) `handlers/main.cfc` and the method/action in that CFC alled `index()`. Go open the `handler/main.cfc` and explore the code.
+
+
+```js
+// Default Action
+function index( event, rc, prc ){
+    prc.welcomeMessage = "Welcome to ColdBox!";
+    event.setView( "main/index" );
+}
+```
+
+Every action in ColdBox receives three arguments:
+
+* `event` - An object that models and is used to work with the current request
+* `rc` - A struct that contains both URL/FORM variables (unsafe data)
+* `prc` - A secondary struct that is private only settable from within your application (safe data)
+
+This line `event.setView( "main/index" )` told ColdBox to render a view back to the user found in `views/main/index.cfm` using a default layout, which by convention is called `Main.cfm` which can be found in the `/layouts` folder.
+
 
 We have now seen how to add handlers via CommandBox using the `coldbox create handler` command and also execute them by convention by leveraging the following URL pattern:
 
