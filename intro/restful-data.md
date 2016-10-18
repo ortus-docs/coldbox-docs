@@ -7,3 +7,6 @@ Out of the box, ColdBox gives you all the RESTFul capabilities you will need to 
 The request context object has a special function called `renderData()` that can take any type of data and marshall it for you to other formats like xml, json, wddx, pdf, text, html or your own type.
 
 > **Tip** You can find more information at the API Docs for `renderData()` here http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html#renderData()
+
+So let's open the `handlers/contact.cfc` and add to our current code:
+
