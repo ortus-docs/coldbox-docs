@@ -55,4 +55,4 @@ You can also use CommandBox to reinit the application:
 coldbox reinit
 ```
 
-> **Tip** You can add a password to the reinit procedures for further security, please see the configuration section.
+> **Tip** You can add a password to the reinit procedures for further security, please see the [configuration section](/full/configuration/coldboxcfc/configuration_directives/coldbox.md).
