@@ -41,18 +41,20 @@ Let's mock an array of contacts so we can display them later.
 component singleton accessors="true"{
 
     ContactService function init(){
-    
-         return this;
+        variables.data = [
+            { id=1, name="coldbox" },
+            { id=2, name="superman" },
+            { id=3, name="batman" }
+        ];    
+        return this;
 
     }
 
 
 
- function getAll(){
-
-
- }
-
+    function getAll(){
+        return variables.data;
+    }
 
 }
 ```
