@@ -32,13 +32,15 @@ ColdBox has the ability to detect formats via URL extensions.  Meaning you can h
 ```
 # Default HTML output: The view is presented
 http://localhost:{port}/contacts/index
+http://localhost:{port}/contacts/index.html
+http://localhost:{port}/contacts/index.cfm
 
 # JSON output
 http://localhost:{port}/contacts/index.json
 
 # XML output 
-http://localhost:{port}/contacts/index.json
+http://localhost:{port}/contacts/index.xml
 
 # PDF output
-http://localhost:{port}/contacts/index.json
+http://localhost:{port}/contacts/index.pdf
 ```
