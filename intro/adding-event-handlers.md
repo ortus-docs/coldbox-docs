@@ -35,4 +35,4 @@ Let's open the view now: `views/hello/index.cfm` and change it to this:
 
 Please note that we used the ColdFusion function `encodeForHTML()` (https://www.cfdocs.org/encodeforhtml) on the public variable. Why? Because you can never trust the client and what they send, make sure you use the built-in ColdFusion encoding function in order to avoid XSS hacks or worse on incoming public variables.
 
-If you execute the event now: `http://localhost:{port}/hello/index` you will see a message of `Hello nobody`. Now change the incoming URL to this: `http://localhost:{port}/hello/index?name=ColdBox` and you will see a message of `Hello ColdBox`
+If you execute the event now: `http://localhost:{port}/hello/index` you will see a message of `Hello nobody`. Now change the incoming URL to this: `http://localhost:{port}/hello/index?name=ColdBox` and you will see a message of `Hello ColdBox`.
