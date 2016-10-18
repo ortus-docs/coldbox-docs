@@ -1,6 +1,6 @@
 # My First ColdBox Application
 
-CommandBox comes with a `coldbox create app` command that can enable you to create application skeletons using one of our official skeletons:
+CommandBox comes with a `coldbox create app` command that can enable you to create application skeletons using one of our official skeletons or your own:
 
 * *AdvancedScript (default)*
 * Advanced (Tags)
