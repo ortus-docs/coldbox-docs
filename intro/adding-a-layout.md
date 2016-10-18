@@ -50,6 +50,7 @@ Go execute the event now: `http://localhost:{port}/hello/index` and you will see
 
 > **Tip** You can also leverage the function `event.setLayout( "Funky" )` to change layouts.
 
+<br>
 
 > **Tip** You can find much more information about layouts and views in our [full docs](/full/layouts_n_views/index.md)
 
