@@ -10,4 +10,5 @@
 * [Adding A Layout](adding-a-layout.md)
 * [Adding A Model](adding-a-model.md)
 * [RESTFul Data](restful-data.md)
+* [Next Steps](next-steps.md)
 
