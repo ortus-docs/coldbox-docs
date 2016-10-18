@@ -12,6 +12,13 @@ Edit the `views/virtual/hello.cfm` page and wrap the content in a `cfoutput` and
 
 This code will generate a link to the `main.index` event in a search engine safe manner and in SSL detection mode.  Go execute the event: `http://localhost:{port}/virtual/hello` and click on the generated URL, you will now be navigating to the default event `/main/index`.  This technique will also apply to FORM submissions:
 
+```html
+<form action="#event.buildLink( 'user.save' )#">
+
+</form>
+```
+
+
 > **Tip** You can visit our API Docs for further information about the `event` object and the `buildLink` method: http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html. For extra credit try to use more of the `buildLink` arguments.
 
 ## URL Structure & Mappings
