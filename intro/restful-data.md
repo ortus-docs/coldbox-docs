@@ -70,3 +70,5 @@ You can now visit the new URL pattern and you have successfully built a RESTFul 
 ```
 http://localhost:{port}/api/contacts.json
 ```
+
+> **Note** You can find much more about routing in our [full docs](//full/routing/index.md)
