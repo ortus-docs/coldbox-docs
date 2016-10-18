@@ -52,3 +52,5 @@ http://localhost:{port}/virtual/hello
 ```
 
 You will get the `Hello From ColdBox Land!` displayed! This is a great way to create dynamic views or even bring in legacy/procedural templates into an MVC framework.
+
+> **Tip** You can find much more information about event handlers in our [full docs](/full/event_handlers/index.md)
