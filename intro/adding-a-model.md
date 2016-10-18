@@ -11,9 +11,6 @@ coldbox create model name="ContactService" methods="getAll" persistence="singlet
 This will create a `models/ContactService.cfc` and a companion unit test at `tests/specs/unit/ContactServiceTest.cfc`.  Let's open the model object:
 
 ```js
-/**
-* I am a new Model Object
-*/
 component singleton accessors="true"{      
 
     ContactService function init(){         
@@ -34,10 +31,6 @@ Notice the `singleton` annotation on the component tag.  This tells WireBox that
 Let's mock an array of contacts so we can display them later.
 
 ```js
-/**
-* I am a new Model Object
-*/
-
 component singleton accessors="true"{
 
     ContactService function init(){
