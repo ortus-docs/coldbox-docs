@@ -2,7 +2,7 @@
 
 Event handlers are ColdBox's version of **controllers** in the MVC design pattern. So every time you hear "event handler," you are taking about a controller that can listen to external events or internal events in ColdBox.
 
-<img src="/images/ControllerLayer.jpg">
+<img src="https://coldbox.ortusbooks.com/content/images/ControllerLayer.jpg">
 
 ## CFCs
 Event handlers are implemented as CFCs that are responsible for handling requests coming into the application from either a local source (like form, URL or REST) or a remote source (like Flex, Air or SOAP). These event handlers carry the task of controlling your application flow, calling business logic, preparing a display to a user and more.

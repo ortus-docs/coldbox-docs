@@ -10,7 +10,7 @@ ColdBox offers its own dependency injection framework, [WireBox](http://wiki.col
 
 ###Dependency Injection
 
-![](/images/EventHandlerInjection.jpg)
+![](https://coldbox.ortusbooks.com/content/images/EventHandlerInjection.jpg)
 
  Your event handlers can be autowired with dependencies from either WireBox, ColdSpring, or any custom object factory by means of our[ injection DSL](wiki.coldbox.org/wiki/WireBox.cfm#Injection_DSL). By autowiring dependencies into event handlers, they will become part of the life span of the event handlers and thus gain on the performance that an event handler is wired with all necessary parts upon creation. This is a huge benefit and we encourage you to use injection whenever possible. Please note that injection [aggregates](http://en.wikipedia.org/wiki/Object_composition) model objects into your event handlers. The [Injection DSL](http://wiki.coldbox.org/wiki/WireBox.cfm) can be applied to: 
  
@@ -24,7 +24,7 @@ It will be your choice to pick an approach, but we mostly concentrate on propert
 
 ###Requesting Model Objects
 
-![](/images/EventHandlerModelRequested.jpg)
+![](https://coldbox.ortusbooks.com/content/images/EventHandlerModelRequested.jpg)
 
  The other approach to integrating with model objects is to request them and use them as [associations](http://en.wikipedia.org/wiki/Association_%28object-oriented_programming%29). From who? From either [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) or the [IOC](http://wiki.coldbox.org/wiki/Plugins:IOC.cfm) Plugin. We would recommend requesting objects if they are transient objects or stored in some other volatile storage scope. Retreiving of objects is ok, but if you will be dealing with mostly singleton objects or objects that are created only once, you will gain much more performance by using injection. 
  

@@ -2,7 +2,7 @@
 
 The default order of overrides ColdBox offers is both `viewParentLookup & layoutParentLookup` to **true**. This means that if the layout or view requested to be rendered by a module exists in the overrides section of the host application, then the host application's layout or view will be rendered instead. Let's investigate the order of discover:
 
-![](/images/ModulesViewLookupTrue.jpg)![](/images/ModulesViewLookupFalse.jpg)
+![](https://coldbox.ortusbooks.com/content/images/ModulesViewLookupTrue.jpg)![](https://coldbox.ortusbooks.com/content/images/ModulesViewLookupFalse.jpg)
 
 **viewParentLookup = true **
 
@@ -18,7 +18,7 @@ The default order of overrides ColdBox offers is both `viewParentLookup & layout
 3. Host override common `(e.g. {HOST}/views/modules/myView.cfm)`
 4. Default view discovery from host `(e.g. {HOST}/views/myView.cfm)`
 
-![](/images/ModulesLayoutLookupTrue.jpg)![](/images/ModulesLayoutLookupFalse.jpg)
+![](https://coldbox.ortusbooks.com/content/images/ModulesLayoutLookupTrue.jpg)![](https://coldbox.ortusbooks.com/content/images/ModulesLayoutLookupFalse.jpg)
 
 **layoutParentLookup = true **
 

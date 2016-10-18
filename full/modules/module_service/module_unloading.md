@@ -2,4 +2,4 @@
 
 Below you can see a diagram of what happens when modules get deactivated and unloaded
 
-![](/images/ModulesUnload.jpg)
+![](https://coldbox.ortusbooks.com/content/images/ModulesUnload.jpg)

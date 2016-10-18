@@ -1,6 +1,6 @@
 # Adding A Model
 
-![](/images/MVC.png)
+![](https://coldbox.ortusbooks.com/content/images/MVC.png)
 
 
 Let's complete our saga into MVC by developing the **M**, which stands for [model](https://en.wikipedia.org/wiki/Domain_model).  This layer is all your business logic, queries, external dependencies, etc. of your application, which represents the problem to solve or the domain to solve.  This layer is controlled by [WireBox](https://wirebox.ortusbooks.com), the dependency injection framework within ColdBox, which will give you the flexiblity of wiring your objects and persisting them for you.
@@ -104,7 +104,7 @@ Open the `contacts/index.cfm` and add the following to the view:
 That's it! Execute the event: `http://localhost:{port}/contacts/index` and view the nice table of contacts being presented to you.  Congratulations, you have comed to a complete MVC circle!
 
 
-![](/images/request-lifecycle.png)
+![](https://coldbox.ortusbooks.com/content/images/request-lifecycle.png)
 
 > **Tip** You can find much more information about models and dependency injection in our [full docs](/full/models/index.md)
 

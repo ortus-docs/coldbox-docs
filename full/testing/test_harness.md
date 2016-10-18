@@ -2,7 +2,7 @@
 
 Every ColdBox application template comes with a nice test harness inside of a `tests` folder.
 
-![](/images/testharness.png)
+![](https://coldbox.ortusbooks.com/content/images/testharness.png)
 
 Here is a breakdown of what it contains:
 

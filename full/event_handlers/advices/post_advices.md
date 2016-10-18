@@ -1,6 +1,6 @@
 # Post Advices
 
-<img src="/images/eventhandler-prepost.jpg"/>
+<img src="https://coldbox.ortusbooks.com/content/images/eventhandler-prepost.jpg"/>
 
 With this interceptor you can intercept local event actions and execute things after the requested action executes. You can do it globally by using the <code>postHandler()</code> method or targeted to a specific action <code>post{actionName}()</code>.
 
