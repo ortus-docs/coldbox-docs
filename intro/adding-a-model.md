@@ -97,7 +97,7 @@ Open the `contacts/index.cfm` and add the following to the view:
 <cfoutput>
 <h1>My Contacts</h1>
 
-#html.table( data=prc.aContacts, class="table table-striped"#
+#html.table( data=prc.aContacts, class="table table-striped" )#
 </cfoutput>
 ```
 
