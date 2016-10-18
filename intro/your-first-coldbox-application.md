@@ -20,7 +20,7 @@ So let's create our first app using the _default_ template skeleton _AdvancedScr
 coldbox create app MyApp
 ```
 
-This will scaffold the application and install ColdBox for you. Now let's start a server so we can see our application running:
+This will scaffold the application and also install ColdBox for you. Now let's start a server so we can see our application running:
 
 ```
 server start --rewritesEnable
