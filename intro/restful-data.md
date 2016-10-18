@@ -13,7 +13,7 @@ So let's open the `handlers/contact.cfc` and add to our current code:
 ```js
 any function index( event, rc, prc ){
     prc.aContacts = contactService.getAll();    
-    event.renderData( data=prc.aContacts, formats="xml,json,html" );
+    event.renderData( data=prc.aContacts, formats="xml,json,pdf,html" );
 }
 ```
 
