@@ -1,4 +1,4 @@
-## My First Handler & View
+# My First Handler & View
 
 Now let's create our first controller, which in ColdBox is called Event Handler. Let's go to CommandBox again:
 
