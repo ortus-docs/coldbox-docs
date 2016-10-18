@@ -28,7 +28,7 @@ Notice the `singleton` annotation on the component tag.  This tells WireBox that
 
 ## Add Some Data
 
-Let's mock an array of contacts so we can display them later.
+Let's mock an array of contacts so we can display them later. We can move this to a SQL call later.
 
 ```js
 component singleton accessors="true"{
