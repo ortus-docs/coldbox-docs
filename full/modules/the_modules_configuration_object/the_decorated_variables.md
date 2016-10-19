@@ -1,6 +1,6 @@
 # The Decorated Variables
 
-![](https://coldbox.ortusbooks.com/content/images/ModuleConfig.jpg)
+![](/images/ModuleConfig.jpg)
 
  At runtime, the configuration object will be created by ColdBox and decorated with the following private properties (available in the `variables` scope): 
  

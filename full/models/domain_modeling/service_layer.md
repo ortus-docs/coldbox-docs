@@ -9,7 +9,7 @@ The whole point of the model layer is that it is separate from the other 2 layer
 * `BookService.cfc` - A service layer for book operations
 * `Book.cfc` - Represents a book in my system
 
-![](https://coldbox.ortusbooks.com/content/images/ServiceLayers.jpg)
+![](/images/ServiceLayers.jpg)
 
 ## What is a service layer?
 
@@ -25,7 +25,7 @@ The best way to determine what you prefer or need is to actually try both approa
 
 ## The Book Services
 
-![](https://coldbox.ortusbooks.com/content/images/MVC+ORM.png)
+![](/images/MVC+ORM.png)
 
 The `BookService` object will be my API to do operations as mentioned in my requirements and this is the object that will be used by my handlers. My `Book` object will model a Book's data and behavior. It will be produced, saved and updated by the `BookService` object and will be used by event handlers in order to populate and validate them with data from the user. 
 

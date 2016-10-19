@@ -1,6 +1,6 @@
 # Super Type Usage Methods
 
-![](https://coldbox.ortusbooks.com/content/images/ColdBoxMajorClasses.jpg)
+![](/images/ColdBoxMajorClasses.jpg)
 
 The super type offers 2 methods for interacting with your model layer:
 

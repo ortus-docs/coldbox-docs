@@ -10,7 +10,7 @@ http://www.ortussolutions.com/products/commandbox
 
 You should now be seeing a prompt that looks like this:
 
-![CommandBox Terminal](https://coldbox.ortusbooks.com/content/images/commandbox-terminal.png)
+![CommandBox Terminal](/images/commandbox-terminal.png)
 
 ## Create A New Site
 
@@ -50,7 +50,7 @@ CommandBox> start --rewritesEnable
 
 In a few seconds, a browser window will appear with your running application. This is a full server with access to the web administrator where you can add data sources, mappings, or adjust the server settings. Notice the handy icon added to your system tray as well.  The `--rewritesEnable` flag will turn on some basic URL rewriting so we have nice, pretty URLs. 
 
-![Default ColdBox App Template](https://coldbox.ortusbooks.com/content/images/app_template.png)
+![Default ColdBox App Template](/images/app_template.png)
 
 ## Take A Look Around
 

@@ -2,7 +2,7 @@
 
 The very first step is to create your own request context decorator component. You can see in the diagram below of the ColdBox request context design pattern.
 
-![](https://coldbox.ortusbooks.com/content/images/RequestContextDecorator.png)
+![](/images/RequestContextDecorator.png)
 
 
 Create a component that extends `coldbox.system.web.context.RequestContextDecorator`, this is to provide all the functionality of an original request context decorator as per the design pattern. Once you have done this, you will create a configure method that you can use for custom configuration when the request context gets created by the framework. Then it’s up to you to add your own methods or override the original request context methods.
