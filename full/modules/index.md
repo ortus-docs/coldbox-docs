@@ -1,6 +1,6 @@
 # Modules
 
-![](https://coldbox.ortusbooks.com/content/images/Modules.png)
+![](/images/Modules.png)
 
 ColdBox Modules are self-contained subsets of a ColdBox application that can be dropped in to any ColdBox application and become alive as part of the host application. They will bring re-usability and extensibility to any ColdBox application, as now you can break them down further into a collection of modules instead of monolithic approaches.  CommandBox will also help you manage, install, track and uninstall modules as part of your development workflow. 
 

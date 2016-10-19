@@ -14,7 +14,7 @@ in dynamically. How you might say?
 
 ### CommandBox
 
-<img src="https://coldbox.ortusbooks.com/content/images/CommandBoxLogo.png">
+<img src="/images/CommandBoxLogo.png">
 
 [CommandBox](http://www.ortussolutions.com/products/commandbox), our new ColdFusion (CFML) command line interface,
 package manager and REPL. You can now use CommandBox to install
