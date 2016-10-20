@@ -13,15 +13,20 @@
         "richquotes",
         "edit-link",
         "github",
-        "advanced-emoji"
+        "advanced-emoji",
+        "sitemap",
+        "collapsible-chapters"
     ],
     "pluginsConfig": {
-    	"edit-link": {
+        "edit-link": {
             "base": "https://github.com/coldbox/coldbox-docs/tree/development",
             "label": "Edit This Page"
         },
         "github": {
             "url": "https://github.com/coldbox/coldbox-platform"
+        },
+        "sitemap": {
+            "hostname": "https://coldbox.ortusbooks.com"
         }
     },
     "links": {
