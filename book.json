@@ -14,10 +14,11 @@
         "edit-link",
         "github",
         "advanced-emoji",
-        "sitemap"
+        "sitemap",
+        "collapsible-chapters"
     ],
     "pluginsConfig": {
-    	"edit-link": {
+        "edit-link": {
             "base": "https://github.com/coldbox/coldbox-docs/tree/development",
             "label": "Edit This Page"
         },
