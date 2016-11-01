@@ -42,7 +42,7 @@ You can now define a global invalid HTTP method handler in your `coldbox` config
 
 ```
 coldbox = {
-  invliadHTTPMethodHandler = "main.invalidHTTP"
+  invalidHTTPMethodHandler = "main.invalidHTTP"
 }
 ```
 

@@ -2,7 +2,7 @@
 
 Out of the box, ColdBox gives you all the RESTFul capabilities you will need to create robust and scalable RESTFul services.  Let's add some RESTFul capabilities to our contact listing we created in the previous section.
 
-> **Tip** You can find much more information about building ColdBox RESTFul services in our [full docs.](/full/recipes/building_rest_apis.md)
+> **Tip** You can find much more information about building ColdBox RESTFul services in our [full docs.](../full/recipes/building_rest_apis.md)
 
 ## renderData()
 
