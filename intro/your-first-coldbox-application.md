@@ -1,6 +1,6 @@
 # My First ColdBox Application
 
-CommandBox comes with a `coldbox create app` command that can enable you to create application skeletons using one of our official skeletons or [your own](/full/recipes/application_templates.md):
+CommandBox comes with a `coldbox create app` command that can enable you to create application skeletons using one of our official skeletons or [your own](../full/recipes/application_templates.md):
 
 * **Advanced** (default) : A tag based advanced template
 * **AdvancedScript** : A script based advanced template
