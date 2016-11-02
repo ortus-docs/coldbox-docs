@@ -11,7 +11,7 @@ As you can see they still contain the `index.cfm` in the URL.  In order to enabl
 CommandBox has built in rewrites powered by Tuckey and you can enable a server with rewrites by running:
 
 ```
-server start --rewritesEnabled
+server start --rewritesEnable
 ```
 
 
