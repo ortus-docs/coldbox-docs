@@ -103,7 +103,7 @@ That's it!  You don't need to add any specicial configuration to declare your ha
 
 Now, let's re-initalize the framework to pick up our new handler by typing `?fwreinit=1` at the end of the URL.  
 
-Let's hit this new controller we created with a URL like so.  Your port number will probalby be different.
+Let's hit this new controller we created with a URL like so.  Your port number will probably be different.
 
 > 127.0.0.1:43272/helloWorld
 
