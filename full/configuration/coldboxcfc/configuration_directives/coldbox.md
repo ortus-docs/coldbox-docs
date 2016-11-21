@@ -1,14 +1,15 @@
 # ColdBox
-The ColdBox directive is where you configure the framework for operation.  
+
+The ColdBox directive is where you configure the framework for operation.
 
 ## Application Setup
 
 ```js
 coldbox = {
     // The name of the application
-	appName   = "My App",
-	// The name of the incoming URL/FORM/REMOTE variable that tells the framework what event to execute. Ex: index.cfm?event=users.list
-	eventName = "event"
+    appName   = "My App",
+    // The name of the incoming URL/FORM/REMOTE variable that tells the framework what event to execute. Ex: index.cfm?event=users.list
+    eventName = "event"
 };
 ```
 
@@ -18,8 +19,8 @@ coldbox = {
 
 ```js
 coldbox = {
-	reinitPassword = "h1cker",
-	handlersIndexAutoReload = true
+    reinitPassword = "h1cker",
+    handlersIndexAutoReload = true
 };
 ```
 
@@ -38,22 +39,22 @@ http://localhost/?fwreinit=mypass
 
 Will scan the conventions directory for new handler CFCs on each request if activated. Use **false** for production, this is only a development true setting.
 
-
 ## Implicit Event Settings
 
 ```js
 coldbox={
-	//Implicit Events
-	defaultEvent  = "Main.index",
-	requestStartHandler	 = "Main.onRequestStart",
-	requestEndHandler   = "Main.onRequestEnd",
-	applicationStartHandler = "Main.onAppInit",
-	applicationEndHandler = "Main.onAppEnd",
-	sessionStartHandler = "Main.onSessionEnd",
-	sessionEndHandler = "Main.onSessionStart",
-	missingTemplateHandler = "Main.onMissingTemplate"
+    //Implicit Events
+    defaultEvent  = "Main.index",
+    requestStartHandler     = "Main.onRequestStart",
+    requestEndHandler   = "Main.onRequestEnd",
+    applicationStartHandler = "Main.onAppInit",
+    applicationEndHandler = "Main.onAppEnd",
+    sessionStartHandler = "Main.onSessionStart",
+    sessionEndHandler = "Main.onSessionEnd",
+    missingTemplateHandler = "Main.onMissingTemplate"
 }
 ```
+
 These settings map 1-1 from ColdBox events to the `Application.cfc` life-cycle methods.  The only one that is not is the `defaultEvent`, which selects what event the framework will execute when no incoming event is detected via URL/FORM or REMOTE executions.
 
 ## Extension Points
@@ -62,15 +63,15 @@ The ColdBox extension points are a great way to create federated applications th
 
 ```js
 coldbox={
-	//Extension Points
-	applicationHelper 			= "includes/helpers/ApplicationHelper.cfm",
-	viewsHelper					= "",
-	modulesExternalLocation		= [],
-	viewsExternalLocation		= "",
-	layoutsExternalLocation 	= "",
-	handlersExternalLocation  	= "",
-	requestContextDecorator 	= "",
-	controllerDecorator         = ""
+    //Extension Points
+    applicationHelper             = "includes/helpers/ApplicationHelper.cfm",
+    viewsHelper                    = "",
+    modulesExternalLocation        = [],
+    viewsExternalLocation        = "",
+    layoutsExternalLocation     = "",
+    handlersExternalLocation      = "",
+    requestContextDecorator     = "",
+    controllerDecorator         = ""
 }
 ```
 
@@ -82,7 +83,7 @@ A list or array of absolute or relative paths to a UDF helper file. The framewor
 
 A list or array of absolute or relative paths to a UDF helper file. The framework will load all the methods found in this helper in layouts and views only.
 
-**modulesExternalLocation**
+**modulesExternalLocation**  
 A list or array of locations of where ColdBox should look for modules to load into your application. The path can be a cf mapping or `cfinclude` compatible location. Modules are searched and loaded in the order of the declared locations. The first location ColdBox will search for modules is the conventions folder `modules`
 
 **viewsExternalLocation**
@@ -93,28 +94,27 @@ The CF include path of where to look for secondary views for your application. S
 
 The CF include path of where to look for secondary layouts for your application. Secondary layouts look just like normal layouts except the framework looks in the conventions folder first and if not found then searches this location.
 
-**handlersExternalLocation**
+**handlersExternalLocation**  
 The CF dot notation path of where to look for secondary events for your application. Secondary events look just like normal events except the framework looks in the conventions folder first and if not found then searches this location.
 
-**requestContextDecorator**
+**requestContextDecorator**  
 The CF dot notation path of the CFC that will decorate the system Request Context object.
 
-**controllerDecorator**
+**controllerDecorator**  
 The CF dot notation path of the CFC that will decorate the system Controller
-
 
 ## Exception Handling
 
 ```js
 coldbox = {
     // Error/Exception Handling handler
-    exceptionHandler		= "",
+    exceptionHandler        = "",
     // Invalid HTTP method Handler
     invalidHTTPMethodHandler = "",
     // The handler to execute on invalid events
     onInvalidEvent = "",
     // The default error template    
-    customErrorTemplate	 = "/coldbox/system/includes/BugReport-Public.cfm"
+    customErrorTemplate     = "/coldbox/system/includes/BugReport-Public.cfm"
 }
 ```
 
@@ -130,7 +130,6 @@ The event handler to call whenever a route or event is accessed with an invalid 
 
 This is the event handler that will fire masking a non-existent event that gets requested. This is a great place to place 302 or 404 redirects whenever non-existent events are being requested.
 
-
 **customErrorTemplate**
 
 The relative path from the application's root level of where the custom error template exists. This template receives a key in the private request collection called `exception` that contains the exception.  By default ColdBox does not show robust exceptions, you can turn on robust exceptions by choosing the following template:
@@ -144,17 +143,17 @@ coldbox.customErrorTemplate = "/coldbox/system/includes/BugReport.cfm";
 ```js
 coldbox = {
     // Persist handlers
-    handlerCaching 			= false,
+    handlerCaching             = false,
     // Activate event caching
-	eventCaching			= true,
+    eventCaching            = true,
     // Activate view  caching
-	viewCaching  			= true,
-	// Return RC struct on Flex/Soap Calls
-	proxyReturnCollection 	= false,
-	// Activate implicit views
-	implicitViews           = true,
-	// Case for implicit views
-	caseSensitiveImplicitViews = false
+    viewCaching              = true,
+    // Return RC struct on Flex/Soap Calls
+    proxyReturnCollection     = false,
+    // Activate implicit views
+    implicitViews           = true,
+    // Case for implicit views
+    caseSensitiveImplicitViews = false
 }
 ```
 
@@ -181,9 +180,4 @@ Allows you to use implicit views in your application and view dispatching. You c
 **caseSensitiveImplicitViews**
 
 By default implicit views are all in lower case, so you would turn this setting on to allow case sensitivity.
-
-
-
-
-
 
