@@ -2,10 +2,11 @@
 
 Congratulations, you have completed the intro to ColdBox book.  You can now move on to the next level in becoming a ColdBox Guru!  Choose your path below:
 
-* [Full ColdBox Docs](../full/overview/index.md)
+* [Full ColdBox Docs](../full)
 * [Learn about Dependency Injection](https://wirebox.ortusbooks.com)
 * [Learn about Caching](https://cachebox.ortusbooks.com)
 * [Learn about Logging](https://logbox.ortusbooks.com)
 * [Learn about Testing](https://testbox.ortusbooks.com)
+
 
 
