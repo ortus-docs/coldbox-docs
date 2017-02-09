@@ -393,7 +393,7 @@ In our route configuration we mapped HTTP verbs to handlers and actions, but wha
 component{
 	
 	this.allowedMethods = { 
-		remove = "POST,DELETE" 
+		remove = "POST,DELETE",
 		list   = "GET"
 	};
 
