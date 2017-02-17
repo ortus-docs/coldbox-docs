@@ -29,7 +29,7 @@ Instead of the `event.setView()` method call we had before.  This tells ColdBox 
 
 ## Format Detection
 
-ColdBox has the ability to detect formats via URL extensions.  Meaning you can hit the event but adding an extension to the URL.  If no extension is sent then the default of `html` content is selected for you.
+ColdBox has the ability to detect formats via URL extensions.  Meaning you can hit the event but adding an extension to the URL.  If no extension is sent, then ColdBox attempts to determine the format by inspecting the `Accepts` header.  If we still can't figure out what format to choose, the default of `html` is selected for you.
 
 ```
 # Defaul: The view is presented using no extension or html,cfm
@@ -39,12 +39,15 @@ http://localhost:{port}/contacts/index.cfm
 
 # JSON output
 http://localhost:{port}/contacts/index.json
+# OR Accepts: application/json
 
 # XML output 
 http://localhost:{port}/contacts/index.xml
+# OR Accepts: application/xml
 
 # PDF output
 http://localhost:{port}/contacts/index.pdf
+# OR Accepts: application/pdf
 ```
 
 > **Tip** You can also avoid the extension and pass a URL argument called `format` with the correct format type: `?format=json`.
