@@ -82,6 +82,7 @@ function renderData(
 	struct pdfArgs={},
 	formats="",
 	formatsView="",
+	formatsRedirect={},
 	boolean isBinary=false
 )
 ```
@@ -166,6 +167,12 @@ That's it! ColdBox will figure out how to deal with all the passed in formats fo
 
 ```js
 event.renderData( data=MyData, formats="xml,json,html,pdf", formatsView="data/MyView" );
+```
+
+And if you need to redirect for html events, you can pass any arguments you normally would pass to `setNextEvent` to `formatsRedirect`.
+
+```js
+event.renderData( data=MyData, formats="xml,json,html,pdf", formatsRedirect={event="Main.index"} );
 ```
 
 ### Custom Data Conversion
