@@ -44,6 +44,7 @@
            * [Settings](configuration/coldboxcfc/configuration_directives/settings.md)
            * [WireBox](configuration/coldboxcfc/configuration_directives/wirebox.md)
        * [Configuration Interceptor](configuration/coldboxcfc/configuration_interceptor.md)
+       * [System Settings (Java Properties and Environment Variables)](configuration/coldboxcfc/system_settings.md)
    * [Using Settings](configuration/using_settings.md)
    * [Bootstrapper](configuration/bootstrapper.md)
 * [Event Handlers](event_handlers/index.md)
