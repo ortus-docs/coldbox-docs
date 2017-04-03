@@ -181,7 +181,7 @@ You can do custom data conversion by convention when marshalling CFCs. If you pa
 
 ```js
 // get an instance of your custom converter
-myConverter = getModel("MyConverter")
+myConverter = getInstance("MyConverter")
 // put some data in it
 myConverter.setData( data );
 // marshall it out according to your conversions and the content type it supports
