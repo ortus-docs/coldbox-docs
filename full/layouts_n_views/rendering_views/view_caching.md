@@ -15,7 +15,7 @@ component name="general"{
 	function index(event,rc,prc){
 	
 		// call some model for data and put into the request collection
-		prc.myQuery = getModel('MyService').getData();	
+		prc.myQuery = getInstance('MyService').getData();	
 		// view with caching parameters
 		event.setView(
 		    view="general/index",
