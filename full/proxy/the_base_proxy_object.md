@@ -10,7 +10,7 @@ Here are some common methods of our ColdBox proxy object.  However, we encourage
 |getController() |Returns the ColdBox controller instance |
 |getInterceptor()	|Get a named interceptor |
 |getLogBox()	|Get a reference to LogBox|
-|getModel(name,dsl,initArguments)	|Get a [Wirebox](http://wiki.coldbox.org/wiki/Wirebox.cfm) model object|
+|getInstance(name,dsl,initArguments)	|Get a [Wirebox](http://wiki.coldbox.org/wiki/Wirebox.cfm) model object|
 |getWireBox()	|Get a reference to [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm)|
 |process() |Processes a remote call that will execute a coldbox event and returns data/objects back. |
 |loadColdBox()	|Gives you the ability to load any external coldbox application in the application scope. Great for remotely loading any coldbox application, it can be located anywhere.|
