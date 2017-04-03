@@ -214,7 +214,7 @@ This approach allows you to intercept at the handler level whenever a runtime ex
 ```js
 // error uniformity for resources
 function onError(event,rc,prc,faultaction,exception){
-	prc.response = getModel("ResponseObject");
+	prc.response = getInstance("ResponseObject");
 	
 	// setup error response
 	prc.response.setError(true);
@@ -242,7 +242,7 @@ function onInvalidHTTPMethod( event, rc, prc, faultAction, eventArguments ){
 	// Log Locally
 	log.warn( "InvalidHTTPMethod Execution of (#arguments.faultAction#): #event.getHTTPMethod()#", getHTTPRequestData() );
 	// Setup Response
-	prc.response = getModel( "Response" )
+	prc.response = getInstance( "Response" )
 		.setError( true )
 		.setErrorCode( 405 )
 		.addMessage( "InvalidHTTPMethod Execution of (#arguments.faultAction#): #event.getHTTPMethod()#" )
