@@ -23,7 +23,7 @@ WireBox, is our dependency injection and AOP framework, that will do all the mag
 
 ## Benefits 
 
-* Easily create and retrieve model objects by using one method: `getModel()`
+* Easily create and retrieve model objects by using one method: `getInstance()`
 * Easily handle model or handler dependencies by using `cfproperty` and constructor argument conventions.
 * An Injection DSL (Domain Specific Language) has been created to facilitate dependencies
 * Easily determine what scope model objects should be persisted in: Transients, Singletons, Cache, Request, Session, etc.
