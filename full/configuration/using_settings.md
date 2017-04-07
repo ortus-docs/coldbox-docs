@@ -7,7 +7,7 @@ ColdBox uses two internal structures in order to configure and run your applicat
 > **Hint** : Please remember that your application can be reinitialized by using the `fwreinit=1` URL param.
 
 * **ColdboxSettings** : Framework specific settings.
-* **ConfigSettings** : Your application settings setup in the `settings` [configuration directive](configuration_directives/settings.md).
+* **ConfigSettings** : Your application settings setup in the `settings` [configuration directive](configuration/coldboxcfc/configuration_directives/settings.md).
 
 You can use the following methods to retrieve/set/validate settings in your handlers/layouts/views and interceptors:
 
