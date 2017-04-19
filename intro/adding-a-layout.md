@@ -1,6 +1,6 @@
 # Adding a layout
 
-Every time the framework renders a view, it will try to leverage the default layout which is located in `layouts/Main.cfm` by convetion.  This is an HTML file that gives format to your output and contains the location of where the view you wanted should be rendered.  This location is identified by the following code:
+Every time the framework renders a view, it will try to leverage the default layout which is located in `layouts/Main.cfm` by convention.  This is an HTML file that gives format to your output and contains the location of where the view you wanted should be rendered.  This location is identified by the following code:
 
 ```
 <div id="maincontent">
