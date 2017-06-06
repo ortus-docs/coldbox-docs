@@ -2,7 +2,8 @@
 
 By convention every ColdBox application will have two folders for modules:
 
-* **/modules** : Used by CommandBox to place tracked modules. You would usually NOT commit these modules to source control.* **/modules_app** : Used for custom non-tracked modules
+* **/modules** : Used by CommandBox to place tracked modules. You would usually NOT commit these modules to source control.
+* **/modules_app** : Used for custom non-tracked modules
 
 ## External Locations
 
