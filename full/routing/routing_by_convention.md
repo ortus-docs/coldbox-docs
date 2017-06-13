@@ -15,6 +15,8 @@ The URL pattern in the default route includes two special position holders:
 
 > **Tip** The `:handler` parameter allows you to nest module names and handler names. Ex: `/module/handler/action`
 
+<br>
+
 This route can handle pretty much all your needs by convention.  Any extra name-value pairs discovered in the remaining URL will be translated to variables in the request collection (`rc`) for you automagically.
 
 ```js
