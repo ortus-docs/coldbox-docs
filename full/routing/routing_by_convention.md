@@ -30,6 +30,3 @@ http://localhost/admin/general/index -> event=admin.general.index
 // If 'admin' is a module
 http://localhost/admin/general/index/id/4/page/2 -> event=admin:general.index&id=4&page=2
 ```
-
-However, the problem is that your routing URLs depend too much in the name of your handlers and actions. Thus, if you refactor, your URLs change and that's not very nice. That's why we encourage you to create more routes so this can be avoided especially on public sites.
-
