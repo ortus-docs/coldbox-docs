@@ -7,7 +7,8 @@ Edit the `views/virtual/hello.cfm` page and wrap the content in a `cfoutput` and
 ```
 <cfoutput>
 <h1>Hello from ColdBox Land!</h1>
-<p><a href="#event.buildLink( "main.index" )"#>Go home</a></p></cfoutput>
+<p><a href="#event.buildLink( "main.index" )"#>Go home</a></p>
+</cfoutput>
 ```
 
 This code will generate a link to the `main.index` event in a search engine safe manner and in SSL detection mode.  Go execute the event: `http://localhost:{port}/virtual/hello` and click on the generated URL, you will now be navigating to the default event `/main/index`.  This technique will also apply to FORM submissions:

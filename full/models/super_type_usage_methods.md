@@ -4,11 +4,11 @@
 
 The super type offers 2 methods for interacting with your model layer:
 
-* `getModel()` - Retrieve a model object (Instead of injection)
+* `getInstance()` - Retrieve a model object (Instead of injection)
 * `populateModel()` - Retrieve and/or populate a model object from the request collection.
 
 
-##getModel()
+##getInstance()
 
 Here is the signature
 
@@ -18,21 +18,22 @@ Here is the signature
 * @name.hint The mapping name or CFC path to retrieve
 * @dsl.hint The DSL string to use to retrieve an instance
 * @initArguments.hint The constructor structure of arguments to passthrough when initializing the instance
+* @targetObject.hint The object requesting the dependency, usually only used by DSL lookups
 */
-function getModel( name, dsl, initArguments={} ){}
+function getInstance( name, dsl, initArguments={}, targetObject="" ){}
 ```
 
 **Examples**
 
 ```js
 // Retrieve the User.cfc in the model folder
-var oUser = getModel('User');
+var oUser = getInstance('User');
 // Retrieve the User.cfc in the model/users folder
-var oUser = getModel("users.User")
+var oUser = getInstance("users.User")
 // Retrieve the User using an alias you mapped in your configuration binder
-var oUser = getModel("MyUser");
+var oUser = getInstance("MyUser");
 // Retrieve an object using a full instantation path
-var oUtil = getModel("mypath.utilities.MyUtil");
+var oUtil = getInstance("mypath.utilities.MyUtil");
 ```
 
 ## populateModel()

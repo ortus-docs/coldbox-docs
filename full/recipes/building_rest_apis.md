@@ -217,7 +217,9 @@ function listUsers( event, rc, prc ){
 
 
 ### Format Detection
-Many APIs allow the user to choose the format they want back from the endpoint by appending a file `extension` to the end of the URL:
+Many APIs allow the user to choose the format they want back from the endpoint.  ColdBox will inspect the `Accepts` header to determine the right format to use by default.
+
+Another way to do this is by appending a file `extension` to the end of the URL:
 
 ```
 http://www.example.com/api/user.json

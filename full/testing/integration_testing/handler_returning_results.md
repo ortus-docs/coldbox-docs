@@ -6,7 +6,7 @@ If you have written event handlers that actually return data, then you will have
 |--|--|
 | `cbox_handler_results` | The value returned from the event handler method. This key will NOT be created if the handler does not return any data.|
 
-**The handler**
+**The handler** (`main.cfc`)
 
 ```js
 function list(event,rc,prc){
@@ -18,7 +18,7 @@ function list(event,rc,prc){
 
 ```js
 it( "+homepage renders", function(){
-	var event = execute( event="main.index", renderResults=true );
-	expect(	event.getValue( name="cbox_handler_results", private=true ) ).toBe( "Hola Luis" );
+	var event = execute( event="main.list", renderResults=true );
+	expect(	event.getValue( name="cbox_handler_results" ) ).toBe( "Hola Luis" );
 });
 ```

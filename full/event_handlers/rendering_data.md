@@ -82,6 +82,7 @@ function renderData(
 	struct pdfArgs={},
 	formats="",
 	formatsView="",
+	formatsRedirect={},
 	boolean isBinary=false
 )
 ```
@@ -168,13 +169,19 @@ That's it! ColdBox will figure out how to deal with all the passed in formats fo
 event.renderData( data=MyData, formats="xml,json,html,pdf", formatsView="data/MyView" );
 ```
 
+And if you need to redirect for html events, you can pass any arguments you normally would pass to `setNextEvent` to `formatsRedirect`.
+
+```js
+event.renderData( data=MyData, formats="xml,json,html,pdf", formatsRedirect={event="Main.index"} );
+```
+
 ### Custom Data Conversion
 
 You can do custom data conversion by convention when marshalling CFCs. If you pass in a CFC as the `data` argument and that CFC has a method called `$renderdata()`, then the marshalling utility will call that function for you instead of using the internal marshalling utilities. You can pass in the custom content type for encoding as well:
 
 ```js
 // get an instance of your custom converter
-myConverter = getModel("MyConverter")
+myConverter = getInstance("MyConverter")
 // put some data in it
 myConverter.setData( data );
 // marshall it out according to your conversions and the content type it supports
