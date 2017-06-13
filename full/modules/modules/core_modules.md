@@ -166,7 +166,7 @@ install cbstorages
 * ForgeBox: http://forgebox.io/view/cbSwagger
 
 
-This module automatically generates OpenAPI ( fka Swagger ) documenation from your configured application and module routes. This module utilizes the v3.0 OpenAPI Specification
+This module automatically generates OpenAPI ( fka Swagger ) documentation from your configured application and module routes. This module utilizes the v3.0 OpenAPI Specification
 
 ```
 install cbswagger
