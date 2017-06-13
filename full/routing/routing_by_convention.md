@@ -11,6 +11,8 @@ The URL pattern in the default route includes two special position holders:
 * `:handler` - The handler to relocate to \(It can include Package and Module\)
 * `:action` - The action to relocate to or a RESTFul map \(We will see later\)
 
+<br>
+
 > **Tip** The `:handler` parameter allows you to nest module names and handler names. Ex: `/module/handler/action`
 
 This route can handle pretty much all your needs by convention.  Any extra name-value pairs discovered in the remaining URL will be translated to variables in the request collection (`rc`) for you automagically.
