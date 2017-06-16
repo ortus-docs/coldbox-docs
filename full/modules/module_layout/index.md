@@ -32,7 +32,6 @@ Below are all the possible combinations of a module layout, you will notice that
     + handlers (optional)
     + layouts  (optional)
     + views    (optional)
-    + plugins  (optional)
     + interceptors (optional)
     + model    (optional)
 ```
