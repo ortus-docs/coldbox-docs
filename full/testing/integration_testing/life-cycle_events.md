@@ -23,3 +23,13 @@ function afterAll(){
 
 The default for integration testing is that the virtual ColdBox application will be destroyed in each test.  To keep the virtual application accross requests you will need to use the `unloadColdBox=false` annotation or the `this.unloadColdBox=false` setting.
 
+```js
+component 
+function beforeAll(){
+	this.unloadColdBox = false;
+	super.beforeAll();
+	// do your own stuff here
+}
+```
+
+
