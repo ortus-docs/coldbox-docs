@@ -86,12 +86,14 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/"{
 				var event = execute( event="hello.index", renderResults=true );
 				// expectations go here.
 				
+				expect( event.getRenderedContent() ).toInclude( "values here" );
+				
 			});
 
 			it( "echo", function(){
 				var event = execute( event="hello.echo", renderResults=true );
 				// expectations go here.
-				
+				expect( event.getRenderedContent() ).toInclude( "values here" );			
 			});
 
 		
