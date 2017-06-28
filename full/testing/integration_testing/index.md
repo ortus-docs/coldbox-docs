@@ -12,7 +12,7 @@ Here are the basics to follow for integration testing:
 * Bundle CFC inherits from `coldbox.system.testing.BaseTestCase`
 * The bundle CFC can have some annotations that tell the testing framework to what ColdBox application to connect to and test
 * Execution of the event is done via the `execute()` method, which returns a request context object
-* Most verifications and assertions are done via the contents of the request context object (request collections)
+* Most verifications and assertions are done via the contents of the request context object \(request collections\)
 
 ```js
 /**
@@ -20,30 +20,31 @@ Here are the basics to follow for integration testing:
 */
 component extends="coldbox.system.testing.BaseTestCase" appMapping="/root"{
 
-	/*********************************** LIFE CYCLE Methods ***********************************/
+    /*********************************** LIFE CYCLE Methods ***********************************/
 
-	function beforeAll(){
-		super.beforeAll();
-		// do your own stuff here
-	}
+    function beforeAll(){
+        super.beforeAll();
+        // do your own stuff here
+    }
 
-	function afterAll(){
-		// do your own stuff here
-		super.afterAll();
-	}
+    function afterAll(){
+        // do your own stuff here
+        super.afterAll();
+    }
 
 /*********************************** BDD SUITES ***********************************/
 
-	function run(){
-	
-	}
+    function run(){
+
+    }
 ```
 
 We will explain later the life-cycle methods and the `run()` method where you will be writing your specs.
 
-> **Hint** Please refer to our BDD primer to start: http://testbox.ortusbooks.com/content/primers/bdd/index.html
+> **Hint** Please refer to our BDD primer to start: [http://testbox.ortusbooks.com/content/primers/bdd/index.html](http://testbox.ortusbooks.com/content/primers/bdd/index.html)
 
 ## CommandBox Generation
+
 Also remember that you can use CommandBox to generate integration tests with a few simple commands:
 
 ```bash
@@ -53,3 +54,6 @@ coldbox create integration-test help
 ```
 
 > **Info** Please also note that whenever you create a handler, interceptor or model with CommandBox it will automatically create the integration or unit test for you.
+
+
+
