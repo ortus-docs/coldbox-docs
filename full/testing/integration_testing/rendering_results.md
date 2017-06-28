@@ -19,4 +19,3 @@ it( "can render users", function(){
    expect( event.getRenderedContent() ).toBeJSON();
 } );
 ```
-
