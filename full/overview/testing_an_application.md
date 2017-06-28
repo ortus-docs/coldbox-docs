@@ -137,7 +137,7 @@ You will then execute your tests and get a text report from it.
 
 ## What's Next
 
-We have a fully dedicated section on [testing](//testing/index.md), please visit it for in-depth information.
+We have a fully dedicated section on [testing](../testing/index.md), please visit it for in-depth information.
 
 
 
