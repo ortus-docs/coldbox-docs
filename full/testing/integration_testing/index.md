@@ -4,7 +4,7 @@ We will begin our adventure with integration testing. Integration testing allows
 
 ## Basics
 
-![](../images/HandlerToTestRelationship.png)
+![](../../images/HandlerToTestRelationship.png)
 
 Here are the basics to follow for integration testing:
 
