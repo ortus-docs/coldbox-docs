@@ -135,7 +135,11 @@ Then use the `testbox run` command:
 testbox run
 ```
 
-You will then execute your tests and get a text report from it.
+You will then execute your tests and get a text report from it.  If you want to CommandBox to watch for changes and re-execute the tests, then start a watcher:
+
+```bash
+testbox watch
+```
 
 ## What's Next
 
