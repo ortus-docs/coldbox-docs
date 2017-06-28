@@ -18,3 +18,8 @@ function afterAll(){
 
 > **Important** If you override any of these methods and do not funnel the super call, then you might get cached or unexpected results. 
 
+
+## Improving Performance
+
+The default for integration testing is that the virtual ColdBox application will be destroyed in each test.  To keep the virtual application accross requests you will need to use the `unloadColdBox=false` annotation or the `this.unloadColdBox=false` setting.
+
