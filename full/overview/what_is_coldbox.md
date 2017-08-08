@@ -2,7 +2,7 @@
 
 ![](/images/ColdBoxLogo2015_300.png)
 
-ColdBox is an conventions-based MVC framework for ColdFusion (CFML). It is fast, scalable, and runs on CFML engines such as Adobe ColdFusion and the open source CFML engine [Railo](http://www.getrailo.org), for a completely free and open source development stack. ColdBox itself is a Professional Open Source Software, backed by [Ortus Solutions](http://www.ortussolutions.com) which provides support, training, architecture, consulting and commercial additions.
+ColdBox is an conventions-based MVC framework for ColdFusion (CFML). It is fast, scalable, and runs on CFML engines such as Adobe ColdFusion and the open source CFML engine [Lucee](http://www.lucee.org), for a completely free and open source development stack. ColdBox itself is a Professional Open Source Software, backed by [Ortus Solutions](http://www.ortussolutions.com) which provides support, training, architecture, consulting and commercial additions.
 
 ColdBox was the first ColdFusion (CFML) framework to embrace Conventions Over Configuration and comes with a modular architecture to enhance developer and team productivity.  It integrates seamlessly with [CommandBox](http://www.ortussolutions.com/products/commandbox) CLI to provide you with REPL interfaces, package management, console development, testing and automation.
 
