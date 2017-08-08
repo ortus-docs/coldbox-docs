@@ -15,11 +15,12 @@
         "github",
         "advanced-emoji",
         "sitemap",
-        "collapsible-chapters"
+        "collapsible-chapters",
+        "anchors"
     ],
     "pluginsConfig": {
         "edit-link": {
-            "base": "https://github.com/coldbox/coldbox-docs/tree/development",
+            "base": "https://github.com/ortus-docs/coldbox-docs/tree/master",
             "label": "Edit This Page"
         },
         "github": {
