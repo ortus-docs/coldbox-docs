@@ -1,6 +1,6 @@
 # Reiniting An Application
 
-There will be a time you do changes to your `ColdBox.cfc` configuration file or anything that might be cached.  You will then need to issue a reinit to the framework so the changes can take effect.  You can do so in two ways:
+There will be times you make changes to your `ColdBox.cfc` configuration file, or anything that might be cached, and will need to issue a reinit to the framework so those changes can take effect.  You can do so in two ways:
 
 1. CommandBox
 2. URL Action
@@ -22,7 +22,7 @@ coldbox reinit password=test
 
 ## URL action
 
-You will use the `fwreinit` URL action which can be anything or if you have setup a password, the password.
+You will use the `fwreinit` URL action which can have any value or, if you have setup a password, the password.
 
 ```
 // no password
