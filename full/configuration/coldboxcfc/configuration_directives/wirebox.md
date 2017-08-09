@@ -16,7 +16,7 @@ The location of the WireBox configuration binder to use for the application. If 
 
 **singletonReload**
 
-A great flag for development. If enabled, on every request WireBox will flush its singleton objects so you can develop without any headaches of reloading.
+A great flag for development. If enabled, WireBox will flush its singleton objects on every request so you can develop without any headaches of reloading.
 
-> **Warning** : This operation can cause some thread issues as it is only meant for development. Use at your own risk.
+> **Warning** : This operation can cause some thread issues and it is only meant for development. Use at your own risk.
 
