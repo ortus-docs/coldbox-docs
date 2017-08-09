@@ -5,7 +5,6 @@ This structure is used to house module configurations.  Please refer to each mod
 
 
 ```js
-
 component {
 
      function configure() {
