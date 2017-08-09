@@ -41,4 +41,4 @@ logBox = {
 
 **ConfigFile**
 
-You can use a configuration CFC instead of inline configuration by using this setting.  The default value is of `config/LogBox.cfc`, so by convention you can just use that location.  If no values are defined or no config file exists the default configuration file is `coldbox/system/web/config/LogBox.cfc`.
+You can use a configuration CFC instead of inline configuration by using this setting.  The default value is `config/LogBox.cfc`, so by convention you can just use that location.  If no values are defined or no config file exists, the default configuration file is `coldbox/system/web/config/LogBox.cfc`.
