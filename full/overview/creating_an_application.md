@@ -11,11 +11,11 @@ Now that we have ColdBox installed we can create our application.  CommandBox an
 * **Simple** : A traditional simple template
 * **SuperSimple** : The bare-bones template
 
-All of these templates are stored in our Github organization: [coldbox-templates](https://github.com/coldbox-templates).  You can send us pull requests or create more templates if you like.
+All these templates are stored in our Github organization: [coldbox-templates](https://github.com/coldbox-templates).  You can send us pull requests or create more templates if you like.
 
 ---
 
-We will be using the `AdvancedScript` template to start.  So go again into CommandBox and type:
+We will be using the `AdvancedScript` template to start, so go into CommandBox and type:
 
 ```bash
 coldbox create app name=MyApp skeleton=AdvancedScript
@@ -44,10 +44,10 @@ This is what it will generate:
 +robots.txt
 ```
 
-> **Info** Remember you can use the tab-completion to get all the necessary input and arguments into the commands.  You can also use the `app-wizard` command and CommandBox will prompt for all your options in a nice CLI wizard. Try it!
+> **Info** Remember you can use tab-completion to get all the necessary input and arguments into the commands.  You can also use the `app-wizard` command and CommandBox will prompt for all the options in a nice CLI wizard. Try it!
 
 <br>
 
 > **Tip** You can also leverage the `--installColdBox` and `--installColdBoxBE` flags to create and install ColdBox in one command.
 
-As you can see it creates all the necessary folders for you to work with. We are now ready to start our application and spice it up.
+As you can see, it creates all the necessary folders for you to work with. We are now ready to start our application and spice it up.
