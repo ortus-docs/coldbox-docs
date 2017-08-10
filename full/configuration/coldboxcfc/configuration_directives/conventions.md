@@ -5,10 +5,10 @@ This element defines custom conventions for your application. By default, the fr
 ```js
 //Conventions
 conventions = {
-	handlersLocation = "controllers",
+	handlersLocation = "handlers",
 	viewsLocation 	 = "views",
-	layoutsLocation  = "views",
-	modelsLocation 	 = "model",
+	layoutsLocation  = "layouts",
+	modelsLocation 	 = "models",
 	modulesLocation  = "modules",
 	eventAction 	 = "index"
 };
