@@ -14,10 +14,10 @@ You can add any key to the datasource configuration structure.  You will then be
 
 ```js
 // Retrieve
-getDatsource( "alias1" );
+getDatasource( "alias1" );
 
 // Inject
 property name="dsn1" inject="coldbox:datasource:alias1";
 ```
 
-> **Info** : Please note that the `getDatsource()` method is not available in your models.  Models are isolated so you will need to inject them with the appropriate datasource structure using the `coldbox:datasource:{alias}` injection DSL.
+> **Info** : Please note that the `getDatasource()` method is not available in your models.  Models are isolated so you will need to inject them with the appropriate datasource structure using the `coldbox:datasource:{alias}` injection DSL.
