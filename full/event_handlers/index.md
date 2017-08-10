@@ -26,7 +26,7 @@ Event handler controllers do not require a constructor because the extended clas
 component{
 
 	function init(){
-		// my stuf here
+		// my stuff here
 		return this;
 	}
 	
@@ -43,21 +43,21 @@ component extends="coldbox.system.EventHandler"{
 	function init( required controller ){
 		// init super
 		super.init( arguments.controller );
-		// my stuf here
+		// my stuff here
 		return this;
 	}
 	
 }
 ```
 
-## Controller Actions
-Every method in this event handler controller that has an access of `public` is automatically exposed as a runnable event in ColdBox and it will be auto-registered for you. That means there is no extra configuration or XML logic to define them. By convention they become alive once you create them and clients can request them. In ColdBox terms, each of these event handler methods are referred to as **actions**. ColdBox captures an incoming variable called `event` (from the form, URL or remote scopes) and uses it to execute the correct event handler and action method.
+## Handler Actions
+Every method in this event handler controller that has an access of `public` is automatically exposed as a runnable event in ColdBox and will be auto-registered for you. That means there is no extra configuration or XML logic to define them. By convention they become alive once you create them and clients can request them. In ColdBox terms, each of these event handler methods are referred to as **actions**. ColdBox captures an incoming variable called `event` (from the form, URL or remote scopes) and uses it to execute the correct event handler and action method.
 
 ```js
 component extends="coldbox.system.EventHandler"{
 
 	function index( event, rc, prc ){
-		return "Hi from controller land!";
+		return "Hi from handler land!";
 	}
 	
 	private function myData( event, rc, prc ){
@@ -89,6 +89,6 @@ Each method action that you write receives some arguments:
 * **rc** : A reference to the request collection inside of the request context object
 * **prc** : A reference to the private request collection inside of the request context object
 
-> **Note** The **rc** and **prc** references each method receives are sent for convenience so you can interact with the structures instead of through the **event** object's methods. Interacting with structures over methods is much more performant.
+> **Note** The **rc** and **prc** references each method receives are sent for convenience so that you can interact with the structures instead of through the **event** object's methods. Interacting with structures over methods is much more performant.
 
-The request context object has tons of methods to help you in setting and getting variables from one layer to another, getting request metadata, rendering RESTful content, setting HTTP headers and more. It is your information superhighway for specific requests. Remember that the API Docs are your best friend!
+The request context object has tons of methods to help you in setting and getting variables from one layer to another, getting request metadata, rendering RESTful content, setting HTTP headers, and more. It is your information superhighway for specific requests. Remember that the API Docs are your best friend!
