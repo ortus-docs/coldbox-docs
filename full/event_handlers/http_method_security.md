@@ -1,6 +1,6 @@
 # HTTP Method Security
 
-More than often you will find that certain web operations needs to be restricted in terms of what HTTP verb is used to access a resource. For example, you do not want form submissions to be done via **GET** but via **POST** or **PUT** operations. HTTP Verb recognition is also essential when building strong RESTFul APIs and security is needed as well.
+More often you will find that certain web operations needs to be restricted in terms of what HTTP verb is used to access a resource. For example, you do not want form submissions to be done via **GET** but via **POST** or **PUT** operations. HTTP Verb recognition is also essential when building strong RESTFul APIs when security is needed as well.
 
 ## Manual Solution
 You can do this manually, but why do the extra coding :)
@@ -22,7 +22,7 @@ This solution is great and works, but it is not THAT great. We can do better, ho
 
 ## Allowed Methods Property
 
-Another feature property on an event handler is called <code>this.allowedMethods</code> and it is a declarative structure that you can use to determine what are the allowed HTTP methods for any action on the event handler. If the request action HTTP method is not found in the list then it will look for a <code>onInvalidHTTPMethod()</code> (See [Docs](convention_methods.md)) on the handler, call it if found, else ColdBox throws a 405 exception that is uniform across requests.
+Another feature property on an event handler is called <code>this.allowedMethods</code>. It is a declarative structure that you can use to determine what the allowed HTTP methods are for any action on the event handler. If the request action HTTP method is not found in the list, it will look for a <code>onInvalidHTTPMethod()</code> (See [Docs](convention_methods.md)) on the handler and call it if found.  Otherwise ColdBox throws a 405 exception that is uniform across requests.
 
 ```js
 component{
