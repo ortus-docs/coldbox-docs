@@ -1,6 +1,6 @@
 # Composed Properties
 
-It is imperative that you realize that there is a great object model behind every event handler controller that will enable you to do your work more efficiently. The following are the composed properties every event handler has in their <code>variables</code> scope, you do not need to do anything to retreive them, they are already there :)
+It is imperative that you realize that there is a great object model behind every event handler controller that will enable you to do your work more efficiently. The following are the composed properties every event handler has in their <code>variables</code> scope, you do not need to do anything to retrieve them, they are already there.  :)
 
 ![Event Handlers](/images/EventHandlers.jpg)
 
@@ -13,7 +13,7 @@ It is imperative that you realize that there is a great object model behind ever
 * **$super** : A reference to the virtual super class (<code>coldbox.system.EventHandler</code>) Only if using the non-inheritance approach
 
 ## Logging
-Logging is an important aspect of any application as it allows you to report textual information about your application's state or environment. ColdBox has powerful logging capabilities via LogBox and your event handlers are already configured to use it, really, just use it. The <code>log</code> object is LogBox logger already configured for your event handler and you can use it for logging:
+Logging is an important aspect of any application as it allows you to report textual information about your application's state or environment. ColdBox has powerful logging capabilities via LogBox and your event handlers are already configured to use it. Really, just use it. The <code>log</code> object is LogBox logger already configured for your event handler and you can use it for logging:
 
 **Logger Interface**
 ```js
