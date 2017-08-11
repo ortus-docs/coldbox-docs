@@ -1,20 +1,20 @@
 # Model Integration
 
-We have a complete section dedicated to the [Model Layer](../models/index.md) but we wanted to review a little here since event handlers need to talk to the model layer all the time. By default you can interact with your models from your event handlers in two ways:
+We have a complete section dedicated to the [Model Layer](../models/index.md), but we wanted to review a little here since event handlers need to talk to the model layer all the time. By default, you can interact with your models from your event handlers in two ways:
 
 *  Dependency Injection (Aggregation)
 *  Request Model Objects (Association)
 
 
-ColdBox offers its own dependency injection framework, [WireBox](http://wirebox.ortusbooks.com), which allows you by convention to talk to your model objects. However, ColdBox also allows you to connecto to third-party dependency injection frameworks via our *IOC* module: http://forgebox.io/view/cbioc
+ColdBox offers its own dependency injection framework, [WireBox](http://wirebox.ortusbooks.com), which allows you, by convention, to talk to your model objects. However, ColdBox also allows you to connecto to third-party dependency injection frameworks via our *IOC* module: http://forgebox.io/view/cbioc
 
 ## Dependency Injection
 
 ![](/images/EventHandlerInjection.jpg)
 
-Your event handlers can be autowired with dependencies from any dependency injection framework. By autowiring dependencies into event handlers, they will become part of the life span of the event handlers (singleton) and thus gain on the performance that an event handler is wired with all necessary parts upon creation. This is a huge benefit and we encourage you to use injection whenever possible.
+Your event handlers can be autowired with dependencies from any dependency injection framework. By autowiring dependencies into event handlers, they will become part of the life span of the event handlers (singleton) and thus gain on the performance that an event handler is wired as with all necessary parts upon creation. This is a huge benefit and we encourage you to use injection whenever possible.
 
-> **Info** As a rule of thumb, injection only singletons into singletons.
+> **Info** As a rule of thumb, inject only singletons into singletons.
 
 Please note that injection [aggregates](http://en.wikipedia.org/wiki/Object_composition) model objects into your event handlers. The [Injection DSL](http://wirebox.ortusbooks.com/content/injection_dsl/index.html) can be applied to: 
  
@@ -30,13 +30,13 @@ It will be your choice to pick an approach, but we mostly concentrate on propert
 
 ![](/images/EventHandlerModelRequested.jpg)
 
-The other approach to integrating with model objects is to request them and use them as [associations](http://en.wikipedia.org/wiki/Association_%28object-oriented_programming%29). We would recommend requesting objects if they are transient objects or stored in some other volatile storage scope. Retreiving of objects is ok, but if you will be dealing with mostly singleton objects or objects that are created only once, you will gain much more performance by using injection. 
+The other approach to integrating with model objects is to request and use them as [associations](http://en.wikipedia.org/wiki/Association_%28object-oriented_programming%29). We would recommend requesting objects if they are transient objects or stored in some other volatile storage scope. Retreiving of objects is ok, but if you will be dealing with mostly singleton objects or objects that are created only once, you will gain much more performance by using injection. 
  
  > **Info** Association defines a relationship between classes of objects that allows one object instance to cause another to perform an action on its behalf. - 'wikipedia'
  
  ## A practical example
  
-In this practical example we will see how to integrate with our model layer via WireBox, injections and also requesting the objects. Let's say that we have a service object we have built called `FunkyService.cfc` and by convention we will place it in our applications `models` folder.
+In this practical example we will see how to integrate with our model layer via WireBox, injections, and also requesting the objects. Let's say that we have a service object we have built called `FunkyService.cfc` and by convention we will place it in our applications `models` folder.
  
  ```js
  + application
@@ -68,7 +68,7 @@ component singleton{
 }
 ```
 
-Our funky service is not that funky after all, but it is simple. So how do we interact with it? Let's build a Funky event handler and work with it.
+Our funky service is not that funky after all, but it is simple. How do we interact with it? Let's build a Funky event handler and work with it.
 
 ### Injection
 
@@ -89,7 +89,7 @@ component{
 }
 ```
 
-So by convention, I can create a property and annotate it with a `inject` attribute and ColdBox will look for that model object by the given name in the `models` folder, create it, persist it, wire it and return it. If you execute it, you will get something like this:
+By convention, I can create a property and annotate it with an `inject` attribute. ColdBox will look for that model object by the given name in the `models` folder, create it, persist it, wire it, and return it. If you execute it, you will get something like this:
 
 ```js
 <array>
@@ -120,11 +120,11 @@ So by convention, I can create a property and annotate it with a `inject` attrib
 </array>
 ```
 
-Great! Just like that we can interact with our model layer without worrying about creating the objects, persisting them and even wiring them. That is exactly all the benefits that dependency injection and model integration bring to the table.
+Great! Just like that we can interact with our model layer without worrying about creating the objects, persisting them, and even wiring them. Those are all the benefits that dependency injection and model integration bring to the table.
 
 #### Alternative wiring
 
-You can use the value of the `inject` annotation in several ways, below is our recommendation.
+You can use the value of the `inject` annotation in several ways. Below is our recommendation.
 
 ```js
 // Injection using the DSL by default name/id lookup
@@ -171,7 +171,7 @@ component{
 }
 ```
 
-Both approaches do exactly the same, in all reality `getModel()` does a `wirebox.getInstance()` callback (Uncle Bob), it is a facade method that is easier to remember. If you run this, you will also see that it works and everything is fine and dandy. However, the biggest difference can be seen with some practical math:
+Both approaches do exactly the same thing.  In reality `getModel()` does a `wirebox.getInstance()` callback (Uncle Bob), but it is a facade method that is easier to remember. If you run this, you will also see that it works and everything is fine and dandy. However, the biggest difference can be seen with some practical math:
 
 ```js
 1000 Requests made
