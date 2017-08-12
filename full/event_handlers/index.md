@@ -79,7 +79,7 @@ The default action of ANY handlers is the method `index()`.  If you try to execu
 
 ```js
 function myAction( event, rc, prc ){
-	return "Hi from controller land!";
+	return "Hi from handler land!";
 }
 ```
 
