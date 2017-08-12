@@ -1,8 +1,8 @@
 # Rendering Data
-Every event handler controller can render data back to its caller in several formats: views/layouts, return data and <code>event.renderdata()</code>. 
+Every event handler controller can render data back to its caller in several formats: views/layouts, return data, and <code>event.renderdata()</code>. 
 
 ## Handler Return Data
-Handlers can return simple strings or complex objects. If they return simple strings then the strings will be rendered out to the user:
+Handlers can return simple strings or complex objects. If they return simple strings, then the strings will be rendered out to the user:
 
 ```js
 function index(event,rc,prc){
@@ -89,7 +89,7 @@ function renderData(
 Below are a few simple examples:
 
 ```js
-// htmol marshalling
+// html marshalling
 function renderHTML(event,rc,prc){
     event.renderData( data="<h1>My HTML</h1>" );
 }
@@ -105,10 +105,10 @@ function getUsersJSON(event,rc,prc){
 }
 ```
 
-As you can see, it is very easy to render data back to the browser or caller. You can even choose plain and send HTML back if you wanted too. 
+As you can see, it is very easy to render data back to the browser or caller. You can even choose plain and send HTML back if you wanted to. 
 
 ### Render PDFs
-You can also render out PDF's from ColdBox using the render data method. The data argument can be either the full binary of the PDF or simple values to be rendered out as a PDF, like views, layouts, strings, etc.
+You can also render out PDFs from ColdBox using the render data method. The data argument can be either the full binary of the PDF or simple values to be rendered out as a PDF; like views, layouts, strings, etc.
 
 ```js
 // from binary
@@ -163,13 +163,13 @@ Where you need to param the incoming format extension, then do a switch and do s
 event.renderData( data=MyData, formats="xml,json,html,pdf" );
 ```
 
-That's it! ColdBox will figure out how to deal with all the passed in formats for you that `renderdata` can use. By convention it will use the name of the incoming event as the view that will be rendered for HTML and PDF; implicit views. So if the event was users.list then the view would be views/users/list.cfm. However, you can tell us which view you like if it is named different:
+That's it! ColdBox will figure out how to deal with all the passed in formats for you that `renderdata` can use. By convention it will use the name of the incoming event as the view that will be rendered for HTML and PDF; implicit views. If the event was users.list, then the view would be views/users/list.cfm. However, you can tell us which view you like if it is named different:
 
 ```js
 event.renderData( data=MyData, formats="xml,json,html,pdf", formatsView="data/MyView" );
 ```
 
-And if you need to redirect for html events, you can pass any arguments you normally would pass to `setNextEvent` to `formatsRedirect`.
+If you need to redirect for html events, you can pass any arguments you normally would pass to `setNextEvent` to `formatsRedirect`.
 
 ```js
 event.renderData( data=MyData, formats="xml,json,html,pdf", formatsRedirect={event="Main.index"} );
