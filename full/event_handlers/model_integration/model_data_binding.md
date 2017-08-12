@@ -1,6 +1,6 @@
 # Model Data Binding
 
-The framework also offers you the capability to bind incoming FORM/URL/REMOTE data into your model objects by convention.  This is done via [WireBox's object population](http://wirebox.ortusbooks.com/content/wirebox_object_populator/index.html) capabilities. The easiest approach is to use our `populateModel()` function which will populate object from the incoming `rc` (request collection).
+The framework also offers you the capability to bind incoming FORM/URL/REMOTE data into your model objects by convention.  This is done via [WireBox's object population](http://wirebox.ortusbooks.com/content/wirebox_object_populator/index.html) capabilities. The easiest approach is to use our `populateModel()` function which will populate the object from the incoming `rc` (request collection).
 
 This will try to match incoming variable names to setters or properties in your domain objects and then populate them for you.  It can even do ORM entities with ALL of their respective relationships. Here is a snapshot of the method:
 
@@ -39,7 +39,7 @@ function populateModel(
 )
 ```
 
-Let's do a quick sample:
+Let's do a quick example:
 
 **Person.cfc** 
 
