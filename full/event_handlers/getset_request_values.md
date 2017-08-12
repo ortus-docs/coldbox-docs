@@ -1,6 +1,6 @@
 # Get/Set Request Values
 
-We all need values in our applications, and that is why we will interact with the request context in order to place data from our model layer so our views can display it or retreive data from a user's request. So you will either interact with the event object to get/set values or put/read values directly via the received rc and prc references. We recommend using the references as structures are much faster than method calls. However, the event object should not be discarded as it has some pretty cool and funky methods of its own. Below are some examples of its coolness!
+We all need values in our applications. That is why we interact with the request context in order to place data from our model layer into it so our views can display it, or to retrieve data from a user's request. You will either interact with the event object to get/set values or put/read values directly via the received rc and prc references. We recommend using the references as structures which are much faster than method calls. The event object should not be discarded, however, as it has some pretty cool and funky methods of its own. Below are some examples of its coolness!
 
 <img src="/images/RequestCollectionDataBus.jpg">
 
@@ -51,7 +51,7 @@ event.setView( view="blog/userinfo", layout="ajax" );
 
 ```
 
-> **Important** The most important paradigm shift from procedural to an MVC framework is that you NO LONGER will be talking to URL, FORM, REQUEST or any ColdFusion scope from within your handlers, layouts and views. The request collection already has URL, FORM and REQUEST scope capabilities, so leverage it.
+> **Important** The most important paradigm shift from procedural to an MVC framework is that you NO LONGER will be talking to URL, FORM, REQUEST or any ColdFusion scope from within your handlers, layouts, and views. The request collection already has URL, FORM, and REQUEST scope capabilities, so leverage it.
 
 
 
