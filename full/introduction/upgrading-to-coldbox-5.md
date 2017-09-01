@@ -15,11 +15,33 @@ The `datasources` configuration setting directive has been dropped in favor of j
 
 **Previous**
 ```js
+// Datasource definitions
+datasources = {
+    mydsn = {
+        type = "mysql",
+        username = "luis",
+        name = "mydsn"
+    }
+}
+
+// Injections
 property name="dsn" inject="coldbox:datasource:mydsn"
 ```
 
 **New**
 ```js
+// Settings
+settings = {
+    mydsn = {
+        type = "mysql",
+        username = "luis",
+        name = "mydsn"
+    }
+}
+
+
+// Injections
+
 property name="dsn" inject="coldbox:settings:mydsn"
 ```
 
