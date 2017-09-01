@@ -1,8 +1,9 @@
 # Summary
 
 * [Introduction](README.md)
-  * [What's New With 4.3.0](introduction/whats_new_with_430.md)
   * [What's New With 5.0.0](introduction/whats-new-with-500.md)
+  * [Upgrading to ColdBox 5](introduction/upgrading-to-coldbox-5.md)
+  * [What's New With 4.3.0](introduction/whats_new_with_430.md)
   * [What's New With 4.2.0](introduction/whats_new_with_420.md)
   * [What's New With 4.1.0](introduction/whats_new_with_410.md)
   * [What's New With 4.0.0](introduction/whats_new_with_400.md)
