@@ -5,9 +5,9 @@ upgrade to this release from previous ColdBox versions. You can also
 check out the [What's New](whats_new_with_500.md) guide to give you a full
 overview of the changes.
 
-## ColdFusion 9 Support Dropped
+## ColdFusion 9-10 Support Dropped
 
-ColdFusion 9 support has been dropped.
+ColdFusion 9-10 support has been dropped.  Adobe doesn't support them anymore, so do we.
 
 ## Datasources Configuration Dropped
 
