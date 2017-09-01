@@ -7,7 +7,7 @@ overview of the changes.
 
 ## ColdFusion 9-10 Support Dropped
 
-ColdFusion 9-10 support has been dropped.  Adobe doesn't support them anymore, so do we.  
+ColdFusion 9-10 support has been dropped.  Adobe doesn't support them anymore, so do we.
 
 ## Datasources Configuration Dropped
 
