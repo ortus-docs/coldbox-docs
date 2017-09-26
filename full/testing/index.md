@@ -14,7 +14,7 @@ So let's get started by opening a CommandBox prompt (`box`) in your application 
 install testbox --saveDev
 
 // bleeding edge
-install testbox-be --saveDev
+install testbox@be --saveDev
 ```
 
 > **Info** The `--saveDev` flag tells CommandBox to save TestBox locally only for testing purposes as it will not be used to send TestBox for production (http://commandbox.ortusbooks.com/content/packages/dependencies.html)
