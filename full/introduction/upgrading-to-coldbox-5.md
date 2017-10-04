@@ -5,6 +5,10 @@ upgrade to this release from previous ColdBox versions. You can also
 check out the [What's New](whats_new_with_500.md) guide to give you a full
 overview of the changes.
 
+## Railo Support Dropped
+
+Railo support dropped. Any classes that started with the word `Railo` need to be changed to `Lucee` especially on the CacheBox providers.
+
 ## ColdFusion 9-10 Support Dropped
 
 ColdFusion 9-10 support has been dropped.  Adobe doesn't support them anymore, so do we.
