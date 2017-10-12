@@ -110,16 +110,9 @@ The default route for our `user.cfc` handler is `/api/user`, but what if we want
 Let's add the following new routes to our `/config/routes.cfm` file BEFORE the default route.
 
 ```js
-// map base route to list users
-addRoute(
-  pattern = 'api/user',
-  handler = 'api.user',
-  action = 'index'
-);
-
 // Map route to specific user.  Different verbs call different actions!
 addRoute(
-  pattern = 'api/user/:userID?',
+  pattern = 'api/user/:userID',
   handler = 'api.user',
   action = {
     GET = 'view',
@@ -127,6 +120,13 @@ addRoute(
     PUT = 'save',
     DELETE = 'remove'
   });
+
+// map base route to list users
+addRoute(
+  pattern = 'api/user',
+  handler = 'api.user',
+  action = 'index'
+);
 ```
 
 You can see if that if action is a string, all HTTP verbs will be mapped there, however a `struct` can also be provided that maps different verbs to different actions. This gives you exact control over how the requests are routed.
