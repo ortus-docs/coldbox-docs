@@ -56,7 +56,7 @@ You have now created a RESTFul service for your contacts listing, enjoy it.
 
 ## Routing
 
-Let's add a new route to our system that is more RESTFul than `/contacts/index.json`.  You will do so by leveraging the application's routing file found at `config/routes.cfm`.  Open it and add the following new route pattern:
+Let's add a new route to our system that is more RESTFul than `/contacts/index.json`.  You will do so by leveraging the application's routing file found at `config/routes.cfm`.  Open it and add the following new route pattern before the ColdBox default route:
 
 ```
 addRoute( 
@@ -76,4 +76,4 @@ You can now visit the new URL pattern and you have successfully built a RESTFul 
 http://localhost:{port}/api/contacts.json
 ```
 
-> **Note** You can find much more about routing in our [full docs](//full/routing/index.md)
+> **Note** You can find much more about routing in our [full docs](../full/routing/index.md)
