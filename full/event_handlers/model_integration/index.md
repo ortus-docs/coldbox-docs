@@ -1,18 +1,18 @@
 # Model Integration
 
-We have a complete section dedicated to the [Model Layer](../models/index.md), but we wanted to review a little here since event handlers need to talk to the model layer all the time. By default, you can interact with your models from your event handlers in two ways:
+We have a complete section dedicated to the [Model Layer](../../models/index.md), but we wanted to review a little here since event handlers need to talk to the model layer all the time. By default, you can interact with your models from your event handlers in two ways:
 
 *  Dependency Injection (Aggregation)
 *  Request Model Objects (Association)
 
 
-ColdBox offers its own dependency injection framework, [WireBox](http://wirebox.ortusbooks.com), which allows you, by convention, to talk to your model objects. However, ColdBox also allows you to connecto to third-party dependency injection frameworks via our *IOC* module: http://forgebox.io/view/cbioc
+ColdBox offers its own dependency injection framework, [WireBox](http://wirebox.ortusbooks.com), which allows you, by convention, to talk to your model objects. However, ColdBox also allows you to connect to third-party dependency injection frameworks via our *IOC* module: http://forgebox.io/view/cbioc
 
 ## Dependency Injection
 
 ![](/images/EventHandlerInjection.jpg)
 
-Your event handlers can be autowired with dependencies from any dependency injection framework. By autowiring dependencies into event handlers, they will become part of the life span of the event handlers (singleton) and thus gain on the performance that an event handler is wired as with all necessary parts upon creation. This is a huge benefit and we encourage you to use injection whenever possible.
+Your event handlers can be autowired with dependencies from any dependency injection framework. By autowiring dependencies into event handlers, they will become part of the life span of the event handlers (singleton). This is a huge performance benefit since event handlers are wired with all necessary parts upon creation.  We encourage you to use injection whenever possible.
 
 > **Info** As a rule of thumb, inject only singletons into singletons.
 
@@ -30,7 +30,7 @@ It will be your choice to pick an approach, but we mostly concentrate on propert
 
 ![](/images/EventHandlerModelRequested.jpg)
 
-The other approach to integrating with model objects is to request and use them as [associations](http://en.wikipedia.org/wiki/Association_%28object-oriented_programming%29). We would recommend requesting objects if they are transient objects or stored in some other volatile storage scope. Retreiving of objects is ok, but if you will be dealing with mostly singleton objects or objects that are created only once, you will gain much more performance by using injection. 
+The other approach to integrating with model objects is to request and use them as [associations](http://en.wikipedia.org/wiki/Association_%28object-oriented_programming%29). We would recommend requesting objects if they are transient objects or stored in some other volatile storage scope. Retreiving of objects is okay, but if you will be dealing with mostly singleton objects or objects that are created only once, you will gain much more performance by using injection. 
  
  > **Info** Association defines a relationship between classes of objects that allows one object instance to cause another to perform an action on its behalf. - 'wikipedia'
  

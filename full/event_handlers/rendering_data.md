@@ -136,7 +136,7 @@ function pdf(event,rc,prc){
 
 ### Renderdata With Formats
 
-The `renderData()` method has also two powerful arguments: `formats & formatsView`. If you currently have code like this:
+The `renderData()` method also has two powerful arguments: `formats & formatsView`. If you currently have code like this:
 
 ```js
 event.paramValue("format", "html");

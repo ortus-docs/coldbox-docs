@@ -1,13 +1,13 @@
 # Event Handlers
 
-Event handlers are ColdBox's version of **controllers** in the MVC design pattern. So every time you hear "event handler," you are taking about a controller that can listen to external events or internal events in ColdBox.
+Event handlers are ColdBox's version of **controllers** in the MVC design pattern. So every time you hear "event handler," you are talking about a controller that can listen to external events or internal events in ColdBox.
 
 <img src="/images/ControllerLayer.jpg">
 
 ## CFCs
 Event handlers are implemented as CFCs that are responsible for handling requests coming into the application from either a local source (like form, URL or REST) or a remote source (like Flex, Air or SOAP). These event handlers carry the task of controlling your application flow, calling business logic, preparing a display to a user and more.
 
-> **Info:** Event Handlers are treated as **singletons** by ColdBox, so make sure you make them thread-safe and properly scoped. Persistence is controller by the <code>coldbox.handlerCaching</code> directive
+> **Info:** Event Handlers are treated as **singletons** by ColdBox, so make sure you make them thread-safe and properly scoped. Persistence is controlled by the <code>coldbox.handlerCaching</code> directive
 
 A simple event handler:
 ```js
@@ -16,7 +16,7 @@ component extends="coldbox.system.EventHandler"{
 }
 ```
 
-> **Info** You can also remove the inheritance from the CFC.  However, we highly encourage it as it will give you a faster startup and IDE introspection.
+> **Info** You can also remove the inheritance from the CFC (preferred method) and WireBox will extend the <code>coldbox.system.EventHandler</code> for you using [Virtual Inheritance](https://wirebox.ortusbooks.com/content/virtual_inheritance/).
 
 ## Constructors
 Event handler controllers do not require a constructor because the extended class already provides one.  However, if you want one, you can still create one:
