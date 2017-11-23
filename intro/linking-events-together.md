@@ -7,7 +7,7 @@ Edit the `views/virtual/hello.cfm` page and wrap the content in a `cfoutput` and
 ```
 <cfoutput>
 <h1>Hello from ColdBox Land!</h1>
-<p><a href="#event.buildLink( "main.index" )"#>Go home</a></p>
+<p><a href="#event.buildLink( "main.index" )#">Go home</a></p>
 </cfoutput>
 ```
 
