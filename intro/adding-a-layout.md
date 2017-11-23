@@ -27,7 +27,7 @@ Open the `layouts/Funky.cfm` layout and let's modify it a bit by adding the foot
 <cfoutput>#renderView()#</cfoutput>
 
 <hr>
-#renderView( "main/footer" )#
+<cfoutput>#renderView( "main/footer" )#</cfoutput>
 ```
 
 Now, let's open the handler we created before called `handlers/hello.cfc` and add some code to use our new layout explicitly via adding a `layout` argument to our `setView()` call.
