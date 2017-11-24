@@ -10,7 +10,7 @@ overview of the changes.
 
 The `buildLink()` method had the argument `linkTo` to denote the event or route to link to.  This was verbose, so we shortened it to `to`:
 
-```js
+```html
 // previous
 <a href="#event.buildLink( linkTo="/about/us" )#">About Us</a>
 
