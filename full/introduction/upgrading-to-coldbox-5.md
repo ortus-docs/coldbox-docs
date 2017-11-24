@@ -12,10 +12,10 @@ The `buildLink()` method had the argument `linkTo` to denote the event or route 
 
 ```js
 // previous
-<a href="#event.buildLink( linkTo="/about/us" )#>About Us</a>
+<a href="#event.buildLink( linkTo="/about/us" )#">About Us</a>
 
 // New
-<a href="#event.buildLink( linkTo="/about/us" )#>About Us</a>
+<a href="#event.buildLink( linkTo="/about/us" )#">About Us</a>
 ```
 
 ## Railo Support Dropped
