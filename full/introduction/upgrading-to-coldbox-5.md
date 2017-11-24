@@ -10,12 +10,12 @@ overview of the changes.
 
 The `buildLink()` method had the argument `linkTo` to denote the event or route to link to.  This was verbose, so we shortened it to `to`:
 
-```html
-// previous
+```
+<!-- Before -->
 <a href="#event.buildLink( linkTo="/about/us" )#">About Us</a>
 
-// New
-<a href="#event.buildLink( linkTo="/about/us" )#">About Us</a>
+<!-- After -->
+<a href="#event.buildLink( to="/about/us" )#">About Us</a>
 ```
 
 ## Railo Support Dropped
