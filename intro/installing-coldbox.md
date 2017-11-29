@@ -3,6 +3,13 @@
 
 Welcome to the world of ColdBox! We are excited you are taking this development journey with us. Before we get started with ColdBox let's install CommandBox CLI, which will allow you to install/uninstall dependencies, start servers and much more.
 
+## IDE Tools
+
+ColdBox has the following supported IDE Tools:
+
+- Sublime - https://packagecontrol.io/packages/ColdBox%20Platform
+- VSCode - https://marketplace.visualstudio.com/items?itemName=ortus-solutions.vscode-coldbox
+- CFBuilder - https://www.forgebox.io/view/ColdBox-Platform-Utilities
 
 
 ## CommandBox CLI
