@@ -12,3 +12,8 @@ We have a native extension for ColdFusion Builder which will allow you to extend
 
 We have a package for Sublime 2/3 and you can visit the repository for the necessary installation steps: https://github.com/lmajano/cbox-coldbox-sublime
 
+## Microsoft Visual Studio Code
+
+- https://marketplace.visualstudio.com/items?itemName=ortus-solutions.vscode-coldbox
+- https://marketplace.visualstudio.com/items?itemName=ortus-solutions.vscode-testbox
+
