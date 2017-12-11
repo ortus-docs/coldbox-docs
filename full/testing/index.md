@@ -52,3 +52,4 @@ It might be that testing is tedious and takes time to get into the flow of Behav
 * [TestBox BDD Book](http://testbox.ortusbooks.com) - http://testbox.ortusbooks.com
 * [ColdFusion Builder TestBox Extensions](http://forgebox.io/view/coldbox-platform-utilities) - http://forgebox.io/view/coldbox-platform-utilities
 * [Sublime TestBox Extension](https://github.com/lmajano/cbox-coldbox-sublime) - https://github.com/lmajano/cbox-coldbox-sublime
+* [VSCode TestBox Extension](https://marketplace.visualstudio.com/items?itemName=ortus-solutions.vscode-testbox) - https://marketplace.visualstudio.com/items?itemName=ortus-solutions.vscode-testbox
