@@ -9,12 +9,14 @@ Interceptors are CFCs that extend the ColdBox Interceptor class (`coldbox.system
 * My Interceptor
 */
 component extends="coldbox.system.Interceptor"{
-	
+
 	function configure(){}
 
 	function preProcess( event, interceptData, buffer, rc, prc ){}
 }
 ```
+
+> **Info** You can also remove the inheritance from the CFC (preferred method) and WireBox will extend the <code>coldbox.system.Interceptor</code> for you using [Virtual Inheritance](https://wirebox.ortusbooks.com/content/virtual_inheritance/).
 
 You can use CommandBox to create interceptors as well:
 
@@ -30,10 +32,10 @@ In `ColdBox.cfc`:
 ```cfml
 // Interceptors registration
 interceptors = [
-	{ 
+	{
 		class   = "cfc.path",
 		name    = "unique name/wirebox ID",
-		properties = { 
+		properties = {
 			// configuration
 		}
 	}
@@ -46,7 +48,7 @@ controller.getInterceptorService().registerInterceptor( interceptorClass="cfc.pa
 ```
 
 ## The `configure()` Method
-The interceptor has one important method that you can use for configuration called `configure()`. This method will be called right after the interceptor gets created and injected with your interceptor properties. 
+The interceptor has one important method that you can use for configuration called `configure()`. This method will be called right after the interceptor gets created and injected with your interceptor properties.
 
 > **Info** These properties are local to the interceptor only!
 

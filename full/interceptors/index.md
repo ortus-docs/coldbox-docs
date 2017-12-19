@@ -7,7 +7,7 @@ Interceptors are CFC listeners that react on incoming events.  Events can be ann
 
 
 ## Event Driven Programming
-The way that interceptors are used is usually referred to as event-driven programming, which can be very similiar if you are already doing any JavaScript or AngularJS coding.  You can listen and execute intercepting points anywhere you like in your application, you can even produce content whenever you announce:
+The way that interceptors are used is usually referred to as event-driven programming, which can be very familiar if you are already doing any JavaScript or AngularJS coding.  You can listen and execute intercepting points anywhere you like in your application, you can even produce content whenever you announce:
 
 **Custom Announcements**
 ```html
@@ -29,11 +29,11 @@ If you are familiar with design patterns, custom interceptors can give you an im
 **Interceptor Example**
 ```js
 component extends="coldbox.system.Interceptor"{
-    
+
     function onError( event, interceptData={} ){
         // Listen to onError events
     }
-    
+
 }
 ```
 
@@ -47,7 +47,7 @@ component extends="coldbox.system.Interceptor"{
 
 ### For what can I use them
 
-Below are just a few applications of ColdBox Interceptors: 
+Below are just a few applications of ColdBox Interceptors:
 
 * Security
 * Event based Security
@@ -60,4 +60,4 @@ Below are just a few applications of ColdBox Interceptors:
 * Custom SES support
 * Cache advices on insert and remove
 * Much much more...
-* 
+*
