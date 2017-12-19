@@ -9,8 +9,8 @@ coldbox create model name=ContactService persistence=singleton --open
 Then spice it up
 
 ```js
-component accessors="true"{
-	
+component accessors="true" singleton{
+
 	// Dependency Injection
 	property name="dao" inject="ContactDAO";
 	property name="log" inject="logbox:logger:{this}";
@@ -27,7 +27,7 @@ component accessors="true"{
 	function list(boolean asQuery=false){
 		var q = dao.getAllUsers();
 		log.info("Retrieved all contacts", q.recordcount);
-		
+
 		if( asQuery ){ return q; }
 
 		// convert to objects
@@ -60,5 +60,5 @@ component accessors="true"{
 
 Now, some observations of the code:
 
-* We use the populator object that is included in WireBox to make our lives easier so we can populate objects from queries and deal with objects. 
+* We use the populator object that is included in WireBox to make our lives easier so we can populate objects from queries and deal with objects.
 * We also inject a reference to the object factory WireBox so it can create `Contact` objects for us. Why? Well what if those objects had dependencies as well.
