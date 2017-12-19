@@ -1,6 +1,6 @@
 # InterceptorSettings
 
-This structures configures the interceptor service in your application.
+This structure configures the interceptor service in your application.
 
 ```js
 //Interceptor Settings
@@ -16,7 +16,7 @@ This tells the interceptor service to throw an exception if the state announced 
 
 ## `customInterceptionPoints`
 
-This key is a comma delimited list or an array of custom interception points you will be registering for custom announcements in your application. This is the way to provide an observer-observable pattern to your applications. 
+This key is a comma delimited list or an array of custom interception points you will be registering for custom announcements in your application. This is the way to provide an observer-observable pattern to your applications.
 
 > **Info** Please see the [Interceptors](../../../interceptors/index.md) section for more information.
 

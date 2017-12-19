@@ -212,7 +212,7 @@ As easy as that was, you're just scratching the surface of what ColdBox can do f
 * Drop-in security system
 * Sweet REST web service support
 
-If you run in issues or just have questions, please jump on our [ColdBox Google Group](https://groups.google.com/forum/#!forum/coldbox) and ask away.
+If you run into issues or just have questions, please jump on our [ColdBox Google Group](https://groups.google.com/forum/#!forum/coldbox) and ask away.
 
 ColdBox is Professional Open Source under the Apache 2.0 license. We'd love to have your help with the product.
 

@@ -29,7 +29,7 @@ component{
 		// my stuff here
 		return this;
 	}
-	
+
 }
 ```
 
@@ -46,7 +46,7 @@ component extends="coldbox.system.EventHandler"{
 		// my stuff here
 		return this;
 	}
-	
+
 }
 ```
 
@@ -59,7 +59,7 @@ component extends="coldbox.system.EventHandler"{
 	function index( event, rc, prc ){
 		return "Hi from handler land!";
 	}
-	
+
 	private function myData( event, rc, prc ){
 		return ['coldbox', 'wirebox', 'cachebox', 'logbox'];
 	}
@@ -70,7 +70,7 @@ So what about <code>private</code> functions?  You can still use them in your ap
 
 
 ### Default Action: index()
-The default action of ANY handlers is the method `index()`.  If you try to execute an event handler without defining an action, ColdBox will look execute the default action instead.
+The default action of ANY handlers is the method `index()`.  If you try to execute an event handler without defining an action, ColdBox will execute the default action instead.
 
 > **Danger** : Event Handlers are not to be used to write business logic.  They should be light and fluffy!
 
