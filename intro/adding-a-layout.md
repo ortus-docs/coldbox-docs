@@ -23,13 +23,11 @@ coldbox create view name="main/footer"
 Open the `layouts/Funky.cfm` layout and let's modify it a bit by adding the footer view as a rendering region.
 
 ```html
-<cfoutput>
 <h1>funky Layout</h1>
-#renderView()#
+<cfoutput>#renderView()#</cfoutput>
 
 <hr>
-#renderView( "main/footer" )#
-</cfoutput>
+<cfoutput>#renderView( "main/footer" )#</cfoutput>
 ```
 
 Now, let's open the handler we created before called `handlers/hello.cfc` and add some code to use our new layout explicitly via adding a `layout` argument to our `setView()` call.
@@ -42,7 +40,7 @@ function index( event, rc, prc ){
     event.paramValue( "name", "nobody" );
     // set a private variable
     prc.when = dateFormat( now(), "full" );
-    
+
     // set the view to render with our new layout
     event.setView( view="hello/index", layout="Funky" );
 }

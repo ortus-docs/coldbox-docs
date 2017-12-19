@@ -133,4 +133,4 @@ gulp watch
 
 ## Further Documentation
 
-ColdBox Elixir is fully documented here: https://github.com/ColdBox/elixir/wiki.  So please head on over there to get a deeper perspective of our asset pipeline manager.
+ColdBox Elixir is fully documented here: https://coldbox-elixir.ortusbooks.com.  So please head on over there to get a deeper perspective of our asset pipeline manager.

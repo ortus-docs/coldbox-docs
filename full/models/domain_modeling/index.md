@@ -27,7 +27,7 @@ install cborm
 Open your `Application.cfc` and add a mapping to this module:
 
 ```js
-this.mappings[ "/cborm" ] 	= COLDBOX_APP_ROOT_PATH & "modules/coldbox-bundle/cborm";
+this.mappings[ "/cborm" ] 	= COLDBOX_APP_ROOT_PATH & "modules/cborm";
 ```
 
 The manual addition of the mapping is needed since the ColdFusion ORM loads before anything in our system, so we must tell it beforehand.  We cannot use the ColdBox Module CFMappings unfortunately.

@@ -2,6 +2,14 @@
 
 The ColdBox MVC Platform is the de-facto enterprise-level MVC framework for CFML developers.  It's professionally backed, highly extensible, and productive.  Getting started with ColdBox is quick and painless.  The only thing you need to begin is [CommandBox](http://www.ortussolutions.com/products/commandbox), a command line tool for CFML developers.
 
+## IDE Tools
+
+ColdBox has the following supported IDE Tools:
+
+- Sublime - https://packagecontrol.io/packages/ColdBox%20Platform
+- VSCode - https://marketplace.visualstudio.com/items?itemName=ortus-solutions.vscode-coldbox
+- CFBuilder - https://www.forgebox.io/view/ColdBox-Platform-Utilities
+
 ## Install CommandBox
 
 You can read through our one-page [CommandBox Getting Started Guide](http://ortus.gitbooks.io/commandbox-documentation/content/getting_started_guide.html).   Or simply grab the CommandBox executable from the [download page](http://www.ortussolutions.com/products/commandbox#download) and double click it to run.
