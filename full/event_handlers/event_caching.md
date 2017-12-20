@@ -1,6 +1,6 @@
 # Event Caching
 
-Event caching is extremely useful and easy to use. All you need to do is add several metadata arguments to the action methods and the framework will cache the output of the event in the **template** cache provider in CacheBox. In other words, the event executes and produces output that the framework then caches. So the subsequent calls do not do any processing, but just output the content. For example, you have an event called `blog.showEntry`. This event executes, gets an entry from the database and sets a view to be rendered. The framework then renders the view and if event caching is turned on for this event, the framework will cache the HTML produced. So the next incoming show entry event will just spit out the cached html. Important to note also, that any combination of URL/FORM parameters on an event will produce a unique cacheable key. So `event=blog.showEntry&id=1` & `event=blog.showEntry&id=2` are two different cacheable events.
+Event caching is extremely useful and easy to use. All you need to do is add several metadata arguments to the action methods and the framework will cache the output of the event in the **template** cache provider in CacheBox. In other words, the event executes and produces output that the framework then caches. So the subsequent calls do not do any processing, but just output the content. For example, you have an event called `blog.showEntry`. This event executes, gets an entry from the database and sets a view to be rendered. The framework then renders the view and if event caching is turned on for this event, the framework will cache the HTML produced. So the next incoming show entry event will just spit out the cached html. The cache key is created by hashing the request collection. Important to note also, that any combination of URL/FORM parameters on an event will produce a unique cacheable key. So `event=blog.showEntry&id=1` & `event=blog.showEntry&id=2` are two different cacheable events.
 
 Almost all of the entire life cycle is skipped, the content is just delivered. Below you can see the life cycle of both cached and normal events:
 
@@ -8,18 +8,18 @@ Almost all of the entire life cycle is skipped, the content is just delivered. B
 
 ## Enabling Event Caching
 
-To enable event caching, you will need to set a setting in your `ColdBox.cfc` called `EventCaching` to `true`. This tels ColdBox to be ready to read action metadata for cacheable events.
- 
+To enable event caching, you will need to set a setting in your `ColdBox.cfc` called `EventCaching` to `true`. This tells ColdBox to be ready to read action metadata for cacheable events.
+
  ```js
  coldbox.eventCaching = true;
  ```
- 
- > **Important** Enabling event caching does not mean that ALL events will be cached. It just means that you enable this feature. 
- 
+
+ > **Important** Enabling event caching does not mean that ALL events will be cached. It just means that you enable this feature.
+
  ##Setting Up Actions For Caching
- 
+
  The way to set up an event for caching is on the function declaration with the following extra attributes (annotations):
- 
+
 |Attribute|Type|Description|
 |--|--|--|
 |cache|boolean|A true or false will let the framework know whether to cache this event or not. The default is FALSE. So setting to false makes no sense|
@@ -27,20 +27,20 @@ To enable event caching, you will need to set a setting in your `ColdBox.cfc` ca
 |cacheLastAccesstimeout |numeric|The last access timeout of the event's output in minutes. This is an optional attribute and if it is not used, the framework defaults to the default last access object timeout in the cache settings. This tells the framework that if the object has not been accessed in X amount of minutes, then purge it.|
 
 
-> **Important** Please be aware that you should not cache output with 0 timeouts (forever). Always use a timeout. 
+> **Important** Please be aware that you should not cache output with 0 timeouts (forever). Always use a timeout.
 
 ```js
 // In Script
 function showEntry(event,rc,prc) cache="true" cacheTimeout="30" cacheLastAccessTimeout="15"{
 	//get Entry
 	prc.entry = getEntryService().getEntry(event.getValue('entryID',0));
-		
+
 	//set view
 	event.setView('blog/showEntry');
 }
 ```
 
-> **Alert** DO NOT cache events as unlimited timeouts. Also, all events can have an unlimited amount of permutations, so make sure they expire and you purge them constantly. Every event + URL/FORM variable combination will produce a new cacheable entry. 
+> **Alert** DO NOT cache events as unlimited timeouts. Also, all events can have an unlimited amount of permutations, so make sure they expire and you purge them constantly. Every event + URL/FORM variable combination will produce a new cacheable entry.
 
 
 ## Storage
@@ -54,7 +54,7 @@ We also have a great way to purge these events programmatically via our cache pr
 templateCache = cachebox.getCache( "template" );
 ```
 
-Methods for eent purging:
+Methods for event purging:
 
 * `clearEvent(string eventSnippet, string querystring="")`: Clears all the event permutations from the cache according to snippet and querystring. Be careful when using incomplete event name with query strings as partial event names are not guaranteed to match with query string permutations
 * `clearEventMulti(eventsnippets,string querystring="")`: Clears all the event permutations from the cache according to the list of snippets and querystrings. Be careful when using incomplete event name with query strings as partial event names are not guaranteed to match with query string permutations
@@ -83,15 +83,15 @@ Do you remember this feature property? This property is great for adding your ow
 
 `this.EVENT_CACHE_SUFFIX = "My Suffix";`
 
-> **Info** This suffix will be appended to ALL events that are marked for caching within the handler in question ONLY. 
+> **Info** This suffix will be appended to ALL events that are marked for caching within the handler in question ONLY.
 
 ## OnRequestCapture - Influence Cache Keys
 
-We have provided an interception point in ColdBox that allows you to add variables into the request collection before a snapshot is made so you can influence the cache key of a cacheable event. What this means is that you can use it to mix in variables into the request collection that can make this events unique for a user, a specific language, country, etc. This is a great way to leverage event caching on multi-lingual or session based sites.
+We have provided an interception point in ColdBox that allows you to add variables into the request collection before a snapshot is made so you can influence the cache key of a cacheable event. What this means is that you can use it to mix in variables into the request collection that can make this event cache unique for a user, a specific language, country, etc. This is a great way to leverage event caching on multi-lingual or session based sites.
 
 ```js
 component{
-	
+
 	onRequestCapture(event,interceptData){
 		var rc = event.getCollection();
 
@@ -102,7 +102,7 @@ component{
 }
 ```
 
-With the simple example above, all your event caching permutations will be addded the user's locale and thus create entries for different languages.
+With the simple example above, the user's locale will be addded to all your event caching permutations and thus create entries for different languages.
 
 ## Monitoring
 

@@ -18,7 +18,7 @@ this.ormSettings	  = {
 
 ```
 
-These are the vanilla settings for using the ORM with ColdBox. Make sure that `flustAtRequestEnd` and `autoManageSession` are set to **false** as the ORM extensions will manage that for you. 
+These are the vanilla settings for using the ORM with ColdBox. Make sure that `flushAtRequestEnd` and `autoManageSession` are set to **false** as the ORM extensions will manage that for you.
 
 In this example, we also use `dbcreate="update"` as we want ColdFusion ORM to build the database for us which allows us to concentrate on the domain problem at hand and not persistence.  You also see that we add our own eventHandler which points to the extension's event handler so we can make Active Entity become well, Active!
 

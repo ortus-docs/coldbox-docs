@@ -27,7 +27,7 @@ The interesting aspect of internal executions is that all the same rules apply, 
 runEvent( 'users.save' );
 
 //post exempt
-runEvent( event='users.save', prepostExemp=true );
+runEvent( event='users.save', prePostExempt=true );
 
 //Private event
 runEvent( event='users.persist', private=true );
@@ -49,7 +49,7 @@ function userInfo( event, rc, prc, widget=false ){
 	// set or widget render
 	if( arguments.widget ){
 		return renderView( "widgets/userInfo" );
-	}	
+	}
 
 	// else set view
 	event.setView( "widgets/userInfo" );

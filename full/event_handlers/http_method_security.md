@@ -1,6 +1,6 @@
 # HTTP Method Security
 
-More often you will find that certain web operations needs to be restricted in terms of what HTTP verb is used to access a resource. For example, you do not want form submissions to be done via **GET** but via **POST** or **PUT** operations. HTTP Verb recognition is also essential when building strong RESTFul APIs when security is needed as well.
+More often you will find that certain web operations need to be restricted in terms of what HTTP verb is used to access a resource. For example, you do not want form submissions to be done via **GET** but via **POST** or **PUT** operations. HTTP Verb recognition is also essential when building strong RESTFul APIs when security is needed as well.
 
 ## Manual Solution
 You can do this manually, but why do the extra coding :)
@@ -18,7 +18,7 @@ function delete(event,rc,prc){
 }
 ```
 
-This solution is great and works, but it is not THAT great. We can do better, how about using those nice before advices? You can but then you have to mess with the except and only lists. This approach is ok and you most likely will have great control on what to do with the invalid request, but there is no uniformity and you still have to write code for it.
+This solution is great and works, but it is not THAT great. We can do better, how about using those nice before advices? You can but then you have to mess with the except and only lists. This approach is okay and you most likely will have great control on what to do with the invalid request, but there is no uniformity and you still have to write code for it.
 
 ## Allowed Methods Property
 
@@ -26,8 +26,8 @@ Another feature property on an event handler is called <code>this.allowedMethods
 
 ```js
 component{
-	
-	this.allowedMethods = { 
+
+	this.allowedMethods = {
 		delete = "POST,DELETE",
 		list   = "GET"
 	};
@@ -49,7 +49,7 @@ component{
 You can tag your event actions with a `allowedMethods` annotation and add a list of the allowed HTTP verbs as well.  This gives you a nice directed ability right at the function level instead of a property.  It is also useful when leveraging DocBox documentation.
 
 ```js
-function index( event, rc, prc) allowedMethods="GET,POST"{ 
+function index( event, rc, prc) allowedMethods="GET,POST"{
 }
 ```
 

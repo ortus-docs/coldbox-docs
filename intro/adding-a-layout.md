@@ -40,7 +40,7 @@ function index( event, rc, prc ){
     event.paramValue( "name", "nobody" );
     // set a private variable
     prc.when = dateFormat( now(), "full" );
-    
+
     // set the view to render with our new layout
     event.setView( view="hello/index", layout="Funky" );
 }
