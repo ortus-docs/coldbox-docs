@@ -237,6 +237,6 @@ function show(event){
 </cfif>
 
 // User/show.cfm using defaults
-<div class="notice">#flash.get(name="notice",default="")</div>
+<div class="notice">#flash.get(name="notice",defaultValue="")</div>
 ```
 
