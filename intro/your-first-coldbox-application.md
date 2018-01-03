@@ -5,9 +5,9 @@ CommandBox comes with a `coldbox create app` command that can enable you to crea
 * **Advanced** : A tag based advanced template
 * **AdvancedScript**  (default): A script based advanced template
 * **elixir** : A ColdBox Elixir based template
-* **elixir-bower** : A ColdBox Elixir + Bower based template
-* **elixir-vuejs** : A ColdBox Elixir + Vue.js based template
-* **rest** : A RESTFul services template
+* **ElixirBower** : A ColdBox Elixir + Bower based template
+* **ElixirVueJS** : A ColdBox Elixir + Vue.js based template
+* **Rest** : A RESTFul services template
 * **Simple** : A traditional simple template
 * **SuperSimple** : The bare-bones template
 
