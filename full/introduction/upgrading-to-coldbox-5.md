@@ -2,6 +2,10 @@
 
 The major compatibility issues will be covered as well as how to smoothly upgrade to this release from previous ColdBox versions. You can also check out the [What's New](whats_new_with_500.md) guide to give you a full overview of the changes.
 
+## `onInvalidEvent` renamed to `invalidEventHandler`
+
+The ColdBox construct setting `onInvalidEvent` has been renamed now to `invalidEventHandler`.  This will be removed in future versions of ColdBox.
+
 ## `setAutoReload()` Removed
 
 The `setAutoReload()` flag in the SES interceptor has been removed.  It is evil I tell you.  If you want your routing to be re-read, then reinit the framework.
