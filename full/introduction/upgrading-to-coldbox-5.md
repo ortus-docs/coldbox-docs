@@ -1,8 +1,7 @@
 # Upgrading to ColdBox 5
 
 The major compatibility issues will be covered as well as how to smoothly  
-upgrade to this release from previous ColdBox versions. You can also  
-check out the [What's New](whats_new_with_500.md) guide to give you a full  
+upgrade to this release from previous ColdBox versions. You can also check out the [What's New](whats_new_with_500.md) guide to give you a full  
 overview of the changes.
 
 ## BuildLink LinkTo Argument Deprecated
