@@ -4,7 +4,7 @@ The major compatibility issues will be covered as well as how to smoothly upgrad
 
 ## `setAutoReload()` Removed
 
-The `setAutoReload()` flag in the SES interceptor has been removed.  It is evil I tell you.
+The `setAutoReload()` flag in the SES interceptor has been removed.  It is evil I tell you.  If you want your routing to be re-read, then reinit the framework.
 
 ## BuildLink LinkTo Argument Deprecated
 
