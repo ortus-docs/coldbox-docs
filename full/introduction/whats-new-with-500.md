@@ -14,3 +14,5 @@ That's right, you will need Adobe ColdFusion 11+ or Lucee 4.5+ in order to work 
 ## Automation
 
 We have fully automated all build processes with ColdBox 5 to include CommandBox and TestBox testing, Travis integration and a fully automated test suite that executes against **ALL** supported CFML engines.  Our code coverage has increased due to this work dramatically.  We discovered engine bugs that must have plagued our users for years.  YAY for testing!
+
+

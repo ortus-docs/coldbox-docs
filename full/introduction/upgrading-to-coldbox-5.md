@@ -2,6 +2,10 @@
 
 The major compatibility issues will be covered as well as how to smoothly upgrade to this release from previous ColdBox versions. You can also check out the [What's New](whats_new_with_500.md) guide to give you a full overview of the changes.
 
+## `setAutoReload()` Removed
+
+The `setAutoReload()` flag in the SES interceptor has been removed.  It is evil I tell you.
+
 ## BuildLink LinkTo Argument Deprecated
 
 The `buildLink()` method had the argument `linkTo` to denote the event or route to link to.  This was verbose, so we shortened it to `to`:
