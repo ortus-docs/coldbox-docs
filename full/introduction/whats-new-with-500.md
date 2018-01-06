@@ -126,12 +126,18 @@ If you have used other frameworks in other languages, they allow you to name you
 - `getCurrentRouteName()` - Gives you the name of the current route, if any
 - `route()` - Allows you to build URLs according to named routes
 
+**Define the Route**
 ```java
 // Create a named route
 addRoute(
-  pattern  = "/api/v1/user/:username/:page",
-  name     = "api-user"
+  pattern  = "/user/:username/:page",
+  name     = "user_detail"
 );
+```
+
+**Build Links**
+```
+<a href="#event.route( name="user_detail", params="" )#>User Details</a>
 ```
 
 
