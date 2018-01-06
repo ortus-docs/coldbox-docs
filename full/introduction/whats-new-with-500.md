@@ -99,6 +99,12 @@ We have now added the `modules_app` convention for all module inceptions.
 
 If you create a module where there is a model with the same name, then we will automatically map it in Wirebox as `@modulename`.
 
+```java
+cors = getInstance( "@cors" )
+```
+
+This is great for 1 model modules.
+
 [COLDBOX-581] - Module Default Model Export: If there is a model with the same name as the module it will be mapped as @moduleName in WireBox
 
 
