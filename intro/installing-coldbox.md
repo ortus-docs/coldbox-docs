@@ -1,6 +1,6 @@
 # Welcome to ColdBox
 
-Welcome to the world of ColdBox! We are excited you are taking this development journey with us. Before we get started with ColdBox let's install CommandBox CLI, which will allow you to install/uninstall dependencies, start servers and much more.
+Welcome to the world of ColdBox! We are excited you are taking this development journey with us. Before we get started with ColdBox let's install CommandBox CLI, which will allow you to install/uninstall dependencies, start servers, have a REPL tool and much more.
 
 ## IDE Tools
 
