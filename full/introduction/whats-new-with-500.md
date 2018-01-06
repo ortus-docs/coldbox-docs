@@ -192,6 +192,9 @@ resources( route="photos", handler="MyPhotoHandler" );
 resources( route="photos", handler="photos", module="api" );
 ```
 
+This single resource declaration will create all the necessary variations of URL patterns and HTTP Verbs to actions to handle the resource. It will even create named routes for you.
+
+
 
 # Event Execution
 
