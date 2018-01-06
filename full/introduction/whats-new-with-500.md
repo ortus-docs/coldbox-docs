@@ -302,7 +302,6 @@ function data( event, rc, prc ) renderdata="xml"{
 function data( event, rc, prc ) renderdata="pdf"{
   event.setView( "users/index" );
 }
-
 ```
 
 ### Named Regions
