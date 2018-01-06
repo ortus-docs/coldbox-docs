@@ -35,8 +35,10 @@ You will also find in the log files attempts to reinit the framework with invali
 
 ColdBox introduces two new methods that are available for your `ColdBox.cfc` and your `ModuleConfig.cfc` objects:
 
-* `getSystemProperty( name, defaultValue )`
-* `getSystemSetting( name, defaultValue )`
+* `getSystemProperty( name, defaultValue )` - Retrieve a Java System property
+* `getSystemSetting( name, defaultValue )` - Discover an environment variable either by searching system properties first and then system environment variables second.
+
+These methods are also found in the ColdBox core utility object: `coldbox.system.core.util.Util` which can be injected anywhere it is needed.
 
 
 
