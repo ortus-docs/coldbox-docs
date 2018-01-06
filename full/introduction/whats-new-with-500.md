@@ -95,7 +95,7 @@ You can now listen to more events of the module life-cycle:
 ### Modules_app convention for inception
 We have now added the `modules_app` convention for all module inceptions.
 
-### Default Model Export
+### Default Model Export Convention
 
 If you create a module where there is a model with the same name, then we will automatically map it in Wirebox as `@modulename`.
 
