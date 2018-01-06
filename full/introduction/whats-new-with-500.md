@@ -23,6 +23,6 @@ As we update core files we keep optimizing the source code and migrating to full
 
 The core framework has been revised with a fine tooth comb to provide better exception messages, better helpful messages and also the ability to intercept exceptions at the framework level via normal exception handlers.  You will also see that ColdBox can detect response headers now and make sure it can avoid caching exceptions when event caching is turned on.  The appropriate status code will now be reported.
 
-You will also find in the log files attempts to reinit the framework with invalid passwords.
+You will also find in the log files attempts to reinit the framework with invalid or missing passwords.
 
 
