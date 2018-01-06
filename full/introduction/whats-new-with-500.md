@@ -194,6 +194,8 @@ resources( route="photos", handler="photos", module="api" );
 
 This single resource declaration will create all the necessary variations of URL patterns and HTTP Verbs to actions to handle the resource. It will even create named routes for you.
 
+![](/assets/resourceful_routes.PNG)
+
 
 
 # Event Execution
