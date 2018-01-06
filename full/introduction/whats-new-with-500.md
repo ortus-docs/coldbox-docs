@@ -226,13 +226,13 @@ For in-depth usage of the `resources()` method, let's investigate the API Signat
 * @namespace 		If passed, the namespace these resources will be attached to.
 */
 function resources(
-required resource,
-handler=arguments.resource,
-parameterName="id",
-only=[],
-except=[],
-string module="",
-string namespace=""
+  required resource,
+  handler=arguments.resource,
+  parameterName="id",
+  only=[],
+  except=[],
+  string module="",
+  string namespace=""
 )
 ```
 
