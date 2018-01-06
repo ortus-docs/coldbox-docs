@@ -38,8 +38,9 @@ ColdBox introduces two new methods that are available for your `ColdBox.cfc` and
 * `getSystemProperty( name, defaultValue )` - Retrieve a Java System property
 * `getSystemSetting( name, defaultValue )` - Discover an environment variable either by searching system properties first and then system environment variables second.
 
-These methods are also found in the ColdBox core utility object: `coldbox.system.core.util.Util` which can be injected anywhere it is needed.
+> **Hint*  These methods are also found in the ColdBox core utility object: `coldbox.system.core.util.Util` which can be injected anywhere it is needed.
 
+These methods will allow you to interact with docker environment variables and override settings, add new settings, and much more.
 
 
 # Modules
