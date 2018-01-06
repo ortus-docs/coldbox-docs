@@ -137,9 +137,24 @@ addRoute(
 
 **Build Links**
 ```
-<a href="#event.route( name="user_detail", params="" )#>User Details</a>
+<a href="#event.route( name="user_detail", params={ username="luis", page="1" } )#>User Details</a>
 ```
 
+The `route` method signature can be seen below:
+
+```java
+/**
+* Builds links to named routes with or without parameters. If the named route is not found, this method will throw an `InvalidArgumentException`.
+* If you need a route from a module then append the module address: `@moduleName` in order to find the right route.
+* 
+* @name The name of the route
+* @params The parameters of the route to replace
+* @ssl Turn SSL on/off or detect it by default
+* 
+* @throws InvalidArgumentException
+*/
+string function route( required name, struct params={}, boolean ssl )
+```
 
 
 
