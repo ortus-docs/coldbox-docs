@@ -314,7 +314,32 @@ component renderdata="json"{
 
 ### Named Regions
 
+We have introduced the concept of named rendering regions with ColdBox 5.  As we increase the reuse of views and create many self-sufficient views or widgets, we end up with `setView()` or `renderView()` method calls that expose too much logic, location, parameters, etc.  With named regions, we can actually abstract or describe how a region should be rendered and then render it when we need it via a name.
 
+**Definition**
+```java
+event.setView(
+  view = "users/detail",
+  args = { data = userData, border = false },
+  layout = "main",
+  name = "userDetail"
+);
+
+event.setView(
+  view = "users/banner",
+  args = { data = userData },
+  name = "userBanner"
+);
+```
+
+**Rendering**
+
+```java
+
+<div id="banner">#renderView( name="userBanner" )#</div>
+
+<div id="detail">#renderView( name="userDetail" )#</div>
+```
 
 
 ## Testing Enhancements
