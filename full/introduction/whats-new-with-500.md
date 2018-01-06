@@ -62,8 +62,24 @@ You can turn this on just by adding the following flag in your `ModuleConfig.cfc
 this.inheritEntryPoint = true
 ```
 
-When the module is registered it will recurse its parent tree and discover all parent entry points and assemble the entry point accordinlgy.
+When the module is registered it will recurse its parent tree and discover all parent entry points and assemble the entry point accordingly.  Let's see an example. We are working on an API and we want to create the following URL resource: `/api/v1/users`. We can leverage HVMC and create the following modular structure:
 
+```
++ modules_app
+  + api
+    + modules_app
+      + v1 
+        + modules_app
+          + users
+```
+
+This models our URL resource modularly.  We can now go into each of the module's `ModuleConfig` and add only the appropriate URL pattern and turn on inherit entry point.
+
+```
+api   - this.entryPoint = /api
+v1    - this.entryPoint = /v1
+users - this.entryPoint = /users
+``` 
 
 * New request context method: `getModuleEntryPoint()` to retrieve a modules inherited entry point great for URL building
 
