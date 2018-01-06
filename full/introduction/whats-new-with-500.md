@@ -196,6 +196,8 @@ This single resource declaration will create all the necessary variations of URL
 
 ![](/assets/resourceful_routes.PNG)
 
+Welcome to a brave new world of accelerated development.
+
 
 
 # Event Execution
