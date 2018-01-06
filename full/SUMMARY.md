@@ -300,5 +300,3 @@
   * [Clearing the View Cache](recipes/clearing_the_view_cache.md)
   * [Building a simple Basic HTTP Authentication Interceptor](recipes/building_a_simple_basic_http_authentication_interceptor.md)
 
-## Architecture Concepts
-
