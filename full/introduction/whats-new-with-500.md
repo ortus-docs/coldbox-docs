@@ -31,7 +31,7 @@ The core framework has been revised with a fine tooth comb to provide better exc
 
 You will also find in the log files attempts to reinit the framework with invalid or missing passwords.
 
-# Containers + Environments Support
+## Containers + Environments Support
 
 ColdBox introduces two new methods that are available for your `ColdBox.cfc` and your `ModuleConfig.cfc` objects:
 
@@ -43,10 +43,30 @@ ColdBox introduces two new methods that are available for your `ColdBox.cfc` and
 These methods will allow you to interact with docker environment variables and override settings, add new settings, and much more.
 
 
-# Modules
-[COLDBOX-442] - Namespace module interceptors to avoid name conflicts
-[COLDBOX-635] - New request context method: getModuleEntryPoint() to retrieve a modules inherited entry point great for URL building
-[COLDBOX-630] - New modules injected variable: coldboxVersion to be able to quickly detect what version of ColdBox they are running under
+## Modules, Modules and more Modules
+
+We continue to innovate in the Hierarchical MVC (HMVC) design of ColdBox by fine-tuning the modular services and interactions.  Here are the major updates to modules in ColdBox 5.
+
+* All module interceptors are now namespaced to avoid name conflicts with other modules
+* New modules injected variable: `coldboxVersion` to be able to quickly detect what version of ColdBox they are running under. This will allow you to create modules that can respond to multiple ColdBox versions.
+
+### Inherited Entry Point
+
+All modules have had a URL entry point since the beginning: `this.entryPoint = "/route"`.  This entry point is registered in the URL mappings to allow for a unique URL pattern to exist for specific modules.  That is great!  However, in modern times and with the amount of API centric applications that we are building we wanted to introduce an easier way to build resource centric APIs.
+
+What if our resource URLs could match by convention our module inceptions? Well, with the new inherited entry points, you can do just that.  By leveraging HMVC and module inception you can now create automatic URL nesting schemas.
+
+You can turn this on just by adding the following flag in your `ModuleConfig.cfc`:
+
+```java
+this.inheritEntryPoint = true
+```
+
+When the module is registered it will recurse its parent tree and discover all parent entry points and assemble the entry point accordinlgy.
+
+
+* New request context method: `getModuleEntryPoint()` to retrieve a modules inherited entry point great for URL building
+
 [COLDBOX-633] - New module entrypoint inheritance directive: this.inheritEntryPoint
 [COLDBOX-617] - New module interceptors: preModuleRegistration, postModuleRegistration
 [COLDBOX-618] - New module event: afterModuleRegistrations, will fire when all modules have been registered
