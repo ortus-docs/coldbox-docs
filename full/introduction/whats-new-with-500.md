@@ -292,7 +292,18 @@ function data( event, rc, prc ){
 }
 ```
 
-That's it! If you return a complex variable from an event handler, ColdBox will convert it to JSON for you automatically.  We will even inspect the return object and if it has a `$renderdata()` method, we will call it for you and return your very own marshalled data!
+That's it! If you return a complex variable from an event handler, ColdBox will convert it to JSON for you automatically.  We will even inspect the return object and if it has a `$renderdata()` method, we will call it for you and return your very own marshalled data! But there's more.  You can add a `renderData` annotation to your action and add any valid `renderdata()` type and it will return it accordingly.
+
+```java
+function data( event, rc, prc ) renderdata="xml"{
+  return [1,2,3];
+}
+
+function data( event, rc, prc ) renderdata="pdf"{
+  event.setView( "users/index" );
+}
+
+```
 
 ### Named Regions
 
