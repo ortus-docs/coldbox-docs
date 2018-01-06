@@ -40,8 +40,6 @@ This will scaffold the application and also install ColdBox for you. The followi
 ```
 
 
-
-
 Now let's start a server so we can see our application running:
 
 ```
