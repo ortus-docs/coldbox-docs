@@ -58,7 +58,7 @@ You have now created a RESTFul service for your contacts listing, enjoy it.
 
 Let's add a new route to our system that is more RESTFul than `/contacts/index.json`.  You will do so by leveraging the application's routing file found at `config/routes.cfm`.  Open it and add the following new route pattern before the ColdBox default route:
 
-```
+```java
 addRoute( 
     pattern = "/api/contacts",
     handler = "contacts",
@@ -77,3 +77,18 @@ http://localhost:{port}/api/contacts.json
 ```
 
 > **Note** You can find much more about routing in our [full docs](../full/routing/index.md)
+
+## Handler Auto-Marshalling
+
+If you know beforehand what type of format you will be responding with, you can leverage ColdBox 5's new auto-marshalling in your handlers.  By default, ColdBox detects any return value from handlers and if they are complex it will convert them to JSON automatically for you:
+
+```js
+any function index( event, rc, prc ){
+    return contactService.getAll();    
+}
+```
+
+That's it!  ColdBox detects the array and automatically serializes it to JSON.  Easy Peasy!
+
+
+
