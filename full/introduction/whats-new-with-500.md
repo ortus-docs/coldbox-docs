@@ -272,14 +272,38 @@ function index( event, rc, prc ) cache=true cacheProvider=couchbase{
 
 ## Rendering Enhancements
 
+We have also done tremendous updates to the rendering engines in ColdBox 5, especially for RESTFul responses and content negotiation.
+
+* ColdBox now detects the `rc.format` not only to incoming URL extensions, but also via the `Accept` Header as content-negotiation.
+* New interception point `afterRenderInit` which will allow you to add your own injections to the main ColdBox renderer and modify the renderer at runtime.
+* The request context can now deliver files to users via our `sendFile()` method.d
+
+### Native JSON Responses
+
+JSON is the native response now for event handlers that return complex variables.
+
+```java
+function data( event, rc, prc ){
+  return [1,2,3];
+}
+
+function data( event, rc, prc ){
+  return myservice.getQuery();
+}
+
+```
+
+### Named Regions
+
+
 [COLDBOX-600] - Expose view path to Coldbox API
 [COLDBOX-622] - Custom Object Marshalling Convention $renderdata on handler results
 [COLDBOX-621] - When returning complex data from handlers, ColdBox will auto marshall to JSON
 [COLDBOX-620] - Action specific renderdata annotation support
-[COLDBOX-606] - New request context method: sendFile() taken from file utils so you can deliver files directly from handlers
+
 [COLDBOX-569] - Rendering Named Regions
-[COLDBOX-568] - New interceptor after Renderer init: afterRendererInit
-[COLDBOX-36] - Content Negotiation using the Accept header via the SES interceptor
+
+
 
 
 
