@@ -37,7 +37,7 @@ We have now seen how to execute events via nice Search Engine Safe URLs.  Behind
 
 By convention, any name-value pairs detected after an event variable will be treated as an incoming `URL` variable. If there is no pair, then the value will be an empty string.
 
-> **Tip** If using full URL rewrites via CommandBox or any other web server, open the `config/routes.cfm` and eliminate the `index.cfm` from the `setBaseURL()` calls. This will remove any `index.cfm` to be generated via `buildLink()` calls.
+> **Tip** If using full URL rewrites via CommandBox or any other web server, open the `config/routes.cfm` and add a `setFullRewrites( true )`. This will remove any `index.cfm` to be generated via `buildLink()` calls.
 
 <br>
 
