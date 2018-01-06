@@ -284,19 +284,13 @@ function index( event, rc, prc ) cache=true cacheProvider=couchbase{
 
 
 
-## Testing
+## Testing Enhancements
 
-[COLDBOX-591] - Move Testing Lifecycle Methods to annotation methods to prevent accidental overriding
-[COLDBOX-598] - Reset the response when calling setup in integration testing to avoid duplicate headers
-[COLDBOX-567] - Base test case doesn't allow inherited annotations
-[COLDBOX-643] - Add `getRenderData` and `getStatusCode` helpers to Integration Testing
+Here are some of the major updates for integration testing with ColdBox and TestBox:
 
+* Reset the response when calling `setup()` in integration testing to avoid duplicate headers within same request executions.
+* Base test case doesn't allow for inherited annotations.  Now it does since we moved the testing life-cycle methods to annotation based instead of by name.
+* Added dynamic methods `getRenderData()` and `getStatusCode()` helpers to Integration Testing
 
-## HTML Helper
-
-[COLDBOX-599] - HTML Helper table() should distinguish between array of objects and array of entties
-[COLDBOX-639] - HTMLHelper Option to put wrap <input> with <label> instead of closing <label> first
-[COLDBOX-640] - HTMLHelper mechanism to add non-data attributes to labels
-[COLDBOX-545] - wrapTag should accept attributes (class, id, whatever)
 
 
