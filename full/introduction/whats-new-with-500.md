@@ -304,6 +304,14 @@ function data( event, rc, prc ) renderdata="pdf"{
 }
 ```
 
+You can even add a default response type by adding the `renderdata` annotation to the `component` construct:
+
+```java
+component renderdata="json"{
+
+}
+```
+
 ### Named Regions
 
 
