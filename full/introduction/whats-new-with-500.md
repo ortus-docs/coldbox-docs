@@ -105,12 +105,17 @@ cors = getInstance( "@cors" )
 
 This is great for 1 model modules.
 
-[COLDBOX-581] - Module Default Model Export: If there is a model with the same name as the module it will be mapped as @moduleName in WireBox
+## Routing Enhancements
 
+We continue to push forward in making ColdBox the best RESTFul framework for ColdFusion (CFML).  In ColdBox 5 we have great new additions for both routing and rendering.
 
+### Simplified URL Rewrites
 
+The SES interceptor now has a boolean flag to denote if rewrites are turned on/off and you will no longer set a base URL.  We will automatically detect the base URLs according to multi-domain hosting.  Meaning you can out of the box create multi-tenant applications with ease.
 
-# Routing
+```java
+setFullRewrites( true )
+```
 
 [COLDBOX-577] - Add Boolean for Rewrites in the SES Interceptor: setFullRewrites( [true] )
 [COLDBOX-647] - New context method: getCurrentRouteName() to get the current route name
