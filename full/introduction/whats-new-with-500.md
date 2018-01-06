@@ -315,15 +315,6 @@ component renderdata="json"{
 ### Named Regions
 
 
-[COLDBOX-622] - Custom Object Marshalling Convention $renderdata on handler results
-[COLDBOX-621] - When returning complex data from handlers, ColdBox will auto marshall to JSON
-[COLDBOX-620] - Action specific renderdata annotation support
-
-[COLDBOX-569] - Rendering Named Regions
-
-
-
-
 
 
 ## Testing Enhancements
