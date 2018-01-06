@@ -52,7 +52,7 @@ component singleton accessors="true"{
 }
 ```
 
-## Wiring Up The Model
+## Wiring Up The Model To a Handler
 
 We have now created our model so let's tell our event handler about it. Let's create a new handler using CommandBox:
 
