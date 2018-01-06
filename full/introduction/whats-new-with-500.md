@@ -81,14 +81,26 @@ v1    - this.entryPoint = /v1
 users - this.entryPoint = /users
 ``` 
 
-* New request context method: `getModuleEntryPoint()` to retrieve a modules inherited entry point great for URL building
+This feature will not only help you identify API routing, but help you build with modularity in mind.  You will also find a new method in the request context called `getModuleEntryPoint()` to retrieve a modules inherited entry point, which is great for URL building.
 
-[COLDBOX-633] - New module entrypoint inheritance directive: this.inheritEntryPoint
-[COLDBOX-617] - New module interceptors: preModuleRegistration, postModuleRegistration
-[COLDBOX-618] - New module event: afterModuleRegistrations, will fire when all modules have been registered
-[COLDBOX-619] - New module event: afterModuleActivations, will fire when all modules have been activated
+### New Module Events
+
+You can now listen to more events of the module life-cycle:
+
+- `preModuleRegistration` - before each module is registered
+- `postModuleRegistration` - after each module is registered
+- `afterModuleRegistrations` - This will fire when all modules have been registered.  This is great if you want modules to dynamically depend on each other.
+- `afterModuleActivations` - This will fire when all modules have been succesfully activated. Great for caching updates, announcements, etc.
+
+### Modules_app convention for inception
+We have now added the `modules_app` convention for all module inceptions.
+
+### Default Model Export
+
+If you create a module where there is a model with the same name, then we will automatically map it in Wirebox as `@modulename`.
+
 [COLDBOX-581] - Module Default Model Export: If there is a model with the same name as the module it will be mapped as @moduleName in WireBox
-[COLDBOX-564] - Allow modules_app convention for module inception
+
 
 
 
