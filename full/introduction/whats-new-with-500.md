@@ -111,18 +111,30 @@ We continue to push forward in making ColdBox the best RESTFul framework for Col
 
 ### Simplified URL Rewrites
 
-The SES interceptor now has a boolean flag to denote if rewrites are turned on/off and you will no longer set a base URL.  We will automatically detect the base URLs according to multi-domain hosting.  Meaning you can out of the box create multi-tenant applications with ease.
+The SES interceptor now has a boolean flag to denote if rewrites are turned on/off and you will no longer set a base URL.  We will automatically detect the base URLs according to multi-domain hosting.  Meaning you can out of the box create multi-tenant applications with ease.  We will also be adding subdomain routing in our final release.
 
 ```java
 setFullRewrites( true ); // defaults to false.
 ```
 
-[COLDBOX-577] - Add Boolean for Rewrites in the SES Interceptor: setFullRewrites( [true] )
-[COLDBOX-647] - New context method: getCurrentRouteName() to get the current route name
-[COLDBOX-646] - No need to declare the baseURL on routing, this is auto-detected and multi-sub-domain hosting enabled
-[COLDBOX-616] - Module support for Resourceful routes
-[COLDBOX-588] - Resourceful Routes
-[COLDBOX-265] - Allow named routes
+### Named Routes
+
+This has been a long-time coming to ColdBox and I can't believe we had never added this before.  Well, named routes are here, finally!
+
+If you have used other frameworks in other languages, they allow you to name your routes so you can build links to them in an easier manner.  We have done just the same.  The `addRoute()` method accepts the `name` parameter and we have extended the request context with some new methods:
+
+- `getCurrentRouteName()` - Gives you the name of the current route, if any
+- `route()` - Allows you to build URLs according to named routes
+
+```java
+// Create a named route
+addRoute(
+  pattern  = "/api/v1/user/:username/:page",
+  name     = "api-user"
+);
+```
+
+
 
 
 # Event Execution
