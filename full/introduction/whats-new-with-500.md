@@ -31,4 +31,74 @@ The core framework has been revised with a fine tooth comb to provide better exc
 
 You will also find in the log files attempts to reinit the framework with invalid or missing passwords.
 
+# Containers + Environments Support
+
+ColdBox introduces two new methods that are available for your `ColdBox.cfc` and your `ModuleConfig.cfc` objects:
+
+* `getSystemProperty( name, defaultValue )`
+* `getSystemSetting( name, defaultValue )`
+
+
+
+# Modules
+[COLDBOX-442] - Namespace module interceptors to avoid name conflicts
+[COLDBOX-635] - New request context method: getModuleEntryPoint() to retrieve a modules inherited entry point great for URL building
+[COLDBOX-630] - New modules injected variable: coldboxVersion to be able to quickly detect what version of ColdBox they are running under
+[COLDBOX-633] - New module entrypoint inheritance directive: this.inheritEntryPoint
+[COLDBOX-617] - New module interceptors: preModuleRegistration, postModuleRegistration
+[COLDBOX-618] - New module event: afterModuleRegistrations, will fire when all modules have been registered
+[COLDBOX-619] - New module event: afterModuleActivations, will fire when all modules have been activated
+[COLDBOX-581] - Module Default Model Export: If there is a model with the same name as the module it will be mapped as @moduleName in WireBox
+[COLDBOX-564] - Allow modules_app convention for module inception
+
+
+
+# Routing
+
+[COLDBOX-577] - Add Boolean for Rewrites in the SES Interceptor: setFullRewrites( [true] )
+[COLDBOX-647] - New context method: getCurrentRouteName() to get the current route name
+[COLDBOX-646] - No need to declare the baseURL on routing, this is auto-detected and multi-sub-domain hosting enabled
+[COLDBOX-616] - Module support for Resourceful routes
+[COLDBOX-588] - Resourceful Routes
+[COLDBOX-265] - Allow named routes
+
+
+# Event Execution
+
+[COLDBOX-579] - You can return the `event` object from handlers and it will now be ignored for simple evaluations
+[COLDBOX-636] - Deprecate setNextEvent() in favor of relocate()
+[COLDBOX-595] - new request context method getOnly() to allow for retreival of certain keys from request contexts
+[COLDBOX-303] - Enhance cache suffix property to allow closures for dynamic event caching suffixes
+[COLDBOX-284] - Choose Provider for event caching Via Annotations
+
+
+
+## Rendering
+[COLDBOX-600] - Expose view path to Coldbox API
+[COLDBOX-622] - Custom Object Marshalling Convention $renderdata on handler results
+[COLDBOX-621] - When returning complex data from handlers, ColdBox will auto marshall to JSON
+[COLDBOX-620] - Action specific renderdata annotation support
+[COLDBOX-606] - New request context method: sendFile() taken from file utils so you can deliver files directly from handlers
+[COLDBOX-569] - Rendering Named Regions
+[COLDBOX-568] - New interceptor after Renderer init: afterRendererInit
+[COLDBOX-36] - Content Negotiation using the Accept header via the SES interceptor
+
+
+
+
+## Testing
+
+[COLDBOX-591] - Move Testing Lifecycle Methods to annotation methods to prevent accidental overriding
+[COLDBOX-598] - Reset the response when calling setup in integration testing to avoid duplicate headers
+[COLDBOX-567] - Base test case doesn't allow inherited annotations
+[COLDBOX-643] - Add `getRenderData` and `getStatusCode` helpers to Integration Testing
+
+
+## HTML Helper
+
+[COLDBOX-599] - HTML Helper table() should distinguish between array of objects and array of entties
+[COLDBOX-639] - HTMLHelper Option to put wrap <input> with <label> instead of closing <label> first
+[COLDBOX-640] - HTMLHelper mechanism to add non-data attributes to labels
+[COLDBOX-545] - wrapTag should accept attributes (class, id, whatever)
+
 
