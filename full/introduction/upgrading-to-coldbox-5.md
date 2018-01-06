@@ -6,6 +6,10 @@ The major compatibility issues will be covered as well as how to smoothly upgrad
 
 The `setNextEvent()` method has been renamed to `relocate()` to better adjust to modern times.  This deprecation will be removed in future versions of ColdBox.
 
+## Modules AutoReload deprecated
+
+The modules `autoReload` flag has been deprecated.  This causes more headaches than anything.  If you want changes reflected, reinit the framework.
+
 ## `onInvalidEvent` renamed to `invalidEventHandler`
 
 The ColdBox construct setting `onInvalidEvent` has been renamed now to `invalidEventHandler`.  This will be removed in future versions of ColdBox.
