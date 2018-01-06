@@ -166,6 +166,7 @@ The `route` method signature can be seen below:
 string function route( required name, struct params={}, boolean ssl )
 ```
 
+### Resourceful Routes
 
 
 # Event Execution
