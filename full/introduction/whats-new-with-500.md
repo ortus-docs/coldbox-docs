@@ -334,8 +334,7 @@ event.setView(
 
 **Rendering**
 
-```java
-
+```
 <div id="banner">#renderView( name="userBanner" )#</div>
 
 <div id="detail">#renderView( name="userDetail" )#</div>
