@@ -25,7 +25,7 @@ We have added the following line:
 event.renderData( data=prc.aContacts, formats="xml,json,pdf,html" );
 ```
 
-Instead of the `event.setView()` method call we had before.  This tells ColdBox to render the contacts data in 3 formats: xml, json, and html.  So how would you trigger each format? Via the URL of course.
+Instead of the `event.setView()` method call we had before.  This tells ColdBox to render the contacts data in 4 formats: xml, json, pdf and html.  So how would you trigger each format? Via the URL of course.
 
 ## Format Detection
 
