@@ -290,13 +290,13 @@ function data( event, rc, prc ){
 function data( event, rc, prc ){
   return myservice.getQuery();
 }
-
 ```
+
+That's it! If you return a complex variable from an event handler, ColdBox will convert it to JSON for you automatically.  We will even inspect the return object and if it has a `$renderdata()` method, we will call it for you and return your very own marshalled data!
 
 ### Named Regions
 
 
-[COLDBOX-600] - Expose view path to Coldbox API
 [COLDBOX-622] - Custom Object Marshalling Convention $renderdata on handler results
 [COLDBOX-621] - When returning complex data from handlers, ColdBox will auto marshall to JSON
 [COLDBOX-620] - Action specific renderdata annotation support
