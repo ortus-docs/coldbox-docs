@@ -114,7 +114,7 @@ We continue to push forward in making ColdBox the best RESTFul framework for Col
 The SES interceptor now has a boolean flag to denote if rewrites are turned on/off and you will no longer set a base URL.  We will automatically detect the base URLs according to multi-domain hosting.  Meaning you can out of the box create multi-tenant applications with ease.
 
 ```java
-setFullRewrites( true )
+setFullRewrites( true ); // defaults to false.
 ```
 
 [COLDBOX-577] - Add Boolean for Rewrites in the SES Interceptor: setFullRewrites( [true] )
