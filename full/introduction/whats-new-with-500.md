@@ -290,7 +290,7 @@ Here are some of the major updates for integration testing with ColdBox and Test
 
 * Reset the response when calling `setup()` in integration testing to avoid duplicate headers within same request executions.
 * Base test case doesn't allow for inherited annotations.  Now it does since we moved the testing life-cycle methods to annotation based instead of by name.
-* Added dynamic methods `getRenderData()` and `getStatusCode()` helpers to Integration Testing
+* Added dynamic methods `getRenderData()` and `getStatusCode()` helpers to the request context upon `execute()` execution.  This will allow you a shorthand approach to getting response status codes and response rendering data struct.
 
 
 
