@@ -138,7 +138,7 @@ addRoute(
 routes = [
 
   { 
-    pattern   = "/detail/:username/:page",
+    pattern  = "/detail/:username/:page",
     name     = "user_detail"
   }
   
