@@ -19,6 +19,8 @@ We have fully automated all build processes with ColdBox 5 to include CommandBox
 
 As we update core files we keep optimizing the source code and migrating to full cfscript.  This migration has allowed us to optimize very old code into modern times with significant performance gains.  We have also moved from internal Java reflection to get file information to native CFML functions since now all engines support it.  Just this alone has improved vanilla requests tremendously.
 
+WireBox object creation and manipulation has also increased due to new locking strategies in our Mixer Util.  You will especially see the difference when creating many transient objects.
+
 ## Lucee Full Null Support
 
 Thanks to the community we have now full `null` support for the Lucee CFML engine and up-coming Adobe 2018.
