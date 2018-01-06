@@ -3,7 +3,7 @@
 Welcome to the world of ColdBox! We are excited you are taking this development journey with us.  This manual will give you all the tools and insights so you can master ColdBox.
 
 ## CommandBox CLI
-![](/images/CommandBoxLogo.png)
+![](../images/CommandBoxLogo.png)
 
 The first step in our journey is to [install](http://commandbox.ortusbooks.com/content/setup/installation.html) CommandBox.  [CommandBox](http://www.ortussolutions.com/products/commandbox) is a ColdFusion (CFML) Command Line Interface (CLI), REPL, Package Manager and Embedded Server.  We will be using CommandBox for almost every excercise in this manual and it will also allow you to get up and running with ColdFusion and ColdBox in a much speedier manner.
 

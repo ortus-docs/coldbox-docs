@@ -1,5 +1,7 @@
 # Summary
 
+## Prologue
+
 * [Introduction](README.md)
   * [What's New With 5.0.0](introduction/whats-new-with-500.md)
   * [Upgrading to ColdBox 5](introduction/upgrading-to-coldbox-5.md)
@@ -13,6 +15,9 @@
   * [Upgrading to ColdBox 4](introduction/upgrading_to_coldbox_400.md)
   * [About This Book](introduction/about_this_book.md)
   * [Author](introduction/author.md)
+
+## Getting Started
+
 * [Getting Started Guide](getting_started_guide/index.md)
 * [Overview](overview/index.md)
   * [What is MVC](overview/what_is_mvc.md)
@@ -25,6 +30,9 @@
   * [Reiniting An Application](overview/reiniting_an_application.md)
   * [Testing An Application](overview/testing_an_application.md)
   * [IDE Integration](overview/ide_integration.md)
+
+## The Basics
+
 * [Configuration](configuration/index.md)
   * [Conventions](configuration/conventions.md)
   * [Directory Structure](configuration/directory_structure.md)
@@ -49,6 +57,14 @@
     * [System Settings \(Java Properties and Environment Variables\)](configuration/coldboxcfc/system_settings.md)
   * [Using Settings](configuration/using_settings.md)
   * [Bootstrapper](configuration/bootstrapper.md)
+* [Request Context](request_context/index.md)
+  * [How Does It Work](request_context/how_does_it_work.md)
+  * [Views](request_context/views.md)
+  * [Interceptors](request_context/interceptors.md)
+  * [What Can I Do With It?](request_context/what_can_i_do_with_it.md)
+  * [Request Context Decorator](request_context/request_context_decorator/index.md)
+    * [For What Can I Use This?](request_context/request_context_decorator/for_what_can_i_use_this.md)
+    * [Configuration](request_context/request_context_decorator/configuration.md)
 * [Event Handlers](event_handlers/index.md)
   * [Locations](event_handlers/locations.md)
   * [Composed Properties](event_handlers/composed_properties.md)
@@ -71,14 +87,6 @@
   * [Validation](event_handlers/validation.md)
   * [Best Practices](event_handlers/best_practices.md)
   * [Testing Handlers](event_handlers/testing_handlers.md)
-* [Request Context](request_context/index.md)
-  * [How Does It Work](request_context/how_does_it_work.md)
-  * [Views](request_context/views.md)
-  * [Interceptors](request_context/interceptors.md)
-  * [What Can I Do With It?](request_context/what_can_i_do_with_it.md)
-  * [Request Context Decorator](request_context/request_context_decorator/index.md)
-    * [For What Can I Use This?](request_context/request_context_decorator/for_what_can_i_use_this.md)
-    * [Configuration](request_context/request_context_decorator/configuration.md)
 * [Layouts & Views](layouts_n_views/index.md)
   * [Response Types](layouts_n_views/response_types.md)
   * [ColdBox Renderer](layouts_n_views/coldbox_renderer.md)
@@ -146,10 +154,6 @@
     * [ORM](models/coding_scaffolding/orm.md)
     * [Contacts.cfc](models/coding_scaffolding/contacts.md)
     * [Scaffold](models/coding_scaffolding/scaffold.md)
-* [Flash RAM](flash_ram/index.md)
-  * [Flash Storage](flash_ram/flash_storage.md)
-  * [Using Flash RAM](flash_ram/using_flash_ram.md)
-  * [Creating Your Own Flash Scope](flash_ram/creating_your_own_flash_scope.md)
 * [Routing](routing/index.md)
   * [Requirements](routing/requirements.md)
     * [Rewrite Rules](routing/rewrite_rules.md)
@@ -175,31 +179,9 @@
   * [Pathinfo Providers](routing/pathinfo_providers.md)
   * [Building Routable Links](routing/eventbuildlink.md)
   * [HTML base tag](routing/html_base_tag.md)
-* [Interceptors](interceptors/index.md)
-  * [How do they work?](interceptors/how_do_they_work.md)
-    * [Conventions](interceptors/conventions.md)
-  * [Interceptor Declaration](interceptors/interceptor_declaration.md)
-  * [Interceptor Registration](interceptors/interceptor_registration.md)
-  * [Core Interception Points](interceptors/core_interception_points.md)
-    * [Application Life Cycle Events](interceptors/application_life_cycle.md)
-    * [Object Creating Events](interceptors/object_creating_events.md)
-    * [Layout-View Events](interceptors/layout-view_events.md)
-    * [Module Events](interceptors/module_events.md)
-    * [CacheBox Events](interceptors/cachebox_events.md)
-  * [Restricting Execution](interceptors/eventpattern_annotation.md)
-  * [Interceptor Output Buffer](interceptors/interceptor_output_buffer.md)
-  * [Custom Events](interceptors/custom_events.md)
-    * [Configuration Registration](interceptors/configuration_registration.md)
-    * [Programmatic Registration](interceptors/programmatic_registration.md)
-    * [Listening](interceptors/usage.md)
-    * [Announcing Interceptions](interceptors/announcing_interceptions.md)
-  * [Unregistering Interceptors](interceptors/unregistering_interceptors.md)
-  * [Reporting Methods](interceptors/reporting_methods.md)
-  * [Interceptor Asynchronicity](interceptors/interceptor_asynchronicity.md)
-    * [Async Announcements](interceptors/async_announcements.md)
-    * [Async Listeners With Join](interceptors/async_listeners_with_join.md)
-    * [Async Listeners No Join](interceptors/async_listeners_no_join.md)
-    * [Asynchronous Annotations](interceptors/asynchronous_annotations.md)
+
+## HMVC
+
 * [Modules](modules/index.md)
   * [Core Modules](modules/modules/core_modules.md)
   * [Locations](modules/locations.md)
@@ -238,6 +220,9 @@
   * [Module Dependencies](modules/module_dependencies.md)
   * [Module Bundles](modules/module_bundles.md)
   * [Module Inception](modules/module_inception.md)
+
+## Testing
+
 * [Testing](testing/index.md)
   * [Testing Concepts](testing/testing_concepts/index.md)
     * [Functional Testing](testing/testing_concepts/functional_testing.md)
@@ -265,6 +250,38 @@
   * [Interceptor Testing](testing/interceptor_testing.md)
   * [Model Object Testing](testing/model_object_testing/index.md)
   * [Tips & Tricks](testing/tips_&_tricks/index.md)
+
+## Digging Deeper
+
+* [Interceptors](interceptors/index.md)
+  * [How do they work?](interceptors/how_do_they_work.md)
+    * [Conventions](interceptors/conventions.md)
+  * [Interceptor Declaration](interceptors/interceptor_declaration.md)
+  * [Interceptor Registration](interceptors/interceptor_registration.md)
+  * [Core Interception Points](interceptors/core_interception_points.md)
+    * [Application Life Cycle Events](interceptors/application_life_cycle.md)
+    * [Object Creating Events](interceptors/object_creating_events.md)
+    * [Layout-View Events](interceptors/layout-view_events.md)
+    * [Module Events](interceptors/module_events.md)
+    * [CacheBox Events](interceptors/cachebox_events.md)
+  * [Restricting Execution](interceptors/eventpattern_annotation.md)
+  * [Interceptor Output Buffer](interceptors/interceptor_output_buffer.md)
+  * [Custom Events](interceptors/custom_events.md)
+    * [Configuration Registration](interceptors/configuration_registration.md)
+    * [Programmatic Registration](interceptors/programmatic_registration.md)
+    * [Listening](interceptors/usage.md)
+    * [Announcing Interceptions](interceptors/announcing_interceptions.md)
+  * [Unregistering Interceptors](interceptors/unregistering_interceptors.md)
+  * [Reporting Methods](interceptors/reporting_methods.md)
+  * [Interceptor Asynchronicity](interceptors/interceptor_asynchronicity.md)
+    * [Async Announcements](interceptors/async_announcements.md)
+    * [Async Listeners With Join](interceptors/async_listeners_with_join.md)
+    * [Async Listeners No Join](interceptors/async_listeners_no_join.md)
+    * [Asynchronous Annotations](interceptors/asynchronous_annotations.md)
+* [Flash RAM](flash_ram/index.md)
+  * [Flash Storage](flash_ram/flash_storage.md)
+  * [Using Flash RAM](flash_ram/using_flash_ram.md)
+  * [Creating Your Own Flash Scope](flash_ram/creating_your_own_flash_scope.md)
 * [ColdBox Proxy](proxy/index.md)
   * [Getting Started](proxy/getting_started.md)
   * [The Base Proxy Object](proxy/the_base_proxy_object.md)
@@ -282,4 +299,6 @@
   * [Controller Decorator](controller_decorator/index.md)
   * [Clearing the View Cache](recipes/clearing_the_view_cache.md)
   * [Building a simple Basic HTTP Authentication Interceptor](recipes/building_a_simple_basic_http_authentication_interceptor.md)
+
+## Architecture Concepts
 
