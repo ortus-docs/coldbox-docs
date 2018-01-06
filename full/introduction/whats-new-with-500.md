@@ -168,7 +168,7 @@ string function route( required name, struct params={}, boolean ssl )
 
 ### Resourceful Routes
 
-In ColdBox 5, you can register resourceful routes to provide automatic mappings between HTTP verbs and URLs to event handlers and actions.  By convention, all resources map to a handler with the same name or they can be customized if needed.  This allows for a standardized convention when building routed applications.
+In ColdBox 5, you can register resourceful routes to provide automatic mappings between HTTP verbs and URLs to event handlers and actions by convention.  By convention, all resources map to a handler with the same name or they can be customized if needed.  This allows for a standardized convention when building routed applications.
 
 You will now have a new `resources()` method in the SES interceptor or a `resources` struct in your modules.  Yes, all modules can have their own resourceful routes.
 
