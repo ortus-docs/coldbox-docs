@@ -240,8 +240,11 @@ function resources(
 
 # Event Execution
 
-[COLDBOX-579] - You can return the `event` object from handlers and it will now be ignored for simple evaluations
-[COLDBOX-636] - Deprecate setNextEvent() in favor of relocate()
+We have also done several update for event executions, event caching and overall MVC operations:
+
+* You can now return the `event` object from event handlers and the framework will not fail.  It will be ignored.
+* `setNextEvent()` is now deprecated in favor of a `relocate()` method.
+* Request context has a `getOnly()` method to allow for retrieval of certain keys only from the public or private request contexts.
 [COLDBOX-595] - new request context method getOnly() to allow for retreival of certain keys from request contexts
 [COLDBOX-303] - Enhance cache suffix property to allow closures for dynamic event caching suffixes
 [COLDBOX-284] - Choose Provider for event caching Via Annotations
