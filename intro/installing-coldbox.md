@@ -10,7 +10,6 @@ ColdBox has the following supported IDE Tools:
 - VSCode - https://marketplace.visualstudio.com/items?itemName=ortus-solutions.vscode-coldbox
 - CFBuilder - https://www.forgebox.io/view/ColdBox-Platform-Utilities
 
-
 ## CommandBox CLI
 
 ![](../full/images/CommandBoxLogo.png)
