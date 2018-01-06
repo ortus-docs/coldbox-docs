@@ -102,7 +102,6 @@ Open the `contacts/index.cfm` and add the following to the view:
 
 That's it! Execute the event: `http://localhost:{port}/contacts/index` and view the nice table of contacts being presented to you.  Congratulations, you have made a complete MVC circle!
 
-
 ![](../full/images/request-lifecycle.png)
 
 > **Tip** You can find much more information about models and dependency injection in our [full docs](/full/models/index.md)
