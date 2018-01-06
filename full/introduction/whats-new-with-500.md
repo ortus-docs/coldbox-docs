@@ -133,6 +133,16 @@ addRoute(
   pattern  = "/user/:username/:page",
   name     = "user_detail"
 );
+
+// Same for modules
+routes = [
+
+  { 
+    pattern   = "/detail/:username/:page",
+    name     = "user_detail"
+  }
+  
+];
 ```
 
 **Build Links**
