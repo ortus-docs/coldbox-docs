@@ -238,18 +238,37 @@ function resources(
 
 
 
-# Event Execution
+## Event Execution
 
 We have also done several update for event executions, event caching and overall MVC operations:
 
 * You can now return the `event` object from event handlers and the framework will not fail.  It will be ignored.
 * `setNextEvent()` is now deprecated in favor of a `relocate()` method.
-* Request context has a `getOnly()` method to allow for retrieval of certain keys only from the public or private request contexts.
-[COLDBOX-595] - new request context method getOnly() to allow for retreival of certain keys from request contexts
-[COLDBOX-303] - Enhance cache suffix property to allow closures for dynamic event caching suffixes
-[COLDBOX-284] - Choose Provider for event caching Via Annotations
+* Request context has a `getOnly( keys, private=false )` method to allow for retrieval of certain keys only from the public or private request contexts. Great for functional programming.
+
+### Event Caching Enhancements
+
+#### Dynamic Cache Suffix
+You can now leverage the cache suffix property in handlers to be declared as a closure so it can be evaluated at runtime instead of a static prefix.
+
+```java
+this.EVENT_CACHE_SUFFIX = function( eventHandlerBean ){
+  return "a localized string, etc";
+};
+```
+
+With this ability you can enable dynamic cache suffixes according to runtime environments on a per user basis.
+
+#### Cache Provider Annotations
+
+You can now add a `cacheProvider` annotation to your cache enabled functions and decide to what CacheBox provider the output will be cached too instead of the default provider of `template`:
 
 
+```java
+function index( event, rc, prc ) cache=true cacheProvider=couchbase{
+
+}
+```
 
 ## Rendering
 [COLDBOX-600] - Expose view path to Coldbox API
