@@ -15,7 +15,7 @@ That's right, you will need Adobe ColdFusion 11+ or Lucee 4.5+ in order to work 
 
 We have fully automated all build processes with ColdBox 5 to include CommandBox and TestBox testing, Travis integration and a fully automated test suite that executes against **ALL** supported CFML engines.  Our code coverage has increased due to this work dramatically.  We discovered engine bugs that must have plagued our users for years.  YAY for testing!
 
-## Performance Improvements
+## Performance Improvements & Optimizations
 
 As we update core files we keep optimizing the source code and migrating to full cfscript.  This migration has allowed us to optimize very old code into modern times with significant performance gains.  We have also moved from internal Java reflection to get file information to native CFML functions since now all engines support it.  Just this alone has improved vanilla requests tremendously.
 
