@@ -172,6 +172,26 @@ In ColdBox 5, you can register resourceful routes to provide automatic mappings 
 
 You will now have a new `resources()` method in the SES interceptor or a `resources` struct in your modules.  Yes, all modules can have their own resourceful routes.
 
+```java
+// Creates all resources that point to a photos event handler by convention
+resources( "photos" );
+
+// Register multiple resources either as strings or arrays
+resources( "photos,users,contacts" )
+resources( [ "photos" , "users", "contacts" ] );
+
+// Register multiple fluently
+resources( "photos" )
+	.resources( "users" )
+	.resources( "contacts" );
+
+// Creates all resources to the event handler of choice instead of convention
+resources( route="photos", handler="MyPhotoHandler" );
+
+// All resources in a module
+resources( route="photos", handler="photos", module="api" );
+```
+
 
 # Event Execution
 
