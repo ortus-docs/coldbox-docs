@@ -23,14 +23,12 @@ The first step in our journey is to [install](https://commandbox.ortusbooks.com/
 
 ### Download CommandBox
 
-You can download CommandBox from the official site: http://www.ortussolutions.com/products/commandbox#download and install in your preferred Operating System (Windows, Mac, *unix). CommandBox comes in two flavors:
-
+You can download CommandBox from the official site: https://www.ortussolutions.com/products/commandbox#download and install in your preferred Operating System (Windows, Mac, *unix). CommandBox comes in two flavors:
 
 1. No Java Runtime (30mb)
 2. Embedded Runtime (80mb)
 
-
-So make sure you choose your desired installation path and follow the instructions here: [http://commandbox.ortusbooks.com/content/setup/installation.html](http://commandbox.ortusbooks.com/content/setup/installation.html)
+So make sure you choose your desired installation path and follow the instructions here: [https://commandbox.ortusbooks.com/content/setup/installation.html](https://commandbox.ortusbooks.com/content/setup/installation.html)
 
 
 
