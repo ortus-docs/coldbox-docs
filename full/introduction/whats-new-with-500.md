@@ -270,7 +270,8 @@ function index( event, rc, prc ) cache=true cacheProvider=couchbase{
 }
 ```
 
-## Rendering
+## Rendering Enhancements
+
 [COLDBOX-600] - Expose view path to Coldbox API
 [COLDBOX-622] - Custom Object Marshalling Convention $renderdata on handler results
 [COLDBOX-621] - When returning complex data from handlers, ColdBox will auto marshall to JSON
