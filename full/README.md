@@ -6,10 +6,13 @@
   \____\___/|_|\__,_|____/ \___/_/\_\
 ```
 
-# ColdBox Manual - Version 5.0.0
-![ColdBox Platform](images/ColdBoxLogo2015_300.png)
+# Intro to ColdBox v5.0.0
 
-ColdBox is a [conventions-based](http://en.wikipedia.org/wiki/Convention_over_configuration) [MVC](http://en.wikipedia.org/wiki/Model–view–controller) development framework for [ColdFusion](http://en.wikipedia.org/wiki/Adobe_ColdFusion) ([CFML](http://en.wikipedia.org/wiki/ColdFusion_Markup_Language)). It provides a set of reusable code and tools that can be used to increase your development productivity as well as a development standard for working in team environments. ColdBox is natively based on [modular architecture](http://en.wikipedia.org/wiki/Modular_design) which helps address most infrastructure concerns of typical web applications.
+![ColdBox Platform](../full/images/ColdBoxLogo2015_300.png)
+
+ColdBox is a [conventions-based](https://en.wikipedia.org/wiki/Convention_over_configuration) [HMVC](https://en.wikipedia.org/wiki/Model–view–controller) development framework for [ColdFusion](http://en.wikipedia.org/wiki/Adobe_ColdFusion) ([CFML](https://en.wikipedia.org/wiki/ColdFusion_Markup_Language)). It provides a set of reusable code and tools that can be used to increase your development productivity as well as a development standard for working in team environments. 
+
+ColdBox is natively based on [modular architecture](https://en.wikipedia.org/wiki/Modular_design) which helps address most infrastructure concerns of typical web applications and thus called an HMVC framework.
 
 
 # Versioning
@@ -27,7 +30,7 @@ And constructed with the following guidelines:
 
 
 # License
-The ColdBox Platform is open source and licensed under the [Apache 2](http://www.apache.org/licenses/LICENSE-2.0.html) License.  If you use ColdBox,
+The ColdBox Platform is open source and licensed under the [Apache 2](https://www.apache.org/licenses/LICENSE-2.0.html) License.  If you use ColdBox,
 please try to make mention of it in your code or web site or add a Powered By Coldbox icon.
 
 * Copyright by Ortus Solutions, Corp
@@ -45,9 +48,9 @@ We all make mistakes from time to time :) So why not let us know about it and he
 * By Jira: https://ortussolutions.atlassian.net/browse/COLDBOX
 
 # Professional Open Source
-![Ortus Solutions, Corp](images/ortussolutions_button.png)
+![Ortus Solutions, Corp](../full/images/ortussolutions_button.png)
 
-ColdBox is a professional open source software backed by [Ortus Solutions, Corp](http://www.ortussolutions.com/services) offering services like:
+ColdBox is a professional open source software backed by [Ortus Solutions, Corp](https://www.ortussolutions.com/services) offering services like:
 * Custom Development
 * Professional Support & Mentoring
 * Training
@@ -63,7 +66,7 @@ ColdBox is a professional open source software backed by [Ortus Solutions, Corp]
 * Twitter: [@coldbox](http://www.twitter.com/coldbox)
 * Facebook: https://www.facebook.com/coldboxplatform
 * Google+: https://www.google.com/+ColdboxOrg
-* Vimeo Channel: http://vimeo.com/channels/coldbox
+* Vimeo Channel: https://vimeo.com/channels/coldbox
 
 
 
