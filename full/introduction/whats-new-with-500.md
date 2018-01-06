@@ -190,6 +190,12 @@ resources( route="photos", handler="MyPhotoHandler" );
 
 // All resources in a module
 resources( route="photos", handler="photos", module="api" );
+
+// Resources in a ModuleConfig
+resources = [
+  { resource="photos" },
+  { resource="users", handler="user" }
+];
 ```
 
 This single resource declaration will create all the necessary variations of URL patterns and HTTP Verbs to actions to handle the resource. It will even create named routes for you.
