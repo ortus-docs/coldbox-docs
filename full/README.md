@@ -68,8 +68,6 @@ ColdBox is a professional open source software backed by [Ortus Solutions, Corp]
 * Google+: https://www.google.com/+ColdboxOrg
 * Vimeo Channel: https://vimeo.com/channels/coldbox
 
-
-
 ---
 
 ### HONOR GOES TO GOD ABOVE ALL
