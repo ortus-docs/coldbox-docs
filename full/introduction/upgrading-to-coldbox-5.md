@@ -2,6 +2,10 @@
 
 The major compatibility issues will be covered as well as how to smoothly upgrade to this release from previous ColdBox versions. You can also check out the [What's New](whats_new_with_500.md) guide to give you a full overview of the changes.
 
+## `setNextEvent()` deprecated in favor of `relocate()`
+
+The `setNextEvent()` method has been renamed to `relocate()` to better adjust to modern times.  This deprecation will be removed in future versions of ColdBox.
+
 ## `onInvalidEvent` renamed to `invalidEventHandler`
 
 The ColdBox construct setting `onInvalidEvent` has been renamed now to `invalidEventHandler`.  This will be removed in future versions of ColdBox.
