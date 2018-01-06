@@ -29,7 +29,7 @@ Instead of the `event.setView()` method call we had before.  This tells ColdBox 
 
 ## Format Detection
 
-ColdBox has the ability to detect formats via URL extensions or an incoming `accept` header.  If no extension is sent, then ColdBox attempts to determine the format by inspecting the `Accepts` header.  If we still can't figure out what format to choose, the default of `html` is selected for you.
+ColdBox has the ability to detect formats via URL extensions or an incoming `Accepts` header.  If no extension is sent, then ColdBox attempts to determine the format by inspecting the `Accepts` header.  If we still can't figure out what format to choose, the default of `html` is selected for you.
 
 ```
 # Defaul: The view is presented using no extension or html,cfm
