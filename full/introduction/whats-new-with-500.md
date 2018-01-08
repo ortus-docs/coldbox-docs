@@ -2,6 +2,10 @@
 
 ColdBox 5.0.0 is a major release for the ColdBox MVC platform.  It has been long standing as we have been learning so much especially around containerization and portability.  This release has over 70 key issues addressed from new features, improvements and bug fixes.  So let's begin our ColdBox 5 adventure.
 
+## Global Versioning
+
+All internal libraries have now a standard version according the the major ColdBox release of 5.0.0.  Further releases of WireBox, CacheBox and LogBox will adhere to the unified version.
+
 ## Engine Deprecation
 
 It is also yet another source code reduction due to the dropping of support for the following CFML Engines:
