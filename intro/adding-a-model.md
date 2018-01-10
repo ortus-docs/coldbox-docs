@@ -104,7 +104,7 @@ That's it! Execute the event: `http://localhost:{port}/contacts/index` and view 
 
 ![](../full/images/request-lifecycle.png)
 
-> **Tip** You can find much more information about models and dependency injection in our [full docs](/full/models/index.md)
+> **Tip** You can find much more information about models and dependency injection in our [full docs](https://coldbox.ortusbooks.com/content/full/models/)
 
 
 
