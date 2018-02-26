@@ -39,12 +39,12 @@ location @rewrite {
   rewrite ^ /index.cfm last;
 }
 
-################### CFM/CFC RAILO HANDLER #####################
+################### CFM/CFC LUCEE HANDLER #####################
 # The above locations will just redirect or try to serve cfml files
-# We need this to tell NGinx that if we receive the following requests to pass them to Railo
+# We need this to tell NGinx that if we receive the following requests to pass them to Lucee
 location ~ \.(cfm|cfml|cfc|jsp)(.*)$ {
 # Include our connector
-include railo.conf;
+include lucee.conf;
 }
 
 ```
