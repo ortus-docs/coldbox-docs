@@ -39,12 +39,11 @@
                     "selected": true
                 },
                 {
-                    "value": "https://coldbox.ortusbooks.com/content/v/v4.3.0",
+                    "value": "https://coldbox.ortusbooks.com/content/v/v4.3.0/full/",
                     "text": "Version 4.3.0"
-                    "selected": true
                 },
                 {
-                    "value": "https://rackt.github.io/history/v1.4.0/",
+                    "value": "https://coldbox.ortusbooks.com/content/v/v4.1.0/",
                     "text": "Version 4.1.0"
                 }
 
