@@ -16,7 +16,8 @@
         "advanced-emoji",
         "sitemap",
         "collapsible-chapters",
-        "anchors"
+        "anchors",
+        "versions"
     ],
     "pluginsConfig": {
         "edit-link": {
@@ -28,6 +29,9 @@
         },
         "sitemap": {
             "hostname": "https://coldbox.ortusbooks.com"
+        },
+         "versions": {
+            "type": "tags"
         }
     },
     "links": {
