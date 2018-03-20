@@ -31,7 +31,24 @@
             "hostname": "https://coldbox.ortusbooks.com"
         },
          "versions": {
-            "type": "tags"
+            "gitbookConfigURL": "https://raw.githubusercontent.com/ortus-docs/coldbox-docs/master/book.json",
+            "options": [
+                {
+                    "value": "https://rackt.github.io/history/v1.3.0/",
+                    "text": "Latest - v5.0.0",
+                    "selected": true
+                },
+                {
+                    "value": "https://coldbox.ortusbooks.com/content/v/v4.3.0",
+                    "text": "Version 4.3.0"
+                    "selected": true
+                },
+                {
+                    "value": "https://rackt.github.io/history/v1.4.0/",
+                    "text": "Version 4.1.0"
+                }
+
+            ]
         }
     },
     "links": {
