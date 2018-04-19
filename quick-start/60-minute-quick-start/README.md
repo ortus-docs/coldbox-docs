@@ -4,7 +4,7 @@ This guide has been designed to get you started with ColdBox in less than 60 min
 
 ### Requirements
 
-* Please make sure you download and install the latest [CommandBox CLI](https://www.ortussolutions.com/products/commandbox).
+* Please make sure you download and install the latest [CommandBox CLI](https://www.ortussolutions.com/products/commandbox).  We will show you how in the [Installing ColdBox section](installing-coldbox.md).
 * Grab a cup of coffee
 * Get comfortable
 
