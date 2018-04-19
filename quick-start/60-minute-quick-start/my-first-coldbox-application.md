@@ -16,7 +16,7 @@ CommandBox comes with a `coldbox create app` command that can enable you to crea
 You can find all our template skeletons here: [github.com/coldbox-templates](https://github.com/coldbox-templates)
 {% endhint %}
 
-### Scaffolding Our Application
+## Scaffolding Our Application
 
 So let's create our first app using the _default_ template skeleton **AdvancedScript**:
 
@@ -69,7 +69,7 @@ That's it, you have just created your first application. Hooray, onward!
 **Tip:** Type `coldbox create app help` to get help on all the options for creating ColdBox applications.
 {% endhint %}
 
-### File/Folder Conventions
+## File/Folder Conventions
 
 ColdBox is a conventions based framework.  The location of files and functions matter.  Since we scaffolded our first application, let's write down in a table below with the different conventions that exist in ColdBox.
 
@@ -88,7 +88,7 @@ ColdBox is a conventions based framework.  The location of files and functions m
 What is the common denominator in all the conventions? That they are all optional. 
 {% endhint %}
 
-### Re-initializing The Application
+## Re-initializing The Application
 
 There will be times when you make configuration or code changes that are not reflected immediately in the application due to caching. You can tell the framework to _reinit _or restart the application for you via the URL by leveraging the special URL variable `fwreinit`.
 
