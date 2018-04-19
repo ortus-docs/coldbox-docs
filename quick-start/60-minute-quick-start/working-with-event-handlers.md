@@ -10,7 +10,7 @@ Event handlers are the controller layer in ColdBox and is what you will be execu
 
 Once you started the server in the previous section and opened the browser, the default event got executed which maps to an event handler CFC \(controller\) `handlers/main.cfc` and the method/action in that CFC called `index()`. Go open the `handlers/main.cfc` and let's explore the code.
 
-### Handler Code
+## Handler Code
 
 ```javascript
 // Default Action
@@ -28,7 +28,7 @@ Every action in ColdBox receives three arguments:
 
 This line `event.setView( "main/index" )` told ColdBox to render a view back to the user found in `views/main/index.cfm` using a default layout, which by convention is called `Main.cfm` which can be found in the `layouts` folder.
 
-### Executing Events
+## Executing Events
 
 We have now seen how to add handlers via CommandBox using the `coldbox create handler` command and also execute them by convention by leveraging the following URL pattern:
 
@@ -44,7 +44,7 @@ Also remember, that if no `action` is defined in the incoming URL then the defau
 Remember that the URL mappings support in ColdBox is what allows you to execute events in such a way from the URL.  These are controlled by your application router: `config/Router.cfc`
 {% endhint %}
 
-### Working With Incoming Data
+## Working With Incoming Data
 
 Now, let's open the handler we created before called `handlers/hello.cfc` and add some public and private variables to it so our views can render the variables.
 

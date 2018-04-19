@@ -6,7 +6,7 @@ Out of the box, ColdBox gives you all the RESTFul capabilities you will need to 
 **Tip:** You can find much more information about building ColdBox RESTFul services in our [full docs.](../../digging-deeper/recipes/building-rest-apis.md)
 {% endhint %}
 
-### Handler Auto-Marshalling
+## Producing JSON
 
 If you know beforehand what type of format you will be responding with, you can leverage ColdBox 5's auto-marshalling in your handlers. By default, ColdBox detects any return value from handlers and if they are complex it will convert them to JSON automatically for you:
 
@@ -18,7 +18,7 @@ any function index( event, rc, prc ){
 
 That's it! ColdBox detects the array and automatically serializes it to JSON. Easy Peasy!
 
-### renderData\(\)
+## renderData\(\)
 
 The request context object has a special function called `renderData()` that can take any type of data and marshall it for you to other formats like `xml, json, wddx, pdf, text, html` or your own type.
 
@@ -43,7 +43,7 @@ event.renderData( data=prc.aContacts, formats="xml,json,pdf,html" );
 
 This tells ColdBox to render the contacts data in 4 formats: xml, json, pdf and html. WOW! So how would you trigger each format? Via the URL of course.
 
-### Format Detection
+## Format Detection
 
 ColdBox has the ability to detect formats via URL extensions or an incoming `Accepts` header. If no extension is sent, then ColdBox attempts to determine the format by inspecting the `Accepts` header. If we still can't figure out what format to choose, the default of `html` is selected for you.
 
@@ -70,7 +70,7 @@ http://localhost:{port}/contacts/index.pdf
 **Tip:** You can also avoid the extension and pass a URL argument called `format` with the correct format type: `?format=json`.
 {% endhint %}
 
-### Routing
+## Routing
 
 Let's add a new route to our system that is more RESTFul than `/contacts/index.json`. You will do so by leveraging the application's router found at `config/Router.cfc`.  Find the `configure()` method and let's add a new route:
 
@@ -96,5 +96,5 @@ http://localhost:{port}/api/contacts.json
 You can find much more about routing in our [full docs](../../the-basics/routing/)
 {% endhint %}
 
-### 
+
 
