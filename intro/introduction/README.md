@@ -10,7 +10,7 @@
 
 ## ColdBox Manual - v5.0.0
 
-![ColdBox Platform](.gitbook/assets/coldboxlogo2015_300.png)
+![ColdBox Platform](../../.gitbook/assets/coldboxlogo2015_300.png)
 
 ColdBox is a [conventions-based](https://en.wikipedia.org/wiki/Convention_over_configuration) [HMVC](https://en.wikipedia.org/wiki/Model–view–controller) development framework for [ColdFusion](http://en.wikipedia.org/wiki/Adobe_ColdFusion) \([CFML](https://en.wikipedia.org/wiki/ColdFusion_Markup_Language)\). It provides a set of reusable code and tools that can be used to increase your development productivity as well as a development standard for working in team environments.
 
@@ -52,7 +52,7 @@ We all make mistakes from time to time :\) So why not let us know about it and h
 
 ## Professional Open Source
 
-![Ortus Solutions, Corp](.gitbook/assets/ortussolutions_button.png)
+![Ortus Solutions, Corp](../../.gitbook/assets/ortussolutions_button.png)
 
 ColdBox is a professional open source software backed by [Ortus Solutions, Corp](https://www.ortussolutions.com/services) offering services like:
 
