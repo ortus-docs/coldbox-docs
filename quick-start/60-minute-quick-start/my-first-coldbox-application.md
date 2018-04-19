@@ -3,17 +3,20 @@
 CommandBox comes with a `coldbox create app` command that can enable you to create application skeletons using one of our official skeletons or [your own](../../digging-deeper/recipes/application-templates.md):
 
 * **Advanced** : A tag based advanced template
-* **AdvancedScript**  \(default\): A script based advanced template
+* **AdvancedScript**  \(_`default`_\): A script based advanced template
 * **elixir** : A ColdBox Elixir based template
 * **ElixirBower** : A ColdBox Elixir + Bower based template
 * **ElixirVueJS** : A ColdBox Elixir + Vue.js based template
-* **Rest** : A RESTFul services template
+* **rest**: A RESTFul services template
+* **rest-hmvc**: A RESTFul service built with modules
 * **Simple** : A traditional simple template
 * **SuperSimple** : The bare-bones template
 
-> You can find all our template skeletons here: [github.com/coldbox-templates](https://github.com/coldbox-templates)
+{% hint style="success" %}
+You can find all our template skeletons here: [github.com/coldbox-templates](https://github.com/coldbox-templates)
+{% endhint %}
 
-So let's create our first app using the _default_ template skeleton _AdvancedScript_:
+So let's create our first app using the _default_ template skeleton **AdvancedScript**:
 
 ```bash
 coldbox create app MyApp
@@ -22,14 +25,14 @@ coldbox create app MyApp
 This will scaffold the application and also install ColdBox for you. The following folders/files are generated for you:
 
 ```text
-+coldbox // installed by CommandBox
-+config // Application configuration files
-+handlers // Your handlers
++coldbox // The ColdBox framework library (CommandBox Tracked)
++config // Configuration files
++handlers // Your handlers/controllers
 +includes // static assets
 +interceptors // global interceptors
 +layouts // Your layouts
 +models // Your Models
-+modules // CommandBox tracked modules
++modules // CommandBox Tracked Modules
 +modules_app // Custom modules
 +tests // Test harness
 +views // Your Views
@@ -44,9 +47,15 @@ Now let's start a server so we can see our application running:
 server start --rewritesEnable
 ```
 
-> **Note** This will start up a [Lucee](https://www.lucee.org) 4.5 open source CFML engine. If you would like an Adobe ColdFusion server then just add to the command: `cfengine=adobe@{version}` where `{version}` can be: `2016,11,10,9`.
+{% hint style="info" %}
+This will start up a [Lucee](https://www.lucee.org) 5 open source CFML engine. If you would like an **Adobe ColdFusion **server then just add to the command: `cfengine=adobe@{version}` where `{version}` can be: `2016,11,10,9.`
+{% endhint %}
 
-This command will start a server with URL rewrites enabled, open a web browser for you and execute the default event by convention in a ColdBox application: `main.index`.
+This command will start a server with URL rewrites enabled, open a web browser for you and execute the `index.cfm`which in turn executes the **default event** by convention in a ColdBox application: `main.index`.
+
+{% hint style="info" %}
+ColdBox Events map to handlers \(**cfc**\) and appropriate actions \(**functions**\)
+{% endhint %}
 
 ![](../../.gitbook/assets/app_template.png)
 
