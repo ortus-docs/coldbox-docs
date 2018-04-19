@@ -58,7 +58,10 @@ function index( event, rc, prc ){
 
 Go execute the event now: `http://localhost:{port}/hello/index` and you will see the view rendered with the words `funky layout` and `footer view` at the bottom. Eureka, you have now created a layout.
 
-> **Tip** You can also leverage the function `event.setLayout( "Funky" )` to change layouts.
+{% hint style="info" %}
+You can also leverage the function `event.setLayout( "Funky" )` to change layouts and even concatenate the calls:
 
-> **Tip** You can find much more information about layouts and views in our [full docs](../../the-basics/layouts-and-views/)
+`event.setView( "hello/index" )  
+  .setLayout( "Funky" );`
+{% endhint %}
 
