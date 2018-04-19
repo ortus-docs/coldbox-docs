@@ -56,11 +56,11 @@ The **event** object is used for many things, in the case of this function we ar
 **Tip: **The view is not rendered in line 7, but rendered after the execution of the action by the framework.
 {% endhint %}
 
-## Executing Events
+### Executing Events
 
 Did you detect a convention here? 
 
-The sections in the URL are the same as the name of the event handler CFC \(`hello.cfc`\) and method that was generated \(`index()`\). By convention, this is how you execute events in ColdBox by leveraging the following URL pattern that matches the name of a handler and action method. 
+The sections in the URL are the same as the name of the event handler CFC \(`hello.cfc`\) and method that was generated `index()`. By convention, this is how you execute events in ColdBox by leveraging the following URL pattern that matches the name of a handler and action function. 
 
 {% hint style="info" %}
  You can also nest handlers into folders and you can also pass the name of the folder\(s\) as well.
@@ -72,13 +72,15 @@ http://localhost:{port}/handler/action
 http://localhost:{port}/handler
 ```
 
-If no `action` is defined then the default action of `index` will be used. This is leveraging the RESTFul URL mappings in ColdBox. You can configure them by leveraging the `config/Router.cfc` which is your application router.
+If no `action` is defined in the URL then the default action of `index` will be used. 
+
+All of this URL magic happens thanks to the URL mappings capabilities in ColdBox.  By convention, you can write beautiful URLs that are RESTFul and by convention.  You can also extend them and create more expressive URL Mappings by leveraging the `config/Router.cfc` which is your application router.
 
 {% hint style="success" %}
 **Tip:** Please see the [event handlers](../../the-basics/event-handlers/) guide for more in-depth information.
 {% endhint %}
 
-## My First Virtual Event
+### My First Virtual Event
 
 Now let's create a virtual event, which is basically just a view we want to execute with no event handler controller needed.  This is a great way to incorporate non-mvc files into ColdBox, baby steps!
 
@@ -98,7 +100,7 @@ Then go execute the virtual event:
 http://localhost:{port}/virtual/hello
 ```
 
-You will get the `Hello From ColdBox Land!` displayed! This is a great way to create dynamic views or even bring in legacy/procedural templates into an MVC framework.
+You will get the `Hello From ColdBox Land!` displayed! This is a great way to create tests or even bring in legacy/procedural templates into an MVC framework.
 
 {% hint style="success" %}
 **Tip:** You can see our [layouts and views](../../the-basics/layouts-and-views/) section for more in-depth information.
