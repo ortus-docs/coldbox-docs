@@ -41,7 +41,7 @@ We have added the following line:
 event.renderData( data=prc.aContacts, formats="xml,json,pdf,html" );
 ```
 
-Instead of the `event.setView()` method call we had before. This tells ColdBox to render the contacts data in 4 formats: xml, json, pdf and html. So how would you trigger each format? Via the URL of course.
+This tells ColdBox to render the contacts data in 4 formats: xml, json, pdf and html. WOW! So how would you trigger each format? Via the URL of course.
 
 ### Format Detection
 
@@ -66,25 +66,25 @@ http://localhost:{port}/contacts/index.pdf
 # OR Accepts: application/pdf
 ```
 
-> **Tip** You can also avoid the extension and pass a URL argument called `format` with the correct format type: `?format=json`.
-
-You have now created a RESTFul service for your contacts listing, enjoy it.
+{% hint style="success" %}
+**Tip:** You can also avoid the extension and pass a URL argument called `format` with the correct format type: `?format=json`.
+{% endhint %}
 
 ### Routing
 
-Let's add a new route to our system that is more RESTFul than `/contacts/index.json`. You will do so by leveraging the application's routing file found at `config/routes.cfm`. Open it and add the following new route pattern before the ColdBox default route:
+Let's add a new route to our system that is more RESTFul than `/contacts/index.json`. You will do so by leveraging the application's router found at `config/Router.cfc`.  Find the `configure()` method and let's add a new route:
 
 ```java
-addRoute( 
-    pattern = "/api/contacts",
-    handler = "contacts",
-    action = "index"
-);
+route( pattern="/api/contacts", target="contacts.index", name="api.contacts" );
 ```
 
-The `addRoute()` method allows you to register new URL patterns in your application. We have now created a new URL route called `/api/contacts` that if detected will execute the `contacts.index` event. Now reinit the application.
+The `route()` method allows you to register new URL patterns in your application and immediately route them to a target event.  You can even give it a human readable name that can be later referenced in the `buildLink()` method. 
 
-> **Tip** Every time you add new routes make sure you reinit the application: `http://localhost:{port}/?fwreinit`.
+We have now created a new URL route called `/api/contacts` that if detected will execute the `contacts.index` event. Now reinit the application, why, well we changed the application router and we need the changes to take effect.
+
+{% hint style="success" %}
+**Tip: **Every time you add new routes make sure you reinit the application: `http://localhost:{port}/?fwreinit`.
+{% endhint %}
 
 You can now visit the new URL pattern and you have successfully built a RESTFul API for your contacts.
 
@@ -92,7 +92,9 @@ You can now visit the new URL pattern and you have successfully built a RESTFul 
 http://localhost:{port}/api/contacts.json
 ```
 
-> **Note** You can find much more about routing in our [full docs](../../the-basics/routing/)
+{% hint style="info" %}
+You can find much more about routing in our [full docs](../../the-basics/routing/)
+{% endhint %}
 
 ### 
 
