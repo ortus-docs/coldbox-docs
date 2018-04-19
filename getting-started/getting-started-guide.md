@@ -4,7 +4,7 @@ The ColdBox HMVC Platform is the de-facto enterprise-level HMVC framework for CF
 
 This is a one-page introductory guide to ColdBox.  If you are new to MVC or ColdBox, you can also leverage our [60 minute quick start guide](../quick-start/60-minute-quick-start/) as well.
 
-### IDE Tools
+## IDE Tools
 
 ColdBox has the following supported IDE Tools:
 
@@ -12,7 +12,7 @@ ColdBox has the following supported IDE Tools:
 * VSCode - [https://marketplace.visualstudio.com/items?itemName=ortus-solutions.vscode-coldbox](https://marketplace.visualstudio.com/items?itemName=ortus-solutions.vscode-coldbox)
 * CFBuilder - [https://www.forgebox.io/view/ColdBox-Platform-Utilities](https://www.forgebox.io/view/ColdBox-Platform-Utilities)
 
-### Install CommandBox
+## Install CommandBox
 
 You can read through our one-page [CommandBox Getting Started Guide](https://commandbox.ortusbooks.com/getting-started-guide). Or simply grab the CommandBox executable from the [download page](https://www.ortussolutions.com/products/commandbox#download) and double click it to run.
 
@@ -22,7 +22,7 @@ You should now be seeing a prompt that looks like this:
 
 ![CommandBox Shell](../.gitbook/assets/commandbox-terminal.png)
 
-### Create A New Site
+## Create A New Site
 
 Now we're cooking with gas! Let's create a new ColdBox application. CommandBox comes with built-in commands for scaffolding out new sites as well as installing ColdBox and other libraries. We'll start by changing into an empty directory were we want our new app to live. If necessary, you can create a new folder.
 
@@ -42,7 +42,7 @@ CommandBox> coldbox create app MyPlayground
 You can also issue a `coldbox create app help` command and get help for the creation command.
 {% endhint %}
 
-#### File/Folder Conventions
+### File/Folder Conventions
 
 This command will place several new folders and files in your working directory. Let's run the `ls` command to view them.
 
@@ -62,7 +62,7 @@ Here's a rundown of the important bits.
 * **modules\_app **- This holds your app's modules
 * **views** - Your HTML views will go here
 
-### Start It Up
+## Start It Up
 
 Now that our shiny new MVC app is ready to go, let's fire it up using the embedded server built into CommandBox. You don't need any other software installed on your PC for this to work. CommandBox has it all!
 
@@ -74,7 +74,7 @@ In a few seconds, a browser window will appear with your running application. Th
 
 ![Default App Template](../.gitbook/assets/app_template.png)
 
-### Take A Look Around
+## Take A Look Around
 
 ColdBox uses easy conventions to define the controllers and views in your app. Let's open up our main app controller in your default editor to have a looksie.
 
@@ -110,7 +110,7 @@ Try changing the value being set in the handler and refresh your browser to see 
 prc.welcomeMessage = "This is my new welcome message";
 ```
 
-### Building On
+## Building On
 
 Let's define a new event handler now. Your controllers act as event handlers to respond to requests, REST API, or remote proxies.
 
@@ -132,7 +132,7 @@ Let's hit this new controller we created with a URL like so. Your port number wi
 Normally the URL would have `index.cfm` before the `/helloWorld` bit, but our `--rewritesEnable` flag when we started the server makes this nicer URL possible.
 {% endhint %}
 
-### Install Packages
+## Install Packages
 
 ColdBox's MVC is simple, but it's true power comes from the wide selection of modules you can install into your app to get additional functionality. You can checkout the full list of modules available on the Forgebox directory: [www.forgebox.io](https://www.forgebox.io).
 
@@ -169,7 +169,7 @@ Dependency Hierarchy for myApp (0.0.0)
 
 Right now we can see that our app depends on `coldbox` and `cbmessagebox` to run. We'll use our new `cbmessagebox` module in a few minutes. But first, we'll create a simple Model CFC to round out our `MVC` app.
 
-### Creating A Model
+## Creating A Model
 
 Models encapsulate the business logic your application. They can be services, beans, or DAOs. We'll use CommandBox to create a `GreeterService` in our new app with a `sayHello` method.
 
@@ -201,7 +201,7 @@ What is WireBox?
 WireBox is a dependency injection framework that is included with ColdBox.  It will manage all object creations, persistence and assembling.  You don't have to worry about using `new` or `createobject()` for CFCs anymore.
 {% endhint %}
 
-### Tie It All Together
+## Tie It All Together
 
 Ok, let's open up that `helloWorld` handler we created a while back. Remember, you can hit tab while typing to auto-complete your file names.
 
@@ -247,7 +247,7 @@ Now hit your `helloWorld` handler one final time with `?fwreinit=1` in the URL t
 
 > 127.0.0.1:43272/helloWorld?fwreinit=1
 
-### What's Next?
+## What's Next?
 
 **Congratulations**! In a matter of minutes, you have created a full MVC application. You installed a community module from ForgeBox, created a new handler/view and tied in business logic from a service model.
 
