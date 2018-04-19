@@ -53,19 +53,21 @@ This will start up a [Lucee](https://www.lucee.org) 5 open source CFML engine. I
 
 This command will start a server with URL rewrites enabled, open a web browser for you and execute the `index.cfm`which in turn executes the **default event** by convention in a ColdBox application: `main.index`.
 
-{% hint style="info" %}
-ColdBox Events map to handlers \(**cfc**\) and appropriate actions \(**functions**\)
+{% hint style="success" %}
+**Tip:** ColdBox Events map to handlers \(**cfc**\) and appropriate actions \(**functions**\)
 {% endhint %}
 
 ![](../../.gitbook/assets/app_template.png)
 
 That's it, you have just created your first application.
 
-> **Tip** Type `coldbox create app help` to get help on all the options for creating ColdBox applications.
+{% hint style="success" %}
+**Tip:** Type `coldbox create app help` to get help on all the options for creating ColdBox applications.
+{% endhint %}
 
 ## Reiniting The Application
 
-There will be times when you make configuration or code changes that are not reflected immedidately in the application due to caching. You can tell the framework to reinit or restart the application for you via the URL by leveraging the special URL variable `fwreinit`.
+There will be times when you make configuration or code changes that are not reflected immedidately in the application due to caching. You can tell the framework to _reinit _or restart the application for you via the URL by leveraging the special URL variable `fwreinit`.
 
 ```text
 http://localhost:{port}/?fwreinit=1
@@ -77,5 +79,9 @@ You can also use CommandBox to reinit the application:
 coldbox reinit
 ```
 
-> **Tip** You can add a password to the reinit procedures for further security, please see the [configuration section](../../the-basics/configuration/coldbox.cfc/configuration-directives/coldbox.md).
+{% hint style="success" %}
+**Tip:** You can add a password to the **reinit **procedures for further security, please see the [configuration section](../../the-basics/configuration/coldbox.cfc/).
+{% endhint %}
+
+
 
