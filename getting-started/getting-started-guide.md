@@ -1,6 +1,8 @@
 # Getting Started Guide
 
-The ColdBox HMVC Platform is the de-facto enterprise-level HMVC framework for CFML developers. It's professionally backed, highly extensible, and productive. Getting started with ColdBox is quick and painless. The only thing you need to begin is [CommandBox](http://www.ortussolutions.com/products/commandbox), a command line tool for CFML developers.
+The ColdBox HMVC Platform is the de-facto enterprise-level HMVC framework for CFML developers. It's professionally backed, highly extensible, and productive. Getting started with ColdBox is quick and painless. The only thing you need to begin is [CommandBox](http://www.ortussolutions.com/products/commandbox), a command line tool for CFML developers.  
+
+This is a one-page introductory guide to ColdBox.  If you are new to MVC or ColdBox, you can also leverage our [60 minute quick start guide](../quick-start/60-minute-quick-start/) as well.
 
 ### IDE Tools
 
@@ -18,7 +20,7 @@ You can read through our one-page [CommandBox Getting Started Guide](https://com
 
 You should now be seeing a prompt that looks like this:
 
-![CommandBox Terminal](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/commandbox-terminal.png)
+![CommandBox Shell](../.gitbook/assets/commandbox-terminal.png)
 
 ### Create A New Site
 
@@ -36,15 +38,17 @@ CommandBox> coldbox create app MyPlayground
 
 {% hint style="success" %}
 **Tip:** You can find many scaffolding templates for ColdBox in our Github organization: [github.com/coldbox-templates](https://github.com/coldbox-templates)
+
+You can also issue a `coldbox create app help` command and get help for the creation command.
 {% endhint %}
+
+#### File/Folder Conventions
 
 This command will place several new folders and files in your working directory. Let's run the `ls` command to view them.
 
 ```bash
 CommandBox> ls
 ```
-
-#### File/Folder Conventions
 
 Here's a rundown of the important bits.
 
@@ -58,7 +62,7 @@ Here's a rundown of the important bits.
 * **modules\_app **- This holds your app's modules
 * **views** - Your HTML views will go here
 
-## Start It Up
+### Start It Up
 
 Now that our shiny new MVC app is ready to go, let's fire it up using the embedded server built into CommandBox. You don't need any other software installed on your PC for this to work. CommandBox has it all!
 
@@ -68,9 +72,9 @@ CommandBox> start --rewritesEnable
 
 In a few seconds, a browser window will appear with your running application. This is a full server with access to the web administrator where you can add data sources, mappings, or adjust the server settings. Notice the handy icon added to your system tray as well. The `--rewritesEnable` flag will turn on some basic URL rewriting so we have nice, pretty URLs.
 
-![Default ColdBox App Template](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/app_template.png)
+![Default App Template](../.gitbook/assets/app_template.png)
 
-## Take A Look Around
+### Take A Look Around
 
 ColdBox uses easy conventions to define the controllers and views in your app. Let's open up our main app controller in your default editor to have a looksie.
 
@@ -78,7 +82,7 @@ ColdBox uses easy conventions to define the controllers and views in your app. L
 CommandBox> edit handlers/main.cfc
 ```
 
-At the top, you'll see a method named "index". This represents the default action that runs for this controller.
+At the top, you'll see a function named "index". This represents the **default action** that runs for this controller, which in ColdBox land they are referred to as event handlers.
 
 ```javascript
 // Default Action
@@ -88,7 +92,7 @@ function index(event,rc,prc){
 }
 ```
 
-Now let's take a look in the "main/index" view. It's located int he `views` folder.
+Now let's take a look in the `main/index` view. It's located int he `views` folder.
 
 ```bash
 CommandBox> edit views/main/index.cfm
@@ -106,9 +110,9 @@ Try changing the value being set in the handler and refresh your browser to see 
 prc.welcomeMessage = "This is my new welcome message";
 ```
 
-## Building On
+### Building On
 
-Let's define a new controller now. Sometimes you'll see these called "handlers". This is because ColdBox is an event-driven system. Your controllers act as event handlers to respond to requests, REST API, or remote proxies.
+Let's define a new event handler now. Your controllers act as event handlers to respond to requests, REST API, or remote proxies.
 
 Pull up CommandBox again and run this command.
 
@@ -116,29 +120,37 @@ Pull up CommandBox again and run this command.
 CommandBox> coldbox create handler helloWorld index,add,edit,list
 ```
 
-That's it! You don't need to add any specicial configuration to declare your handler. Now we have a new handler called `helloWorld` with actions `index`, `add`, `edit`, and `list`. The command also created a test case for our handler as well as stubbed-out views for each of the actions.
+That's it! You don't need to add any special configuration to declare your handler. Now we have a new handler called `helloWorld` with actions `index`, `add`, `edit`, and `list`. The command also created a test case for our handler as well as stubbed-out views for each of the actions.
 
-Now, let's re-initalize the framework to pick up our new handler by typing `?fwreinit=1` at the end of the URL.
+Now, let's re-initialize the framework to pick up our new handler by typing `?fwreinit=1` at the end of the URL.
 
 Let's hit this new controller we created with a URL like so. Your port number will probably be different.
 
 > 127.0.0.1:43272/helloWorld
 
-Normally the url would have `index.cfm` before the `/helloWorld` bit, but our `--rewritesEnable` flag when we started the server makes this nicer URL possible.
+{% hint style="info" %}
+Normally the URL would have `index.cfm` before the `/helloWorld` bit, but our `--rewritesEnable` flag when we started the server makes this nicer URL possible.
+{% endhint %}
 
-## Install Packages
+### Install Packages
 
-ColdBox's MVC is simple, but it's true power comes from the wide selection of modules you can install into your app to get additional functionality. You can checkout the full list of modules available on the Forgebox site.
+ColdBox's MVC is simple, but it's true power comes from the wide selection of modules you can install into your app to get additional functionality. You can checkout the full list of modules available on the Forgebox directory: [www.forgebox.io](https://www.forgebox.io).
 
 > [forgebox.io/type/modules](http://forgebox.io/type/modules)
 
 Here's some useful examples:
 
+* **BCrypt** -- Industry-standard password hashing
 * **cbdebugger** -- For debugging Coldbox apps
-* **cbmessagebox** -- Display nice error/success messages
+* **cbjavaloader** - For interacting with Java classes and libraries
+* **cbMarkdown** - For writing in markdown
+* **cbMessagebox** -- Display nice error/success messages
 * **cborm** -- Awesome ORM Services
 * **cb18n** -- For multilingual sites
-* **BCrypt** -- Industry-standard password hashing
+* **cbt** - ColdBox templating language
+* **cbValidation** - Back-end validation framework
+* **qb** - Fluent query builder and schema builder
+* **route-visualizer** - For visualizing your application routes
 
 Install `cbmessagebox` from the CommandBox prompt like this:
 
@@ -157,7 +169,7 @@ Dependency Hierarchy for myApp (0.0.0)
 
 Right now we can see that our app depends on `coldbox` and `cbmessagebox` to run. We'll use our new `cbmessagebox` module in a few minutes. But first, we'll create a simple Model CFC to round out our `MVC` app.
 
-## Creating A Model
+### Creating A Model
 
 Models encapsulate the business logic your application. They can be services, beans, or DAOs. We'll use CommandBox to create a `GreeterService` in our new app with a `sayHello` method.
 
@@ -165,9 +177,13 @@ Models encapsulate the business logic your application. They can be services, be
 CommandBox> coldbox create model GreeterService sayHello --open
 ```
 
-The `--open` is a nice shortcut that opens our new model in our default editor after creating it. Let's finish implementing the `sayHello()` method by adding this return statement and save the file.
+{% hint style="success" %}
+**Tip: **The `--open` is a nice shortcut that opens our new model in our default editor after creating it.
+{% endhint %}
 
-We can also add the word `singleton` to the component declaration. This will tell WireBox to only create one instance of our service.
+Let's finish implementing the `sayHello()` method by adding this return statement and save the file.
+
+We can also add the word `singleton` to the component declaration. This will tell **WireBox** to only create one instance of our service.
 
 ```javascript
 component singleton {
@@ -179,7 +195,13 @@ component singleton {
 }
 ```
 
-## Tie It All Together
+{% hint style="info" %}
+What is WireBox? 
+
+WireBox is a dependency injection framework that is included with ColdBox.  It will manage all object creations, persistence and assembling.  You don't have to worry about using `new` or `createobject()` for CFCs anymore.
+{% endhint %}
+
+### Tie It All Together
 
 Ok, let's open up that `helloWorld` handler we created a while back. Remember, you can hit tab while typing to auto-complete your file names.
 
@@ -187,12 +209,19 @@ Ok, let's open up that `helloWorld` handler we created a while back. Remember, y
 CommandBox> edit handlers/helloWorld.cfc
 ```
 
-We'll inject our `greeterService` and the `cbmessagebox` service into the handler by adding these properties to the top of `/handlers/helloWorld.cfc`. This will put the instance of our services in the variables scope where we can access it in our action methods.
+We'll inject our `greeterService` and the `cbmessagebox` service into the handler by adding these properties to the top of `/handlers/helloWorld.cfc`. 
+
+{% hint style="info" %}
+What is this magical injection? Injection is a way to get references of other objects placed in the `variables` scope of other objects.  This makes your life easier as you don't have to be creating objects manually or even knowing where they exist.
+{% endhint %}
+
+This will put the instance of our services in the `variables` scope where we can access it in our action methods.
 
 ```javascript
 component {
+
     property name='greeterService' inject='greeterService';
-    property name='messageBox' inject='messagebox@cbmessagebox';
+    property name='messageBox' inject='@cbmessagebox';
 
     ...
 }
@@ -201,9 +230,9 @@ component {
 And now in our `index` method, we'll set the output of our service into an `info` message.
 
 ```javascript
-function index(event,rc,prc){
+function index( event, rc, prc ){
     messageBox.info( greeterService.sayHello() );
-    event.setView("helloWorld/index");
+    event.setView( "helloWorld/index" );
 }
 ```
 
@@ -218,9 +247,9 @@ Now hit your `helloWorld` handler one final time with `?fwreinit=1` in the URL t
 
 > 127.0.0.1:43272/helloWorld?fwreinit=1
 
-## What's Next?
+### What's Next?
 
-Congratulations! In a matter of minutes, you have created a full MVC application. You installed a community module from ForgeBox, created a new handler/view and tied in business logic from a service model.
+**Congratulations**! In a matter of minutes, you have created a full MVC application. You installed a community module from ForgeBox, created a new handler/view and tied in business logic from a service model.
 
 As easy as that was, you're just scratching the surface of what ColdBox can do for you. Continue reading this book to learn more about:
 
@@ -230,7 +259,9 @@ As easy as that was, you're just scratching the surface of what ColdBox can do f
 * Drop-in security system
 * Sweet REST web service support
 
-If you run into issues or just have questions, please jump on our [ColdBox Google Group](https://groups.google.com/forum/#!forum/coldbox) and ask away.
+### Getting Help
+
+If you run into issues or just have questions, please jump on our [ColdBox Google Group](https://groups.google.com/forum/#!forum/coldbox) and our [Slack team](http://boxteam.herokuapp.com/) and ask away.
 
 ColdBox is Professional Open Source under the Apache 2.0 license. We'd love to have your help with the product.
 
