@@ -6,7 +6,13 @@ Now let's create our first controller, which in ColdBox is called **Event Handle
 coldbox create handler name="hello" actions="index"
 ```
 
-This will generate a new handler called `hello.cfc` inside of the `handlers` folder, a view called `index.cfm` in the `views/hello` folder and even an integration test at `tests/specs/integration/helloTest.cfc`. Now go to the following URL to execute the generated event:
+This will generate the following files:
+
+* A new handler called `hello.cfc` inside of the `handlers` folder
+* A view called `index.cfm` in the `views/hello` folder 
+* An integration test at `tests/specs/integration/helloTest.cfc`. 
+
+Now go to your browser and the following URL to execute the generated event:
 
 ```text
 # With rewrites enabled
@@ -36,16 +42,18 @@ component{
 }
 ```
 
-As you can see, a handler is a simple CFC with functions on them.  Each function maps to an action that is executed via the URL.  The default action in ColdBox is `index()`which receives three arguments:
+As you can see, a handler is a simple CFC with functions on them.  Each function maps to an **action** that is executed via the URL.  The default action in ColdBox is `index()`which receives three arguments:
 
 * `event` - An object that models and is used to work with the current request
-* `rc` - A struct that contains both URL/FORM variables \(unsafe data\)
-* `prc` - A secondary struct that is private only settable from within your application \(safe data\)
-
-The **event** object is used for many things, in the case of this function we are calling a `setView()` method which tells the framework what view to render to the user once execution of the action terminates.
+* `rc` - A struct that contains both `URL/FORM` variables \(unsafe data\)
+* `prc` - A secondary struct that is **private** only settable from within your application \(safe data\)
 
 {% hint style="info" %}
-The view is not rendered in line 7, but rendered after the execution of the action.
+The **event** object is used for many things, in the case of this function we are calling a `setView()` method which tells the framework what view to render to the user once execution of the action terminates.
+{% endhint %}
+
+{% hint style="success" %}
+**Tip: **The view is not rendered in line 7, but rendered after the execution of the action by the framework.
 {% endhint %}
 
 ## Executing Events

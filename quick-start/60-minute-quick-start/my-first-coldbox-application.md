@@ -16,6 +16,8 @@ CommandBox comes with a `coldbox create app` command that can enable you to crea
 You can find all our template skeletons here: [github.com/coldbox-templates](https://github.com/coldbox-templates)
 {% endhint %}
 
+### Scaffolding Our Application
+
 So let's create our first app using the _default_ template skeleton **AdvancedScript**:
 
 ```bash
@@ -48,7 +50,9 @@ server start --rewritesEnable
 ```
 
 {% hint style="info" %}
-This will start up a [Lucee](https://www.lucee.org) 5 open source CFML engine. If you would like an **Adobe ColdFusion **server then just add to the command: `cfengine=adobe@{version}` where `{version}` can be: `2016,11,10,9.`
+This will start up a [Lucee](https://www.lucee.org) 5 open source CFML engine \(If you are in CommandBox 4\). If you would like an **Adobe ColdFusion **server then just add to the command: `cfengine=adobe@{version}` where `{version}` can be: `2016,11,10,9.`
+
+If you are using CommandBox 3 and below, you will be using a Lucee 4.5 Server.
 {% endhint %}
 
 This command will start a server with URL rewrites enabled, open a web browser for you and execute the `index.cfm`which in turn executes the **default event** by convention in a ColdBox application: `main.index`.
@@ -63,6 +67,25 @@ That's it, you have just created your first application. Hooray, onward!
 
 {% hint style="success" %}
 **Tip:** Type `coldbox create app help` to get help on all the options for creating ColdBox applications.
+{% endhint %}
+
+### File/Folder Conventions
+
+ColdBox is a conventions based framework.  The location of files and functions matter.  Since we scaffolded our first application, let's write down in a table below with the different conventions that exist in ColdBox.
+
+| **File/Folder Convention** | **Mandatory** | **Description** |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `config/Coldbox.cfc` | false | The application configuration file |
+| `config/Router.cfc` | false | The application URL router |
+| `handlers` | false | Event Handlers \(controllers\) |
+| `layouts` | false | Layouts |
+| `models` | false | Model objects |
+| `modules` | false | CommandBox Tracked Modules |
+| `modules_app` | false | Custom Modules You Write |
+| `views` | false | Views |
+
+{% hint style="info" %}
+What is the common denominator in all the conventions? That they are all optional. 
 {% endhint %}
 
 ### Re-initializing The Application
