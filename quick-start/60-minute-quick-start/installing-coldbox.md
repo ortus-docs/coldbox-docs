@@ -1,6 +1,8 @@
 # Installing ColdBox
 
-Welcome to the world of ColdBox! We are excited you are taking this development journey with us. Before we get started with ColdBox let's install CommandBox CLI, which will allow you to install/uninstall dependencies, start servers, have a REPL tool and much more.
+**Welcome to the world of ColdBox! **
+
+We are excited you are taking this development journey with us. Before we get started with ColdBox let's install CommandBox CLI, which will allow you to install/uninstall dependencies, start servers, have a REPL tool and much more.
 
 ## IDE Tools
 
@@ -35,7 +37,9 @@ Once you download and expand CommandBox you will have the `box.exe` or `box` bin
 
 We will be able to execute a-la-carte commands from our command line or go into the interactive shell for multiple commands. We recommend the interactive shell as it is faster and can remain open in your project root.
 
-> **Important** All examples in this book are based on the fact of having an interactive shell open.
+{% hint style="info" %}
+ All examples in this book are based on the fact of having an interactive shell open.
+{% endhint %}
 
 ## Installing ColdBox
 
@@ -46,14 +50,16 @@ mkdir myapp --cd
 install coldbox
 ```
 
-CommandBox will resolve `coldbox` from ForgeBox \([www.forgebox.io](https://www.forgebox.io)\), use the latest version available, download and install it in this folder alongside a `box.json` file which represents your application package.
+CommandBox will resolve `coldbox` from ForgeBox \([www.forgebox.io](https://www.forgebox.io)\), use the **latest version** available, download and install it in this folder alongside a `box.json` file which represents your application package.
 
 ```text
-Dir 0 Apr 25,2015 11:04:05 coldbox
-File 112 Apr 25,2015 11:04:05 box.json
+Dir 0 Apr 25,2018 11:04:05 coldbox
+File 112 Apr 25,2018 11:04:05 box.json
 ```
 
-> **Info** You can also install the latest bleeding edge version by using the `coldbox@be` slug instead, or any previous version.
+{% hint style="info" %}
+You can also install the latest bleeding edge version by using the `coldbox@be` slug instead, or any previous version.
+{% endhint %}
 
 That's it. CommandBox can now track this version of ColdBox for you in this directory.
 
