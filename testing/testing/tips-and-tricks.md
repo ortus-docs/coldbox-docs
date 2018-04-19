@@ -1,3 +1,5 @@
+
+
 # Tips & Tricks
 
 Here are some useful tips for you when doing testing with ColdBox Applications:
