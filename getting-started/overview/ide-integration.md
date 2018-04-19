@@ -7,7 +7,6 @@ We have created some extensions for popular IDE's, but you can ultimately use an
 * [https://marketplace.visualstudio.com/items?itemName=ortus-solutions.vscode-coldbox](https://marketplace.visualstudio.com/items?itemName=ortus-solutions.vscode-coldbox)
 * [https://marketplace.visualstudio.com/items?itemName=ortus-solutions.vscode-testbox](https://marketplace.visualstudio.com/items?itemName=ortus-solutions.vscode-testbox)
 
-
 ## Sublime Editor
 
 We have a package for Sublime 2/3 and you can visit the repository for the necessary installation steps: [https://packagecontrol.io/search/coldbox](https://packagecontrol.io/search/coldbox)
