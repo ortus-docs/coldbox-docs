@@ -59,15 +59,15 @@ This command will start a server with URL rewrites enabled, open a web browser f
 
 ![](../../.gitbook/assets/app_template.png)
 
-That's it, you have just created your first application.
+That's it, you have just created your first application. Hooray, onward!
 
 {% hint style="success" %}
 **Tip:** Type `coldbox create app help` to get help on all the options for creating ColdBox applications.
 {% endhint %}
 
-## Reiniting The Application
+### Re-initializing The Application
 
-There will be times when you make configuration or code changes that are not reflected immedidately in the application due to caching. You can tell the framework to _reinit _or restart the application for you via the URL by leveraging the special URL variable `fwreinit`.
+There will be times when you make configuration or code changes that are not reflected immediately in the application due to caching. You can tell the framework to _reinit _or restart the application for you via the URL by leveraging the special URL variable `fwreinit`.
 
 ```text
 http://localhost:{port}/?fwreinit=1
