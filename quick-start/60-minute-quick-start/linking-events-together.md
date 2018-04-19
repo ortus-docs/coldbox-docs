@@ -6,7 +6,7 @@ ColdBox provides you with a nice method for generating links between events by l
 **Tip**: You will use the event object to set views, set layouts, set HTTP headers, read HTTP headers, convert data to other types \(json,xml,pdf\), and much more.
 {% endhint %}
 
-### Building Links
+## Building Links
 
 The method in the request context that builds links is called: `buildLink()`.  Here are some of the arguments you can use:
 
@@ -28,7 +28,7 @@ string function buildLink(
 	queryString="");
 ```
 
-### Edit Your View
+## Edit Your View
 
 Edit the `views/virtual/hello.cfm` page and wrap the content in a `cfoutput` and create a link to the main ColdBox event, which by convention is `main.index`.
 
@@ -53,7 +53,7 @@ This code will generate a link to the `main.index` event in a search engine safe
 For extra credit try to use more of the `buildLink` arguments.
 {% endhint %}
 
-### URL Structure & Mappings
+## URL Structure & Mappings
 
 ColdBox allows you to manipulate the incoming URL so you can create robust URL strategies especially for RESTFul services. This is all done by convention and you can configure it via the application router: `config/Router.cfc` for more granular control.  
 

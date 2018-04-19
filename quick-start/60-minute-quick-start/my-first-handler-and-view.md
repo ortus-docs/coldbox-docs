@@ -24,7 +24,7 @@ http://localhost:{port}/index.cfm/hello/index
 
 You will now see a big `hello.index` outputted to the screen. You have now created your first handler and view combination. 
 
-### Handler Code
+## Handler Code
 
 Let's check out the handler code:
 
@@ -56,7 +56,7 @@ The **event** object is used for many things, in the case of this function we ar
 **Tip: **The view is not rendered in line 7, but rendered after the execution of the action by the framework.
 {% endhint %}
 
-### Executing Events
+## Executing Events
 
 Did you detect a convention here? 
 
@@ -80,7 +80,7 @@ All of this URL magic happens thanks to the URL mappings capabilities in ColdBox
 **Tip:** Please see the [event handlers](../../the-basics/event-handlers/) guide for more in-depth information.
 {% endhint %}
 
-### My First Virtual Event
+## My First Virtual Event
 
 Now let's create a virtual event, which is basically just a view we want to execute with no event handler controller needed.  This is a great way to incorporate non-mvc files into ColdBox, baby steps!
 
