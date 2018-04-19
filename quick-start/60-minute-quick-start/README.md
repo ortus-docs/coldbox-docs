@@ -1,6 +1,6 @@
 # 60 Minute Quick Start
 
-This guide has been designed to get you started with ColdBox in less than 60 minutes.  We will take you by the hand and help you build a RESTFul application in 60 minutes or less.
+This guide has been designed to get you started with ColdBox in less than 60 minutes.  We will take you by the hand and help you build a RESTFul application in 60 minutes or less.  After you complete this guide, we encourage you to move on to the [Getting Started Guide](../../getting-started/getting-started-guide.md) and then to the other guides in this book.
 
 ### Requirements
 

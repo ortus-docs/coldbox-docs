@@ -18,7 +18,7 @@
   * [About This Book](intro/introduction/about-this-book.md)
   * [Author](intro/introduction/author.md)
 
-## Quick Start
+## For Newbies
 
 * [60 Minute Quick Start](quick-start/60-minute-quick-start/README.md)
   * [Installing ColdBox](quick-start/60-minute-quick-start/installing-coldbox.md)

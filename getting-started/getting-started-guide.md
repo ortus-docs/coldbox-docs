@@ -2,7 +2,7 @@
 
 The ColdBox HMVC Platform is the de-facto enterprise-level HMVC framework for CFML developers. It's professionally backed, highly extensible, and productive. Getting started with ColdBox is quick and painless. The only thing you need to begin is [CommandBox](http://www.ortussolutions.com/products/commandbox), a command line tool for CFML developers.
 
-## IDE Tools
+### IDE Tools
 
 ColdBox has the following supported IDE Tools:
 
@@ -10,9 +10,9 @@ ColdBox has the following supported IDE Tools:
 * VSCode - [https://marketplace.visualstudio.com/items?itemName=ortus-solutions.vscode-coldbox](https://marketplace.visualstudio.com/items?itemName=ortus-solutions.vscode-coldbox)
 * CFBuilder - [https://www.forgebox.io/view/ColdBox-Platform-Utilities](https://www.forgebox.io/view/ColdBox-Platform-Utilities)
 
-## Install CommandBox
+### Install CommandBox
 
-You can read through our one-page [CommandBox Getting Started Guide](http://ortus.gitbooks.io/commandbox-documentation/content/getting_started_guide.html). Or simply grab the CommandBox executable from the [download page](http://www.ortussolutions.com/products/commandbox#download) and double click it to run.
+You can read through our one-page [CommandBox Getting Started Guide](https://commandbox.ortusbooks.com/getting-started-guide). Or simply grab the CommandBox executable from the [download page](https://www.ortussolutions.com/products/commandbox#download) and double click it to run.
 
 [http://www.ortussolutions.com/products/commandbox](http://www.ortussolutions.com/products/commandbox)
 
@@ -20,19 +20,23 @@ You should now be seeing a prompt that looks like this:
 
 ![CommandBox Terminal](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/commandbox-terminal.png)
 
-## Create A New Site
+### Create A New Site
 
-Now we're cooking with gas! Let's create a new ColdBox site. CommandBox comes with built-in commands for scaffolding out new sites as well as installing ColdBox and other libraries. We'll start by changing into an empty directory were we want our new site to live. If necessary, you can create a new folder.
-
-```bash
-CommandBox> mkdir C:\playground --cd
-```
-
-Now let's ask CommandBox to create a new ColdBox site for us. The `--installColdBox` flag will also install the latest version of the ColdBox Platform alongside our new app skeleton.
+Now we're cooking with gas! Let's create a new ColdBox application. CommandBox comes with built-in commands for scaffolding out new sites as well as installing ColdBox and other libraries. We'll start by changing into an empty directory were we want our new app to live. If necessary, you can create a new folder.
 
 ```bash
-CommandBox> coldbox create app
+CommandBox> mkdir playground --cd
 ```
+
+Now let's ask CommandBox to create a new ColdBox app for us.
+
+```bash
+CommandBox> coldbox create app MyPlayground
+```
+
+{% hint style="success" %}
+**Tip:** You can find many scaffolding templates for ColdBox in our Github organization: [github.com/coldbox-templates](https://github.com/coldbox-templates)
+{% endhint %}
 
 This command will place several new folders and files in your working directory. Let's run the `ls` command to view them.
 
@@ -40,13 +44,19 @@ This command will place several new folders and files in your working directory.
 CommandBox> ls
 ```
 
+#### File/Folder Conventions
+
 Here's a rundown of the important bits.
 
-* **coldbox/** - This is the ColdBox framework
-* **models/** - This holds your app's CFCs 
-* **views/** - Your HTML views will go here
-* **handlers/** - This holds the app's controllers
-* **config/** - Modify your apps settings here
+* **coldbox** - This is the ColdBox framework managed by CommandBox
+* **config/Coldbox.cfc** - Your application configuration object
+* **config/Router.cfc** - Your application URL Router
+* **handlers** - This holds the app's controllers
+* **layouts** - Your HTML layouts
+* **models** - This holds your app's CFCs 
+* **modules** - This holds the CommandBox tracked modules
+* **modules\_app **- This holds your app's modules
+* **views** - Your HTML views will go here
 
 ## Start It Up
 
