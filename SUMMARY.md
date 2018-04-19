@@ -36,18 +36,7 @@
 * [Getting Started Guide](getting-started/getting-started-guide.md)
 * [Installation](getting-started/overview/README.md)
   * [IDE Integration](getting-started/overview/ide-integration.md)
-
-## Architecture Concepts
-
-* [What is MVC](getting-started/overview/what-is-mvc.md)
-* [What is ColdBox](getting-started/overview/what-is-coldbox.md)
-* [How ColdBox Works](getting-started/overview/how-coldbox-works.md)
-
-## The Basics
-
 * [Configuration](the-basics/configuration/README.md)
-  * [Conventions](the-basics/configuration/conventions.md)
-  * [Directory Structure](the-basics/configuration/directory-structure.md)
   * [ColdBox.cfc](the-basics/configuration/coldbox.cfc/README.md)
     * [Configuration Directives](the-basics/configuration/coldbox.cfc/configuration-directives/README.md)
       * [CacheBox](the-basics/configuration/coldbox.cfc/configuration-directives/cachebox.md)
@@ -69,6 +58,16 @@
     * [System Settings \(Java Properties and Environment Variables\)](the-basics/configuration/coldbox.cfc/system-settings-java-properties-and-environment-variables.md)
   * [Using Settings](the-basics/configuration/using-settings.md)
   * [Bootstrapper](the-basics/configuration/bootstrapper.md)
+* [Conventions](the-basics/configuration/conventions.md)
+
+## Architecture Concepts
+
+* [What is MVC](getting-started/overview/what-is-mvc.md)
+* [What is ColdBox](getting-started/overview/what-is-coldbox.md)
+* [How ColdBox Works](getting-started/overview/how-coldbox-works.md)
+
+## The Basics
+
 * [Request Context](the-basics/request-context/README.md)
   * [How Does It Work](the-basics/request-context/how-does-it-work.md)
   * [Views](the-basics/request-context/views.md)
