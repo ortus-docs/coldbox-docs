@@ -1,6 +1,6 @@
 # Linking Events Together
 
-ColdBox provides you with a nice method for generating links between events by leveraging an object called `event` that is accessible in all of your layouts/views and event handlers. This `event` object is called the request context object which models the incoming request and even contains all of your incoming `FORM` and `URL` variables in a structure called `rc`.
+ColdBox provides you with a nice method for generating links between events by leveraging an object called `event` that is accessible in all of your layouts/views and event handlers. This `event` object is called the **request context object **which models the incoming request and even contains all of your incoming `FORM` and `URL` variables in a structure called `rc`.
 
 Edit the `views/virtual/hello.cfm` page and wrap the content in a `cfoutput` and create a link to the main ColdBox event, which by convention is `main.index`.
 
@@ -19,11 +19,15 @@ This code will generate a link to the `main.index` event in a search engine safe
 </form>
 ```
 
-> **Tip** You can visit our API Docs for further information about the `event` object and the `buildLink` method: [http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html](http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html). For extra credit try to use more of the `buildLink` arguments.
+{% hint style="success" %}
+**Tip** You can visit our API Docs for further information about the `event` object and the `buildLink` method: [http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html](http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html). 
+
+For extra credit try to use more of the `buildLink` arguments.
+{% endhint %}
 
 ## URL Structure & Mappings
 
-ColdBox allows you to manipulate the incoming URL so you can create robust URL strategies especially for RESTFul services. This is all done by convention and you can configure it via the file `config/routes.cfm` for more granular control.
+ColdBox allows you to manipulate the incoming URL so you can create robust URL strategies especially for RESTFul services. This is all done by convention and you can configure it via the application router: `config/Router.cfc` for more granular control.
 
 We have now seen how to execute events via nice Search Engine Safe URLs. Behind the scenes, ColdBox translates the URL into an executable event string just like if you were using a normal URL string:
 
