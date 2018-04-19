@@ -34,20 +34,14 @@
 ## Getting Started
 
 * [Getting Started Guide](getting-started/getting-started-guide.md)
-* [Overview](getting-started/overview/README.md)
-  * [What is ColdBox](getting-started/overview/what-is-coldbox.md)
-  * [How ColdBox Works](getting-started/overview/how-coldbox-works.md)
-  * [Installation](getting-started/overview/installation.md)
-  * [Creating An Application](getting-started/overview/creating-an-application.md)
-  * [Hello World](getting-started/overview/hello-world.md)
-  * [Running An Application](getting-started/overview/running-an-application.md)
-  * [Reiniting An Application](getting-started/overview/reiniting-an-application.md)
-  * [Testing An Application](getting-started/overview/testing-an-application.md)
+* [Installation](getting-started/overview/README.md)
   * [IDE Integration](getting-started/overview/ide-integration.md)
 
 ## Architecture Concepts
 
 * [What is MVC](getting-started/overview/what-is-mvc.md)
+* [What is ColdBox](getting-started/overview/what-is-coldbox.md)
+* [How ColdBox Works](getting-started/overview/how-coldbox-works.md)
 
 ## The Basics
 
@@ -241,7 +235,8 @@
 
 ## Testing
 
-* [Testing](testing/testing/README.md)
+* [Testing Quick Start](getting-started/overview/testing-an-application.md)
+* [Testing ColdBox Applications](testing/testing/README.md)
   * [Testing Concepts](testing/testing/testing-concepts/README.md)
     * [Functional Testing](testing/testing/testing-concepts/functional-testing.md)
     * [Non-Functional Testing](testing/testing/testing-concepts/non-functional-testing.md)
