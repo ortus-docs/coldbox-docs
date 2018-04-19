@@ -38,9 +38,9 @@ component{
 
 As you can see, a handler is a simple CFC with functions on them.  Each function maps to an action that is executed via the URL.  The default action in ColdBox is `index()`which receives three arguments:
 
-* **event **- An object that represents the user's URL/FORM data and a ColdBox Request \(Request Context\)
-* **rc **- A structure that models the user's URL and FORM scopes \(Unsafe data\)
-* **prc **- A private structure that can be used to safely put data your views/layouts can use \(Safe data\)
+* `event` - An object that models and is used to work with the current request
+* `rc` - A struct that contains both URL/FORM variables \(unsafe data\)
+* `prc` - A secondary struct that is private only settable from within your application \(safe data\)
 
 The **event** object is used for many things, in the case of this function we are calling a `setView()` method which tells the framework what view to render to the user once execution of the action terminates.
 
