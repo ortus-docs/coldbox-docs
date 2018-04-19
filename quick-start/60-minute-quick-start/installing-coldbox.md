@@ -61,7 +61,11 @@ File 112 Apr 25,2018 11:04:05 box.json
 You can also install the latest bleeding edge version by using the `coldbox@be` slug instead, or any previous version.
 {% endhint %}
 
-That's it. CommandBox can now track this version of ColdBox for you in this directory.
+That's it. CommandBox can now track this version of ColdBox for you in this directory. In the [next section](my-first-coldbox-application.md) we will scaffold a ColdBox application using an application template.
+
+{% hint style="success" %}
+You can find many scaffolding templates for ColdBox in our Github organization: [github.com/coldbox-templates](https://github.com/coldbox-templates)
+{% endhint %}
 
 ## Uninstalling ColdBox
 
