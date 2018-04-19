@@ -16,7 +16,37 @@ http://localhost:{port}/hello/index
 http://localhost:{port}/index.cfm/hello/index
 ```
 
-You will now see a big `hello.index` outputted to the screen. You have now created your first handler and view combination.
+You will now see a big `hello.index` outputted to the screen. You have now created your first handler and view combination. 
+
+### Handler Code
+
+Let's check out the handler code:
+
+```java
+component{
+    
+    /**
+     * Default Action
+     */
+     function index( event, rc, prc ){
+        event.setView( "hello/index" );
+     }
+
+
+}
+```
+
+As you can see, a handler is a simple CFC with functions on them.  Each function maps to an action that is executed via the URL.  The default action in ColdBox is `index()`which receives three arguments:
+
+* **event **- An object that represents the user's URL/FORM data and a ColdBox Request \(Request Context\)
+* **rc **- A structure that models the user's URL and FORM scopes \(Unsafe data\)
+* **prc **- A private structure that can be used to safely put data your views/layouts can use \(Safe data\)
+
+The **event** object is used for many things, in the case of this function we are calling a `setView()` method which tells the framework what view to render to the user once execution of the action terminates.
+
+{% hint style="info" %}
+The view is not rendered in line 7, but rendered after the execution of the action.
+{% endhint %}
 
 ## Executing Events
 
@@ -62,5 +92,7 @@ http://localhost:{port}/virtual/hello
 
 You will get the `Hello From ColdBox Land!` displayed! This is a great way to create dynamic views or even bring in legacy/procedural templates into an MVC framework.
 
-> **Tip** You can find much more information about layouts and views in our [full docs](../../the-basics/layouts-and-views/)
+{% hint style="success" %}
+**Tip:** You can see our [layouts and views](../../the-basics/layouts-and-views/) section for more in-depth information.
+{% endhint %}
 
