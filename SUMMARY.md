@@ -1,6 +1,6 @@
 # Summary
 
-## Prologue
+## Intro
 
 * [Introduction](README.md)
   * [What's New With 5.0.0](introduction/whats-new-with-500.md)
