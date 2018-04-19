@@ -31,7 +31,7 @@
 
 ## Getting Started
 
-* [Getting Started Guide](full/(getting_started_guide/index.md)
+* [Getting Started Guide](full/getting_started_guide/index.md)
 * [Overview](full/overview/index.md)
   * [What is MVC](full/overview/what_is_mvc.md)
   * [What is ColdBox](full/overview/what_is_coldbox.md)
