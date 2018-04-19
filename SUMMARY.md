@@ -36,13 +36,13 @@
 * [Getting Started Guide](getting-started/getting-started-guide.md)
 * [Installation](getting-started/overview/README.md)
   * [IDE Integration](getting-started/overview/ide-integration.md)
+* [Conventions](the-basics/configuration/conventions.md)
 * [Configuration](the-basics/configuration/README.md)
   * [ColdBox.cfc](the-basics/configuration/coldbox.cfc/README.md)
     * [Configuration Directives](the-basics/configuration/coldbox.cfc/configuration-directives/README.md)
       * [CacheBox](the-basics/configuration/coldbox.cfc/configuration-directives/cachebox.md)
       * [ColdBox](the-basics/configuration/coldbox.cfc/configuration-directives/coldbox.md)
       * [Conventions](the-basics/configuration/coldbox.cfc/configuration-directives/conventions.md)
-      * [Datasources](the-basics/configuration/coldbox.cfc/configuration-directives/datasources.md)
       * [Environments](the-basics/configuration/coldbox.cfc/configuration-directives/environments.md)
       * [Flash](the-basics/configuration/coldbox.cfc/configuration-directives/flash.md)
       * [InterceptorSettings](the-basics/configuration/coldbox.cfc/configuration-directives/interceptorsettings.md)
@@ -58,7 +58,6 @@
     * [System Settings \(Java Properties and Environment Variables\)](the-basics/configuration/coldbox.cfc/system-settings-java-properties-and-environment-variables.md)
   * [Using Settings](the-basics/configuration/using-settings.md)
   * [Bootstrapper](the-basics/configuration/bootstrapper.md)
-* [Conventions](the-basics/configuration/conventions.md)
 
 ## Architecture Concepts
 
@@ -69,9 +68,6 @@
 ## The Basics
 
 * [Request Context](the-basics/request-context/README.md)
-  * [How Does It Work](the-basics/request-context/how-does-it-work.md)
-  * [Views](the-basics/request-context/views.md)
-  * [Interceptors](the-basics/request-context/interceptors.md)
   * [What Can I Do With It?](the-basics/request-context/what-can-i-do-with-it.md)
   * [Request Context Decorator](the-basics/request-context/request-context-decorator/README.md)
     * [For What Can I Use This?](the-basics/request-context/request-context-decorator/for-what-can-i-use-this.md)
