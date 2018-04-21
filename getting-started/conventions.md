@@ -4,15 +4,15 @@ The core conventions delineate the contract between ColdBox and you for file/dir
 
 ## Directory/File Conventions
 
-| Convention | Required | Default Value | Description |
-| --- | --- | --- | --- |
-| Config File | false | `config/ColdBox.cfc` | The location of the application configuration file |
-| Handler Controllers | true | `handlers` | Where all event handler controllers are located |
-| Layouts | false | `layouts` | Where all layouts are located |
-| Models | false | `models` | Where all model objects are located |
-| Modules | false | `modules` | Where all modules are located that are tracked by CommandBox |
-| Custom modules | false | `modules_app` | Where non-tracked custom modules are located |
-| Views | false | `views` | Where all views are located |
+* **coldbox** - This is the ColdBox framework managed by CommandBox
+* **config/Coldbox.cfc** - Your application configuration object
+* **config/Router.cfc** - Your application URL Router
+* **handlers** - This holds the app's controllers
+* **layouts** - Your HTML layouts
+* **models** - This holds your app's CFCs 
+* **modules** - This holds the CommandBox tracked modules
+* **modules\_app **- This holds your app's modules
+* **views** - Your HTML views will go here
 
 ## Execution Conventions
 
@@ -20,7 +20,7 @@ The core conventions delineate the contract between ColdBox and you for file/dir
 | --- | --- | --- | --- |
 | Default Event | false | `main.index` | The default event to execute when no event is specified |
 | Default Action | false | `index()` | The default action to execute in an event handler controller if none is specified |
-| Default Layout | false | `layouts/main.cfm` | The default system layout to use |
+| Default Layout | false | `layouts/Main.cfm` | The default system layout to use |
 
 Let's get started with the [Directory Structure](https://github.com/ortus-docs/coldbox-docs/tree/913ae5524597b26261476dfd3506663b3a189bfa/the-basics/configuration/directory-structure.md)
 
