@@ -14,7 +14,7 @@ ColdBox has the following supported IDE Tools:
 
 ## CommandBox CLI
 
-![](../../.gitbook/assets/commandboxlogo.png)
+![](../.gitbook/assets/commandboxlogo.png)
 
 The first step in our journey is to [install](https://commandbox.ortusbooks.com/content/setup/installation.html) CommandBox. [CommandBox](https://www.ortussolutions.com/products/commandbox) is a ColdFusion \(CFML\) Command Line Interface \(CLI\), REPL, Package Manager and Embedded Server. We will be using CommandBox for almost every excercise in this book and it will also allow you to get up and running with ColdFusion and ColdBox in a much speedier manner.
 
