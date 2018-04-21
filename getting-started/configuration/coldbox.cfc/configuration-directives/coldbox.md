@@ -112,7 +112,7 @@ coldbox = {
     // Invalid HTTP method Handler
     invalidHTTPMethodHandler = "",
     // The handler to execute on invalid events
-    onInvalidEvent = "",
+    invalidEventHandler = "",
     // The default error template    
     customErrorTemplate     = "/coldbox/system/includes/BugReport-Public.cfm"
 }
@@ -126,7 +126,7 @@ The event handler to call whenever ANY non-catched exception occurs anywhere in 
 
 The event handler to call whenever a route or event is accessed with an invalid HTTP method.
 
-**onInvalidEvent**
+**invalidEventHandler**
 
 This is the event handler that will fire masking a non-existent event that gets requested. This is a great place to place 302 or 404 redirects whenever non-existent events are being requested.
 
