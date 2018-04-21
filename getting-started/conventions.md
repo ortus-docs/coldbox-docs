@@ -44,12 +44,9 @@ This will create a Coldbox application with the following structure:
 | --- | --- |
 | Application.cfc | Every ColdFusion application needs one. This includes the basic ColdBox bootstrap code inside of it. |
 | box.json | The CommandBox package descriptor file |
-| favicon.ico | A nice site favicon |
 | includes | Where all JavaScript, CSS and static assets go |
 | index.cfm | The front controller that dispatches ColdBox requests |
 | interceptors | An optional folder where you can store ColdBox Interceptors |
-| lib | Location where you can drop in a Java class or jar to be available to the CFML engine |
-| remote | An optional folder where you can store remote proxies, RESTFul, or SOAP web services |
 | tests | Yes, we have to do it. The location of your TestBox test harness |
 
 ## Application Templates
