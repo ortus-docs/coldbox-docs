@@ -22,7 +22,7 @@ The core conventions delineate the contract between ColdBox and you for file/dir
 | Default Action | false | `index()` | The default action to execute in an event handler controller if none is specified |
 | Default Layout | false | `layouts/main.cfm` | The default system layout to use |
 
-Let's get started with the [Directory Structure](directory-structure.md)
+Let's get started with the [Directory Structure](https://github.com/ortus-docs/coldbox-docs/tree/913ae5524597b26261476dfd3506663b3a189bfa/the-basics/configuration/directory-structure.md)
 
 ## Directory Structure
 
@@ -66,5 +66,4 @@ The official ColdBox application templates can be found in our github page: [htt
 | rest | A RESTFul services application |
 | Simple | A fairly simple structure |
 | SuperSimple | The basics |
-
 

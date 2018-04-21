@@ -2,10 +2,10 @@
 
 ![](../../.gitbook/assets/coldboxsimplemvc.png)
 
-Event handlers are the controller layer in ColdBox and is what you will be executing via the `URL `or a `FORM `post. All event handlers are **singletons**, which means they are cached for the duration of the application, so always remember to var scope your variables in your functions.
+Event handlers are the controller layer in ColdBox and is what you will be executing via the `URL`or a `FORM`post. All event handlers are **singletons**, which means they are cached for the duration of the application, so always remember to var scope your variables in your functions.
 
 {% hint style="success" %}
-**Tip: **For development we highly encourage you to turn handler caching off or you will have to reinit the application in every request, which is annoying.  Open the `config/ColdBox.cfc` and look for the `coldbox.handlerCaching` setting.
+**Tip: **For development we highly encourage you to turn handler caching off or you will have to reinit the application in every request, which is annoying. Open the `config/ColdBox.cfc` and look for the `coldbox.handlerCaching` setting.
 {% endhint %}
 
 Once you started the server in the previous section and opened the browser, the default event got executed which maps to an event handler CFC \(controller\) `handlers/main.cfc` and the method/action in that CFC called `index()`. Go open the `handlers/main.cfc` and let's explore the code.
@@ -41,7 +41,7 @@ http://localhost:{port}/handler
 Also remember, that if no `action` is defined in the incoming URL then the default action of `index` will be used.
 
 {% hint style="info" %}
-Remember that the URL mappings support in ColdBox is what allows you to execute events in such a way from the URL.  These are controlled by your application router: `config/Router.cfc`
+Remember that the URL mappings support in ColdBox is what allows you to execute events in such a way from the URL. These are controlled by your application router: `config/Router.cfc`
 {% endhint %}
 
 ## Working With Incoming Data
@@ -71,13 +71,11 @@ Let's open the view now: `views/hello/index.cfm` and change it to this:
 Please note that we used the ColdFusion function `encodeForHTML()` \([https://www.cfdocs.org/encodeforhtml](https://www.cfdocs.org/encodeforhtml)\) on the public variable. Why? Because you can **never **trust the client and what they send, make sure you use the built-in ColdFusion encoding functions in order to avoid XSS hacks or worse on incoming public \(`rc`\) variables.
 {% endhint %}
 
-If you execute the event now: `http://localhost:{port}/hello/index` you will see a message of `Hello nobody`. 
+If you execute the event now: `http://localhost:{port}/hello/index` you will see a message of `Hello nobody`.
 
 Now change the incoming URL to this: `http://localhost:{port}/hello/index?name=ColdBox` and you will see a message of `Hello ColdBox`.
 
 {% hint style="success" %}
 **Tip:** Please see the [layouts and views](../../the-basics/layouts-and-views/) section for in-depth information about them.
 {% endhint %}
-
-
 

@@ -22,7 +22,7 @@ http://localhost:{port}/hello/index
 http://localhost:{port}/index.cfm/hello/index
 ```
 
-You will now see a big `hello.index` outputted to the screen. You have now created your first handler and view combination. 
+You will now see a big `hello.index` outputted to the screen. You have now created your first handler and view combination.
 
 ## Handler Code
 
@@ -30,7 +30,7 @@ Let's check out the handler code:
 
 ```java
 component{
-    
+
     /**
      * Default Action
      */
@@ -42,7 +42,7 @@ component{
 }
 ```
 
-As you can see, a handler is a simple CFC with functions on them.  Each function maps to an **action** that is executed via the URL.  The default action in ColdBox is `index()`which receives three arguments:
+As you can see, a handler is a simple CFC with functions on them. Each function maps to an **action** that is executed via the URL. The default action in ColdBox is `index()`which receives three arguments:
 
 * `event` - An object that models and is used to work with the current request
 * `rc` - A struct that contains both `URL/FORM` variables \(unsafe data\)
@@ -58,12 +58,12 @@ The **event** object is used for many things, in the case of this function we ar
 
 ## Executing Events
 
-Did you detect a convention here? 
+Did you detect a convention here?
 
-The sections in the URL are the same as the name of the event handler CFC \(`hello.cfc`\) and method that was generated `index()`. By convention, this is how you execute events in ColdBox by leveraging the following URL pattern that matches the name of a handler and action function. 
+The sections in the URL are the same as the name of the event handler CFC \(`hello.cfc`\) and method that was generated `index()`. By convention, this is how you execute events in ColdBox by leveraging the following URL pattern that matches the name of a handler and action function.
 
 {% hint style="info" %}
- You can also nest handlers into folders and you can also pass the name of the folder\(s\) as well.
+You can also nest handlers into folders and you can also pass the name of the folder\(s\) as well.
 {% endhint %}
 
 ```text
@@ -72,9 +72,9 @@ http://localhost:{port}/handler/action
 http://localhost:{port}/handler
 ```
 
-If no `action` is defined in the URL then the default action of `index` will be used. 
+If no `action` is defined in the URL then the default action of `index` will be used.
 
-All of this URL magic happens thanks to the URL mappings capabilities in ColdBox.  By convention, you can write beautiful URLs that are RESTFul and by convention.  You can also extend them and create more expressive URL Mappings by leveraging the `config/Router.cfc` which is your application router.
+All of this URL magic happens thanks to the URL mappings capabilities in ColdBox. By convention, you can write beautiful URLs that are RESTFul and by convention. You can also extend them and create more expressive URL Mappings by leveraging the `config/Router.cfc` which is your application router.
 
 {% hint style="success" %}
 **Tip:** Please see the [event handlers](../../the-basics/event-handlers/) guide for more in-depth information.
@@ -82,7 +82,7 @@ All of this URL magic happens thanks to the URL mappings capabilities in ColdBox
 
 ## My First Virtual Event
 
-Now let's create a virtual event, which is basically just a view we want to execute with no event handler controller needed.  This is a great way to incorporate non-mvc files into ColdBox, baby steps!
+Now let's create a virtual event, which is basically just a view we want to execute with no event handler controller needed. This is a great way to incorporate non-mvc files into ColdBox, baby steps!
 
 ```bash
 coldbox create view name="virtual/hello"

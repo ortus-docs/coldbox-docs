@@ -1,8 +1,8 @@
 # Getting Started Guide
 
-The ColdBox HMVC Platform is the de-facto enterprise-level HMVC framework for CFML developers. It's professionally backed, highly extensible, and productive. Getting started with ColdBox is quick and painless. The only thing you need to begin is [CommandBox](http://www.ortussolutions.com/products/commandbox), a command line tool for CFML developers.  
+The ColdBox HMVC Platform is the de-facto enterprise-level HMVC framework for CFML developers. It's professionally backed, highly extensible, and productive. Getting started with ColdBox is quick and painless. The only thing you need to begin is [CommandBox](http://www.ortussolutions.com/products/commandbox), a command line tool for CFML developers.
 
-This is a one-page introductory guide to ColdBox.  If you are new to MVC or ColdBox, you can also leverage our [60 minute quick start guide](../quick-start/60-minute-quick-start/) as well.
+This is a one-page introductory guide to ColdBox. If you are new to MVC or ColdBox, you can also leverage our [60 minute quick start guide](../for-newbies/60-minute-quick-start/) as well.
 
 ## IDE Tools
 
@@ -196,9 +196,9 @@ component singleton {
 ```
 
 {% hint style="info" %}
-What is WireBox? 
+What is WireBox?
 
-WireBox is a dependency injection framework that is included with ColdBox.  It will manage all object creations, persistence and assembling.  You don't have to worry about using `new` or `createobject()` for CFCs anymore.
+WireBox is a dependency injection framework that is included with ColdBox. It will manage all object creations, persistence and assembling. You don't have to worry about using `new` or `createobject()` for CFCs anymore.
 {% endhint %}
 
 ## Tie It All Together
@@ -209,10 +209,10 @@ Ok, let's open up that `helloWorld` handler we created a while back. Remember, y
 CommandBox> edit handlers/helloWorld.cfc
 ```
 
-We'll inject our `greeterService` and the `cbmessagebox` service into the handler by adding these properties to the top of `/handlers/helloWorld.cfc`. 
+We'll inject our `greeterService` and the `cbmessagebox` service into the handler by adding these properties to the top of `/handlers/helloWorld.cfc`.
 
 {% hint style="info" %}
-What is this magical injection? Injection is a way to get references of other objects placed in the `variables` scope of other objects.  This makes your life easier as you don't have to be creating objects manually or even knowing where they exist.
+What is this magical injection? Injection is a way to get references of other objects placed in the `variables` scope of other objects. This makes your life easier as you don't have to be creating objects manually or even knowing where they exist.
 {% endhint %}
 
 This will put the instance of our services in the `variables` scope where we can access it in our action methods.

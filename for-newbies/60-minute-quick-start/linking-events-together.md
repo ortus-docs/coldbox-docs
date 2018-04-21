@@ -8,7 +8,7 @@ ColdBox provides you with a nice method for generating links between events by l
 
 ## Building Links
 
-The method in the request context that builds links is called: `buildLink()`.  Here are some of the arguments you can use:
+The method in the request context that builds links is called: `buildLink()`. Here are some of the arguments you can use:
 
 ```java
 /**
@@ -21,11 +21,11 @@ The method in the request context that builds links is called: `buildLink()`.  H
 * @queryString The query string to append
 */
 string function buildLink(
-	to,
-	boolean translate=true,
-	boolean ssl,
-	baseURL="",
-	queryString="");
+    to,
+    boolean translate=true,
+    boolean ssl,
+    baseURL="",
+    queryString="");
 ```
 
 ## Edit Your View
@@ -48,17 +48,17 @@ This code will generate a link to the `main.index` event in a search engine safe
 ```
 
 {% hint style="success" %}
-**Tip** You can visit our API Docs for further information about the `event` object and the `buildLink` method: [http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html](http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html). 
+**Tip** You can visit our API Docs for further information about the `event` object and the `buildLink` method: [http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html](http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html).
 
 For extra credit try to use more of the `buildLink` arguments.
 {% endhint %}
 
 ## URL Structure & Mappings
 
-ColdBox allows you to manipulate the incoming URL so you can create robust URL strategies especially for RESTFul services. This is all done by convention and you can configure it via the application router: `config/Router.cfc` for more granular control.  
+ColdBox allows you to manipulate the incoming URL so you can create robust URL strategies especially for RESTFul services. This is all done by convention and you can configure it via the application router: `config/Router.cfc` for more granular control.
 
 {% hint style="info" %}
- Out of the box we provide you with convention based routing that maps the URL to modules/folders/handlers and actions.
+Out of the box we provide you with convention based routing that maps the URL to modules/folders/handlers and actions.
 
 `route( "/:handler/:action" ).end()`
 {% endhint %}

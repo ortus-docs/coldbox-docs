@@ -1,4 +1,4 @@
-# Summary
+# Table of contents
 
 * [Introduction](README.md)
 
@@ -20,44 +20,43 @@
 
 ## For Newbies
 
-* [60 Minute Quick Start](quick-start/60-minute-quick-start/README.md)
-  * [Installing ColdBox](quick-start/60-minute-quick-start/installing-coldbox.md)
-  * [My First ColdBox Application](quick-start/60-minute-quick-start/my-first-coldbox-application.md)
-  * [My First Handler & View](quick-start/60-minute-quick-start/my-first-handler-and-view.md)
-  * [Linking Events Together](quick-start/60-minute-quick-start/linking-events-together.md)
-  * [Working With Event Handlers](quick-start/60-minute-quick-start/working-with-event-handlers.md)
-  * [Adding A Layout](quick-start/60-minute-quick-start/adding-a-layout.md)
-  * [Adding A Model](quick-start/60-minute-quick-start/adding-a-model.md)
-  * [RESTFul Data](quick-start/60-minute-quick-start/restful-data.md)
-  * [Next Steps](quick-start/60-minute-quick-start/next-steps.md)
+* [60 Minute Quick Start](for-newbies/60-minute-quick-start/README.md)
+  * [Installing ColdBox](for-newbies/60-minute-quick-start/installing-coldbox.md)
+  * [My First ColdBox Application](for-newbies/60-minute-quick-start/my-first-coldbox-application.md)
+  * [My First Handler & View](for-newbies/60-minute-quick-start/my-first-handler-and-view.md)
+  * [Linking Events Together](for-newbies/60-minute-quick-start/linking-events-together.md)
+  * [Working With Event Handlers](for-newbies/60-minute-quick-start/working-with-event-handlers.md)
+  * [Adding A Layout](for-newbies/60-minute-quick-start/adding-a-layout.md)
+  * [Adding A Model](for-newbies/60-minute-quick-start/adding-a-model.md)
+  * [RESTFul Data](for-newbies/60-minute-quick-start/restful-data.md)
+  * [Next Steps](for-newbies/60-minute-quick-start/next-steps.md)
 
 ## Getting Started
 
 * [Getting Started Guide](getting-started/getting-started-guide.md)
-* [Installation](getting-started/overview/README.md)
-  * [IDE Integration](getting-started/overview/ide-integration.md)
-* [Conventions](the-basics/configuration/conventions.md)
-* [Configuration](the-basics/configuration/README.md)
-  * [ColdBox.cfc](the-basics/configuration/coldbox.cfc/README.md)
-    * [Configuration Directives](the-basics/configuration/coldbox.cfc/configuration-directives/README.md)
-      * [CacheBox](the-basics/configuration/coldbox.cfc/configuration-directives/cachebox.md)
-      * [ColdBox](the-basics/configuration/coldbox.cfc/configuration-directives/coldbox.md)
-      * [Conventions](the-basics/configuration/coldbox.cfc/configuration-directives/conventions.md)
-      * [Environments](the-basics/configuration/coldbox.cfc/configuration-directives/environments.md)
-      * [Flash](the-basics/configuration/coldbox.cfc/configuration-directives/flash.md)
-      * [InterceptorSettings](the-basics/configuration/coldbox.cfc/configuration-directives/interceptorsettings.md)
-      * [Interceptors](the-basics/configuration/coldbox.cfc/configuration-directives/interceptors.md)
-      * [Layouts](the-basics/configuration/coldbox.cfc/configuration-directives/layouts.md)
-      * [LayoutSettings](the-basics/configuration/coldbox.cfc/configuration-directives/layoutsettings.md)
-      * [LogBox](the-basics/configuration/coldbox.cfc/configuration-directives/logbox.md)
-      * [Modules](the-basics/configuration/coldbox.cfc/configuration-directives/modules.md)
-      * [ModuleSettings](the-basics/configuration/coldbox.cfc/configuration-directives/modulesettings.md)
-      * [Settings](the-basics/configuration/coldbox.cfc/configuration-directives/settings.md)
-      * [WireBox](the-basics/configuration/coldbox.cfc/configuration-directives/wirebox.md)
-    * [Configuration Interceptor](the-basics/configuration/coldbox.cfc/configuration-interceptor.md)
-    * [System Settings \(Java Properties and Environment Variables\)](the-basics/configuration/coldbox.cfc/system-settings-java-properties-and-environment-variables.md)
-  * [Using Settings](the-basics/configuration/using-settings.md)
-  * [Bootstrapper](the-basics/configuration/bootstrapper.md)
+* [Installation](getting-started/installation.md)
+* [Conventions](getting-started/conventions.md)
+* [Configuration](getting-started/configuration/README.md)
+  * [ColdBox.cfc](getting-started/configuration/coldbox.cfc/README.md)
+    * [Configuration Directives](getting-started/configuration/coldbox.cfc/configuration-directives/README.md)
+      * [CacheBox](getting-started/configuration/coldbox.cfc/configuration-directives/cachebox.md)
+      * [ColdBox](getting-started/configuration/coldbox.cfc/configuration-directives/coldbox.md)
+      * [Conventions](getting-started/configuration/coldbox.cfc/configuration-directives/conventions.md)
+      * [Environments](getting-started/configuration/coldbox.cfc/configuration-directives/environments.md)
+      * [Flash](getting-started/configuration/coldbox.cfc/configuration-directives/flash.md)
+      * [InterceptorSettings](getting-started/configuration/coldbox.cfc/configuration-directives/interceptorsettings.md)
+      * [Interceptors](getting-started/configuration/coldbox.cfc/configuration-directives/interceptors.md)
+      * [Layouts](getting-started/configuration/coldbox.cfc/configuration-directives/layouts.md)
+      * [LayoutSettings](getting-started/configuration/coldbox.cfc/configuration-directives/layoutsettings.md)
+      * [LogBox](getting-started/configuration/coldbox.cfc/configuration-directives/logbox.md)
+      * [Modules](getting-started/configuration/coldbox.cfc/configuration-directives/modules.md)
+      * [ModuleSettings](getting-started/configuration/coldbox.cfc/configuration-directives/modulesettings.md)
+      * [Settings](getting-started/configuration/coldbox.cfc/configuration-directives/settings.md)
+      * [WireBox](getting-started/configuration/coldbox.cfc/configuration-directives/wirebox.md)
+    * [Configuration Interceptor](getting-started/configuration/coldbox.cfc/configuration-interceptor.md)
+    * [System Settings \(Java Properties and Environment Variables\)](getting-started/configuration/coldbox.cfc/system-settings-java-properties-and-environment-variables.md)
+  * [Using Settings](getting-started/configuration/using-settings.md)
+  * [Bootstrapper](getting-started/configuration/bootstrapper.md)
 
 ## The Basics
 
@@ -86,7 +85,7 @@
   * [Pathinfo Providers](the-basics/routing/pathinfo-providers.md)
   * [Building Routable Links](the-basics/routing/building-routable-links.md)
   * [HTML base tag](the-basics/routing/html-base-tag.md)
-* [Request Context](the-basics/request-context/README.md)
+* [Request Context](the-basics/request-context.md)
 * [Event Handlers](the-basics/event-handlers/README.md)
   * [Composed Properties](the-basics/event-handlers/composed-properties.md)
   * [How are events called?](the-basics/event-handlers/how-are-events-called.md)
@@ -216,10 +215,10 @@
 
 ## Testing
 
-* [Testing Quick Start](getting-started/overview/testing-an-application.md)
-* [Testing ColdBox Applications](testing/testing/README.md)
-  * [Test Harness](testing/testing/test-harness.md)
-  * [ColdBox Testing Classes](testing/testing/coldbox-testing-classes.md)
+* [Testing Quick Start](testing/testing-quick-start.md)
+* [Testing ColdBox Applications](testing/testing-coldbox-applications/README.md)
+  * [Test Harness](testing/testing-coldbox-applications/test-harness.md)
+  * [ColdBox Testing Classes](testing/testing-coldbox-applications/coldbox-testing-classes.md)
   * Integration Testing
     * Test Annotations
     * Common Methods
@@ -232,9 +231,9 @@
     * Testing Without Virtual Application
     * Rendering Results
     * HTTP Method Mocking
-  * [Interceptor Testing](testing/testing/interceptor-testing.md)
-  * [Model Object Testing](testing/testing/model-object-testing.md)
-  * [Tips & Tricks](testing/testing/tips-and-tricks.md)
+  * [Interceptor Testing](testing/testing-coldbox-applications/interceptor-testing.md)
+  * [Model Object Testing](testing/testing-coldbox-applications/model-object-testing.md)
+  * [Tips & Tricks](testing/testing-coldbox-applications/tips-and-tricks.md)
 
 ## Digging Deeper
 
@@ -276,9 +275,9 @@
   * [Proxy Events](digging-deeper/coldbox-proxy/proxy-events.md)
   * [Standard Return Types](digging-deeper/coldbox-proxy/standard-return-types.md)
   * [Caveats & Gotchas](digging-deeper/coldbox-proxy/caveats-and-gotchas.md)
-* [Request Context Decorator](the-basics/request-context/request-context-decorator/README.md)
-  * [For What Can I Use This?](the-basics/request-context/request-context-decorator/for-what-can-i-use-this.md)
-  * [Configuration](the-basics/request-context/request-context-decorator/configuration.md)
+* [Request Context Decorator](digging-deeper/request-context-decorator/README.md)
+  * [For What Can I Use This?](digging-deeper/request-context-decorator/for-what-can-i-use-this.md)
+  * [Configuration](digging-deeper/request-context-decorator/configuration.md)
 * [Recipes](digging-deeper/recipes/README.md)
   * [Building REST APIs](digging-deeper/recipes/building-rest-apis.md)
   * [Application Templates](digging-deeper/recipes/application-templates.md)
@@ -290,16 +289,16 @@
 
 ## Architecture Concepts
 
-* [What is MVC](getting-started/overview/what-is-mvc.md)
-* [What is ColdBox](getting-started/overview/what-is-coldbox.md)
-* [How ColdBox Works](getting-started/overview/how-coldbox-works.md)
-* [Testing Concepts](testing/testing/testing-concepts/README.md)
-  * [Functional Testing](testing/testing/testing-concepts/functional-testing.md)
-  * [Non-Functional Testing](testing/testing/testing-concepts/non-functional-testing.md)
-  * [Bugs Cost Money](testing/testing/testing-concepts/bugs-cost-money.md)
-  * [Static Testing](testing/testing/testing-concepts/static-testing.md)
-  * [Dynamic Testing](testing/testing/testing-concepts/dynamic-testing.md)
-  * [Developer Focus](testing/testing/testing-concepts/developer-focus.md)
-  * [Testing Vocabulary](testing/testing/testing-concepts/testing-vocabulary.md)
-  * [Testing Tools](testing/testing/testing-concepts/testing-tools.md)
+* [What is MVC](architecture-concepts/what-is-mvc.md)
+* [What is ColdBox](architecture-concepts/what-is-coldbox.md)
+* [How ColdBox Works](architecture-concepts/how-coldbox-works.md)
+* [Testing Concepts](architecture-concepts/testing-concepts/README.md)
+  * [Functional Testing](architecture-concepts/testing-concepts/functional-testing.md)
+  * [Non-Functional Testing](architecture-concepts/testing-concepts/non-functional-testing.md)
+  * [Bugs Cost Money](architecture-concepts/testing-concepts/bugs-cost-money.md)
+  * [Static Testing](architecture-concepts/testing-concepts/static-testing.md)
+  * [Dynamic Testing](architecture-concepts/testing-concepts/dynamic-testing.md)
+  * [Developer Focus](architecture-concepts/testing-concepts/developer-focus.md)
+  * [Testing Vocabulary](architecture-concepts/testing-concepts/testing-vocabulary.md)
+  * [Testing Tools](architecture-concepts/testing-concepts/testing-tools.md)
 

@@ -2,7 +2,7 @@
 
 You can test all your model objects directly with no need of doing integration testing. This way you can unit test model objects very very easily using great mocking capabilities. All you need to do is the following:
 
-```
+```text
 coldbox create model-test path=models.UserService methods=save,list,search --open
 ```
 
@@ -18,51 +18,50 @@ This testing support class will create your model object, and decorate with mock
 
 Basic Setup
 
-```js
+```javascript
 /**
 * The base model test case will use the 'model' annotation as the instantiation path
 * and then create it, prepare it for mocking and then place it in the variables scope as 'model'. It is your
 * responsibility to update the model annotation instantiation path and init your model.
 */
 component extends="coldbox.system.testing.BaseModelTest" model="UserService"{
-	
-	/*********************************** LIFE CYCLE Methods ***********************************/
 
-	function beforeAll(){
-		// setup the model
-		super.setup();		
-		
-		// init the model object
-		model.init();
-	}
+    /*********************************** LIFE CYCLE Methods ***********************************/
 
-	function afterAll(){
-	}
+    function beforeAll(){
+        // setup the model
+        super.setup();        
 
-	/*********************************** BDD SUITES ***********************************/
-	
-	function run(){
+        // init the model object
+        model.init();
+    }
 
-		describe( "UserService Suite", function(){
-			
-			it( "should save", function(){
+    function afterAll(){
+    }
 
-			});
+    /*********************************** BDD SUITES ***********************************/
 
-			it( "should search", function(){
+    function run(){
 
-			});
+        describe( "UserService Suite", function(){
 
-			it( "should list", function(){
+            it( "should save", function(){
 
-			});
+            });
+
+            it( "should search", function(){
+
+            });
+
+            it( "should list", function(){
+
+            });
 
 
-		});
+        });
 
-	}
+    }
 
 }
-
 ```
 

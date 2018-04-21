@@ -1,4 +1,4 @@
-# Testing An Application
+# Testing Quick Start
 
 ColdBox tightly integrates with [TestBox](http://www.ortussolutions.com/products/testbox), the Behavior Driven Development Testing Framework for ColdFusion \(CFML\). We can easily do unit and integration testing for our application. To start, let's install TestBox via CommandBox
 
@@ -108,7 +108,7 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/"{
 
 To execute your application template tests and the generated tests just browse to the URL: `http://127.0.0.1:{port}/tests/runner.cfm` and you will get a full integration report:
 
-![](../../.gitbook/assets/overview_testing.png)
+![](../.gitbook/assets/overview_testing.png)
 
 Everything is already pre-wired for you and ready for you to do full life-cycle integration testing. Don't believe me? Try it out, go change your `echo()` action to the following code and re-run your test:
 
@@ -142,5 +142,5 @@ testbox watch
 
 ## What's Next
 
-We have a fully dedicated section on [testing](../../testing/testing/), please visit it for in-depth information.
+We have a fully dedicated section on [testing](testing-coldbox-applications/), please visit it for in-depth information.
 

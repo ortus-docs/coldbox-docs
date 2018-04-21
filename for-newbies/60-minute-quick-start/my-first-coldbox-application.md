@@ -3,7 +3,7 @@
 CommandBox comes with a `coldbox create app` command that can enable you to create application skeletons using one of our official skeletons or [your own](../../digging-deeper/recipes/application-templates.md):
 
 * **Advanced** : A tag based advanced template
-* **AdvancedScript**  \(_`default`_\): A script based advanced template
+* **AdvancedScript**  \(`default`\): A script based advanced template
 * **elixir** : A ColdBox Elixir based template
 * **ElixirBower** : A ColdBox Elixir + Bower based template
 * **ElixirVueJS** : A ColdBox Elixir + Vue.js based template
@@ -71,7 +71,7 @@ That's it, you have just created your first application. Hooray, onward!
 
 ## File/Folder Conventions
 
-ColdBox is a conventions based framework.  The location of files and functions matter.  Since we scaffolded our first application, let's write down in a table below with the different conventions that exist in ColdBox.
+ColdBox is a conventions based framework. The location of files and functions matter. Since we scaffolded our first application, let's write down in a table below with the different conventions that exist in ColdBox.
 
 | **File/Folder Convention** | **Mandatory** | **Description** |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -85,12 +85,12 @@ ColdBox is a conventions based framework.  The location of files and functions m
 | `views` | false | Views |
 
 {% hint style="info" %}
-What is the common denominator in all the conventions? That they are all optional. 
+What is the common denominator in all the conventions? That they are all optional.
 {% endhint %}
 
 ## Re-initializing The Application
 
-There will be times when you make configuration or code changes that are not reflected immediately in the application due to caching. You can tell the framework to _reinit _or restart the application for you via the URL by leveraging the special URL variable `fwreinit`.
+There will be times when you make configuration or code changes that are not reflected immediately in the application due to caching. You can tell the framework to \_reinit \_or restart the application for you via the URL by leveraging the special URL variable `fwreinit`.
 
 ```text
 http://localhost:{port}/?fwreinit=1
@@ -103,8 +103,6 @@ coldbox reinit
 ```
 
 {% hint style="success" %}
-**Tip:** You can add a password to the **reinit **procedures for further security, please see the [configuration section](../../the-basics/configuration/coldbox.cfc/).
+**Tip:** You can add a password to the **reinit **procedures for further security, please see the [configuration section](https://github.com/ortus-docs/coldbox-docs/tree/7a8d2250f812e1b65cfc9c2888a8489110724897/the-basics/configuration/coldbox.cfc).
 {% endhint %}
-
-
 

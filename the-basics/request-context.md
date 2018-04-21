@@ -2,7 +2,7 @@
 
 On every request to a ColdBox event, the framework creates an object that models the incoming request. This object is called the Request Context object \(`coldbox.system.web.context.RequestContext`\) and it contains the incoming FORM/URL/REMOTE variables the client sent in and the object lives in the ColdFusion request scope. You will use this object in the controller and view layer of your application to get/set values, get metadata about the request, marshall data for RESTful request, and so much more.
 
-![](/full/images/RequestCollectionDataBus.jpg)
+![](../.gitbook/assets/requestcollectiondatabus.jpg)
 
 ## How Does It Work
 
@@ -108,7 +108,7 @@ Please see the online [API Docs](http://apidocs.ortussolutions.com/coldbox/curre
 * `getCurrentHandler()` : Get the handler or handler/package path.
 * `getCurrentLayout()` : Get the current set layout for the view to render.
 
-  \*\*`getCurrentView()` : Get the current set view 
+  \*\*`getCurrentView()` : Get the current set view
 
 * `getCurrentModule()` : The name of the current executing module
 * `getCurrentRoutedNamespace()` : The current routed URL mapping namespace if found.
@@ -116,6 +116,4 @@ Please see the online [API Docs](http://apidocs.ortussolutions.com/coldbox/curre
 * `getDebugpanelFlag()` : Get's the boolean flag if the ColdBox debugger panel will be rendered.
 * `getDefaultLayout()` : Get the name of the default layout.
 * `getDefaultView()` : Get the name of the default view.
-
-
 

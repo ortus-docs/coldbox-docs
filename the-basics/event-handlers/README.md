@@ -2,7 +2,7 @@
 
 Event handlers are ColdBox's version of **controllers** in the MVC design pattern. So every time you hear "event handler," you are talking about a controller that can listen to external events or internal events in ColdBox.
 
-![](/full/images/ControllerLayer.jpg)
+![](../../.gitbook/assets/controllerlayer.jpg)
 
 ## CFCs
 
@@ -46,8 +46,6 @@ coldbox.handlersIndexAutoReload = true;
 // Deactivate singleton caching of the handlers
 coldbox.handlerCaching = false;
 ```
-
-
 
 ## Constructors
 

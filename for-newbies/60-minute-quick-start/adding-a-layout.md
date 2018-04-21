@@ -1,6 +1,6 @@
 # Adding A Layout
 
-Every time the framework renders a view, it will try to leverage the default layout which is located in `layouts/Main.cfm` by convention. This is an HTML file that gives format to your output and contains the location of where the view you want should be rendered. 
+Every time the framework renders a view, it will try to leverage the default layout which is located in `layouts/Main.cfm` by convention. This is an HTML file that gives format to your output and contains the location of where the view you want should be rendered.
 
 ## Layout Code
 
@@ -61,7 +61,7 @@ Go execute the event now: `http://localhost:{port}/hello/index` and you will see
 {% hint style="info" %}
 You can also leverage the function `event.setLayout( "Funky" )` to change layouts and even concatenate the calls:
 
-`event.setView( "hello/index" )  
-  .setLayout( "Funky" );`
+`event.setView( "hello/index" )    
+.setLayout( "Funky" );`
 {% endhint %}
 

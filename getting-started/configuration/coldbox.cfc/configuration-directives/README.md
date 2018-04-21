@@ -27,7 +27,7 @@ Inside of this configuration method you will place several core and third-party 
 | [cachebox](cachebox.md) | struct | An optional structure used to configure CacheBox. If not setup the framework will use its default configuration found in `/coldbox/system/web/config/CacheBox.cfc` |
 | [coldbox](coldbox.md) | struct | The main coldbox directives structure that holds all the coldbox settings. |
 | [conventions](conventions.md) | struct | A structure where you will configure the application convention names |
-| [datasources](datasources.md) | struct | An optional metadata structure for datasource definitions. THEY ARE NOT COLDFUSION REGISTRATIONS |
+| [datasources]() | struct | An optional metadata structure for datasource definitions. THEY ARE NOT COLDFUSION REGISTRATIONS |
 | [environments](environments.md) | struct | A structure where you will configure environment detection patterns |
 | [flash](flash.md) | struct | A structure where you will configure the [FlashRAM](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/full/configuration/coldboxcfc/configuration_directives/flash_ram/flash_ram.md) |
 | [interceptorSettings](interceptorsettings.md) | struct | An optional structure to configure application wide interceptor behavior |
