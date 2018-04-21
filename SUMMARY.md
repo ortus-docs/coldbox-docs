@@ -1,4 +1,4 @@
-# Table of contents
+# Summary
 
 * [Introduction](README.md)
 
@@ -53,7 +53,6 @@
       * [ModuleSettings](getting-started/configuration/coldbox.cfc/configuration-directives/modulesettings.md)
       * [Settings](getting-started/configuration/coldbox.cfc/configuration-directives/settings.md)
       * [WireBox](getting-started/configuration/coldbox.cfc/configuration-directives/wirebox.md)
-    * [Configuration Interceptor](getting-started/configuration/coldbox.cfc/configuration-interceptor.md)
     * [System Settings \(Java Properties and Environment Variables\)](getting-started/configuration/coldbox.cfc/system-settings-java-properties-and-environment-variables.md)
   * [Using Settings](getting-started/configuration/using-settings.md)
   * [Bootstrapper](getting-started/configuration/bootstrapper.md)
