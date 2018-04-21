@@ -28,7 +28,7 @@ property name="config" inject="coldbox:setting:coldboxConfig";
 Another cool concept for the Configuration CFC is that it is also registered as a [ColdBox Interceptor](/digging-deeper/interceptors/README.md) once the application starts up automatically for you. This means that you can create interception points in this CFC that will be registered upon application startup so you can define startup procedures, listen to events, etc.
 
 ```javascript
-function preProcess(event, interceptData, buffer){
+function preProcess(event, interceptData, buffer, rc, prc ){
     writeDump( 'I just hijacked your app!' );abort;
 }
 ```
@@ -36,7 +36,7 @@ function preProcess(event, interceptData, buffer){
 Note that the config CFC does not have the same variables mixed into it that a "normal" interceptor has. You can still access everything you need, but will need to get it from the `controller` in the variables scope.
 
 ```javascript
-function preRender(event, interceptData, buffer){
+function preRender(event, interceptData, buffer, rc, prc ){
     controller.getWirebox().getInstance( 'loggerService' ).doSomething();
 }
 ```
