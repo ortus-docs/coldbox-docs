@@ -26,7 +26,7 @@ The request context object has a special function called `renderData()` that can
 **Tip**: You can find more information at the API Docs for `renderData()` here [http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html\#renderData\(](http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html#renderData%28)\)
 {% endhint %}
 
-So let's open the `handlers/contact.cfc` and add to our current code:
+So let's open the `handlers/contacts.cfc` and add to our current code:
 
 ```javascript
 any function index( event, rc, prc ){
