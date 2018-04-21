@@ -1,8 +1,8 @@
 # ColdBox.cfc
 
-The ColdBox configuration CFC is the heart of your ColdBox application. It contains the initialization variables for your application and extra information used by third-party modules and ultimately how your application boots up. In itself, it is also an event listener or [ColdBox Interceptor](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/full/configuration/coldboxcfc/interceptors/interceptors.md), so it can listen to life-cycle events.
+The ColdBox configuration CFC is the heart of your ColdBox application. It contains the initialization variables for your application and extra information used by third-party modules and ultimately how your application boots up. In itself, it is also an event listener or [ColdBox Interceptor](/getting-started/configuration/coldbox.cfc/configuration-directives/interceptors.md), so it can listen to life-cycle events.
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/Coldbox-cfc.jpg)
+![]../images/Coldbox-cfc.jpg)
 
 This CFC is instantiated by ColdBox and decorated at runtime so you can take advantage of some dependencies.
 
