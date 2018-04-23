@@ -61,10 +61,26 @@ File 112 Apr 25,2018 11:04:05 box.json
 You can also install the latest bleeding edge version by using the `coldbox@be` slug instead, or any previous version.
 {% endhint %}
 
-That's it. CommandBox can now track this version of ColdBox for you in this directory. In the [next section](https://github.com/ortus-docs/coldbox-docs/tree/b55fe957f169d1cabf952ae219d487f7fb07a4e6/getting-started/my-first-coldbox-application.md) we will scaffold a ColdBox application using an application template.
+That's it! CommandBox can now track this version of ColdBox for you in this directory. 
+
+### Scaffolding ColdBox Applications
+
+CommandBox comes with a `coldbox create app` command that can enable you to create application skeletons using one of our official skeletons or by creating [your own](../digging-deeper/recipes/application-templates.md) application template:
+
+* **Advanced** : A tag based advanced template
+* **AdvancedScript**  \(`default`\): A script based advanced template
+* **elixir** : A ColdBox Elixir based template
+* **ElixirBower** : A ColdBox Elixir + Bower based template
+* **ElixirVueJS** : A ColdBox Elixir + Vue.js based template
+* **rest**: A RESTFul services template
+* **rest-hmvc**: A RESTFul service built with modules
+* **Simple** : A traditional simple template
+* **SuperSimple** : The bare-bones template
 
 {% hint style="success" %}
 You can find many scaffolding templates for ColdBox in our Github organization: [github.com/coldbox-templates](https://github.com/coldbox-templates)
+
+Type `coldbox create app `help in CommandBox to get tons of help for scaffolding apps.
 {% endhint %}
 
 ## Uninstalling ColdBox
