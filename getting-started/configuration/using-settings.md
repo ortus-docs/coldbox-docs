@@ -1,45 +1,45 @@
 # Using Settings
 
-## Using Settings
-
 ![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/ControllerWithSettingStructures.jpg)
 
-ColdBox uses two internal structures in order to configure and run your applications. One is the **ColdBox** settings and the other is the **Configuration** settings, which are created on the application's initial request. The ColdBox Settings and the Configuration Settings reside inside the ColdBox application controller, which is the object that models your application and lives in the `application` scope.
+The ColdBox Controller \(stored in ColdFusion `application` scope\) stores all your **application** settings and also your **system** settings:
 
-> **Hint** : Please remember that your application can be reinitialized by using the `fwreinit=1` URL param.
-
-* **ColdboxSettings** : Framework specific settings.
-* **ConfigSettings** : Your application settings setup in the `settings` [configuration directive](coldbox.cfc/configuration-directives/settings.md).
+* **ColdboxSettings** : Framework specific system settings
+* **ConfigSettings** : Your application settings
 
 You can use the following methods to retrieve/set/validate settings in your handlers/layouts/views and interceptors:
 
+{% code-tabs %}
+{% code-tabs-item title="FrameworkSuperType.cfc" %}
 ```javascript
 /**
-* Get a setting from the system
-* @name.hint The key of the setting
-* @fwSetting.hint Retrieve from the config or fw settings, defaults to config
-* @defaultValue.hint If not found in config, default return value
-*/
+ * Get a setting from the system
+ * @name The key of the setting
+ * @fwSetting Retrieve from the config or fw settings, defaults to config
+ * @defaultValue If not found in config, default return value
+ */
 function getSetting( required name, boolean fwSetting=false, defaultValue )
 
 /**
-* Verify a setting from the system
-* @name.hint The key of the setting
-* @fwSetting.hint Retrieve from the config or fw settings, defaults to config
-*/
+ * Verify a setting from the system
+ * @name The key of the setting
+ * @fwSetting Retrieve from the config or fw settings, defaults to config
+ */
 boolean function settingExists( required name, boolean fwSetting=false )
 
 /**
-* Set a new setting in the system
-* @name.hint The key of the setting
-* @value.hint The value of the setting
-*
-* @return FrameworkSuperType
-*/
+ * Set a new setting in the system
+ * @name The key of the setting
+ * @value The value of the setting
+ *
+ * @return FrameworkSuperType
+ */
 any function setSetting( required name, required value )
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-You can also get access to these methods via the ColdBox Main Controller:
+You can also get access to these methods via the ColdBox Controller component:
 
 ```javascript
 controller.getSetting()
@@ -51,12 +51,12 @@ controller.getColdBoxSettings()
 
 ## Injecting Settings
 
-You can use the WireBox injection DSL to inject settings in your models or anywhere you like. Below are the available DSL notations:
+You can use the WireBox injection DSL to inject settings in your models or non-coldbox objects. Below are the available DSL notations:
 
 * `coldbox:setting:{key}` : Inject a specified config setting key
-* `coldbox:fwsetting:{key}` : Inject a specified ColdBox setting key
-* `coldbox:configSettings` : Inject a reference to the Config Settings
-* `coldbox:fwSettings` : Inject a reference to the ColdBox Settings
+* `coldbox:fwsetting:{key}` : Inject a specified system setting key
+* `coldbox:configSettings` : Inject a reference to the application settings structure
+* `coldbox:fwSettings` : Inject a reference to the ColdBox System settings structure
 
 ```javascript
 component{
@@ -68,6 +68,4 @@ component{
 
 }
 ```
-
-> **Info** : This approach is the one you will use to inject settings in your models.
 

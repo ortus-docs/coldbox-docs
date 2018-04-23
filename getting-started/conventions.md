@@ -4,9 +4,8 @@ The core conventions delineate the contract between ColdBox and you for file/dir
 
 ## Directory/File Conventions
 
-* **coldbox** - This is the ColdBox framework managed by CommandBox
-* **config/Coldbox.cfc** - Your application configuration object
-* **config/Router.cfc** - Your application URL Router
+* **config/Coldbox.cfc** - Your application configuration object \(_optional_\)
+* **config/Router.cfc** - Your application URL Router \(_optional_\)
 * **handlers** - This holds the app's controllers
 * **layouts** - Your HTML layouts
 * **models** - This holds your app's CFCs 
@@ -16,9 +15,9 @@ The core conventions delineate the contract between ColdBox and you for file/dir
 
 ## Execution Conventions
 
-| Convention | Required | Default Value | Description |
+| **Convention** | **Default Value** | **Description** |
 | --- | --- | --- | --- |
-| Default Event | false | `main.index` | The default event to execute when no event is specified |
-| Default Action | false | `index()` | The default action to execute in an event handler controller if none is specified |
-| Default Layout | false | `layouts/Main.cfm` | The default system layout to use |
+| Default Event | `main.index` | The default event to execute when no event is specified |
+| Default Action | `index()` | The default action to execute in an event handler controller if none is specified |
+| Default Layout | `layouts/Main.cfm` | The default system layout to use |
 

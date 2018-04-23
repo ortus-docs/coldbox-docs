@@ -2,21 +2,29 @@
 
 The basic configuration object has 1 method for application configuration called `configure()` where you will place all your configuration directives and settings:
 
+{% code-tabs %}
+{% code-tabs-item title="ColdBox.cfc" %}
 ```javascript
 /**
 * A simple CFC that configures a ColdBox application.  You can even extend, compose, strategize and do your OO goodness.
 */
 component{
+
     // Mandatory configuration method
     function configure(){
         coldbox = {
           appName ="My App"
         };
     }
+    
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-> **Note** : Please note that the only required directive is `coldbox.appName`.
+{% hint style="info" %}
+Please note that the only required directive is `coldbox.appName`.
+{% endhint %}
 
 ## Directives
 

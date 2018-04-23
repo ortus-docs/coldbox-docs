@@ -10,7 +10,7 @@ ColdBox makes it easy to access the configuration stored in your Java system pro
 
 ## Accessing System Settings in `config/ColdBox.cfc` or a `ModuleConfig.cfc`
 
-If you are inside `config/ColdBox.cfc` or a `ModuleConfig.cfc` you can use the three system settings functions directly! No additional work required.
+If you are inside `config/ColdBox.cfc` or a `ModuleConfig.cfc` or a `config/WireBox.cfc` you can use the three system settings functions directly! No additional work required.
 
 ## Accessing System Settings in `Application.cfc`
 
@@ -18,9 +18,10 @@ If you would like to access these methods in your `Application.cfc`, create an i
 
 Example:
 
+{% code-tabs %}
+{% code-tabs-item title="Application.cfc" %}
 ```javascript
-// Application.cfc
-component {
+component {
 
     variables.util = new coldbox.system.core.util.Util();
 
@@ -35,6 +36,8 @@ component {
 
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ## Accessing System Settings in other files
 
