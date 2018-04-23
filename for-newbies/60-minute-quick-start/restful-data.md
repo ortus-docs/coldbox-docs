@@ -10,11 +10,15 @@ Out of the box, ColdBox gives you all the RESTFul capabilities you will need to 
 
 If you know beforehand what type of format you will be responding with, you can leverage ColdBox 5's auto-marshalling in your handlers. By default, ColdBox detects any return value from handlers and if they are complex it will convert them to JSON automatically for you:
 
+{% code-tabs %}
+{% code-tabs-item title="contacts.cfc" %}
 ```javascript
 any function index( event, rc, prc ){
     return contactService.getAll();    
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 That's it! ColdBox detects the array and automatically serializes it to JSON. Easy Peasy!
 
@@ -26,14 +30,18 @@ The request context object has a special function called `renderData()` that can
 **Tip**: You can find more information at the API Docs for `renderData()` here [http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html\#renderData\(](http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html#renderData%28)\)
 {% endhint %}
 
-So let's open the `handlers/contact.cfc` and add to our current code:
+So let's open the `handlers/contacts.cfc` and add to our current code:
 
+{% code-tabs %}
+{% code-tabs-item title="contacts.cfc" %}
 ```javascript
 any function index( event, rc, prc ){
     prc.aContacts = contactService.getAll();    
     event.renderData( data=prc.aContacts, formats="xml,json,pdf,html" );
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 We have added the following line:
 

@@ -1,4 +1,4 @@
-# Installing ColdBox
+# Installation
 
 **Welcome to the world of ColdBox! **
 
@@ -38,7 +38,7 @@ Once you download and expand CommandBox you will have the `box.exe` or `box` bin
 We will be able to execute a-la-carte commands from our command line or go into the interactive shell for multiple commands. We recommend the interactive shell as it is faster and can remain open in your project root.
 
 {% hint style="info" %}
- All examples in this book are based on the fact of having an interactive shell open.
+All examples in this book are based on the fact of having an interactive shell open.
 {% endhint %}
 
 ## Installing ColdBox
@@ -61,7 +61,7 @@ File 112 Apr 25,2018 11:04:05 box.json
 You can also install the latest bleeding edge version by using the `coldbox@be` slug instead, or any previous version.
 {% endhint %}
 
-That's it. CommandBox can now track this version of ColdBox for you in this directory. In the [next section](my-first-coldbox-application.md) we will scaffold a ColdBox application using an application template.
+That's it. CommandBox can now track this version of ColdBox for you in this directory. In the [next section](https://github.com/ortus-docs/coldbox-docs/tree/b55fe957f169d1cabf952ae219d487f7fb07a4e6/getting-started/my-first-coldbox-application.md) we will scaffold a ColdBox application using an application template.
 
 {% hint style="success" %}
 You can find many scaffolding templates for ColdBox in our Github organization: [github.com/coldbox-templates](https://github.com/coldbox-templates)

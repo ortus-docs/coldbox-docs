@@ -1,8 +1,8 @@
 # ColdBox.cfc
 
-The ColdBox configuration CFC is the heart of your ColdBox application. It contains the initialization variables for your application and extra information used by third-party modules and ultimately how your application boots up. In itself, it is also an event listener or [ColdBox Interceptor](/getting-started/configuration/coldbox.cfc/configuration-directives/interceptors.md), so it can listen to life-cycle events.
+The ColdBox configuration CFC is the heart of your ColdBox application. It contains the initialization variables for your application and extra information used by third-party modules and ultimately how your application boots up. In itself, it is also an event listener or [ColdBox Interceptor](configuration-directives/interceptors.md), so it can listen to life-cycle events.
 
-![](/full/images/Coldbox-cfc.jpg)
+![](../../../.gitbook/assets/coldbox-cfc.jpg)
 
 This CFC is instantiated by ColdBox and decorated at runtime so you can take advantage of some dependencies.
 
@@ -23,9 +23,9 @@ property name="config" inject="coldbox:setting:coldboxConfig";
 
 ## Configuration Interceptor
 
-![](/full/images/eventdriven.jpg)
+![](../../../.gitbook/assets/eventdriven.jpg)
 
-Another cool concept for the Configuration CFC is that it is also registered as a [ColdBox Interceptor](/digging-deeper/interceptors/README.md) once the application starts up automatically for you. This means that you can create interception points in this CFC that will be registered upon application startup so you can define startup procedures, listen to events, etc.
+Another cool concept for the Configuration CFC is that it is also registered as a [ColdBox Interceptor](../../../digging-deeper/interceptors/) once the application starts up automatically for you. This means that you can create interception points in this CFC that will be registered upon application startup so you can define startup procedures, listen to events, etc.
 
 ```javascript
 function preProcess(event, interceptData, buffer, rc, prc ){
@@ -40,6 +40,4 @@ function preRender(event, interceptData, buffer, rc, prc ){
     controller.getWirebox().getInstance( 'loggerService' ).doSomething();
 }
 ```
-
-
 
