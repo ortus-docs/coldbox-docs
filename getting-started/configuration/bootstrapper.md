@@ -1,4 +1,4 @@
-# Bootstrapper
+# Bootstrapper - Application.cfc
 
 The `Application.cfc` is one of the most important files in your application as it is where you define all the implicit ColdFusion engine events, session, client scopes, ORM, etc. It is also how you tell ColdFusion to bootstrap the ColdBox Platform for your application. There are two ways to bootstrap your application:
 
@@ -7,12 +7,18 @@ The `Application.cfc` is one of the most important files in your application as 
 
 ![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/Bootstrapper.jpg)
 
-> **Hint** : The composition approach allows you to have a more flexible configuration as it will allow you to use per-application mappings for the location of the ColdBox Platform.
+{% hint style="info" %}
+The composition approach allows you to have a more flexible configuration as it will allow you to use per-application mappings for the location of the ColdBox Platform.
+{% endhint %}
 
-To see the difference, just open the appropriate `Application.cfc` in the application templates.
+{% hint style="success" %}
+**Tip:** To see the difference, just open the appropriate `Application.cfc` in the application templates.
+{% endhint %}
 
 ## Composition
 
+{% code-tabs %}
+{% code-tabs-item title="Application.cfc" %}
 ```javascript
 component{
     // Application properties
@@ -59,11 +65,16 @@ component{
 
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ## Inheritance
 
+{% code-tabs %}
+{% code-tabs-item title="Application.cfc" %}
 ```javascript
 component extends="coldbox.system.Bootstrap"{
+
     // Application properties
     this.name = hash( getCurrentTemplatePath() );
     this.sessionManagement = true;
@@ -80,21 +91,21 @@ component extends="coldbox.system.Bootstrap"{
     COLDBOX_APP_KEY          = "";
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ## Directives
 
 You can set some variables in the `Application.cfc` that can alter Bootstrapping conditions:
 
-| Variable | Required | Default | Information |
+| **Variable** | **Default** | **Description** |
 | --- | --- |
-| COLDBOX\_APP\_ROOT\_PATH | false | `getDirectoryFromPath(getCurrentTemplatePath())` | Automatically set for you. This path tells the framework what is the base root location of your application and where it should start looking for all the agreed upon conventions. You usualy will never change this, but you can. |
-| COLDBOX\_APP\_MAPPING | false | `/` | The application mapping is ESSENTIAL when dealing with Flex or Remote \(SOAP\) applications. This is the location of the application from the root of the web root. So if your app is at the root, leave this setting blank. If your application is embedded in a sub-folder like MyApp, then this setting will be auto-calculated to `/MyApp`. |
-| COLDBOX\_CONFIG\_FILE | false | `config/ColdBox.cfc` | The absolute or relative path to the configuration CFC file to load. This bypasses the conventions and uses the configuration file of your choice. |
-| COLDBOX\_APP\_KEY | false | `cbController` | The name of the key the framework will store the application controller under in the application scope. |
+| `COLDBOX_APP_ROOT_PATH` | App Directory | Automatically set for you. This path tells the framework what is the base root location of your application and where it should start looking for all the agreed upon conventions. You usualy will never change this, but you can. |
+| `COLDBOX_APP_MAPPING` | `/` | The application mapping is ESSENTIAL when dealing with Flex or Remote \(SOAP\) applications. This is the location of the application from the root of the web root. So if your app is at the root, leave this setting blank. If your application is embedded in a sub-folder like MyApp, then this setting will be auto-calculated to `/MyApp`. |
+| `COLDBOX_CONFIG_FILE` | `config/ColdBox.cfc` | The absolute or relative path to the configuration CFC file to load. This bypasses the conventions and uses the configuration file of your choice. |
+| `COLDBOX_APP_KEY` | `cbController` | The name of the key the framework will store the application controller under in the application scope. |
 
-> **Hint** : All of the directives have their appropriate getter and setter methods that you can use by calling it from the ColdBox bootstrapper object or via your Application.cfc using inheritance.
-
-## Lock Timeout
+### Lock Timeout
 
 The Boostrapper also leverages a default locking timeout of 30 seconds when doing loading operations. You can modify this timeout by calling the `setLockTimeout()` method on the Bootsrapper object.
 
