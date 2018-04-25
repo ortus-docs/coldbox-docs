@@ -1,53 +1,89 @@
 # Adding Routes
 
-The main method to add HTML and RESTFul routes is the `addRoute()` method, of which you can see the signature below:
+### Routing By Convention
+
+Every router has a default route already created for you, which we refer to as routing by convention:
 
 ```javascript
-addRoute(
-    string pattern, 
-    [string handler], 
-    [any action], 
-    [boolean packageResolverExempt='false'], 
-    [string matchVariables], 
-    [string view], 
-    [boolean viewNoLayout='false'], 
-    [boolean valuePairTranslation='true'], 
-    [any constraints=''], 
-    [string module=''], 
-    [string moduleRouting=''], 
-    [string namespace=''], 
-    [string namespaceRouting=''], 
-    [boolean ssl='false'], 
-    [boolean append='true'], 
-    [any response], 
-    [numeric statusCode], 
-    [string statusText], 
-    [any condition])
+route( ":handler/:action?").end();
 ```
 
-| Argument | Type | Required | Default | Description |
-| --- | --- | --- | --- | --- |
-| pattern | string | true | --- | The URL pattern to look for in the incoming URL |
-| handler | string | false | --- | The handler to translate to, can include module or package path |
-| action | string or struct | false | --- | The action to translate to. If a structure, then the keys represent the HTTP verbs of the RESTful action to relocate to. |
-| packageResolverExempt | boolean | false | true | Automatically can resolve packages in the URL when using routing by convention |
-| matchVariables | string | false | --- | A query string of variables to inject into the request collection if the route matches |
-| view | string | false | --- | The name of the view to dispatch the URL to instead of event routing |
-| viewNoLayout | boolean | false | false | Use no layout when rendering the view dispatched or not |
-| valuePairTranslation | boolean | false | true | By default it converts any name-value pair after the matched URL pattern to the request collection |
-| constraints | struct | false | {} | A structure of regex constraints for variable placeholders in the URL patterns |
-| module | string | false | --- | Add this route to a named module |
-| moduleRouting | boolean | false | false | Called internally by addModuleRoutes to add a module routing route only. |
-| namespace | string | false | --- | The namespace to add this route to |
-| namespaceRouting | string | false | --- | Called internally by addNamespaceRoutes to add a namespaced routing route. |
-| ssl | boolean | false | false | Makes the route SSL only if true, else for either SSL or non SSL. If SSL, the interceptor will relocate to the same route but in SSL |
-| append | boolean | false | true | By default all routes are stored in first come first served order, but you can pre-pend to the first position if so desired. |
-| response | string or closure or UDF | false | --- | A simple string to return if the route matched or a closure to execute that must return a string to return back to the user. No ColdBox events will be fired automatically and response will be sent immediately |
-| statusCode | numeric | false | 200 | The status code header to send with your response if using the response arguments |
-| statusText | string | false | --- | The status text header to send with your response if using the response arguments |
-| condition | closure or UDF | false | --- | A closure or UDF that MUST return _boolean_ as a secondary check on the pattern matching and receives the matched _requeststring_ as a parameter. Great for not only doing pattern matching but also CUSTOM conditions. |
+The URL pattern in the default route includes two special position **placeholders, **meaning that the handler and the action will come from the URL.
 
-We will start discovering all the different routing techniques you can use with this wonderful little method.
+* `:handler` - The handler to relocate to \(It can include a Package and/or Module reference\)
+* `:action` - The action to relocate to \(See the `?`, this means that the action is **optional**\)
 
-> **Hint** You can pass any named argument and value to this method and the interceptor will create a new variable with the name of the argument in the request collection for you. This can be used as an alternative to using the matchVariables argument.
+{% hint style="success" %}
+**Tip** The `:handler` parameter allows you to nest module names and handler names. Ex: `/module/handler/action`
+
+If no action is passed the default action is `index`
+{% endhint %}
+
+This route can handle pretty much all your needs by convention. 
+
+```javascript
+// Basic Routing
+http://localhost/general -> event=general.index
+http://localhost/general/index -> event=general.index
+
+// If 'admin' is a package/folder in the handlers directory
+http://localhost/admin/general/index -> event=admin.general.index 
+
+// If 'admin' is a module
+http://localhost/admin/general/index -> event=admin:general.index
+```
+
+#### Convention Name-Value Pairs
+
+Any extra name-value pairs in the remaining URL of a discovered URL pattern will be translated to variables in the request collection \(`rc`\) for you automagically.
+
+```text
+http://localhost/general/show/page/2/name/luis
+# translate to
+event=general.show, rc.page=2, rc.name=luis
+
+http://localhost/users/show/export/pdf/name
+# translate to
+event=users.show, rc.export=pdf, rc.name={empty value}
+```
+
+{% hint style="success" %}
+**Tip:** You can turn this feature off by using the `valuePairTranslation( false )` modifier in the routing DSL on a route by route basis
+
+`route( "/pattern" ).to( "users.show" ).valuePairTranslation( false );`
+{% endhint %}
+
+### Route Placeholders
+
+In your URL pattern you can also use the `:` syntax to denote a **variable position holder**. These position holders are **alpha-numeric** by default:
+
+```javascript
+route( "blog/:year/:month?/:day?", "blog.index" );
+```
+
+Once a URL is matched to the route, those placeholders will become request collection \(`RC`\) variables:
+
+```text
+http://localhost/blog/2012/12/22 -> rc.year=2012, rc.month=12, rc.day=22
+```
+
+#### Numeric Placeholders
+
+ColdBox gives you also the ability to declare numerical only routes by appending `-numeric` to the variable placeholder so the route will only match if the placeholder is **numeric**. Let's modify the route from above.
+
+```javascript
+route( "blog/:year-numeric/:month-numeric?/:day-numeric?", "blog.index" );
+```
+
+This route will only accept years, months and days as numbers.
+
+#### Alpha Placeholders
+
+ColdBox gives you also the ability to declare alpha only routes by appending `-alpha` to the variable placeholder so the route will only match if the placeholder is `alpha` only.
+
+```javascript
+route( "wiki/:page-alpha", "wiki.show" );
+```
+
+This route will only accep page names that are alpha only.
 

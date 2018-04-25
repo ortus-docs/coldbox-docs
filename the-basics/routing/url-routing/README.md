@@ -1,6 +1,6 @@
 # URL Routing
 
-The ColdBox Routing DSL will be used to register routes for your application, which exists in your application or module router object.  Routing takes place using several methods inside the router, which are divided in the following categories:
+The ColdBox Routing DSL will be used to register routes for your application, which exists in your application or module router object.  Routing takes place using several methods inside the router, which are divided into the following categories:
 
 1. **Initiatiors** - Starts a pattern registration, but does not fully register the route until a terminator is called.
 2. **Modifiers** - Modifies the pattern with extra metdata to listen to.
