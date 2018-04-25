@@ -10,7 +10,7 @@ You can also configure many aspects of ColdBox, third-party modules and applicat
 
 ## Reinitializing An Application
 
-Please note that anytime you make any configuration changes or there are things in memory you wish to clear out, you will be using a URL action that will tell the ColdBox [Bootstrapper](bootstrapper.md) to reinitialize the application. This special URL variable is called `fwreinit` and can be any value or a specific password you setup in the [ColdBox configuration directive](coldbox.cfc/configuration-directives/).
+Please note that anytime you make any configuration changes or there are things in memory you wish to clear out, you will be using a URL action that will tell the ColdBox [Bootstrapper](bootstrapper-application.cfc.md) to reinitialize the application. This special URL variable is called `fwreinit` and can be any value or a specific password you setup in the [ColdBox configuration directive](coldbox.cfc/configuration-directives/).
 
 ```text
 // reinit with no password

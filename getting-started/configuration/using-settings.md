@@ -1,6 +1,6 @@
 # Using Settings
 
-![](/full/images/ControllerWithSettingStructures.jpg)
+![](../../.gitbook/assets/controllerwithsettingstructures.jpg)
 
 The ColdBox Controller \(stored in ColdFusion `application` scope\) stores all your **application** settings and also your **system** settings:
 

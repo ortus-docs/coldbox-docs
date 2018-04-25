@@ -55,14 +55,14 @@
       * [WireBox](getting-started/configuration/coldbox.cfc/configuration-directives/wirebox.md)
     * [System Settings \(Java Properties and Environment Variables\)](getting-started/configuration/coldbox.cfc/system-settings-java-properties-and-environment-variables.md)
   * [Using Settings](getting-started/configuration/using-settings.md)
-  * [Bootstrapper - Application.cfc](getting-started/configuration/bootstrapper.md)
+  * [Bootstrapper - Application.cfc](getting-started/configuration/bootstrapper-application.cfc.md)
 
 ## The Basics
 
 * [Routing](the-basics/routing/README.md)
   * [Requirements](the-basics/routing/requirements/README.md)
     * [Rewrite Rules](the-basics/routing/requirements/rewrite-rules.md)
-  * [Application Router](the-basics/routing/routes-configuration.md)
+  * [Application Router](the-basics/routing/application-router.md)
   * [URL Routing](the-basics/routing/url-routing/README.md)
     * [Adding Routes](the-basics/routing/url-routing/adding-routes/README.md)
       * [Routing by Convention](the-basics/routing/url-routing/adding-routes/routing-by-convention.md)

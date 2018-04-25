@@ -1,14 +1,16 @@
 # Pathinfo Providers
 
-By default, the URL mapping processor will detect routes by looking at the `CGI.PATH_INFO` variable. This feature can be useful to set flags for each request based on a URL and then clean or parse the URL to a more generic form to allow for simple route declarations. Uses may include internationalization \(i18n\) and supporting multiple experiences based on devices such as Desktop, Tablet, Mobile and TV. To modify the URI used by the SES interceptor before route detection occurs simply follow the convention of adding a UDF called `PathInfoProvider()` to your routes configuration file \(`config/Routes.cfm`\).
+By default, the URL mapping processor will detect routes by looking at the `CGI.PATH_INFO` variable, but you can override this and provide your own function. This feature can be useful to set flags for each request based on a URL and then clean or parse the URL to a more generic form to allow for simple route declarations. Uses may include internationalization \(i18n\) and supporting multiple experiences based on devices such as Desktop, Tablet, Mobile and TV. 
 
-The `PathInfoProvider()` UDF is responsible for returning the string used to match a route. Without this UDF the SES interceptor will simply obtain the URI from the `CGI.PATH_INFO` variable.
+To modify the URI used by the Routing Services before route detection occurs simply follow the convention of adding a function called `pathInfoProvider()` to your application Router \(`config/Router.cfc`\).
+
+The `pathInfoProvider()` function is responsible for returning the string used to match a route.
 
 ```javascript
 // Example PathInfoProvider for detecting a mobile request
-function PathInfoProvider(Event){
-  var rc = Event.getCollection();
-  var prc = Event.getCollection(private=true);
+function PathInfoProvider( event ){
+  var rc = event.getCollection();
+  var prc = event.getCollection(private=true);
 
   local.URI = CGI.PATH_INFO;
 
