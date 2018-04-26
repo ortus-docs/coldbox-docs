@@ -59,6 +59,7 @@
 
 ## The Basics
 
+* [Request Context](the-basics/request-context.md)
 * [Routing](the-basics/routing/README.md)
   * [Requirements](the-basics/routing/requirements/README.md)
     * [Rewrite Rules](the-basics/routing/requirements/rewrite-rules.md)
@@ -67,8 +68,6 @@
     * [Adding Routes](the-basics/routing/url-routing/adding-routes/README.md)
       * [RESTful Action Routing](the-basics/routing/url-routing/adding-routes/restful-action-routing.md)
       * [View Routing](the-basics/routing/url-routing/adding-routes/view-routing.md)
-      * [Alpha Placeholder](the-basics/routing/url-routing/adding-routes/alpha-placeholder.md)
-      * [Regular Expression Placeholder](the-basics/routing/url-routing/adding-routes/regular-expression-placeholder.md)
       * [Optional Placeholders](the-basics/routing/url-routing/adding-routes/optional-placeholders.md)
       * [Dynamic handler\/action Placeholders](the-basics/routing/url-routing/adding-routes/dynamic-handler-action-placeholders.md)
       * [Adding variables per route](the-basics/routing/url-routing/adding-routes/adding-variables-per-route.md)
@@ -79,8 +78,7 @@
     * [With Clousures](the-basics/routing/url-routing/with-clousures.md)
   * [Pathinfo Providers](the-basics/routing/pathinfo-providers.md)
   * [Building Routable Links](the-basics/routing/building-routable-links.md)
-  * [HTML base tag](the-basics/routing/html-base-tag.md)
-* [Request Context](the-basics/request-context.md)
+  * [HTML Base Tag](the-basics/routing/html-base-tag.md)
 * [Event Handlers](the-basics/event-handlers/README.md)
   * [Composed Properties](the-basics/event-handlers/composed-properties.md)
   * [How are events called?](the-basics/event-handlers/how-are-events-called.md)
