@@ -1,6 +1,6 @@
 # Application Router
 
-Every ColdBox application has a URL router and can be located by convention at `config/Router.cfc`.  This is called the **application router** and it is based on the router core class: `coldbox.system.web.routing.Router`.  
+Every ColdBox application has a URL router and can be located by convention at `config/Router.cfc`.  This is called the **application router** and it is based on the router core class: `coldbox.system.web.routing.Router`.  Here is where you will configure router settings and define routes using our routing DSL.
 
 {% hint style="info" %}
 Please see the latest [API Docs](http://apidocs.ortussolutions.com/coldbox/5.0.0/coldbox/system/web/routing/Router.html) for investigating all the methods and properties of the Router.
@@ -15,6 +15,7 @@ Please see the latest [API Docs](http://apidocs.ortussolutions.com/coldbox/5.0.0
 {% code-tabs %}
 {% code-tabs-item title="config/Router.cfc" %}
 ```javascript
+// Inherits from Router and FrameworkSuperType
 component{
 
     function configure(){
@@ -59,6 +60,16 @@ You can use the following methods to fine tune the configuration and operation o
 | `setThrowOnInvalidExtensions( boolean )` | By default ColdBox does not throw an exception when an invalid extension is detected. If **true**, then the interceptor will throw a 406 Invalid Requested Format Extension: {extension} exception. Default is **false**. |
 
 
+
+```javascript
+function configure(){
+
+    setFullRewrites( true );
+    setExtensionDetection( true );
+    setValidExtensions( "json,cfm,pdf" );
+
+}
+```
 
 The next sections will discus how to register routes for your application.
 

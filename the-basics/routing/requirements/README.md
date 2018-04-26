@@ -4,7 +4,7 @@ Routing is enabled by **default** in the ColdBox application templates in order 
 
 `http://localhost/index.cfm/home/about`
 
-As you can see they still contain the `index.cfm` in the URL. In order to enable full URL rewrites that eliminates that `index.cfm` you must have a rewrite enabled webserver like Apache, nginx or IIS or a Java rewrite filter which ships with CommandBox by default.
+As you can see they still contain the `index.cfm` in the URL. In order to enable full URL rewrites that eliminates that `index.cfm` you must have a rewrite enabled webserver like Apache, nginx or IIS or a Java rewrite filter which ships with CommandBox by **default**.
 
 `http://localhost/home/about`
 

@@ -15,26 +15,54 @@ http://localhost/dade/miami/page/3
 ```
 
 {% hint style="info" %}
-If you are leveraging CommandBox as your server, then full URL rewrites are enabled by default.  This means you do not need a web server to remove the index.cfm from the URL.
+If you are leveraging CommandBox as your server, then full URL rewrites are enabled by **default**.  This means you do not need a web server to remove the `index.cfm` from the URL.
 {% endhint %}
 
 ## What is a route?
 
-A route is a declared URL pattern that if matched it will translate such URL into one of the following:
+A route is a declared URL pattern that if matched it will translate the URL into one of the following:
 
-* A ColdBox event
-* A View/Layout
-* A Reponse
-* A Redirection
+* A ColdBox event to execute
+* A View/Layout to render
+* A Reponse function to execute
+* A Redirection to occur
 
-It will also inspect the URL for placeholders and translate them into the incoming Request Collection \(`rc`\).
+It will also inspect the URL for **placeholders** and translate them into the incoming Request Collection variables \(`RC`\).
 
-**Example**
+**Examples**
 
+{% code-tabs %}
+{% code-tabs-item title="config/Router.cfc" %}
 ```javascript
-route( "/blog/:year-numeric{4}/:month?/:day?" )
-    .to( "blog.list" );
+function configure(){
+    
+    // Routing with placeholders to an event
+    route( "/blog/:year-numeric{4}/:month?/:day?" )
+        .to( "blog.list" );
+    // Redirects
+    route( "/old/book" )
+        .redirect( "/mybook" );
+    // Responses
+    route( "/echo" ).toResponse( (event,rc,prc) => {
+        return "hello luis";
+    } );
+    // Shortcut to above
+    route( "/echo", (event,rc,prc) => {
+        return "hello luis";
+    } );
+    // Show view
+    route( "/contact-us" )
+        .toView( "main/contact" );
+    // Direct to handler with action from URL
+    route( "/users/:action" )
+        .toHandler( "users" );
+    // Inline pattern + target
+    route( pattern="/wiki/:page", target="wiki.show" );
+    
+}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ## Routing Benefits
 
@@ -45,4 +73,14 @@ There are several benefits that you will get by using our routing system:
 * Technology hiding
 * Greater application portability
 * URL's are more descriptive and easier to remember
+
+## Route Visualizer
+
+As you create route-heavy applications visualizing the routes will be challenging especially for HMVC apps with lots of modules.  Just install our [ColdBox Route Visualizer](https://www.forgebox.io/view/route-visualizer) and you will be able to visually see, test and debug all your routing needs.
+
+```bash
+box install route-visualizer
+```
+
+
 
