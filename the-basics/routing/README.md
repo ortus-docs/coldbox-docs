@@ -1,6 +1,6 @@
 # Routing
 
-ColdBox sports a Routing Service that will provide you with robust URL mappings for building expressive applications and RESTFul services.  By convention URL routing will allow you to create URL's without using verobse parameter delimeters like `?event=this.that&m1=val `and execute ColdBox events.
+ColdBox sports a Routing Service that will provide you with robust URL mappings for building expressive applications and RESTFul services.  By convention URL routing will allow you to create URL's without using verbose parameter delimiters like `?event=this.that&m1=val `and execute ColdBox events.
 
 ```javascript
 // Old Style
@@ -36,28 +36,34 @@ It will also inspect the URL for **placeholders** and translate them into the in
 ```javascript
 function configure(){
     
-    // Routing with placeholders to an event
+    // Routing with placeholders to an event with placeholders
     route( "/blog/:year-numeric{4}/:month?/:day?" )
         .to( "blog.list" );
+        
     // Redirects
     route( "/old/book" )
         .redirect( "/mybook" );
+    
     // Responses
     route( "/echo" ).toResponse( (event,rc,prc) => {
         return "hello luis";
     } );
+    
     // Shortcut to above
     route( "/echo", (event,rc,prc) => {
         return "hello luis";
     } );
+    
     // Show view
     route( "/contact-us" )
         .toView( "main/contact" );
+    
     // Direct to handler with action from URL
     route( "/users/:action" )
         .toHandler( "users" );
-    // Inline pattern + target
-    route( pattern="/wiki/:page", target="wiki.show" );
+    
+    // Inline pattern + target and name
+    route( pattern="/wiki/:page", target="wiki.show", name="wikipage" );
     
 }
 ```

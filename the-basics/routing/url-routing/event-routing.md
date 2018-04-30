@@ -1,4 +1,4 @@
-# Event Routing
+# Routing Methods
 
 Apart from routing by convention, you can also register your own expressive routes.  Let's investigate the routing approaches.
 
@@ -37,7 +37,7 @@ route(
 );
 ```
 
-To read more about responses please see the [Route Responses](route-responses.md) section.
+To read more about responses please see the [Route Responses]() section.
 
 ### Routing `to` Events
 
@@ -121,7 +121,7 @@ route( "/users/:action" )
 
 ### Routing to RESTFul Actions
 
-You can also route a pattern to RESTFul actions.  This means that you can split the routing pattern according to incoming HTTP Verb.  You will use a modifier `withAction() `and then assign it to a handler via the `toHandler()` method.
+You can also route a pattern to HTTP RESTFul actions.  This means that you can split the routing pattern according to incoming HTTP Verb.  You will use a modifier `withAction() `and then assign it to a handler via the `toHandler()` method.
 
 ```java
 // RESTFul actions
@@ -133,5 +133,71 @@ route( "/users/:id?" )
         DELETE : "remove"
     } )
     .toHandler( "users" );
+```
+
+### Routing to Responses
+
+The Router allows you to create inline responses via closures/lambdas to incoming URL patterns.  You do not need to create handler/actions, you can put the actions inline as responses.  Every response closure/lambda accepts three arguments:
+
+1. `event` - An object that models and is used to work with the current request \(Request Context\)
+2. `rc` - A struct that contains both `URL/FORM` variables merged together \(unsafe data\)
+3. `prc` - A secondary struct that is **private** only settable from within your application \(safe data\)
+
+```java
+// Simple response routing
+route( "/users/hello", function( event, rc, prc ){
+    return "<h1>Hello From RESTLand</h1>";
+} );
+
+// Simple response routing with placeholders
+route( "/users/:username", function( event, rc, prc ){
+    "<h1>Hello #encodeForHTML( rc.username )# From RESTLand</h1>";
+} );
+
+// Routing with the toResponse() method
+route( "/users/:id" )
+    .toResponse( function( event, rc, prc ){
+        var oUser = getInstance( "UserService" ).get( rc.id ?: 0 );
+        if( oUser.isLoaded() ){
+            return oUser.getMemento();
+        }
+        event.setHTTPHeader( statusCode = 400, statusText = "Invalid User ID provided" );
+        return {
+            "error" : true,
+            "messages" : "Invalid User ID Provided"
+        };
+    } );
+```
+
+### Adding Variables to RC/PRC
+
+You can also add variables to the RC and PRC structs on a per-route basis by leveraging the following methods:
+
+* `rc( name, value, overwrite=true )` - Add an `RC` value if the route matched
+* `rcAppend map, overwrite=true )` - Add multiple values to the `RC` collection if the route matched
+* `prc( name, value, overwrite=true )` - Add an `PRC` value if the route matched
+* `prcAppend map, overwrite=true )` - Add multiple values to the `PRC` collection if the route matched
+
+This is a great way to manually set variables in the incoming structures:
+
+```java
+route( "/api/v1/users/:id" )
+    .rcAppend( { secured : true } )
+    .prcAppend( { name : "hello } )
+    .to( "api-v1:users.show" );
+```
+
+### Routing Conditions
+
+You can also apply runtime conditions to a route in order for it to be matched.  This means that if the route matches the URL pattern then we will execute a closure/lambda to make sure that it meets the runtime conditions.  We will do this with the `withCondition(`\) method.
+
+Let's say you only want to fire some routes if they are using Firefox, or a user is logged in, or whatever.
+
+```javascript
+route( "/go/firefox" )
+  withCondition( function( requestString ){
+    return ( findnocase( "Firefox", cgi.HTTP_USER_AGENT ) ? true : false );
+  });
+  .to( "firefox.index" );
 ```
 

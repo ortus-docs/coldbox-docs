@@ -12,7 +12,7 @@ The URL pattern in the default route includes two special position **placeholder
 * `:action` - The action to relocate to \(See the `?`, this means that the action is **optional**\)
 
 {% hint style="info" %}
-Behind the scenes the router creates two routes due to the optional placeholder
+Behind the scenes the router creates two routes due to the optional placeholder in the following order:
 
 1. route\( "/:handler/:action" \)
 2. route\( "/:handler\)

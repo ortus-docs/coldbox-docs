@@ -1,8 +1,8 @@
-# URL Routing
+# Routing DSL
 
 The ColdBox Routing DSL will be used to register routes for your application, which exists in your application or module router object.  Routing takes place using several methods inside the router, which are divided into the following 3 categories:
 
-1. **Initiatiors** - Starts a URL **pattern** registration, but does not fully register the route until a terminator is called \(**target**\).
+1. **Initiators** - Starts a URL **pattern** registration, but does not fully register the route until a terminator is called \(**target**\).
 2. **Modifiers** - Modifies the pattern with extra metdata to listen to from the incoming request.
 3. **Terminators** - Finalizes the registration process usually by telling the router what happens when the route pattern is detected. This is refered to as the **target.**
 
