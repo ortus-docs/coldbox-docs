@@ -55,9 +55,9 @@ Here's a rundown of the important bits.
 * **coldbox** - This is the ColdBox framework managed by CommandBox
 * **config/Coldbox.cfc** - Your application configuration object
 * **config/Router.cfc** - Your application URL Router
-* **handlers** - This holds the app's controllers
+* **handlers** - Your controller layer, which in ColdBox they are called event handlers
 * **layouts** - Your HTML layouts
-* **models** - This holds your app's CFCs 
+* **models** - This holds your model CFCs 
 * **modules** - This holds the CommandBox tracked modules
 * **modules\_app **- This holds your app's modules
 * **views** - Your HTML views will go here

@@ -1,6 +1,19 @@
 # Request Context
 
-On every request to a ColdBox event, the framework creates an object that models the incoming request. This object is called the Request Context object \(`coldbox.system.web.context.RequestContext`\) and it contains the incoming FORM/URL/REMOTE variables the client sent in and the object lives in the ColdFusion request scope. You will use this object in the controller and view layer of your application to get/set values, get metadata about the request, marshall data for RESTful request, and so much more.
+On every request to a ColdBox event, the framework creates an object that models the incoming request. This object is called the **Request Context Object**\(`coldbox.system.web.context.RequestContext`\), it contains the incoming **FORM/REMOTE/URL** variables the client sent in and the object lives in the ColdFusion `request `scope. 
+
+This object contains two structures internally:
+
+1. `RC `- The Request Collection which contains the **FORM/REMOTE/URL** data merged into a single structure.  This is considered to be **unsafe **data as it comes from any request.
+2. `PRC `- The Private Request Collection which is a structure that can be used to safely put data into it.  This structure cannot be modified from the outside world.
+
+{% hint style="info" %}
+The order of preference of variables when merged is **FORM **first then **REMOTE **then **URL**.
+
+**REMOTE **variables are from leveraging the [ColdBox Proxy.](../digging-deeper/coldbox-proxy/)
+{% endhint %}
+
+You will use this object in the controller and view layer of your application to get/set values, get metadata about the request, transform data for RESTful requests, and so much more.
 
 ![](../.gitbook/assets/requestcollectiondatabus.jpg)
 
