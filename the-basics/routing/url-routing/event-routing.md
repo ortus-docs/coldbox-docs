@@ -4,11 +4,11 @@ Apart from routing by convention, you can also register your own expressive rout
 
 ### Inline Terminator
 
-The `route()` method allows you to register a **pattern** and immediately assign it to execute an event or a response via the **target** argument.
+The `addRoute()` method allows you to register a **pattern** and immediately assign it to execute an event or a response via the **target** argument.
 
 ```java
-route( "/wiki:pagename", "wiki.page" );
-route( 
+addRoute( "/wiki:pagename", "wiki.page" );
+addRoute( 
     pattern="/users/:id/profile", 
     target="users:profile.show", 
     name="userprofile" 
@@ -22,14 +22,14 @@ The first pattern registers and if matched it will execute the **wiki.page** eve
 You can also pass in a closure or lambda to the target argument and it will be treated as an inline action:
 
 ```java
-route(
+addRoute(
     pattern="/echo",
     response=function( event, rc, prc ){
         return "hello ColdBox!";
     }
 );
 
-route(
+addRoute(
     pattern="/users",
     response=function( event, rc, prc ){
         return getInstance( "UserService" ).list();
@@ -44,14 +44,14 @@ To read more about responses please see the [Route Responses]() section.
 If you will not use the inline terminators you can do a full expressive route definition to events using the `to()` method, which allows you to concatenate the route pattern with modifiers:
 
 ```java
-route( "/wiki/:pagename" )
+addRoute( "/wiki/:pagename" )
     .to( "wiki.show" );
 
-route( "/users/:id/profile" )
+addRoute( "/users/:id/profile" )
     .as( "userProfile" )
     .to( "users:profile.show" );
     
-route( "/users/:id/profile" )
+addRoute( "/users/:id/profile" )
     .as( "userProfile" )
     .withVerbs( "GET" )
     .withSSL()
@@ -70,12 +70,12 @@ You can also route to a **handler** and an **action** using the modifiers instea
 * `end()`
 
 ```java
-route( "wiki/:pagename" )
+addRoute( "wiki/:pagename" )
     as( "wikipage" )
     withAction( "show" )
     toHandler( "wiki" );
     
-route( "wiki/:pagename" )
+addRoute( "wiki/:pagename" )
     .withHander( "wiki" )
     .withAction( "show" )
     .end();
@@ -86,7 +86,7 @@ route( "wiki/:pagename" )
 You can also route to views and view/layout combinations by using the `toView()` terminator:
 
 ```java
-route( "/contact-us" )
+addRoute( "/contact-us" )
     .toView( 
         view = "view name",
         layout = "layout",
@@ -101,7 +101,7 @@ route( "/contact-us" )
 You can also use the `toRedirect()` method to re-route patterns to other patterns. 
 
 ```java
-route( "/my-old/link" )
+addRoute( "/my-old/link" )
     .toRedirect( target="/new/pattern", statusCode=301 );
 ```
 
@@ -115,7 +115,7 @@ You can also redirect a pattern to a handler using the `toHandler()` method.  Th
 
 ```java
 // Action comes via the URL
-route( "/users/:action" )
+addRoute( "/users/:action" )
     .toHandler( "users" );
 ```
 
@@ -125,7 +125,7 @@ You can also route a pattern to HTTP RESTFul actions.  This means that you can s
 
 ```java
 // RESTFul actions
-route( "/users/:id?" )
+addRoute( "/users/:id?" )
     .withAction( {
         GET : "index",
         POST : "save",
@@ -145,17 +145,17 @@ The Router allows you to create inline responses via closures/lambdas to incomin
 
 ```java
 // Simple response routing
-route( "/users/hello", function( event, rc, prc ){
+addRoute( "/users/hello", function( event, rc, prc ){
     return "<h1>Hello From RESTLand</h1>";
 } );
 
 // Simple response routing with placeholders
-route( "/users/:username", function( event, rc, prc ){
+addRoute( "/users/:username", function( event, rc, prc ){
     "<h1>Hello #encodeForHTML( rc.username )# From RESTLand</h1>";
 } );
 
 // Routing with the toResponse() method
-route( "/users/:id" )
+addRoute( "/users/:id" )
     .toResponse( function( event, rc, prc ){
         var oUser = getInstance( "UserService" ).get( rc.id ?: 0 );
         if( oUser.isLoaded() ){
@@ -181,7 +181,7 @@ You can also add variables to the RC and PRC structs on a per-route basis by lev
 This is a great way to manually set variables in the incoming structures:
 
 ```java
-route( "/api/v1/users/:id" )
+addRoute( "/api/v1/users/:id" )
     .rcAppend( { secured : true } )
     .prcAppend( { name : "hello } )
     .to( "api-v1:users.show" );
@@ -194,7 +194,7 @@ You can also apply runtime conditions to a route in order for it to be matched. 
 Let's say you only want to fire some routes if they are using Firefox, or a user is logged in, or whatever.
 
 ```javascript
-route( "/go/firefox" )
+addRoute( "/go/firefox" )
   withCondition( function( requestString ){
     return ( findnocase( "Firefox", cgi.HTTP_USER_AGENT ) ? true : false );
   });
