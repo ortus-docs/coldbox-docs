@@ -1,41 +1,36 @@
-# With Clousures
+# Routing Groups
 
-We have created some cool context methods to allow for the prefixing of any of the `addRoute()` arguments by using what we call **with** closures. This allows you to prefix repetitive patterns in route declarations. The best way to see how it works is by example:
-
-```javascript
-addRoute(pattern="/news", handler="public.news", action="index");
-addRoute(pattern="/news/recent", handler="public.news", action="recent");
-addRoute(pattern="/news/removed", handler="public.news", action="removed");
-addRoute(pattern="/news/add/:title", handler="public.news", action="add");
-addRoute(pattern="/news/delete/:slug", handler="public.news", action="remove");
-addRoute(pattern="/news/v/:slug", handler="public.news", action="view");
-```
-
-As you can see from the routes above, we have lots of repetitive code that we can clean out. So let's look at the same routes but using some nice with closures.
+There will be a time where your routes will become very verbose and you would like to group them into logical declarations.  These groupings can also help you **prefixes **repetitive patterns in many routes with a single declarative construct.  These needs are met with the `group()` method in the router.
 
 ```javascript
-with(pattern="/news", handler="public.news")
-  .addRoute(pattern="/", action="index")
-  .addRoute(pattern="/recent", action="recent")
-  .addRoute(pattern="/removed", action="removed")
-  .addRoute(pattern="/add/:title",  action="add")
-  .addRoute(pattern="/delete/:slug", action="remove")
-  .addRoute(pattern="/v/:slug", action="view")
-.endWith();
+function group( struct options={}, body );
 ```
 
-As you can see, we start our URL mapping DSL with the `with()` method and pass in any argument the `addRoute()` method declares. In this case we pass a pattern and a handler. Meaning any `addRoute()` method that is concatenated in the with closure will be prefixed with that pattern and handler. Once we concatenate the last `addRoute()`, then we finalize the closure with the `.endWith()` demarcation. BOOM! The patterns look so much manageable and declarable. The arguments you can use for prefixing or defaulting are:
+The best way to see how it works is by example:
 
-| Argument | Description |
-| --- | --- |
-| pattern | The URL pattern prefix |
-| handler | The handler prefix |
-| action | The action prefix |
-| matchVariables | The match variables prefix |
-| view | The view prefix |
-| constraints | The constraints to prefix |
-| module | The module prefix |
-| namespace | The namespace prefix |
+```javascript
+route( pattern="/news", target="public.news.index" );
+route( pattern="/news/recent", target="public.news.recent" );
+route( pattern="/news/removed", target="public.news.removed" );
+route( pattern="/news/add/:title", target="public.news.add" );
+route( pattern="/news/delete/:slug", target="public.news.remove" );
+route( pattern="/news/v/:slug", target="public.news.view" );
+```
 
-> **Caution** It is extremely important that you close the with closures with an `endWith()` call or all subsequent `addRoutes()` calls, will be using the last with closure you declared.
+As you can see from the routes above, we have lots of repetitive code that we can clean out. So let's look at the same routes but using some nice grouping action.
+
+```javascript
+group( { pattern="/news", target="public.news." }, function(){
+	route( "/", "index" )
+	.route( "/recent", "recent" )
+	.route( "/removed", "removed" )
+	.route( "/add/:title", "add" )
+	.route( "/delete/:slug", "remove" )
+	.route( "/v/:slug", "view" );
+} );
+```
+
+The **options** struct can contain any values that you can use within the closure.  Grouping can also be very nice when creating [namespaces](routing-namespaces.md), which is our next section.
+
+
 
