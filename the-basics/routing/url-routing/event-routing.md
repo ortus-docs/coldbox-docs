@@ -169,6 +169,26 @@ route( "/users/:id" )
     } );
 ```
 
+### Sub-Domain Routing
+
+You can also register routes that will respond to sub-domains and even capture portions of the sub-domain for multi-tenant applications or SaaS applications.  You will do this using the `withDomain()` method.
+
+```javascript
+route( "/" )
+  .withDomain( "subdomain-routing.dev" )
+  .to( "subdomain.index" );
+  
+route( "/" )
+  .withDomain( ":username.forgebox.dev" )
+  .to( "subdomain.show" );
+```
+
+You can leverage the full routing DSL as long as you add the `withDomain() `call with the domain you want to bind the route to.  Also note that the domain string can contain **placeholders** which will be translated to `RC` variables for you if matched.
+
+{% hint style="success" %}
+**Tip: **Please note that you can leverage [Routing Groups](with-clousures.md) as well for domains
+{% endhint %}
+
 ### Adding Variables to RC/PRC
 
 You can also add variables to the RC and PRC structs on a per-route basis by leveraging the following methods:

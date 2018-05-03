@@ -1,6 +1,6 @@
 # Building Routable Links
 
-In your views, layouts and handlers you can use the `buildLink` method provided by the request context object to build routable links in your application.
+In your views, layouts and handlers you can use the `buildLink` method provided by the request context object \(**event**\) to build routable links in your application.
 
 ```javascript
 buildLink(
@@ -24,47 +24,14 @@ Just pass in the routed URL or event and it will create the appropriate routed U
 <a href="#event.buildLink( 'user.edit.id.#user.getID()#' )#">Edit User</a>
 ```
 
-### Building Named Route URLs
+### **Inspecting The Current Route**
 
-ColdBox 5 supports named routes as well.  When you register a route you can assign a name to it and then generate a URL to it by using the `route()` method.
+The request context object \(**event**\) also has some handy methods to tell you the name or even the current route that was selected for execution:
 
-```javascript
-route(
-    // The name of the route
-    required name,
-    // The params to pass, can be a struct or array
-    struct params={},
-    // Force or un-force SSL, by default we keep the same protocol of the request
-    boolean ssl
-);
-```
+* `getCurrentRouteName()` - Gives you the name of the current route, if any
+* `getCurrentRoute()` - Gives you the currently executed route
+* `getCurrentRoutedURL()` - Gives you the complete routed URL pattern that matched the route
+* `getCurrentRoutedNamespace()` - Gives you the current routed namespace, if any
 
-Let's say you register the following named routes:
 
-```java
-route( 
-    pattern = "/users/list", 
-    target = "users.index", 
-    name = "usermanager" 
-);
-
-route( 
-    pattern = "/user/:id/profile", 
-    target = "users.show", 
-    name = "userprofile"
-);
-```
-
-Then we can create routing URLs to them easily with the `route()` method:
-
-```markup
-<!-- Named Route with no params -->
-<a href="#event.route( 'usermanager' )#">Manage Users</a>
-
-<!-- Named Route with struct params -->
-<a href="#event.route( 'userprofile', { id = 3 } )#">View User</a>
-
-<!-- Named Route with array params -->
-<a href="#event.route( 'userprofile', [ 3 ] )#">View User</a>
-```
 
