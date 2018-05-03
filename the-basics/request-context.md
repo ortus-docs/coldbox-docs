@@ -2,6 +2,10 @@
 
 On every request to a ColdBox event, the framework creates an object that models the incoming request. This object is called the **Request Context Object**\(`coldbox.system.web.context.RequestContext`\), it contains the incoming **FORM/REMOTE/URL** variables the client sent in and the object lives in the ColdFusion `request `scope. 
 
+{% hint style="info" %}
+Please visit the latest [API Docs](http://apidocs.ortussolutions.com/coldbox/current) for further information about the request context.
+{% endhint %}
+
 This object contains two structures internally:
 
 1. `RC `- The Request Collection which contains the **FORM/REMOTE/URL** data merged into a single structure.  This is considered to be **unsafe **data as it comes from any request.
@@ -13,37 +17,15 @@ The order of preference of variables when merged is **FORM **first then **REMOTE
 **REMOTE **variables are from leveraging the [ColdBox Proxy.](../digging-deeper/coldbox-proxy/)
 {% endhint %}
 
-You will use this object in the controller and view layer of your application to get/set values, get metadata about the request, transform data for RESTful requests, and so much more.
+You will use this object in the controller and view layer of your application to get/set values, get metadata about the request, generate URLs, transform data for RESTful requests, and so much more.  It is the glue that binds the controller and view layer.  As we progress in the guides, you will progress in mastering the request context.
 
-![](../.gitbook/assets/requestcollectiondatabus.jpg)
+![RC/PRC Data Super Highway](../.gitbook/assets/requestcollectiondatabus.jpg)
 
-## How Does It Work
+{% hint style="danger" %}
+Note that there is no model layer in the diagram. This is on purpose, the model will receive data from the handlers/interceptors directly.
+{% endhint %}
 
-The framework will merge the incoming URL/FORM/REMOTE variables into a single structure called the request collection structure \(**RC**\) that will live inside the request context object. We also internally create a second collection called the private request collection \(**PRC**\) that is useful to store data and objects that have no outside effect.
-
-> **Info** As best practice, store data in the private collection and leave the request collection intact with the client's request data.
-
-The request collection lives in the `request` scope and can be accessed from every single part of the framework's life cycle, except the Model layer of course. Therefore, there is one contract and way on how to handle FORM/URL/REMOTE and any other kind of variables. You can consider the request collection to be sort of a super information highway that is unique per request. You will interact with it to get/set values that any part of a request's lifecycle will interact with it. The ColdBox debugger even traces for you how this data structure changes as events are fired during a request.
-
-> **Note** `FORM` variables take precedence
-
-## What Can I Do With It?
-
-The event object has a plethora of methods to help you deal with a request. We suggest looking at the [API Docs](http://apidocs.ortussolutions.com/coldbox/current) for further inspection.
-
-* Getting a reference to the collection
-* Appending structures to the collection
-* Removing values from the collection
-* Paraming values in the collection \(Similar to cfparam\)
-* Getting values from the collection
-* Setting values into the collection
-* Getting metadata about a request, such as the current executing event, handler, action, layouts, view, and much more.
-* Determining a coldbox proxy request
-* Determining if you are in SES mode
-* Building links for you
-* So much more.
-
-## Most Commonly Used Methods
+### Most Commonly Used Methods
 
 Below you can see a listing of the mostly used methods in the request context object. Please note that when interacting with a collection you usually have an equal **private** collection method.
 
@@ -120,9 +102,7 @@ Please see the online [API Docs](http://apidocs.ortussolutions.com/coldbox/curre
 * `getCurrentEvent()` : Get's the current incoming event, full syntax.
 * `getCurrentHandler()` : Get the handler or handler/package path.
 * `getCurrentLayout()` : Get the current set layout for the view to render.
-
-  \*\*`getCurrentView()` : Get the current set view
-
+* `getCurrentView()` : Get the current set view
 * `getCurrentModule()` : The name of the current executing module
 * `getCurrentRoutedNamespace()` : The current routed URL mapping namespace if found.
 * `getCurrentRoutedURL()` : The current routed URL if matched.
