@@ -12,7 +12,7 @@ The view name is the name of the template in the **views** directory without app
 event.setView( 'mydirectory/myView' );
 ```
 
-We recommend that you set your views following the naming convention of your event. If your event is **users.index**, your view should be **users/index.cfm**. This will go a long way with maintainability and consistency and also will activate **implicit views** where you don't even have to use the set view method call.
+We recommend that you set your views following the naming convention of your event. If your event is **users.index**, your view should be **users/index**. This will go a long way with maintainability and consistency and also will activate **implicit views** where you don't even have to use the set view method call.
 
 ## Arguments
 
@@ -46,7 +46,7 @@ event.setView( view='myView', cache=true, cacheSuffix=prc.language );
 
 ## View Arguments
 
-Data can be passed from your handler to the view via **rc** or **prc**. If you want to pass data to a view without polluting **rc** and **prc**, you can pass it directly via the **args** parameter.
+Data can be passed from your handler to the view via **rc** or **prc**. If you want to pass data to a view without polluting **rc** and **prc**, you can pass it directly via the **args** parameter, much like a method call.
 
 ```javascript
 var viewData = {

@@ -1,10 +1,12 @@
-# Get\/Set Request Values
+# Getting & Setting Values
 
-We all need values in our applications. That is why we interact with the request context in order to place data from our model layer into it so our views can display it, or to retrieve data from a user's request. You will either interact with the event object to get/set values or put/read values directly via the received rc and prc references. We recommend using the references as structures which are much faster than method calls. The event object should not be discarded, however, as it has some pretty cool and funky methods of its own. Below are some examples of its coolness!
+We all need values in our applications. That is why we interact with the [request context](../request-context.md) in order to place data from our model layer into it so our views can display it, or to retrieve data from a user's request. You will either interact with the event object to get/set values or put/read values directly via the received `rc `and `prc `references. 
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/RequestCollectionDataBus.jpg)
+We recommend using the references as structures are much faster than method calls. The event object should not be discarded, however, as it has some pretty cool and funky methods of its own. Below are some examples of its coolness!
 
-> **Note** We would recommend you use the private request collection for setting manual data and using the standard request collection for reading the user's request variables. This way a clear distinction can be made on what was sent from the user and what was set by your code.
+{% hint style="warning" %}
+We would recommend you use the private request collection \(`prc`\) for setting manual data and using the standard request collection \(`rc`\) for reading the user's unsafe request variables. This way a clear distinction can be made on what was sent from the user and what was set by your code.
+{% endhint %}
 
 ```javascript
 //set a value for views to use
@@ -50,5 +52,7 @@ event.setLayout( 'main' );
 event.setView( view="blog/userinfo", layout="ajax" );
 ```
 
-> **Important** The most important paradigm shift from procedural to an MVC framework is that you NO LONGER will be talking to URL, FORM, REQUEST or any ColdFusion scope from within your handlers, layouts, and views. The request collection already has URL, FORM, and REQUEST scope capabilities, so leverage it.
+{% hint style="danger" %}
+**Important** The most important paradigm shift from procedural to an MVC framework is that you NO LONGER will be talking to URL, FORM, REQUEST or any ColdFusion scope from within your handlers, layouts, and views. The request collection already has URL, FORM, and REQUEST scope capabilities, so leverage it.
+{% endhint %}
 
