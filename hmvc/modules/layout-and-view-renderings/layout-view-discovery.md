@@ -2,9 +2,9 @@
 
 The default order of overrides ColdBox offers is both `viewParentLookup & layoutParentLookup` to **true**. This means that if the layout or view requested to be rendered by a module exists in the overrides section of the host application, then the host application's layout or view will be rendered instead. Let's investigate the order of discover:
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/ModulesViewLookupTrue.jpg)
+![](https://github.com/ortus-docs/coldbox-docs/raw/master/full/images/ModulesViewLookupTrue.jpg)
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/ModulesViewLookupFalse.jpg)
+![](https://github.com/ortus-docs/coldbox-docs/raw/master/full/images/ModulesViewLookupFalse.jpg)
 
 **viewParentLookup = true **
 
@@ -20,9 +20,9 @@ The default order of overrides ColdBox offers is both `viewParentLookup & layout
 3. Host override common `(e.g. {HOST}/views/modules/myView.cfm)`
 4. Default view discovery from host `(e.g. {HOST}/views/myView.cfm)`
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/ModulesLayoutLookupTrue.jpg)
+![](https://github.com/ortus-docs/coldbox-docs/raw/master/full/images/ModulesLayoutLookupTrue.jpg)
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/ModulesLayoutLookupFalse.jpg)
+![](https://github.com/ortus-docs/coldbox-docs/raw/master/full/images/ModulesLayoutLookupFalse.jpg)
 
 **layoutParentLookup = true **
 
@@ -40,7 +40,7 @@ Let's do some real examples, I am building a simple module with 1 layout and 1 v
   + layouts
     + main.cfm
   + views
-    + simple 
+    + simple
        + index.cfm
 ```
 
@@ -54,7 +54,7 @@ component{
       // DO SOME CODE HERE
 
         // Set the view to render with a layout
-      event.setView(view='simple/index',layout="main");    
+      event.setView(view='simple/index',layout="main");
     }
 }
 ```
