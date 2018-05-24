@@ -56,7 +56,7 @@ component accessors="true"{
 }
 ```
 
-**editor.cfm **
+**editor.cfm** 
 
 ```javascript
 <cfoutput>

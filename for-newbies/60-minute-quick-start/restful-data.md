@@ -91,7 +91,7 @@ The `route()` method allows you to register new URL patterns in your application
 We have now created a new URL route called `/api/contacts` that if detected will execute the `contacts.index` event. Now reinit the application, why, well we changed the application router and we need the changes to take effect.
 
 {% hint style="success" %}
-**Tip: **Every time you add new routes make sure you reinit the application: `http://localhost:{port}/?fwreinit`.
+**Tip:** Every time you add new routes make sure you reinit the application: `http://localhost:{port}/?fwreinit`.
 {% endhint %}
 
 You can now visit the new URL pattern and you have successfully built a RESTFul API for your contacts.

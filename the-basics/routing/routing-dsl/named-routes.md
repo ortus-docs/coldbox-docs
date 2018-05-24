@@ -6,8 +6,8 @@ You can register routes in ColdBox with a human friendly name so you can referen
 
 You will do this in two forms:
 
-1. Using the` route()` method and the `name` argument
-2. Using the `as() `method
+1. Using the `route()` method and the `name` argument
+2. Using the `as()` method
 
 ```java
 // Using the name argument

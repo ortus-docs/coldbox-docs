@@ -53,7 +53,7 @@ The **event** object is used for many things, in the case of this function we ar
 {% endhint %}
 
 {% hint style="success" %}
-**Tip: **The view is not rendered in line 7, but rendered after the execution of the action by the framework.
+**Tip:** The view is not rendered in line 7, but rendered after the execution of the action by the framework.
 {% endhint %}
 
 ## Executing Events

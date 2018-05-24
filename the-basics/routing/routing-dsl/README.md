@@ -45,7 +45,7 @@ Modifiers will tell the routing service about certain restrictions, conditions o
 * `withAction( action )` - Map the route to execute a single action or a struct that represents verbs and actions
 * `withModule( module )` - Map the route to a module
 * `withNamespace( namespace )` - Map the route to a namespace
-* `withSSL() `- Force SSL
+* `withSSL()` - Force SSL
 * `withCondition( condition )` - Apply a runtime closure/lambda enclosure
 * `withDomain( domain )` - Map the route to a domain or subdomain
 * `withVerbs( verbs )` - Restrict the route to listen to only these HTTP Verbs
@@ -58,7 +58,7 @@ Terminators finalize the routing process by registering the route in the Router.
 
 * `end()` - Register the route as it exists
 * `toView( view, layout, noLayout=false, viewModule, layoutModule )` - Send the route to a view/layout 
-* `toRedirect( target, statusCode=301 ) `- Relocate the route to another event
+* `toRedirect( target, statusCode=301 )` - Relocate the route to another event
 * `to( event )` - Execute the event if the route matches
 * `toHandler( handler )` - Execute the handler if the route matches
 * `toResponse( body, statusCode=200, statusText="ok" )` - Inline response action

@@ -121,7 +121,7 @@ route( "/users/:action" )
 
 ### Routing to RESTFul Actions
 
-You can also route a pattern to HTTP RESTFul actions.  This means that you can split the routing pattern according to incoming HTTP Verb.  You will use a modifier `withAction() `and then assign it to a handler via the `toHandler()` method.
+You can also route a pattern to HTTP RESTFul actions.  This means that you can split the routing pattern according to incoming HTTP Verb.  You will use a modifier `withAction()` and then assign it to a handler via the `toHandler()` method.
 
 ```java
 // RESTFul actions
@@ -183,10 +183,10 @@ route( "/" )
   .to( "subdomain.show" );
 ```
 
-You can leverage the full routing DSL as long as you add the `withDomain() `call with the domain you want to bind the route to.  Also note that the domain string can contain **placeholders** which will be translated to `RC` variables for you if matched.
+You can leverage the full routing DSL as long as you add the `withDomain()` call with the domain you want to bind the route to.  Also note that the domain string can contain **placeholders** which will be translated to `RC` variables for you if matched.
 
 {% hint style="success" %}
-**Tip: **Please note that you can leverage [Routing Groups](with-clousures.md) as well for domains
+**Tip:** Please note that you can leverage [Routing Groups](routing-groups.md) as well for domains
 {% endhint %}
 
 ### Adding Variables to RC/PRC

@@ -59,7 +59,7 @@ Here's a rundown of the important bits.
 * **layouts** - Your HTML layouts
 * **models** - This holds your model CFCs 
 * **modules** - This holds the CommandBox tracked modules
-* **modules\_app **- This holds your app's modules
+* **modules\_app** - This holds your app's modules
 * **views** - Your HTML views will go here
 
 ## Start It Up
@@ -178,7 +178,7 @@ CommandBox> coldbox create model GreeterService sayHello --open
 ```
 
 {% hint style="success" %}
-**Tip: **The `--open` is a nice shortcut that opens our new model in our default editor after creating it.
+**Tip:** The `--open` is a nice shortcut that opens our new model in our default editor after creating it.
 {% endhint %}
 
 Let's finish implementing the `sayHello()` method by adding this return statement and save the file.

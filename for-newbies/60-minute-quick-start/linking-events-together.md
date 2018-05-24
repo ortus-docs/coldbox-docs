@@ -1,6 +1,6 @@
 # Linking Events Together
 
-ColdBox provides you with a nice method for generating links between events by leveraging an object called `event` that is accessible in all of your layouts/views and event handlers. This `event` object is called behind the scenes the **request context object, **which models the incoming request and even contains all of your incoming `FORM` and `URL` variables in a structure called `rc`.
+ColdBox provides you with a nice method for generating links between events by leveraging an object called `event` that is accessible in all of your layouts/views and event handlers. This `event` object is called behind the scenes the **request context object,** which models the incoming request and even contains all of your incoming `FORM` and `URL` variables in a structure called `rc`.
 
 {% hint style="success" %}
 **Tip**: You will use the event object to set views, set layouts, set HTTP headers, read HTTP headers, convert data to other types \(json,xml,pdf\), and much more.

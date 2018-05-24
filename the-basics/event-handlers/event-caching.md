@@ -103,6 +103,19 @@ component{
 
 With the simple example above, the user's locale will be addded to all your event caching permutations and thus create entries for different languages.
 
+## Life-Cycle Caveats
+
+{% hint style="danger" %}
+Several event interception points are NOT available during event caching.
+{% endhint %}
+
+When using event caching the framework will NOT execute ANY event at all. It will stream the content directly from the selected cache provider.  This means that any interceptors or code that executes in the event is also NOT executed.  The only interception points that will execute are:
+
+* `preProcess`
+* `postProcess`
+
+So please make sure you take note of this when planning for event security.
+
 ## Monitoring
 
 [CacheBox](http://cachebox.ortusbooks.com) has an intuitive and powerful monitor that can be used via the ColdBox Debugger Module. From the monitor you can purge, expire and view cache elements, etc.
@@ -112,4 +125,6 @@ box install cbdebugger
 ```
 
 ![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/cachemonitor.jpg)
+
+
 

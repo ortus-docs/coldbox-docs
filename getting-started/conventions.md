@@ -10,7 +10,7 @@ The core conventions delineate the contract between ColdBox and you for file/dir
 * **layouts** - Your HTML layouts
 * **models** - This holds your app's CFCs 
 * **modules** - This holds the CommandBox tracked modules
-* **modules\_app **- This holds your app's modules
+* **modules\_app** - This holds your app's modules
 * **views** - Your HTML views will go here
 
 ## Execution Conventions

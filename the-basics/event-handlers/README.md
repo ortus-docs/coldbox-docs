@@ -9,7 +9,7 @@ Event handlers are ColdBox's version of **controllers** in the MVC design patter
 All your handlers will go in the **handlers** folder of your application template. If you get to the point where your application needs even more decoupling and separation, please consider building [ColdBox Modules](../../hmvc/modules/) instead.
 
 {% hint style="info" %}
-**Tip:** You can create packages or sub-folders inside of the **handlers **directory. This is encouraged on large applications so you can section off or package handlers logically and get better maintenance and URL experience.
+**Tip:** You can create packages or sub-folders inside of the **handlers** directory. This is encouraged on large applications so you can section off or package handlers logically and get better maintenance and URL experience.
 {% endhint %}
 
 ### External Location
@@ -37,7 +37,7 @@ coldbox.handlerCaching = false;
 
 ## Anatomy
 
-Event handlers are CFCs that will respond to FORM posts, HTTP requests and/or remote requests \(like Flex,Air, SOAP, REST\) via an incoming variables called **event **or by [URL mappings](../routing/) \(Which we saw in the previous section\).  
+Event handlers are CFCs that will respond to FORM posts, HTTP requests and/or remote requests \(like Flex,Air, SOAP, REST\) via an incoming variables called **event** or by [URL mappings](../routing/) \(Which we saw in the previous section\).  
 
 ### Components
 
@@ -96,7 +96,7 @@ An action will usually do the following:
 * Return Complex Data which is converted to JSON by default
 * Relocate to another event/URL Route
 
-The **default action** for all event handlers is called` index()`.  This means that when you execute an event, you can omit the index if you so desire.
+The **default action** for all event handlers is called `index()`.  This means that when you execute an event, you can omit the index if you so desire.
 
 ```javascript
 component extends="coldbox.system.EventHandler"{

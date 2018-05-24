@@ -39,7 +39,7 @@ This handler code is where the magic happens. I talk to a service layer and plac
 
 > **Caution** We would suggest you namespace or prefix your private request collection variables for viewlets in order to avoid collisions from multiple viewlet events in the same execution thread or instead pass the necessary arguments into a view via the `args` argument.
 
-**Viewlet Code \(viewlets/userinfo.cfm\) **
+**Viewlet Code \(viewlets/userinfo.cfm\)** 
 
 ```javascript
 <cfoutput>

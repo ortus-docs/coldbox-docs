@@ -1,6 +1,6 @@
 # Routing Groups
 
-There will be a time where your routes will become very verbose and you would like to group them into logical declarations.  These groupings can also help you **prefixes **repetitive patterns in many routes with a single declarative construct.  These needs are met with the `group()` method in the router.
+There will be a time where your routes will become very verbose and you would like to group them into logical declarations.  These groupings can also help you **prefixes** repetitive patterns in many routes with a single declarative construct.  These needs are met with the `group()` method in the router.
 
 ```javascript
 function group( struct options={}, body );

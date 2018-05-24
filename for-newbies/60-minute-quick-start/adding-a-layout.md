@@ -15,7 +15,7 @@ This location is identified by the following code:
 The call to the `renderView()` method with no arguments tells the framework to render the view that was set using `event.setView()`. This is called a **rendering region**. You can use as many rendering regions within layouts or even within views themselves.
 
 {% hint style="info" %}
-**Named Regions: **The `setView()` method even allows you to name these regions and then render them in any layout or other views using their name.
+**Named Regions:** The `setView()` method even allows you to name these regions and then render them in any layout or other views using their name.
 {% endhint %}
 
 ## Creating A Layout

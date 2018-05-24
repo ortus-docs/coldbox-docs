@@ -6,7 +6,7 @@ Every router has a **default route** already defined for you in the application 
 route( ":handler/:action?").end();
 ```
 
-The URL pattern in the default route includes two special position **placeholders, **meaning that the handler and the action will come from the URL. Also note that the `:action` has a question mark \(`?`\), which makes the placeholder optional, meaning it can exist or not from the incoming URL.
+The URL pattern in the default route includes two special position **placeholders,** meaning that the handler and the action will come from the URL. Also note that the `:action` has a question mark \(`?`\), which makes the placeholder optional, meaning it can exist or not from the incoming URL.
 
 * `:handler` - The handler to execute \(It can include a Package and/or Module reference\)
 * `:action` - The action to relocate to \(See the `?`, this means that the action is **optional**\)

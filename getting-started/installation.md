@@ -1,6 +1,6 @@
 # Installation
 
-**Welcome to the world of ColdBox! **
+**Welcome to the world of ColdBox!** 
 
 We are excited you are taking this development journey with us. Before we get started with ColdBox let's install CommandBox CLI, which will allow you to install/uninstall dependencies, start servers, have a REPL tool and much more.
 
@@ -80,7 +80,7 @@ CommandBox comes with a `coldbox create app` command that can enable you to crea
 {% hint style="success" %}
 You can find many scaffolding templates for ColdBox in our Github organization: [github.com/coldbox-templates](https://github.com/coldbox-templates)
 
-Type `coldbox create app `help in CommandBox to get tons of help for scaffolding apps.
+Type `coldbox create app` help in CommandBox to get tons of help for scaffolding apps.
 {% endhint %}
 
 ## Uninstalling ColdBox

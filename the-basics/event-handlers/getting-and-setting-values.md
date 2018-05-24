@@ -1,6 +1,6 @@
 # Getting & Setting Values
 
-We all need values in our applications. That is why we interact with the [request context](../request-context.md) in order to place data from our model layer into it so our views can display it, or to retrieve data from a user's request. You will either interact with the event object to get/set values or put/read values directly via the received `rc `and `prc `references. 
+We all need values in our applications. That is why we interact with the [request context](../request-context.md) in order to place data from our model layer into it so our views can display it, or to retrieve data from a user's request. You will either interact with the event object to get/set values or put/read values directly via the received `rc` and `prc` references. 
 
 We recommend using the references as structures are much faster than method calls. The event object should not be discarded, however, as it has some pretty cool and funky methods of its own. Below are some examples of its coolness!
 

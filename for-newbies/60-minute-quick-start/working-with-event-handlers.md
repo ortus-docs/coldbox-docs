@@ -5,7 +5,7 @@
 Event handlers are the controller layer in ColdBox and is what you will be executing via the `URL`or a `FORM`post. All event handlers are **singletons**, which means they are cached for the duration of the application, so always remember to var scope your variables in your functions.
 
 {% hint style="success" %}
-**Tip: **For development we highly encourage you to turn handler caching off or you will have to reinit the application in every request, which is annoying. Open the `config/ColdBox.cfc` and look for the `coldbox.handlerCaching` setting.
+**Tip:** For development we highly encourage you to turn handler caching off or you will have to reinit the application in every request, which is annoying. Open the `config/ColdBox.cfc` and look for the `coldbox.handlerCaching` setting.
 {% endhint %}
 
 Once you started the server in the previous section and opened the browser, the default event got executed which maps to an event handler CFC \(controller\) `handlers/main.cfc` and the method/action in that CFC called `index()`. Go open the `handlers/main.cfc` and let's explore the code.
@@ -68,7 +68,7 @@ Let's open the view now: `views/hello/index.cfm` and change it to this:
 ```
 
 {% hint style="danger" %}
-Please note that we used the ColdFusion function `encodeForHTML()` \([https://www.cfdocs.org/encodeforhtml](https://www.cfdocs.org/encodeforhtml)\) on the public variable. Why? Because you can **never **trust the client and what they send, make sure you use the built-in ColdFusion encoding functions in order to avoid XSS hacks or worse on incoming public \(`rc`\) variables.
+Please note that we used the ColdFusion function `encodeForHTML()` \([https://www.cfdocs.org/encodeforhtml](https://www.cfdocs.org/encodeforhtml)\) on the public variable. Why? Because you can **never** trust the client and what they send, make sure you use the built-in ColdFusion encoding functions in order to avoid XSS hacks or worse on incoming public \(`rc`\) variables.
 {% endhint %}
 
 If you execute the event now: `http://localhost:{port}/hello/index` you will see a message of `Hello nobody`.

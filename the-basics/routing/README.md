@@ -1,6 +1,6 @@
 # Routing
 
-ColdBox sports a Routing Service that will provide you with robust URL mappings for building expressive applications and RESTFul services.  By convention URL routing will allow you to create URL's without using verbose parameter delimiters like `?event=this.that&m1=val `and execute ColdBox events.
+ColdBox sports a Routing Service that will provide you with robust URL mappings for building expressive applications and RESTFul services.  By convention URL routing will allow you to create URL's without using verbose parameter delimiters like `?event=this.that&m1=val` and execute ColdBox events.
 
 ```javascript
 // Old Style

@@ -7,7 +7,7 @@ Please see the latest [API Docs](http://apidocs.ortussolutions.com/coldbox/5.0.0
 {% endhint %}
 
 {% hint style="success" %}
-**Tip: **Unlike previous versions of ColdBox, the new routing services in ColdBox 5 are automatically configured to detect the base URLs and support multi-domain hosting. There is no more need to tell the Router about your base URL.
+**Tip:** Unlike previous versions of ColdBox, the new routing services in ColdBox 5 are automatically configured to detect the base URLs and support multi-domain hosting. There is no more need to tell the Router about your base URL.
 {% endhint %}
 
 ## Application Router - `Router.cfc`
@@ -52,7 +52,7 @@ You can use the following methods to fine tune the configuration and operation o
 | --- | --- |
 | `setEnabled( boolean )` | Enable/Disable routing, **enabled** by default |
 | `setFullRewrites( boolean )` | If **true**, then no `index.cfm` will be used in the URLs. If **false**, then **/index.cfm/** will be added to all generated URLs. Default is **false**. |
-| `setUniqueURLS( boolean )` | Enables SES only URL's with permanent redirects for non-ses urls. Default is **true. ** If true and a URL is detected with ? or & then the application will do a 301 Permanent Redirect and try to translate the URL to a valid SES URL. |
+| `setUniqueURLS( boolean )` | Enables SES only URL's with permanent redirects for non-ses urls. Default is **true.**  If true and a URL is detected with ? or & then the application will do a 301 Permanent Redirect and try to translate the URL to a valid SES URL. |
 | `setBaseURL( string )` | The base URL to use for URL writing and relocations. This is automatically detected by ColdBox 5 e.g. [http://www.coldbox.org/](http://www.coldbox.org/), [http://mysite.com/index.cfm](http://mysite.com/index.cfm)'' |
 | `setLooseMatching( boolean )` | By default URL pattern matching starts at the beginning of the URL, however, you can choose loose matching so it searches anywhere in the URL. Default is **false**. |
 | `setExtensionDetection( boolean )` | By default ColdBox detects URL extensions like `json, xml, html, pdf` which can allow you to build awesome RESTful web services. Default is **true**. |

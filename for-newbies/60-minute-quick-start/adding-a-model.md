@@ -61,7 +61,7 @@ component singleton accessors="true"{
 ```
 
 {% hint style="success" %}
-We also have created a project to mock any type of data: [MockDataCFC](https://www.forgebox.io/view/mockdatacfc).  Just use CommandBox to install it: `install mockdatacfc `
+We also have created a project to mock any type of data: [MockDataCFC](https://www.forgebox.io/view/mockdatacfc).  Just use CommandBox to install it: `install mockdatacfc` 
 
 You can then leverage it to mock your contacts or any simple/complex data requirement.
 {% endhint %}
@@ -122,7 +122,7 @@ Open the `contacts/index.cfm` and add the following to the view:
 
 That's it! Execute the event: `http://localhost:{port}/contacts/index` and view the nice table of contacts being presented to you. 
 
-Congratulations, you have made a complete **MVC **circle!
+Congratulations, you have made a complete **MVC** circle!
 
 ![](../../.gitbook/assets/request-lifecycle.png)
 
