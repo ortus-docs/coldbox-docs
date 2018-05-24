@@ -34,7 +34,7 @@ runEvent( event='users.save', prePostExempt=true );
 runEvent( event='users.persist', private=true );
 
 // Run event as a widget
-<cfoutput>#runEvent(event='widgets.userInfo',prePostExempt=true,eventArguments={widget=true});
+<cfoutput>#runEvent(event='widgets.userInfo',prePostExempt=true,eventArguments={widget=true})#</cfoutput>
 
 // Run with Caching
 runEvent( event="users.list", cache=true, cacheTimeout=30 );
