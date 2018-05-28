@@ -1,5 +1,7 @@
 # Setting Views
 
+## Views
+
 The `event` object is the object that will let you set the views that you want to render, so please explore its API in the CFC Docs. To quickly set a view to render, do the following:
 
 ```javascript
@@ -14,21 +16,37 @@ event.setView( 'mydirectory/myView' );
 
 We recommend that you set your views following the naming convention of your event. If your event is **users.index**, your view should be **users/index**. This will go a long way with maintainability and consistency and also will activate **implicit views** where you don't even have to use the set view method call.
 
-## Arguments
+### View + Layouts
+
+You can also use the `setView(), setLayout()` methods to tell the framework which view and layout combination to use:
+
+```javascript
+function index( event, rc, prc ){
+    // Inline
+    event.setView( view="main/index", layout="2columns" );
+    
+    // Concatenated
+    event.setView( "main/index" )
+        .setLayout( "2columns" );
+}
+```
+
+### setView\(\) Arguments
 
 Here are the arguments for the `setView()` method:
 
 ```javascript
-* @view The name of the view to set. If a layout has been defined it will assign it, else it will assign the default layout. No extension please.
-* @args An optional set of arguments that will be available when the view is rendered.
-* @layout You can override the rendering layout of this setView() call if you want to. It defaults to implicit resolution or another override.
-* @module The explicit module view.
-* @noLayout Boolean flag, whether the view sent in will be using a layout or not. Default is false. Uses a preset layout or the default layout.
+* @view The name of the view to set. If a layout has been defined it will assign it, else if will assign the default layout. No extension please
+* @args An optional set of arguments that will be available when the view is rendered
+* @layout You can override the rendering layout of this setView() call if you want to. Else it defaults to implicit resolution or another override.
+* @module The explicit module view
+* @noLayout Boolean flag, wether the view sent in will be using a layout or not. Default is false. Uses a pre set layout or the default layout.
 * @cache True if you want to cache the rendered view.
-* @cacheTimeout The cache timeout in minutes.
-* @cacheLastAccessTimeout The last access timeout in minutes.
+* @cacheTimeout The cache timeout in minutes
+* @cacheLastAccessTimeout The last access timeout in minutes
 * @cacheSuffix Add a cache suffix to the view cache entry. Great for multi-domain caching or i18n caching.
-* @cacheProvider The cache provider you want to use for storing the rendered view. By default we use the 'template' cache provider.
+* @cacheProvider The cache provider you want to use for storing the rendered view. By default we use the 'template' cache provider
+* @name This triggers a rendering region.  This will be the unique name in the request for specifying a rendering region, you can then render it by passing the unique name to renderView();
 ```
 
 ## Cached Views
