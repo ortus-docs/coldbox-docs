@@ -1,6 +1,6 @@
 # Setting Views
 
-## Views
+## Views \(Default Layout\)
 
 The `event` object is the object that will let you set the views that you want to render, so please explore its API in the CFC Docs. To quickly set a view to render, do the following:
 
@@ -14,9 +14,13 @@ The view name is the name of the template in the **views** directory without app
 event.setView( 'mydirectory/myView' );
 ```
 
-We recommend that you set your views following the naming convention of your event. If your event is **users.index**, your view should be **users/index**. This will go a long way with maintainability and consistency and also will activate **implicit views** where you don't even have to use the set view method call.
+The views you set will use the default layout defined in your configuration file which by default is the `layouts/Main.cfm`
 
-### View + Layouts
+{% hint style="info" %}
+We recommend that you set your views following the naming convention of your event. If your event is **users.index**, your view should be **users/index**. This will go a long way with maintainability and consistency and also will activate **implicit views** where you don't even have to use the set view method call.
+{% endhint %}
+
+## View With Custom Layouts
 
 You can also use the `setView(), setLayout()` methods to tell the framework which view and layout combination to use:
 
@@ -31,7 +35,18 @@ function index( event, rc, prc ){
 }
 ```
 
-### setView\(\) Arguments
+## Views With No Layout
+
+You can also tell the framework to set a view for rendering by itself with no layout using the `noLayout` argument
+
+```javascript
+function index( event, rc, prc ){
+    // Inline
+    event.setView( view="widgets/users", nolayout=true );   
+}
+```
+
+## setView\(\) Arguments
 
 Here are the arguments for the `setView()` method:
 
