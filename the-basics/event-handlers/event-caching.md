@@ -4,7 +4,7 @@ Event caching is extremely useful and easy to use. All you need to do is add sev
 
 Almost all of the entire life cycle is skipped, the content is just delivered. Below you can see the life cycle of both cached and normal events:
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/EventCachingFlow.jpg)
+![](/full/images/EventCachingFlow.jpg)
 
 ## Enabling Event Caching
 
