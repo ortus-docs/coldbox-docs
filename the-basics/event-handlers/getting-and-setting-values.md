@@ -2,6 +2,9 @@
 
 We all need values in our applications. That is why we interact with the [request context](../request-context.md) in order to place data from our model layer into it so our views can display it, or to retrieve data from a user's request. You will either interact with the event object to get/set values or put/read values directly via the received `rc` and `prc` references. 
 
+![RC/PRC Data Super Highway](../.gitbook/assets/requestcollectiondatabus.jpg)
+
+
 {% hint style="warning" %}
 We would recommend you use the private request collection \(`prc`\) for setting manual data and using the standard request collection \(`rc`\) for reading the user's unsafe request variables. This way a clear distinction can be made on what was sent from the user and what was set by your code.
 {% endhint %}
