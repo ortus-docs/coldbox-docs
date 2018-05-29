@@ -1,6 +1,6 @@
 # Pre Advices
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/eventhandler-prepost.jpg)
+![](/full/images/eventhandler-prepost.jpg)
 
 With this interceptor you can intercept local event actions and execute things before the requested action executes. You can do it globally by using the `preHandler()` method or targeted to a specific action `pre{actionName}()`.
 
