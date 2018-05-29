@@ -126,6 +126,10 @@ It is imperative that you realize that there is a great object model behind ever
 
 ![Event Handlers](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/EventHandlers.jpg)
 
+<img src="/full/images/EventHandlers.jpg">
+
+
+
 * **cachebox** : A reference to the [CacheBox ](https://cachebox.ortusbooks.com)library \(`coldbox.system.cache.CacheFactory`\)
 * **controller** : A reference to the Application Controller \(`coldbox.system.web.Controller`\)
 * **flash**: A flash memory object \(`coldbox.system.web.flash.AbstractFlashScope`\)

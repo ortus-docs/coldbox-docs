@@ -1,6 +1,6 @@
 # How are events called?
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/request-lifecycle.png)
+![](/full/images/request-lifecycle.png)
 
 Events are determined via a special variable that can be sent in via the FORM, URL, or REMOTELY called `event`. If no event is detected as an incoming variable, the framework will look in the configuration directives for the `DefaultEvent` and use that instead. If you did not set a `DefaultEvent` setting then the framework will use the following convention for you: `main.index`
 
