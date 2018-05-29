@@ -19,7 +19,7 @@ The order of preference of variables when merged is **FORM** first then **REMOTE
 
 You will use this object in the controller and view layer of your application to get/set values, get metadata about the request, generate URLs, transform data for RESTful requests, and so much more.  It is the glue that binds the controller and view layer.  As we progress in the guides, you will progress in mastering the request context.
 
-![RC/PRC Data Super Highway](../.gitbook/assets/requestcollectiondatabus.jpg)
+![RC/PRC Data Super Highway](../.gitbook/assets/requestcollectiondatabus%20%281%29.jpg)
 
 {% hint style="danger" %}
 Note that there is no model layer in the diagram. This is on purpose, the model will receive data from the handlers/interceptors directly.

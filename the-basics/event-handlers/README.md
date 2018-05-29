@@ -37,7 +37,7 @@ coldbox.handlerCaching = false;
 
 ## Anatomy
 
-Event handlers are CFCs that will respond to FORM posts, HTTP requests and/or remote requests \(like Flex,Air, SOAP, REST\) via an incoming variables called **event** or by [URL mappings](../routing/) \(Which we saw in the previous section\).  
+Event handlers are CFCs that will respond to FORM posts, HTTP requests and/or remote requests \(like Flex,Air, SOAP, REST\) via an incoming variables called **event** or by [URL mappings](../routing/) \(Which we saw in the previous section\).
 
 ### Components
 
@@ -45,7 +45,7 @@ Event handlers are CFCs that will respond to FORM posts, HTTP requests and/or re
 {% code-tabs-item title="Main.cfc" %}
 ```javascript
 component extends="coldbox.system.EventHandler"{
-    
+
     /**
      * Default Action
      */
@@ -53,7 +53,7 @@ component extends="coldbox.system.EventHandler"{
         prc.message = "Hello From ColdBox";
         event.setView( "main/index");
     }
-    
+
     /**
      * Action returning complex data, converted to JSON automatically by ColdBox
      */
@@ -96,7 +96,7 @@ An action will usually do the following:
 * Return Complex Data which is converted to JSON by default
 * Relocate to another event/URL Route
 
-The **default action** for all event handlers is called `index()`.  This means that when you execute an event, you can omit the index if you so desire.
+The **default action** for all event handlers is called `index()`. This means that when you execute an event, you can omit the index if you so desire.
 
 ```javascript
 component extends="coldbox.system.EventHandler"{
@@ -104,7 +104,7 @@ component extends="coldbox.system.EventHandler"{
     function index( event, rc, prc ){
         return "<h1> Hi from handler land!</h1>";
     }
-    
+
     function save( event, rc, prc ){
         getInstance( "MyService" ).save( rc );
         relocate( "users/list" );
@@ -124,11 +124,7 @@ So what about `private` functions? Private functions are not executable from the
 
 It is imperative that you realize that there is a great object model behind every event handler controller that will enable you to do your work more efficiently. The following are the composed properties every event handler has in their `variables` scope, you do not need to do anything to retrieve them, they are already there :\)
 
-![Event Handlers](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/EventHandlers.jpg)
-
-<img src="/full/images/EventHandlers.jpg">
-
-
+![Event Handler UML](../../.gitbook/assets/eventhandlers.jpg)
 
 * **cachebox** : A reference to the [CacheBox ](https://cachebox.ortusbooks.com)library \(`coldbox.system.cache.CacheFactory`\)
 * **controller** : A reference to the Application Controller \(`coldbox.system.web.Controller`\)
@@ -137,6 +133,4 @@ It is imperative that you realize that there is a great object model behind ever
 * **log**: A pre-configured logging[ logger object](https://logbox.ortusbooks.com/usage/using-a-logger-object) \(`coldbox.system.logging.Logger`\)
 * **wirebox** : A reference to the application [WireBox Injector ](https://wirebox.ortusbooks.com)\(`coldbox.system.ioc.Injector`\)
 * **$super**: A reference to the virtual super class if using non-inheritance approach.
-
-
 
