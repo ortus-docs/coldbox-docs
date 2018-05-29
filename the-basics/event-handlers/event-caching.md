@@ -124,7 +124,7 @@ So please make sure you take note of this when planning for event security.
 box install cbdebugger
 ```
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/cachemonitor.jpg)
+![](/full/images/cachemonitor.jpg)
 
 
 
