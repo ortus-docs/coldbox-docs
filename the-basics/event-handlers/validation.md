@@ -9,6 +9,6 @@ box install cbvalidation
 You can find much more information about this module in the following resources:
 
 * **Source**: [https://github.com/coldbox/cbox-validation](https://github.com/coldbox/cbox-validation)
-* **Documentation**: [http://wiki.coldbox.org/wiki/Validation.cfm](http://wiki.coldbox.org/wiki/Validation.cfm)
+* **Documentation**: [https://github.com/coldbox-modules/cbox-validation/wiki](https://github.com/coldbox-modules/cbox-validation/wiki)
 * **ForgeBox** : [http://forgebox.io/view/cbvalidation](http://forgebox.io/view/cbvalidation)
 
