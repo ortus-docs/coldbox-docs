@@ -2,7 +2,15 @@
 
 ![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/eventhandler-around.jpg)
 
-Around advices are the most powerful of all as you completely hijack the requested action with your own action that looks, smells and feels exactly as the requested action. This will allow you to run both **before** and **after** advices but also **surround** the method call with whatever logic you want like `transactions`, `try/catch` blocks, `locks` or even decide to NOT execute the action at all. You can do it globally by using the `aroundHandler()` method or targeted to a specific action `around{actionName}()`.
+Around advices are the most **powerful** of all as you completely hijack the requested action with your own action that looks, smells and feels exactly as the requested action. This is usually referred to as a [proxy design pattern.](https://sourcemaking.com/design_patterns/proxy)
+
+```text
+users.list => users.aroundHandler() <=> list()
+```
+
+This will allow you to run both **before** and **after** advices but also **surround** the method call with whatever logic you want like `transactions`, `try/catch` blocks, `locks` or even decide to NOT execute the action at all. 
+
+You can do it globally by using the `aroundHandler()` method or targeted to a specific action `around{actionName}()`.
 
 **Examples**
 
@@ -80,10 +88,10 @@ function aroundHandler(event,targetAction,eventArguments,rc,prc){
 The arguments received by these interceptors are:
 
 * `event` : The request context reference
-* `targetAction` : The UDF pointer to the action that got the around interception. It will be your job to execute it \(Look at samples\)
+* `targetAction` : The function pointer to the action that got the around interception. It will be your job to execute it \(Look at samples\)
 * `eventArguments` : The struct of extra arguments sent to an action if any
-* `rc` : The RC reference
-* `prc` : The PRC Reference
+* `rc` : The **RC** reference
+* `prc` : The **PRC** Reference
 
 ## Exceptions & Only Lists
 
