@@ -37,7 +37,9 @@ void function relocate(
 )
 ```
 
+{% hint style="danger" %}
 It is **extremely** important that you use this method when relocating instead of the native ColdFusion methods as it allows you to gracefully relocate to other events or external URIs. By graceful, we mean it does a lot more behind the scenes like making sure the flash scope is persisted, logging, post processing interceptions can occur and safe relocations.
+{% endhint %}
 
 So always remember that you relocate via `relocate()` and if I asked you: "Where in the world does event handlers get this method from?", you need to answer: "From the super typed inheritance".
 
