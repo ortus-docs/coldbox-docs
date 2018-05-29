@@ -90,7 +90,7 @@
     * [Post Advices](the-basics/event-handlers/interception-methods/post-advices.md)
     * [Around Advices](the-basics/event-handlers/interception-methods/around-advices.md)
   * [HTTP Method Security](the-basics/event-handlers/http-method-security.md)
-  * [Convention Methods](the-basics/event-handlers/convention-methods.md)
+  * [Implicit Methods](the-basics/event-handlers/convention-methods.md)
   * [Executing Events](the-basics/event-handlers/executing-events.md)
   * [Event Caching](the-basics/event-handlers/event-caching.md)
   * [Validation](the-basics/event-handlers/validation.md)
