@@ -73,6 +73,6 @@ settings = {
 
 // Injections
 
-property name="dsn" inject="coldbox:settings:mydsn"
+property name="dsn" inject="coldbox:setting:mydsn"
 ```
 
