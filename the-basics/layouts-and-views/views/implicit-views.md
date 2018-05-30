@@ -31,3 +31,5 @@ The ColdBox rendering engine can also be tweaked to use case-insensitive or sens
 coldbox.caseSensitiveImplicitViews = true
 ```
 
+
+
