@@ -76,6 +76,7 @@
   * [HTTP Method Spoofing](the-basics/routing/http-method-spoofing.md)
   * [HTML Base Tag](the-basics/routing/html-base-tag.md)
   * [Pathinfo Providers](the-basics/routing/pathinfo-providers.md)
+  * [RESTFul Extension Detection](the-basics/routing/restful-extension-detection.md)
 * [Event Handlers](the-basics/event-handlers/README.md)
   * [How are events called?](the-basics/event-handlers/how-are-events-called.md)
   * [Getting & Setting Values](the-basics/event-handlers/getting-and-setting-values.md)
