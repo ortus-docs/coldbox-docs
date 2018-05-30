@@ -1,6 +1,6 @@
 # Around Advices
 
-![](/full/images/eventhandler-around.jpg)
+![](../../../.gitbook/assets/eventhandler-around.jpg)
 
 Around advices are the most **powerful** of all as you completely hijack the requested action with your own action that looks, smells and feels exactly as the requested action. This is usually referred to as a [proxy design pattern.](https://sourcemaking.com/design_patterns/proxy)
 
@@ -8,7 +8,7 @@ Around advices are the most **powerful** of all as you completely hijack the req
 users.list => users.aroundHandler() <=> list()
 ```
 
-This will allow you to run both **before** and **after** advices but also **surround** the method call with whatever logic you want like `transactions`, `try/catch` blocks, `locks` or even decide to NOT execute the action at all. 
+This will allow you to run both **before** and **after** advices but also **surround** the method call with whatever logic you want like `transactions`, `try/catch` blocks, `locks` or even decide to NOT execute the action at all.
 
 You can do it globally by using the `aroundHandler()` method or targeted to a specific action `around{actionName}()`.
 

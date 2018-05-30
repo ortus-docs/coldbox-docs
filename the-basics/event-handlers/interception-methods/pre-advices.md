@@ -1,6 +1,6 @@
 # Pre Advices
 
-![](/full/images/eventhandler-prepost.jpg)
+![](../../../.gitbook/assets/eventhandler-prepost%20%281%29.jpg)
 
 With this interceptor you can intercept local event actions and execute things **before** the requested action executes. You can do it globally by using the `preHandler()` method or targeted to a specific action `pre{actionName}()`.
 

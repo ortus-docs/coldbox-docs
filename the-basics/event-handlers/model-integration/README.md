@@ -2,46 +2,113 @@
 
 We have a complete section dedicated to the [Model Layer](../../models/), but we wanted to review a little here since event handlers need to talk to the model layer all the time. By default, you can interact with your models from your event handlers in two ways:
 
-* Dependency Injection \(Aggregation\)
-* Request Model Objects \(Association\)
+* Dependency Injection \([Aggregation](https://atomicobject.com/resources/oo-programming/object-oriented-aggregation)\)
+* Request, use and discard model objects \([Association](https://en.wikipedia.org/wiki/Association_%28object-oriented_programming%29)\)
 
-ColdBox offers its own dependency injection framework, [WireBox](http://wirebox.ortusbooks.com), which allows you, by convention, to talk to your model objects. However, ColdBox also allows you to connect to third-party dependency injection frameworks via our _IOC_ module: [http://forgebox.io/view/cbioc](http://forgebox.io/view/cbioc)
+ColdBox offers its own dependency injection framework, [WireBox](https://wirebox.ortusbooks.com), which allows you, by convention, to talk to your model objects. However, ColdBox also allows you to connect to third-party dependency injection frameworks via the _IOC_ module: [http://forgebox.io/view/cbioc](http://forgebox.io/view/cbioc)
+
+{% hint style="info" %}
+Aggregation differs from ordinary composition in that it does not imply ownership. In composition, when the owning object is destroyed, so are the contained objects. - **wikipedia**
+{% endhint %}
 
 ## Dependency Injection
 
-![](/full/images/EventHandlerInjection.jpg)
+![](../../../.gitbook/assets/eventhandlerinjection.jpg)
 
-Your event handlers can be autowired with dependencies from any dependency injection framework. By autowiring dependencies into event handlers, they will become part of the life span of the event handlers \(singleton\). This is a huge performance benefit since event handlers are wired with all necessary parts upon creation. We encourage you to use injection whenever possible.
+Your event handlers can be **autowired** with dependencies from [WireBox](https://wirebox.ortusbooks.com) by convention. By autowiring dependencies into event handlers, they will become part of the life span of the event handlers \(**singletons**\), since their references will be injected into the handler's `variables` scope.   This is a huge performance benefit since event handlers are wired with all necessary dependencies upon creation instead of requesting dependencies \(usage\) at runtime. We encourage you to use injection whenever possible.
 
-> **Info** As a rule of thumb, inject only singletons into singletons.
+{% hint style="danger" %}
+**Warning** As a rule of thumb, inject only **singletons** into **singletons**.  If not you can create unnecessary [scope-widening injection](https://wirebox.ortusbooks.com/advanced-topics/providers/scope-widening-injection) issues and memory leaks.
+{% endhint %}
 
-Please note that injection [aggregates](http://en.wikipedia.org/wiki/Object_composition) model objects into your event handlers. The [Injection DSL](http://wirebox.ortusbooks.com/content/injection_dsl/index.html) can be applied to:
+You will achieve this in your handlers via `property` injection, which is the concept of defining properties in the component with a special annotation called `inject`, which tells WireBox what reference to retrieve via the [WireBox Injection DSL](./#injection).  Let's say we have a **users** handler that needs to talk to a model called **UserService**. Here is the directory layout so we can see the conventions
 
-* `cfproperty`
-* constructor arguments
-* setter methods
+{% code-tabs %}
+{% code-tabs-item title="Directory Layout" %}
+```text
++ handlers
+  + users.cfc
++ models
+  + UserService.cfc
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-It will be your choice to pick an approach, but we mostly concentrate on property injection as you will see from our examples.
+Here is the event handler code to leverage the injection:
 
-> **Info** Aggregation differs from ordinary composition in that it does not imply ownership. In composition, when the owning object is destroyed, so are the contained objects. - 'wikipedia'
+{% code-tabs %}
+{% code-tabs-item title="users.cfc" %}
+```javascript
+component name="MyHandler"{
+    
+    // Dependency injection of the model: UserService -> variables.userService
+    property name="userService" inject="UserService";
+
+    function index( event, rc, prc ){
+        prc.data = userService.list()
+        event.setView( "users/index" );
+    }
+
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+
+
+Notice that we define a `cfproperty` with a name and `inject` attribute.  The `name` becomes the name of the variable in the `variables` scope and the `inject` annotation tells WireBox what to retrieve.  By default it retrieves model objects by name and path.
+
+{% hint style="success" %}
+**Tip:** The [injection DSL](./#injection) is vast and elegant.  Please refer to it.  Also note that you can create object aliases and references in your [config binder](https://wirebox.ortusbooks.com/configuration/configuring-wirebox): `config/WireBox.cfc`
+{% endhint %}
 
 ## Requesting Model Objects
 
-![](/full/images/EventHandlerModelRequested.jpg)
+![](../../../.gitbook/assets/eventhandlermodelrequested.jpg)
 
-The other approach to integrating with model objects is to request and use them as [associations](http://en.wikipedia.org/wiki/Association_%28object-oriented_programming%29). We would recommend requesting objects if they are transient objects or stored in some other volatile storage scope. Retreiving of objects is okay, but if you will be dealing with mostly singleton objects or objects that are created only once, you will gain much more performance by using injection.
+The other approach to integrating with model objects is to request and use them as [associations](http://en.wikipedia.org/wiki/Association_%28object-oriented_programming%29) via the framework super type method: `getInstance()`, which in turn delegates to WireBox's `getInstance()` method.  We would recommend requesting objects if they are **transient** \(have state\) objects or stored in some other volatile storage scope \(session, request, application, cache, etc\). Retrieving of objects is okay, but if you will be dealing with mostly **singleton** objects or objects that are created only once, you will gain much more performance by using injection.
 
-> **Info** Association defines a relationship between classes of objects that allows one object instance to cause another to perform an action on its behalf. - 'wikipedia'
+{% code-tabs %}
+{% code-tabs-item title="users.cfc" %}
+```javascript
+component{
+
+    function index( event, rc, prc ){
+        // Request to use the user service, this would be best to inject instead 
+        // of requesting it.
+        prc.data = getInstance( "UserService" ).list();
+        event.setView( "users/index" );
+    }
+    
+    function save( event, rc, prc ){
+        // request a user transient object, populate it and save it.
+        prc.oUser = populateModel( getInstance( "User" ) );
+        userService.save( prc.oUser );
+        relocate( "users/index" );
+    }
+
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+{% hint style="info" %}
+**Association** defines a relationship between classes of objects that allows one object instance to cause another to perform an action on its behalf. - 'wikipedia'
+{% endhint %}
 
 ## A practical example
 
 In this practical example we will see how to integrate with our model layer via WireBox, injections, and also requesting the objects. Let's say that we have a service object we have built called `FunkyService.cfc` and by convention we will place it in our applications `models` folder.
 
+{% code-tabs %}
+{% code-tabs-item title="Directory Layout" %}
 ```javascript
  + application
   + models
      + FunkyService.cfc
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 **FunkyService.cfc**
 
@@ -52,7 +119,9 @@ component singleton{
         return this;
     }
 
-    function add(a,b){ return a+b; }
+    function add(a,b){ 
+        return a+b; 
+    }
 
     function getFunkyData(){
         var data = [
@@ -81,16 +150,16 @@ component{
 
         prc.data = funkyService.getFunkyData();
 
-        event.renderData(data=prc.data,type="xml");
+        event.renderData( data=prc.data, type="xml" );
     }    
 
 
 }
 ```
 
-By convention, I can create a property and annotate it with an `inject` attribute. ColdBox will look for that model object by the given name in the `models` folder, create it, persist it, wire it, and return it. If you execute it, you will get something like this:
+By convention, I can create a **property** and annotate it with an `inject` attribute. ColdBox will look for that model object by the given name in the `models` folder, create it, persist it, wire it, and return it. If you execute it, you will get something like this:
 
-```javascript
+```markup
 <array>
     <item>
         <struct>
@@ -138,14 +207,14 @@ property name="funkyService" inject="model:FunkyService";
 
 Let's look at the requesting approach. We can either use the following approaches:
 
-Via Facade Method
+**Via Facade Method**
 
 ```javascript
 component{
 
     function index(event,rc,prc){
 
-        prc.data = getModel( "FunkyService" ).getFunkyData();
+        prc.data = getInstance( "FunkyService" ).getFunkyData();
 
         event.renderData( data=prc.data, type="xml" );
     }    
@@ -154,7 +223,7 @@ component{
 }
 ```
 
-Directly via WireBox:
+**Directly via WireBox:**
 
 ```javascript
 component{
@@ -170,10 +239,11 @@ component{
 }
 ```
 
-Both approaches do exactly the same thing. In reality `getModel()` does a `wirebox.getInstance()` callback \(Uncle Bob\), but it is a facade method that is easier to remember. If you run this, you will also see that it works and everything is fine and dandy. However, the biggest difference can be seen with some practical math:
+Both approaches do exactly the same thing. In reality `getInstance()` does a `wirebox.getInstance()` callback \(Uncle Bob\), but it is a facade method that is easier to remember. If you run this, you will also see that it works and everything is fine and dandy. However, the biggest difference between injection and usage can be seen with some practical math:
 
 ```javascript
-1000 Requests made
+1000 Requests made to users.index
+
 - Injection: 1000 handler calls + 1 model creation and wiring call = 1001 calls
 - Requesting: 1000 handler calls + 1000 model retrieval + 1 model creation call = 2002 calls
 ```
