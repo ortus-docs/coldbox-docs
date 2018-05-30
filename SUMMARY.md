@@ -98,7 +98,6 @@
 * [Layouts & Views](the-basics/layouts-and-views/README.md)
   * [Views](the-basics/layouts-and-views/views/README.md)
     * [Rendering Views](the-basics/layouts-and-views/views/inline-rendering.md)
-    * [Content Variable Views](the-basics/layouts-and-views/views/content-variable-views.md)
     * [Rendering External Views](the-basics/layouts-and-views/views/rendering-external-views.md)
     * [Rendering With Local Variables](the-basics/layouts-and-views/views/rendering-with-local-variables.md)
     * [Rendering Collections](the-basics/layouts-and-views/views/rendering-collections.md)
