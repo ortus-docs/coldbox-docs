@@ -1,6 +1,6 @@
 # Layouts
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/LayoutViewCombinations.png)
+![](https://raw.githubusercontent.com/ortus-docs/coldbox-docs/master/full/images/LayoutViewCombinations.png)
 
 A layout is simply an HTML file that acts as your shell where views can be rendered in and exists in the `layouts` folder of your application. The layouts can be composed of multiple views and one main view. The main view is the view that gets set in the request collection during a request via `event.setView()` usually in your handlers or interceptors.
 

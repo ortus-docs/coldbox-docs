@@ -10,7 +10,7 @@ CommandBox>coldbox create app name=MyApp skeleton=AdvancedScript
 
 This will create a Coldbox application with the following structure:
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/ApplicationTemplate.png)
+![](https://raw.githubusercontent.com/ortus-docs/coldbox-docs/master/full/images/ApplicationTemplate.png)
 
 > **Info**: Please note that the only required files/directories are `Application.cfc, index.cfm and handlers`. The rest are optional.
 
