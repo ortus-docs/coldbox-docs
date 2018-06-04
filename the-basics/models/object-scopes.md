@@ -33,6 +33,6 @@ component name="MyService" scope="session"{}
 
 > **Hint** Pease note that using annotations is optional, you can configure every object in our configuration binder as well.
 
-* Persistence DSL: [http://wirebox.ortusbooks.com/content/mapping\_dsl/persistence\_dsl.html](http://wirebox.ortusbooks.com/content/mapping_dsl/persistence_dsl.html)
-* Object Persistence & Thread Safety: [http://wirebox.ortusbooks.com/content/object\_persistence\_&\_thread\_safety/index.html](http://wirebox.ortusbooks.com/content/object_persistence_&_thread_safety/index.html)
+* Persistence DSL: [http://wirebox.ortusbooks.com/configuration/mapping-dsl/persistence-dsl](http://wirebox.ortusbooks.com/configuration/mapping-dsl/persistence-dsl)
+* Object Persistence & Thread Safety: [http://wirebox.ortusbooks.com/advanced-topics/object-persistence-and-thread-safety](http://wirebox.ortusbooks.com/advanced-topics/object-persistence-and-thread-safety)
 
