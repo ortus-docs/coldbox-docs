@@ -1,6 +1,6 @@
 # Coding: Solo Style
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/MVC+objects.png)
+![](https://raw.githubusercontent.com/ortus-docs/coldbox-docs/master/full/images/MVC%2Bobjects.png)
 
 Now that we have seen all the theory and stuff, let's get down to business and do some examples. We will start with the full coding approach with **no** ORM and then spice it up with ORM, so you can see how awesome ORM can be. The examples will not show the entire application being built, but enough to get you started with the process of modeling everything. Here is a layout of what we will build:
 
