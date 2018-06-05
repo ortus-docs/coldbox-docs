@@ -47,7 +47,7 @@ component extends="coldbox.system.ioc.config.Binder"{
 }
 ```
 
-Please refer to the full Binder documentation: \([http://wirebox.ortusbooks.com/content/configuring\_wirebox/index.html](http://wirebox.ortusbooks.com/content/configuring_wirebox/index.html)\) for further inspection.
+Please refer to the full Binder documentation: \([http://wirebox.ortusbooks.com/configuration/configuring-wirebox/](http://wirebox.ortusbooks.com/configuration/configuring-wirebox/)\) for further inspection.
 
 ## Mappings
 
