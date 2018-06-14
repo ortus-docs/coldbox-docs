@@ -92,12 +92,12 @@
   * [HTTP Method Security](the-basics/event-handlers/http-method-security.md)
   * [Implicit Methods](the-basics/event-handlers/implicit-methods.md)
   * [Executing Events](the-basics/event-handlers/executing-events.md)
-  * [Viewlets - Reusable Events](the-basics/event-handlers/viewlets-portable-events.md)
+  * [Viewlets - Reusable Events](the-basics/event-handlers/viewlets-reusable-events.md)
   * [Event Caching](the-basics/event-handlers/event-caching.md)
   * [Validation](the-basics/event-handlers/validation.md)
 * [Layouts & Views](the-basics/layouts-and-views/README.md)
   * [Views](the-basics/layouts-and-views/views/README.md)
-    * [Rendering Views](the-basics/layouts-and-views/views/inline-rendering.md)
+    * [Rendering Views](the-basics/layouts-and-views/views/rendering-views.md)
     * [Rendering External Views](the-basics/layouts-and-views/views/rendering-external-views.md)
     * [Rendering With Local Variables](the-basics/layouts-and-views/views/rendering-with-local-variables.md)
     * [Rendering Collections](the-basics/layouts-and-views/views/rendering-collections.md)
@@ -155,7 +155,7 @@
 ## HMVC
 
 * [Modules](hmvc/modules/README.md)
-  * Core Modules
+  * [Core Modules](hmvc/modules/core-modules.md)
   * [Locations](hmvc/modules/locations.md)
   * [Parent Configuration](hmvc/modules/parent-configuration.md)
   * [Module Layout](hmvc/modules/module-layout/README.md)
@@ -199,18 +199,18 @@
 * [Testing ColdBox Applications](testing/testing-coldbox-applications/README.md)
   * [Test Harness](testing/testing-coldbox-applications/test-harness.md)
   * [ColdBox Testing Classes](testing/testing-coldbox-applications/coldbox-testing-classes.md)
-  * Integration Testing
-    * Test Annotations
-    * Common Methods
-    * Life-Cycle Events
-    * Test Setup
-    * The execute\(\) Method
-    * The Handler To Test
-    * The Integration Test
-    * Handler Returning Results
-    * Testing Without Virtual Application
-    * Rendering Results
-    * HTTP Method Mocking
+  * [Integration Testing](testing/testing-coldbox-applications/integration-testing/README.md)
+    * [Test Annotations](testing/testing-coldbox-applications/integration-testing/test-annotations.md)
+    * [Common Methods](testing/testing-coldbox-applications/integration-testing/common-methods.md)
+    * [Life-Cycle Events](testing/testing-coldbox-applications/integration-testing/life-cycle-events.md)
+    * [Test Setup](testing/testing-coldbox-applications/integration-testing/test-setup.md)
+    * [The execute\(\) Method](testing/testing-coldbox-applications/integration-testing/the-execute-method.md)
+    * [The Handler To Test](testing/testing-coldbox-applications/integration-testing/the-handler-to-test.md)
+    * [The Integration Test](testing/testing-coldbox-applications/integration-testing/the-integration-test.md)
+    * [Handler Returning Results](testing/testing-coldbox-applications/integration-testing/handler-returning-results.md)
+    * [Testing Without Virtual Application](testing/testing-coldbox-applications/integration-testing/testing-without-virtual-application.md)
+    * [Rendering Results](testing/testing-coldbox-applications/integration-testing/rendering-results.md)
+    * [HTTP Method Mocking](testing/testing-coldbox-applications/integration-testing/http-method-mocking.md)
   * [Interceptor Testing](testing/testing-coldbox-applications/interceptor-testing.md)
   * [Model Object Testing](testing/testing-coldbox-applications/model-object-testing.md)
   * [Tips & Tricks](testing/testing-coldbox-applications/tips-and-tricks.md)
@@ -262,7 +262,7 @@
   * [Application Templates](digging-deeper/recipes/application-templates.md)
   * [ColdBox Exception Handling](digging-deeper/recipes/coldbox-exception-handling.md)
   * [Debugging ColdBox Apps](digging-deeper/recipes/debugging-coldbox-apps.md)
-  * Controller Decorator
+  * [Controller Decorator](digging-deeper/recipes/controller-decorator.md)
   * [Clearing the View Cache](digging-deeper/recipes/clearing-the-view-cache.md)
   * [Building a simple Basic HTTP Authentication Interceptor](digging-deeper/recipes/building-a-simple-basic-http-authentication-interceptor.md)
 
