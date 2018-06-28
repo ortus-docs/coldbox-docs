@@ -71,7 +71,7 @@ function resources(
 We have created a scaffolding command in CommandBox to help you register and generate resourceful routes.  Just run the following command in CommandBox to get all the help you will need in generating resources:
 
 ```bash
-coldbox create resources help
+coldbox create resource help
 ```
 
 
