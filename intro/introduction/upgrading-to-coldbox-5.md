@@ -90,3 +90,33 @@ settings = {
 property name="dsn" inject="coldbox:setting:mydsn"
 ```
 
+## DSL Builder Interface Update
+
+The WireBox interface: `coldbox.system.ioc.dsl.IDSLBuilder` has changed in ColdBox 5, so if you are implementing your own DSLs, then you must update it like so:
+
+{% code-tabs %}
+{% code-tabs-item title="Old DSL Builder, notice the output attribute" %}
+```javascript
+public any function init( required any injector ) output="false"{ 
+public any function process( required definition, targetObject ) output="false"{
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+In ColdBox 5 we removed the output attribute:
+
+{% code-tabs %}
+{% code-tabs-item title="New DSL Builder" %}
+```javascript
+public any function init( required any injector ) { 
+public any function process( required definition, targetObject ) {
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+{% hint style="info" %}
+Ticket Reference: [https://ortussolutions.atlassian.net/browse/COLDBOX-697](https://ortussolutions.atlassian.net/browse/COLDBOX-697)
+{% endhint %}
+
+
+
