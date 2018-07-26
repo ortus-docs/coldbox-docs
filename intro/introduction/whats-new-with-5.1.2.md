@@ -11,6 +11,17 @@ This is a patch release for ColdBox
 ## Improvements
 
 * \[[COLDBOX-714](https://ortussolutions.atlassian.net/browse/COLDBOX-714)\] - Too many issues when encoding by default for HTML Helper, revert to non-encoded and provide ways to encode globally and a-la-carte
+* \[[COLDBOX-702](https://ortussolutions.atlassian.net/browse/COLDBOX-702)\] -  Framework setting for the automatic deserialization of JSON payloads to the RC: `jsonPayloadToRC`
+
+## Automatic JSON Payload Setting
+
+The automatic JSON to request collection feature defaults now to false to avoid backwards compatibility.  You can easily turn it on via the setting: `coldbox.jsonPayloadToRC`
+
+```javascript
+coldbox = {
+    jsonPayloadToRC = true
+}
+```
 
 ## HTML Helper Changes
 
