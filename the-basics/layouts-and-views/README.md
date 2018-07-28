@@ -4,6 +4,10 @@ ColdBox provides you with a very simple but flexible and powerful layout manager
 
 In this section we will explore the different rendering mechanisms that ColdBox offers and also how to utilize them. As you know, [event handlers](../event-handlers/) are our controller layer in ColdBox and we will explore how these objects can interact with the user in order to render content, whether HTML, JSON, XML or any type of rendering data.
 
+{% hint style="info" %}
+Please note that you can use ColdBox as a pure API solution with modern JavaScript frameworks for the front end like VueJS, Reactor, Angular, etc.
+{% endhint %}
+
 ## Conventions
 
 Let's do a recap of our conventions for layouts and view locations:
