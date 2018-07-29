@@ -280,7 +280,7 @@ We have also done tremendous updates to the rendering engines in ColdBox 5, espe
 
 * ColdBox now detects the `rc.format` not only to incoming URL extensions, but also via the `Accept` Header as content-negotiation.
 * New interception point `afterRenderInit` which will allow you to add your own injections to the main ColdBox renderer and modify the renderer at runtime.
-* The request context can now deliver files to users via our `sendFile()` method.d
+* The request context can now deliver files to users via our `sendFile()` method.
 
 ### Native JSON Responses + Handler Auto-Marshalling
 
