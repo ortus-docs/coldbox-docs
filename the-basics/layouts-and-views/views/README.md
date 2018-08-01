@@ -145,7 +145,7 @@ component name="general"{
 You can also omit the explicit `event.setView()` if you want, ColdBox will then look for the view according to the executing event's syntax by convention. So if the incoming event is called `general.index` and no view is explicitly defined in your handler, ColdBox will look for a view in the `general` folder called `index.cfm`. That is why we recommend trying to match event resolution to view resolution even if you use or not implicit views. 
 
 {% hint style="success" %}
-**Tip:** This feature is more for conventions purists than anything else. However, we do recommend as best practice to use explicitly declare the view to be rendered when working with team environments as everybody will know what happens.This feature is more for conventions purists than anything else. However, we do recommend as best practice to use explicitly declare the view to be rendered when working with team environments as everybody will know what happens.
+**Tip:** This feature is more for conventions purists than anything else. However, we do recommend as best practice to use explicitly declare the view to be rendered when working with team environments as everybody will know what happens.
 {% endhint %}
 
 ```javascript
