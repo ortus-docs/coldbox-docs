@@ -3,7 +3,7 @@
 You can also pass in the caching arguments below and your view will be rendered once and then cached for further renderings. Every ColdBox application has two active cache regions: `default and template`. All view and event caching renderings go into the `template` cache.
 
 | Argument | Type | Required | Default | Description |
-| --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- | :--- |
 | cache | boolean | false | false | Cache the view to be rendered |
 | cacheTimeout | numeric | false | \(provider default\) | The timeout in minutes or whatever the cache provider defines |
 | cacheLastAccessTimeout | numeric | false | \(provider default\) | The idle timeout in minutes or whatever the cache provider defines |

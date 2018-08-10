@@ -5,7 +5,7 @@
 At runtime, the configuration object will be created by ColdBox and decorated with the following private properties \(available in the `variables` scope\):
 
 | Property | Description |
-| --- | --- |
+| :--- | :--- |
 | appMapping | The `appMapping` setting of the current host application |
 | binder | The WireBox configuration binder object |
 | cachebox | A reference to CacheBox |

@@ -31,7 +31,7 @@ Please note that the only required directive is `coldbox.appName`.
 Inside of this configuration method you will place several core and third-party configuration structures that can alter your application settings and behavior. Below are the core directives you can define:
 
 | Directive | Type | Description |
-| --- | --- |
+| :--- | :--- | :--- |
 | [cachebox](cachebox.md) | struct | An optional structure used to configure CacheBox. If not setup the framework will use its default configuration found in `/coldbox/system/web/config/CacheBox.cfc` |
 | [coldbox](coldbox.md) | struct | The main coldbox directives structure that holds all the coldbox settings. |
 | [conventions](conventions.md) | struct | A structure where you will configure the application convention names |

@@ -19,7 +19,7 @@ flash = {
 Below is a nice chart of all the keys in this configuration structure so you can alter behavior of the Flash RAM objects:
 
 | Key | Type | Required | Default | Description |
-| --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- | :--- |
 | scope | string or instantiation path | false | _session_ | Determines what scope to use for Flash RAM. The available aliases are: session, client, cluster, cache or a custom instantiation path |
 | properties | struct | false | {} | Properties that can be used inside the constructor of any Flash RAM implementation |
 | inflateToRC | boolean | false | true | Whatever variables you put into the Flash RAM, they will also be inflated or copied into the request collection for you automatically. |
@@ -32,7 +32,7 @@ Below is a nice chart of all the keys in this configuration structure so you can
 The included flash implementations for ColdBox are:
 
 | Name | Class | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | Session | coldbox.system.web.flash.SessionFlash | Persists variables in session scope |
 | Cluster | coldbox.system.web.flash.ClusterFlash | Persists variables in cluster scope via Railo only |
 | Client | coldbox.system.web.flash.ClientFlash | Persists variables in client scope |

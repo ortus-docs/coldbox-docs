@@ -353,7 +353,7 @@ We have altered the module services to now allow you to nest modules within modu
 The ''ModuleConfig.cfc'' has been updated with several new properties:
 
 | Setting | Type | Required | Default | Description |
-| --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- | :--- |
 | **activate** | boolean | false | true | You can tell ColdBox to register the module but NOT to activate it. By default, all modules activate. |
 | **aliases** | array | false | \[\] | An array of names that can be used to execute the module instead of only the module folder name |
 | **autoMapModels** | boolean | false | true | Will automatically map all model objects under the **models** folder in WireBox using `@modulename` as part of the alias. |

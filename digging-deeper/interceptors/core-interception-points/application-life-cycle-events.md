@@ -1,7 +1,7 @@
 # Application Life Cycle Events
 
 | Interception Point | Intercept Structure | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | afterConfigurationLoad | --- | This occurs after the framework loads and your applications' configuration file is read and loaded. An important note here is that your application aspects have not been configured yet: bug reports, ioc plugin, validation, logging, and internationalization. |
 | afterAspectsLoad | --- | \(DEPRECATED.  Use modules instead.\) This occurs after the configuration loads and the aspects have been configured. This is a great way to intercept on application start. |
 | preReinit | --- | This occurs every time the framework is re-initialized |

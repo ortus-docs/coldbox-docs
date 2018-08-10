@@ -9,7 +9,7 @@ any announceInterception(state, interceptData, async, asyncAll, asyncAllJoin, as
 The asynchronous arguments are listed in the table below:
 
 | Argument | Type | Required | Default Value | Description |
-| --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- | :--- |
 | async | boolean | false | false | Threads the interception call so the entire execution chain is ran in a separate thread. Extra arguments that can be used: asyncPriority. |
 | asyncAll | boolean | false | false | Mutually exclusive with the async argument. If true, this will execute the interception point but multi-thread each of the CFCs that are listening to the interception point. So if 3 CFCs are listening, then 3 separate threads will be created for each CFC call. By default, the calling thread will wait for all 3 separate threads to finalize in order to continue with the execution. Extra arguments that can be used: _asyncAllJoin_, _asyncTimeout_, _asyncPriority_. |
 | asyncAllJoin | boolean | false | true | This flag is used only when combined with the asyncAll argument. If true \(default\), the calling thread will wait for all intercepted CFC calls to execute. If false, then the calling thread will not join the multi-threaded interception and continue immediate execution while the CFC's continue to execute in the background. |

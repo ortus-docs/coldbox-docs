@@ -3,7 +3,7 @@
 This DSL namespace interacts with the loaded LogBox instance.
 
 | DSL | Description |
-| --- | --- |
+| :--- | :--- |
 | logbox | Get a reference to the application's LogBox instance |
 | logbox:root | Get a reference to the root logger |
 | logbox:logger:{category name} | Get a reference to a named logger by its category name |

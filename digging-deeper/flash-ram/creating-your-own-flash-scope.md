@@ -8,7 +8,7 @@ The ColdBox Flash capabilities are very flexible and you can easily create your 
 ## Implementable Methods
 
 | Method | ReturnType | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | clearFlash\(\) | void | Will destroy or clear the entire flash storage structure. |
 | saveFlash\(\) | void | Will be called before relocations or on demand in order to flash the storage. This method usually talks to the getScope\(\) method to retrieve the temporary flash variables and then serialize and persist. |
 | flashExists\(\) | boolean | Checks if the flash storage is available and has data in it. |

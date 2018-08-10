@@ -27,7 +27,7 @@ http://localhost/users.html => rc.format = html
 You can configure the extension detection using the following configuration methods:
 
 | **Method** | **Description** |
-| --- | --- |
+| :--- | :--- |
 | `setExtensionDetection( boolean )` | By default ColdBox detects URL extensions like `json, xml, html, pdf` which can allow you to build awesome RESTful web services. Default is **true**. |
 | `setValidExtensions( list )` | Tell the interceptor what valid extensions your application can listen to. By default it listens to: `json, jsont, xml, cfm, cfml, html, htm, rss, pdf` |
 | `setThrowOnInvalidExtensions( boolean )` | By default ColdBox does not throw an exception when an invalid extension is detected. If **true**, then the interceptor will throw a 406 Invalid Requested Format Extension: {extension} exception. Default is **false**. |

@@ -3,7 +3,7 @@
 ColdBox makes it easy to access the configuration stored in your Java system properties and your server's environment variables, even if you don't know which one it is in! Three methods are provided for your convenience:
 
 | Name | Arguments | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | `getSystemSetting` | `( key, defaultValue )` | Looks for `key` in properties first, env second. Returns the `defaultValue` if neither exist. |
 | `getSystemProperty` | `( key, defaultValue )` | Returns the Java System property for `key`. Returns the `defaultValue` if it does not exist. |
 | `getEnv` | `( key, defaultValue )` | Returns the server environment variable for `key`. Returns the `defaultValue` if it does not exist. |

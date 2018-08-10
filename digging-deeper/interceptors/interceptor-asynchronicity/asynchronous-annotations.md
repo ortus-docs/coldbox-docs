@@ -3,7 +3,7 @@
 We have also extended the interceptor registration process so you can annotate interception points to denote threading. You will do so with the following two annotations:
 
 | Argument | Type | Required | Default Value | Description |
-| --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- | :--- |
 | `async` | none | false | false | If the annotation exists, then ColdBox will execute the interception point in a separate thread only if not in a thread already. |
 | `asyncPriority` | string : _low,normal,high_ | false | _normal_ | The thread priority that will be sent to each cfthread call that is made by the system. |
 

@@ -3,7 +3,7 @@
 First of all, we must define some public properties that can easily identify or provide directives for the module:
 
 | Property | Type | Required | Default | Description |
-| --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- | :--- |
 | title | string | false | --- | The title of the module |
 | author | string | false | --- | The author of the module |
 | webURL | string | false | --- | The web URL associated with this module. Maybe for documentation, blog, links, etc. |

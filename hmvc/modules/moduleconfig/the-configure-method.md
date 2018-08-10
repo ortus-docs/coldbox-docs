@@ -3,7 +3,7 @@
 Once the public properties are set, we are now ready to configure our module. You will do this by creating a simple method called `configure()` and adding variables to the following configuration structures:
 
 | Property | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | parentSettings | struct | Settings that will be appended and override the host application settings |
 | settings | struct | Custom module settings that will only be available to the module. If `parseParentSettings` is set to true \(default\), then settings from `config/Coldbox.cfc` for this module will be merged with these settings. \(Think of these as default settings in that case.\) Please see the retrieving settings section |
 | conventions | struct | A structure that explains the layout of the handlers, plugins, layouts and views of this module. |

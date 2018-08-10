@@ -3,7 +3,7 @@
 Here are some common methods of our ColdBox proxy object. However, we encourage you to see the [API docs](http://apidocs.ortussolutions.com/coldbox/current) for that latest and greatest.
 
 | Method | Description |
-| --- | --- |
+| :--- | :--- |
 | announceInterception\(state, data\) | Processes a remote interception. |
 | getCacheBox\(\) | Get a reference to [CacheBox](http://wiki.coldbox.org/wiki/CacheBox.cfm) |
 | getCache\(cacheName='default'\) | Get a reference to a named cache provider |

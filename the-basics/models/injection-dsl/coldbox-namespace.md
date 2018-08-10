@@ -3,7 +3,7 @@
 This namespace is a combination of namespaces that are only active when used within a ColdBox application:
 
 | DSL | Description |
-| --- | --- |
+| :--- | :--- |
 | coldbox | Get the coldbox controller reference |
 | coldbox:flash | Get a reference to the application's flash scope object |
 | coldbox:setting:{setting} | Get the coldbox application _{setting}_ setting and inject it |

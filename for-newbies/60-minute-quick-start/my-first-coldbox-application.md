@@ -74,7 +74,7 @@ That's it, you have just created your first application. Hooray, onward!
 ColdBox is a conventions based framework. The location of files and functions matter. Since we scaffolded our first application, let's write down in a table below with the different conventions that exist in ColdBox.
 
 | **File/Folder Convention** | **Mandatory** | **Description** |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- |
 | `config/Coldbox.cfc` | false | The application configuration file |
 | `config/Router.cfc` | false | The application URL router |
 | `handlers` | false | Event Handlers \(controllers\) |

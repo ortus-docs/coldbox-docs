@@ -197,7 +197,7 @@ box install cborm
 This module brings you all the ORM virtual services that are in ColdBox 3.x and replaces the `ORMService` Plugin, but note that the component paths have been updated. Instead of starting with `coldbox.system` they start with `cborm`.
 
 | Old Path | New Path |
-| --- | --- |
+| :--- | :--- |
 | coldbox.system.orm.hibernate.VirtualEntityService | cborm.models.VirtualEntityService |
 | coldbox.system.orm.hibernate.ActiveEntity | cborm.models.ActiveEntity |
 | coldbox.system.orm.hibernate.BaseORMService | cborm.models.BaseORMService |
@@ -281,7 +281,7 @@ This module replaces the Security interceptor. The interceptor still exists, but
 Some of these were covered above, but for completeness, here is a comprehensive list of the WireBox DSL Namespaces that are removed.
 
 | **Removed DSL** | **Replacement DSL** |
-| --- | --- |
+| :--- | :--- |
 | **ocm** | **cachebox:default** |
 | **ocm:{keyName}** | **cachebox:default:{keyName}** |
 | **coldbox:plugin:{pluginName}** | **model:{modelName@module}** |

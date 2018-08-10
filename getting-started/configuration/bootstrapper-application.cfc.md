@@ -99,7 +99,7 @@ component extends="coldbox.system.Bootstrap"{
 You can set some variables in the `Application.cfc` that can alter Bootstrapping conditions:
 
 | **Variable** | **Default** | **Description** |
-| --- | --- |
+| :--- | :--- | :--- |
 | `COLDBOX_APP_ROOT_PATH` | App Directory | Automatically set for you. This path tells the framework what is the base root location of your application and where it should start looking for all the agreed upon conventions. You usualy will never change this, but you can. |
 | `COLDBOX_APP_MAPPING` | `/` | The application mapping is ESSENTIAL when dealing with Flex or Remote \(SOAP\) applications. This is the location of the application from the root of the web root. So if your app is at the root, leave this setting blank. If your application is embedded in a sub-folder like MyApp, then this setting will be auto-calculated to `/MyApp`. |
 | `COLDBOX_CONFIG_FILE` | `config/ColdBox.cfc` | The absolute or relative path to the configuration CFC file to load. This bypasses the conventions and uses the configuration file of your choice. |

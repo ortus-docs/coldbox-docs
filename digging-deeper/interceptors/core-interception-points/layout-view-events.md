@@ -1,7 +1,7 @@
 # Layout-View Events
 
 | Interception Point | Intercept Structure | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | preLayout | --- | This occurs before any rendering or layout is executed |
 | preRender | {renderedContent} | This occurs after the layout+view is rendered and this event receives the produced content |
 | postRender | --- | This occurs after the content has been rendered to the buffer output |

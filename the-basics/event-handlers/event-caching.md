@@ -27,7 +27,7 @@ To enable event caching, you will need to set a setting in your `ColdBox.cfc` ca
 The way to set up an event for caching is on the function declaration with the following annotations:
 
 | **Annotation** | **Type** | **Description** |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | `cache` | boolean | A true or false will let the framework know whether to cache this event or not. The default is FALSE. So setting to false makes no sense |
 | `cachetimeout` | numeric | The timeout of the event's output in minutes. This is an optional attribute and if it is not used, the framework defaults to the default object timeout in the cache settings. You can place a 0 in order to tell the framework to cache the event's output for the entire application timeout controlled by coldfusion, NOT GOOD. Always set a decent timeout for content. |
 | `cacheLastAccesstimeout` | numeric | The last access timeout of the event's output in minutes. This is an optional attribute and if it is not used, the framework defaults to the default last access object timeout in the cache settings. This tells the framework that if the object has not been accessed in X amount of minutes, then purge it. |

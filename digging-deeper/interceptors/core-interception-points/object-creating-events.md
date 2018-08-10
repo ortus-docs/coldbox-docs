@@ -1,7 +1,7 @@
 # Object Creating Events
 
 | Interception Point | Intercept Structure | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | afterHandlerCreation | handlerPath - The handler path | This occurs whenever a handler is created |
 | afterInstanceCreation | mapping - The object mapping | This occurs whenever a [wirebox](http://wiki.coldbox.org/wiki/Wirebox.cfm) object is created |
 

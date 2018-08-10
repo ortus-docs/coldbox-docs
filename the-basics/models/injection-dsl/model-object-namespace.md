@@ -3,7 +3,7 @@
 The default namespace is not specifying one. This namespace is used to retreive either named mappings or full component paths.
 
 | DSL | Description |
-| --- | --- |
+| :--- | :--- |
 | empty | Same as saying _id_. Get a mapped instance with the same name as defined in the property, argument or setter method. |
 | id | Get a mapped instance with the same name as defined in the property, argument or setter method. |
 | id:{name} | Get a mapped instance by using the second part of the DSL as the mapping name. |

@@ -49,7 +49,7 @@ Once the routing service loads your Router it will create two application settin
 You can use the following methods to fine tune the configuration and operation of the routing services:
 
 | **Method** | **Description** |
-| --- | --- |
+| :--- | :--- |
 | `setEnabled( boolean )` | Enable/Disable routing, **enabled** by default |
 | `setFullRewrites( boolean )` | If **true**, then no `index.cfm` will be used in the URLs. If **false**, then **/index.cfm/** will be added to all generated URLs. Default is **false**. |
 | `setUniqueURLS( boolean )` | Enables SES only URL's with permanent redirects for non-ses urls. Default is **true.**  If true and a URL is detected with ? or & then the application will do a 301 Permanent Redirect and try to translate the URL to a valid SES URL. |

@@ -3,7 +3,7 @@
 Talk and get objects from the current wirebox injector
 
 | DSL | Description |
-| --- | --- |
+| :--- | :--- |
 | wirebox | Get a reference to the current injector |
 | wirebox:parent | Get a reference to the parent injector \(if any\) |
 | wirebox:eventManager | Get a reference to injector's event manager |

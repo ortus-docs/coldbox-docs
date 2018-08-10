@@ -16,7 +16,7 @@ The core conventions delineate the contract between ColdBox and you for file/dir
 ## Execution Conventions
 
 | **Convention** | **Default Value** | **Description** |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- |
 | Default Event | `main.index` | The default event to execute when no event is specified |
 | Default Action | `index()` | The default action to execute in an event handler controller if none is specified |
 | Default Layout | `layouts/Main.cfm` | The default system layout to use |
