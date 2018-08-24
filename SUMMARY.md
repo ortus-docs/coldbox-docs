@@ -87,6 +87,7 @@
   * [Setting Views](the-basics/event-handlers/setting-views.md)
   * [Relocating](the-basics/event-handlers/relocating.md)
   * [Rendering Data](the-basics/event-handlers/rendering-data.md)
+  * [Sending Files](the-basics/event-handlers/sending-files.md)
   * [Interception Methods](the-basics/event-handlers/interception-methods/README.md)
     * [Pre Advices](the-basics/event-handlers/interception-methods/pre-advices.md)
     * [Post Advices](the-basics/event-handlers/interception-methods/post-advices.md)
