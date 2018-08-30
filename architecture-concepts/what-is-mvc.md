@@ -1,6 +1,6 @@
 # What is MVC
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/mvc-overview.png)
+![](/full/images/mvc-overview.png)
 
 > "A developer often wishes to separate data \(model\) and user interface \(view\) concerns, so that changes to the user interface will not affect data handling, and that the data can be reorganized without changing the user interface. The model-view-controller solves this problem by decoupling data access and business logic from data presentation and user interaction, by introducing an intermediate component: the controller." [Wikipedia](http://en.wikipedia.org/wiki/Model-view-controller)
 
