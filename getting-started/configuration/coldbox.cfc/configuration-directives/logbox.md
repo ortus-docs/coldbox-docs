@@ -5,8 +5,8 @@ The logBox structure is based on the LogBox declaration DSL, see the [LogBox Doc
 ```javascript
 //LogBox DSL
 logBox = {
-    // The configuration file to use for operation, instead of using this structure
-    configFile = "config/LogBox.cfc",
+    // The configuration file without fileextension to use for operation, instead of using this structure
+    configFile = "config/LogBox", 
     // Appenders
     appenders = {
         appenderName = {
