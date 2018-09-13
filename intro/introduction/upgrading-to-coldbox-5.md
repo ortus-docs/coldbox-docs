@@ -67,7 +67,9 @@ datasources = {
         name = "mydsn"
     }
 }
+```
 
+```
 // Injections
 property name="dsn" inject="coldbox:datasource:mydsn"
 ```
@@ -83,8 +85,9 @@ settings = {
         name = "mydsn"
     }
 }
+```
 
-
+```
 // Injections
 
 property name="dsn" inject="coldbox:setting:mydsn"
