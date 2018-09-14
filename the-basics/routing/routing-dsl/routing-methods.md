@@ -203,7 +203,7 @@ This is a great way to manually set variables in the incoming structures:
 ```java
 route( "/api/v1/users/:id" )
     .rcAppend( { secured : true } )
-    .prcAppend( { name : "hello } )
+    .prcAppend( { name : "hello" } )
     .to( "api-v1:users.show" );
 ```
 
