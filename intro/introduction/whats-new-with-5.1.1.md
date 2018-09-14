@@ -9,6 +9,6 @@ This is a patch release for ColdBox.
 
 ### Improvement
 
-* \[[COLDBOX-705](https://ortussolutions.atlassian.net/browse/COLDBOX-705)\] - REmove setting throwOnInvalidInterceptionStates, makes no sense anymore
+* \[[COLDBOX-705](https://ortussolutions.atlassian.net/browse/COLDBOX-705)\] - Remove setting throwOnInvalidInterceptionStates, makes no sense anymore
 * \[[COLDBOX-706](https://ortussolutions.atlassian.net/browse/COLDBOX-706)\] - Moved order of event manager states the injector provides to a ColdBox app so the binder can listen on itself
 
