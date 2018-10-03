@@ -1,8 +1,8 @@
 # Routing Methods
 
-Apart from routing by convention, you can also register your own expressive routes.  Let's investigate the routing approaches.
+Apart from routing by convention, you can also register your own expressive routes. Let's investigate the routing approaches.
 
-### Inline Terminator
+## Inline Terminator
 
 The `route()` method allows you to register a **pattern** and immediately assign it to execute an event or a response via the **target** argument.
 
@@ -17,7 +17,7 @@ route(
 
 The first pattern registers and if matched it will execute the **wiki.page** event. The second pattern if matched it will execute the **profile.show** event from the **users** module and register the route with the **userprofile** name.
 
-#### Inline Response
+### Inline Response
 
 You can also pass in a closure or lambda to the target argument and it will be treated as an inline action:
 
@@ -37,9 +37,9 @@ route(
 );
 ```
 
-To read more about responses please see the [Route Responses]() section.
+To read more about responses please see the [Route Responses](routing-methods.md) section.
 
-### Routing `to` Events
+## Routing `to` Events
 
 If you will not use the inline terminators you can do a full expressive route definition to events using the `to()` method, which allows you to concatenate the route pattern with modifiers:
 
@@ -50,7 +50,7 @@ route( "/wiki/:pagename" )
 route( "/users/:id/profile" )
     .as( "userProfile" )
     .to( "users:profile.show" );
-    
+
 route( "/users/:id/profile" )
     .as( "userProfile" )
     .withVerbs( "GET" )
@@ -60,9 +60,9 @@ route( "/users/:id/profile" )
     .to( "users:profile.show" );
 ```
 
-### Routing To Handler Action Combinations
+## Routing To Handler Action Combinations
 
-You can also route to a **handler** and an **action** using the modifiers instead of the `to()` method. This long-form is usually done for visibility or dynamic writing of routes.  You can use the following methods:
+You can also route to a **handler** and an **action** using the modifiers instead of the `to()` method. This long-form is usually done for visibility or dynamic writing of routes. You can use the following methods:
 
 * `withHandler()`
 * `withAction()`
@@ -74,14 +74,14 @@ route( "wiki/:pagename" )
     as( "wikipage" )
     withAction( "show" )
     toHandler( "wiki" );
-    
+
 route( "wiki/:pagename" )
     .withHander( "wiki" )
     .withAction( "show" )
     .end();
 ```
 
-### Routing to Views
+## Routing to Views
 
 You can also route to views and view/layout combinations by using the `toView()` terminator:
 
@@ -96,9 +96,9 @@ route( "/contact-us" )
     );
 ```
 
-### Routing to Redirects
+## Routing to Redirects
 
-You can also use the `toRedirect()` method to re-route patterns to other patterns. 
+You can also use the `toRedirect()` method to re-route patterns to other patterns.
 
 ```java
 route( "/my-old/link" )
@@ -109,9 +109,9 @@ route( "/my-old/link" )
 The default status code for redirects are 301 redirects which are PERMANENT redirects.
 {% endhint %}
 
-### Routing to Handlers
+## Routing to Handlers
 
-You can also redirect a pattern to a handler using the `toHandler()` method.  This is usually done if you have the action coming in via the URL or you are using RESTFul actions.
+You can also redirect a pattern to a handler using the `toHandler()` method. This is usually done if you have the action coming in via the URL or you are using RESTFul actions.
 
 ```java
 // Action comes via the URL
@@ -119,9 +119,9 @@ route( "/users/:action" )
     .toHandler( "users" );
 ```
 
-### Routing to RESTFul Actions
+## Routing to RESTFul Actions
 
-You can also route a pattern to HTTP RESTFul actions.  This means that you can split the routing pattern according to incoming HTTP Verb.  You will use a modifier `withAction()` and then assign it to a handler via the `toHandler()` method.
+You can also route a pattern to HTTP RESTFul actions. This means that you can split the routing pattern according to incoming HTTP Verb. You will use a modifier `withAction()` and then assign it to a handler via the `toHandler()` method.
 
 ```java
 // RESTFul actions
@@ -135,9 +135,9 @@ route( "/users/:id?" )
     .toHandler( "users" );
 ```
 
-### Routing to Responses
+## Routing to Responses
 
-The Router allows you to create inline responses via closures/lambdas to incoming URL patterns.  You do not need to create handler/actions, you can put the actions inline as responses.  Every response closure/lambda accepts three arguments:
+The Router allows you to create inline responses via closures/lambdas to incoming URL patterns. You do not need to create handler/actions, you can put the actions inline as responses. Every response closure/lambda accepts three arguments:
 
 1. `event` - An object that models and is used to work with the current request \(Request Context\)
 2. `rc` - A struct that contains both `URL/FORM` variables merged together \(unsafe data\)
@@ -169,27 +169,27 @@ route( "/users/:id" )
     } );
 ```
 
-### Sub-Domain Routing
+## Sub-Domain Routing
 
-You can also register routes that will respond to sub-domains and even capture portions of the sub-domain for multi-tenant applications or SaaS applications.  You will do this using the `withDomain()` method.
+You can also register routes that will respond to sub-domains and even capture portions of the sub-domain for multi-tenant applications or SaaS applications. You will do this using the `withDomain()` method.
 
 ```javascript
 route( "/" )
   .withDomain( "subdomain-routing.dev" )
   .to( "subdomain.index" );
-  
+
 route( "/" )
   .withDomain( ":username.forgebox.dev" )
   .to( "subdomain.show" );
 ```
 
-You can leverage the full routing DSL as long as you add the `withDomain()` call with the domain you want to bind the route to.  Also note that the domain string can contain **placeholders** which will be translated to `RC` variables for you if matched.
+You can leverage the full routing DSL as long as you add the `withDomain()` call with the domain you want to bind the route to. Also note that the domain string can contain **placeholders** which will be translated to `RC` variables for you if matched.
 
 {% hint style="success" %}
 **Tip:** Please note that you can leverage [Routing Groups](routing-groups.md) as well for domains
 {% endhint %}
 
-### Adding Variables to RC/PRC
+## Adding Variables to RC/PRC
 
 You can also add variables to the RC and PRC structs on a per-route basis by leveraging the following methods:
 
@@ -207,9 +207,9 @@ route( "/api/v1/users/:id" )
     .to( "api-v1:users.show" );
 ```
 
-### Routing Conditions
+## Routing Conditions
 
-You can also apply runtime conditions to a route in order for it to be matched.  This means that if the route matches the URL pattern then we will execute a closure/lambda to make sure that it meets the runtime conditions.  We will do this with the `withCondition(`\) method.
+You can also apply runtime conditions to a route in order for it to be matched. This means that if the route matches the URL pattern then we will execute a closure/lambda to make sure that it meets the runtime conditions. We will do this with the `withCondition(`\) method.
 
 Let's say you only want to fire some routes if they are using Firefox, or a user is logged in, or whatever.
 

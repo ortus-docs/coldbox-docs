@@ -2,15 +2,15 @@
 description: Model View Controller
 ---
 
-# MVC
+# What is MVC
 
 ## Intro to MVC
 
-![](../.gitbook/assets/mvc-overview.png)
+![](https://github.com/ortus-docs/coldbox-docs/tree/2199b7963d7d54c0717ae0c99ad7241d78468268/.gitbook/assets/mvc-overview.png)
 
 > "A developer often wishes to separate data \(model\) and user interface \(view\) concerns, so that changes to the user interface will not affect data handling, and that the data can be reorganized without changing the user interface. The model-view-controller solves this problem by decoupling data access and business logic from data presentation and user interaction, by introducing an intermediate component: the controller." [Wikipedia](http://en.wikipedia.org/wiki/Model-view-controller)​
 
-MVC is a popular design pattern called [Model View Controller](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) which seeks to promote good maintainable software design by separating your code into 3 main tiers:
+MVC is a popular design pattern called [Model View Controller](http://en.wikipedia.org/wiki/Model–view–controller) which seeks to promote good maintainable software design by separating your code into 3 main tiers:
 
 * **Model**  - Business Logic, Data, Queries, Etc
 * **View** - Representation of your models, queries, data.
@@ -24,9 +24,9 @@ The Model is the heart of your application. Your business logic should mostly li
 
 ### Views
 
-The Views are what the users see and interact with. They are the templates used to render your application out for the web browser. Typically this means cfm/HTML, but it can also be JSON, XML, data views, etc. 
+The Views are what the users see and interact with. They are the templates used to render your application out for the web browser. Typically this means cfm/HTML, but it can also be JSON, XML, data views, etc.
 
-In modern times, your views can even be pure HTML with a combination of a JavaScript MVC framework.  The major players in the MVC front-end world that we would recommend in order of personal preference:
+In modern times, your views can even be pure HTML with a combination of a JavaScript MVC framework. The major players in the MVC front-end world that we would recommend in order of personal preference:
 
 * **VueJS** - [https://vuejs.org/](https://vuejs.org/)
 * **Angular** - [https://angular.io/](https://angular.io/)
@@ -39,23 +39,23 @@ Controllers are the traffic cops of your application. They direct flow control, 
 
 ## Benefits of MVC
 
-By implementing an MVC Framework to your applications you will gain several benefits that come inherent to the MVC design pattern.  The most important benefit of MVC is that you will be **separating the presentation** from the model.  This is a very important heuristic of software development as [**separation of concerns**](https://en.wikipedia.org/wiki/Separation_of_concerns) is applied and responsibilities are delegated upon the layers.
+By implementing an MVC Framework to your applications you will gain several benefits that come inherent to the MVC design pattern. The most important benefit of MVC is that you will be **separating the presentation** from the model. This is a very important heuristic of software development as [**separation of concerns**](https://en.wikipedia.org/wiki/Separation_of_concerns) is applied and responsibilities are delegated upon the layers.
 
 ### Separation of Concerns
 
-The model and the view layers have different concerns about their implementations.  A view layer is concerned with how to render the data, the type of browser, or remote rendering, etc.  While the model is more concerned with the business rules of the application, how to store data and even database operations.  You use different development approaches to each layer.
+The model and the view layers have different concerns about their implementations. A view layer is concerned with how to render the data, the type of browser, or remote rendering, etc. While the model is more concerned with the business rules of the application, how to store data and even database operations. You use different development approaches to each layer.
 
 ### Multiple GUI’s
 
-Due to this separation, you can easily create multiple views for the same model data without affecting how the model works or is coded.  The view layers can adapt to the model by coding their own implementations.  This makes it really easy to create multiple GUI’s for applications.
+Due to this separation, you can easily create multiple views for the same model data without affecting how the model works or is coded. The view layers can adapt to the model by coding their own implementations. This makes it really easy to create multiple GUI’s for applications.
 
 ### Unit and Behavioral Testing
 
-Non-visual objects are easier to test than visual objects, in theory.  With the introduction of Selenium, integration and visual UI testing has become rather simple.  However, the key benefit here is that testing can be done separately.  Frameworks like ColdBox even give you the ability to do UI and integration testing within its domain.
+Non-visual objects are easier to test than visual objects, in theory. With the introduction of Selenium, integration and visual UI testing has become rather simple. However, the key benefit here is that testing can be done separately. Frameworks like ColdBox even give you the ability to do UI and integration testing within its domain.
 
 ### Dependency
 
-The most important benefit that we can arise out of the MVC pattern, is the direction of the dependencies.  A view depends on its model data and controller, but the model itself does not depend on the view or controllers.  This is how you want to build your business logic, encapsulated and providing a good API.
+The most important benefit that we can arise out of the MVC pattern, is the direction of the dependencies. A view depends on its model data and controller, but the model itself does not depend on the view or controllers. This is how you want to build your business logic, encapsulated and providing a good API.
 
 ## Evolution of MVC Architecture {#coldbox-mvc}
 
@@ -63,39 +63,36 @@ There are many types of MVC architectures and hopefully the following diagrams c
 
 ### Spaghetti Hell
 
-![Spaghetti Hell](../.gitbook/assets/spaghetti-hell.png)
+![Spaghetti Hell](https://github.com/ortus-docs/coldbox-docs/tree/2199b7963d7d54c0717ae0c99ad7241d78468268/.gitbook/assets/spaghetti-hell.png)
 
-  
-As you can see from the spaghetti hell diagram above, everything is linear and can become extremely convoluted.  Tracking bugs are difficult, maintenance suffers and reusability is not efficient.  Everything is in the same bowl of soup.
+As you can see from the spaghetti hell diagram above, everything is linear and can become extremely convoluted. Tracking bugs are difficult, maintenance suffers and reusability is not efficient. Everything is in the same bowl of soup.
 
 ### MVC
 
 ![](../.gitbook/assets/mvc.png)
 
-With the introduction of MVC we can hack away our spaghetti hell and at least have three distinct and separate layers of logic.  Ahh much better.  However, we can get even more complex.
+With the introduction of MVC we can hack away our spaghetti hell and at least have three distinct and separate layers of logic. Ahh much better. However, we can get even more complex.
 
 ### MVC Plus
 
-![MVC Plus](../.gitbook/assets/mvc-plus.png)
+![MVC Plus](https://github.com/ortus-docs/coldbox-docs/tree/2199b7963d7d54c0717ae0c99ad7241d78468268/.gitbook/assets/mvc-plus.png)
 
-MVC Plus shows us how you can further partition your model layer into more layers.  We can identify now a layer of service CFCs and data access object CFCs.  The main transportation of data between these layers by default is implied to be ColdFusion Query objects.
+MVC Plus shows us how you can further partition your model layer into more layers. We can identify now a layer of service CFCs and data access object CFCs. The main transportation of data between these layers by default is implied to be ColdFusion Query objects.
 
 ### MVC Plus Objects
 
-![MVC Plus Objects](../.gitbook/assets/mvc-plus-objects.png)
+![MVC Plus Objects](https://github.com/ortus-docs/coldbox-docs/tree/2199b7963d7d54c0717ae0c99ad7241d78468268/.gitbook/assets/mvc-plus-objects.png)
 
-  
-In this architecture approach, we have replaced \(mostly\) queries as our data structure of preference and converted to the usage of business objects.  We are approaching a more object oriented architectural style.  Remember that data is just data, objects are data plus behavior.  We can encapsulate more features and abstract more behavior into actual objects now, which we could not do with queries.
+In this architecture approach, we have replaced \(mostly\) queries as our data structure of preference and converted to the usage of business objects. We are approaching a more object oriented architectural style. Remember that data is just data, objects are data plus behavior. We can encapsulate more features and abstract more behavior into actual objects now, which we could not do with queries.
 
 ### MVC Plus ORM
 
-![MVC Plus ORM](../.gitbook/assets/mvc-plus-orm.png)
+![MVC Plus ORM](https://github.com/ortus-docs/coldbox-docs/tree/2199b7963d7d54c0717ae0c99ad7241d78468268/.gitbook/assets/mvc-plus-orm.png)
 
-  
-In this architecture approach we have replaced business objects for ORM entities and replaced our data access layer to be controlled now by the ORM.  This takes us very deep into object oriented land where the majority of our model is now modeled vi relational objects.  
+In this architecture approach we have replaced business objects for ORM entities and replaced our data access layer to be controlled now by the ORM. This takes us very deep into object oriented land where the majority of our model is now modeled vi relational objects.
 
 {% hint style="danger" %}
-**Stern Warning:** ORMs are NOT silver bullets.  They are an incredible tool that must be used for the right reasons and at the right time.  Do not be confused in that you must ONLY use the ORM.  No, you can still use DAOs and queries for certain things that matter.  You do not need to retrieve entire object graph collections if NOT needed.
+**Stern Warning:** ORMs are NOT silver bullets. They are an incredible tool that must be used for the right reasons and at the right time. Do not be confused in that you must ONLY use the ORM. No, you can still use DAOs and queries for certain things that matter. You do not need to retrieve entire object graph collections if NOT needed.
 
 We have even build a companion package for ColdBox called [**cborm**](https://github.com/coldbox-modules/cbox-cborm) that will help you build more pragmatic and enjoyable ORM applications.
 {% endhint %}
@@ -105,3 +102,4 @@ We have even build a companion package for ColdBox called [**cborm**](https://gi
 * ​[http://en.wikipedia.org/wiki/Domain\_model](http://en.wikipedia.org/wiki/Domain_model)​
 * ​[http://domaindrivendesign.org/](http://domaindrivendesign.org/)​
 * ​[http://martinfowler.com/eaaCatalog/domainModel.html](http://martinfowler.com/eaaCatalog/domainModel.html)​
+

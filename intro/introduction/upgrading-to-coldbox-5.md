@@ -69,7 +69,7 @@ datasources = {
 }
 ```
 
-```
+```text
 // Injections
 property name="dsn" inject="coldbox:datasource:mydsn"
 ```
@@ -87,7 +87,7 @@ settings = {
 }
 ```
 
-```
+```text
 // Injections
 
 property name="dsn" inject="coldbox:setting:mydsn"
@@ -120,6 +120,4 @@ public any function process( required definition, targetObject ) {
 {% hint style="info" %}
 Ticket Reference: [https://ortussolutions.atlassian.net/browse/COLDBOX-697](https://ortussolutions.atlassian.net/browse/COLDBOX-697)
 {% endhint %}
-
-
 
