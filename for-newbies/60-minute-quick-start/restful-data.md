@@ -56,7 +56,7 @@ This tells ColdBox to render the contacts data in 4 formats: xml, json, pdf and 
 ColdBox has the ability to detect formats via URL extensions or an incoming `Accepts` header. If no extension is sent, then ColdBox attempts to determine the format by inspecting the `Accepts` header. If we still can't figure out what format to choose, the default of `html` is selected for you.
 
 ```text
-# Defaul: The view is presented using no extension or html,cfm
+# Default: The view is presented using no extension or html,cfm
 http://localhost:{port}/contacts/index
 http://localhost:{port}/contacts/index.html
 http://localhost:{port}/contacts/index.cfm
