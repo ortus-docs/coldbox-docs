@@ -50,7 +50,7 @@ Railo support dropped. Any classes that started with the word `Railo` need to be
 
 ## ColdFusion 9-10 Support Dropped
 
-ColdFusion 9-10 support has been dropped. Adobe doesn't support them anymore, so do we.
+ColdFusion 9-10 support has been dropped. Adobe doesn't support them anymore, so neither do we.
 
 ## Datasources Configuration Dropped
 
