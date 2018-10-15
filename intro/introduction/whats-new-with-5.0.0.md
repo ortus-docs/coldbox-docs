@@ -4,7 +4,7 @@ ColdBox 5.0.0 is a major release for the ColdBox MVC platform. It has been long 
 
 ## Global Versioning
 
-All internal libraries have now a standard version according the the major ColdBox release of 5.0.0. Further releases of WireBox, CacheBox and LogBox will adhere to the unified version.
+All internal libraries now have a standard version according to the major ColdBox release of 5.0.0. Further releases of WireBox, CacheBox and LogBox will adhere to the unified version.
 
 ## Engine Deprecation
 
@@ -17,7 +17,7 @@ That's right, you will need Adobe ColdFusion 11+ or Lucee 4.5+ in order to work 
 
 ## Automation
 
-We have fully automated all build processes with ColdBox 5 to include CommandBox and TestBox testing, Travis integration and a fully automated test suite that executes against **ALL** supported CFML engines. Our code coverage has increased due to this work dramatically. We discovered engine bugs that must have plagued our users for years. YAY for testing!
+We have fully automated all build processes with ColdBox 5 to include CommandBox and TestBox testing, Travis integration and a fully automated test suite that executes against **ALL** supported CFML engines. Our code coverage has increased dramatically due to this work. We discovered engine bugs that must have plagued our users for years. YAY for testing!
 
 ## Performance Improvements & Optimizations
 
@@ -50,12 +50,12 @@ These methods will allow you to interact with docker environment variables and o
 
 We continue to innovate in the Hierarchical MVC \(HMVC\) design of ColdBox by fine-tuning the modular services and interactions. Here are the major updates to modules in ColdBox 5.
 
-* All module interceptors are now namespaced to avoid name conflicts with other modules
+* All module interceptors are now namespaced to avoid name conflicts with other modules.
 * New modules injected variable: `coldboxVersion` to be able to quickly detect what version of ColdBox they are running under. This will allow you to create modules that can respond to multiple ColdBox versions.
 
 ### Inherited Entry Point
 
-All modules have had a URL entry point since the beginning: `this.entryPoint = "/route"`. This entry point is registered in the URL mappings to allow for a unique URL pattern to exist for specific modules. That is great! However, in modern times and with the amount of API centric applications that we are building we wanted to introduce an easier way to build resource centric APIs.
+All modules have had a URL entry point since the beginning: `this.entryPoint = "/route"`. This entry point is registered in the URL mappings to allow for a unique URL pattern to exist for specific modules. That is great! However, in modern times and with the amount of API centric applications that we are building, we wanted to introduce an easier way to build resource centric APIs.
 
 What if our resource URLs could match by convention our module inceptions? Well, with the new inherited entry points, you can do just that. By leveraging HMVC and module inception you can now create automatic URL nesting schemas.
 
@@ -244,7 +244,7 @@ function resources(
 
 ## Event Execution
 
-We have also done several update for event executions, event caching and overall MVC operations:
+We have also done several updates for event executions, event caching and overall MVC operations:
 
 * You can now return the `event` object from event handlers and the framework will not fail.  It will be ignored.
 * `setNextEvent()` is now deprecated in favor of a `relocate()` method.
@@ -266,7 +266,7 @@ With this ability you can enable dynamic cache suffixes according to runtime env
 
 #### Cache Provider Annotations
 
-You can now add a `cacheProvider` annotation to your cache enabled functions and decide to what CacheBox provider the output will be cached too instead of the default provider of `template`:
+You can now add a `cacheProvider` annotation to your cache enabled functions and decide to which CacheBox provider the output will be cached too instead of the default provider of `template`:
 
 ```java
 function index( event, rc, prc ) cache=true cacheProvider=couchbase{
@@ -350,6 +350,6 @@ event.setView(
 Here are some of the major updates for integration testing with ColdBox and TestBox:
 
 * Reset the response when calling `setup()` in integration testing to avoid duplicate headers within same request executions.
-* Base test case doesn't allow for inherited annotations.  Now it does since we moved the testing life-cycle methods to annotation based instead of by name.
+* Base test case doesn't allow for inherited annotations.  It now does since we moved the testing life-cycle methods to be annotation based instead of by name.
 * Added dynamic methods `getRenderData()` and `getStatusCode()` helpers to the request context upon `execute()` execution.  This will allow you a shorthand approach to getting response status codes and response rendering data struct.
 
