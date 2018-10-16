@@ -153,7 +153,7 @@ coldbox = {
     // Activate implicit views
     implicitViews           = true,
     // Case for implicit views
-    caseSensitiveImplicitViews = false
+    caseSensitiveImplicitViews = true
 }
 ```
 
@@ -179,5 +179,5 @@ Allows you to use implicit views in your application and view dispatching. You c
 
 **caseSensitiveImplicitViews**
 
-By default implicit views are all in lower case, so you would turn this setting on to allow case sensitivity.
+By default implicit views are case sensitive since ColdBox version 5.2.0, before this version the default was **false**.
 
