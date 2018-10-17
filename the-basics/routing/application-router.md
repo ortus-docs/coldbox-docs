@@ -32,10 +32,14 @@ component{
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-The application router is a simple CFC that virtually inherits from the core ColdBox Router class and is configured via the `configure()` method.  It will be decorated with all the capabilties to work with any request much like any event handler or interceptor.  In this router you will be doing 1 of 2 things:
+The application router is a simple CFC that virtually inherits from the core ColdBox Router class and is configured via the `configure()` method.  It will be decorated with all the capabilities to work with any request much like any event handler or interceptor.  In this router you will be doing 1 of 2 things:
 
 1. Configuring the Router
 2. Adding Routes via the Routing DSL
+
+## Router as an Interceptor
+
+The router and indeed all module routers are also registered as full fledged ColdBox interceptors. So they can listen to any event within your application.
 
 ## Generated Settings
 

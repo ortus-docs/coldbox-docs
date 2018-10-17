@@ -153,7 +153,9 @@ coldbox = {
     // Activate implicit views
     implicitViews           = true,
     // Case for implicit views
-    caseSensitiveImplicitViews = true
+    caseSensitiveImplicitViews = true,
+    // Auto register all model objects in the `models` folder into WireBox
+    autoMapModels     = true
 }
 ```
 
@@ -180,4 +182,8 @@ Allows you to use implicit views in your application and view dispatching. You c
 **caseSensitiveImplicitViews**
 
 By default implicit views are case sensitive since ColdBox version 5.2.0, before this version the default was **false**.
+
+**autoMapModels**
+
+ColdBox by convention can talk to, use and inject models from the `models` folder by just using their name.  However, once you built complex hierarchies you would have to specify the specific hierarchy or folder structure for the model; This is a limitation of conventions.  Your choices before v5.2.0 was to map the objects yourself in the WireBox binder.  Now, if you turn this setting to **true**, we will issue a `mapDirectory()` on the `models` directory for you.
 

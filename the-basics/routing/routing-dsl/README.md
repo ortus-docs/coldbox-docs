@@ -57,6 +57,7 @@ Modifiers will tell the routing service about certain restrictions, conditions o
 Terminators finalize the routing process by registering the route in the Router.
 
 * `end()` - Register the route as it exists
+* `toAction( action )` - Send the route to a specific action or RESTFul action struct
 * `toView( view, layout, noLayout=false, viewModule, layoutModule )` - Send the route to a view/layout 
 * `toRedirect( target, statusCode=301 )` - Relocate the route to another event
 * `to( event )` - Execute the event if the route matches
