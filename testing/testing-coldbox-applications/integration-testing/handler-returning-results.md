@@ -1,4 +1,0 @@
-# Handler Returning Results
-
-
-

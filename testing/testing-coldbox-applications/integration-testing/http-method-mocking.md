@@ -1,4 +1,0 @@
-# HTTP Method Mocking
-
-
-
