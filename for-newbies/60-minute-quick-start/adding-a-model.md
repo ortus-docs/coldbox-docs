@@ -126,5 +126,5 @@ Congratulations, you have made a complete **MVC** circle!
 
 ![](../../.gitbook/assets/request-lifecycle.png)
 
-> **Tip** You can find much more information about models and dependency injection in our [full docs](https://coldbox.ortusbooks.com/content/full/models/)
+> **Tip** You can find much more information about models and dependency injection in our [full docs](https://coldbox.ortusbooks.com/the-basics/models)
 
