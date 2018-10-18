@@ -10,3 +10,6 @@ routes = [
 
 This will look for a `routes.cfm` template in your module's `config` folder and load it. Please note that you do not need to specify a `.cfm` if you don't want to. You can load as many route files as you like.
 
+## ColdBox 5 Router
+
+If you want to use the ColdBox 5 `Router.cfc` inside your module you can simply place the `Router.cfc` inside the `config` folder and it will load by convention.
