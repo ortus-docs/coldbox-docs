@@ -1,6 +1,6 @@
 # Upgrading to ColdBox 5
 
-The major compatibility issues will be covered as well as how to smoothly upgrade to this release from previous ColdBox versions. You can also check out the [What's New](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/full/introduction/whats_new_with_500.md) guide to give you a full overview of the changes.
+The major compatibility issues will be covered as well as how to smoothly upgrade to this release from previous ColdBox versions. You can also check out the [What's New](https://coldbox.ortusbooks.com/intro/introduction/whats-new-with-5.0.0) guide to give you a full overview of the changes.
 
 ## `event.getCurrentHandler()` returns different results
 
