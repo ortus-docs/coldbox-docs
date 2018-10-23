@@ -21,6 +21,7 @@ Here is a listing of all public properties that can be defined in a module.
 | **disabled** | boolean | false | false | You can manually disable a module from loading and registering |
 | **dependencies** | array | false | \[\] | An array of dependent module names. All dependencies will be registered and activated FIRST before the module declaring them. |
 | **modelNamespace** | string | false | _moduleName_ | The name of the namespace to use when registering models in WireBox. By default it uses the name of the module. |
+| **applicationHelper** | array | false | \[\] | An array of files from the module to load as application helper UDF mixins |
 
 Below you can see an example of declarations for the configuration object:
 
@@ -45,6 +46,7 @@ component{
     this.cfmapping = "cbstore";
     this.parseParentSettings = true;
     this.dependencies = [ "JavaLoader", "CFCouchbase" ];
+    this.applicationHelper = [ "includes/mixins.cfm" ]
 
     function configure(){
     }

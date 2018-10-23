@@ -2,13 +2,13 @@
 
 ![](../../.gitbook/assets/mvc.png)
 
-Let's complete our saga into MVC by developing the **M**, which stands for [model](https://en.wikipedia.org/wiki/Domain_model). This layer is all your business logic, queries, external dependencies, etc. of your application, which represents the problem to solve or the domain to solve. 
+Let's complete our saga into MVC by developing the **M**, which stands for [model](https://en.wikipedia.org/wiki/Domain_model). This layer is all your business logic, queries, external dependencies, etc. of your application, which represents the problem to solve or the domain to solve.
 
-### WireBox
+## WireBox
 
 This layer is controlled by [WireBox](https://wirebox.ortusbooks.com), the dependency injection framework within ColdBox, which will give you the flexibility of wiring your objects and persisting them for you.
 
-### Creating A Service Model
+## Creating A Service Model
 
 Let's create a simple contact listing, so open up CommandBox and issue the following command:
 
@@ -36,7 +36,7 @@ component singleton accessors="true"{
 Notice the `singleton` annotation on the component tag. This tells WireBox that this service should be cached for the entire application life-span. If you remove the annotation, then the service will become a _transient_ object, which means that it will be re-created every time it is requested.
 {% endhint %}
 
-### Add Some Data
+## Add Some Data
 
 Let's mock an array of contacts so we can display them later. We can move this to a SQL call later.
 
@@ -61,12 +61,12 @@ component singleton accessors="true"{
 ```
 
 {% hint style="success" %}
-We also have created a project to mock any type of data: [MockDataCFC](https://www.forgebox.io/view/mockdatacfc).  Just use CommandBox to install it: `install mockdatacfc` 
+We also have created a project to mock any type of data: [MockDataCFC](https://www.forgebox.io/view/mockdatacfc). Just use CommandBox to install it: `install mockdatacfc`
 
 You can then leverage it to mock your contacts or any simple/complex data requirement.
 {% endhint %}
 
-### Wiring Up The Model To a Handler
+## Wiring Up The Model To a Handler
 
 We have now created our model so let's tell our event handler about it. Let's create a new handler using CommandBox:
 
@@ -74,7 +74,7 @@ We have now created our model so let's tell our event handler about it. Let's cr
 coldbox create handler name="contacts" actions="index"
 ```
 
-This will create the `handler/contacts.cfc` handler with an `index()` action, the `views/contacts/index.cfm` view and the accompanying integration test `tests/specs/integration/contactsTest.cfc`. 
+This will create the `handler/contacts.cfc` handler with an `index()` action, the `views/contacts/index.cfm` view and the accompanying integration test `tests/specs/integration/contactsTest.cfc`.
 
 Let's open the handler and add a new ColdFusion `property` that will have a reference to our model object.
 
@@ -89,7 +89,7 @@ component{
 }
 ```
 
-Please note that `inject` annotation on the `property` definition. This tells WireBox what model to inject into the handler's `variables`scope.  
+Please note that `inject` annotation on the `property` definition. This tells WireBox what model to inject into the handler's `variables`scope.
 
 By convention it looks in the `models` folder for the value, which in our case is `ContactService`. Now let's call it and place some data in the private request collection `prc` so our views can use it.
 
@@ -100,7 +100,7 @@ any function index( event, rc, prc ){
 }
 ```
 
-### Presenting The Data
+## Presenting The Data
 
 Now that we have put the array of contacts into the `prc` struct as `aContacts`, let's display it to the screen using ColdBox's HTML Helper.
 
@@ -120,7 +120,7 @@ Open the `contacts/index.cfm` and add the following to the view:
 </cfoutput>
 ```
 
-That's it! Execute the event: `http://localhost:{port}/contacts/index` and view the nice table of contacts being presented to you. 
+That's it! Execute the event: `http://localhost:{port}/contacts/index` and view the nice table of contacts being presented to you.
 
 Congratulations, you have made a complete **MVC** circle!
 

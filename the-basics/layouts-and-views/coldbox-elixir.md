@@ -84,7 +84,7 @@ npm install
 This will install ColdBox Elixir, Bootstrap and jQuery into the `node_modules` folder in your root. This folder has been already added to the `.gitignore` file as well, so no need to further ignore it.
 
 > **Note** : If you are developing on a Windows system or you are running your VM on a Windows host system, you may need to run the `npm install` command with the `--no-bin-links` switch enabled: `npm install --no-bin-links`
-
+>
 > **Tip** : If you are integrating with Vue.js, please see our [Vue.js](https://coldbox-elixir.ortusbooks.com/vue.js-integration) section
 
 ## Running Elixir

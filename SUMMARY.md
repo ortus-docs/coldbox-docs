@@ -197,6 +197,7 @@
   * [Models](hmvc/modules/models.md)
   * [Module CF Mappings](hmvc/modules/module-cf-mappings.md)
   * [Module Dependencies](hmvc/modules/module-dependencies.md)
+  * [Module Helpers](hmvc/modules/module-helpers.md)
   * [Module Bundles](hmvc/modules/module-bundles.md)
   * [Module Inception](hmvc/modules/module-inception.md)
 

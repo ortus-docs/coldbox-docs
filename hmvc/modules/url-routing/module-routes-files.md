@@ -13,3 +13,4 @@ This will look for a `routes.cfm` template in your module's `config` folder and 
 ## ColdBox 5 Router
 
 If you want to use the ColdBox 5 `Router.cfc` inside your module you can simply place the `Router.cfc` inside the `config` folder and it will load by convention.
+
