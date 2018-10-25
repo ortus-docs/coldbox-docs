@@ -2,7 +2,7 @@
 
 Interceptors are CFCs that extend the ColdBox Interceptor class \(`coldbox.system.Interceptor`\), implement a configuration method called `configure()`, and then contain methods for the events it will listen for. All interceptors are treated as **singletons** in your application, so make sure they are thread safe and var scoped.
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/ColdBoxMajorClasses.jpg)
+![](https://raw.githubusercontent.com/ortus-docs/coldbox-docs/master/full/images/ColdBoxMajorClasses.jpg)
 
 ```text
 /**
