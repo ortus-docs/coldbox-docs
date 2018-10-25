@@ -6,7 +6,7 @@ ColdBox uses both implicit and explicit invocation methods to execute events and
 
 ## Front Controller
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/ColdBoxSimpleMVC.png)
+![](https://raw.githubusercontent.com/ortus-docs/coldbox-docs/master/full/images/ColdBoxSimpleMVC.png)
 
 ColdBox is loaded by the `Application.cfc` and makes use of the Front Controller design pattern as its means of operation. This means that every request comes in through a single template, usually `index.cfm`. Once a request is received by the framework through this front controller, it will parse the request and redirect appropriately to the correct event handler controller by looking for an `event` variable in the URL or FORM scopes.
 
@@ -14,13 +14,13 @@ ColdBox is loaded by the `Application.cfc` and makes use of the Front Controller
 
 The incoming URL, FORM, and REMOTE variables are merged into a single structure that we call the request collection and, since we love objects, that collection is stored in an object called Request Context. We also create a secondary collection called the private request collection that cannot be affected by the outside world as nothing is merged into it. You can use it for private request variables and the like.
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/RequestCollectionDataBus.jpg)
+![](https://raw.githubusercontent.com/ortus-docs/coldbox-docs/master/full/images/RequestCollectionDataBus.jpg)
 
 The request context object has tons of methods to help you in setting and getting variables from one MVC layer to another, to getting request metadata, rendering RESTful content, setting HTTP headers, and more. It is your information super highway for specific requests. Remember that the API Docs are your best friend!
 
 ## Request Lifecycle
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/request-lifecycle.png)
+![](https://raw.githubusercontent.com/ortus-docs/coldbox-docs/master/full/images/request-lifecycle.png)
 
 A typical basic request to a ColdBox application looks like this:
 
@@ -35,11 +35,11 @@ A typical basic request to a ColdBox application looks like this:
 
 Below you can see the full life-cycle for MVC requests:
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/ColdBoxLifecycles.jpg)
+![](https://raw.githubusercontent.com/ortus-docs/coldbox-docs/master/full/images/ColdBoxLifecycles.jpg)
 
 ### Proxy Lifecycle
 
 ColdBox also has a proxy feature for building SOAP webservices or Flex/Air integration called [ColdBox Proxy](../digging-deeper/coldbox-proxy/). Below you can see the life-cycle for that process:
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/ColdBoxLifecyclesProxy.jpg)
+![](https://raw.githubusercontent.com/ortus-docs/coldbox-docs/master/full/images/ColdBoxLifecyclesProxy.jpg)
 
