@@ -93,6 +93,7 @@ settings = {
 property name="dsn" inject="coldbox:setting:mydsn"
 ```
 
+
 ## DSL Builder Interface Update
 
 The WireBox interface: `coldbox.system.ioc.dsl.IDSLBuilder` has changed in ColdBox 5, so if you are implementing your own DSLs, then you must update it like so:
@@ -120,4 +121,24 @@ public any function process( required definition, targetObject ) {
 {% hint style="info" %}
 Ticket Reference: [https://ortussolutions.atlassian.net/browse/COLDBOX-697](https://ortussolutions.atlassian.net/browse/COLDBOX-697)
 {% endhint %}
+
+## Interceptor Update
+### appendToBuffer() Deprecated
+The string buffer has been updated in order to become thread safe and there are several methods that have been depricated.  Instead of using `appendToBuffer()` you need to use the `buffer` argument.
+
+**Previous**
+```javascript
+appendToBuffer( generatedHTML );
+```
+
+
+**New**
+```javascript
+buffer.append( generatedHTML );
+```
+
+{% hint style="info" %}
+Ticket Reference: [https://ortussolutions.atlassian.net/browse/COLDBOX-654](https://ortussolutions.atlassian.net/browse/COLDBOX-654)
+{% endhint %}
+
 
