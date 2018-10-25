@@ -1,6 +1,6 @@
 # Bugs Cost Money
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/BugsCostMoney.png)
+![](https://raw.githubusercontent.com/ortus-docs/coldbox-docs/master/full/images/BugsCostMoney.png)
 
 > Kaner, Cem; James Bach, Bret Pettichord \(2001\). Lessons Learned in Software Testing: A Context-Driven Approach. Wiley. p. 4. ISBN 0-471-08112-4.
 
