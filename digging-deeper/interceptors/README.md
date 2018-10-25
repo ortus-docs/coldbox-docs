@@ -21,7 +21,7 @@ if( userCreated ){
 }
 ```
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/eventdriven.jpg)
+![](https://raw.githubusercontent.com/ortus-docs/coldbox-docs/master/full/images/eventdriven.jpg)
 
 If you are familiar with design patterns, custom interceptors can give you an implementation of observer/observable listener objects, much like any event-driven system can provide you. In a nutshell, an observer is an object that is registered to listen for certain types of events, let's say as an example `onError` is a custom interception point and we create a CFC that has this `onError` method. Whenever in your application you announce or broadcast that an event of type onError occurred, this CFC will be called by the ColdBox interceptor service.
 
