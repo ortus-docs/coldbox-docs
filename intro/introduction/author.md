@@ -26,7 +26,7 @@ Luis has a passion for Jesus, tennis, golf, volleyball and anything electronic. 
 
 Jorge is an Industrial and Systems Engineer born in El Salvador. After finishing his Bachelor studies at the Monterrey Institute of Technology and Higher Education [ITESM](http://www.itesm.mx/wps/wcm/connect/ITESM/Tecnologico+de+Monterrey/English), Mexico, he went back to his home country where he worked as the COO of[ Industrias Bendek S.A.](http://www.si-ham.com/). In 2012 he left El Salvador and moved to Switzerland in persuit of the love of his life. He married her and today he resides in Basel with his lovely wife Marta and their daughter Sofía.
 
-Jorge started working as project manager and business developer at Ortus Solutions, Corp. in 2013, . At Ortus he fell in love with software development and now enjoys taking part on software development projects and software documentation! He is a fellow Cristian who loves to play the guitar, worship and rejoice in the Lord!
+Jorge started working as project manager and business developer at Ortus Solutions, Corp. in 2013, . At Ortus he fell in love with software development and now enjoys taking part on software development projects and software documentation! He is a fellow Christian who loves to play the guitar, worship and rejoice in the Lord!
 
 > Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!   
 > 2 Corinthians 5:17
