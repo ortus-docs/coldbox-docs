@@ -1,6 +1,6 @@
 # CacheBox
 
-The CacheBox structure is based on the [CacheBox declaration DSL](http://wiki.coldbox.org/wiki/CacheBox.cfm), and it allows you to customize the caches in your application. Below are the main keys you can fill out, but we recommend you review the CacheBox documentation for further detail.
+The CacheBox structure is based on the [CacheBox declaration DSL](https://cachebox.ortusbooks.com/), and it allows you to customize the caches in your application. Below are the main keys you can fill out, but we recommend you review the CacheBox documentation for further detail.
 
 ```javascript
 //cachebox configuration
