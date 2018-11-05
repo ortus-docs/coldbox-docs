@@ -1,7 +1,6 @@
 # Interceptors
 
-Interceptors are CFC listeners that react on incoming events. Events can be announced by the core framework or be custom events from your application. These interceptors can also be stacked to form interceptor chains that can be executed implicitly for you. This is a powerful feature that can help developers and framework contributors share and interact with their work. \(Read more on [Intercepting Filters](http://www.corej2eepatterns.com/Patterns2ndEd/InterceptingFilter.htm)\)   
-
+Interceptors are CFC listeners that react on incoming events. Events can be announced by the core framework or be custom events from your application. These interceptors can also be stacked to form interceptor chains that can be executed implicitly for you. This is a powerful feature that can help developers and framework contributors share and interact with their work. \(Read more on [Intercepting Filters](http://www.corej2eepatterns.com/Patterns2ndEd/InterceptingFilter.htm)\)
 
 ![](https://raw.githubusercontent.com/ortus-docs/coldbox-docs/master/full/images/InterceptorChain.gif)
 

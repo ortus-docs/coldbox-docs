@@ -28,7 +28,7 @@ Jorge is an Industrial and Systems Engineer born in El Salvador. After finishing
 
 Jorge started working as project manager and business developer at Ortus Solutions, Corp. in 2013, . At Ortus he fell in love with software development and now enjoys taking part on software development projects and software documentation! He is a fellow Christian who loves to play the guitar, worship and rejoice in the Lord!
 
-> Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!   
+> Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!  
 > 2 Corinthians 5:17
 
 ### Brad Wood
