@@ -55,7 +55,7 @@ ColdBox gives you also the ability to declare alpha only routes by appending `-a
 route( "wiki/:page-alpha", "wiki.show" );
 ```
 
-This route will only accep page names that are alpha only.
+This route will only accept page names that are alpha only.
 
 There are two ways to place a regex constraint on a placeholder, using the `-regex:` placeholder or adding a `constraints` structure to the route declaration.
 
