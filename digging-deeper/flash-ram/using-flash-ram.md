@@ -53,7 +53,7 @@ Discards all or some keys from flash storage. You can use this method to impleme
 // discard all flash variables
 flash.discard();
 
-// dicard some keys
+// discard some keys
 flash.discard('userID,userKey,cardID');
 ```
 
@@ -77,7 +77,7 @@ if( flash.exists('notice') ){
 any get(string name, [any default])
 ```
 
-Get's a value from flash storage and you can even pass a default value if it does not exist.
+Get a value from flash storage and optionally pass a default value if it does not exist.
 
 ```javascript
 // Get a flash key that you know exists
@@ -113,7 +113,7 @@ Get the flash temp request storage used throughout a request until flashed at th
 
 ### isEmpty\(\)
 
-Check if the flash scope is empty or not
+Check if the flash scope is empty or not.
 
 ```javascript
 <cfif !flash.isEmpty()>
@@ -126,7 +126,7 @@ Check if the flash scope is empty or not
 any keep([string keys=''])
 ```
 
-Keep all or a single flash temp variable alive for another relocation. Usually called from interceptors or event handlers to create conversations and flows of data from event to event.
+Keep flash temp variable(s) alive for another relocation. Usually called from interceptors or event handlers to create conversations and flows of data from event to event.
 
 ```javascript
 function step2(event){
@@ -144,7 +144,7 @@ function step2(event){
 any persistRC([string include=''], [string exclude=''], [boolean saveNow='false'])
 ```
 
-Persist keys from the ColdBox request collection into flash scope. If using exclude, then it will try to persist the entire request collection but excluding certain keys. Including will only include the keys passed from the request collection.
+Persist variable(s) from the ColdBox request collection into flash scope. Persist the entire request collection or limit the variables to be persisted by providing the keys in a list. "Include" will only try to persist request collection variables with keys in the list. "Exclude" will try to persist the entire request collection except for variables with keys in the list. 
 
 ```javascript
 // persist some variables that can be reinflated into the RC upon relocation
@@ -165,7 +165,7 @@ flash.persistRC(include="email,addressData",savenow=true);
 any put(string name, any value, [boolean saveNow='false'], [boolean keep='true'], [boolean inflateToRC=FROMConfig], [boolean inflateToPRC=FROMConfig], [boolean autoPurge=FROMConfig)
 ```
 
-This is the main method to place data into the flash scope. You can optionally use the arguments to save the flash immediately, inflate to RC or PRC on the next request and if the data should be auto purged for you. You can also use the configuration settings to have a consistent flash experience, but you can most certainly override the defaults. By default all variables placed in flash RAM are automatically purged in the next request once they are inflated UNLESS you use the keep\(\) methods in order to persist them longer or create flows. However, you can also use the autoPurge argument and set it to false so you can control when the variables will be removed from flash RAM. Basically a glorified ColdFusion scope that you can use.
+The main method to place data into the flash scope. Optional arguments control whether to save the flash immediately, inflate to RC or PRC on the next request, and if the data should be auto-purged. You can also use the configuration settings to have a consistent flash experience, but you can most certainly override the defaults. By default all variables placed in flash RAM are automatically purged in the next request once they are inflated UNLESS you use the keep\(\) methods in order to persist them longer or create flows. However, you can also use the autoPurge argument and set it to false so you can control when the variables will be removed from flash RAM. Basically a glorified ColdFusion scope that you can use.
 
 ```javascript
 // persist some variables that can be reinflated into the RC upon relocation
@@ -189,7 +189,7 @@ flash.put(name="userData",value=userWizard,autoPurge=false);
 any putAll(struct map, [boolean saveNow='false'], [boolean keep='true'], [boolean inflateToRC='[runtime expression]'], [boolean inflateToPRC='[runtime expression]'], [boolean autoPurge='[runtime expression]'])
 ```
 
-Same as the put\(\) method but instead you pass in an entire structure of name-value pairs into the flash scope.
+Pass an entire structure of name-value pairs into the flash scope (similar to the put\(\) method).
 
 ```javascript
 var map = {
@@ -213,7 +213,7 @@ if( flash.get("loggedIn") ){
 any remove(string name, [boolean saveNow='false'])
 ```
 
-Remove an object from the temporary flash scope so when the flash scope is serialized it will not be serialized. If you would like to remove a key from the flash scope and make sure your changes are reflected in the persistence storage immediately, use the saveNow argument.
+Remove an object from the temporary flash scope so it will not be included when the flash scope is serialized. To remove a key from the flash scope and make sure your changes are effective in the persistence storage immediately, use the saveNow argument.
 
 ```javascript
 // mark object for removal
@@ -229,7 +229,7 @@ Remove the entire flash storage. We recommend using the clearing methods instead
 
 ### saveFlash\(\)
 
-Save the flash storage immediately. This process looks at the temporary request flash scope and serializes if it needs to and persists to the correct flash storage on demand.
+Save the flash storage immediately. This process looks at the temporary request flash scope, serializes it if needed, and persists to the correct flash storage on demand.
 
 > **Info** We would advice to not overuse this method as some storage scopes might have delays and serializations
 
@@ -239,7 +239,7 @@ flash.saveFlash();
 
 ### size\(\)
 
-Get the number of the items in flash scope
+Get the number of the items in flash scope.
 
 ```javascript
 You have #flash.size()# items in your cart!
