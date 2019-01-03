@@ -33,12 +33,19 @@ The arguments received by these interceptors are:
 * `rc` : The **RC** reference
 * `prc` : The **PRC** Reference
 
+Here are a few options for altering the default event execution:
+
+* Use `event.overrideEvent('myHandler.myAction')` to execute a different event than the default.
+* Use `event.noExecution()` to halt execution of the current event
+
+See the [RequestContext](https://apidocs.ortussolutions.com/coldbox/5.0.0/coldbox/system/web/context/RequestContext.html) documentation for more details.
+
 ## Exceptions & Only Lists
 
 You can fine tune these interception methods by leveraging two public properties in the handler:
 
-* `this.prehandler_only` : A list of actions that the `preHandler()` action will fire ONLY!
-* `this.prehandler_except` : A list of actions that the `preHandler()` action will NOT fire on
+* `this.prehandler_only` : A list of actions that `preHandler()` will ONLY fire on
+* `this.prehandler_except` : A list of actions that `preHandler()` will NOT fire on
 
 ```javascript
 // only fire for the actions: save(), delete()
