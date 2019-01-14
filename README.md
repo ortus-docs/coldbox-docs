@@ -8,7 +8,7 @@
   \____\___/|_|\__,_|____/ \___/_/\_\
 ```
 
-## ColdBox Manual - v5.x.x
+## ColdBox Manual - v5.x
 
 ![ColdBox Platform](.gitbook/assets/coldboxlogo2015_300.png)
 

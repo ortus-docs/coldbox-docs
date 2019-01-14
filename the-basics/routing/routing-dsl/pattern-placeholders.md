@@ -1,6 +1,6 @@
 # Pattern Placeholders
 
-### Alphanumeric Placeholders
+## Alphanumeric Placeholders
 
 In your URL pattern you can also use the `:` syntax to denote a **variable placeholder**. These position holders are **alphanumeric** by default:
 
@@ -16,9 +16,9 @@ http://localhost/blog/2012/12-> rc.year=2012, rc.month=12
 http://localhost/blog/2012-> rc.year=2012
 ```
 
-### Optional Placeholders
+## Optional Placeholders
 
-Sometimes we will want to declare routes that are very similar in nature and since order matters, they need to be delcared in the right order.  Like this one:
+Sometimes we will want to declare routes that are very similar in nature and since order matters, they need to be delcared in the right order. Like this one:
 
 ```java
 route( "/blog/:year-numeric/:month-numeric/:day-numeric" );
@@ -37,7 +37,7 @@ route( "/blog/:year-numeric?/:month-numeric?/:day-numeric?" );
 **Caution** Just remember that an optional placeholder cannot be followed by a non-optional one. It doesn't make sense.
 {% endhint %}
 
-### Numeric Placeholders
+## Numeric Placeholders
 
 ColdBox gives you also the ability to declare numerical only routes by appending `-numeric` to the variable placeholder so the route will only match if the placeholder is **numeric**. Let's modify the route from above.
 
@@ -47,7 +47,7 @@ route( "blog/:year-numeric/:month-numeric?/:day-numeric?", "blog.index" );
 
 This route will only accept years, months and days as numbers.
 
-### Alpha Placeholders
+## Alpha Placeholders
 
 ColdBox gives you also the ability to declare alpha only routes by appending `-alpha` to the variable placeholder so the route will only match if the placeholder is `alpha` only.
 
@@ -59,7 +59,7 @@ This route will only accept page names that are alpha only.
 
 There are two ways to place a regex constraint on a placeholder, using the `-regex:` placeholder or adding a `constraints` structure to the route declaration.
 
-### Regular Expression Placeholders
+## Regular Expression Placeholders
 
 You can also have the ability to declare a placeholder that must match a regular expression by using the `-regex( {regex_here} )` placeholder.
 
@@ -73,9 +73,9 @@ route(
 
 The `rc` variable `format` must match the regex supplied: `(xml|json)`
 
-### Regular Expression Constraints
+## Regular Expression Constraints
 
-You can also apply a structure of regular expressions to a route instead of inlining the regular expressions in the placeholder location.  You will do this using the `constraints()` method of the router.
+You can also apply a structure of regular expressions to a route instead of inlining the regular expressions in the placeholder location. You will do this using the `constraints()` method of the router.
 
 The **key** in the structure must match the **name** of the placeholder and the **value** is a regex expression that must be enclosed by parenthesis `()`.
 
@@ -89,6 +89,4 @@ route(
     entryID = "([0-9]{4})" 
 } );
 ```
-
-
 

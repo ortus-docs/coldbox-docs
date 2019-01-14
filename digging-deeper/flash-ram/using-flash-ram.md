@@ -126,7 +126,7 @@ Check if the flash scope is empty or not.
 any keep([string keys=''])
 ```
 
-Keep flash temp variable(s) alive for another relocation. Usually called from interceptors or event handlers to create conversations and flows of data from event to event.
+Keep flash temp variable\(s\) alive for another relocation. Usually called from interceptors or event handlers to create conversations and flows of data from event to event.
 
 ```javascript
 function step2(event){
@@ -144,7 +144,7 @@ function step2(event){
 any persistRC([string include=''], [string exclude=''], [boolean saveNow='false'])
 ```
 
-Persist variable(s) from the ColdBox request collection into flash scope. Persist the entire request collection or limit the variables to be persisted by providing the keys in a list. "Include" will only try to persist request collection variables with keys in the list. "Exclude" will try to persist the entire request collection except for variables with keys in the list. 
+Persist variable\(s\) from the ColdBox request collection into flash scope. Persist the entire request collection or limit the variables to be persisted by providing the keys in a list. "Include" will only try to persist request collection variables with keys in the list. "Exclude" will try to persist the entire request collection except for variables with keys in the list.
 
 ```javascript
 // persist some variables that can be reinflated into the RC upon relocation
@@ -189,7 +189,7 @@ flash.put(name="userData",value=userWizard,autoPurge=false);
 any putAll(struct map, [boolean saveNow='false'], [boolean keep='true'], [boolean inflateToRC='[runtime expression]'], [boolean inflateToPRC='[runtime expression]'], [boolean autoPurge='[runtime expression]'])
 ```
 
-Pass an entire structure of name-value pairs into the flash scope (similar to the put\(\) method).
+Pass an entire structure of name-value pairs into the flash scope \(similar to the put\(\) method\).
 
 ```javascript
 var map = {
