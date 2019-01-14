@@ -5,12 +5,6 @@
 ## Intro
 
 * [Introduction](intro/introduction/README.md)
-  * [What's New With 5.1.3](intro/introduction/whats-new-with-5.1.3.md)
-  * [What's New With 5.1.2](intro/introduction/whats-new-with-5.1.2.md)
-  * [What's New With 5.1.1](intro/introduction/whats-new-with-5.1.1.md)
-  * [What's New With 5.1.0](intro/introduction/whats-new-with-5.1.0.md)
-  * [What's New With 5.0.0](intro/introduction/whats-new-with-5.0.0.md)
-  * [Upgrading to ColdBox 5](intro/introduction/upgrading-to-coldbox-5.md)
   * [What's New With 4.3.0](intro/introduction/whats-new-with-4.3.0.md)
   * [What's New With 4.2.0](intro/introduction/whats-new-with-4.2.0.md)
   * [What's New With 4.1.0](intro/introduction/whats-new-with-4.1.0.md)
