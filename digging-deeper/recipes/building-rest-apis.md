@@ -324,7 +324,7 @@ Adding authentication to an API is a common task and while there is no standard 
 
 ### Requiring SSL
 
-To prevent man-in-the-middle attacks or HTTP sniffing, we recommend your API require SSL. \(This assumes you have purchased an SSL Cert and installed it on your server\). When you define you routes, you can add `SSL=true` and ColdBox will only allow those routes to be access securely
+To prevent man-in-the-middle attacks or HTTP sniffing, we recommend your API require SSL. \(This assumes you have purchased an SSL Cert and installed it on your server\). When you define your routes, you can add `SSL=true` and ColdBox will only allow those routes to be access securely
 
 ```javascript
 // Secure Route
