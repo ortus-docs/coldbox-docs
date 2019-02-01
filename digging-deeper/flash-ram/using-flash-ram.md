@@ -87,7 +87,7 @@ cardID = flash.get("cardID");
 <div class="notice">#flash.get("notice","")#</div>
 ```
 
-### getKey\(\)
+### getKeys\(\)
 
 Get a list of all the objects in the temp flash scope.
 
