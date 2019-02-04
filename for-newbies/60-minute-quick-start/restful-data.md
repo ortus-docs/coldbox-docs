@@ -83,10 +83,23 @@ http://localhost:{port}/contacts/index.pdf
 Let's add a new route to our system that is more RESTFul than `/contacts/index.json`. You will do so by leveraging the application's router found at `config/Router.cfc`. Find the `configure()` method and let's add a new route:
 
 ```java
-route( pattern="/api/contacts", target="contacts.index", name="api.contacts" );
+
+// Restuful Route
+route( 
+    pattern="/api/contacts",
+    target="contacts.index",
+    name="api.contacts"
+);
+
+// Default Route
+route( ":handler/:action?" ).end();
 ```
 
 The `route()` method allows you to register new URL patterns in your application and immediately route them to a target event. You can even give it a human readable name that can be later referenced in the `buildLink()` method.
+
+{% hint style="danger" %}
+Make sure you add routes above the default ColdBox route. If not, your route will never fire.
+{% endhint %}
 
 We have now created a new URL route called `/api/contacts` that if detected will execute the `contacts.index` event. Now reinit the application, why, well we changed the application router and we need the changes to take effect.
 
