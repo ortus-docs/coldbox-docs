@@ -6,7 +6,7 @@ The ColdBox Proxy also has the ability to use the request context's `renderData(
 
 ```javascript
 function list(event,rc,prc){
-    prc.data = userService.list();
+    prc.users = userService.list();
     event.renderData( data=prc.users, formats="xml,json,html" );
 }
 ```
