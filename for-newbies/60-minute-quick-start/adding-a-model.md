@@ -120,6 +120,11 @@ Open the `contacts/index.cfm` and add the following to the view:
 </cfoutput>
 ```
 
+{% hint style="warning" %}
+You need to restart the application to see the changes. Whenever you edit a model, a server restart will be needed. You can achieve it using the command `server restart` via CommandBox. Please check out the API Docs to discover CommandBox:
+[https://apidocs.ortussolutions.com/commandbox/4.5.0/index.html]
+{% endhint %}
+
 That's it! Execute the event: `http://localhost:{port}/contacts/index` and view the nice table of contacts being presented to you.
 
 Congratulations, you have made a complete **MVC** circle!
