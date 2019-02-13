@@ -13,5 +13,5 @@ modules = {
 };
 ```
 
-> **Danger** Please be very careful when using the `autoReload` flag as module routing can be impaird and thread consistency will also suffer. This is PURELY a development flag that you can use at your own risk.
+> **Danger** Please be very careful when using the `autoReload` flag as module routing can be impaired and thread consistency will also suffer. This is PURELY a development flag that you can use at your own risk.
 
