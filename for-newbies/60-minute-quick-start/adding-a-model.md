@@ -121,7 +121,7 @@ Open the `contacts/index.cfm` and add the following to the view:
 ```
 
 {% hint style="warning" %}
-You need to restart the application to see the changes. Whenever you edit a model, a server restart will be needed. You can achieve it using the command `server restart` via CommandBox. Please check out the API Docs to discover CommandBox:
+Note: If your models are `singletons`, they will persist for the life-span of your ColdFusion application. To see code changes for singletons, you have to reinit the framework by using the `?fwreinit={password}` Url action or via CommandBox using `coldbox reinit`. Please check out the API Docs to discover CommandBox: 
 [https://apidocs.ortussolutions.com/commandbox/4.5.0/index.html]
 {% endhint %}
 
