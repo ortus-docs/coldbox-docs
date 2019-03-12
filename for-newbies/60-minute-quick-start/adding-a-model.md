@@ -121,8 +121,7 @@ Open the `contacts/index.cfm` and add the following to the view:
 ```
 
 {% hint style="warning" %}
-Note: If your models are `singletons`, they will persist for the life-span of your ColdFusion application. To see code changes for singletons, you have to reinit the framework by using the `?fwreinit={password}` Url action or via CommandBox using `coldbox reinit`. Please check out the API Docs to discover CommandBox: 
-[https://apidocs.ortussolutions.com/commandbox/4.5.0/index.html]
+Note: If your models are `singletons`, they will persist for the life-span of your ColdFusion application. To see code changes for singletons, you have to reinit the framework by using the `?fwreinit={password}` Url action or via CommandBox using `coldbox reinit`. Please check out the API Docs to discover CommandBox: \[[https://apidocs.ortussolutions.com/commandbox/4.5.0/index.html](https://apidocs.ortussolutions.com/commandbox/4.5.0/index.html)\]
 {% endhint %}
 
 That's it! Execute the event: `http://localhost:{port}/contacts/index` and view the nice table of contacts being presented to you.

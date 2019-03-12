@@ -318,6 +318,24 @@ function showEntry( event, rc, prc ) cache="true" cacheTimeout="60" cacheLastAcc
 
 Data is stored in CacheBox's `template` cache. You can configure this cache to store its contents anywhere including a Couchbase cluster!
 
+## Auto-Deserialization of JSON Payloads
+
+If you are working with any modern JavaScript framework, this feature is for you. ColdBox on any incoming request will inspect the HTTP Body content and if the payload is JSON, it can deserialize it for you and if it is a structure/JS object, it will append itself to the request collection for you. So if we have the following incoming payload:
+
+```javascript
+{
+    "name" : "Jon Clausen",
+    "type" : "awesomeness",
+    "data" : [ 1,2,3 ]
+}
+```
+
+The request collection will have 3 keys for **name**, **type** and **data** according to their native CFML type.
+
+{% hint style="warning" %}
+Because of some issues with backwards compatibility you have to **enable** this feature in your Coldbox config: `coldbox.jsonPayloadToRC = true`
+{% endhint %}
+
 ## Security
 
 Adding authentication to an API is a common task and while there is no standard for REST, ColdBox supports just about anything you might need.
