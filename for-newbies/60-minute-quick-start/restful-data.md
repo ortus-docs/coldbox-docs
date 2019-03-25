@@ -26,7 +26,7 @@ If you want your incoming JSON requestbody to be handled the same as FORM and UR
 
 ## renderData\(\)
 
-The request context object has a special function called `renderData()` that can take any type of data and marshall it for you to other formats like `xml, json, wddx, pdf, text, html` or your own type.
+The request context object has a special function called `renderData()` that can take any type of data and marshall it for you to other formats like `xml, json, wddx, pdf, text, html, cfm` or your own type.
 
 {% hint style="success" %}
 **Tip**: You can find more information at the API Docs for `renderData()` here [http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html\#renderData\(](http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html#renderData%28)\)
@@ -39,7 +39,7 @@ So let's open the `handlers/contacts.cfc` and add to our current code:
 ```javascript
 any function index( event, rc, prc ){
     prc.aContacts = contactService.getAll();    
-    event.renderData( data=prc.aContacts, formats="xml,json,pdf,html" );
+    event.renderData( data=prc.aContacts, formats="xml,json,pdf,html,cfm" );
 }
 ```
 {% endcode-tabs-item %}
@@ -48,10 +48,10 @@ any function index( event, rc, prc ){
 We have added the following line:
 
 ```javascript
-event.renderData( data=prc.aContacts, formats="xml,json,pdf,html" );
+event.renderData( data=prc.aContacts, formats="xml,json,pdf,html,cfm" );
 ```
 
-This tells ColdBox to render the contacts data in 4 formats: xml, json, pdf and html. WOW! So how would you trigger each format? Via the URL of course.
+This tells ColdBox to render the contacts data in 5 formats: xml, json, pdf and html cfm. WOW! So how would you trigger each format? Via the URL of course.
 
 ## Format Detection
 
