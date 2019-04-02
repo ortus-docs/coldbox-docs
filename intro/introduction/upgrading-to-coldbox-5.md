@@ -125,7 +125,7 @@ Ticket Reference: [https://ortussolutions.atlassian.net/browse/COLDBOX-697](http
 
 ### appendToBuffer\(\) Dropped
 
-The string buffer has been updated in order to become thread safe and there are several methods that have been depricated. Instead of using `appendToBuffer()` you need to use the `buffer` argument.
+The string buffer has been updated in order to become thread safe and there are several methods that have been deprecated. Instead of using `appendToBuffer()` you need to use the `buffer` argument.
 
 **Previous**
 
