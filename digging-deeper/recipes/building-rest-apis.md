@@ -4,7 +4,7 @@
 
 REST APIs are a popular and easy way to add HTTP endpoints to your web applications to act as web services for third parties or even other internal systems. REST is simpler and requires less verbosity and overhead than other protocols such as SOAP or XML-RPC.
 
-Creating a fully-featured REST API is easy with the ColdBox Platform. Everything you need for creating routes, massaging data, and enforcing security comes out of the box. We even have an application template just for REST, so you can use CommandBox to create your first RESTFul app:
+Creating a fully-featured REST API is easy with the **ColdBox Platform**. Everything you need for creating routes, working with headers, basic auth, massaging data, and enforcing security comes out of the box. We even have several application templates just for REST, so you can use CommandBox to create your first RESTFul app:
 
 ```bash
 ## create app
@@ -25,6 +25,10 @@ You will then see the following JSON output:
 }
 ```
 
+{% hint style="info" %}
+The `rest` template is a basic REST template that does not rely on modules or versioning.  If you would like to add versioning and HMVC modularity use the `rest-hmvc` template.  You can also find a full demo here: [https://github.com/lmajano/hmvc-presso-demo](https://github.com/lmajano/hmvc-presso-demo)
+{% endhint %}
+
 ## Quick Reference Card
 
 Below you can download our quick reference card on RESTFul APIs
@@ -37,21 +41,19 @@ REST stands for **Representational State Transfer** and builds upon the basic id
 
 As far as how your data is formatted or how you implement security is left up to you. REST is less prescriptive than other standards such as SOAP \(which uses tons of heavy XML and strictly-typed parameters\). This makes it more natural to understand and easier to test and debug.
 
-To use REST in ColdBox ensure you have the SES interceptor enabled \(Which is enabled by default for all applications\). Make sure the following interceptor is defined in your `/config/ColdBox.cfc` configuration file.
-
-```javascript
-interceptors = [
-  {class="coldbox.system.interceptors.SES"}
-];
-```
-
 ## Defining Resources
 
-A REST API can define its resources on its own domain \(`http://api.example.com`\), or after a static placeholder that differentiates it from the rest of the app \(`http://www.example.com/api/`\). We'll use the latter for these examples.
+A REST API can define its resources on its own domain \(`https://api.example.com`\), or after a static placeholder that differentiates it from the rest of the app \(`https://www.example.com/api/`\). We'll use the latter for these examples.
+
+{% hint style="info" %}
+Please note that we have an extensive [Routing mechanism](../../the-basics/routing/). Please check out our [routing sections](../../the-basics/routing/routing-dsl/) of the docs.
+{% endhint %}
 
 Let's consider a resource we need to represent called `user`. Resources should usually be nouns. If you have a verb in your URL, you're probably doing it wrong.
 
-> **Hint** It is also important to note that REST is a style of URL architecture not a mandate, so it is an open avenue of sorts. However, you must stay true to its concepts of resources and usage of the HTTP verbs.
+{% hint style="success" %}
+**Hint** It is also important to note that REST is a style of URL architecture not a mandate, so it is an open avenue of sorts. However, you must stay true to its concepts of resources and usage of the HTTP verbs.
+{% endhint %}
 
 Here are a few pointers when using the HTTP verbs:
 
@@ -65,7 +67,9 @@ http://www.example.com/api/user
 * `PUT /api/user/53` will update user 53
 * `DELETE /api/user/53` will delete user 53
 
-> **Info** GET, PUT, and DELETE methods should be idempotent which means repeated requests to the same URI don't do anything. Repeated POST calls however, would create multiple users.
+{% hint style="info" %}
+ GET, PUT, and DELETE methods should be **idempotent** which means repeated requests to the same URI don't do anything. Repeated POST calls however, would create multiple users.
+{% endhint %}
 
 In ColdBox, the easiest way to represent our `/api/user` resource is to create a handler called `user.cfc` in the `/handlers/api/` directory. In this instance, ColdBox will consider the `api` to be a handler package. You can leverage CommandBox for this:
 
@@ -73,7 +77,9 @@ In ColdBox, the easiest way to represent our `/api/user` resource is to create a
 coldbox create handler name=api.user actions=index,view,save,remove
 ```
 
-> **Hint** This command will create all the necessary files for you and even the integration tests for you.
+{% hint style="success" %}
+**Hint** This command will create all the necessary files for you and even the integration tests for you.
+{% endhint %}
 
 Here in my handler, I have stubbed out actions for each of the operations I need to perform against my user resource.
 
@@ -105,35 +111,44 @@ component {
 
 Now that we have this skeleton in place to represent our user resource, let's move on show how you can have full control of the URL as well as mapping HTTP verbs to specific handler actions.
 
-The default route for our `user.cfc` handler is `/api/user`, but what if we want the resource in the URL to be completely different than the handler name convention? To do this, use the `/config/routes.cfm` file to declare URL routes we want the application to capture and define how to process them.
+The default route for our `user.cfc` handler is `/api/user`, but what if we want the resource in the URL to be completely different than the handler name convention? To do this, use the `/config/Router.cfc.` file to declare URL routes we want the application to capture and define how to process them.  This is your [URL Router](../../the-basics/routing/application-router.md) and it is your best friend!
 
-Let's add the following new routes to our `/config/routes.cfm` file BEFORE the default route.
+{% hint style="success" %}
+Install the `route-visualizer` module to visualize the router graphically.  This is a huuuuge help when building APIs or anything with routes.
+
+`install route-visualizer`
+{% endhint %}
+
+Let's add our new routes BEFORE the default route.  We add them BEFORE because you must declare routes from the most specific to the most generic.  Remember, routes fire in declared order.
 
 ```javascript
 // Map route to specific user.  Different verbs call different actions!
-addRoute(
-  pattern = 'api/user/:userID',
-  handler = 'api.user',
-  action = {
-    GET = 'view',
-    POST = 'save',
-    PUT = 'save',
-    DELETE = 'remove'
-  });
+component{
 
-// map base route to list users
-addRoute(
-  pattern = 'api/user',
-  handler = 'api.user',
-  action = 'index'
-);
+	function configure(){
+		setFullRewrites( true );
+		
+		// User Resource
+		route( "/api/user/:userID" )
+			.withAction( {
+				GET    = 'view',
+				POST   = 'save',
+				PUT    = 'save',
+				DELETE = 'remove'
+			} )
+			.toHandler( "api.user" );
+	        
+		route( ":handler/:action?" ).end();
+	}
+
+}
 ```
 
-You can see if that if action is a string, all HTTP verbs will be mapped there, however a `struct` can also be provided that maps different verbs to different actions. This gives you exact control over how the requests are routed.
+You can see if that if action is a string, all HTTP verbs will be mapped there, however a `struct` can also be provided that maps different verbs to different actions. This gives you exact control over how the requests are routed.  We recommend you check out our [Routing DSL guide](../../the-basics/routing/routing-dsl/) as you can build very expressive and detailed URL patterns.
 
 ### Route Placeholders
 
-The `:userID` part of the route pattern is a placeholder. It matches whatever text is in the URL in that position. The value of the text that is matched will be available to you in the request collection as `rc.userID`. You can get even more specific about what kind of text you want to match in your route pattern.
+The `:userID` part of the [route pattern is a placeholder](../../the-basics/routing/routing-dsl/pattern-placeholders.md). It matches whatever text is in the URL in that position. The value of the text that is matched will be available to you in the request collection as `rc.userID`. You can get even more specific about what kind of text you want to match in your route pattern.
 
 #### Numeric Pattern Matcher
 
@@ -155,7 +170,7 @@ This route will match `page/contactus` but not `page/contact-us3`.
 
 For full control, you can specify your own regex pattern to match parts of the route
 
-`addRoute( pattern = 'api/regex:(user|person)' );`
+`addRoute( pattern = 'api/:resource-regex(user|person)' );`
 
 This route will match `api/user` and `api/person`, but not `/api/contact`
 
@@ -174,20 +189,44 @@ You can also add the common regex `{}` quantifier to restrict how many digits a 
 :page{2,}
 ```
 
-> **Hint** If a route is not matched it will be skipped and the next route will be inspected. If you want to validated parameters and return custom error messages inside your handler, then don't put the validations on the route.
+{% hint style="success" %}
+If a route is not matched it will be skipped and the next route will be inspected. If you want to validated parameters and return custom error messages inside your handler, then don't put the validations on the route.
+{% endhint %}
 
 As you can see, you have many options to craft the URL routes your API will use. Routes can be as long as you need. You can even nest levels for URLs like `/api/users/contact/address/27` which would refer to the address resource inside the contact belonging to a user.
 
 ## Returning Representations \(Data\)
 
-REST does not dictate the format of data you use to represent your data. It can be JSON, XML, WDDX, plain text, or something else of your choosing.
+REST does not dictate the format of data you use to represent your data. It can be JSON, XML, WDDX, plain text, a binary file or something else of your choosing.
+
+### Handler Return Data
+
+The most common way to return data from your handlers is to simply return the data.  This is leveraging the [auto marshalling](../../the-basics/event-handlers/rendering-data.md) capabilities of ColdBox, that will detect the return variables and marshall accordingly:
+
+* `String` =&gt; HTML
+* `Complex` =&gt; JSON
+
+```java
+function index( event, rc, prc ) {
+    // List all users
+    return userService.getUserList();
+}
+
+function 404( event, rc, prc ) {
+    return "<h1>Page not found</h1>";
+}
+```
+
+{% hint style="info" %}
+This approach allows the user to render back any string representation and be able to output any content type they like.
+{% endhint %}
 
 ### renderData\(\)
 
-The most common way to return data from your handler's action is to use the Request Context `renderData()` method. It takes complex data and turns it into a string representation. Here are some of the most common formats supported by `event.renderData()`:
+The next most common way to return data from your handler's action is to use the Request Context `renderData()` method. It takes complex data and turns it into a [string representation](../../the-basics/event-handlers/rendering-data.md). Here are some of the most common formats supported by `event.renderData()`:
 
 * XML
-* JSON
+* JSON/JSONP
 * TEXT
 * WDDX
 * PDF
@@ -218,7 +257,7 @@ function listUsers( event, rc, prc ){
 
 ### Format Detection
 
-Many APIs allow the user to choose the format they want back from the endpoint. ColdBox will inspect the `Accepts` header to determine the right format to use by default.
+Many APIs allow the user to choose the format they want back from the endpoint. ColdBox will inspect the `Accepts` header to determine the right format to use by default or the URI for an extension.
 
 Another way to do this is by appending a file `extension` to the end of the URL:
 
@@ -232,25 +271,11 @@ ColdBox has built-in support for detecting an extension in the URL and will save
 
 ```javascript
 function index( event, rc, prc ) {
-var qUsers = getUserService().getUsers();
-// Correct format auto-detected from the URL
-event.renderData( data=qUsers, formats="json,xml,text" );
+    var qUsers = getUserService().getUsers();
+    // Correct format auto-detected from the URL
+    event.renderData( data=qUsers, formats="json,xml,text" );
 }
 ```
-
-### Handler Return Data
-
-You can also return a string representation of the data directly from the method if you want to manually create it. It is important that you return a string. Complex data can't be sent over HTTP.
-
-In this example, there are no views or layouts in play-- just raw data being returned from our handler.
-
-```javascript
-function index( event, rc, prc ) {
-return 'This is the result of my REST call';
-}
-```
-
-> **Info** This approach allows the user to render back any string representation and be able to output any content type they like.
 
 ### Status Codes
 
@@ -294,15 +319,20 @@ function worldPeace( event, rc, prc ){
 
 ### Caching
 
-One of the great benefits of building your REST API on the ColdBox platform is tapping into great features such as event caching. Event caching allows you to cache the entire response for a resource using the incoming FORM and URL variables as the cache key. To enable event caching, set the following flag to true in your ColdBox config: `Coldbox.cfc`:
+One of the great benefits of building your REST API on the ColdBox platform is tapping into great features such as event caching. Event caching allows you to cache the entire response for a resource using the incoming `FORM` and `URL` variables as the cache key. To enable event caching, set the following flag to true in your ColdBox config: `Coldbox.cfc`:
 
-```text
+{% code-tabs %}
+{% code-tabs-item title="config/ColdBox.cfc" %}
+```java
 coldbox.eventCaching = true;
+
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Next, simply add the `cache=true` annotation to any action you want to be cached. That's it! You can also get fancy, and specify an optional `cacheTimeout` and `cacheLastAccesstimeout` \(in minutes\) to control how long to cache the data.
 
-```text
+```javascript
 // Cache for default timeout
 function showEntry( event, rc, prc ) cache="true" {
     prc.qEntry = getEntryService().getEntry( event.getValue( 'entryID', 0 ) );        
@@ -316,7 +346,9 @@ function showEntry( event, rc, prc ) cache="true" cacheTimeout="60" cacheLastAcc
 }
 ```
 
+{% hint style="info" %}
 Data is stored in CacheBox's `template` cache. You can configure this cache to store its contents anywhere including a Couchbase cluster!
+{% endhint %}
 
 ## Auto-Deserialization of JSON Payloads
 
@@ -342,24 +374,30 @@ Adding authentication to an API is a common task and while there is no standard 
 
 ### Requiring SSL
 
-To prevent man-in-the-middle attacks or HTTP sniffing, we recommend your API require SSL. \(This assumes you have purchased an SSL Cert and installed it on your server\). When you define your routes, you can add `SSL=true` and ColdBox will only allow those routes to be access securely
+To prevent man-in-the-middle attacks or HTTP sniffing, we recommend your API require SSL. \(This assumes you have purchased an SSL Cert and installed it on your server\). When you define your routes, you can add `withSSL()` and ColdBox will only allow those routes to be access securely
 
 ```javascript
 // Secure Route
-addRoute(
-  pattern = 'api/user',
-  handler = 'api.user',
-  action = 'index',
-  SSL = true
-);
-`
+route( "/api/user/:userID" )
+	.withSSL()
+	.withAction( {
+		GET    = 'view',
+		POST   = 'save',
+		PUT    = 'save',
+		DELETE = 'remove'
+	} )
+	.toHandler( "api.user" );
 ```
 
 If your client is capable of handling cookies \(like a web browser\) you can use the session or client scopes to store login details. Generally speaking, your REST API should be stateless, meaning nothing is stored on the server after the request completes. In this scenario, authentication information is passed along with every request. It can be passed in HTTP headers or as part of the request body. How you do this is up to you.
 
+{% hint style="info" %}
+Another approach to force SSL for all routes is to create an [interceptor](../../getting-started/configuration/coldbox.cfc/configuration-directives/interceptors.md) that listens to the request and inspects if ssl is enabled.
+{% endhint %}
+
 ### Basic HTTP Auth
 
-One of the simplest and easiest forms of authentication is Basic HTTP Auth. Note, this is not the most robust or secure method of authentication and most major APIs such as Twitter and FaceBook have all moved away from it. In Basic HTTP Auth, the client sends a header called Authorization that contains a base 64 encoded concatenation of the username and password.
+One of the simplest and easiest forms of authentication is Basic HTTP Auth. Note, this is not the most robust or secure method of authentication and most major APIs such as Twitter and FaceBook have all moved away from it. In Basic HTTP Auth, the client sends a header called `Authorization` that contains a base 64 encoded concatenation of the username and password.
 
 You can easily get the username and password using `event.getHTTPBasicCredentials()`.
 
@@ -374,9 +412,13 @@ function preHandler( event, action, eventArguments ){
 
 ### Custom
 
-The previous example put the security check in a `preHandler()` method which will get automatically run prior to each action in that handler. You can implement a broader solution by tapping into any of the ColdBox interception points such as `preProcess` which is announced at the start of every request. Remember interceptors can include an `eventPattern` annotation to limit what ColdBox events they apply to.
+The previous example put the security check in a `preHandler()` method which will get automatically [run prior to each action in that handler](../../the-basics/event-handlers/interception-methods/pre-advices.md). You can implement a broader solution by tapping into any of the [ColdBox interception](../../getting-started/configuration/coldbox.cfc/configuration-directives/interceptors.md) points such as `preProcess` which is announced at the start of every request. 
 
-In addition to having access to the entire request collection, the event object also has handy methods such as \`event.getHTTPHeader\(\)\`\` to pull specific headers from the HTTP request.
+{% hint style="success" %}
+Remember interceptors can include an `eventPattern` annotation to limit what ColdBox events they apply to.
+{% endhint %}
+
+In addition to having access to the entire request collection, the event object also has handy methods such as `event.getHTTPHeader()` to pull specific headers from the HTTP request.
 
 **/interceptors/APISecurity.cfc**
 
@@ -392,7 +434,7 @@ component{
         // Only Honest Abe can access our API
         if( APIUser != 'Honest Abe' ) {
             // Every one else will get the error response from this event
-            event.overrideEvent('api.general.authFailed');
+            event.overrideEvent( 'api.general.authFailed' );
         }
     }
 }
@@ -400,14 +442,17 @@ component{
 
 Register the interceptor with ColdBox in your `ColdBox.cfc`:
 
-```text
+{% code-tabs %}
+{% code-tabs-item title="config/ColdBox.cfc" %}
+```javascript
 interceptors = [
-  {class="coldbox.system.interceptors.SES"},
-  {class="interceptors.APISecurity"}
+  { class="interceptors.APISecurity" }
 ];
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-As you can see there are many points to apply security to your API. One not covered here would be to tap into WireBox's AOP and place your security checks into an advice that can be bound to whatever API method you need to be secured.
+As you can see there are many points to apply security to your API. One not covered here would be to tap into [WireBox's AOP](https://wirebox.ortusbooks.com/aspect-oriented-programming/aop-intro) and place your security checks into an advice that can be bound to whatever API method you need to be secured.
 
 ### Restricting HTTP Verbs
 
@@ -490,13 +535,17 @@ function onInvalidHTTPMethod( event, rc, prc, faultAction, eventArguments ){
 
 The global exception handler will get called for any runtime errors that happen anywhere in the typical flow of your application. This is like the `onError()` convention but covers the entire application. First, configure the event you want called in the `ColdBox.cfc` config file. The event must have the handler plus action that you want called.
 
-```text
+{% code-tabs %}
+{% code-tabs-item title="config/ColdBox.cfc" %}
+```javascript
 coldbox = {
     ...
     exceptionHandler = "main.onException"
     ...
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Then create that action and put your exception handling code inside. You can choose to do error logging, notifications, or custom output here. You can even run other events.
 
@@ -522,7 +571,7 @@ component {
 
 ColdBox Relax is a set of ReSTful Tools For Lazy Experts. We pride ourselves in helping you \(the developer\) work smarter and ColdBox Relax is a tool to help you document your projects faster. ColdBox Relax provides you with the necessary tools to automagically model, document and test your ReSTful services. One can think of ColdBox Relax as a way to describe ReSTful web services, test ReSTful web services, monitor ReSTful web services and document ReSTful web services–all while you relax!
 
-```text
+```bash
 install relax --saveDev
 ```
 
@@ -530,7 +579,7 @@ install relax --saveDev
 
 To install the examples place them into the models directory in a subdirectory called 'resources' \(as per the Github repo\), then add the following `relax` structure to your `Coldbox.cfc` file:
 
-```text
+```javascript
 relax = {
     // The location of the relaxed APIs, defaults to models.resources
     APILocation = "models.resources",

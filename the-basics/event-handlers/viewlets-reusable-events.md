@@ -15,7 +15,7 @@ What in the world is this? Well, imagine a portal, in which each section of the 
 </div>
 ```
 
-This code just renders out the results of a `runEvent()` method call. Please note that you can pass in arguments to the event using the `eventArguments` argument.  This makes the event act like a method call with arguments to ti.  Remember that all events you call via `runEvent()` will share the same RC/PRC.
+This code just renders out the results of a `runEvent()` method call. Please note that you can pass in arguments to the event using the `eventArguments` argument. This makes the event act like a method call with arguments to ti. Remember that all events you call via `runEvent()` will share the same RC/PRC.
 
 {% hint style="info" %}
 I would suggest you look at [the API docs](https://apidocs.coldbox.org/) to discover all arguments to the `runEvent()` method call.
@@ -27,7 +27,7 @@ I would suggest you look at [the API docs](https://apidocs.coldbox.org/) to disc
 {% code-tabs-item title="viewlets.cfc" %}
 ```javascript
 function userinfo( event, rc, prc, userID=0 ){
-    
+
     // place data in prc and prefix it to avoid collisions
     prc.userinfo_qData = userService.getUserInfo( arguments.userID );
 
