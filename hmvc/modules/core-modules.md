@@ -11,11 +11,9 @@ There are several core modules that are maintained by Ortus Solutions that will 
 
 OWASP AntiSamy Module that provides XSS cleanup operations to ColdBox 4 applications
 
-```
+```text
 install cbantisamy
 ```
-
----
 
 ## `cbcommons` - Common Utilities
 
@@ -30,11 +28,9 @@ A collection of model objects for your using pleasure:
 * QueryHelper
 * Zip
 
-```
+```text
 install cbcommons
 ```
-
----
 
 ## `csrf` - Cross Site Request Forgery
 
@@ -43,11 +39,9 @@ install cbcommons
 
 A module that protects you against CSRF attacks by generating unique FORM/client tokens and providing your ColdBox application with new functions for protection.
 
-```
+```text
 install csrf
 ```
-
----
 
 ## `cbdebugger` - ColdBox Debugger
 
@@ -56,11 +50,9 @@ install csrf
 
 This module will enhance your application with debugger capabilities, a nice debugging panel and much more to make your ColdBox application development nicer, funer and greater! Yes, funer is a word!
 
-```
+```text
 install cbdebugger
 ```
-
----
 
 ## `cbfeeds` - Feeds Support
 
@@ -69,11 +61,9 @@ install cbdebugger
 
 A nice and fancy way to consume and produce RSS, ATOM feeds the ColdBox way!
 
-```
+```text
 install cbfeeds
 ```
-
----
 
 ## `cbi18n` - Localization & Internationalization
 
@@ -82,11 +72,9 @@ install cbfeeds
 
 This module will enhance your ColdBox applications with i18n capabilities, resource bundles and localization.
 
-```
+```text
 install cbi18n
 ```
-
----
 
 ## `cbioc` - Third-Party Dependency Injection
 
@@ -95,11 +83,9 @@ install cbi18n
 
 The ColdBox IOC module allows you to integrate third-party dependency injection and inversion of control frameworks into your ColdBox Applications like Di/1, ColdSpring, etc.
 
-```
+```text
 install cbioc
 ```
-
----
 
 ## `cbjavaloader` - JavaLoader
 
@@ -108,11 +94,9 @@ install cbioc
 
 The CB JavaLoader module will interface with Mark Mandel's JavaLoader to allow you to do a network class loader, compiler and proxy.
 
-```
+```text
 install cbjavaloader
 ```
-
----
 
 ## `cbmailservices` - Mail Services
 
@@ -128,11 +112,9 @@ The ColdBox Mail services module will allow you to send email the OO way in mult
 
 You can easily add your own mail protocols by building upon our standards.
 
-```
+```text
 install cbmailservices
 ```
-
----
 
 ## `cbmessagebox` - MessageBox
 
@@ -141,11 +123,9 @@ install cbmailservices
 
 A nice producer of flash scoped based messages that's skinnable
 
-```
+```text
 install cbmessagebox
 ```
-
----
 
 ## `cborm` - ORM Extensions
 
@@ -154,11 +134,9 @@ install cbmessagebox
 
 This module provides you with several enhancements when interacting with the ColdFusion ORM via Hibernate. It provides you with virtual service layers, active record patterns, criteria and detached criteria queries, entity compositions, populations and so much more to make your ORM life easier!
 
-```
+```text
 install cborm
 ```
-
----
 
 ## `cbsecurity` - Security Engine
 
@@ -167,11 +145,9 @@ install cborm
 
 This module will provide your application with a security rule engine. For more information visit the documentation here: [https://github.com/ColdBox/cbox-security/wiki](https://github.com/ColdBox/cbox-security/wiki)
 
-```
+```text
 install cbsecurity
 ```
-
----
 
 ## `cbsoap` - SOAP Helper
 
@@ -180,11 +156,9 @@ install cbsecurity
 
 A module to help you interact with SOAP web services
 
-```
+```text
 install cbsoap
 ```
-
----
 
 ## `cbstorages` - Persistent Storages
 
@@ -193,11 +167,9 @@ install cbsoap
 
 A collection of model objects to facade and help with native ColdFusion persistence structures.
 
-```
+```text
 install cbstorages
 ```
-
----
 
 ## `cbswagger` - Swagger Support for ColdBox Applications
 
@@ -206,11 +178,9 @@ install cbstorages
 
 This module automatically generates OpenAPI \( fka Swagger \) documentation from your configured application and module routes. This module utilizes the v3.0 OpenAPI Specification
 
-```
+```text
 install cbswagger
 ```
-
----
 
 ## `cbvalidation` - Validation
 
@@ -219,8 +189,7 @@ install cbswagger
 
 ColdBox sports its own server side validation engine so it can provide you with a unified approach to object and form validation.
 
-```
+```text
 install cbvalidation
 ```
-
 

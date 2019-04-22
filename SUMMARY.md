@@ -93,6 +93,7 @@
   * [HTTP Method Security](the-basics/event-handlers/http-method-security.md)
   * [Implicit Methods](the-basics/event-handlers/implicit-methods.md)
   * [Executing Events](the-basics/event-handlers/executing-events.md)
+  * [Executing Routes](the-basics/event-handlers/executing-routes.md)
   * [Viewlets - Reusable Events](the-basics/event-handlers/viewlets-reusable-events.md)
   * [Event Caching](the-basics/event-handlers/event-caching.md)
   * [Validation](the-basics/event-handlers/validation.md)
