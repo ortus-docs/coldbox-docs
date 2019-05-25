@@ -1,3 +1,0 @@
-# Conclusion
-
-As you can see from this guide, constructing ColdBox Interceptors are very easy and powerful. You have a pre-defined structure to use and a very big list of core interception points, but not only that, you can also create your own execution points. This is true power to the developer. The framework does not limit you, it actually creates a very rock solid observer/observable framework for you. So now that you understand what an interceptor is, what are the core interception points, what kind of data they receive, how they are called, how they are stored, and how to use them, you are ready to start coding your own. Godspeed my friend, Happy Intercepting!! 
