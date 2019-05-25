@@ -282,5 +282,4 @@
   * [Dynamic Testing](architecture-concepts/testing-concepts/dynamic-testing.md)
   * [Developer Focus](architecture-concepts/testing-concepts/developer-focus.md)
   * [Testing Vocabulary](architecture-concepts/testing-concepts/testing-vocabulary.md)
-  * [Testing Tools](architecture-concepts/testing-concepts/testing-tools.md)
 

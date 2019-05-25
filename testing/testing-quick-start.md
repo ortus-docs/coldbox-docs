@@ -35,7 +35,6 @@ Under the `integration` tests you will find the test bundles that come with the 
 ```text
 File       1857 Apr 27,2015 11:04:11 helloTest.cfc
 File       3236 Jan 21,2015 16:01:56 MainBDDTest.cfc
-File       4398 Jan 15,2015 14:01:20 MainTest.cfc
 ```
 
 The `helloTest` BDD test bundle can be show below:
@@ -114,7 +113,7 @@ Everything is already pre-wired for you and ready for you to do full life-cycle 
 
 ```javascript
 function echo(event,rc,prc){
-    event.setFunkyView("hello/echo");
+    event.setFunkyView( "hello/echo" );
 }
 ```
 

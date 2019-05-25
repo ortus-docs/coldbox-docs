@@ -6,10 +6,10 @@ We have a Github organization called [coldbox-templates](https://github.com/cold
 
 The `coldbox create app` command has integration to our application templates via the `skeleton` argument. This can be the name of each of the templates in our repositories or you can use the following alternatives:
 
-* Name of template in our organization: `advanced,simple,super-simple,etc`
+* Name of template in our organization: `advanced,simple,super-simple,rest, rest-hmvc, vuejs, etc`
 * A name of a ForgeBox entry: `cbtemplate-advanced-script,cbtemplate-simple`
 * A Github shortcut: `github-username/repo`
-* An HTTP/S URL to a zip file containing a template: \`[http://myapptemplates.com/template.zip](http://myapptemplates.com/template.zip)
+* An HTTP/S URL to a zip file containing a template: [http://myapptemplates.com/template.zip](http://myapptemplates.com/template.zip)
 * A folder containing a template: `/opt/shared/templates/my-template`
 * A zip file containing the template: `/opt/shared/templates/my-template.zip`
 

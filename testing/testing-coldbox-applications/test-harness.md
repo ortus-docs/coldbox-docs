@@ -22,9 +22,9 @@ component{
 
     // APPLICATION CFC PROPERTIES
     this.name                 = "ColdBoxTestingSuite" & hash(getCurrentTemplatePath());
-    this.sessionManagement     = true;
-    this.sessionTimeout     = createTimeSpan( 0, 0, 15, 0 );
-    this.applicationTimeout = createTimeSpan( 0, 0, 15, 0 );
+    this.sessionManagement    = true;
+    this.sessionTimeout       = createTimeSpan( 0, 0, 15, 0 );
+    this.applicationTimeout   = createTimeSpan( 0, 0, 15, 0 );
     this.setClientCookies     = true;
 
     // Create testing mapping
@@ -32,9 +32,18 @@ component{
     // Map back to its root
     rootPath = REReplaceNoCase( this.mappings[ "/tests" ], "tests(\\|/)", "" );
     this.mappings["/root"]   = rootPath;
+    
+    public void function onRequestEnd() { 
+		structDelete( application, "cbController" );
+		structDelete( application, "wirebox" );
+	}
 
 }
 ```
 
 Please note that we provide already a mapping to your root application via `/root`. We would recommend you add any ORM specs here or any other mappings here as well.
+
+{% hint style="success" %}
+**Tip:** Make sure all the same settings and configs from your root `Application.cfc` are replicated in your tests `Application.cfc`
+{% endhint %}
 
