@@ -17,27 +17,34 @@ route(
 
 The first pattern registers and if matched it will execute the **wiki.page** event. The second pattern if matched it will execute the **profile.show** event from the **users** module and register the route with the **userprofile** name.
 
-### Inline Response
+### Inline Responses
 
 You can also pass in a closure or lambda to the target argument and it will be treated as an inline action:
 
 ```java
 route(
     pattern="/echo",
-    response=function( event, rc, prc ){
+    target=function( event, rc, prc ){
         return "hello ColdBox!";
     }
 );
 
 route(
     pattern="/users",
-    response=function( event, rc, prc ){
+    target=function( event, rc, prc ){
         return getInstance( "UserService" ).list();
     }
 );
 ```
 
-To read more about responses please see the [Route Responses](routing-methods.md) section.
+You can also pass just an HTML string with `{rc_var}` replacements for the routed variables place in the request collection
+
+```javascript
+route(
+    "/echo/:name",
+    "<h1>Hello {name} how are you today!</h1>"
+);
+```
 
 ## Routing `to` Events
 
@@ -137,7 +144,23 @@ route( "/users/:id?" )
 
 ## Routing to Responses
 
-The Router allows you to create inline responses via closures/lambdas to incoming URL patterns. You do not need to create handler/actions, you can put the actions inline as responses. Every response closure/lambda accepts three arguments:
+The Router allows you to create inline responses via closures/lambdas or enhanced strings to incoming URL patterns. You do not need to create handler/actions, you can put the actions inline as responses. 
+
+```javascript
+/**
+ * Setup a response for a URL pattern
+ * @body A closure/lambda or enhanced HTML string
+ * @statusCode The status code to send
+ * @statusText The status code to send
+ */
+function toResponse( 
+    required body, 
+    numeric statusCode = 200, 
+    statusText = "Ok" 
+)
+```
+
+If you use a response closure/lambda, they each accepts three arguments:
 
 1. `event` - An object that models and is used to work with the current request \(Request Context\)
 2. `rc` - A struct that contains both `URL/FORM` variables merged together \(unsafe data\)
@@ -167,6 +190,16 @@ route( "/users/:id" )
             "messages" : "Invalid User ID Provided"
         };
     } );
+```
+
+If the response is an HTML string, then you can do `{rc_var}` replacements on the strings as well:
+
+```javascript
+// Routing with enhanced HTML strings
+route( "/users/:id" )
+    .toResponse(
+        "<h1>Welcome back user: {id} how are you today!</h1>"
+    );
 ```
 
 ## Sub-Domain Routing
