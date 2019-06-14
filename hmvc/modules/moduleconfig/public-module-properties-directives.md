@@ -17,6 +17,7 @@ Here is a listing of all public properties that can be defined in a module.
 | **parseParentSettings** | boolean | false | true | If true, ColdBox will merge any settings found in `moduleSettings[ this.modelNamespace ]` in the `config/ColdBox.cfc` file with the module settings, overriding them where the keys are the same.  Otherwise, settings in the module will override the parent configuration. |
 | **aliases** | array | false | \[\] | An array of names that can be used to execute the module instead of only the module folder name |
 | **autoMapModels** | boolean | false | true | Will automatically map all model objects under the models folder in WireBox using `@modulename` as part of the alias. |
+| **autoProcessModels** | boolean | false | false | If false, then all models will not be processed by WireBox metadata to improve performance.  If true, then all object models will be inspected for metadata which can be time consuming. |
 | **cfmapping** | string | false | empty | The ColdFusion mapping that should be registered for you that points to the root of the module. |
 | **disabled** | boolean | false | false | You can manually disable a module from loading and registering |
 | **dependencies** | array | false | \[\] | An array of dependent module names. All dependencies will be registered and activated FIRST before the module declaring them. |
@@ -41,6 +42,7 @@ component{
     this.entryPoint     = "/testing";
     this.inheritEntryPoint = true;
     this.autoMapModels = true;
+    this.autoProcessModels = false;
     this.modelNamespace = "store";
     this.aliases = [ "store", "ecommerce", "shop" ];
     this.cfmapping = "cbstore";
