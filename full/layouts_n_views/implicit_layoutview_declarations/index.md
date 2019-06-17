@@ -1,2 +1,0 @@
-# Implicit Layout/View Declarations
-
