@@ -15,5 +15,5 @@ This is great for intercepting calls, pre/post processing, localized security, l
 | `aroundHandler()` | Executes **around** any request action \(In the same handler CFC\) |
 | `around{action}()` | Executes **around** the `{action}` requested ONLY |
 
-![](https://raw.githubusercontent.com/ortus-docs/coldbox-docs/master/full/images/eventhandler-around.jpg)
+![](/.gitbook/assets/eventhandler-around.jpg)
 

@@ -1,6 +1,6 @@
 # Super Type Usage Methods
 
-![](https://raw.githubusercontent.com/ortus-docs/coldbox-docs/master/full/images/ColdBoxMajorClasses.jpg)
+![](/.gitbook/assets/ColdBoxMajorClasses.jpg)
 
 The super type offers 2 methods for interacting with your model layer:
 

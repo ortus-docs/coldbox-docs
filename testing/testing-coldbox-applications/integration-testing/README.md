@@ -8,7 +8,7 @@ We will begin our adventure with integration testing. Integration testing allows
 
 ### Basics
 
-[![](https://github.com/ortus-docs/coldbox-docs/raw/master/full/images/HandlerToTestRelationship.png)](https://github.com/ortus-docs/coldbox-docs/blob/master/full/images/HandlerToTestRelationship.png)
+[![](https://github.com/ortus-docs/coldbox-docs/raw/master/.gitbook/assets/HandlerToTestRelationship.png)](https://github.com/ortus-docs/coldbox-docs/blob/master/.gitbook/assets/HandlerToTestRelationship.png)
 
 Here are the basics to follow for integration testing:
 

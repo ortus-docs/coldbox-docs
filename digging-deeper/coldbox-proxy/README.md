@@ -1,6 +1,6 @@
 # ColdBox Proxy
 
-![](https://raw.githubusercontent.com/ortus-docs/coldbox-docs/master/full/images/ColdBoxProxy.png)
+![](/.gitbook/assets/ColdBoxProxy.png)
 
 The ColdBox proxy enables remote applications or technologies like Flex, AIR, SOAP WebServices, Event Gateways, ColdFusion RESTful Webservices to communicate with ColdBox and provide an event driven model framework for those applications or for it to act as an enhanced service layer.
 

@@ -1,6 +1,6 @@
 # Data Layers
 
-![](https://raw.githubusercontent.com/ortus-docs/coldbox-docs/master/full/images/MVC%2Bobjects.png)
+![](/.gitbook/assets/MVC%2Bobjects.png)
 
 If I know that my database operations will get very complex or I want to further add separation of concerns, I could add a third class to the mix: `BookGateway.cfc` or `BookDAO.cfc` that could act as my data gateway object.
 
