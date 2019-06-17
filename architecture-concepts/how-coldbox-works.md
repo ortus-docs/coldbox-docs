@@ -6,7 +6,7 @@ ColdBox uses both implicit and explicit invocation methods to execute events and
 
 ## Front Controller
 
-![](/.gitbook/assets/ColdBoxSimpleMVC.png)
+![](/.gitbook/assets/coldboxsimplemvc.png)
 
 ColdBox is loaded by the `Application.cfc` and makes use of the Front Controller design pattern as its means of operation. This means that every request comes in through a single template, usually `index.cfm`. Once a request is received by the framework through this front controller, it will parse the request and redirect appropriately to the correct event handler controller by looking for an `event` variable in the URL or FORM scopes.
 
