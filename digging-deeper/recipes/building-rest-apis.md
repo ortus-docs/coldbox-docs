@@ -282,7 +282,8 @@ function index( event, rc, prc ) {
 Status codes are a core concept in HTTP and REST APIs use them to send messages back to the client. Here are a few sample REST status codes and messages.
 
 * `200` - OK - Everything is hunky-dory
-* `202` - Created - The resource was created successfully
+* `201` - Created - The resource was created successfully
+* `202` - Accepted - A 202 response is typically used for actions that take a long while to process.  It indicates that the request has been accepted for processing, but the processing has not been completed
 * `400` - Bad Request - The server couldn't figure out what the client was sending it
 * `401` - Unauthorized - The client isn't authorized to access this resource
 * `404` - Not Found - The resource was not found
