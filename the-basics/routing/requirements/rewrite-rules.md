@@ -50,12 +50,14 @@ include lucee.conf;
 
 ## IIS7 web.config
 
+Please note that URL rewriting is handled by an optional module in IIS.  More info here:  https://www.iis.net/downloads/microsoft/url-rewrite
+
 ```javascript
 <configuration>
     <system.webServer>
         <rewrite>
             <rules>
-               <rule name="Application Adminsitration" stopProcessing="true">
+               <rule name="Application Administration" stopProcessing="true">
                     <match url="^(.*)$" />
                     <conditions logicalGrouping="MatchAll">
                         <add input="{SCRIPT_NAME}" pattern="^/(.*(CFIDE|cfide|CFFormGateway|jrunscripts|lucee|railo-context|fckeditor)).*$" ignoreCase="false" />
