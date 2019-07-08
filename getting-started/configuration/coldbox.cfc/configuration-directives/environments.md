@@ -1,9 +1,11 @@
 # Environments
 
-The configuration CFC has embedded environment control and detection built-in. Environments kan be detected by:  
-- regex matching against cgi.http\_host  
-- detection of an environmental variable called ENVIRONMENT \( Coldbox 5.2 and higher \)  
-- usage of a `detectEnvironment()` function  
+The configuration CFC has embedded environment control and detection built-in. Environments kan be detected by:
+
+* regex matching against cgi.http\_host
+* detection of an environmental variable called ENVIRONMENT \( Coldbox 5.2 and higher \)
+*  usage of a `detectEnvironment()` function
+
 The first option \(regex matching\) is the easiest to use, but not very reliable if you are using multiple hostnames or commandbox for re-initialization.
 
 {% hint style="warning" %}
