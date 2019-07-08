@@ -1,6 +1,6 @@
 # Bugs Cost Money
 
-![](/.gitbook/assets/BugsCostMoney.png)
+![](../../.gitbook/assets/bugscostmoney.png)
 
 > Kaner, Cem; James Bach, Bret Pettichord \(2001\). Lessons Learned in Software Testing: A Context-Driven Approach. Wiley. p. 4. ISBN 0-471-08112-4.
 

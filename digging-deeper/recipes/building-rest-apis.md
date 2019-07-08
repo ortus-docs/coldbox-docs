@@ -26,7 +26,7 @@ You will then see the following JSON output:
 ```
 
 {% hint style="info" %}
-The `rest` template is a basic REST template that does not rely on modules or versioning.  If you would like to add versioning and HMVC modularity use the `rest-hmvc` template.  You can also find a full demo here: [https://github.com/lmajano/hmvc-presso-demo](https://github.com/lmajano/hmvc-presso-demo)
+The `rest` template is a basic REST template that does not rely on modules or versioning. If you would like to add versioning and HMVC modularity use the `rest-hmvc` template. You can also find a full demo here: [https://github.com/lmajano/hmvc-presso-demo](https://github.com/lmajano/hmvc-presso-demo)
 {% endhint %}
 
 ## Quick Reference Card
@@ -68,7 +68,7 @@ http://www.example.com/api/user
 * `DELETE /api/user/53` will delete user 53
 
 {% hint style="info" %}
- GET, PUT, and DELETE methods should be **idempotent** which means repeated requests to the same URI don't do anything. Repeated POST calls however, would create multiple users.
+GET, PUT, and DELETE methods should be **idempotent** which means repeated requests to the same URI don't do anything. Repeated POST calls however, would create multiple users.
 {% endhint %}
 
 In ColdBox, the easiest way to represent our `/api/user` resource is to create a handler called `user.cfc` in the `/handlers/api/` directory. In this instance, ColdBox will consider the `api` to be a handler package. You can leverage CommandBox for this:
@@ -111,40 +111,40 @@ component {
 
 Now that we have this skeleton in place to represent our user resource, let's move on show how you can have full control of the URL as well as mapping HTTP verbs to specific handler actions.
 
-The default route for our `user.cfc` handler is `/api/user`, but what if we want the resource in the URL to be completely different than the handler name convention? To do this, use the `/config/Router.cfc.` file to declare URL routes we want the application to capture and define how to process them.  This is your [URL Router](../../the-basics/routing/application-router.md) and it is your best friend!
+The default route for our `user.cfc` handler is `/api/user`, but what if we want the resource in the URL to be completely different than the handler name convention? To do this, use the `/config/Router.cfc.` file to declare URL routes we want the application to capture and define how to process them. This is your [URL Router](../../the-basics/routing/application-router.md) and it is your best friend!
 
 {% hint style="success" %}
-Install the `route-visualizer` module to visualize the router graphically.  This is a huuuuge help when building APIs or anything with routes.
+Install the `route-visualizer` module to visualize the router graphically. This is a huuuuge help when building APIs or anything with routes.
 
 `install route-visualizer`
 {% endhint %}
 
-Let's add our new routes BEFORE the default route.  We add them BEFORE because you must declare routes from the most specific to the most generic.  Remember, routes fire in declared order.
+Let's add our new routes BEFORE the default route. We add them BEFORE because you must declare routes from the most specific to the most generic. Remember, routes fire in declared order.
 
 ```javascript
 // Map route to specific user.  Different verbs call different actions!
 component{
 
-	function configure(){
-		setFullRewrites( true );
-		
-		// User Resource
-		route( "/api/user/:userID" )
-			.withAction( {
-				GET    = 'view',
-				POST   = 'save',
-				PUT    = 'save',
-				DELETE = 'remove'
-			} )
-			.toHandler( "api.user" );
-	        
-		route( ":handler/:action?" ).end();
-	}
+    function configure(){
+        setFullRewrites( true );
+
+        // User Resource
+        route( "/api/user/:userID" )
+            .withAction( {
+                GET    = 'view',
+                POST   = 'save',
+                PUT    = 'save',
+                DELETE = 'remove'
+            } )
+            .toHandler( "api.user" );
+
+        route( ":handler/:action?" ).end();
+    }
 
 }
 ```
 
-You can see if that if action is a string, all HTTP verbs will be mapped there, however a `struct` can also be provided that maps different verbs to different actions. This gives you exact control over how the requests are routed.  We recommend you check out our [Routing DSL guide](../../the-basics/routing/routing-dsl/) as you can build very expressive and detailed URL patterns.
+You can see if that if action is a string, all HTTP verbs will be mapped there, however a `struct` can also be provided that maps different verbs to different actions. This gives you exact control over how the requests are routed. We recommend you check out our [Routing DSL guide](../../the-basics/routing/routing-dsl/) as you can build very expressive and detailed URL patterns.
 
 ### Route Placeholders
 
@@ -201,7 +201,7 @@ REST does not dictate the format of data you use to represent your data. It can 
 
 ### Handler Return Data
 
-The most common way to return data from your handlers is to simply return the data.  This is leveraging the [auto marshalling](../../the-basics/event-handlers/rendering-data.md) capabilities of ColdBox, that will detect the return variables and marshall accordingly:
+The most common way to return data from your handlers is to simply return the data. This is leveraging the [auto marshalling](../../the-basics/event-handlers/rendering-data.md) capabilities of ColdBox, that will detect the return variables and marshall accordingly:
 
 * `String` =&gt; HTML
 * `Complex` =&gt; JSON
@@ -326,7 +326,6 @@ One of the great benefits of building your REST API on the ColdBox platform is t
 {% code-tabs-item title="config/ColdBox.cfc" %}
 ```java
 coldbox.eventCaching = true;
-
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
@@ -380,14 +379,14 @@ To prevent man-in-the-middle attacks or HTTP sniffing, we recommend your API req
 ```javascript
 // Secure Route
 route( "/api/user/:userID" )
-	.withSSL()
-	.withAction( {
-		GET    = 'view',
-		POST   = 'save',
-		PUT    = 'save',
-		DELETE = 'remove'
-	} )
-	.toHandler( "api.user" );
+    .withSSL()
+    .withAction( {
+        GET    = 'view',
+        POST   = 'save',
+        PUT    = 'save',
+        DELETE = 'remove'
+    } )
+    .toHandler( "api.user" );
 ```
 
 If your client is capable of handling cookies \(like a web browser\) you can use the session or client scopes to store login details. Generally speaking, your REST API should be stateless, meaning nothing is stored on the server after the request completes. In this scenario, authentication information is passed along with every request. It can be passed in HTTP headers or as part of the request body. How you do this is up to you.
@@ -413,7 +412,7 @@ function preHandler( event, action, eventArguments ){
 
 ### Custom
 
-The previous example put the security check in a `preHandler()` method which will get automatically [run prior to each action in that handler](../../the-basics/event-handlers/interception-methods/pre-advices.md). You can implement a broader solution by tapping into any of the [ColdBox interception](../../getting-started/configuration/coldbox.cfc/configuration-directives/interceptors.md) points such as `preProcess` which is announced at the start of every request. 
+The previous example put the security check in a `preHandler()` method which will get automatically [run prior to each action in that handler](../../the-basics/event-handlers/interception-methods/pre-advices.md). You can implement a broader solution by tapping into any of the [ColdBox interception](../../getting-started/configuration/coldbox.cfc/configuration-directives/interceptors.md) points such as `preProcess` which is announced at the start of every request.
 
 {% hint style="success" %}
 Remember interceptors can include an `eventPattern` annotation to limit what ColdBox events they apply to.
@@ -595,5 +594,5 @@ You can then visit `http://[yourhost]/relax` to view Relax.
 
 You can read more about Relax on the Official Relax Doc page \([http://www.ortussolutions.com/products/relax](http://www.ortussolutions.com/products/relax)\) or at it's repository: [https://github.com/coldbox/coldbox-relax](https://github.com/coldbox/coldbox-relax)
 
- Ref Card - [https://github.com/ColdBox/cbox-refcards/raw/master/ColdBox REST APIs/ColdBox-REST-APIs-Refcard.pdf](https://github.com/ColdBox/cbox-refcards/raw/master/ColdBox%20REST%20APIs/ColdBox-REST-APIs-Refcard.pdf)
+Ref Card - [https://github.com/ColdBox/cbox-refcards/raw/master/ColdBox REST APIs/ColdBox-REST-APIs-Refcard.pdf](https://github.com/ColdBox/cbox-refcards/raw/master/ColdBox%20REST%20APIs/ColdBox-REST-APIs-Refcard.pdf)
 

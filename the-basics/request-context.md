@@ -1,6 +1,6 @@
 # Request Context
 
-On every request to a ColdBox event, the framework creates an object that models the incoming request. This object is called the **Request Context Object**\(`coldbox.system.web.context.RequestContext`\), it contains the incoming **FORM/REMOTE/URL** variables the client sent in and the object lives in the ColdFusion `request` scope. 
+On every request to a ColdBox event, the framework creates an object that models the incoming request. This object is called the **Request Context Object**\(`coldbox.system.web.context.RequestContext`\), it contains the incoming **FORM/REMOTE/URL** variables the client sent in and the object lives in the ColdFusion `request` scope.
 
 {% hint style="info" %}
 Please visit the latest [API Docs](http://apidocs.ortussolutions.com/coldbox/current) for further information about the request context.
@@ -22,9 +22,7 @@ You can enable `coldbox.jsonPayloadToRC = true` in your coldbox config if you wa
 See releasenotes[ 5.1.0](https://coldbox.ortusbooks.com/intro/introduction/whats-new-with-5.1.0#new-auto-deserialization-of-json-payloads) and [5.1.2](https://coldbox.ortusbooks.com/intro/introduction/whats-new-with-5.1.2#automatic-json-payload-setting) for details.
 {% endhint %}
 
-
-
-You will use this object in the controller and view layer of your application to get/set values, get metadata about the request, generate URLs, transform data for RESTful requests, and so much more.  It is the glue that binds the controller and view layer.  As we progress in the guides, you will progress in mastering the request context.
+You will use this object in the controller and view layer of your application to get/set values, get metadata about the request, generate URLs, transform data for RESTful requests, and so much more. It is the glue that binds the controller and view layer. As we progress in the guides, you will progress in mastering the request context.
 
 ![RC/PRC Data Super Highway](../.gitbook/assets/requestcollectiondatabus.jpg)
 
@@ -32,7 +30,7 @@ You will use this object in the controller and view layer of your application to
 Note that there is no model layer in the diagram. This is on purpose, the model will receive data from the handlers/interceptors directly.
 {% endhint %}
 
-### Most Commonly Used Methods
+## Most Commonly Used Methods
 
 Below you can see a listing of the mostly used methods in the request context object. Please note that when interacting with a collection you usually have an equal **private** collection method.
 
@@ -103,7 +101,7 @@ Some Samples:
 
 Please see the online [API Docs](http://apidocs.ortussolutions.com/coldbox/current) for the latest methods and arguments.
 
-### Request Metadata Methods
+## Request Metadata Methods
 
 * `getCurrentAction()` : Get the current execution action \(method\)
 * `getCurrentEvent()` : Get's the current incoming event, full syntax.

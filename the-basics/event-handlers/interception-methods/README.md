@@ -15,5 +15,5 @@ This is great for intercepting calls, pre/post processing, localized security, l
 | `aroundHandler()` | Executes **around** any request action \(In the same handler CFC\) |
 | `around{action}()` | Executes **around** the `{action}` requested ONLY |
 
-![](/.gitbook/assets/eventhandler-around.jpg)
+![](../../../.gitbook/assets/eventhandler-around.jpg)
 

@@ -73,9 +73,8 @@ CommandBox> start --rewritesEnable
 In a few seconds, a browser window will appear with your running application. This is a full server with access to the web administrator where you can add data sources, mappings, or adjust the server settings. Notice the handy icon added to your system tray as well. The `--rewritesEnable` flag will turn on some basic URL rewriting so we have nice, pretty URLs.
 
 {% hint style="success" %}
-**Tip:** If you are creating an app to run on any other server than the commandbox server, you will need to manually set up URL rewriting.  More info here: [/the-basics/routing/requirements](/the-basics/routing/requirements)
+**Tip:** If you are creating an app to run on any other server than the commandbox server, you will need to manually set up URL rewriting. More info here: [/the-basics/routing/requirements](../the-basics/routing/requirements/)
 {% endhint %}
-
 
 ![Default App Template](../.gitbook/assets/app_template.png)
 

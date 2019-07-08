@@ -20,7 +20,7 @@ Let's do a recap of our conventions for layouts and view locations:
 
 ## ColdBox Renderer
 
-![](/.gitbook/assets/ColdBoxMajorClasses.jpg)
+![](../../.gitbook/assets/coldboxmajorclasses.jpg)
 
 It is imperative to know who does the rendering in ColdBox and that is the **Renderer** class that you can see from our diagram above. As you can tell from the diagram, it includes your layouts and/or views into itself in order to render out content. So by this association and inheritance all layouts and views have some variables and methods at their disposal since they get absorbed into the object. You can visit the [API docs](http://apidocs.ortussolutions.com/coldbox/current) to learn about all the Renderer methods. All of the following property members exist in all layouts and views rendered by the **Renderer**:
 

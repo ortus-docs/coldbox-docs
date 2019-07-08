@@ -6,17 +6,17 @@ ColdBox allows you to integrate with the model layer with easy by leveraging **W
 
 Remember this:
 
-![](/.gitbook/assets/spaghetti.png)
+![](../../.gitbook/assets/spaghetti.png)
 
 Did you get some spine shivers like I just did. WOW! That is the traditional spaghetti coding style. With ColdBox we are now moving into MVC land and focusing on the model layer.
 
-![](/.gitbook/assets/MVC.png)
+![](https://github.com/ortus-docs/coldbox-docs/tree/97b8636ca1e8f4651f1021343c097bb3a7c2e9b9/.gitbook/assets/MVC.png)
 
 However, the model layer can even be subdivided in many layers as well as we will investigate in this section.
 
 ## WireBox
 
-![](/.gitbook/assets/WireBox.png)
+![](../../.gitbook/assets/wirebox.png)
 
 WireBox, is our dependency injection and AOP framework, that will do all the magic of building, wiring objects with dependencies and helping your persist objects in some state \(singletons, transients, request, etc\). The main purpose for model integration is to make developer's development workflow easier! And we all like that Easy button!
 

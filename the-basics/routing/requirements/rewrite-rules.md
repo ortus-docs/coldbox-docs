@@ -50,7 +50,7 @@ include lucee.conf;
 
 ## IIS7 web.config
 
-Please note that URL rewriting is handled by an optional module in IIS.  More info here:  https://www.iis.net/downloads/microsoft/url-rewrite
+Please note that URL rewriting is handled by an optional module in IIS. More info here: [https://www.iis.net/downloads/microsoft/url-rewrite](https://www.iis.net/downloads/microsoft/url-rewrite)
 
 ```javascript
 <configuration>
