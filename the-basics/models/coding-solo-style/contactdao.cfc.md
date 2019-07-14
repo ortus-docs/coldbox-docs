@@ -12,31 +12,23 @@ Then spice it up
 component accessors="true" singleton{
 
     // Dependency Injection
-    property name="dsn" inject="coldbox:datasource:contacts";
+    property name="dsn" inject="coldbox:setting:myDSN"
 
     function init(){
         return this;
     }
 
     query function getAll(){
-        var q = new Query(
-            datasource=dsn.name,
-            sql="SELECT * FROM contacts"
-        );
-        return q.execute().getResult();
+        var sql = "SELECT * FROM contacts";
+        return queryExecute( sql, {}, { datasource: dsn } );
     }
 
     query function getContact(required contactID){
-        var q = new Query(
-            datasource=dsn.name,
-            sql="SELECT * FROM contacts where contactID = :contactID"
-        );
-        q.addParam(
-            name="contactID",
-            value=arguments.contactID,
-            cfsqltype="numeric"
-        );
-        return q.execute().getResult();
+        var params = {
+            contactID: { value: arguments.contactID, cfsqltype: "numeric" }
+        };
+        var sql = "SELECT * FROM contacts where contactID = :contactID";
+        return queryExecute( sql, params, { datasource: dsn } );
     }
 
     ... ALL OTHER METHODS HERE FOR CRUD ....
