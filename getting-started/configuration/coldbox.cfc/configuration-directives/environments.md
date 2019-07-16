@@ -27,6 +27,14 @@ environments = {
 };
 ```
 
+The regex match will also create a global setting called "environment" which you can access and use like this:
+
+```javascript
+if (controller.getSetting('environment') == 'development'){
+    doSomeMajik();
+}
+```
+
 In the above example, I declare a **development** key with a value list of regular expressions. If I am in a host that starts with **cf2016**, this will match and set the environment setting equal to **development**. It will then look for a development method in this CFC and execute it.
 
 ```javascript
