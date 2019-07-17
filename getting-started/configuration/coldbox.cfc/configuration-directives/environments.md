@@ -30,7 +30,7 @@ environments = {
 The regex match will also create a global setting called "environment" which you can access and use like this:
 
 ```javascript
-if (controller.getSetting('environment') == 'development'){
+if ( getSetting('environment') == 'development' ){
     doSomeMajik();
 }
 ```
