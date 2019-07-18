@@ -4,7 +4,7 @@ The configuration CFC has embedded environment control and detection built-in. E
 
 * regex matching against cgi.http\_host
 * detection of an environmental variable called ENVIRONMENT \( Coldbox 5.2 and higher \)
-*  usage of a `detectEnvironment()` function
+* usage of a `detectEnvironment()` function
 
 The first option \(regex matching\) is the easiest to use, but not very reliable if you are using multiple hostnames or commandbox for re-initialization.
 
@@ -55,7 +55,7 @@ function development(){
 
 ## Detection of an environmental variable called ENVIRONMENT
 
-If you are using environmental variables for your different environments, you can specify an environmental variable called ENVIRONMENT and name  it `staging`, `development`, `testing` etcetera, depending on the required environment. As in the regex example, a function named after your environment \(e.g. `staging()` or `development()` \) will be called after your `configure` method. 
+If you are using environmental variables for your different environments, you can specify an environmental variable called ENVIRONMENT and name it `staging`, `development`, `testing` etcetera, depending on the required environment. As in the regex example, a function named after your environment \(e.g. `staging()` or `development()` \) will be called after your `configure` method.
 
 {% hint style="info" %}
 This method is more reliable than relying on cgi.http\_host, since it will never change once configured correctly.
