@@ -78,12 +78,12 @@ interceptors = [
 
 ## Global Invalid Event Handler
 
-The global invalid event handler allows you to configure an event to execute whenever ColdBox detects that the requested event does not exist. This is a great way to present the user with page not found exceptions and 404 error codes. The setting is called `coldbox.onInvalidEvent` and can be set in your configuration `ColdBox.cfc`. The value of the setting is the event that will handle these missing events.
+The global invalid event handler allows you to configure an event to execute whenever ColdBox detects that the requested event does not exist. This is a great way to present the user with page not found exceptions and 404 error codes. The setting is called `coldbox.invalidEventHandler` and can be set in your configuration `ColdBox.cfc`. The value of the setting is the event that will handle these missing events.
 
 ```javascript
 coldbox = {
     ...
-    onInvalidEvent = "main.pageNotFound"
+    invalidEventHandler = "main.pageNotFound"
     ...
 };
 ```
