@@ -37,7 +37,7 @@ Below you can download our quick reference card on RESTFul APIs
 
 ## Introduction To REST
 
-REST stands for **Representational State Transfer** and builds upon the basic idea that data is represented as **resources** and accessed via a **URI**, or unique address. An HTTP client \(such as a browser, or the `CFHTTP` tag\) can send requests to a URI to interact with it. The HTTP verb \(GET, POST, etc\) sent in the header of the request tells the server how the client want to interact with that resource.
+REST stands for **Representational State Transfer** and builds upon the basic idea that data is represented as **resources** and accessed via a **URI**, or unique address. An HTTP client \(such as a browser, or the `CFHTTP` tag\) can send requests to a URI to interact with it. The HTTP verb \(GET, POST, etc\) sent in the header of the request tells the server how the client wants to interact with that resource.
 
 As far as how your data is formatted or how you implement security is left up to you. REST is less prescriptive than other standards such as SOAP \(which uses tons of heavy XML and strictly-typed parameters\). This makes it more natural to understand and easier to test and debug.
 
@@ -109,7 +109,7 @@ component {
 
 ## Defining URL Routes
 
-Now that we have this skeleton in place to represent our user resource, let's move on show how you can have full control of the URL as well as mapping HTTP verbs to specific handler actions.
+Now that we have this skeleton in place to represent our user resource, let's move on to show how you can have full control of the URL as well as mapping HTTP verbs to specific handler actions.
 
 The default route for our `user.cfc` handler is `/api/user`, but what if we want the resource in the URL to be completely different than the handler name convention? To do this, use the `/config/Router.cfc.` file to declare URL routes we want the application to capture and define how to process them. This is your [URL Router](../../the-basics/routing/application-router.md) and it is your best friend!
 
@@ -190,18 +190,18 @@ You can also add the common regex `{}` quantifier to restrict how many digits a 
 ```
 
 {% hint style="success" %}
-If a route is not matched it will be skipped and the next route will be inspected. If you want to validated parameters and return custom error messages inside your handler, then don't put the validations on the route.
+If a route is not matched it will be skipped and the next route will be inspected. If you want to validate parameters and return custom error messages inside your handler, then don't put the validations on the route.
 {% endhint %}
 
 As you can see, you have many options to craft the URL routes your API will use. Routes can be as long as you need. You can even nest levels for URLs like `/api/users/contact/address/27` which would refer to the address resource inside the contact belonging to a user.
 
 ## Returning Representations \(Data\)
 
-REST does not dictate the format of data you use to represent your data. It can be JSON, XML, WDDX, plain text, a binary file or something else of your choosing.
+REST does not dictate the format you use to represent your data. It can be JSON, XML, WDDX, plain text, a binary file or something else of your choosing.
 
 ### Handler Return Data
 
-The most common way to return data from your handlers is to simply return the data. This is leveraging the [auto marshalling](../../the-basics/event-handlers/rendering-data.md) capabilities of ColdBox, that will detect the return variables and marshall accordingly:
+The most common way to return data from your handlers is to simply return it. This leverages the [auto marshalling](../../the-basics/event-handlers/rendering-data.md) capabilities of ColdBox, which will detect the return variables and marshall accordingly:
 
 * `String` =&gt; HTML
 * `Complex` =&gt; JSON
@@ -320,7 +320,7 @@ function worldPeace( event, rc, prc ){
 
 ### Caching
 
-One of the great benefits of building your REST API on the ColdBox platform is tapping into great features such as event caching. Event caching allows you to cache the entire response for a resource using the incoming `FORM` and `URL` variables as the cache key. To enable event caching, set the following flag to true in your ColdBox config: `Coldbox.cfc`:
+One of the great benefits of building your REST API on the ColdBox platform is tapping into awesome features such as event caching. Event caching allows you to cache the entire response for a resource using the incoming `FORM` and `URL` variables as the cache key. To enable event caching, set the following flag to true in your ColdBox config: `Coldbox.cfc`:
 
 {% code-tabs %}
 {% code-tabs-item title="config/ColdBox.cfc" %}
@@ -374,7 +374,7 @@ Adding authentication to an API is a common task and while there is no standard 
 
 ### Requiring SSL
 
-To prevent man-in-the-middle attacks or HTTP sniffing, we recommend your API require SSL. \(This assumes you have purchased an SSL Cert and installed it on your server\). When you define your routes, you can add `withSSL()` and ColdBox will only allow those routes to be access securely
+To prevent man-in-the-middle attacks or HTTP sniffing, we recommend your API require SSL. \(This assumes you have purchased an SSL Cert and installed it on your server\). When you define your routes, you can add `withSSL()` and ColdBox will only allow those routes to be accessed securely
 
 ```javascript
 // Secure Route
@@ -389,7 +389,7 @@ route( "/api/user/:userID" )
     .toHandler( "api.user" );
 ```
 
-If your client is capable of handling cookies \(like a web browser\) you can use the session or client scopes to store login details. Generally speaking, your REST API should be stateless, meaning nothing is stored on the server after the request completes. In this scenario, authentication information is passed along with every request. It can be passed in HTTP headers or as part of the request body. How you do this is up to you.
+If your client is capable of handling cookies \(like a web browser\), you can use the session or client scopes to store login details. Generally speaking, your REST API should be stateless, meaning nothing is stored on the server after the request completes. In this scenario, authentication information is passed along with every request. It can be passed in HTTP headers or as part of the request body. How you do this is up to you.
 
 {% hint style="info" %}
 Another approach to force SSL for all routes is to create an [interceptor](../../getting-started/configuration/coldbox.cfc/configuration-directives/interceptors.md) that listens to the request and inspects if ssl is enabled.
@@ -452,11 +452,11 @@ interceptors = [
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-As you can see there are many points to apply security to your API. One not covered here would be to tap into [WireBox's AOP](https://wirebox.ortusbooks.com/aspect-oriented-programming/aop-intro) and place your security checks into an advice that can be bound to whatever API method you need to be secured.
+As you can see, there are many points to apply security to your API. One not covered here would be to tap into [WireBox's AOP](https://wirebox.ortusbooks.com/aspect-oriented-programming/aop-intro) and place your security checks into an advice that can be bound to whatever API method you need to be secured.
 
 ### Restricting HTTP Verbs
 
-In our route configuration we mapped HTTP verbs to handlers and actions, but what if users try to access resources directly with an invalid HTTP verb? You can easily enforce valid verbs \(methods\) by adding `this.allowedMethods` at the top of your handler. In this handler the `list()` method can only be access via a GET, and the `remove()` method can only be access via POST and DELETE.
+In our route configuration we mapped HTTP verbs to handlers and actions, but what if users try to access resources directly with an invalid HTTP verb? You can easily enforce valid verbs \(methods\) by adding `this.allowedMethods` at the top of your handler. In this handler the `list()` method can only be accessed via a GET, and the `remove()` method can only be accessed via POST and DELETE.
 
 ```javascript
 component{
@@ -567,7 +567,7 @@ component {
 
 ## ColdBox Relax
 
-![](https://github.com/ortus/coldbox-platform-documentation/tree/24d3f3d16693b36ca41bf5ce0329c6ff33316ef0/images/relax.png)
+![](https://www.ortussolutions.com/__media/relax-185-logo.png)
 
 ColdBox Relax is a set of ReSTful Tools For Lazy Experts. We pride ourselves in helping you \(the developer\) work smarter and ColdBox Relax is a tool to help you document your projects faster. ColdBox Relax provides you with the necessary tools to automagically model, document and test your ReSTful services. One can think of ColdBox Relax as a way to describe ReSTful web services, test ReSTful web services, monitor ReSTful web services and document ReSTful web services–all while you relax!
 
