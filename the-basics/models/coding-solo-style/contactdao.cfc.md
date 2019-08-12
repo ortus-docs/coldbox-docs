@@ -20,7 +20,7 @@ component accessors="true" singleton{
 
     query function getAll(){
         var sql = "SELECT * FROM contacts";
-        return queryExecute( sql, {}, { datasource: dsn } );
+        return queryExecute( sql, {}, { datasource: dsn.name } );
     }
 
     query function getContact(required contactID){
@@ -28,7 +28,7 @@ component accessors="true" singleton{
             contactID: { value: arguments.contactID, cfsqltype: "numeric" }
         };
         var sql = "SELECT * FROM contacts where contactID = :contactID";
-        return queryExecute( sql, params, { datasource: dsn } );
+        return queryExecute( sql, params, { datasource: dsn.name } );
     }
 
     ... ALL OTHER METHODS HERE FOR CRUD ....
