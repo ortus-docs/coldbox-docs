@@ -5,8 +5,12 @@ Make sure you register a datasource in your ColdFusion administrator, we called 
 `config/ColdBox.cfc`
 
 ```javascript
-datasources = {
-    contacts = {name="contacts", dbtype="mySQL"}
-};
+// Settings
+settings = {
+    contacts = {
+        type = "mysql",
+        name = "contacts"
+    }
+}
 ```
 
