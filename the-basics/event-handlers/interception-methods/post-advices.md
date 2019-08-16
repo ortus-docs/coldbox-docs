@@ -6,15 +6,15 @@ With this interceptor you can intercept local event actions and execute things *
 
 ```javascript
 // executes after any action
-function postHandler( event, action, eventArguments, rc, prc ){
+function postHandler( event, rc, prc, action, eventArguments ){
 }
 
 // executes after the list() action ONLY
-function postList( event, action, eventArguments, rc, prc ){
+function postList( event, rc, prc, action, eventArguments ){
 }
 
 // concrete examples
-function postHandler( event, action, eventArguments, rc, prc ){
+function postHandler( event, rc, prc, action, eventArguments ){
     log.info("Finalized executing #action#");
 }
 ```
