@@ -51,7 +51,7 @@ resources(
 );
 ```
 
-## ColdBox MVC Release Notes
+## ColdBox Release Notes
 
 ### Bugs
 
