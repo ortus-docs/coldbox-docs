@@ -6,21 +6,21 @@ With this interceptor you can intercept local event actions and execute things *
 
 ```javascript
 // executes before any action
-function preHandler( event, action, eventArguments, rc, prc ){
+function preHandler( event, rc, prc, action, eventArguments ){
 }
 
 // executes before the list() action ONLY
-function preList( event, action, eventArguments, rc, prc ){
+function preList( event, rc, prc, action, eventArguments ){
 }
 
 // concrete example
-function preHandler( event, action, eventArguments, rc, prc ){
+function preHandler( event, rc, prc, action, eventArguments ){
     if( !security.isLoggedIn() ){
         event.overrideEvent( 'security.login' );
         log.info( "Unauthorized accessed detected!", getHTTPRequestData() );
     }
 }
-function preList event, action, eventArguments, rc, prc ){
+function preList( event, rc, prc, action, eventArguments ){
     log.info("Starting executing the list action");
 }
 ```
