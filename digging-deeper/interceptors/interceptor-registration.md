@@ -34,11 +34,11 @@ controller.getInterceptorService()
 controller.getInterceptorService()
     .registerInterceptor( interceptorObject=this, customPoints="onError,onLogin" );
 
-// Register yourself to listen to ONLY the afterInstanceAutowire event
+// Register yourself to listen to the onException event ONLY
 controller.getInterceptorService()
     .registerInterceptionPoint( 
         interceptorKey="MyService", 
-        state="afterInstanceAutowire", 
+        state="onException", 
         oInterceptor=this
      );
 ```
