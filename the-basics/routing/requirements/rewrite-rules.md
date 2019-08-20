@@ -53,6 +53,7 @@ include lucee.conf;
 Please note that URL rewriting is handled by an optional module in IIS. More info here: [https://www.iis.net/downloads/microsoft/url-rewrite](https://www.iis.net/downloads/microsoft/url-rewrite)
 
 ```javascript
+<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <system.webServer>
         <rewrite>
