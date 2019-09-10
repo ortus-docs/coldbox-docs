@@ -44,16 +44,16 @@ For in-depth usage of the `resources()` method, let's investigate the API Signat
 * - `/photos` : `POST` -> `photos.create` Create a new photo
 * - `/photos/:id` : `GET` -> `photos.show` Display a specific photo
 * - `/photos/:id/edit` : `GET` -> `photos.edit` Return an HTML form for editing a photo
-* - `/photos/:id` : `POST/PUT/PATCH` -> `photos.update` Update a specific photo
+* - `/photos/:id` : `PUT/PATCH` -> `photos.update` Update a specific photo
 * - `/photos/:id` : `DELETE` -> `photos.delete` Delete a specific photo
 * 
 * @resource         The name of a single resource or a list of resources or an array of resources
-* @handler         The handler for the route. Defaults to the resource name.
-* @parameterName     The name of the id/parameter for the resource. Defaults to `id`.
+* @handler          The handler for the route. Defaults to the resource name.
+* @parameterName    The name of the id/parameter for the resource. Defaults to `id`.
 * @only             Limit routes created with only this list or array of actions, e.g. "index,show"
-* @except             Exclude routes with an except list or array of actions, e.g. "show"
-* @module             If passed, the module these resources will be attached to.
-* @namespace         If passed, the namespace these resources will be attached to.
+* @except           Exclude routes with an except list or array of actions, e.g. "show"
+* @module           If passed, the module these resources will be attached to.
+* @namespace        If passed, the namespace these resources will be attached to.
 */
 function resources(
   required resource,
