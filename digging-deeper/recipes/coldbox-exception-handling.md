@@ -200,7 +200,7 @@ function onMissingAction(event,rc,prc,missingAction,eventArguments){
 
 ## Handler `onError()`
 
-This approach allows you to intercept at the handler level whenever a runtime exception has ocurred. This is a great approach when creating a family of event handlers and you create a base handler with the `onError()` defined in it. We have found tremendous success with this approach when building ColdBox RESTFul services in order to provide uniformity for all RESTFul handlers.
+This approach allows you to intercept at the handler level whenever a runtime exception has occurred. This is a great approach when creating a family of event handlers and you create a base handler with the `onError()` defined in it. We have found tremendous success with this approach when building ColdBox RESTFul services in order to provide uniformity for all RESTFul handlers.
 
 > _\*Caution_ Please note that this only traps runtime exceptions, compiler exceptions will bubble up to a global exception handler or interceptor.
 
