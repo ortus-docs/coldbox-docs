@@ -201,7 +201,7 @@ REST does not dictate the format you use to represent your data. It can be JSON,
 
 ### Handler Return Data
 
-The most common way to return data from your handlers is to simply return it. This leverages the [auto marshalling](../../the-basics/event-handlers/rendering-data.md) capabilities of ColdBox, which will detect the return variables and marshall accordingly:
+The most common way to return data from your handlers is to simply return it. This leverages the [auto marshalling](../../the-basics/event-handlers/rendering-data.md) capabilities of ColdBox, which will detect the return variables and marshal accordingly:
 
 * `String` =&gt; HTML
 * `Complex` =&gt; JSON
