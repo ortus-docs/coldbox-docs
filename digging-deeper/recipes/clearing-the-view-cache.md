@@ -6,7 +6,7 @@ If you use any of the view partial caching mechanisms in Coldbox either through 
 
 > Is there an easy, programmatic way to remove a specific element from the view cache?
 
-The answer is, of course! All view and event caching occurss in a cache provider called template and you can retrieve it like so from your handlers, layouts, views, plugins and interceptors:
+The answer is, of course! All view and event caching occurs in a cache provider called template and you can retrieve it like so from your handlers, layouts, views, plugins and interceptors:
 
 ```javascript
 var cache = cachebox.getCache("template");
