@@ -1,15 +1,15 @@
 # Event Handlers
 
-Event handlers are ColdBox's version of **controllers** in the MVC design pattern. So every time you hear "_event handler_", you are talking about a controller that can listen to external events or internal events in ColdBox. These event handlers carry the task of controlling your application flow, calling business logic, preparing a display to a user and much more.
+Event handlers are ColdBox's version of **controllers** in the MVC design pattern. So every time you hear "_event handler_", you are talking about a controller that can listen to external events or internal events in ColdBox. Event handlers are responsible for controlling your application flow, calling business logic, preparing a display to a user and much more.
 
 ![](../../.gitbook/assets/controllerlayer.jpg)
 
 ## Locations
 
-All your handlers will go in the **handlers** folder of your application template. If you get to the point where your application needs even more decoupling and separation, please consider building [ColdBox Modules](../../hmvc/modules/) instead.
+All your handlers will be stored in the **handlers** folder of your application template. If you get to the point where your application needs even more decoupling and separation, please consider building [ColdBox Modules](../../hmvc/modules/) instead.
 
 {% hint style="info" %}
-**Tip:** You can create packages or sub-folders inside of the **handlers** directory. This is encouraged on large applications so you can section off or package handlers logically and get better maintenance and URL experience.
+**Tip:** You can create packages or sub-folders inside of the **handlers** directory. This is encouraged on large applications so you can organize or package handlers logically to facilitate better maintenance and URL experience.
 {% endhint %}
 
 ### External Location
@@ -37,7 +37,7 @@ coldbox.handlerCaching = false;
 
 ## Anatomy
 
-Event handlers are CFCs that will respond to FORM posts, HTTP requests and/or remote requests \(like Flex,Air, SOAP, REST\) via an incoming variables called **event** or by [URL mappings](../routing/) \(Which we saw in the previous section\).
+Event handlers are CFCs that will respond to FORM posts, HTTP requests and/or remote requests \(like Flex,Air, SOAP, REST\) via an incoming RC variable called **event** or by [URL mappings](../routing/) \(Which we saw in the previous section\).
 
 ### Components
 
@@ -87,9 +87,9 @@ Each action receives three arguments:
 
 1. `event` - An object that models and is used to work with the current request
 2. `rc` - A struct that contains both `URL/FORM` variables \(unsafe data\)
-3. `prc` - A secondary struct that is **private** only settable from within your application \(safe data\)
+3. `prc` - A secondary struct that is **private**.  This structure is only accessible from within your application \(safe data\)
 
-An action will usually do the following:
+An action will usually do one of the following:
 
 * Set a view/layout to render
 * Return HTML
@@ -122,7 +122,7 @@ So what about `private` functions? Private functions are not executable from the
 
 ### Composed Properties
 
-It is imperative that you realize that there is a great object model behind every event handler controller that will enable you to do your work more efficiently. The following are the composed properties every event handler has in their `variables` scope, you do not need to do anything to retrieve them, they are already there :\)
+It is important to note that there is a pre-defined object model behind every event handler controller that will enable you to do your work more efficiently. The following are the automatically generated properties every event handler makes available in their `variables` scope:\)
 
 ![Event Handler UML](../../.gitbook/assets/eventhandlers.jpg)
 
