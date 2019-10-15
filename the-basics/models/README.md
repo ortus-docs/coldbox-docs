@@ -1,6 +1,6 @@
 # Models
 
-ColdBox allows you to integrate with the model layer with easy by leveraging **WireBox** as your default dependency injection framework. However, you can integrate your model layer with any third-party DI framework via our `cbioc` module \([https://github.com/ColdBox/cbox-ioc](https://github.com/ColdBox/cbox-ioc)\) as well.
+ColdBox allows you to integrate with the model layer easily by leveraging **WireBox** as your default dependency injection framework. However, you can integrate your model layer with any third-party DI framework via our `cbioc` module \([https://github.com/ColdBox/cbox-ioc](https://github.com/ColdBox/cbox-ioc)\) as well.
 
 ## Spaghetti Evolution
 
@@ -12,13 +12,13 @@ Did you get some spine shivers like I just did. WOW! That is the traditional spa
 
 ![](https://github.com/ortus-docs/coldbox-docs/tree/97b8636ca1e8f4651f1021343c097bb3a7c2e9b9/.gitbook/assets/MVC.png)
 
-However, the model layer can even be subdivided in many layers as well as we will investigate in this section.
+However, the model layer can even be subdivided into many layers as well as we will investigate in this section.
 
 ## WireBox
 
 ![](../../.gitbook/assets/wirebox.png)
 
-WireBox, is our dependency injection and AOP framework, that will do all the magic of building, wiring objects with dependencies and helping your persist objects in some state \(singletons, transients, request, etc\). The main purpose for model integration is to make developer's development workflow easier! And we all like that Easy button!
+WireBox, our dependency injection and AOP framework, will do all the magic of building, wiring objects with dependencies and helping you persist objects in some state \(singletons, transients, request, etc\). The main purpose for model integration is to make the developer's development workflow easier! And we all like that Easy button!
 
 ## Benefits
 
