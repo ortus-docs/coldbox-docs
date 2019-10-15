@@ -9,7 +9,7 @@ Please visit the latest [API Docs](http://apidocs.ortussolutions.com/coldbox/cur
 This object contains two structures internally:
 
 1. `RC` - The Request Collection which contains the **FORM/REMOTE/URL** data merged into a single structure.  This is considered to be **unsafe** data as it comes from any request.
-2. `PRC` - The Private Request Collection which is a structure that can be used to safely put data into it.  This structure cannot be modified from the outside world.
+2. `PRC` - The Private Request Collection which is a structure that can be used to safely store sensitive data.  This structure cannot be modified from the outside world.
 
 {% hint style="info" %}
 The order of preference of variables when merged is **FORM** first then **REMOTE** then **URL**.
@@ -19,20 +19,20 @@ The order of preference of variables when merged is **FORM** first then **REMOTE
 
 {% hint style="info" %}
 You can enable `coldbox.jsonPayloadToRC = true` in your coldbox config if you want to merge variables from a JSON request body in the `RC`.  
-See releasenotes[ 5.1.0](https://coldbox.ortusbooks.com/intro/introduction/whats-new-with-5.1.0#new-auto-deserialization-of-json-payloads) and [5.1.2](https://coldbox.ortusbooks.com/intro/introduction/whats-new-with-5.1.2#automatic-json-payload-setting) for details.
+See release notes[ 5.1.0](https://coldbox.ortusbooks.com/intro/introduction/whats-new-with-5.1.0#new-auto-deserialization-of-json-payloads) and [5.1.2](https://coldbox.ortusbooks.com/intro/introduction/whats-new-with-5.1.2#automatic-json-payload-setting) for details.
 {% endhint %}
 
-You will use this object in the controller and view layer of your application to get/set values, get metadata about the request, generate URLs, transform data for RESTful requests, and so much more. It is the glue that binds the controller and view layer. As we progress in the guides, you will progress in mastering the request context.
+You will use these objects in the controller and view layer of your application to get/set values, get metadata about the request, generate URLs, transform data for RESTful requests, and so much more. It is the glue that binds the controller and view layer together. As we progress in the guides, you will progress in mastering the request context.
 
 ![RC/PRC Data Super Highway](../.gitbook/assets/requestcollectiondatabus.jpg)
 
 {% hint style="danger" %}
-Note that there is no model layer in the diagram. This is on purpose, the model will receive data from the handlers/interceptors directly.
+Note that there is no model layer in the diagram. This is by design; the model will receive data from the handlers/interceptors directly.
 {% endhint %}
 
 ## Most Commonly Used Methods
 
-Below you can see a listing of the mostly used methods in the request context object. Please note that when interacting with a collection you usually have an equal **private** collection method.
+Below you can see a listing of the most commonly used methods in the request context object. Please note that when interacting with a collection you usually have an equal **private** collection method.
 
 * _buildLink\(\)_ : Build a link in SES or non SES mode for you with tons of nice abstractions.
 * _clearCollection\(\)_ : Clears the entire collection
