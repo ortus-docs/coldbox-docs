@@ -1,6 +1,6 @@
 # Domain Modeling
 
-The Model layer represents your data structures and business logic. The domain-specific representation of the information that the application operates on. Many applications also use a persistent storage mechanism \(such as a database\) to store and retrieve data. MVC does not specifically mention the data access layer because it is understood to be underneath or encapsulated by the Model Layer. This is the most important part of your application and it is usually modeled by ColdFusion components, CFCs. You can even create the entire model layer in another language or physical location \(Java, web services\).
+The Model layer represents your data structures and business logic. It is the domain-specific representation of the information that the application operates on. Many applications also use a persistent storage mechanism \(such as a database\) to store and retrieve data. MVC does not specifically mention the data access layer because it is understood to be underneath or encapsulated by the Model Layer. This is the most important part of your application and it is usually modeled by ColdFusion components \(CFCs\). You can even create the entire model layer in another language or physical location \(Java, web services\).
 
 All you need to understand is that this layer is the layer that runs the logic show! For the following example, I highly encourage you to also do [UML modeling](http://en.wikipedia.org/wiki/Unified_Modeling_Language), so you can visualize class relationships and design.
 
@@ -32,7 +32,7 @@ install cborm
 this.mappings[ "/cborm" ]     = COLDBOX_APP_ROOT_PATH & "modules/cborm";
 ```
 
-The manual addition of the mapping is needed since the ColdFusion ORM loads before anything in our system, so we must tell it beforehand. We cannot use the ColdBox Module CFMappings unfortunately.
+Unfortunately, we cannot use the ColdBox Module CFMappings to do this because the ColdFusion ORM loads before anything in our system.
 
 ## Validation
 
