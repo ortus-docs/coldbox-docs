@@ -2,8 +2,8 @@
 
 | Interception Point | Intercept Structure | Description |
 | :--- | :--- | :--- |
-| afterConfigurationLoad | --- | This occurs after the framework loads and your applications' configuration file is read and loaded. An important note here is that your application aspects have not been configured yet: bug reports, ioc plugin, validation, logging, and internationalization. |
-| afterAspectsLoad | --- | \(DEPRECATED.  Use modules instead.\) This occurs after the configuration loads and the aspects have been configured. This is a great way to intercept on application start. |
+| afterConfigurationLoad | --- | This occurs after the framework loads and your applications' configuration file is read and loaded. An important note here is that your application aspects have not been configured yet and no modules have been loaded. |
+| afterAspectsLoad | --- | This occurs after the configuration loads and the aspects have been configured. This is a great way to intercept on application start after all modules have loaded. |
 | preReinit | --- | This occurs every time the framework is re-initialized |
 | onException | exception - The _cfcatch_ exception structure | This occurs whenever an exception occurs in the system. This event also produces data you can use to respond to it. |
 | onRequestCapture | --- | This occurs once the FORM/URL variables are merged into the request collection but before any event caching or processing is done in your application. This is a great event to use for incorporating variables into the request collections, altering event caching with custom variables, etc. |
