@@ -1,6 +1,6 @@
 # Module Lifecycle
 
-![](https://github.com/ortus-docs/coldbox-docs/raw/master/.gitbook/assets/ModulesLifecycle.jpg)
+![](https://github.com/ortus-docs/coldbox-docs/blob/v4.x/full/images/ModulesLifecycle.jpg)
 
 However, before we start reviewing the module service methods let's review how modules get loaded in a ColdBox application. Below is a simple bullet point of what happens in your application when it starts up:
 
