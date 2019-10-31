@@ -10,7 +10,7 @@ Remember this:
 
 Did you get some spine shivers like I just did. WOW! That is the traditional spaghetti coding style. With ColdBox we are now moving into MVC land and focusing on the model layer.
 
-![](https://github.com/ortus-docs/coldbox-docs/tree/97b8636ca1e8f4651f1021343c097bb3a7c2e9b9/.gitbook/assets/MVC.png)
+![](https://github.com/ortus-docs/coldbox-docs/blob/v4.x/full/images/MVC.png)
 
 However, the model layer can even be subdivided into many layers as well as we will investigate in this section.
 
