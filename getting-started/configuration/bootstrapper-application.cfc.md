@@ -5,7 +5,7 @@ The `Application.cfc` is one of the most important files in your application as 
 1. Leverage composition and bootstrap ColdBox \(**Default**\)
 2. Leverage inheritance and bootstrap ColdBox
 
-![](https://github.com/ortus-docs/coldbox-docs/blob/v4.x/full/images/Bootstrapper.jpg)
+![](../.gitbook/assets/Bootstrapper.jpg)
 
 {% hint style="info" %}
 The composition approach allows you to have a more flexible configuration as it will allow you to use per-application mappings for the location of the ColdBox Platform.
