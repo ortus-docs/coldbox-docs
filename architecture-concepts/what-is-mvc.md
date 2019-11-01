@@ -63,7 +63,7 @@ There are many types of MVC architectures and hopefully the following diagrams c
 
 ### Spaghetti Hell
 
-![](https://github.com/ortus-docs/coldbox-docs/blob/v4.x/full/images/spaghetti.png)
+![](../.gitbook/assets/spaghetti.png)
 
 As you can see from the spaghetti hell diagram above, everything is linear and can become extremely convoluted. Tracking bugs are difficult, maintenance suffers and reusability is not efficient. Everything is in the same bowl of soup.
 
@@ -75,19 +75,19 @@ With the introduction of MVC we can hack away our spaghetti hell and at least ha
 
 ### MVC Plus
 
-![](https://github.com/ortus-docs/coldbox-docs/blob/v4.x/full/images/MVC%2B.png)
+![](../.gitbook/assets/MVC+.png)
 
 MVC Plus shows us how you can further partition your model layer into more layers. We can identify now a layer of service CFCs and data access object CFCs. The main transportation of data between these layers by default is implied to be ColdFusion Query objects.
 
 ### MVC Plus Objects
 
-![](https://github.com/ortus-docs/coldbox-docs/blob/v4.x/full/images/MVC%2Bobjects.png)
+![](../.gitbook/assets/MVC+objects.png)
 
 In this architecture approach, we have replaced \(mostly\) queries as our data structure of preference and converted to the usage of business objects. We are approaching a more object oriented architectural style. Remember that data is just data, objects are data plus behavior. We can encapsulate more features and abstract more behavior into actual objects now, which we could not do with queries.
 
 ### MVC Plus ORM
 
-![](https://github.com/ortus-docs/coldbox-docs/blob/v4.x/full/images/MVC%2BORM.png)
+![](../.gitbook/assets/MVC+ORM.png)
 
 In this architecture approach we have replaced business objects for ORM entities and replaced our data access layer to be controlled now by the ORM. This takes us very deep into object oriented land where the majority of our model is now modeled vi relational objects.
 
