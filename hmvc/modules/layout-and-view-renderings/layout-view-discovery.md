@@ -2,9 +2,9 @@
 
 The default order of overrides ColdBox offers is both `viewParentLookup & layoutParentLookup` to **true**. This means that if the layout or view requested to be rendered by a module exists in the overrides section of the host application, then the host application's layout or view will be rendered instead. Let's investigate the order of discover:
 
-![](https://github.com/ortus-docs/coldbox-docs/blob/v4.x/full/images/ModulesViewLookupTrue.jpg)
+![](../../../.gitbook/assets/ModulesViewLookupTrue.jpg)
 
-![](https://github.com/ortus-docs/coldbox-docs/blob/v4.x/full/images/ModulesViewLookupFalse.jpg)
+![](../../../.gitbook/assets/ModulesViewLookupFalse.jpg)
 
 **viewParentLookup = true**
 
@@ -20,9 +20,9 @@ The default order of overrides ColdBox offers is both `viewParentLookup & layout
 3. Host override common `(e.g. {HOST}/views/modules/myView.cfm)`
 4. Default view discovery from host `(e.g. {HOST}/views/myView.cfm)`
 
-![](https://github.com/ortus-docs/coldbox-docs/blob/v4.x/full/images/ModulesLayoutLookupTrue.jpg)
+![](../../../.gitbook/assets/ModulesLayoutLookupTrue.jpg)
 
-![](https://github.com/ortus-docs/coldbox-docs/blob/v4.x/full/images/ModulesLayoutLookupFalse.jpg)
+![](../../../.gitbook/assets/ModulesLayoutLookupFalse.jpg)
 
 **layoutParentLookup = true**
 
