@@ -1,6 +1,6 @@
 # The Decorated Variables
 
-![](https://github.com/ortus-docs/coldbox-docs/blob/v4.x/full/images/ModuleConfig.jpg)
+![](../../../.gitbook/assets/ModuleConfig.jpg)
 
 At runtime, the configuration object will be created by ColdBox and decorated with the following private properties \(available in the `variables` scope\):
 
