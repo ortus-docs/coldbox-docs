@@ -1,6 +1,6 @@
 # Module Lifecycle
 
-![](../.gitbook/assets/ModulesLifecycle.jpg)
+![](../../../.gitbook/assets/ModulesLifecycle.jpg)
 
 However, before we start reviewing the module service methods let's review how modules get loaded in a ColdBox application. Below is a simple bullet point of what happens in your application when it starts up:
 
