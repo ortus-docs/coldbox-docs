@@ -6,7 +6,7 @@ We will begin our adventure with integration testing. Integration testing allows
 
 ### Basics
 
-[![](https://github.com/ortus-docs/coldbox-docs/blob/v4.x/full/images/HandlerToTestRelationship.png)](https://github.com/ortus-docs/coldbox-docs/blob/v4.x/full/images/HandlerToTestRelationship.png)
+![](../../../.gitbook/assets//HandlerToTestRelationship.png)
 
 Here are the basics to follow for integration testing:
 
