@@ -1,6 +1,6 @@
 # Module Inception
 
-![](https://github.com/ortus-docs/coldbox-docs/blob/v4.x/full/images/Modules.png)
+![](../../.gitbook/assets/Modules.png)
 
 ColdBox 4 allows you to nest modules within modules up to the Nth degree. You can package a module with other modules that can even contain other modules within them. It really opens a great opportunity for better packaging, delivery and a further break from monolithic applications. To use, just create a `modules` folder in your module and drop the modules there as well. You can also just create a `box.json` in the root of your module and let CommandBox manage your module dependencies. Here is an example of the ColdBox ORM Module:
 
