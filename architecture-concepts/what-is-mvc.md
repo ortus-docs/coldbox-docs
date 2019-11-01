@@ -6,7 +6,7 @@ description: Model View Controller
 
 ## Intro to MVC
 
-![](https://github.com/ortus-docs/coldbox-docs/blob/v4.x/full/images/mvc-overview.png)
+![](../.gitbook/assets/mvc-overview.png)
 
 > "A developer often wishes to separate data \(model\) and user interface \(view\) concerns, so that changes to the user interface will not affect data handling, and that the data can be reorganized without changing the user interface. The model-view-controller solves this problem by decoupling data access and business logic from data presentation and user interaction, by introducing an intermediate component: the controller." [Wikipedia](http://en.wikipedia.org/wiki/Model-view-controller)​
 
