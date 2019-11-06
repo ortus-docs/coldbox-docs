@@ -69,7 +69,7 @@ As you can see from the spaghetti hell diagram above, everything is linear and c
 
 ### MVC
 
-![](../.gitbook/assets/mvc.png)
+![](../.gitbook/assets/mvc%20%281%29.png)
 
 With the introduction of MVC we can hack away our spaghetti hell and at least have three distinct and separate layers of logic. Ahh much better. However, we can get even more complex.
 
