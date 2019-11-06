@@ -1,6 +1,6 @@
 # Layouts & Views
 
-ColdBox provides you with a very simple but flexible and powerful layout manager and content renderer. You no longer need to create module tags or convoluted broken up HTML anymore. You can concentrate on the big picture and create as many layouts as your application needs. Then you can programmatically change rendering schemas \(or skinning\) and also create composite or component based views.
+ColdBox provides you with a very simple but flexible and powerful layout manager and content **renderer**. You no longer need to create module tags or convoluted broken up HTML anymore. You can concentrate on the big picture and create as many [layouts](../../getting-started/configuration/coldbox.cfc/configuration-directives/layouts.md) as your application needs. Then you can programmatically change rendering schemas \(or skinning\) and also create composite or component based views.
 
 In this section we will explore the different rendering mechanisms that ColdBox offers and also how to utilize them. As you know, [event handlers](../event-handlers/) are our controller layer in ColdBox and we will explore how these objects can interact with the user in order to render content, whether HTML, JSON, XML or any type of rendering data.
 
@@ -22,7 +22,9 @@ Let's do a recap of our conventions for layouts and view locations:
 
 ![](../../.gitbook/assets/coldboxmajorclasses.jpg)
 
-It is imperative to know who does the rendering in ColdBox and that is the **Renderer** class that you can see from our diagram above. As you can tell from the diagram, it includes your layouts and/or views into itself in order to render out content. So by this association and inheritance all layouts and views have some variables and methods at their disposal since they get absorbed into the object. You can visit the [API docs](http://apidocs.ortussolutions.com/coldbox/current) to learn about all the Renderer methods. All of the following property members exist in all layouts and views rendered by the **Renderer**:
+It is imperative to know who does the rendering in ColdBox and that is the **Renderer** class that you can see from our diagram above. As you can tell from the diagram, it includes your layouts and/or views into itself in order to render out content. So by this association and inheritance all layouts and views have some variables and methods at their disposal since they get absorbed into the object. You can visit the [API docs](http://apidocs.ortussolutions.com/coldbox/current) to learn about all the Renderer methods.
+
+The **Renderer** is a **transient** object in order to avoid variable collisions, meaning it is recreated on each request.  All of the following property members exist in all layouts and views rendered by the **Renderer**:
 
 | **Property** | **Description** |
 | :--- | :--- |
@@ -38,4 +40,19 @@ It is imperative to know who does the rendering in ColdBox and that is the **Ren
 | `wirebox` | A reference to the [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) object factory \(_coldbox.system.ioc.Injector_\) |
 
 As you can see, all views and layouts have direct reference to the request collections so it makes it incredibly easy to get and put data into it. Also, remember that the Renderer inherits from the Framework SuperType so all methods are at your disposal if needed.
+
+## Injecting In Your Models
+
+You can also use the ColdBox Renderer in your models so you can render email templates, views, etc.  We won't inject the renderer directly because remember that the renderer is a transient object.  So we will use a WireBox feature called [**provider**](https://wirebox.ortusbooks.com/advanced-topics/providers), which will inject a proxy placeholder that looks like the renderer and behaves like the renderer.  But behinds the scene it takes care of the persistence. So you can just use it!
+
+```java
+component{
+    
+    property name="renderer" inject="provider:coldbox:renderer";
+    
+    function renderSomething(){
+        return renderer.renderView( view="mail/mymail", args={} );
+    }
+}
+```
 

@@ -69,25 +69,25 @@ As you can see from the spaghetti hell diagram above, everything is linear and c
 
 ### MVC
 
-![](../.gitbook/assets/mvc.png)
+![](../.gitbook/assets/mvc%20%281%29.png)
 
 With the introduction of MVC we can hack away our spaghetti hell and at least have three distinct and separate layers of logic. Ahh much better. However, we can get even more complex.
 
 ### MVC Plus
 
-![](../.gitbook/assets/MVC+.png)
+![](../.gitbook/assets/mvc+.png)
 
 MVC Plus shows us how you can further partition your model layer into more layers. We can identify now a layer of service CFCs and data access object CFCs. The main transportation of data between these layers by default is implied to be ColdFusion Query objects.
 
 ### MVC Plus Objects
 
-![](../.gitbook/assets/MVC+objects.png)
+![](../.gitbook/assets/mvc+objects.png)
 
 In this architecture approach, we have replaced \(mostly\) queries as our data structure of preference and converted to the usage of business objects. We are approaching a more object oriented architectural style. Remember that data is just data, objects are data plus behavior. We can encapsulate more features and abstract more behavior into actual objects now, which we could not do with queries.
 
 ### MVC Plus ORM
 
-![](../.gitbook/assets/MVC+ORM.png)
+![](../.gitbook/assets/mvc+orm.png)
 
 In this architecture approach we have replaced business objects for ORM entities and replaced our data access layer to be controlled now by the ORM. This takes us very deep into object oriented land where the majority of our model is now modeled vi relational objects.
 

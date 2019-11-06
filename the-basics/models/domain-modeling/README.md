@@ -26,7 +26,7 @@ install cborm
 ```
 
 **2. Add Mapping**  
- Open your `Application.cfc` and add a mapping to this module:
+Open your `Application.cfc` and add a mapping to this module:
 
 ```javascript
 this.mappings[ "/cborm" ]     = COLDBOX_APP_ROOT_PATH & "modules/cborm";

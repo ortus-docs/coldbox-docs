@@ -1,6 +1,6 @@
 # The Decorated Variables
 
-![](../../../.gitbook/assets/ModuleConfig.jpg)
+![](../../../.gitbook/assets/moduleconfig.jpg)
 
 At runtime, the configuration object will be created by ColdBox and decorated with the following private properties \(available in the `variables` scope\):
 

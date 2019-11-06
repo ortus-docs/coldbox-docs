@@ -28,7 +28,7 @@ router.resources( "photos" )
   .resources( resource="users", handler="user" )
 ```
 
-This single resource declaration will create all the necessary variations of URL patterns and HTTP Verbs to actions to handle the resource.  Please see the table below with all the permutations it will create for you.
+This single resource declaration will create all the necessary variations of URL patterns and HTTP Verbs to actions to handle the resource. Please see the table below with all the permutations it will create for you.
 
 ![Resources Table](../../../.gitbook/assets/resourceful_routes.PNG)
 
@@ -66,13 +66,11 @@ function resources(
 )
 ```
 
-### Scaffolding Resources
+## Scaffolding Resources
 
-We have created a scaffolding command in CommandBox to help you register and generate resourceful routes.  Just run the following command in CommandBox to get all the help you will need in generating resources:
+We have created a scaffolding command in CommandBox to help you register and generate resourceful routes. Just run the following command in CommandBox to get all the help you will need in generating resources:
 
 ```bash
 coldbox create resource help
 ```
-
-
 

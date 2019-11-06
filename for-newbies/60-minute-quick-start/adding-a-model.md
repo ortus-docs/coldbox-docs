@@ -1,6 +1,6 @@
 # Adding A Model
 
-![](../../.gitbook/assets/mvc.png)
+![](../../.gitbook/assets/mvc%20%281%29.png)
 
 Let's complete our saga into MVC by developing the **M**, which stands for [model](https://en.wikipedia.org/wiki/Domain_model). This layer is all your business logic, queries, external dependencies, etc. of your application, which represents the problem to solve or the domain to solve.
 
