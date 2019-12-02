@@ -48,8 +48,7 @@ runRoute( "userData", { id=4 } )
 
 In the example above, the `userData` named route points to the `user.data` event.
 
-{% code-tabs %}
-{% code-tabs-item title="user.cfc" %}
+{% code title="user.cfc" %}
 ```javascript
 component{
 
@@ -63,8 +62,7 @@ component{
     }
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ### Module Routes
 

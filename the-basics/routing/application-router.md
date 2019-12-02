@@ -12,8 +12,7 @@ Please see the latest [API Docs](http://apidocs.ortussolutions.com/coldbox/5.0.0
 
 ## Application Router - `Router.cfc`
 
-{% code-tabs %}
-{% code-tabs-item title="config/Router.cfc" %}
+{% code title="config/Router.cfc" %}
 ```javascript
 // Inherits from Router and FrameworkSuperType
 component{
@@ -29,8 +28,7 @@ component{
     
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 The application router is a simple CFC that virtually inherits from the core ColdBox Router class and is configured via the `configure()` method.  It will be decorated with all the capabilities to work with any request much like any event handler or interceptor.  In this router you will be doing 1 of 2 things:
 

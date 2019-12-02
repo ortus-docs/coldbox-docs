@@ -9,8 +9,7 @@ The ColdBox Controller \(stored in ColdFusion `application` scope\) stores all y
 
 You can use the following methods to retrieve/set/validate settings in your handlers/layouts/views and interceptors:
 
-{% code-tabs %}
-{% code-tabs-item title="FrameworkSuperType.cfc" %}
+{% code title="FrameworkSuperType.cfc" %}
 ```javascript
 /**
  * Get a setting from the system
@@ -36,8 +35,7 @@ boolean function settingExists( required name, boolean fwSetting=false )
  */
 any function setSetting( required name, required value )
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 You can also get access to these methods via the ColdBox Controller component:
 

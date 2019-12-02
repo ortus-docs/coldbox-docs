@@ -6,7 +6,7 @@ There are several ways to interact with the ColdBox Flash RAM:
 * Using the `persistVariables()` method from the super type and ColdBox Controller
 * Using the `persistence` arguments in the `setNextEvent()` method from the super type and ColdBox Controller.
 
-All of these methods interact with the Flash RAM object but the last two methods not only place variables in the temporary storage bin but actualy serialize the data into the Flash RAM storage immediately. The first approach queues up the variables for serialization and at the end of a request it serializes the variables into the correct storage scope, thus saving precious serialization time. In the next section we will learn what all of this means.
+All of these methods interact with the Flash RAM object but the last two methods not only place variables in the temporary storage bin but actually serialize the data into the Flash RAM storage immediately. The first approach queues up the variables for serialization and at the end of a request it serializes the variables into the correct storage scope, thus saving precious serialization time. In the next section we will learn what all of this means.
 
 ## Flash Scope Object
 
@@ -92,7 +92,7 @@ cardID = flash.get("cardID");
 Get a list of all the objects in the temp flash scope.
 
 ```javascript
-Flash Keys: #structKeyList( flash.getKeys() )#
+Flash Keys: #flash.getKeys()#
 ```
 
 ### getFlash\(\)

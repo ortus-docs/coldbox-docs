@@ -26,8 +26,7 @@ Create a component that extends `coldbox.system.web.context.RequestContextDecora
 
 The following is a simple decorator class \(`MyDecorator.cfc`\) that auto-trims values when calling the `getValue()` method.  You can override methods or create new ones.
 
-{% code-tabs %}
-{% code-tabs-item title="MyDecorator.cfc" %}
+{% code title="MyDecorator.cfc" %}
 ```java
 component extends="coldbox.system.web.context.RequestContextDecorator"{
 	
@@ -60,8 +59,7 @@ component extends="coldbox.system.web.context.RequestContextDecorator"{
 
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 As you can see from the code above, the possibilities to change behavior are endless. It is up to your specific requirements and it’s easy!
 

@@ -10,8 +10,7 @@ Usually, event handlers are the objects in charge of setting views for rendering
 Setting a view does not mean that it gets rendered immediately. It means that it is deposited in the request context. The framework will later on in the execution process pick those variables up and do the actual rendering. To do immediate rendering you will use the inline rendering methods describe later on.
 {% endhint %}
 
-{% code-tabs %}
-{% code-tabs-item title="handlers/main.cfc" %}
+{% code title="handlers/main.cfc" %}
 ```javascript
 component
 {
@@ -26,8 +25,7 @@ component
 
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 We use the `setView()` method to set the view `views/general/index.cfm` to be rendered. Now the cool thing about this, is that we can override the view to be rendered anytime during the flow of the request. So the last process to execute the `setView()` method is the one that counts. Also notice a few things:
 
@@ -42,8 +40,7 @@ It is best practice that view locations should simulate the event. So if the eve
 
 **Let's look at the view code:**
 
-{% code-tabs %}
-{% code-tabs-item title="main/index.cfm" %}
+{% code title="main/index.cfm" %}
 ```javascript
 <cfoutput>
 <h1>My Cool Data</h1>
@@ -51,8 +48,7 @@ It is best practice that view locations should simulate the event. So if the eve
 
 </cfoutput>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 I am using our cool HTML Helper class that is smart enough to render tables, data, HTML 5 elements etc and even bind to ColdFusion ORM entities.
 

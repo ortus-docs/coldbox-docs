@@ -322,13 +322,11 @@ function worldPeace( event, rc, prc ){
 
 One of the great benefits of building your REST API on the ColdBox platform is tapping into awesome features such as event caching. Event caching allows you to cache the entire response for a resource using the incoming `FORM` and `URL` variables as the cache key. To enable event caching, set the following flag to true in your ColdBox config: `Coldbox.cfc`:
 
-{% code-tabs %}
-{% code-tabs-item title="config/ColdBox.cfc" %}
+{% code title="config/ColdBox.cfc" %}
 ```java
 coldbox.eventCaching = true;
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Next, simply add the `cache=true` annotation to any action you want to be cached. That's it! You can also get fancy, and specify an optional `cacheTimeout` and `cacheLastAccesstimeout` \(in minutes\) to control how long to cache the data.
 
@@ -442,15 +440,13 @@ component{
 
 Register the interceptor with ColdBox in your `ColdBox.cfc`:
 
-{% code-tabs %}
-{% code-tabs-item title="config/ColdBox.cfc" %}
+{% code title="config/ColdBox.cfc" %}
 ```javascript
 interceptors = [
   { class="interceptors.APISecurity" }
 ];
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 As you can see, there are many points to apply security to your API. One not covered here would be to tap into [WireBox's AOP](https://wirebox.ortusbooks.com/aspect-oriented-programming/aop-intro) and place your security checks into an advice that can be bound to whatever API method you need to be secured.
 
@@ -535,8 +531,7 @@ function onInvalidHTTPMethod( event, rc, prc, faultAction, eventArguments ){
 
 The global exception handler will get called for any runtime errors that happen anywhere in the typical flow of your application. This is like the `onError()` convention but covers the entire application. First, configure the event you want called in the `ColdBox.cfc` config file. The event must have the handler plus action that you want called.
 
-{% code-tabs %}
-{% code-tabs-item title="config/ColdBox.cfc" %}
+{% code title="config/ColdBox.cfc" %}
 ```javascript
 coldbox = {
     ...
@@ -544,8 +539,7 @@ coldbox = {
     ...
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Then create that action and put your exception handling code inside. You can choose to do error logging, notifications, or custom output here. You can even run other events.
 
