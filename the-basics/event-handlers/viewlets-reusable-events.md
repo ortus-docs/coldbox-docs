@@ -23,8 +23,7 @@ I would suggest you look at [the API docs](http://apidocs.ortussolutions.com/col
 
 ### **Event Code**
 
-{% code-tabs %}
-{% code-tabs-item title="viewlets.cfc" %}
+{% code title="viewlets.cfc" %}
 ```javascript
 function userinfo( event, rc, prc, userID=0 ){
     
@@ -35,8 +34,7 @@ function userinfo( event, rc, prc, userID=0 ){
     return renderView( "viewlets/userinfo" );
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 As you can see from the code above, the handler signature can accept arguments which are passed via the `eventArguments` structure. It talks to a service layer and place some data on the private request collection the viewlet will use. It then returns the results of a `renderView()` call that will render out the exact viewlet I want. You can be more creative and do things like:
 
@@ -51,8 +49,7 @@ As you can see from the code above, the handler signature can accept arguments w
 
 ### **View Code**
 
-{% code-tabs %}
-{% code-tabs-item title="viewlets/userinfo.cfm" %}
+{% code title="viewlets/userinfo.cfm" %}
 ```markup
 <cfoutput>
     <div>User Info Panel</div>
@@ -60,8 +57,7 @@ As you can see from the code above, the handler signature can accept arguments w
     <div>Last Login: #prc.userinfo_qData.lastLogin#</div>
 </cfoutput>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 The view is a normal standard view, it doesn't even know it is a viewlet, remember, views are DUMB!
 

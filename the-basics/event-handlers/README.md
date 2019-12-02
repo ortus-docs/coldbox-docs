@@ -41,8 +41,7 @@ Event handlers are CFCs that will respond to FORM posts, HTTP requests and/or re
 
 ### Components
 
-{% code-tabs %}
-{% code-tabs-item title="Main.cfc" %}
+{% code title="Main.cfc" %}
 ```javascript
 component extends="coldbox.system.EventHandler"{
 
@@ -64,8 +63,7 @@ component extends="coldbox.system.EventHandler"{
 
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 {% hint style="info" %}
 You can also remove the inheritance from the CFC and WireBox will extend the `coldbox.system.EventHandler` for you using [Virtual Inheritance](https://wirebox.ortusbooks.com/advanced-topics/virtual-inheritance).

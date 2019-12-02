@@ -31,8 +31,7 @@ It will also inspect the URL for **placeholders** and translate them into the in
 
 **Examples**
 
-{% code-tabs %}
-{% code-tabs-item title="config/Router.cfc" %}
+{% code title="config/Router.cfc" %}
 ```javascript
 function configure(){
     
@@ -67,8 +66,7 @@ function configure(){
     
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ## Routing Benefits
 

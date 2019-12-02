@@ -17,8 +17,7 @@ The composition approach allows you to have a more flexible configuration as it 
 
 ## Composition
 
-{% code-tabs %}
-{% code-tabs-item title="Application.cfc" %}
+{% code title="Application.cfc" %}
 ```javascript
 component{
     // Application properties
@@ -65,13 +64,11 @@ component{
 
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ## Inheritance
 
-{% code-tabs %}
-{% code-tabs-item title="Application.cfc" %}
+{% code title="Application.cfc" %}
 ```javascript
 component extends="coldbox.system.Bootstrap"{
 
@@ -91,8 +88,7 @@ component extends="coldbox.system.Bootstrap"{
     COLDBOX_APP_KEY          = "";
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ## Directives
 

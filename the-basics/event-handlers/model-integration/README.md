@@ -23,21 +23,18 @@ Your event handlers can be **autowired** with dependencies from [WireBox](https:
 
 You will achieve this in your handlers via `property` injection, which is the concept of defining properties in the component with a special annotation called `inject`, which tells WireBox what reference to retrieve via the [WireBox Injection DSL](./#injection).  Let's say we have a **users** handler that needs to talk to a model called **UserService**. Here is the directory layout so we can see the conventions
 
-{% code-tabs %}
-{% code-tabs-item title="Directory Layout" %}
+{% code title="Directory Layout" %}
 ```text
 + handlers
   + users.cfc
 + models
   + UserService.cfc
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Here is the event handler code to leverage the injection:
 
-{% code-tabs %}
-{% code-tabs-item title="users.cfc" %}
+{% code title="users.cfc" %}
 ```javascript
 component name="MyHandler"{
     
@@ -51,8 +48,7 @@ component name="MyHandler"{
 
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 
 
@@ -68,8 +64,7 @@ Notice that we define a `cfproperty` with a name and `inject` attribute.  The `n
 
 The other approach to integrating with model objects is to request and use them as [associations](http://en.wikipedia.org/wiki/Association_%28object-oriented_programming%29) via the framework super type method: `getInstance()`, which in turn delegates to WireBox's `getInstance()` method.  We would recommend requesting objects if they are **transient** \(have state\) objects or stored in some other volatile storage scope \(session, request, application, cache, etc\). Retrieving of objects is okay, but if you will be dealing with mostly **singleton** objects or objects that are created only once, you will gain much more performance by using injection.
 
-{% code-tabs %}
-{% code-tabs-item title="users.cfc" %}
+{% code title="users.cfc" %}
 ```javascript
 component{
 
@@ -89,8 +84,7 @@ component{
 
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 {% hint style="info" %}
 **Association** defines a relationship between classes of objects that allows one object instance to cause another to perform an action on its behalf. - 'wikipedia'
@@ -100,15 +94,13 @@ component{
 
 In this practical example we will see how to integrate with our model layer via WireBox, injections, and also requesting the objects. Let's say that we have a service object we have built called `FunkyService.cfc` and by convention we will place it in our applications `models` folder.
 
-{% code-tabs %}
-{% code-tabs-item title="Directory Layout" %}
+{% code title="Directory Layout" %}
 ```javascript
  + application
   + models
      + FunkyService.cfc
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 **FunkyService.cfc**
 

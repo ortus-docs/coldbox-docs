@@ -18,8 +18,7 @@ If you would like to access these methods in your `Application.cfc`, create an i
 
 Example:
 
-{% code-tabs %}
-{% code-tabs-item title="Application.cfc" %}
+{% code title="Application.cfc" %}
 ```javascript
 component {
 
@@ -36,8 +35,7 @@ Example:
 
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ## Accessing System Settings in other files
 
