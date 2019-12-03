@@ -5,6 +5,7 @@ There are a few parent application settings when dealing with modules. In your `
 ```text
 modules = {
     // reload and unload modules in every request
+    // DEPRECATED in coldbox 5
     autoReload = false,
     // An array or list of the module names that will load ONLY
     include = [],
