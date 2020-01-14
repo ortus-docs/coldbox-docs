@@ -53,9 +53,9 @@ event=users.show, rc.export=pdf, rc.name={empty value}
 ```
 
 {% hint style="success" %}
-**Tip:** You can turn this feature off by using the `valuePairTranslation( false )` modifier in the routing DSL on a route by route basis
+**Tip:** You can turn this feature off by using the `valuePairTranslator( false )` modifier in the routing DSL on a route by route basis
 
-`route( "/pattern" ).to( "users.show" ).valuePairTranslation( false );`
+`route( "/pattern" ).to( "users.show" ).valuePairTranslator( false );`
 {% endhint %}
 
 
