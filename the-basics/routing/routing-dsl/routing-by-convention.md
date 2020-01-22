@@ -38,9 +38,9 @@ http://localhost/admin/general/index -> event=admin.general.index
 http://localhost/admin/general/index -> event=admin:general.index
 ```
 
-### Convention Name-Value Pairs
+## Convention Name-Value Pairs
 
-Any extra name-value pairs in the remaining URL of a discovered URL pattern will be translated to variables in the request collection \(`rc`\) for you automagically. 
+Any extra name-value pairs in the remaining URL of a discovered URL pattern will be translated to variables in the request collection \(`rc`\) for you automagically.
 
 ```text
 http://localhost/general/show/page/2/name/luis
@@ -57,6 +57,4 @@ event=users.show, rc.export=pdf, rc.name={empty value}
 
 `route( "/pattern" ).to( "users.show" ).valuePairTranslator( false );`
 {% endhint %}
-
-
 

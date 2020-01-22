@@ -262,12 +262,12 @@
   * [Standard Return Types](digging-deeper/coldbox-proxy/standard-return-types.md)
   * [Caveats & Gotchas](digging-deeper/coldbox-proxy/caveats-and-gotchas.md)
 * [Request Context Decorator](digging-deeper/request-context-decorator.md)
+* [Controller Decorator](digging-deeper/controller-decorator.md)
 * [Recipes](digging-deeper/recipes/README.md)
   * [Building REST APIs](digging-deeper/recipes/building-rest-apis.md)
   * [Application Templates](digging-deeper/recipes/application-templates.md)
   * [ColdBox Exception Handling](digging-deeper/recipes/coldbox-exception-handling.md)
   * [Debugging ColdBox Apps](digging-deeper/recipes/debugging-coldbox-apps.md)
-  * [Controller Decorator](digging-deeper/recipes/controller-decorator.md)
   * [Clearing the View Cache](digging-deeper/recipes/clearing-the-view-cache.md)
   * [Building a simple Basic HTTP Authentication Interceptor](digging-deeper/recipes/building-a-simple-basic-http-authentication-interceptor.md)
 
