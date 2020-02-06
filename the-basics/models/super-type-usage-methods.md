@@ -1,6 +1,8 @@
 # Super Type Usage Methods
 
-![](../../.gitbook/assets/coldboxmajorclasses.jpg)
+
+
+![ColdBox Major Classes UML](../../.gitbook/assets/coldboxmajorclasses.jpg)
 
 The super type offers 2 methods for interacting with your model layer:
 

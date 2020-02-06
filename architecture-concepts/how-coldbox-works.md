@@ -18,6 +18,12 @@ The incoming URL, FORM, and REMOTE variables are merged into a single structure 
 
 The request context object has tons of methods to help you in setting and getting variables from one MVC layer to another, to getting request metadata, rendering RESTful content, setting HTTP headers, and more. It is your information super highway for specific requests. Remember that the API Docs are your best friend!
 
+## ColdBox Major Classes
+
+Below you can see a UML diagram of the ColdBox Major Classes eco-system.
+
+![ColdBox Major Classes UML](../.gitbook/assets/coldboxmajorclasses.jpg)
+
 ## Request Lifecycle
 
 ![](../.gitbook/assets/request-lifecycle.png)
