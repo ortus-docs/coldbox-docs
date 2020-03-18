@@ -8,7 +8,7 @@
 | onException | exception - The _cfcatch_ exception structure | This occurs whenever an exception occurs in the system. This event also produces data you can use to respond to it. |
 | onRequestCapture | --- | This occurs once the FORM/URL variables are merged into the request collection but before any event caching or processing is done in your application. This is a great event to use for incorporating variables into the request collections, altering event caching with custom variables, etc. |
 | onInvalidEvent | invalidEvent - The invalid event | This occurs once an invalid event is detected in the application. This can be a missing handler or action. This is a great interceptor to use to alter behavior when events do not exist or to produce 404 pages. |
-| applicationEnd | --- | This occurs after a request is received and made ready for processing. This simulates an on request start interception point. Please note that this interception point occurs before the request start handler. |
+| applicationEnd | --- | This occurs when the application is stopped, typically on running `ApplicationStop()`. |
 | sessionStart | _session_ structure | This occurs when a user's session starts |
 | sessionEnd | sessionReference - A reference to the session structure | This occurs when a user's session ends |
 | preProcess | --- | This occurs after a request is received and made ready for processing. This simulates an on request start interception point. Please note that this interception point occurs before the request start handler. |
