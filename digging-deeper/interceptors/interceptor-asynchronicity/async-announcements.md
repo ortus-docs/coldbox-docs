@@ -14,7 +14,7 @@ threadData = announceInterception(
 
 You can also combine this call with the following arguments:
 
-* `asyncPrirority` : The priority level of the detached thread. By default it uses `normal` priority level.
+* `asyncPriority` : The priority level of the detached thread. By default it uses `normal` priority level.
 
 ```javascript
 threadData = announceInterception(
