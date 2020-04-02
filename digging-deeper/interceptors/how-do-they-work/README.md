@@ -34,7 +34,7 @@ In `ColdBox.cfc`:
 // Interceptors registration
 interceptors = [
     {
-        class   = "cfc.path",
+        class   = "cfc.path", //by default this should be interceptors.yourcfcname  
         name    = "unique name/wirebox ID",
         properties = {
             // configuration
