@@ -6,21 +6,28 @@ description: >-
 
 # Introduction
 
-```text
-   ____      _     _ ____            
-  / ___|___ | | __| | __ )  _____  __
- | |   / _ \| |/ _` |  _ \ / _ \ \/ /
- | |__| (_) | | (_| | |_) | (_) >  < 
-  \____\___/|_|\__,_|____/ \___/_/\_\
-```
+## ColdBox HMVC Platform- v6.x \(`BETA`\)
 
-## ColdBox Manual - v6.x \(`BETA`\)
+![HMVC Framework](.gitbook/assets/coldboxlogo2015_300.png)
 
-![ColdBox Platform](.gitbook/assets/coldboxlogo2015_300.png)
+![Standalone Libraries](.gitbook/assets/coldbox-family.png)
 
- It provides a set of reusable code and tools that can be used to increase your development productivity as well as a development standard for working in team environments.
+ColdBox Hierarchical MVC is the de-facto enterprise-level HMVC framework for ColdFusion \(CFML\) developers. It's professionally backed, conventions-based, modular, highly extensible, and productive. Getting started with ColdBox is quick and painless. ColdBox takes the pain out of development by giving you a standardized methodology for modern ColdFusion \(CFML\) development with features such as:
 
-ColdBox is natively based on [modular architecture](https://en.wikipedia.org/wiki/Modular_design) which helps address most infrastructure concerns of typical web applications and thus called an HMVC framework.
+* [Conventions instead of configuration](https://coldbox.ortusbooks.com/getting-started/conventions)
+* [Modern routing engine](https://coldbox.ortusbooks.com/the-basics/routing)
+* [RESTFul API ready](https://coldbox.ortusbooks.com/the-basics/event-handlers/rendering-data)
+* [A hierarchical approach to MVC using ColdBox Modules](https://coldbox.ortusbooks.com/hmvc/modules)
+* [Event-driven programming](https://coldbox.ortusbooks.com/digging-deeper/interceptors)
+* [Async and Parallel programming constructs](https://coldbox.ortusbooks.com/digging-deeper/promises-async-programming)
+* [Integration & Unit Testing](https://coldbox.ortusbooks.com/testing/testing-coldbox-applications)
+* [Included dependency injection](https://wirebox.ortusbooks.com)
+* [Caching engine and API](https://cachebox.ortusbooks.com)
+* [Logging engine](https://logbox.ortusbooks.com)
+* [An extensive eco-system](https://forgebox.io)
+* Much More
+
+It provides a set of reusable code and tools that can be used to increase your development productivity as well as a development standard for working in team environments.
 
 ## Versioning
 
@@ -38,14 +45,10 @@ And constructed with the following guidelines:
 
 ## License
 
-The ColdBox Platform is open source and licensed under the [Apache 2](https://www.apache.org/licenses/LICENSE-2.0.html) License. If you use ColdBox, please try to make mention of it in your code or web site or add a Powered By Coldbox icon.
+The ColdBox Platform is open source and licensed under the [Apache 2](https://www.apache.org/licenses/LICENSE-2.0.html) License.
 
 * Copyright by Ortus Solutions, Corp
 * ColdBox is a registered trademark by Ortus Solutions, Corp
-
-{% hint style="info" %}
-The ColdBox Websites, Documentation, logo and content have a separate license and they are a separate entity.
-{% endhint %}
 
 ## Discussion & Help
 
@@ -53,10 +56,14 @@ The ColdBox help and discussion group can be found here: [https://groups.google.
 
 ## Reporting a Bug
 
-We all make mistakes from time to time :\) So why not let us know about it and help us out. We also love pull requests, so please star us and fork us: [https://github.com/coldbox/coldbox-platform](https://github.com/coldbox/coldbox-platform)
+We all make mistakes from time to time :\) So why not let us know about it and help us out. We also love pull requests, so please star us and fork us at: [https://github.com/coldbox/coldbox-platform](https://github.com/coldbox/coldbox-platform)
 
-* By Email: [bugs@coldbox.org](mailto:bugs@coldbox.org)
-* By Jira: [https://ortussolutions.atlassian.net/browse/COLDBOX](https://ortussolutions.atlassian.net/browse/COLDBOX)
+### Jira Issue Tracking
+
+* [https://ortussolutions.atlassian.net/browse/COLDBOX](https://ortussolutions.atlassian.net/browse/COLDBOX)
+* [https://ortussolutions.atlassian.net/browse/WIREBOX](https://ortussolutions.atlassian.net/browse/WIREBOX)
+* [https://ortussolutions.atlassian.net/browse/LOGBOX](https://ortussolutions.atlassian.net/browse/LOGBOX)
+* [https://ortussolutions.atlassian.net/browse/CACHEBOX](https://ortussolutions.atlassian.net/browse/CACHEBOX)
 
 ## Professional Open Source
 
