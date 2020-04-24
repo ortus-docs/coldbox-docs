@@ -1,3 +1,9 @@
+---
+description: >-
+  ColdBox is a conventions-based HMVC development framework for ColdFusion
+  (CFML).
+---
+
 # Introduction
 
 ```text
@@ -8,11 +14,11 @@
   \____\___/|_|\__,_|____/ \___/_/\_\
 ```
 
-## ColdBox Manual - v5.x
+## ColdBox Manual - v6.x \(`BETA`\)
 
 ![ColdBox Platform](.gitbook/assets/coldboxlogo2015_300.png)
 
-ColdBox is a [conventions-based](https://en.wikipedia.org/wiki/Convention_over_configuration) [HMVC](https://en.wikipedia.org/wiki/Model–view–controller) development framework for [ColdFusion](http://en.wikipedia.org/wiki/Adobe_ColdFusion) \([CFML](https://en.wikipedia.org/wiki/ColdFusion_Markup_Language)\). It provides a set of reusable code and tools that can be used to increase your development productivity as well as a development standard for working in team environments.
+ It provides a set of reusable code and tools that can be used to increase your development productivity as well as a development standard for working in team environments.
 
 ColdBox is natively based on [modular architecture](https://en.wikipedia.org/wiki/Modular_design) which helps address most infrastructure concerns of typical web applications and thus called an HMVC framework.
 
@@ -37,7 +43,9 @@ The ColdBox Platform is open source and licensed under the [Apache 2](https://ww
 * Copyright by Ortus Solutions, Corp
 * ColdBox is a registered trademark by Ortus Solutions, Corp
 
-> **Info**: The ColdBox Websites, Documentation, logo and content have a separate license and they are a separate entity.
+{% hint style="info" %}
+The ColdBox Websites, Documentation, logo and content have a separate license and they are a separate entity.
+{% endhint %}
 
 ## Discussion & Help
 
