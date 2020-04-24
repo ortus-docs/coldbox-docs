@@ -66,7 +66,7 @@ This method is more reliable than relying on cgi.http\_host, since it will never
 If you are NOT using environmental variables you can use your own detection algorithm instead of looking at the `cgi.http_host` variable. You will NOT fill out an environments structure but actually create a method with the following signature:
 
 ```javascript
-string public detectEnvironment(){
+string public function detectEnvironment(){
 }
 ```
 
