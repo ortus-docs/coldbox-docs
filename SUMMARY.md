@@ -164,7 +164,7 @@
     * [Loading A-la-carte Modules](hmvc/modules/module-service/loading-a-la-carte-modules.md)
     * [Module Events](hmvc/modules/module-service/module-events.md)
   * [ModuleConfig](hmvc/modules/moduleconfig/README.md)
-    * [Public Module Properties\/Directives](hmvc/modules/moduleconfig/public-module-properties-directives.md)
+    * [Public Module Properties](hmvc/modules/moduleconfig/public-module-properties-directives.md)
     * [The Decorated Variables](hmvc/modules/moduleconfig/the-decorated-variables.md)
     * [The configure\(\) Method](hmvc/modules/moduleconfig/the-configure-method.md)
     * [Module Settings](hmvc/modules/moduleconfig/module-settings.md)

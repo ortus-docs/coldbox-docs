@@ -20,7 +20,9 @@ any function index( event, rc, prc ){
 
 That's it! ColdBox detects the array and automatically serializes it to JSON. Easy Peasy!
 
-If you want your incoming JSON requestbody to be handled the same as FORM and URL variables you can enable `coldbox.jsonPayloadToRC = true` in your coldbox config. See releasenotes [`5.1.0`]() and [5.1.2 ]()for details.
+### Automatic JSON Payload to RC
+
+If you want your incoming JSON `requestbody` to be handled the same as FORM and URL variables you can enable `coldbox.jsonPayloadToRC = true` in your ColdBox config, which is the default in ColdBox 6.
 
 ## renderData\(\)
 

@@ -20,6 +20,7 @@ coldbox = {
 ```javascript
 coldbox = {
     reinitPassword = "h1cker",
+    reinitKey = "fwReinit",
     handlersIndexAutoReload = true
 };
 ```
@@ -34,6 +35,10 @@ http://localhost/?fwreinit=1
 // reinit with password
 http://localhost/?fwreinit=mypass
 ```
+
+### **reinitKey**
+
+**The key used in FORM or URL to reinit the framework.  The default is `fwreinit` but you can change it to whatever you like.**
 
 ### **handlersIndexAutoReload**
 
@@ -189,5 +194,5 @@ By default implicit views are case sensitive since ColdBox version 5.2.0, before
 
 ### **autoMapModels**
 
-ColdBox by convention can talk to, use and inject models from the `models` folder by just using their name.  However, once you built complex hierarchies you would have to specify the specific hierarchy or folder structure for the model; This is a limitation of conventions.  Your choices before v5.2.0 was to map the objects yourself in the WireBox binder.  Now, if you turn this setting to **true**, we will issue a `mapDirectory()` on the `models` directory for you.
+ColdBox by convention can talk to, use and inject models from the `models` folder by just using their name.  On startup it will scan your entire `models` folder and will register all the discovered models.  This setting is **true** by default.
 

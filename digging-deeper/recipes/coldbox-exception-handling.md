@@ -3,9 +3,9 @@
 ColdBox provides you with several ways to handle different types of exceptions during a typical ColdBox request execution:
 
 * Global exception handler
-* Global onException interceptor
+* Global `onException` interceptor
 * Global invalid event handler
-* Global onInvalidEvent interceptor
+* Global `onInvalidEvent` interceptor
 * Global missing template handler
 * Handler `onMissingAction()`
 * Handler `onError()`

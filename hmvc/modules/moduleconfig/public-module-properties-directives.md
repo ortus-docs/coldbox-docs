@@ -1,4 +1,4 @@
-# Public Module Properties\/Directives
+# Public Module Properties
 
 Here is a listing of all public properties that can be defined in a module.
 

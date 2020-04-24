@@ -363,7 +363,7 @@ If you are working with any modern JavaScript framework, this feature is for you
 The request collection will have 3 keys for **name**, **type** and **data** according to their native CFML type.
 
 {% hint style="warning" %}
-Because of some issues with backwards compatibility you have to **enable** this feature in your Coldbox config: `coldbox.jsonPayloadToRC = true`
+To disable this feature go to your Coldbox config: `coldbox.jsonPayloadToRC = false`
 {% endhint %}
 
 ## Security
