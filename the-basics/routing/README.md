@@ -41,7 +41,7 @@ function configure(){
 
     // Redirects
     route( "/old/book" )
-        .redirect( "/mybook" );
+        .toRedirect( "/mybook" );
 
     // Responses
     route( "/echo" ).toResponse( (event,rc,prc) => {
