@@ -9,7 +9,7 @@ ColdBox 6.0.0 is a major release for the ColdBox HMVC platform.  It has some dra
 It is also yet another source code reduction due to the dropping of support for the following CFML Engines:
 
 * Adobe ColdFusion 11
-* Luce 4.5
+* Lucee 4.5
 
 The info-graphic above shows you the supporte engines the 6.x platform will support.
 
