@@ -1,6 +1,6 @@
 # Environments
 
-The configuration CFC has embedded environment control and detection built-in. Environments kan be detected by:
+The configuration CFC has embedded environment control and detection built-in. Environments can be detected by:
 
 * regex matching against cgi.http\_host
 * detection of an environmental variable called ENVIRONMENT \( Coldbox 5.2 and higher \)
@@ -70,5 +70,5 @@ string public detectEnvironment(){
 }
 ```
 
-This method will be executed for you at startup and it must return the name of the environment the application is on. You can check for any condition which distinguishes your environment from your other environments. Als long as you return a environment name based on your own logic it will then store it and execute the method if it exists.
+This method will be executed for you at startup and it must return the name of the environment the application is on. You can check for any condition which distinguishes your environment from your other environments. As long as you return an environment name based on your own logic it will then store it and execute the method if it exists.
 
