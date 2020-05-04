@@ -11,7 +11,7 @@ It is also yet another source code reduction due to the dropping of support for 
 * Adobe ColdFusion 11
 * Lucee 4.5
 
-The info-graphic above shows you the supporte engines the 6.x platform will support.
+The info-graphic above shows you the supported engines the 6.x platform will support.
 
 ## Asynchronous Programming
 
