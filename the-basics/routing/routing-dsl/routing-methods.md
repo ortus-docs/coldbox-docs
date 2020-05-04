@@ -78,9 +78,9 @@ You can also route to a **handler** and an **action** using the modifiers instea
 
 ```java
 route( "wiki/:pagename" )
-    as( "wikipage" )
-    withAction( "show" )
-    toHandler( "wiki" );
+    .as( "wikipage" )
+    .withAction( "show" )
+    .toHandler( "wiki" );
 
 route( "wiki/:pagename" )
     .withHander( "wiki" )
