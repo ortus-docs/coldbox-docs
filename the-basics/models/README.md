@@ -8,7 +8,7 @@ Remember this:
 
 ![](../../.gitbook/assets/spaghetti.png)
 
-Did you get some spine shivers like I just did. WOW! That is the traditional spaghetti coding style. With ColdBox we are now moving into MVC land and focusing on the model layer.
+Did you get some spine shivers like I just did? WOW! That is the traditional spaghetti coding style. With ColdBox we are now moving into MVC land and focusing on the model layer.
 
 ![](../../.gitbook/assets/mvc.png)
 
