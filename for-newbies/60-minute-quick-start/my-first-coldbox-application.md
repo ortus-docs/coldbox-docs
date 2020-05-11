@@ -23,6 +23,11 @@ So let's create our first app using the _default_ template skeleton **AdvancedSc
 ```bash
 coldbox create app MyApp
 ```
+NOTE: During the pre-release phase this is works to spin up based on the templates above. You just substitute the {name} of the template above.
+```bash
+coldbox create app skeleton=cbtemplate-{name}@6.0.0-snapshot
+coldbox create app skeleton=cbtemplate-rest-hmvc@6.0.0-snapshot
+```
 
 This will scaffold the application and also install ColdBox for you. The following folders/files are generated for you:
 
