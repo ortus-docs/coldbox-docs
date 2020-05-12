@@ -1,6 +1,6 @@
 # What's New With 6.0.0
 
-ColdBox 6.0.0 is a major release for the ColdBox HMVC platform.  It has some dramatic new features as we keep pushing for more modern and sustainable approaches to web development. We break down the major areas of development below and you can also find the full release notes per library at the end.
+ColdBox 6.0.0 is a major release for the ColdBox HMVC platform. It has some dramatic new features as we keep pushing for more modern and sustainable approaches to web development. We break down the major areas of development below and you can also find the full release notes per library at the end.
 
 ## Engine Support
 
@@ -17,11 +17,11 @@ The info-graphic above shows you the supported engines the 6.x platform will sup
 
 ![ColdBox &apos;async&apos; package](../../.gitbook/assets/coldbox-async-packages.png)
 
-We have done a tremendous amount of work to expose all the async and parallel programming constructs in ColdBox to the entire framework so developers can leverage them.  There is just so much we have done on this release for concurrency, task scheduling, and parallel programming to include in one page.  So visit our [Async Programming](../../digging-deeper/promises-async-programming/) section to start delving into what we are lovingly calling **cbFutures**!
+We have done a tremendous amount of work to expose all the async and parallel programming constructs in ColdBox to the entire framework so developers can leverage them. There is just so much we have done on this release for concurrency, task scheduling, and parallel programming to include in one page. So visit our [Async Programming](../../digging-deeper/promises-async-programming/) section to start delving into what we are lovingly calling **cbFutures**!
 
 ### ColdBox Executors & Tasks
 
-Thanks to our new futures approach, all major internal libraries \(WireBox, CacheBox, LogBox, MVC\) will leverage them for different tasks that require asynchronicity and scheduling.  You will see a noticeble difference especially in the following areas:
+Thanks to our new futures approach, all major internal libraries \(WireBox, CacheBox, LogBox, MVC\) will leverage them for different tasks that require asynchronicity and scheduling. You will see a noticeble difference especially in the following areas:
 
 * **Cache Reaping**: All cache reaping is now done via a scheduled task running on specific frequencies
 * **File Appenders:** It uses an async schedule to stream log data to files instead of blocking operations for sending logs.  It will use a logging in-memory queue to stream the log data to the file. So you can potentially send 10000 log events and eventually they will be streamed to disk.
@@ -59,7 +59,7 @@ async().newFuture( () => orderService.getOrder() )
 // Combine Futures
 var bmi = async().newFuture( () => weightService.getWeight( rc.person ) )
     .thenCombine(
-	    async().newFuture( () => heightService.getHeight( rc.person ) ),
+        async().newFuture( () => heightService.getHeight( rc.person ) ),
         ( weight, height ) => {
             var heightInMeters = arguments.height/100;
             return arguments.weight / (heightInMeters * heightInMeters );
@@ -85,7 +85,7 @@ This new approach to creating async pipelines and parallel processing, will furt
 
 ![RestHandler UML](../../.gitbook/assets/resthandler.png)
 
-After many years of adding a base handler and a response object to our application templates, we finally have integrated them into the core so developers can have even more support when building RESTFul services.  This new rest handler will provide you with tons of utilities and approaches to make all of your RESTFul services:
+After many years of adding a base handler and a response object to our application templates, we finally have integrated them into the core so developers can have even more support when building RESTFul services. This new rest handler will provide you with tons of utilities and approaches to make all of your RESTFul services:
 
 * Uniform
 * Consistent
@@ -100,7 +100,7 @@ New base class `coldbox.system.RestHandler` which you can inherit from or use ou
 
 ```javascript
 component extends="coldbox.system.RestHandler"{
-  
+
   function index( event, rc, prc ){
     event.getResponse()
       .setData( "Hello from restful Land" );
@@ -108,12 +108,12 @@ component extends="coldbox.system.RestHandler"{
 }
 
 component resthandler{
-  
+
   function index( event, rc, prc ){
     event.getResponse()
       .setData( "Hello from restful Land" );
   }
-  
+
 }
 ```
 
@@ -123,8 +123,8 @@ You can now build all of your api’s using the native response object like the 
 | :--- | :--- |
 | aroundHandler\(\) | Wraps all rest actions uniformly to provide consistency and error trapping. |
 | onError\(\) | An implicit error handler is provided just in case anything explodes in your restful actions. Sends an appropriate 500 error |
-| onValidationException\(\) | Traps any {{ValidationException }}and makes sure it sends the appropriate 400 response with the invalid data. Useful for using **cbValidation** |
-| onEntityNotFoundException\(\) | Traps any {{EntityNotFound }}or {{RecordNotFound }}exceptions and makes sure it send an appropriate 404 response. Useful for leveraging **cborm** or **Quick** ORM |
+| onValidationException\(\) | Traps any and makes sure it sends the appropriate 400 response with the invalid data. Useful for using **cbValidation** |
+| onEntityNotFoundException\(\) | Traps any or exceptions and makes sure it send an appropriate 404 response. Useful for leveraging **cborm** or **Quick** ORM |
 | onInvalidHTTPMethod\(\) | Traps any invalid HTTP method security exception and sends the appropriate 405 not allowed response |
 | onMissingAction\(\) | Traps any invalid actions/resource called in your application and sends the appropriate 404 response |
 | onAuthenticationFailure\(\) | Traps InvalidCredentials exceptions and sends the appropriate 403 invalid credentials response. If you are using **cbSecurity** it will also verify jwt token expiration and change the error messages accordingly. |
@@ -171,7 +171,7 @@ If you would like to extend or modify the behavior of the core `RestHandler` the
 ```javascript
 // BaseHandler
 component extends="coldbox.system.Resthandler"{
-  
+
   // Modify it here
 
 }
@@ -202,7 +202,7 @@ That’s it. Once that response object is in the `prc` scope, ColdBox will utili
 
 ![Singleton Renderer](../../.gitbook/assets/singleton-renderer.png)
 
-The entire rendering mechanisms have changed in ColdBox 6 and we now support a singleton based approach to view rendering.  It still allows for variable safety, but the way renderings in ColdBox 6  are done are orders of magnitude faster than pre ColdBox 6 days.  If you are using applications like ContentBox or Preside CMS or applications with tons of `renderView()` calls,  your applications will fly now!
+The entire rendering mechanisms have changed in ColdBox 6 and we now support a singleton based approach to view rendering. It still allows for variable safety, but the way renderings in ColdBox 6 are done are orders of magnitude faster than pre ColdBox 6 days. If you are using applications like ContentBox or Preside CMS or applications with tons of `renderView()` calls, your applications will fly now!
 
 ## LogBox Config Path Init
 

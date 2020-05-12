@@ -144,7 +144,7 @@ route( "/users/:id?" )
 
 ## Routing to Responses
 
-The Router allows you to create inline responses via closures/lambdas or enhanced strings to incoming URL patterns. You do not need to create handler/actions, you can put the actions inline as responses. 
+The Router allows you to create inline responses via closures/lambdas or enhanced strings to incoming URL patterns. You do not need to create handler/actions, you can put the actions inline as responses.
 
 ```javascript
 /**

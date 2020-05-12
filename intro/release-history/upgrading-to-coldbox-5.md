@@ -21,3 +21,4 @@ The following settings have been changed and altering behavior:
 ## System Path Changes
 
 * Default Bug Report Files are now located in `/coldbox/system/exceptions/`. Previously `/coldbox/system/includes/`
+
