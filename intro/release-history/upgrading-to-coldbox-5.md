@@ -18,3 +18,6 @@ The following settings have been changed and altering behavior:
 * `coldbox.onInvalidEvent` has been REMOVED in preference to `coldbox.invalidEventHandler`
 * `coldbox.jsonPayloadToRC` is now defaulted to **true**
 
+## System Path Changes
+
+* Default Bug Report Files are now located in `/coldbox/system/exceptions/`. Previously `/coldbox/system/includes/`
