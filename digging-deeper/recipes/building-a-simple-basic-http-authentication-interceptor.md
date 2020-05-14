@@ -4,6 +4,8 @@
 
 In this recipe we will create a simple interceptor that will be in charge of challenging users with HTTP Basic Authentication. It features the usage of all the new RESTful methods in our Request Context that will make this interceptor really straightforward. We will start by knowing that this interceptor will need a security service to verify security, so we will also touch on this.
 
+You can find the code for this recipe here: [https://github.com/coldbox-samples/simple-auth](https://github.com/coldbox-samples/simple-auth)
+
 ## Application Setup
 
 Let's start building the app using CommandBox and installing all the necessary dependencies:
