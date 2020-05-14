@@ -21,6 +21,10 @@ install cbStorages
 server start
 ```
 
+{% hint style="info" %}
+Use `cbtemplate-advanced-script@6.0.0-snapshot` if using ColdBox Pre-Releases
+{% endhint %}
+
 ## Security Service
 
 Let's build a simple security service to track users. Use CommandBox to generate the service model with two functions and let's mark it as a singleton:
