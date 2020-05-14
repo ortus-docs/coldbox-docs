@@ -264,7 +264,7 @@
   * [ColdBox Exception Handling](digging-deeper/recipes/coldbox-exception-handling.md)
   * [Debugging ColdBox Apps](digging-deeper/recipes/debugging-coldbox-apps.md)
   * [Clearing the View Cache](digging-deeper/recipes/clearing-the-view-cache.md)
-  * [Building a simple Basic HTTP Authentication Interceptor](digging-deeper/recipes/building-a-simple-basic-http-authentication-interceptor.md)
+  * [Basic HTTP Authentication Interceptor](digging-deeper/recipes/building-a-simple-basic-http-authentication-interceptor.md)
 
 ## Architecture Concepts
 
