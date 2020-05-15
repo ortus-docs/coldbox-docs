@@ -15,15 +15,42 @@ ColdFusion 11 support has been dropped. Adobe doesn't support them anymore, so n
 The following settings have been changed and altering behavior:
 
 * `coldbox.autoMapModels` is now defaulted to **true**
-* `coldbox.onInvalidEvent` has been REMOVED in preference to `coldbox.invalidEventHandler`
+  * **Which means that all your models will be MAPPED for you. If you have specific mappers in your config/WireBox.cfc make sure they override the mapping or turn this setting false.**
+* `coldbox.onInvalidEvent` has been **REMOVED** in preference to `coldbox.invalidEventHandler`
 * `coldbox.jsonPayloadToRC` is now defaulted to **true**
 
 ## **Method Changes**
+
+### **getSetting\(\)**
 
 The `getSetting()` method does NOT include a `fwSetting` boolean argument anymore.  You can now use the `getColdBoxSetting()` method instead.
 
 ```javascript
 getSetting( "version", true ) ==> getColdBoxSetting( "version" )
+```
+
+### announceInterception\( state, interceptData \) =&gt; announce\( state, data \)
+
+This method has now been deprecated in favor of it's shorthand `announce().`  This method will still work but it will be removed in the next major version. So just rename it now. Also note that the `interceptData` has now changed to just `data`
+
+```javascript
+announce( state, data )
+```
+
+### processState\( state, interceptData \) =&gt; announce\( state, data \)
+
+This method was used in the event manager and interceptor service and has been marked for deprecation.  Please use the method `announce()` instead.  Which is also a consistency in naming now.
+
+## **Interceptor Arguments: interceptData =&gt; data**
+
+All interceptors receive arguments when listening, we have renamed the `interceptData` to just `data`.  The old approach still works but it is marked as deprecated.  So just rename it to `data`
+
+```javascript
+function preProcess( event, data, buffer, rc, prc )
+
+## instead of 
+
+function preProcess( event, interceptData, buffer, rc, prc )
 ```
 
 ## System Path Changes
