@@ -214,6 +214,15 @@ application.logbox = new LogBox();
 application.logbox = new LogBox( "config.MyLogBox" );
 ```
 
+## AnnounceInterception\(\), processState\(\) Deprecated
+
+These methods have been deprecated in favor of our new `announce()` method.  We have also deprecated the argument `interceptData` in favor of just `data.`  
+
+```javascript
+announce( state, data );
+processState( state, data );
+```
+
 ## Release Notes
 
 The full release notes per library can be found below. Just click on the library tab and explore their release notes:
