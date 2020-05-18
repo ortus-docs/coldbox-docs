@@ -300,7 +300,7 @@ As you can see it relies on a `SecurityService` model object that is being wired
 
 ```javascript
 // Security Service
-property name="securityService" inject="id:SecurityService";
+property name="securityService" inject="provider:SecurityService";
 ```
 
 Then we check if a user is logged in or not and if not we either verify their incoming HTTP basic credentials or if none, we challenge them by setting up some cool headers and bypass event execution:
