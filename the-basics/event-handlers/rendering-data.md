@@ -8,7 +8,7 @@ Handler actions can return data back to its callers in different formats
 
 ## Complex Data
 
-By default, any complex data returned from handler actions will automatically be marshaled to **JSON** by default:
+By default, any complex data returned from handler actions will automatically be marshaled to **JSON**:
 
 ```javascript
 function showData( event, rc, prc ){
