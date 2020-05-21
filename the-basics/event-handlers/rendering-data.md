@@ -32,12 +32,12 @@ If you want ColdBox to marshall the content to another type like XML or PDF. The
 * pdf
 
 ```javascript
-function usersAsXML( event, rc, prc ) renderdata=xml{
+function usersAsXML( event, rc, prc ) renderdata='xml'{
     prc.data = service.getUsers();
     return prc.data;
 }
 
-function usersAsPDF( event, rc, prc ) renderdata=pdf{
+function usersAsPDF( event, rc, prc ) renderdata='pdf'{
     prc.data = service.getUsers();
     return prc.data;
 }
