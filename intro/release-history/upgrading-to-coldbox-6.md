@@ -67,6 +67,16 @@ function preProcess( event, interceptData, buffer, rc, prc )
 
 * Default Bug Report Files are now located in `/coldbox/system/exceptions/`. Previously `/coldbox/system/includes/`
 
+So make sure you update your `CustomErrorTemplate` path to this new path:
+
+```javascript
+coldbox.customErrorTemplate = "/coldbox/system/includes/BugReport.cfm";
+// to
+coldbox.customErrorTemplate = "/coldbox/system/exceptions/BugReport.cfm";
+// Or use our new template
+coldbox.customErrorTemplate = "/coldbox/system/exceptions/Whoops.cfm";
+```
+
 ## Rendering Changes
 
 The entire rendering mechanisims in ColdBox 6 have changed.  We have retained backwards compatibility but there might be some loopholes that worked before that won't work now.  Basically, the renderer is a singleton and each view renders in isolation. Meaning if a view sets a variable NO OTHER view will have access to it.
