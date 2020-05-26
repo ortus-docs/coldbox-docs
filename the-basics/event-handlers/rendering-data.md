@@ -17,11 +17,11 @@ function showData( event, rc, prc ){
 }
 ```
 
-Simple as that. ColdBox detects the complex object and tries to convert it to **JSON** for you automatically.  
+Simple as that. ColdBox detects the complex object and tries to convert it to **JSON** for you automatically.
 
 ### `renderdata` Action Annotation
 
-If you want ColdBox to marshall the content to another type like XML or PDF. Then you can use the `renderdata` annotation on the action itself.  The `renderdata` annotation can be any of the following values:
+If you want ColdBox to marshall the content to another type like XML or PDF. Then you can use the `renderdata` annotation on the action itself. The `renderdata` annotation can be any of the following values:
 
 * json
 * jsonp
@@ -55,7 +55,7 @@ component renderdata="xml"{
 
 ### $renderData Convention
 
-If the returned complex data is an **object** and it contains a function called `$renderData(),` then ColdBox will call it for you automatically.  So instead of marshaling to JSON automatically, your object decides how to marshal itself.
+If the returned complex data is an **object** and it contains a function called `$renderData(),` then ColdBox will call it for you automatically. So instead of marshaling to JSON automatically, your object decides how to marshal itself.
 
 ```javascript
 function showUser( event, rc, prc ){
@@ -118,25 +118,25 @@ Here is the method signature:
 * @isBinary Bit that determines if the data being set for rendering is binary or not.
 */
 function renderData(
-	type="HTML",
-	required data,
-	contentType="",
-	encoding="utf-8",
-	numeric statusCode=200,
-	statusText="",
-	location="",
-	jsonCallback="",
- 	jsonQueryFormat="true",
-	boolean jsonAsText=false,
-	xmlColumnList="",
-	boolean xmlUseCDATA=false,
-	xmlListDelimiter=",",
-	xmlRootName="",
-	struct pdfArgs={},
-	formats="",
-	formatsView="",
-	formatsRedirect={},
-	boolean isBinary=false
+    type="HTML",
+    required data,
+    contentType="",
+    encoding="utf-8",
+    numeric statusCode=200,
+    statusText="",
+    location="",
+    jsonCallback="",
+     jsonQueryFormat="true",
+    boolean jsonAsText=false,
+    xmlColumnList="",
+    boolean xmlUseCDATA=false,
+    xmlListDelimiter=",",
+    xmlRootName="",
+    struct pdfArgs={},
+    formats="",
+    formatsView="",
+    formatsRedirect={},
+    boolean isBinary=false
 ){
 ```
 

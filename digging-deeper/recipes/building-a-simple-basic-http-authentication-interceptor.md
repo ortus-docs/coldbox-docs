@@ -45,61 +45,60 @@ This will create the `models/SecurityService` and the companion unit tests. Let'
 */
 component extends="coldbox.system.testing.BaseModelTest" model="models.SecurityService"{
 
-	/*********************************** LIFE CYCLE Methods ***********************************/
+    /*********************************** LIFE CYCLE Methods ***********************************/
 
-	function beforeAll(){
-		super.beforeAll();
+    function beforeAll(){
+        super.beforeAll();
 
-		// setup the model
-		super.setup();
+        // setup the model
+        super.setup();
 
-		mockSession = createMock( "modules.cbstorages.models.SessionStorage" )
-	}
+        mockSession = createMock( "modules.cbstorages.models.SessionStorage" )
+    }
 
-	function afterAll(){
-		super.afterAll();
-	}
+    function afterAll(){
+        super.afterAll();
+    }
 
-	/*********************************** BDD SUITES ***********************************/
+    /*********************************** BDD SUITES ***********************************/
 
-	function run(){
+    function run(){
 
-		describe( "SecurityService Suite", function(){
+        describe( "SecurityService Suite", function(){
 
-			beforeEach(function( currentSpec ){
-				model.init();
-				model.setSessionStorage( mockSession );
-			});
+            beforeEach(function( currentSpec ){
+                model.init();
+                model.setSessionStorage( mockSession );
+            });
 
-			it( "can be created (canary)", function(){
-				expect( model ).toBeComponent();
-			});
+            it( "can be created (canary)", function(){
+                expect( model ).toBeComponent();
+            });
 
-			it( "should authorize valid credentials", function(){
-				mockSession.$( "set", mockSession );
-				expect( model.authorize( "luis", "coldbox" ) ).toBeTrue();
-			});
+            it( "should authorize valid credentials", function(){
+                mockSession.$( "set", mockSession );
+                expect( model.authorize( "luis", "coldbox" ) ).toBeTrue();
+            });
 
-			it( "should not authorize invalid credentials ", function(){
-				expect( model.authorize( "test", "test" ) ).toBeFalse();
-			});
+            it( "should not authorize invalid credentials ", function(){
+                expect( model.authorize( "test", "test" ) ).toBeFalse();
+            });
 
-			it( "should verify if you are logged in", function(){
-				mockSession.$( "get", true );
-				expect( model.isLoggedIn() ).toBeTrue();
-			});
+            it( "should verify if you are logged in", function(){
+                mockSession.$( "get", true );
+                expect( model.isLoggedIn() ).toBeTrue();
+            });
 
-			it( "should verify if you are NOT logged in", function(){
-				mockSession.$( "get", false );
-				expect( model.isLoggedIn() ).toBeFalse();
-			});
+            it( "should verify if you are NOT logged in", function(){
+                mockSession.$( "get", false );
+                expect( model.isLoggedIn() ).toBeFalse();
+            });
 
-		});
+        });
 
-	}
+    }
 
 }
-
 ```
 
 ### Security Service
@@ -114,7 +113,7 @@ component accessors="true" singleton{
      * Constructor
      */
     function init(){
-		    // Mock Security For Now
+            // Mock Security For Now
         variables.username = "luis";
         variables.password = "coldbox";
 
@@ -140,7 +139,7 @@ component accessors="true" singleton{
      * Checks if user already logged in or not.
      */
     function isLoggedIn(){
-		    return sessionStorage.get( "userAuthorized", "false" );
+            return sessionStorage.get( "userAuthorized", "false" );
     }
 
 }
@@ -150,13 +149,13 @@ Please note that we are using a hard coded username and password, but you can co
 
 ## The Interceptor
 
-Let's generate the interceptor now and listen to   `preProcess`
+Let's generate the interceptor now and listen to `preProcess`
 
 ```bash
 coldbox create interceptor name="SimpleSecurity" points="preProcess"
 ```
 
-The `preProcess`listener is to listen to all incoming requests are inspected for security.  Please note that the unit test for this interceptor is also generated.  Let's fill out the interceptor test first:
+The `preProcess`listener is to listen to all incoming requests are inspected for security. Please note that the unit test for this interceptor is also generated. Let's fill out the interceptor test first:
 
 ### Interceptor Test
 
@@ -165,85 +164,84 @@ So to make sure this works, here is our Interceptor Test Case with all possibili
 ```javascript
 component extends="coldbox.system.testing.BaseInterceptorTest" interceptor="interceptors.SimpleSecurity" {
 
-	/*********************************** LIFE CYCLE Methods ***********************************/
+    /*********************************** LIFE CYCLE Methods ***********************************/
 
-	function beforeAll() {
-		super.beforeAll();
+    function beforeAll() {
+        super.beforeAll();
 
-		// mock security service
-		mockSecurityService = createEmptyMock( "models.SecurityService" );
-	}
+        // mock security service
+        mockSecurityService = createEmptyMock( "models.SecurityService" );
+    }
 
-	function afterAll() {
-		super.afterAll();
-	}
+    function afterAll() {
+        super.afterAll();
+    }
 
-	/*********************************** BDD SUITES ***********************************/
+    /*********************************** BDD SUITES ***********************************/
 
-	function run() {
-		describe( "SimpleSecurity Interceptor Suite", function() {
-			beforeEach( function( currentSpec ) {
-				// Setup the interceptor target
-				super.setup();
-				// inject mock into interceptor
-				interceptor.$property(
-					"securityService",
-					"variables",
-					mockSecurityService
-				);
-				mockEvent = getMockRequestContext();
-			} );
+    function run() {
+        describe( "SimpleSecurity Interceptor Suite", function() {
+            beforeEach( function( currentSpec ) {
+                // Setup the interceptor target
+                super.setup();
+                // inject mock into interceptor
+                interceptor.$property(
+                    "securityService",
+                    "variables",
+                    mockSecurityService
+                );
+                mockEvent = getMockRequestContext();
+            } );
 
-			it( "can be created (canary)", function() {
-				expect( interceptor ).toBeComponent();
-			} );
+            it( "can be created (canary)", function() {
+                expect( interceptor ).toBeComponent();
+            } );
 
-			it( "can allow already logged in users", function() {
-				// test already logged in and mock authorize so we can see if it was called
-				mockSecurityService.$( "isLoggedIn", true ).$( "authorize", false );
-				// call interceptor
-				interceptor.preProcess( mockEvent, {} );
-				// verify nothing called
-				expect( mockSecurityService.$never( "authorize" ) ).toBeTrue();
-			} );
+            it( "can allow already logged in users", function() {
+                // test already logged in and mock authorize so we can see if it was called
+                mockSecurityService.$( "isLoggedIn", true ).$( "authorize", false );
+                // call interceptor
+                interceptor.preProcess( mockEvent, {} );
+                // verify nothing called
+                expect( mockSecurityService.$never( "authorize" ) ).toBeTrue();
+            } );
 
-			it( "will challenge if you are not logged in and you don't have the right credentials", function() {
-				// test NOT logged in and NO credentials, so just challenge
-				mockSecurityService.$( "isLoggedIn", false ).$( "authorize", false );
-				// mock incoming headers and no auth credentials
-				mockEvent
-					.$( "getHTTPHeader" )
-					.$args( "Authorization" )
-					.$results( "" )
-					.$( "getHTTPBasicCredentials", { username : "", password : "" } )
-					.$( "setHTTPHeader" );
-				// call interceptor
-				interceptor.preProcess( mockEvent, {} );
-				// verify authorize called once
-				expect( mockSecurityService.$once( "authorize" ) ).toBeTrue();
-				// Assert Set Header
-				expect( mockEvent.$once( "setHTTPHeader" ) ).toBeTrue();
-				// assert renderdata
-				expect( mockEvent.getRenderData().statusCode ).toBe( 401 );
-			} );
+            it( "will challenge if you are not logged in and you don't have the right credentials", function() {
+                // test NOT logged in and NO credentials, so just challenge
+                mockSecurityService.$( "isLoggedIn", false ).$( "authorize", false );
+                // mock incoming headers and no auth credentials
+                mockEvent
+                    .$( "getHTTPHeader" )
+                    .$args( "Authorization" )
+                    .$results( "" )
+                    .$( "getHTTPBasicCredentials", { username : "", password : "" } )
+                    .$( "setHTTPHeader" );
+                // call interceptor
+                interceptor.preProcess( mockEvent, {} );
+                // verify authorize called once
+                expect( mockSecurityService.$once( "authorize" ) ).toBeTrue();
+                // Assert Set Header
+                expect( mockEvent.$once( "setHTTPHeader" ) ).toBeTrue();
+                // assert renderdata
+                expect( mockEvent.getRenderData().statusCode ).toBe( 401 );
+            } );
 
-			it( "should authorize if you are not logged in but have valid credentials", function() {
-				// Test NOT logged in With basic credentials that are valid
-				mockSecurityService.$( "isLoggedIn", false ).$( "authorize", true );
-				// reset mocks for testing
-				mockEvent
-					.$( "getHTTPBasicCredentials", { username : "luis", password : "luis" } )
-					.$( "setHTTPHeader" );
-				// call interceptor
-				interceptor.preProcess( mockEvent, {} );
-				// Assert header never called.
-				expect( mockEvent.$never( "setHTTPHeader" ) ).toBeTrue();
-			} );
-		} );
-	}
+            it( "should authorize if you are not logged in but have valid credentials", function() {
+                // Test NOT logged in With basic credentials that are valid
+                mockSecurityService.$( "isLoggedIn", false ).$( "authorize", true );
+                // reset mocks for testing
+                mockEvent
+                    .$( "getHTTPBasicCredentials", { username : "luis", password : "luis" } )
+                    .$( "setHTTPHeader" );
+                // call interceptor
+                interceptor.preProcess( mockEvent, {} );
+                // Assert header never called.
+                expect( mockEvent.$never( "setHTTPHeader" ) ).toBeTrue();
+            } );
+        } );
+    }
 
 }
-
 ```
 
 As you can see from our A,B, anc C tests that we use MockBox to mock the security service, the request context and methods so we can build our interceptor without knowledge of other parts.
@@ -276,17 +274,17 @@ component {
 
             // Not secure!
             event.setHTTPHeader(
-				name 	= "WWW-Authenticate",
-				value 	= "basic realm=""Please enter your username and password for our Cool App!"""
-			);
+                name     = "WWW-Authenticate",
+                value     = "basic realm=""Please enter your username and password for our Cool App!"""
+            );
 
             // secured content data and skip event execution
-			event
-				.renderData(
-					data 		= "<h1>Unathorized Access<p>Content Requires Authentication</p>",
-					statusCode 	= "401",
-					statusText 	= "Unauthorized"
-				)
+            event
+                .renderData(
+                    data         = "<h1>Unathorized Access<p>Content Requires Authentication</p>",
+                    statusCode     = "401",
+                    statusText     = "Unauthorized"
+                )
                 .noExecution();
         }
 
@@ -347,5 +345,5 @@ You might have noticed the injection of the security service into the intercepto
 
 ## Extra Credit
 
-Now that the hard part is done, we encourage you to try and build the integration test for the application now.  Please note that most likely you would NOT do the unit test for the interceptor if you do the integration portion in BDD Style.
+Now that the hard part is done, we encourage you to try and build the integration test for the application now. Please note that most likely you would NOT do the unit test for the interceptor if you do the integration portion in BDD Style.
 
