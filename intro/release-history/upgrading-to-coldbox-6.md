@@ -31,6 +31,18 @@ property name="routingService" inject="coldbox:routingService"
 
 ## **Method Changes**
 
+**Provider `get()` method to `$get()`**
+
+All WireBox providers now implement the new interface which has changed the method of `get()` to `$get()` to avoid proxying to methods that already implement a `get()` method.  So if you are using the `get()` method just update it to the new `$get()` method.
+
+```javascript
+property name="userService" inject="provider:UserService";
+
+function getData(){
+  return userService.$get().search();
+}
+```
+
 ### **getSetting\(\)**
 
 The `getSetting()` method does NOT include a `fwSetting` boolean argument anymore.  You can now use the `getColdBoxSetting()` method instead.
