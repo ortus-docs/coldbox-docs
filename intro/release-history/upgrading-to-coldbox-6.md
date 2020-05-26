@@ -31,7 +31,7 @@ property name="routingService" inject="coldbox:routingService"
 
 ## **Method Changes**
 
-**Provider `get()` method to `$get()`**
+**WireBox Provider `get()` method to `$get()`**
 
 All WireBox providers now implement the new interface which has changed the method of `get()` to `$get()` to avoid proxying to methods that already implement a `get()` method.  So if you are using the `get()` method just update it to the new `$get()` method.
 
@@ -53,7 +53,7 @@ getSetting( "version", true ) ==> getColdBoxSetting( "version" )
 
 ### announceInterception\( state, interceptData \) =&gt; announce\( state, data \)
 
-This method has now been deprecated in favor of it's shorthand `announce().`  This method will still work but it will be removed in the next major version. So just rename it now. Also note that the `interceptData` has now changed to just `data`
+This method has now been deprecated in favor of its shorthand `announce().`  This method will still work but it will be removed in the next major version. So just rename it now. Also note that the `interceptData` has now changed to just `data`
 
 ```javascript
 announce( state, data )
@@ -62,6 +62,10 @@ announce( state, data )
 ### processState\( state, interceptData \) =&gt; announce\( state, data \)
 
 This method was used in the event manager and interceptor service and has been marked for deprecation.  Please use the method `announce()` instead.  Which is also a consistency in naming now.
+
+## `setNextEvent()` Removed
+
+The method `setNextEvent()` has been removed in favor of `relocate().` We had deprecated this method in ColdBox 5.
 
 ## **Interceptor Arguments: interceptData =&gt; data**
 
