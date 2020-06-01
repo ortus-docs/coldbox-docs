@@ -12,7 +12,7 @@ Then spice it up
 component accessors="true" singleton{
 
     // Dependency Injection
-    property name="dsn" inject="coldbox:setting:contacts"
+    property name="dsn" inject="coldbox:setting:contacts";
 
     function init(){
         return this;
