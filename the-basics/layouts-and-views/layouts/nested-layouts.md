@@ -11,7 +11,7 @@ So if I wanted to wrap my basic layout in a PDF wrapper layout \(`pdf.cfm`\) I c
 ```javascript
 <cfdocument pagetype="letter" format="pdf">
 
-    <---  Header --->
+    <!---  Header --->
     <cfdocumentitem type="header">
     <cfoutput>
     <div>
@@ -20,7 +20,7 @@ So if I wanted to wrap my basic layout in a PDF wrapper layout \(`pdf.cfm`\) I c
     </cfoutput>
     </cfdocumentitem>
 
-    <---  Footer --->
+    <!---  Footer --->
     <cfdocumentitem type="footer">
     <cfoutput>
     <div>
@@ -29,8 +29,10 @@ So if I wanted to wrap my basic layout in a PDF wrapper layout \(`pdf.cfm`\) I c
     </cfoutput>
     </cfdocumentitem>
 
-    <---  Main Content via nested layout --->
+    <!---  Main Content via nested layout --->
+    <cfoutput>
     #renderLayout(layout="basic")#
+    </cfoutput>
 
 </cfdocument>
 ```
