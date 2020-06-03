@@ -2,7 +2,7 @@
 
 ## Default Layout
 
-The default layout in a ColdBox application is `layouts/main.cfm` by convention. You can change this by using the `layoutSettings` in your `Configuration.cfc`.
+The default layout in a ColdBox application is `layouts/main.cfm` by convention. You can change this by using the `layoutSettings` in your `Coldbox.cfc`.
 
 ```javascript
 //Layout Settings
