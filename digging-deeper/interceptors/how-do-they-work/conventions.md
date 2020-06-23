@@ -1,6 +1,6 @@
 # Conventions
 
-By convention, any interceptor CFC must create a method with the same name as the event they want to listen to. This method has a return type of `boolean` and receives 3 arguments. So let's explore their rules.
+By convention, any interceptor CFC must create a method with the same name as the event they want to listen to. This method has a return type of `boolean` and receives 5 arguments. So let's explore their rules.
 
 ```javascript
 boolean function {point}( event, interceptData, buffer, rc, prc );
