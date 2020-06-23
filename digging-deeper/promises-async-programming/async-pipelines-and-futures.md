@@ -280,7 +280,9 @@ Always checkout the API docs for the latest methods and signatures: [https://api
       <td style="text-align:left">Ability to attach a timeout to the execution of the allApply() method</td>
     </tr>
   </tbody>
-</table>## Execution Status
+</table>
+
+## Execution Status
 
 ## Getting Values
 

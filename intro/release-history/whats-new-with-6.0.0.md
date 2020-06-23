@@ -186,17 +186,33 @@ component extends="BaseHandler"{
 
 The response object can be found here: `coldbox.system.web.context.Response` and the rest handler constructs it by calling the request context’s `getResponse`\(\) method. The method verifies if there is a `prc.response` object and if it exists it returns it, else it creates a new one. So if you would like to use your very own, then just make sure that before the request you place your own response object in the `prc` scope.
 
-Here is a simple example using a `preProcess()` interceptor in your `config/Coldbox.cfc:`
+Here is a simple example using a `preProcess()` interceptor.  Create a simple interceptor with commandbox e.g
 
-{% code title="config/Coldbox.cfc" %}
+```javascript
+coldbox create interceptor name=MyInterceptor points=preProcess
+```
+
+and add the following method:
+
 ```javascript
 function preProcess( event, interceptData, rc, prc ){
   prc.response = wirebox.getInstance( "MyResponseObject" );
 }
 ```
-{% endcode %}
 
-That’s it. Once that response object is in the `prc` scope, ColdBox will utilize it. Just make sure that your custom Response object satisfies the methods in the core one.
+Don't forget to register your interceptor in  `config/Coldbox.cfc:`
+
+```javascript
+		interceptors = [
+			{
+			class      : "interceptors.MyInterceptor",
+				name       : "MyInterceptor",
+				properties : {}
+			}
+		];
+```
+
+That’s it. Once that response object is in the `prc` scope, ColdBox will utilize it. Just make sure that your custom Response object satisfies the methods in the core one. If you want to modify the output of the response object a good place to do that would  be in the `getDataPacket()` method of your own `MyResponseObject`.  Just make sure this method will return a `struct`. 
 
 ## ColdBox Renderer Becomes a Singleton
 
