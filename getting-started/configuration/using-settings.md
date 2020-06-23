@@ -2,7 +2,7 @@
 
 ![](../../.gitbook/assets/controllerwithsettingstructures.jpg)
 
-The ColdBox Controller \(stored in ColdFusion `application` scope\) stores all your **application** settings and also your **system** settings:
+The ColdBox Controller \(stored in ColdFusion `application` scope as `application.cbController`\) stores all your **application** settings and also your **system** settings:
 
 * **ColdboxSettings** : Framework specific system settings
 * **ConfigSettings** : Your application settings
@@ -37,7 +37,7 @@ any function setSetting( required name, required value )
 ```
 {% endcode %}
 
-You can also get access to these methods via the ColdBox Controller component:
+You can also get access to these methods in handlers via the ColdBox Controller component:
 
 ```javascript
 controller.getSetting()
@@ -45,6 +45,16 @@ controller.setSetting()
 controller.settingExists()
 controller.getConfigSettings()
 controller.getColdBoxSettings()
+```
+
+or using the application scope from modules and other locations where `controller` isn't injected:
+
+```javascript
+application.cbController.getSetting()
+application.cbController.setSetting()
+application.cbController.settingExists()
+application.cbController.getConfigSettings()
+application.cbController.getColdBoxSettings()
 ```
 
 ## Injecting Settings
