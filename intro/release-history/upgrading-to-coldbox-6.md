@@ -2,7 +2,7 @@
 
 The major compatibility issues will be covered as well as how to smoothly upgrade to this release from previous ColdBox versions. You can also check out the [What's New](whats-new-with-6.0.0.md) guide to give you a full overview of the changes.
 
-## Luce 4.5 Support Dropped
+## Lucee 4.5 Support Dropped
 
 Lucee 4.5 support has been dropped
 
@@ -31,7 +31,7 @@ property name="routingService" inject="coldbox:routingService"
 
 ## **Method Changes**
 
-**WireBox Provider `get()` method to `$get()`**
+### **WireBox Provider `get()` method to `$get()`**
 
 All WireBox providers now implement the new interface which has changed the method of `get()` to `$get()` to avoid proxying to methods that already implement a `get()` method.  So if you are using the `get()` method just update it to the new `$get()` method.
 
