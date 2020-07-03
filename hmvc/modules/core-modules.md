@@ -35,7 +35,7 @@ install cbcommons
 ## `csrf` - Cross Site Request Forgery
 
 * Source: [https://github.com/coldbox-modules/cbox-csrf](https://github.com/coldbox-modules/cbox-csrf)
-* ForgeBox: [http://forgebox.io/view/csrf](http://forgebox.io/view/csrf)
+* ForgeBox: [https://forgebox.io/view/cbcsrf](https://forgebox.io/view/cbcsrf)
 
 A module that protects you against CSRF attacks by generating unique FORM/client tokens and providing your ColdBox application with new functions for protection.
 
