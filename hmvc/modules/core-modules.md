@@ -17,7 +17,7 @@ install cbantisamy
 
 ## `cbcommons` - Common Utilities
 
-* Source: [https://github.com/coldbox-modules/cbox-commons](https://github.com/coldbox-modules/cbox-commons)
+* Source: [https://github.com/coldbox-modules/cbox-cbcommons](https://github.com/coldbox-modules/cbox-cbcommons)
 * ForgeBox: [http://forgebox.io/view/cbcommons](http://forgebox.io/view/cbcommons)
 
 A collection of model objects for your using pleasure:
