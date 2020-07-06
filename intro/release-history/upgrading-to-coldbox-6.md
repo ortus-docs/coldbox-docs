@@ -4,7 +4,7 @@ The major compatibility issues will be covered as well as how to smoothly upgrad
 
 ## Lucee 4.5 Support Dropped
 
-Lucee 4.5 support has been dropped
+Lucee 4.5 support has been dropped.
 
 ## ColdFusion 11 Support Dropped
 
