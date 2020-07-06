@@ -8,7 +8,7 @@ this.entryPoint = "/mymodule";
 
 ## Parent Manual Routing
 
-You can also add these entry points manually in the host application's routing file: `config/Routes.cfm`. However, you will loose all module portability. We do this by using a method called `addModuleRoutes()` method.
+You can also add these entry points manually in the host application's routing file: `config/Router.cfc`. However, you will lose all module portability. We do this by using a method called `addModuleRoutes()` method.
 
 * `addModuleRoutes(pattern, module)` : Insert the module routes at this location in the configuration file with the applied URL pattern.
 
