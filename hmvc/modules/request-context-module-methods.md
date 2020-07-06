@@ -3,7 +3,7 @@
 The request context object \(`event` parameter received in handlers/layouts/views\) has also been expanded to have the following module methods:
 
 * `getCurrentModule()` : Returns the module name of the currently executing module event.
-* `getModuleRoot([moduleName])` : Returns the web accessible root to the modules root directory. If you do not pass the explicit module name, we will default to use the `getCurrentModule()` in the request.
+* `getModuleRoot([moduleName])` : Returns the web accessible root to the module's root directory. If you do not pass the explicit module name, we will default to use the `getCurrentModule()` in the request.
 
 The last method is what is really interesting when building visual modules that need assets from within the module itself. You can easily target the web-accessible path to the module by using the `getModuleRoot()` method. Below are some examples:
 
