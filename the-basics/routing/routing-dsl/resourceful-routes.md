@@ -18,10 +18,10 @@ resources( "photos" )
     .resources( "contacts" );
 
 // Creates all resources to the event handler of choice instead of convention
-resources( route="photos", handler="MyPhotoHandler" );
+resources( resource="photos", handler="MyPhotoHandler" );
 
 // All resources in a module
-resources( route="photos", handler="photos", module="api" );
+resources( resource="photos", handler="photos", module="api" );
 
 // Resources in a ModuleConfig.cfc
 router.resources( "photos" )
