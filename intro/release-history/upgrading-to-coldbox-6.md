@@ -33,7 +33,7 @@ property name="routingService" inject="coldbox:routingService"
 
 ### **WireBox Provider `get()` method to `$get()`**
 
-All WireBox providers now implement the new interface which has changed the method of `get()` to `$get()` to avoid proxying to methods that already implement a `get()` method.  So if you are using the `get()` method just update it to the new `$get()` method.
+All WireBox providers now implement the new interface which has changed the method of `get()` to `$get()` to avoid proxying to methods that already implement a `get()` method. So if you are using the `get()` method just update it to the new `$get()` method.
 
 ```javascript
 property name="userService" inject="provider:UserService";
@@ -45,7 +45,7 @@ function getData(){
 
 ### **getSetting\(\)**
 
-The `getSetting()` method does NOT include a `fwSetting` boolean argument anymore.  You can now use the `getColdBoxSetting()` method instead.
+The `getSetting()` method does NOT include a `fwSetting` boolean argument anymore. You can now use the `getColdBoxSetting()` method instead.
 
 ```javascript
 getSetting( "version", true ) ==> getColdBoxSetting( "version" )
@@ -53,7 +53,7 @@ getSetting( "version", true ) ==> getColdBoxSetting( "version" )
 
 ### announceInterception\( state, interceptData \) =&gt; announce\( state, data \)
 
-This method has now been deprecated in favor of its shorthand `announce().`  This method will still work but it will be removed in the next major version. So just rename it now. Also note that the `interceptData` has now changed to just `data`
+This method has now been deprecated in favor of its shorthand `announce().` This method will still work but it will be removed in the next major version. So just rename it now. Also note that the `interceptData` has now changed to just `data`
 
 ```javascript
 announce( state, data )
@@ -61,15 +61,32 @@ announce( state, data )
 
 ### processState\( state, interceptData \) =&gt; announce\( state, data \)
 
-This method was used in the event manager and interceptor service and has been marked for deprecation.  Please use the method `announce()` instead.  Which is also a consistency in naming now.
+This method was used in the event manager and interceptor service and has been marked for deprecation. Please use the method `announce()` instead. Which is also a consistency in naming now.
 
 ## `setNextEvent()` Removed
 
 The method `setNextEvent()` has been removed in favor of `relocate().` We had deprecated this method in ColdBox 5.
 
+## Interceptor Buffer Methods Removed
+
+These methods have been deprecated since version 4 and they are now removed.
+
+* `getBufferObject()`
+* `getBufferString()`
+* `appendToBuffer()`
+* `clearBuffer()`
+
+Every interception listener receives the `buffer` as an argument so there is no need to go to global functions for working with the buffer.
+
+```javascript
+function state( event, data, rc, prc, buffer ){
+
+}
+```
+
 ## **Interceptor Arguments: interceptData =&gt; data**
 
-All interceptors receive arguments when listening, we have renamed the `interceptData` to just `data`.  The old approach still works but it is marked as deprecated.  So just rename it to `data`
+All interceptors receive arguments when listening, we have renamed the `interceptData` to just `data`. The old approach still works but it is marked as deprecated. So just rename it to `data`
 
 ```javascript
 function preProcess( event, data, buffer, rc, prc )
@@ -95,5 +112,5 @@ coldbox.customErrorTemplate = "/coldbox/system/exceptions/Whoops.cfm";
 
 ## Rendering Changes
 
-The entire rendering mechanisims in ColdBox 6 have changed.  We have retained backwards compatibility but there might be some loopholes that worked before that won't work now.  Basically, the renderer is a singleton and each view renders in isolation. Meaning if a view sets a variable NO OTHER view will have access to it.
+The entire rendering mechanisims in ColdBox 6 have changed. We have retained backwards compatibility but there might be some loopholes that worked before that won't work now. Basically, the renderer is a singleton and each view renders in isolation. Meaning if a view sets a variable NO OTHER view will have access to it.
 
