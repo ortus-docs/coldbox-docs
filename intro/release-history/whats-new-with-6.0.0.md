@@ -239,6 +239,54 @@ announce( state, data );
 processState( state, data );
 ```
 
+## Routing Enhancements
+
+We have done several enhancements to the entire routing capabilities in ColdBox apart from several bug fixes.
+
+### BuildLink Named Route Support
+
+The request context method `event.buildLink()` has been now added named route support.  The `event.route()` method was introduced to do named routing with a `name` and `params` argument.  Now, you can also use this approach but via the `to` argument in the `buildLink()` method by just passing a struct.
+
+```javascript
+// Using the route() method
+event.route( "contactUs", { id : 3 } )
+
+// Using the buildLink() method and the to struct arg
+event.buildLink( { name : "contactUs", params : { id : 3 } } )
+```
+
+### Route Metadata
+
+You can now add custom metadata to specific route or resourceful routes by using the `meta()` method or the `meta` argument.  This is simply a struct of name value pairs you can add into the route record.
+
+{% code title="config/Router.cfc" %}
+```java
+route( "/render/:format" )
+	.meta( { secure : false } )
+	.to( "actionRendering.index" );
+
+// Resources
+	resources(
+		resource: "photos",
+		meta    : { secure : true }
+	);
+```
+{% endcode %}
+
+Now, how good is adding the metadata if you can't get it.  So you can get the current route's metadata via the new request context method: `getCurrentRouteMeta()` method:
+
+```javascript
+if( event.getCurrentRouteMeta().secure ){
+  // secure it.
+}
+```
+
+### Route Record
+
+We have also added the method `getCurrentRouteRecord()` to the request context so you can get the struct definition of the route record of the currently routed route. Below is a sample screenshot of the record:
+
+![Route Record](../../.gitbook/assets/route-record.png)
+
 ## Release Notes
 
 The full release notes per library can be found below. Just click on the library tab and explore their release notes:
