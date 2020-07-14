@@ -12,7 +12,7 @@ The way that interceptors are used is usually referred to as event-driven progra
 
 ```markup
 <!-- Announce an event in the div and produce content -->
-<div>#announceInterception( 'onSidebar' )#</div>
+<div>#announce( 'onSidebar' )#</div>
 
 // Announce inside a function
 if( userCreated ){

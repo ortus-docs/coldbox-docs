@@ -4,15 +4,15 @@ You can restrict the execution of an interception point by using the `eventpatte
 
 ```javascript
 // only execute for the admin package
-void function preProcess(event,struct interceptData) eventPattern="^admin\."{}
+void function preProcess(event,struct data) eventPattern="^admin\."{}
 
 // only execute for the blog module
-void function preProcess(event,struct interceptData) eventPattern="^blog:"{}
+void function preProcess(event,struct data) eventPattern="^blog:"{}
 
 // only execute for the blog module and the home handler
-void function preProcess(event,struct interceptData) eventPattern="^blog:home\."{}
+void function preProcess(event,struct data) eventPattern="^blog:home\."{}
 
 // only execute for the blog, forums, and shop modules
-void function preProcess(event,struct interceptData) eventPattern="^(blog|forum|shop):"{}
+void function preProcess(event,struct data) eventPattern="^(blog|forum|shop):"{}
 ```
 

@@ -5,11 +5,11 @@ Once your custom interception or event points are registered and CFC are registe
 ```javascript
 component{
 
-    function onLog(event,interceptData,buffer){
+    function onLog(event,data,buffer){
         // your code here
     }
 
-    function onRecordInserted(event,interceptData,buffer){
+    function onRecordInserted(event,data,buffer){
         // your code here
     }
 

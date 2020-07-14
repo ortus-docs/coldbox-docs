@@ -222,6 +222,7 @@
     * [Conventions](digging-deeper/interceptors/how-do-they-work/conventions.md)
   * [Interceptor Declaration](digging-deeper/interceptors/interceptor-declaration.md)
   * [Interceptor Registration](digging-deeper/interceptors/interceptor-registration.md)
+  * [Dynamic Registration](digging-deeper/interceptors/dynamic-registration.md)
   * [Core Interception Points](digging-deeper/interceptors/core-interception-points/README.md)
     * [Application Life Cycle Events](digging-deeper/interceptors/core-interception-points/application-life-cycle-events.md)
     * [Object Creating Events](digging-deeper/interceptors/core-interception-points/object-creating-events.md)

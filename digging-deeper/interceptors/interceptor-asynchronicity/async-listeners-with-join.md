@@ -3,9 +3,9 @@
 The second use case is where you want to run the interception but multi-thread **all** the interceptor CFCs that are listening to that interception point. So let's say we have our `onPageCreate` announcement and we have 3 interceptors that are listening to that interception point. Then by using the `asyncAll=true` argument, ColdBox will create 3 separate threads, one for each of those interceptors and execute their methods in their appropriate threads. This is a great way to delegate long running processes simultaneously on a specific piece of data. Also, by default, the caller will wait for all of those 3 threads to finalize before continuing execution. So it is a great way to process data and wait until it has become available.
 
 ```javascript
-var threadData = announceInterception(
+var threadData = announce(
     state           = "onPageCreate", 
-    interceptData   = {}, 
+    data            = {}, 
     asyncAll        = true
 );
 ```
@@ -21,10 +21,10 @@ You can also combine this call with the following arguments:
 * `asyncAllJoin` : The flag that determines if the caller should wait for all spawned threads or should just spawn all threads and continue immediately. By default, it waits until all spawned threads finalize.
 
 ```javascript
-var threadData = announceInterception(state="onPageCreate", interceptData={}, asyncAll=true, asyncAllJoin=false);
-var threadData = announceInterception(
+var threadData = announce(state="onPageCreate", interceptData={}, asyncAll=true, asyncAllJoin=false);
+var threadData = announce(
     state           = "onPageCreate", 
-    interceptData   = {}, 
+    data            = {}, 
     asyncAll        = true,
     asyncAllJoin    = false,
     asyncJoinTimeout = 30,

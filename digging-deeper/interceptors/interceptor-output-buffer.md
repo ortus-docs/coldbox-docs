@@ -4,7 +4,7 @@ Every interception point receives a unique request output buffer that can be use
 
 ```javascript
 // Using methods, meaning you inherited from Interceptor or registered at configuration time.
-function preRender( event, interceptData, buffer, rc, prc ){
+function preRender( event, data, buffer, rc, prc ){
     //clear all of it first, just in case.
     arguments.buffer.clear();
     //Append to buffer
@@ -19,7 +19,7 @@ function preRender( event, interceptData, buffer, rc, prc ){
 Here are some examples using the `buffer` argument:
 
 ```javascript
-function onSidebar( event, interceptData, buffer, rc, prc ){
+function onSidebar( event, data, buffer, rc, prc ){
     savecontent variable="local.data"{
         /// HTML HERE
     }
@@ -28,7 +28,7 @@ function onSidebar( event, interceptData, buffer, rc, prc ){
 }
 
 // using argument
-function preRender( event, interceptData, buffer, rc, prc ){
+function preRender( event, data, buffer, rc, prc ){
     //clear all of it first, just in case.
     arguments.buffer.clear();
     //Append to buffer

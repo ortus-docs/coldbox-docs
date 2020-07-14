@@ -10,7 +10,7 @@ We have also extended the interceptor registration process so you can annotate i
 This allows you the flexibility to determine in code which points are threaded, which is a great way to use for emails, logging, etc.
 
 ```javascript
-function preProcess( event, interceptData ) async asyncPriority="low"{
+function preProcess( event, data ) async asyncPriority="low"{
     // Log current request information
     log.info("Executing request: #event.getCurrentEvent()#", getHTTPRequestData() );    
 }

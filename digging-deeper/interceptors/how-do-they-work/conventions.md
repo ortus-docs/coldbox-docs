@@ -3,13 +3,13 @@
 By convention, any interceptor CFC must create a method with the same name as the event they want to listen to. This method has a return type of `boolean` and receives 5 arguments. So let's explore their rules.
 
 ```javascript
-boolean function {point}( event, interceptData, buffer, rc, prc );
+boolean function {point}( event, data, buffer, rc, prc );
 ```
 
 ## Arguments
 
 * `event` which is the request context object
-* `interceptData` which is a structure of data that the broadcaster sends
+* `data` which is a structure of data that the broadcaster sends
 * `buffer` which is a request buffer object you can use to elegantly produce content that is outputted to the user's screen
 * `rc` reference to the request collection struct
 * `prc` reference to the private request collection struct
@@ -26,7 +26,7 @@ component extends="coldbox.system.Interceptor"{
 
     function configure(){}
 
-    boolean function afterConfigurationLoad(event,interceptData,buffer){
+    boolean function afterConfigurationLoad(event,data,buffer){
         if( getProperty('interceptorCompleted') eq false){
             parseAndSet();    
             setProperty('interceptorCompleted',true);
@@ -56,7 +56,7 @@ component {
         } 
     }
 
-    void function preProcess(event,struct interceptData, buffer){
+    void function preProcess(event,struct data, buffer){
 
         // verify turned on
         if( !getProperty("enabled") ){ return; }

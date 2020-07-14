@@ -5,7 +5,7 @@ The first case involves where you want to completely detach an interception call
 ```javascript
 threadData = announceInterception(
     state           = "onPageCreate", 
-    interceptData   = { page= local.page }, 
+    data            = { page= local.page }, 
     asyncAll        = true
 );
 ```
@@ -19,7 +19,7 @@ You can also combine this call with the following arguments:
 ```javascript
 threadData = announceInterception(
     state           = "onPageCreate", 
-    interceptData   = { page= local.page }, 
+    data            = { page= local.page }, 
     asyncAll        = true,
     asyncPriority   = "high"
 );

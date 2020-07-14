@@ -3,7 +3,7 @@
 In honor of one of my favorite bands and album, [The Police](http://en.wikipedia.org/wiki/Synchronicity_%28The_Police_album%29) - [Synchronicity](https://www.youtube.com/watch?v=Si5CSpUCDGY), we have some asynchronous capabilities in ColdBox Interceptors. These features are thanks to the sponsorship of \[Guardly\] Inc, Alert, Connect, Stay Safe. So please make sure to check them out and thank them for sponsoring this great feature set. The core interceptor service and announcement methods have some arguments that can turn asynchronicity on or off and can return a structure of threading data.
 
 ```javascript
-any announceInterception(state, interceptData, async, asyncAll, asyncAllJoin, asyncJoinTimeout, asyncPriority);
+any announceInterception(state, data, async, asyncAll, asyncAllJoin, asyncJoinTimeout, asyncPriority);
 ```
 
 The asynchronous arguments are listed in the table below:
@@ -21,7 +21,7 @@ All asynchronous calls will return a structure of thread information back to you
 ```javascript
 threadData = announceInterception(
     state           = "onLogin", 
-    interceptData   = { user=user }, 
+    data            = { user=user }, 
     asyncAll        = true
 );
 ```
