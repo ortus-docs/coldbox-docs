@@ -287,6 +287,25 @@ We have also added the method `getCurrentRouteRecord()` to the request context s
 
 ![Route Record](../../.gitbook/assets/route-record.png)
 
+### Dynamic Routing Redirection
+
+The `toRedirect()` method has been enhanced to accept a closure as the `target` of relocation.  This closure will received the parsed parameters, the incoming route record and the event object. You can now determine dynamically where the relocation will go.
+
+```javascript
+( route, params, event ) => "/new/route" 
+
+function( route, params, event ){ return "/new/route"; }
+```
+
+This is great if you need to actually parse the incoming route and do a dynamic relocation.
+
+```javascript
+route( "/old/api/users/:id" )
+    .toRedirect( ( route, params, event ) => { return "/api/v1/users/#params.id#" } )
+```
+
+Happy Redirecting!
+
 ## Release Notes
 
 The full release notes per library can be found below. Just click on the library tab and explore their release notes:
