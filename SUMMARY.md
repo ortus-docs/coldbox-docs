@@ -217,6 +217,7 @@
   * [Parallel Computations](digging-deeper/promises-async-programming/parallel-computations.md)
   * [Executors](digging-deeper/promises-async-programming/executors.md)
   * [Scheduled Tasks](digging-deeper/promises-async-programming/scheduled-tasks.md)
+* [REST handler](digging-deeper/rest-handler.md)
 * [Interceptors](digging-deeper/interceptors/README.md)
   * [How do they work?](digging-deeper/interceptors/how-do-they-work/README.md)
     * [Conventions](digging-deeper/interceptors/how-do-they-work/conventions.md)
