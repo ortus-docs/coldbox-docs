@@ -8,7 +8,7 @@ Out of the box, ColdBox gives you all the RESTFul capabilities you will need to 
 
 ## Producing JSON
 
-If you know beforehand what type of format you will be responding with, you can leverage ColdBox 5's auto-marshalling in your handlers. By default, ColdBox detects any return value from handlers and if they are complex it will convert them to JSON automatically for you:
+If you know beforehand what type of format you will be responding with, you can leverage ColdBox auto-marshalling in your handlers. By default, ColdBox detects any return value from handlers and if they are complex it will convert them to JSON automatically for you:
 
 {% code title="contacts.cfc" %}
 ```javascript

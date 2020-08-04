@@ -57,7 +57,7 @@ server start --rewritesEnable
 ```
 
 {% hint style="info" %}
-This will start up a [Lucee](https://www.lucee.org) 5 open source CFML engine \(If you are in CommandBox 4\). If you would like an **Adobe ColdFusion** server then just add to the command: `cfengine=adobe@{version}` where `{version}` can be: `2016,11,10,9.`
+This will start up a [Lucee](https://www.lucee.org) 5 open source CFML engine \(If you are in CommandBox 4 or higher\). If you would like an **Adobe ColdFusion** server then just add to the command: `cfengine=adobe@{version}` where `{version}` can be: `2016,11,10,9.`
 
 If you are using CommandBox 3 and below, you will be using a Lucee 4.5 Server.
 {% endhint %}
