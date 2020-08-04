@@ -1,10 +1,8 @@
 # Life-Cycle Events
 
-[![](https://github.com/ortus-docs/coldbox-docs/raw/master/.gitbook/assets/testing-lifecycle.png)](https://github.com/ortus-docs/coldbox-docs/blob/master/.gitbook/assets/testing-lifecycle.png)
+ColdBox testing leverages TestBox's testing life-cycle events \([http://testbox.ortusbooks.com/content/life-cycle\_methods/index.html](http://testbox.ortusbooks.com/content/life-cycle_methods/index.html)\) in order to prepare the virtual ColdBox application, request context and then destroy it. By default, a virtual application is loaded for all test cases contained within a test bundle CFC via the `beforeAll()` and destroyed under `afterAll()`.
 
-ColdBox testing leverages TestBox's testing life-cycle events \([http://testbox.ortusbooks.com/content/life-cycle\_methods/index.html](http://testbox.ortusbooks.com/content/life-cycle_methods/index.html)\) in order to prepare the virtual ColdBox application, request context and then destroy it. For performance, a virtual application is loaded for all test cases contained within a test bundle CFC via the `beforeAll()` and destroyed under `afterAll()`.
-
-```text
+```javascript
 function beforeAll(){
     super.beforeAll();
     // do your own stuff here
@@ -20,17 +18,19 @@ function afterAll(){
 
 ## Improving Performance: Unloading ColdBox
 
-The default for integration testing is that the virtual ColdBox application will be destroyed or unloaded in each test. To keep the virtual application accross requests you will need to use the `unloadColdBox=false` annotation or the `this.unloadColdBox=false` setting in your `beforeAll()` method. This will stop the testing classes from destroying ColdBox and improving performance.
+The default for integration testing is that the virtual ColdBox application will be destroyed or unloaded in each test. To keep the virtual application across multiple test bundle tests you will need to use the `unloadColdBox=false` annotation or the `this.unloadColdBox=false` setting in your `beforeAll()` method. This will stop the testing classes from destroying ColdBox and improving performance.
 
-```text
+```javascript
 component extends="coldbox.system.testing.BaseTestCase" unloadColdBox=false{
-
-
+    
+    this.unloadColdBox = false;
+    
     function beforeAll(){
-        this.unloadColdBox = false;
         super.beforeAll();
         // do your own stuff here
     }
 }
 ```
+
+
 

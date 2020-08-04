@@ -13,3 +13,14 @@ The `execute()` method is your way of making requests in to your ColdBox applica
 | renderResults | struct | `false` | `false` | If true, then it will try to do the normal rendering procedures and store the rendered content in the RC as `cbox_rendered_content`. |
 | withExceptionHandling | boolean | `false` | `false` | If true, then ColdBox will process any errors through the exception handling framework instead of just throwing the error. |
 
+This method will execute the any ColdBox event just like if it's coming from the browser or mobile app.  You will get back a request context object from which you can then do assertions with it.
+
+```javascript
+it( "can render some restful data", function() {
+    var event = execute( "main.data" );
+
+    debug( event.getHandlerResults() );
+    expect( event.getRenderedContent() ).toBeJSON();
+} );
+```
+

@@ -13,109 +13,159 @@ Please note the `--saveDev` flag we used. This tells CommandBox that this depend
 Every ColdBox application template comes with a pre-set testing harness under the `/tests` folder:
 
 ```text
-Dir           0 Apr 25,2015 11:04:11 resources
-Dir           0 Apr 25,2015 11:04:11 results
-Dir           0 Apr 25,2015 11:04:11 specs
-File        817 Apr 13,2015 18:04:34 Application.cfc
-File        693 Jan 15,2015 14:01:18 runner.cfm
-File       5164 Jan 15,2015 14:01:20 test.xml
++ resources
++ results
++ specs
+- Application.cfc
+- runner.cfm
+- test.xml
 ```
 
-Every harness has its own unique `Application.cfc` which must mimic your application's settings. It also comes with an HTML runner called `runner.cfm` and an ANT runner called `test.xml`. All your test bundles and specifications will go under the `specs` directory and in the appropriate sub-directory:
+Every harness has its own unique `Application.cfc` which must mimic your application's settings. It also comes with an HTML runner called `runner.cfm` and an ANT runner called `test.xml`. All your test bundles and specifications will go under the `specs` directory and in the appropriate sub-directories:
 
 ```text
-Dir           0 Apr 27,2015 11:04:11 integration
-Dir           0 Apr 25,2015 11:04:11 modules
-Dir           0 Dec 16,2013 19:12:32 unit
-File          0 Jan 15,2015 14:01:18 all_tests_go_here.txt
++ integration
++ modules
++ unit
 ```
 
 Under the `integration` tests you will find the test bundles that come with the application template and the ones we generated:
 
 ```text
-File       1857 Apr 27,2015 11:04:11 helloTest.cfc
-File       3236 Jan 21,2015 16:01:56 MainBDDTest.cfc
++ MainSpec.cfc
 ```
 
-The `helloTest` BDD test bundle can be show below:
+The `MainSpec` BDD test bundle can be show below:
 
 ```javascript
 /*******************************************************************************
-*    Integration Test as BDD (CF10+ or Railo 4.1 Plus)
-*
-*    Extends the integration class: coldbox.system.testing.BaseTestCase
-*
-*    so you can test your ColdBox application headlessly. The 'appMapping' points by default to 
-*    the '/root' mapping created in the test folder Application.cfc.  Please note that this 
-*    Application.cfc must mimic the real one in your root, including ORM settings if needed.
-*
-*    The 'execute()' method is used to execute a ColdBox event, with the following arguments
-*    * event : the name of the event
-*    * private : if the event is private or not
-*    * prePostExempt : if the event needs to be exempt of pre post interceptors
-*    * eventArguments : The struct of args to pass to the event
-*    * renderResults : Render back the results of the event
-*******************************************************************************/
-component extends="coldbox.system.testing.BaseTestCase" appMapping="/"{
+ *	Integration Test as BDD
+ *
+ *	Extends the integration class: coldbox.system.testing.BaseTestCase
+ *
+ *	so you can test your ColdBox application headlessly. The 'appMapping' points by default to
+ *	the '/root' mapping created in the test folder Application.cfc.  Please note that this
+ *	Application.cfc must mimic the real one in your root, including ORM settings if needed.
+ *
+ *	The 'execute()' method is used to execute a ColdBox event, with the following arguments
+ *	* event : the name of the event
+ *	* private : if the event is private or not
+ *	* prePostExempt : if the event needs to be exempt of pre post interceptors
+ *	* eventArguments : The struct of args to pass to the event
+ *	* renderResults : Render back the results of the event
+ *******************************************************************************/
+component
+	extends   ="coldbox.system.testing.BaseTestCase"
+	appMapping="/root"
+{
 
-    /*********************************** LIFE CYCLE Methods ***********************************/
+	/*********************************** LIFE CYCLE Methods ***********************************/
 
-    function beforeAll(){
-        super.beforeAll();
-        // do your own stuff here
-    }
+	function beforeAll() {
+		super.beforeAll();
+		// do your own stuff here
+	}
 
-    function afterAll(){
-        // do your own stuff here
-        super.afterAll();
-    }
+	function afterAll() {
+		// do your own stuff here
+		super.afterAll();
+	}
 
-    /*********************************** BDD SUITES ***********************************/
+	/*********************************** BDD SUITES ***********************************/
 
-    function run(){
+	function run() {
+		describe( "Main Handler", function() {
+			beforeEach( function( currentSpec ) {
+				// Setup as a new ColdBox request, VERY IMPORTANT. ELSE EVERYTHING LOOKS LIKE THE SAME REQUEST.
+				setup();
+			} );
 
-        describe( "hello Suite", function(){
+			it( "can render the homepage", function() {
+				var event = this.get( "main.index" );
+				expect( event.getValue( name = "welcomemessage", private = true ) ).toBe( "Welcome to ColdBox!" );
+			} );
 
-            beforeEach(function( currentSpec ){
-                // Setup as a new ColdBox request for this suite, VERY IMPORTANT. ELSE EVERYTHING LOOKS LIKE THE SAME REQUEST.
-                setup();
-            });
+			it( "can render some restful data", function() {
+				var event = this.post( "main.data" );
 
-            it( "index", function(){
-                var event = execute( event="hello.index", renderResults=true );
-                // expectations go here.
+				debug( event.getHandlerResults() );
+				expect( event.getRenderedContent() ).toBeJSON();
+			} );
 
-                expect( event.getRenderedContent() ).toInclude( "values here" );
+			it( "can do a relocation", function() {
+				var event = execute( event = "main.doSomething" );
+				expect( event.getValue( "relocate_event", "" ) ).toBe( "main.index" );
+			} );
 
-            });
+			it( "can startup executable code", function() {
+				var event = execute( "main.onAppInit" );
+			} );
 
-            it( "echo", function(){
-                var event = execute( event="hello.echo", renderResults=true );
-                // expectations go here.
-                expect( event.getRenderedContent() ).toInclude( "values here" );            
-            });
+			it( "can handle exceptions", function() {
+				// You need to create an exception bean first and place it on the request context FIRST as a setup.
+				var exceptionBean = createMock( "coldbox.system.web.context.ExceptionBean" ).init(
+					erroStruct   = structNew(),
+					extramessage = "My unit test exception",
+					extraInfo    = "Any extra info, simple or complex"
+				);
+				prepareMock( getRequestContext() ).setValue(
+						name    = "exception",
+						value   = exceptionBean,
+						private = true
+					)
+					.$( "setHTTPHeader" );
 
+				// TEST EVENT EXECUTION
+				var event = execute( "main.onException" );
+			} );
 
-        });
+			describe( "Request Events", function() {
+				it( "fires on start", function() {
+					var event = execute( "main.onRequestStart" );
+				} );
 
-    }
+				it( "fires on end", function() {
+					var event = execute( "main.onRequestEnd" );
+				} );
+			} );
+
+			describe( "Session Events", function() {
+				it( "fires on start", function() {
+					var event = execute( "main.onSessionStart" );
+				} );
+
+				it( "fires on end", function() {
+					// Place a fake session structure here, it mimics what the handler receives
+					URL.sessionReference     = structNew();
+					URL.applicationReference = structNew();
+					var event                = execute( "main.onSessionEnd" );
+				} );
+			} );
+		} );
+	}
 
 }
+
 ```
 
 ## Executing The Runner
 
 To execute your application template tests and the generated tests just browse to the URL: `http://127.0.0.1:{port}/tests/runner.cfm` and you will get a full integration report:
 
-![](../.gitbook/assets/overview_testing.png)
+![Test Runner](../.gitbook/assets/template-tests-runner.png)
 
-Everything is already pre-wired for you and ready for you to do full life-cycle integration testing. Don't believe me? Try it out, go change your `echo()` action to the following code and re-run your test:
+Everything is already pre-wired for you and ready for you to do full life-cycle integration testing.  This means that upon first request to the spec, a virtual ColdBox application will load and setup your application from where you can test any part of it. From executing events just like from the browser, or execution API requests just like any application.
+
+Sounds too good to be true?  Let's try this out.  Open the `handlers/Main.cfc` and look for the `index()` action.  Let's change it to this:
 
 ```javascript
-function echo(event,rc,prc){
-    event.setFunkyView( "hello/echo" );
-}
+function index( event, rc, prc ) {
+		prc.welcomeMessage = "Welcome to ColdBox!";
+		event.setFunkyView( "main/index" );
+	}
 ```
+
+Now execute the tests again? What do you see?
 
 You will get an error now: **component \[coldbox.system.web.context.RequestContext\] has no function with name \[setFunkyView\]**. Fix it and re-run it. Ok, hold on to something..... You are now doing live integration testing my friend. Simple, but yet accomplishing.
 
@@ -133,7 +183,9 @@ Then use the `testbox run` command:
 testbox run
 ```
 
-You will then execute your tests and get a text report from it. If you want CommandBox to watch for changes and re-execute the tests, then start a watcher:
+![CommandBox TestBox Runner](../.gitbook/assets/template-tests-commandbox-runner.png)
+
+You will then execute your tests and get a text report from it. If you want CommandBox to watch for changes to your source code and THEN re-execute the tests, then start a watcher:
 
 ```bash
 testbox watch

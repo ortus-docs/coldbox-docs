@@ -12,7 +12,7 @@ Here are the annotations you can add to your testing bundle CFC.
 
 **Examples**
 
-```text
+```javascript
 component extends="coldbox.system.testing.BaseTestCase" appMapping="/apps/MyApp"{}
 
 component extends="coldbox.system.testing.BaseTestCase"

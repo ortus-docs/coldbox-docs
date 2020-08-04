@@ -20,28 +20,32 @@ The `Application.cfc` for your tests is extremly important as it should mimic yo
 ```javascript
 component{
 
-    // APPLICATION CFC PROPERTIES
-    this.name                 = "ColdBoxTestingSuite" & hash(getCurrentTemplatePath());
-    this.sessionManagement    = true;
-    this.sessionTimeout       = createTimeSpan( 0, 0, 15, 0 );
-    this.applicationTimeout   = createTimeSpan( 0, 0, 15, 0 );
-    this.setClientCookies     = true;
+	// APPLICATION CFC PROPERTIES
+	this.name 				= "ColdBoxTestingSuite" & hash(getCurrentTemplatePath());
+	this.sessionManagement 	= true;
+	this.sessionTimeout 	= createTimeSpan( 0, 0, 15, 0 );
+	this.applicationTimeout = createTimeSpan( 0, 0, 15, 0 );
+	this.setClientCookies 	= true;
 
-    // Create testing mapping
-    this.mappings[ "/tests" ] = getDirectoryFromPath( getCurrentTemplatePath() );
-    // Map back to its root
-    rootPath = REReplaceNoCase( this.mappings[ "/tests" ], "tests(\\|/)", "" );
-    this.mappings["/root"]   = rootPath;
-    
-    public void function onRequestEnd() { 
+	// Create testing mapping
+	this.mappings[ "/tests" ] = getDirectoryFromPath( getCurrentTemplatePath() );
+	// Map back to its root
+	rootPath = REReplaceNoCase( this.mappings[ "/tests" ], "tests(\\|/)", "" );
+	this.mappings["/root"]   = rootPath;
+
+	public void function onRequestEnd() {
+
+		if( !isNull( application.cbController ) ){
+			application.cbController.getLoaderService().processShutdown();
+		}
+
 		structDelete( application, "cbController" );
 		structDelete( application, "wirebox" );
 	}
-
 }
 ```
 
-Please note that we provide already a mapping to your root application via `/root`. We would recommend you add any ORM specs here or any other mappings here as well.
+Please note that we provide already a mapping to your root application via `/root` and a mapping to the tests themselves via `/tests` .  We would recommend you add any ORM specs here or any other mappings here as well.
 
 {% hint style="success" %}
 **Tip:** Make sure all the same settings and configs from your root `Application.cfc` are replicated in your tests `Application.cfc`
