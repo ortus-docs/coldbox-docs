@@ -81,6 +81,56 @@ See [https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableF
 
 This new approach to creating async pipelines and parallel processing, will further create extensibility and robustness in your ColdBox applications.
 
+## Logging Enhancements
+
+LogBox has been entirely rewritten in script and a more fluent programming approach. It has also been revamped to leverage the scheduling executors and async programming aspects of our async package.  All loggers now sport logging via an async queue and it is completely non-blocking.  If you do heavy logging, the performance will be substantial.
+
+![](../../.gitbook/assets/new-logging-queues.png)
+
+The `ModuleService` and all internal ColdBox services have deeper logging constructs and more information logging to understand what happens inside of the core.
+
+## Whoops! Modern Exception Handling
+
+![Whoops! Exception Template](../../.gitbook/assets/screen-shot-2020-08-05-at-2.41.20-pm.png)
+
+Thanks to Eric Peterson, we have included **Whoops** as part of our core exception handling template.  All the new application templates come pre-configured with whoops as part of the `development` custom error template.
+
+{% code title="config/Coldbox.cfc" %}
+```javascript
+function development() {
+    coldbox.exceptionEditor = "vscode";
+    // coldbox.customErrorTemplate = "/coldbox/system/exceptions/BugReport.cfm"; // static bug reports
+    coldbox.customErrorTemplate = "/coldbox/system/exceptions/Whoops.cfm"; // interactive bug report
+}
+```
+{% endcode %}
+
+{% hint style="danger" %}
+**Warning:** Make sure you DO NOT choose this template on production as it can expose code.  We do our best to use environment detection to **NEVER** render it in production, but things can always happen. So always use it within the `development` method.
+{% endhint %}
+
+This exception template will help you visualize and navigate your exceptions so you can fix those pesky bugs 🐞. You can even configure it to open the files directly into your favorite IDE using the `coldbox.exceptionEditor` setting:
+
+{% code title="config/ColdBox.cfc" %}
+```javascript
+function development() {
+    coldbox.exceptionEditor = "vscode";
+}
+```
+{% endcode %}
+
+Valid Exception Editors are:
+
+* `vscode`
+* `vscode-insiders`
+* `sublime`
+* `textmate`
+* `emacs`
+* `macvim`
+* `idea`
+* `atom`
+* `espresso`
+
 ## RestHandler & ColdBox Response
 
 ![RestHandler UML](../../.gitbook/assets/resthandler.png)

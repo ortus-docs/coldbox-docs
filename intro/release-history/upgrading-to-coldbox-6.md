@@ -112,5 +112,5 @@ coldbox.customErrorTemplate = "/coldbox/system/exceptions/Whoops.cfm";
 
 ## Rendering Changes
 
-The entire rendering mechanisims in ColdBox 6 have changed. We have retained backwards compatibility but there might be some loopholes that worked before that won't work now. Basically, the renderer is a singleton and each view renders in isolation. Meaning if a view sets a variable NO OTHER view will have access to it.
+The entire rendering mechanisms in ColdBox 6 have changed. We have retained backwards compatibility but there might be some loopholes that worked before that won't work now. Basically, the renderer is a **singleton** and each view renders in isolation. Meaning if a view sets a variable in it's `variables` scope **NO OTHER** view will have access to it.
 
