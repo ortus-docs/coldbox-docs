@@ -4,8 +4,8 @@
 
 The ColdBox Controller \(stored in ColdFusion `application` scope as `application.cbController`\) stores all your **application** settings and also your **system** settings:
 
-* **ColdboxSettings** : Framework specific system settings
-* **ConfigSettings** : Your application settings
+* **`ColdboxSettings`** : Framework specific system settings
+* **`ConfigSettings`** : Your application settings
 
 You can use the following methods to retrieve/set/validate settings in your handlers/layouts/views and interceptors:
 
@@ -59,20 +59,20 @@ application.cbController.getColdBoxSettings()
 
 ## Injecting Settings
 
-You can use the WireBox injection DSL to inject settings in your models or non-coldbox objects. Below are the available DSL notations:
+You can use the WireBox injection DSL to inject settings in your models or non-ColdBox objects. Below are the available DSL notations:
 
 * `coldbox:setting:{key}` : Inject a specified config setting key
-* `coldbox:fwsetting:{key}` : Inject a specified system setting key
+* `coldbox:coldboxSetting:{key}` : Inject a specified ColdBox setting key
 * `coldbox:configSettings` : Inject a reference to the application settings structure
-* `coldbox:fwSettings` : Inject a reference to the ColdBox System settings structure
+* `coldbox:coldboxSettings` : Inject a reference to the ColdBox System settings structure
 
 ```javascript
 component{
 
-    property name="mysetting" inject="coldbox:setting:mysetting";
-    property name="path" inject="coldbox:fwSetting:path";
-    property name="config" inject="coldbox:configSettings";
-    property name="settings" inject="coldbox:fwSettings";
+    property name="mysetting"    inject="coldbox:setting:mysetting";
+    property name="path"         inject="coldbox:coldboxSetting:path";
+    property name="config"       inject="coldbox:configSettings";
+    property name="settings"     inject="coldbox:coldboxSettings";
 
 }
 ```

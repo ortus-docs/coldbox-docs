@@ -11,3 +11,7 @@ From that super class we have our own ColdBox `BaseTestCase` which is our base c
 * `BaseInterceptorTest` - Used for interceptor unit testing
 * `BaseHandlerTest` - Used for isolated handler unit testing
 
+We highly encourage you to check out the API Docs for this [package](https://apidocs.ortussolutions.com/coldbox/6.0.0/coldbox/system/testing/package-summary.html#)
+
+* [https://apidocs.ortussolutions.com/coldbox/6.0.0/coldbox/system/testing/BaseTestCase.html](https://apidocs.ortussolutions.com/coldbox/6.0.0/coldbox/system/testing/BaseTestCase.html)
+
