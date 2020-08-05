@@ -31,6 +31,10 @@ property name="routingService" inject="coldbox:routingService"
 
 ## **Method Changes**
 
+### **getModel\(\) Removed**
+
+This method was marked for deprecation in ColdBox 5 and now it is removed. You can use the `getInstance()` method instead.
+
 ### **WireBox Provider `get()` method to `$get()`**
 
 All WireBox providers now implement the new interface which has changed the method of `get()` to `$get()` to avoid proxying to methods that already implement a `get()` method. So if you are using the `get()` method just update it to the new `$get()` method.

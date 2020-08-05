@@ -121,7 +121,7 @@ function development() {
 
 Valid Exception Editors are:
 
-* `vscode`
+* `vscode` \(**Default**\)
 * `vscode-insiders`
 * `sublime`
 * `textmate`
@@ -130,6 +130,10 @@ Valid Exception Editors are:
 * `idea`
 * `atom`
 * `espresso`
+
+{% embed url="https://www.youtube.com/watch?v=wrgRpIUalbQ" %}
+
+
 
 ## RestHandler & ColdBox Response
 
@@ -285,15 +289,76 @@ application.logbox = new LogBox( "config.MyLogBox" );
 These methods have been deprecated in favor of our new `announce()` method.  We have also deprecated the argument `interceptData` in favor of just `data.`  
 
 ```javascript
+// New consistent method
 announce( state, data );
-processState( state, data );
+
+// Usage
+announce( "myCustomEvent", { data = this } );
+```
+
+## New `listen()` method to register one-off closures
+
+Have you ever wanted to dynamically listen to events but not create CFC to enclose the method? Well, now you can use the new `listen()` method which accepts a closure/udf so you can listen to ColdBox interceptions. Here is the method signature:
+
+```javascript
+/**
+ * Register a closure listener as an interceptor on a specific point
+ *
+ * @target The closure/lambda to register
+ * @point The interception point to register the listener to
+ */
+void function listen( required target, required point )
+```
+
+This allows you to easily register dynamic closures/udfs whenever you like so they can listen to events:
+
+```javascript
+// Within a handler/interceptor/layouts/view
+listen( function(){
+    log.info( "executing from closure listener");
+}, "preProcess" );
+
+listen( () => log.info( "executing from closure listener"), "preProcess" );
+
+// Within models (Injecting the interceptor service or controller)
+controller
+    .getInterceptorService()
+    .listen( function(){
+        log.info( "executing from closure listener");
+    }, "preProcess" );
+```
+
+## New Interception: `onColdBoxShutdown()`
+
+We have created a new interception point that is fired before ColdBox is shutdown completely. This can come from a reinit or an application expiration. This is a great place to shutdown custom executors, or messaging queues like RabbitMQ.
+
+```javascript
+function onColdBoxShutdown(){
+    myRabbitMQChannel.close();
+}
 ```
 
 ## Routing Enhancements
 
 We have done several enhancements to the entire routing capabilities in ColdBox apart from several bug fixes.
 
-### BuildLink Named Route Support
+### `buildLink()` Ease of Use
+
+We have also re-arranged the arguments so you can easily build links with query strings using positional arguments instead of name-value pairs:
+
+```javascript
+string function buildLink(
+    to,
+    queryString       = "",
+    boolean translate = true,
+    boolean ssl,
+    baseURL     = ""
+);
+
+<a href="#event.buildLink( 'main.list', 'userid=4' )#">My Link</a>
+```
+
+### `buildLink()` Named Route Support
 
 The request context method `event.buildLink()` has been now added named route support.  The `event.route()` method was introduced to do named routing with a `name` and `params` argument.  Now, you can also use this approach but via the `to` argument in the `buildLink()` method by just passing a struct.
 
