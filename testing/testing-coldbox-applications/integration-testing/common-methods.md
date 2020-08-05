@@ -1,4 +1,4 @@
-# Common Methods
+# Common Testing Methods
 
 It is important to get familiar with TestBox before adventuring into ColdBox testing. Therefore, we suggest you reference the TestBox Docs \([https://testbox.ortusbooks.com/primers/testbox-bdd-primer](https://testbox.ortusbooks.com/primers/testbox-bdd-primer)\) or the TestBox API Docs \([http://apidocs.ortussolutions.com/testbox/current](http://apidocs.ortussolutions.com/testbox/current)\).  Below you can see a few of the common methods available to you.
 

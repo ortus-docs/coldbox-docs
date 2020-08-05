@@ -6,7 +6,7 @@ description: >-
 
 # Introduction
 
-## ColdBox HMVC Platform- v6.x \(`BETA`\)
+## ColdBox HMVC Platform- v6.x
 
 ![HMVC Framework](.gitbook/assets/coldboxlogo2015_300.png)
 

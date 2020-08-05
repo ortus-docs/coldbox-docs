@@ -1,6 +1,8 @@
 # Testing Quick Start
 
-ColdBox tightly integrates with [TestBox](http://www.ortussolutions.com/products/testbox), the Behavior Driven Development Testing Framework for ColdFusion \(CFML\). We can easily do unit and integration testing for our application. To start, let's install TestBox via CommandBox
+{% embed url="https://www.youtube.com/watch?v=emGFeDa6CAA&feature=youtu.be" caption="Testing Quickstart Video" %}
+
+ColdBox tightly integrates with [TestBox](http://www.ortussolutions.com/products/testbox), the Behavior Driven Development Testing Framework for ColdFusion \(CFML\). We can easily do unit and integration testing for our application. To start, let's install TestBox via CommandBox. _Please note that all ColdBox application templates have already TestBox installed as part of them, so you can skip this step._
 
 ```bash
 install testbox --saveDev
@@ -13,15 +15,15 @@ Please note the `--saveDev` flag we used. This tells CommandBox that this depend
 Every ColdBox application template comes with a pre-set testing harness under the `/tests` folder:
 
 ```text
-+ resources
-+ results
-+ specs
++ resources (Any testing helpers)
++ results (Any automated results go here)
++ specs (Your specs)
 - Application.cfc
 - runner.cfm
 - test.xml
 ```
 
-Every harness has its own unique `Application.cfc` which must mimic your application's settings. It also comes with an HTML runner called `runner.cfm` and an ANT runner called `test.xml`. All your test bundles and specifications will go under the `specs` directory and in the appropriate sub-directories:
+Every harness has its own unique `Application.cfc` which must mimic your application's settings because the tests run in a different memory space. It also comes with an HTML runner called `runner.cfm` and an ANT runner called `test.xml`. All your test bundles and specifications will go under the `specs` directory and in the appropriate sub-directories:
 
 ```text
 + integration
@@ -190,6 +192,10 @@ You will then execute your tests and get a text report from it. If you want Comm
 ```bash
 testbox watch
 ```
+
+{% hint style="success" %}
+**Tip:** Run a `testbox run ?` and a `testbox watch ?` to get help on these wonderful commands. They have tons of other arguments you can use.
+{% endhint %}
 
 ## What's Next
 
