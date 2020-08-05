@@ -4,6 +4,8 @@ The ColdBox HMVC Platform is the de-facto enterprise-level HMVC framework for CF
 
 This is a one-page introductory guide to ColdBox. If you are new to MVC or ColdBox, you can also leverage our [60 minute quick start guide](../for-newbies/60-minute-quick-start/) as well.
 
+{% embed url="https://www.youtube.com/watch?v=eD-Lz54jC\_E" caption="ColdBox Site Quickstart" %}
+
 ## IDE Tools
 
 ColdBox has the following supported IDE Tools:
