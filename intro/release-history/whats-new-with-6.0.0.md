@@ -81,6 +81,20 @@ See [https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableF
 
 This new approach to creating async pipelines and parallel processing, will further create extensibility and robustness in your ColdBox applications.
 
+### `coldbox-tasks` Global Executor
+
+ColdBox apps by default register a `coldbox-tasks` fixed executor \(20 threads - IO bound\) that is used internally for cleanups, tasks, and schedules.  However, any module or application can leverage it for scheduling tasks or workers.
+
+```javascript
+asyncManager.getExecutor( "coldbox-tasks" )
+```
+
+### CacheBox Executors
+
+CacheBox has been refactored to leverage the async facilities in ColdBox to schedule cache reaps instead of a request initiating the reaps.  This brings a lot more stability and consistency to the reaping of caches as they all execute within the new ColdBox `coldbox-tasks` schedule task executor.
+
+If you are in CacheBox standalone mode, then the task scheduler will be called `cachebox-tasks`.
+
 ## Logging Enhancements
 
 LogBox has been entirely rewritten in script and a more fluent programming approach. It has also been revamped to leverage the scheduling executors and async programming aspects of our async package.  All loggers now sport logging via an async queue and it is completely non-blocking.  If you do heavy logging, the performance will be substantial.
@@ -268,11 +282,49 @@ Don't forget to register your interceptor in  `config/Coldbox.cfc:`
 
 That’s it. Once that response object is in the `prc` scope, ColdBox will utilize it. Just make sure that your custom Response object satisfies the methods in the core one. If you want to modify the output of the response object a good place to do that would  be in the `getDataPacket()` method of your own `MyResponseObject`.  Just make sure this method will return a `struct`. 
 
+## Functional If's using `when()`
+
+Our super type now includes a new `when()` method that will allow you to build functional statements within your handlers.  Here is the signature of this functional helper:
+
+```javascript
+/**
+ * Functional construct for if statements
+ *
+ * @target The boolean evaluator, this can be a boolean value
+ * @success The closure/lambda to execute if the boolean value is true
+ * @failure The closure/lambda to execute if the boolean value is false
+ *
+ * @return Returns the super type for chaining
+ */
+function when( required boolean target, required success, failure )
+```
+
+The `target` is a boolean and can be an expression that evaluates to a boolean.  If the `target` is **true**, then the `success` closure will be executed for you, if not, the `failure` closure will be executed.
+
+```javascript
+function save( event, rc, prc ){
+    var oUser = populateModel( "User" );
+    
+    when( hasAccess(), () => oUser.setRole( rc.role ) );
+
+}
+```
+
 ## ColdBox Renderer Becomes a Singleton
 
 ![Singleton Renderer](../../.gitbook/assets/singleton-renderer.png)
 
 The entire rendering mechanisms have changed in ColdBox 6 and we now support a singleton based approach to view rendering. It still allows for variable safety, but the way renderings in ColdBox 6 are done are orders of magnitude faster than pre ColdBox 6 days. If you are using applications like ContentBox or Preside CMS or applications with tons of `renderView()` calls, your applications will fly now!
+
+## Custom ReinitKey
+
+Thanks to a community pull request you now have the ability to chose the reinit key instead of the default of `fwReinit`.  This is useful for security purposes.
+
+```javascript
+coldbox.reinitKey = "cbReinit";
+```
+
+Then you can use it in the request: `http://localhost/index.cfm?cbReinit=true`
 
 ## LogBox Config Path Init
 
@@ -427,73 +479,149 @@ The full release notes per library can be found below. Just click on the library
 
 {% tabs %}
 {% tab title="ColdBox HMVC" %}
-#### Bugs
+### Bugs
 
 * \[[COLDBOX-48](https://ortussolutions.atlassian.net/browse/COLDBOX-48)\] - CacheBox creates multiple reap threads if the initial one take longer to complete than the reap frequency
-* \[[COLDBOX-339](https://ortussolutions.atlassian.net/browse/COLDBOX-339)\] - Error in `AbstractFlashScope`: key does't exists due to race conditions
-* \[[COLDBOX-822](https://ortussolutions.atlassian.net/browse/COLDBOX-822)\] - `InvalidEvent` is not working when set to a module event
-* \[[COLDBOX-829](https://ortussolutions.atlassian.net/browse/COLDBOX-829)\] - Stopgap for Lucee bug losing `sessionCluster` application setting
+* \[[COLDBOX-339](https://ortussolutions.atlassian.net/browse/COLDBOX-339)\] - Error in AbstractFlashScope: key does't exists due to race conditions
+* \[[COLDBOX-822](https://ortussolutions.atlassian.net/browse/COLDBOX-822)\] - InvalidEvent is not working when set to a module event
+* \[[COLDBOX-829](https://ortussolutions.atlassian.net/browse/COLDBOX-829)\] - Stopgap for Lucee bug losing sessionCluster application setting
+* \[[COLDBOX-832](https://ortussolutions.atlassian.net/browse/COLDBOX-832)\] - toResponse\(\) silently fails on incorrect data types
+* \[[COLDBOX-837](https://ortussolutions.atlassian.net/browse/COLDBOX-837)\] - Unable to manually call invalid event method without producing error
+* \[[COLDBOX-839](https://ortussolutions.atlassian.net/browse/COLDBOX-839)\] - Router method and argument name discrepancy
+* \[[COLDBOX-845](https://ortussolutions.atlassian.net/browse/COLDBOX-845)\] - Capture request before announcing onRequestCapture
 * \[[COLDBOX-850](https://ortussolutions.atlassian.net/browse/COLDBOX-850)\] - XML Converter Updated invoke\(\) to correctly call method by name
+* \[[COLDBOX-857](https://ortussolutions.atlassian.net/browse/COLDBOX-857)\] - ElixirPath does not take in account of module root
+* \[[COLDBOX-861](https://ortussolutions.atlassian.net/browse/COLDBOX-861)\] - Self-autowire fails for applications with context root configured in ColdBox Proxy
+* \[[COLDBOX-862](https://ortussolutions.atlassian.net/browse/COLDBOX-862)\] - when passing custom cfml executors to futures it blows up as the native executor is not set
+* \[[COLDBOX-873](https://ortussolutions.atlassian.net/browse/COLDBOX-873)\] - NullPointerException in ScheduledExecutor \(Lucee 5.3.4.80\)
+* \[[COLDBOX-875](https://ortussolutions.atlassian.net/browse/COLDBOX-875)\] - PopulateFromQuery : Gracefully handle out of index rownumber in populateFromQuery \#450
+* \[[COLDBOX-878](https://ortussolutions.atlassian.net/browse/COLDBOX-878)\] - ColdBox 6 blows up if models directory doesn't exist
+* \[[COLDBOX-879](https://ortussolutions.atlassian.net/browse/COLDBOX-879)\] - Reinit-Password-Check does not use the new "reinitKey"-Setting
+* \[[COLDBOX-880](https://ortussolutions.atlassian.net/browse/COLDBOX-880)\] - ViewHelpers not working in CB-6 RC
+* \[[COLDBOX-885](https://ortussolutions.atlassian.net/browse/COLDBOX-885)\] - Pagination not showing from rest response
+* \[[COLDBOX-889](https://ortussolutions.atlassian.net/browse/COLDBOX-889)\] - RendererEncapsulator passes view-variables to "next" rendered view
+* \[[COLDBOX-891](https://ortussolutions.atlassian.net/browse/COLDBOX-891)\] - Whoops breaking on some exceptions
+* \[[COLDBOX-897](https://ortussolutions.atlassian.net/browse/COLDBOX-897)\] - Template cache eventSnippets don't match module events or event suffixes
+* \[[COLDBOX-899](https://ortussolutions.atlassian.net/browse/COLDBOX-899)\] - queryString argument ignored when using event in \`BaseTestCase\#execute\`
+* \[[COLDBOX-903](https://ortussolutions.atlassian.net/browse/COLDBOX-903)\] - Renderer.ViewNotSetException when renderLayout used in request
+* \[[COLDBOX-911](https://ortussolutions.atlassian.net/browse/COLDBOX-911)\] - Garbled text in Whoops error screen - utf8 encoding
 
-#### New Features
+### New Features
 
+* \[[COLDBOX-268](https://ortussolutions.atlassian.net/browse/COLDBOX-268)\] - Async Workers
+* \[[COLDBOX-749](https://ortussolutions.atlassian.net/browse/COLDBOX-749)\] - Performance: make renderer a singleton
 * \[[COLDBOX-848](https://ortussolutions.atlassian.net/browse/COLDBOX-848)\] - Improve the bug reporting template for development based on whoops
 * \[[COLDBOX-849](https://ortussolutions.atlassian.net/browse/COLDBOX-849)\] - Incorporate Response and RestHandler into core
-* \[[COLDBOX-851](https://ortussolutions.atlassian.net/browse/COLDBOX-851)\] - All ColdBox apps get a `coldbox-tasks` scheduler executor for internal ColdBox services and scheduled tasks
+* \[[COLDBOX-851](https://ortussolutions.atlassian.net/browse/COLDBOX-851)\] - All ColdBox apps get a \`coldbox-tasks\` scheduler executor for internal ColdBox services and scheduled tasks
 * \[[COLDBOX-852](https://ortussolutions.atlassian.net/browse/COLDBOX-852)\] - Updated the default ColdBox config appender to be to console instead of the dummy one
-* \[[COLDBOX-853](https://ortussolutions.atlassian.net/browse/COLDBOX-853)\] - ColdBox controller gets a reference to the AsyncManager and registers a new `AsyncManager@coldbox` wirebox mapping
-* \[[COLDBOX-855](https://ortussolutions.atlassian.net/browse/COLDBOX-855)\] - Allow for the application to declare it's executors via the new `executors` configuration element
-* \[[COLDBOX-856](https://ortussolutions.atlassian.net/browse/COLDBOX-856)\] - Allow for a module to declare it's executors via the new `executors` configuration element
-* \[[COLDBOX-858](https://ortussolutions.atlassian.net/browse/COLDBOX-858)\] - Introduction of async/parallel  programming via cbPromises
+* \[[COLDBOX-853](https://ortussolutions.atlassian.net/browse/COLDBOX-853)\] - ColdBox controller gets a reference to the AsyncManager and registers a new \`AsyncManager@coldbox\` wirebox mapping
+* \[[COLDBOX-855](https://ortussolutions.atlassian.net/browse/COLDBOX-855)\] - Allow for the application to declare it's executors via the new \`executors\` configuration element
+* \[[COLDBOX-856](https://ortussolutions.atlassian.net/browse/COLDBOX-856)\] - Allow for a module to declare it's executors via the new \`executors\` configuration element
+* \[[COLDBOX-858](https://ortussolutions.atlassian.net/browse/COLDBOX-858)\] - Introduction of async/parallel programming via cbPromises
 * \[[COLDBOX-859](https://ortussolutions.atlassian.net/browse/COLDBOX-859)\] - ability to do async scheduled tasks with new async cbpromises
+* \[[COLDBOX-860](https://ortussolutions.atlassian.net/browse/COLDBOX-860)\] - Convert proxy to script and optimize it
+* \[[COLDBOX-863](https://ortussolutions.atlassian.net/browse/COLDBOX-863)\] - Add setting to define reinit key vs. hard-coded fwreinit: reinitKey
+* \[[COLDBOX-864](https://ortussolutions.atlassian.net/browse/COLDBOX-864)\] - jsonPayloadToRC now defaults to true
+* \[[COLDBOX-865](https://ortussolutions.atlassian.net/browse/COLDBOX-865)\] - autoMapModels defaults to true now
+* \[[COLDBOX-868](https://ortussolutions.atlassian.net/browse/COLDBOX-868)\] - RequestContext Add urlMatches to match current urls
+* \[[COLDBOX-869](https://ortussolutions.atlassian.net/browse/COLDBOX-869)\] - Response, SuperType =&gt; New functional if construct when\( boolean, success, failure \)
+* \[[COLDBOX-871](https://ortussolutions.atlassian.net/browse/COLDBOX-871)\] - Removed fwsetting argument from getSetting\(\) in favor of a new function: getColdBoxSetting\(\)
+* \[[COLDBOX-874](https://ortussolutions.atlassian.net/browse/COLDBOX-874)\] - BaseTestCase new method getHandlerResults\(\) to easy get the handler results, also injected into test request contexts
+* \[[COLDBOX-876](https://ortussolutions.atlassian.net/browse/COLDBOX-876)\] - New dsl coldbox:coldboxSettings alias to coldbox:fwSettings
+* \[[COLDBOX-877](https://ortussolutions.atlassian.net/browse/COLDBOX-877)\] - New dsl coldbox:asyncManager to get the async manager
+* \[[COLDBOX-887](https://ortussolutions.atlassian.net/browse/COLDBOX-887)\] - Elixir manifest support for module and app roots via discovery
+* \[[COLDBOX-894](https://ortussolutions.atlassian.net/browse/COLDBOX-894)\] - New listen\(\) super type and interceptor service method to register one-off closures on specific interception points
+* \[[COLDBOX-905](https://ortussolutions.atlassian.net/browse/COLDBOX-905)\] - The buildLink\( to \) argument can now be a struct to support named routes : { name, params }
+* \[[COLDBOX-906](https://ortussolutions.atlassian.net/browse/COLDBOX-906)\] - Move queryString as the second argument for buildLink\(\) so you can use it with psoitional params
+* \[[COLDBOX-907](https://ortussolutions.atlassian.net/browse/COLDBOX-907)\] - New context method: getCurrentRouteRecord\(\) which gives you the full routed route record
+* \[[COLDBOX-908](https://ortussolutions.atlassian.net/browse/COLDBOX-908)\] - New context method: getCurrentRouteMeta\(\) which gives you the routed route metadata if any
+* \[[COLDBOX-909](https://ortussolutions.atlassian.net/browse/COLDBOX-909)\] - New router method: meta\(\) that you can use to store metadata for a specific route
+* \[[COLDBOX-910](https://ortussolutions.atlassian.net/browse/COLDBOX-910)\] - Every route record can now store a struct of metadata alongside of it using the \`meta\` key
+* \[[COLDBOX-912](https://ortussolutions.atlassian.net/browse/COLDBOX-912)\] - Allow toRedirect\(\) to accept a closure which receives the matched route, you can process and then return the redirect location
+* \[[COLDBOX-915](https://ortussolutions.atlassian.net/browse/COLDBOX-915)\] - New onColdBoxShutdown interception point fired when the entire framework app is going down
 
-#### Improvements
+### Tasks
+
+* \[[COLDBOX-866](https://ortussolutions.atlassian.net/browse/COLDBOX-866)\] - onInvalidEvent is now removed in favor of invalidEventHandler, this was deprecated in 5.x
+* \[[COLDBOX-867](https://ortussolutions.atlassian.net/browse/COLDBOX-867)\] - Removed interceptors.SES as it was deprecated in 5
+* \[[COLDBOX-870](https://ortussolutions.atlassian.net/browse/COLDBOX-870)\] - setnextEvent removed as it was deprecated in 5
+* \[[COLDBOX-872](https://ortussolutions.atlassian.net/browse/COLDBOX-872)\] - getModel\(\) is now fully deprecated and removed in fvor of getInstance\(\)
+* \[[COLDBOX-886](https://ortussolutions.atlassian.net/browse/COLDBOX-886)\] - elixir version 2 support removed
+* \[[COLDBOX-900](https://ortussolutions.atlassian.net/browse/COLDBOX-900)\] - \`request\` and associated integration test methods are not in the official docs
+
+### Improvement
 
 * \[[COLDBOX-830](https://ortussolutions.atlassian.net/browse/COLDBOX-830)\] - Update cachebox flash ram to standardize on unique key discovery
 * \[[COLDBOX-833](https://ortussolutions.atlassian.net/browse/COLDBOX-833)\] - Improvements to threading for interceptors and logging to avoid dumb Adobe duplicates
-* \[[COLDBOX-841](https://ortussolutions.atlassian.net/browse/COLDBOX-841)\] - Change announceInterception\(\) and processState\(\) to a single method name like: emit\(\) or announce\(\)
-* \[[COLDBOX-846](https://ortussolutions.atlassian.net/browse/COLDBOX-846)\] -  Use relocate and setNextEvent status codes in getStatusCode for testing integration
+* \[[COLDBOX-841](https://ortussolutions.atlassian.net/browse/COLDBOX-841)\] - Change announceInterception\(\) and processState\(\) to a single method name like: announce\(\)
+* \[[COLDBOX-846](https://ortussolutions.atlassian.net/browse/COLDBOX-846)\] - Use relocate and setNextEvent status codes in getStatusCode for testing integration
+* \[[COLDBOX-882](https://ortussolutions.atlassian.net/browse/COLDBOX-882)\] - Deprecate interceptData in favor of just data
+* \[[COLDBOX-892](https://ortussolutions.atlassian.net/browse/COLDBOX-892)\] - Please add an easily accessible "fwreinit" button to whoops...
+* \[[COLDBOX-895](https://ortussolutions.atlassian.net/browse/COLDBOX-895)\] - migrating usage of cgi.http\_host to cgi.server\_name due to inconsistencies with proxy requests that affects caching and many other features
+* \[[COLDBOX-904](https://ortussolutions.atlassian.net/browse/COLDBOX-904)\] - Interceptor Buffer Methods Removed
+* \[[COLDBOX-916](https://ortussolutions.atlassian.net/browse/COLDBOX-916)\] - Better module registration/activation logging to identify location and version
 {% endtab %}
 
 {% tab title="WireBox" %}
-#### Bugs
+### Bugs
 
 * \[[WIREBOX-90](https://ortussolutions.atlassian.net/browse/WIREBOX-90)\] - Fix constructor injection with virtual inheritance
 
-#### New Features
+### New Features
 
 * \[[WIREBOX-91](https://ortussolutions.atlassian.net/browse/WIREBOX-91)\] - Injector's get a reference to an asyncManager and a task scheduler whether they are in ColdBox or non-ColdBox mode
-* \[[WIREBOX-92](https://ortussolutions.atlassian.net/browse/WIREBOX-92)\] - New `executors` dsl so you can easily inject executors ANYWHERE
+* \[[WIREBOX-92](https://ortussolutions.atlassian.net/browse/WIREBOX-92)\] - New \`executors\` dsl so you can easily inject executors ANYWEHRE
+* \[[WIREBOX-97](https://ortussolutions.atlassian.net/browse/WIREBOX-97)\] - New dsl coldbox:coldboxSetting:{setting} alias to coldbox:fwSetting:{setting}
 
-#### Improvements
+### Improvements
 
 * \[[WIREBOX-88](https://ortussolutions.atlassian.net/browse/WIREBOX-88)\] - Improve WireBox error on Adobe CF
+* \[[WIREBOX-93](https://ortussolutions.atlassian.net/browse/WIREBOX-93)\] - Rename WireBox provider get\(\) to $get\(\) to avoid conflicts with provided classes
+* \[[WIREBOX-94](https://ortussolutions.atlassian.net/browse/WIREBOX-94)\] - getInstance\(\) now accepts either dsl or name via the first argument and initArguments as second argument
 {% endtab %}
 
 {% tab title="CacheBox" %}
-#### New Features
+### Bugs
+
+* \[[CACHEBOX-59](https://ortussolutions.atlassian.net/browse/CACHEBOX-59)\] - Announced Events in the set\(\) of the cacheBoxProvider
+* \[[CACHEBOX-63](https://ortussolutions.atlassian.net/browse/CACHEBOX-63)\] - cfthread-20506;variable \[ATTRIBUES\] doesn't exist;lucee.runtime.exp.ExpressionException: variable \[ATTRIBUES\] doesn't exist
+
+### New Features
 
 * \[[CACHEBOX-24](https://ortussolutions.atlassian.net/browse/CACHEBOX-24)\] - CacheBox reaper : migrate to a scheduled task via cbPromises
 * \[[CACHEBOX-60](https://ortussolutions.atlassian.net/browse/CACHEBOX-60)\] - CacheFactory gets a reference to an asyncManager and a task scheduler whether they are in ColdBox or non-ColdBox mode
+
+### Improvements
+
+* \[[CACHEBOX-64](https://ortussolutions.atlassian.net/browse/CACHEBOX-64)\] - Migrations to script and more fluent programming
 {% endtab %}
 
 {% tab title="LogBox" %}
-#### Bugs
+### Bugs
 
-* \[[LOGBOX-38](https://ortussolutions.atlassian.net/browse/LOGBOX-38)\] - `Rotate` property is defined but never used
+* \[[LOGBOX-35](https://ortussolutions.atlassian.net/browse/LOGBOX-35)\] - FileAppender: if logging happens in a thread, queue never gets processed and, potentially, you run out of heap space
+* \[[LOGBOX-38](https://ortussolutions.atlassian.net/browse/LOGBOX-38)\] - Rotate property is defined but never used
+* \[[LOGBOX-45](https://ortussolutions.atlassian.net/browse/LOGBOX-45)\] - Work around for adobe bug CF-4204874 where closures are holding on to tak contexts
+* \[[LOGBOX-50](https://ortussolutions.atlassian.net/browse/LOGBOX-50)\] - Rolling file appender inserting tabs on first line
 
-#### New Features
+### New Features
 
 * \[[LOGBOX-5](https://ortussolutions.atlassian.net/browse/LOGBOX-5)\] - Allow config path as string in LogBox init \(standalone\)
 * \[[LOGBOX-11](https://ortussolutions.atlassian.net/browse/LOGBOX-11)\] - Allow standard appenders to be configured by name \(instead of full path\)
-* \[[LOGBOX-36](https://ortussolutions.atlassian.net/browse/LOGBOX-36)\] - Added an `err()` to abstract appenders for reporting to the error streams
+* \[[LOGBOX-36](https://ortussolutions.atlassian.net/browse/LOGBOX-36)\] - Added an \`err\(\)\` to abstract appenders for reporting to the error streams
 * \[[LOGBOX-42](https://ortussolutions.atlassian.net/browse/LOGBOX-42)\] - All appenders get a reference to the running LogBox instance
+* \[[LOGBOX-43](https://ortussolutions.atlassian.net/browse/LOGBOX-43)\] - LogBox has a scheduler executor and the asyncmanager attached to it for standalone and ColdBox mode.
 * \[[LOGBOX-44](https://ortussolutions.atlassian.net/browse/LOGBOX-44)\] - Rolling appender now uses the new async schedulers to stream data to files
+* \[[LOGBOX-46](https://ortussolutions.atlassian.net/browse/LOGBOX-46)\] - Update ConsoleAppender to use TaskScheduler
+* \[[LOGBOX-47](https://ortussolutions.atlassian.net/browse/LOGBOX-47)\] - AbstractAppender log listener and queueing facilities are now available for all appenders
+* \[[LOGBOX-48](https://ortussolutions.atlassian.net/browse/LOGBOX-48)\] - DB Appender now uses a queueing approach to sending log messages
+* \[[LOGBOX-49](https://ortussolutions.atlassian.net/browse/LOGBOX-49)\] - Rolling File Appender now uses the async scheduler for log rotation checks
 
-#### Improvements
+### Improvements
 
 * \[[LOGBOX-37](https://ortussolutions.atlassian.net/browse/LOGBOX-37)\] - Improvements to threading for logging to avoid dumb Adobe duplicates
-* \[[LOGBOX-41](https://ortussolutions.atlassian.net/browse/LOGBOX-41)\] - refactoring of internal utility closures to udfs to avoid ACF memory leaks: CF-420487
+* \[[LOGBOX-41](https://ortussolutions.atlassian.net/browse/LOGBOX-41)\] - refactoring of internal utility closures to udfs to avoid ACF memory leaks: CF-4204874
+* \[[LOGBOX-51](https://ortussolutions.atlassian.net/browse/LOGBOX-51)\] - Migrations to script and more fluent programming
 {% endtab %}
 {% endtabs %}
 
