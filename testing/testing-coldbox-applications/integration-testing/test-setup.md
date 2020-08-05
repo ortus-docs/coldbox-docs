@@ -1,6 +1,6 @@
 # Request Setup\(\)
 
-Since we are simulating a browser, the testing framework needs to know when to prepare a new virtual request internally.  This is achieved via the `setup()` method provided to us via the `BaseTestCase` object.  This method internally will simulate a new virtual request, if NOT, every test case will be treated as if you are in the same request.
+Since we are simulating a browser, the testing framework needs to know when to prepare a new virtual request internally.  This is achieved via the `setup()` method provided to us via the `BaseTestCase` object.  This method internally will simulate a new virtual request, if **NOT**, **every test case will be treated as if you are in the same request.**
 
 The best way to accomplish this is to leverage the `beforeEach()` life-cycle event method.  This makes sure that each spec execution is a new virtual request.
 

@@ -8,11 +8,11 @@ coldbox create model-test path=models.UserService methods=save,list,search --ope
 
 This testing support class will create your model object, and decorate with mocking capabilities via MockBox and create some mocking classes you might find useful in your model object unit testing. The following are the objects that are placed in the variables scope for you to use:
 
-* model : The target model object to test
-* mockLogger : A mock logger class
-* mockLogBox : A mock LogBox class
-* mockCacheBox : A mock Cache Factory class
-* mockWireBox : A mock WireBox Injector class
+* `model` : The target model object to test
+* `mockLogger` : A mock logger class
+* `mockLogBox` : A mock LogBox class
+* `mockCacheBox` : A mock Cache Factory class
+* `mockWireBox` : A mock WireBox Injector class
 
 > **Caution** We do not initialize your model objects for you. This is your job as you might need some mocking first.
 

@@ -3,7 +3,7 @@
 Here are some useful tips for you when doing testing with ColdBox Applications:
 
 * If you are using relative paths in your application, you might encounter problems since the running application is different from the test application. Try to always use paths based on the application's `AppMapping`
-* Always use `setNextEvent()` for relocations so they can be mocked
+* Always use `relocate()` for relocations so they can be mocked
 * Leverage `querySim()` for query mocking
 * Leverage [MockBox](https://testbox.ortusbooks.com/mocking/mockbox) for mocking and stubbing
 * Integration tests are NOT the same as handler tests. Handler tests will just test the handler CFC in isolation, so it will be your job to mock everything around it.
