@@ -18,7 +18,7 @@ function afterAll(){
 
 ## Improving Performance: Unloading ColdBox
 
-The default for integration testing is that the virtual ColdBox application will be destroyed or unloaded in each test. To keep the virtual application across multiple test bundle tests you will need to use the `unloadColdBox=false` annotation or the `this.unloadColdBox=false` setting in your `beforeAll()` method. This will stop the testing classes from destroying ColdBox and improving performance.
+The default for integration testing is that the virtual ColdBox application will be **destroyed** or **unloaded** in **each test**. To keep the virtual application **running across multiple test bundle** tests you will need to use the `unloadColdBox=false` annotation or the `this.unloadColdBox=false` setting in your `beforeAll()` method. This will stop the testing classes from destroying ColdBox and improving performance.
 
 ```javascript
 component extends="coldbox.system.testing.BaseTestCase" unloadColdBox=false{
