@@ -10,7 +10,6 @@ There are tons of great UML resources and tools. Here are some great tools for y
 
 * Sparx Systems Enterprise Architect - [http://www.sparxsystems.com/products/ea/index.html](http://www.sparxsystems.com/products/ea/index.html)
 * ColdFusion generation templates for Enterprise Architect - [https://github.com/lmajano/EA-ColdFusion-CodeGeneration](https://github.com/lmajano/EA-ColdFusion-CodeGeneration)
-* ArgoUML - [http://argouml.tigris.org/](http://argouml.tigris.org/)
 * Poseidon UML - [http://www.gentleware.com/](http://www.gentleware.com/)
 * Learning UML - [http://shop.oreilly.com/product/9780596009823.do](http://shop.oreilly.com/product/9780596009823.do)
 * UML in a nutshell - [http://shop.oreilly.com/product/9780596007959.do?green=87D3081D-5A0D-50F7-9757-95B7E8779516&cmp=af-mybuy-9780596007959.IP](http://shop.oreilly.com/product/9780596007959.do?green=87D3081D-5A0D-50F7-9757-95B7E8779516&cmp=af-mybuy-9780596007959.IP)
