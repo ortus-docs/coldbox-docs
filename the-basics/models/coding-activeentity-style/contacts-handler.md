@@ -29,7 +29,7 @@ component{
         event.paramValue("id",0);
         entityNew("Contact").deleteByID( rc.id );
         flash.put( "notice", "Contact Removed!" );
-        setNextEvent("contacts");
+        relocate("contacts");
     }
 
     function save(event,rc,prc){
@@ -38,7 +38,7 @@ component{
         if( contact.isValid() ){
             contact.save();
             flash.put( "notice", "Contact Saved!" );
-            setNextEvent("contacts");
+            relocate("contacts");
         }
         else{
             flash.put( "errors", contact.getValidationResults().getAllErrors() );
