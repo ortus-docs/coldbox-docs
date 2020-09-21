@@ -280,8 +280,6 @@
 
 ## External links
 
----
-
 * [Source code](https://github.com/ColdBox/coldbox-platform)
 * [Issue tracker](https://ortussolutions.atlassian.net/projects/COLDBOX/issues/?filter=allopenissues)
 * [LogBox](https://logbox.ortusbooks.com/)

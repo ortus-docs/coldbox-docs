@@ -19,6 +19,10 @@ The following settings have been changed and altering behavior:
 * `coldbox.onInvalidEvent` has been **REMOVED** in preference to `coldbox.invalidEventHandler`
 * `coldbox.jsonPayloadToRC` is now defaulted to **true**
 
+## BuildLink\( linkto \) argument removed
+
+The `buildLink()` method had an argument `linkTo` . It has now changed to `to` to provide simplification
+
 ## SES Interceptor Removed
 
 The `SES` interceptor has finally been removed. You can now remove it from your interceptor declarations. If you are relying on the SES interceptor for routing, then you will need to access the `RoutingService` via the following injection methods or retrieval methods:
