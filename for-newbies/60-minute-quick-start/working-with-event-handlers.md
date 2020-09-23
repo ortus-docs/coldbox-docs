@@ -68,7 +68,7 @@ Let's open the view now: `views/hello/index.cfm` and change it to this:
 ```
 
 {% hint style="danger" %}
-Please note that we used the ColdFusion function `encodeForHTML()` \([https://www.cfdocs.org/encodeforhtml](https://www.cfdocs.org/encodeforhtml)\) on the public variable. Why? Because you can **never** trust the client and what they send, make sure you use the built-in ColdFusion encoding functions in order to avoid XSS hacks or worse on incoming public \(`rc`\) variables.
+Please note that we used the ColdFusion function `encodeForHTML()` \([https://cfdocs.org/encodeforhtml](https://cfdocs.org/encodeforhtml)\) on the public variable. Why? Because you can **never** trust the client and what they send, make sure you use the built-in ColdFusion encoding functions in order to avoid XSS hacks or worse on incoming public \(`rc`\) variables.
 {% endhint %}
 
 If you execute the event now: `http://localhost:{port}/hello/index` you will see a message of `Hello nobody`.
