@@ -7,9 +7,11 @@ The ColdBox directive is where you configure the framework for operation.
 ```javascript
 coldbox = {
     // The name of the application
-    appName   = "My App",
+    appName     = "My App",
     // The name of the incoming URL/FORM/REMOTE variable that tells the framework what event to execute. Ex: index.cfm?event=users.list
-    eventName = "event"
+    eventName   = "event",
+    // The URI of the ColdBox application on the webserver. Use when ColdBox app exists within subdirectory from project root, otherwise can be omitted
+    appMapping  = ""
 };
 ```
 
