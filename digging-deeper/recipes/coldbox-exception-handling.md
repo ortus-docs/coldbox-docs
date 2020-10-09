@@ -34,7 +34,7 @@ function onException(event,rc,prc){
     flash.put("exceptionURL", event.getCurrentRoutedURL() );
 
     // Relocate to fail page
-    setNextEvent("main.fail");
+    relocate("main.fail");
 }
 ```
 
@@ -57,7 +57,7 @@ component extends="coldbox.system.Interceptor"{
         if( exception.type eq "myType" ){
             log.error( exception.message & exception.detail, exception );
             // relocate
-            setNextEvent( "page.invalidSave" );
+            relocate( "page.invalidSave" );
         }
     }
 }
