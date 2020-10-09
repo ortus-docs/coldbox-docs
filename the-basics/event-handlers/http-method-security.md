@@ -11,7 +11,7 @@ function delete(event,rc,prc){
     // determine incoming http method
     if( event.getHTTPMethod() == "GET" ){
         flash.put("notice","invalid action");
-        setNextEvent("users.list");
+        relocate("users.list");
     }
     else{
         // do delete here.
