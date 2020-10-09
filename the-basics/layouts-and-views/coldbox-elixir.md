@@ -8,7 +8,7 @@ ColdBox Elixir provides a clean, fluent API for defining basic [Gulp](http://gul
 
 Elixir supports several common CSS, JavaScript pre-processors, and TestBox runner integrations. By leveraging your familiar `Gulpfile.js` configuration file, you can use method chaining and Elixir will allow you to fluently define your asset pipeline using the ColdBox conventions.
 
-It works on the premise of two location convetions for your static assets:
+It works on the premise of two location conventions for your static assets:
 
 * `includes` - Where your css/js will be placed after the pipeline executes
 * `resources/assets` - Where all your resource files exist.
