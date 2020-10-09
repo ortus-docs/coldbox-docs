@@ -107,6 +107,6 @@ Another example, is what if we do not know if the content variable will actually
 So now, if no content variable exists, an empty string will be rendered.
 
 {% hint style="danger" %}
-**Important** String manipulation in Java relies on immutable structures, so performance penalities might ensue. If you will be doing a lot of string manipulation, concatenation or rendering, try to leverage native java objects: StringBuilder or StringBuffer
+**Important** String manipulation in Java relies on immutable structures, so performance penalties might ensue. If you will be doing a lot of string manipulation, concatenation or rendering, try to leverage native java objects: StringBuilder or StringBuffer
 {% endhint %}
 
