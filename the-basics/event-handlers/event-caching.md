@@ -107,14 +107,14 @@ component{
     onRequestCapture(event,interceptData){
         var rc = event.getCollection();
 
-        // Add user's locale to the request collection to influenze event caching
+        // Add user's locale to the request collection to influence event caching
         rc._user_locale = getFWLocale();
     }
 
 }
 ```
 
-With the simple example above, the user's locale will be addded to all your event caching permutations and thus create entries for different languages.
+With the simple example above, the user's locale will be added to all your event caching permutations and thus create entries for different languages.
 
 ## Life-Cycle Caveats
 
