@@ -554,7 +554,7 @@ component {
         flash.put("exceptionURL", event.getCurrentRoutedURL() );
 
         // Relocate to fail page
-        setNextEvent("main.fail");
+        relocate("main.fail");
     }
 }
 ```
