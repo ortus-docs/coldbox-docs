@@ -4,7 +4,7 @@ There are several ways to interact with the ColdBox Flash RAM:
 
 * Using the `flash` scope object \(Best Practice\)
 * Using the `persistVariables()` method from the super type and ColdBox Controller
-* Using the `persistence` arguments in the `setNextEvent()` method from the super type and ColdBox Controller.
+* Using the `persistence` arguments in the `relocate()` method from the super type and ColdBox Controller.
 
 All of these methods interact with the Flash RAM object but the last two methods not only place variables in the temporary storage bin but actually serialize the data into the Flash RAM storage immediately. The first approach queues up the variables for serialization and at the end of a request it serializes the variables into the correct storage scope, thus saving precious serialization time. In the next section we will learn what all of this means.
 
@@ -15,11 +15,11 @@ The `flash` scope object is our best practice approach as it clearly demarcates 
 1. The flash persistence methods are called for saving data, the data is stored in an internal temporary request bin and awaiting serialization and persistence either through relocation or termination of the request.
 2. If the flash methods are called with immediate save arguments, then the data is immediately serialized and stored in the implementation's persistent storage.
 3. If the flash's `saveFlash()` method is called then the data is immediately serialized and stored in the implementation's persistent storage.
-4. If the application relocates via setNextEvent\(\) or a request finalizes then if there is data in the request bin, it will be serialized and stored in the implementation's storage.
+4. If the application relocates via relocate\(\) or a request finalizes then if there is data in the request bin, it will be serialized and stored in the implementation's storage.
 
 > **Caution** By default the Flash RAM queues up serializations for better performance, but you can alter the behavior programmatically or via the configuration file.
 >
-> **Info** If you use the `persistVariables()` method or any of the persistence arguments on the `setNextEvent()` method, those variables will be saved and persisted immediately.
+> **Info** If you use the `persistVariables()` method or any of the persistence arguments on the `relocate()` method, those variables will be saved and persisted immediately.
 
 To review the Flash Scope methods, please [go to the API](http://apidocs.ortussolutions.com/coldbox/current) and look for the correct implementation or the `AbstractFlashScope`.
 
@@ -149,11 +149,11 @@ Persist variable\(s\) from the ColdBox request collection into flash scope. Pers
 ```javascript
 // persist some variables that can be reinflated into the RC upon relocation
 flash.persistRC(include="name,email,address");
-setNextEvent('wizard.step2');
+relocate('wizard.step2');
 
 // persist all RC variables using exclusions that can be reinflated into the RC upon relocation
 flash.persistRC(exclude="ouser");
-setNextEvent('wizard.step2');
+relocate('wizard.step2');
 
 // persist some variables that can be reinflated into the RC upon relocation and serialize immediately
 flash.persistRC(include="email,addressData",savenow=true);
@@ -170,7 +170,7 @@ The main method to place data into the flash scope. Optional arguments control w
 ```javascript
 // persist some variables that can be reinflated into the RC upon relocation
 flash.put(name="userData",value=userData);
-setNextEvent('wizard.step2');
+relocate('wizard.step2');
 
 // put and serialize immediately.
 flash.put(name="userData",value=userData,saveNow=true);
@@ -253,7 +253,7 @@ function saveForm(event){
     // save post
     flash.put("notice","Saved the form baby!");
     // relocate to another event
-    setNextEvent('user.show');
+    relocate('user.show');
 }
 function show(event){
     // Nothing to do with flash, inflating by flash object automatically
