@@ -40,7 +40,7 @@ http://localhost/?fwreinit=mypass
 
 ### **reinitKey**
 
-**The key used in FORM or URL to reinit the framework.  The default is `fwreinit` but you can change it to whatever you like.**
+**The key used in FORM or URL to reinit the framework. The default is `fwreinit` but you can change it to whatever you like.**
 
 ### **handlersIndexAutoReload**
 
@@ -196,5 +196,5 @@ By default implicit views are case sensitive since ColdBox version 5.2.0, before
 
 ### **autoMapModels**
 
-ColdBox by convention can talk to, use and inject models from the `models` folder by just using their name.  On startup it will scan your entire `models` folder and will register all the discovered models.  This setting is **true** by default.
+ColdBox by convention can talk to, use and inject models from the `models` folder by just using their name. On startup it will scan your entire `models` folder and will register all the discovered models. This setting is **true** by default.
 

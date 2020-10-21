@@ -23,7 +23,7 @@ This solution is great and works, but it is not THAT great. We can do better.
 
 ## Allowed Methods Property
 
-Another feature property on an event handler is called `this.allowedMethods`. It is a declarative structure that you can use to determine what the allowed HTTP methods are for any action on the event handler. 
+Another feature property on an event handler is called `this.allowedMethods`. It is a declarative structure that you can use to determine what the allowed HTTP methods are for any action on the event handler.
 
 ```javascript
 this.allowedMethods = {
@@ -68,6 +68,4 @@ function index( event, rc, prc) allowedMethods="GET,POST"{
     // my code here
 }
 ```
-
-
 
