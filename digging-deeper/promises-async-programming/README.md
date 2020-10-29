@@ -6,15 +6,21 @@ description: 'ColdBox Promises, Executors, Async programming and Parallel Comput
 
 ## Introduction
 
-ColdBox 6 introduces the concept of asynchronous and parallel programming using Futures and Executors for ColdFusion \(CFML\). We leverage the entire arsenal in the [JDK](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html) to bring you a wide array of features for your applications. From the ability to create asynchronous pipelines, to parallel work loads, work queues, and scheduled tasks.
+ColdBox 6 introduces the concept of asynchronous and parallel programming using Futures and Executors for ColdFusion \(CFML\). We leverage the entire arsenal in the [JDK](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/package-summary.html) to bring you a wide array of features for your applications. From the ability to create asynchronous pipelines, to parallel work loads, work queues, and scheduled tasks.
 
 ![](../../.gitbook/assets/async-programming.png)
 
 Our async package `coldbox.system.async` is also available for all the standalone libraries: WireBox, CacheBox, and LogBox. This means that you can use the async capabilities in **ANY** ColdFusion \(CFML\) application, not only ColdBox HMVC applications.
 
 {% hint style="success" %}
-We leverage Java `Executors`, `CompletableFutures` and much more classes from the concurrent packages in the JDK: [https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html)
+We leverage Java `Executors`, `CompletableFutures` and much more classes from the concurrent packages in the JDK: [https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/package-summary.html](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/package-summary.html)
 {% endhint %}
+
+## Sample Gallery
+
+We have created a full sample gallery that we use in our live sessions and trainings.  It contains tons of samples you can run and learn from: [https://github.com/lmajano/to-the-future-with-cbFutures](https://github.com/lmajano/to-the-future-with-cbFutures)
+
+{% embed url="https://github.com/lmajano/to-the-future-with-cbFutures" %}
 
 ## AsyncManager
 

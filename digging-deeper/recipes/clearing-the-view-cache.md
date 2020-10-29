@@ -15,7 +15,7 @@ var cache = cachebox.getCache("template");
 You can also use the WireBox injection DSL
 
 ```javascript
-property name="cache" inject="cachebox:template">
+property name="cache" inject="cachebox:template"
 ```
 
 ## Clearing methods

@@ -87,7 +87,7 @@ The `aroundHandler()` is also smart in detecting the following outputs from a ha
 * Setting a view or layout to render
 * Explicit `renderData()` calls
 
-### RequestContext Additions
+### Request Context Additions
 
 * `getResponse()`
   * Will get you the current `prc.response` object, if the object doesn’t exist, it will create it and set it for you
