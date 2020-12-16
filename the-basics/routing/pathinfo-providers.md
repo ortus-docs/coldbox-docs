@@ -51,3 +51,7 @@ function PathInfoProvider( event ){
 }
 ```
 
+{% hint style="info" %}
+The[ Rewrite rules section](requirements/rewrite-rules.md#htaccess) has another useful example for a pathInfo provider
+{% endhint %}
+

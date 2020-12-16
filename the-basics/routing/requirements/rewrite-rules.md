@@ -21,6 +21,38 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.cfm?%{REQUEST_URI} [QSA,L,NS]
 ```
 
+{% hint style="warning" %}
+The above htaccess file might not work combined with Apache. Recent versions of Apache don't send the CGI.PATH\_INFO variable to your cfml engine when using ProxyPass and ProxyPassMatch. It that's the case you might need a [pathInfoProvider](../pathinfo-providers.md) function in your router.cfc
+{% endhint %}
+
+The following solution might work better if you are using a recent version of Apache. This should be part of your `.htaccess` file
+
+```text
+#The ColdBox index.cfm/{path_info} rules.
+RewriteEngine On
+RewriteRule ^$ index.cfm?redirect_path=/ [QSA,NS]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.cfm?redirect_path=%{REQUEST_URI} [QSA,L,NS]
+```
+
+Now you can create a pathInfo provider function in your router.cfc which brings back your path info to the router:
+
+{% code title="router.cfc" %}
+```javascript
+function PathInfoProvider( event ){
+  var p = cgi.path_info;
+  if (len(p)) {
+    return p;
+  } else if (url.keyExists("redirect_path")) {
+    return url.redirect_path;
+  } else {
+    return "";
+  }
+}
+```
+{% endcode %}
+
 ## nginx
 
 ```text
