@@ -6,7 +6,6 @@ ColdBox 6.2.0 is a minor release with some major improvements in many areas like
 * Logging
 * Object creations
 * WireBox Mappings and Binders
-* Much More.
 
 ### WireBox Binder & Mapping Objects Rewritten
 
