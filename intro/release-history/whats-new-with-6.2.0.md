@@ -14,6 +14,20 @@ This is a **major** change in the core as we have finally rewritten the WireBox 
 
 That's right, we have some async goodness prepared for future versions when dealing with multiple directory mappings and much more.
 
+### Async Package Performance Upgrades
+
+![Fusion Reactor Profiler](../../.gitbook/assets/fusion-reactor-profiler.png)
+
+We have done more runtime analysis on our `asynchronous` package and we have optimized the heck out of it using the amazing [FusionReactor](https://www.fusion-reactor.com/) Profilers!  Especially the `applyAll()` and collection based parallel computing.  We reached a point where all of our tests cases where running faster than even native Lucee/Adobe 2021 parallel constructs.  Below you can see a snapshot of our test bed creating 1000 transient objects with dependency injections and object populations using async constructs.
+
+![Async Test Results](../../.gitbook/assets/coldbox6.2-async-tests.png)
+
+You can find our test bed here: [https://github.com/ColdBox/coldbox-platform/blob/development/tests/suites/async/performance-parallel-tests.cfm](https://github.com/ColdBox/coldbox-platform/blob/development/tests/suites/async/performance-parallel-tests.cfm)
+
+Just a reminder that the ColdBox async capabilities are all powered by the Java concurrency packages leveraging [Completable Futures](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html), [Executors](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Executors.html) and [Scheduled Tasks](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/ScheduledExecutorService.html).  It is not only true to the Java API but we have made tons of enhancements especially for ColdFusion and its dynamic nature.  [Check out our docs](../../digging-deeper/promises-async-programming/)!  
+
+**It is also available to ANY ColdFusion application that is NOT running ColdBox. This is achieved by using either of our standalone libraries: WireBox, CacheBox and LogBox.**
+
 ### Test Dependency Injection
 
 We have introduced in this version the capability for you to tag your integration tests with an `autowire` annotation on the component tag and your test object will be inspected and wired with dependencies just like any other WireBox object.
@@ -103,6 +117,10 @@ expect( event.getResponse() ).toHaveInvalidData( "project", "is required" )
 expect( event.getResponse() ).toHaveInvalidData( "task", "is required" )
 expect( event.getResponse() ).toHaveInvalidData( "user", "is required" )
 ```
+
+### More Rendering Improvements
+
+Thanks to Dom Watson \([@dom\_watson](https://twitter.com/dom_watson)\) from PresideCMS \([@presidecms](https://twitter.com/presidecms)\) has contributed tons of goodness to ColdBox view rendering and in this release we have focused on more performance and memory utiliziation updates.  We also took advantage to keep refactoring external dependencies from pre singleton rendering approaches as well, which have resulted in more performance gains and lower memory usages on high rendering apps. 
 
 ### Whoops! Keeps Getting Better
 
