@@ -48,7 +48,7 @@ And constructed with the following guidelines:
 The ColdBox Platform is open source and licensed under the [Apache 2](https://www.apache.org/licenses/LICENSE-2.0.html) License.
 
 * Copyright by Ortus Solutions, Corp
-* ColdBox is a registered trademark by Ortus Solutions, Corp
+* ColdBox, CacheBox, Wirebox, LogBox are registered trademarks by Ortus Solutions, Corp
 
 ## Discussion & Help
 
