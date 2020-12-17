@@ -174,7 +174,7 @@ New Rendering Speed: 76ms ![:fire:](https://a.slack-edge.com/production-standard
 * \[[COLDBOX-953](https://ortussolutions.atlassian.net/browse/COLDBOX-953)\] - Update `DateFormat` Mask to use lowercase "d" to be compatible with ACF2021
 * \[[COLDBOX-954](https://ortussolutions.atlassian.net/browse/COLDBOX-954)\] - Refactor `viewsHelperRef` and `layoutsHelperRef` to local renderer variables instead of settings, which resulted in even better speed improvements
 * \[[COLDBOX-955](https://ortussolutions.atlassian.net/browse/COLDBOX-955)\] - If in an Ajax request and an exception occurs using Whoops the view is unusable
-* \[[COLDBOX-956](https://ortussolutions.atlassian.net/browse/COLDBOX-956)\] - Whoops loads multiple files into the DOM for the templates in the stacktrace causing major slowdowns
+* \[[COLDBOX-956](https://ortussolutions.atlassian.net/browse/COLDBOX-956)\] - Whoops loads multiple files into the DOM for the templates in the stacktrace causing major slowdownsa
 {% endtab %}
 
 {% tab title="CacheBox" %}

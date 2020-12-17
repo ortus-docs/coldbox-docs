@@ -19,6 +19,13 @@ ColdBox 6.1.0 is a minor release sporting fixes and a few minor updates to make 
 * \[[COLDBOX-922](https://ortussolutions.atlassian.net/browse/COLDBOX-922)\] - Whoops can be slow while dumping out CFC instances
 {% endtab %}
 
+{% tab title="WireBox" %}
+### Bugs
+
+* \[[WIREBOX-82](https://ortussolutions.atlassian.net/browse/WIREBOX-82)\] - builder.toVirtualInheritance\(\): scoping issues
+* \[[WIREBOX-83](https://ortussolutions.atlassian.net/browse/WIREBOX-83)\] - When using sandbox security, and using a provider DSL the file existence checks blow up
+{% endtab %}
+
 {% tab title="LogBox" %}
 ### Bugs
 
