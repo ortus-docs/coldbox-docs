@@ -174,7 +174,7 @@ route( "/users/hello", function( event, rc, prc ){
 
 // Simple response routing with placeholders
 route( "/users/:username", function( event, rc, prc ){
-    "<h1>Hello #encodeForHTML( rc.username )# From RESTLand</h1>";
+    return "<h1>Hello #encodeForHTML( rc.username )# From RESTLand</h1>";
 } );
 
 // Routing with the toResponse() method
