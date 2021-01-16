@@ -29,7 +29,7 @@ Just a reminder that the ColdBox async capabilities are all powered by the Java 
 
 ### Test Dependency Injection
 
-We have introduced in this version the capability for you to tag your integration tests with an `autowire` annotation on the component tag and your test object will be inspected and wired with dependencies just like any other WireBox object.
+This version introduces the capability for you to tag your integration tests with an `autowire` annotation on the component tag. By adding this annotation, your test object will be inspected and wired with dependencies just like any other WireBox object.
 
 ```javascript
 component extends="coldbox.system.testing.BaseTestCase" autowire {
@@ -119,7 +119,7 @@ expect( event.getResponse() ).toHaveInvalidData( "user", "is required" )
 
 ### More Rendering Improvements
 
-Thanks to Dom Watson \([@dom\_watson](https://twitter.com/dom_watson)\) from PresideCMS \([@presidecms](https://twitter.com/presidecms)\) has contributed tons of goodness to ColdBox view rendering and in this release we have focused on more performance and memory utiliziation updates.  We also took advantage to keep refactoring external dependencies from pre singleton rendering approaches as well, which have resulted in more performance gains and lower memory usages on high rendering apps. 
+Thanks to Dom Watson \([@dom\_watson](https://twitter.com/dom_watson)\) from PresideCMS \([@presidecms](https://twitter.com/presidecms)\) for many contributions to help clean up ColdBox view rendering! This release focuses on more performance and memory utilization updates, as well as refactoring external dependencies from pre singleton rendering approaches, which has resulted in more performance gains and lower memory usages on high rendering apps. 
 
 ### Whoops! Keeps Getting Better
 
