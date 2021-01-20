@@ -12,7 +12,7 @@ The types that we currently support are:
 
 * `fixed` : By default it will build one with **20** threads on it. Great for multiple task execution and worker processing.
 
-![Fixed Thread](../../.gitbook/assets/fixedexecutor.png)
+![Fixed Thread](../../.gitbook/assets/fixedexecutor%20%281%29.png)
 
 * `single` : A great way to control that submitted tasks will execute in the order of submission much like a FIFO queue \(First In First Out\).
 

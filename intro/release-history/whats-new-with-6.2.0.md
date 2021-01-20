@@ -9,7 +9,7 @@ ColdBox 6.2.0 is a minor release with some major improvements in many areas like
 
 ### WireBox Binder & Mapping Objects Rewritten
 
-This is a **major** change in the core as we have finally rewritten the WireBox `Binder` and object `Mapping` objects to script.  This resulted in a 45-50% code reduction for those objects and an impressive 30% speed improvements when creating and processing mappings with the new binder processing optimizations.  We analyzed every single line of code on these two objects and we are incredibly satisfied with the initial results.
+This is a **major** change in the core as we have finally rewritten the WireBox `Binder` and object `Mapping` objects to script. This resulted in a 45-50% code reduction for those objects and an impressive 30% speed improvements when creating and processing mappings with the new binder processing optimizations. We analyzed every single line of code on these two objects and we are incredibly satisfied with the initial results.
 
 That's right, we have some async goodness prepared for future versions when dealing with multiple directory mappings and much more.
 
@@ -17,13 +17,13 @@ That's right, we have some async goodness prepared for future versions when deal
 
 ![Fusion Reactor Profiler](../../.gitbook/assets/fusion-reactor-profiler.png)
 
-We have done more runtime analysis on our `asynchronous` package and we have optimized the heck out of it using the amazing [FusionReactor](https://www.fusion-reactor.com/) Profilers!  Especially the `applyAll()` and collection based parallel computing.  We reached a point where all of our tests cases where running faster than even native Lucee/Adobe 2021 parallel constructs.  Below you can see a snapshot of our test bed creating 1000 transient objects with dependency injections and object populations using async constructs.
+We have done more runtime analysis on our `asynchronous` package and we have optimized the heck out of it using the amazing [FusionReactor](https://www.fusion-reactor.com/) Profilers! Especially the `applyAll()` and collection based parallel computing. We reached a point where all of our tests cases where running faster than even native Lucee/Adobe 2021 parallel constructs. Below you can see a snapshot of our test bed creating 1000 transient objects with dependency injections and object populations using async constructs.
 
 ![Async Test Results](../../.gitbook/assets/coldbox6.2-async-tests.png)
 
 You can find our test bed here: [https://github.com/ColdBox/coldbox-platform/blob/development/tests/suites/async/performance-parallel-tests.cfm](https://github.com/ColdBox/coldbox-platform/blob/development/tests/suites/async/performance-parallel-tests.cfm)
 
-Just a reminder that the ColdBox async capabilities are all powered by the Java concurrency packages leveraging [Completable Futures](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html), [Executors](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Executors.html) and [Scheduled Tasks](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/ScheduledExecutorService.html).  It is not only true to the Java API but we have made tons of enhancements especially for ColdFusion and its dynamic nature.  [Check out our docs](../../digging-deeper/promises-async-programming/)!  
+Just a reminder that the ColdBox async capabilities are all powered by the Java concurrency packages leveraging [Completable Futures](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html), [Executors](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Executors.html) and [Scheduled Tasks](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/ScheduledExecutorService.html). It is not only true to the Java API but we have made tons of enhancements especially for ColdFusion and its dynamic nature. [Check out our docs](../../digging-deeper/promises-async-programming/)!
 
 **It is also available to ANY ColdFusion application that is NOT running ColdBox. This is achieved by using either of our standalone libraries: WireBox, CacheBox and LogBox.**
 
@@ -33,67 +33,67 @@ This version introduces the capability for you to tag your integration tests wit
 
 ```javascript
 component extends="coldbox.system.testing.BaseTestCase" autowire {
-	
-	// DI
-	property name="securityService" inject="provider:securityService";
-	property name="jwt"             inject="provider:JWTService@cbsecurity";
-	property name="cbsecure"        inject="provider:CBSecurity@cbsecurity";
-	property name="qb"              inject="provider:QueryBuilder@qb";
 
-	/*********************************** BDD SUITES ***********************************/
-	function run(){
-		describe( "Authentication Specs", function(){
-			beforeEach( function( currentSpec ){
-				// Setup as a new ColdBox request for this suite, VERY IMPORTANT. ELSE EVERYTHING LOOKS LIKE THE SAME REQUEST.
-				setup();
-				// Make sure nothing is logged in to start our calls
-				securityService.logout();
-				jwt.getTokenStorage().clearAll();
-			} );
+    // DI
+    property name="securityService" inject="provider:securityService";
+    property name="jwt"             inject="provider:JWTService@cbsecurity";
+    property name="cbsecure"        inject="provider:CBSecurity@cbsecurity";
+    property name="qb"              inject="provider:QueryBuilder@qb";
 
-			story( "I want to authenticate a user via username/password and receive a JWT token", function(){
-				given( "a valid username and password", function(){
-					then( "I will be authenticated and will receive the JWT token", function(){
-						// Use a user in the seeded db
-						var event = this.post(
-							"/api/v1/login",
-							{
-								username : variables.testEmployeeEmail,
-								password : variables.testPassword
-							}
-						);
-						var response = event.getPrivateValue( "Response" );
-						expect( response.getError() ).toBeFalse( response.getMessagesString() );
-						expect( response.getData() ).toHaveKey( "token,user" );
-						// debug( response.getData() );
-						var decoded = jwt.decode( response.getData().token );
-						expect( decoded.sub ).toBe( variables.testEmployeeId );
-						expect( decoded.exp ).toBeGTE( dateAdd( "h", 1, decoded.iat ) );
-						expect( response.getData().user.userId ).toBe( variables.testEmployeeId );
-					} );
-				} );
-				given( "invalid username and password", function(){
-					then( "I will receive a 401 invalid credentials exception ", function(){
-						var event = this.post(
-							"/api/v1/login",
-							{ username : "invalid", password : "invalid" }
-						);
-						var response = event.getPrivateValue( "Response" );
-						expect( response.getError() ).toBeTrue();
-						expect( response.getStatusCode() ).toBe( 401 );
-					} );
-				} );
-			} );
+    /*********************************** BDD SUITES ***********************************/
+    function run(){
+        describe( "Authentication Specs", function(){
+            beforeEach( function( currentSpec ){
+                // Setup as a new ColdBox request for this suite, VERY IMPORTANT. ELSE EVERYTHING LOOKS LIKE THE SAME REQUEST.
+                setup();
+                // Make sure nothing is logged in to start our calls
+                securityService.logout();
+                jwt.getTokenStorage().clearAll();
+            } );
 
-		} );
-	}
+            story( "I want to authenticate a user via username/password and receive a JWT token", function(){
+                given( "a valid username and password", function(){
+                    then( "I will be authenticated and will receive the JWT token", function(){
+                        // Use a user in the seeded db
+                        var event = this.post(
+                            "/api/v1/login",
+                            {
+                                username : variables.testEmployeeEmail,
+                                password : variables.testPassword
+                            }
+                        );
+                        var response = event.getPrivateValue( "Response" );
+                        expect( response.getError() ).toBeFalse( response.getMessagesString() );
+                        expect( response.getData() ).toHaveKey( "token,user" );
+                        // debug( response.getData() );
+                        var decoded = jwt.decode( response.getData().token );
+                        expect( decoded.sub ).toBe( variables.testEmployeeId );
+                        expect( decoded.exp ).toBeGTE( dateAdd( "h", 1, decoded.iat ) );
+                        expect( response.getData().user.userId ).toBe( variables.testEmployeeId );
+                    } );
+                } );
+                given( "invalid username and password", function(){
+                    then( "I will receive a 401 invalid credentials exception ", function(){
+                        var event = this.post(
+                            "/api/v1/login",
+                            { username : "invalid", password : "invalid" }
+                        );
+                        var response = event.getPrivateValue( "Response" );
+                        expect( response.getError() ).toBeTrue();
+                        expect( response.getStatusCode() ).toBe( 401 );
+                    } );
+                } );
+            } );
+
+        } );
+    }
 
 }
 ```
 
 ### ColdBox Test Matchers
 
-We have also included a new object `coldbox.system.testing.CustomMatchers` which will register matchers into TestBox when doing integration tests.  It will give you the nice ability to expect status codes and validation exceptions on RESTFul Requests via the ColdBox Response object.
+We have also included a new object `coldbox.system.testing.CustomMatchers` which will register matchers into TestBox when doing integration tests. It will give you the nice ability to expect status codes and validation exceptions on RESTFul Requests via the ColdBox Response object.
 
 * `toHaveStatus()`
 * `toHaveInvalidData()`
@@ -119,13 +119,13 @@ expect( event.getResponse() ).toHaveInvalidData( "user", "is required" )
 
 ### More Rendering Improvements
 
-Thanks to Dom Watson \([@dom\_watson](https://twitter.com/dom_watson)\) from PresideCMS \([@presidecms](https://twitter.com/presidecms)\) for many contributions to help clean up ColdBox view rendering! This release focuses on more performance and memory utilization updates, as well as refactoring external dependencies from pre singleton rendering approaches, which has resulted in more performance gains and lower memory usages on high rendering apps. 
+Thanks to Dom Watson \([@dom\_watson](https://twitter.com/dom_watson)\) from PresideCMS \([@presidecms](https://twitter.com/presidecms)\) for many contributions to help clean up ColdBox view rendering! This release focuses on more performance and memory utilization updates, as well as refactoring external dependencies from pre singleton rendering approaches, which has resulted in more performance gains and lower memory usages on high rendering apps.
 
 ### Whoops! Keeps Getting Better
 
-We have had tons of updates and requests from our new exception handling experience in ColdBox: Whoops!  In this release we tackle CFML core engine files so they can render appropriately, AJAX rendering for exceptions and best of all a huge performance and size boost when dealing with exceptions.  Even when dealing with exceptions we want the best and the fastest experience possible for our developers.
+We have had tons of updates and requests from our new exception handling experience in ColdBox: Whoops! In this release we tackle CFML core engine files so they can render appropriately, AJAX rendering for exceptions and best of all a huge performance and size boost when dealing with exceptions. Even when dealing with exceptions we want the best and the fastest experience possible for our developers.
 
-The previous approach whoops took was to read and load all the source code of all the templates that caused the exception. You could then navigate them to discover your faults. However, each template could be loaded from 1 to up to 10 times if the stack trace followed it.  In this new update we provide source template caching and dynamic runtime injection and highlighting of the source code.  This has granted us the following improvements in small test cases \(Your improvements could be higher\)
+The previous approach whoops took was to read and load all the source code of all the templates that caused the exception. You could then navigate them to discover your faults. However, each template could be loaded from 1 to up to 10 times if the stack trace followed it. In this new update we provide source template caching and dynamic runtime injection and highlighting of the source code. This has granted us the following improvements in small test cases \(Your improvements could be higher\)
 
 Original Size: 218.54 KB  
 New Size: 145.22 KB ![:fire:](https://a.slack-edge.com/production-standard-emoji-assets/10.2/apple-medium/1f525.png)  
@@ -133,7 +133,7 @@ New Size: 145.22 KB ![:fire:](https://a.slack-edge.com/production-standard-emoji
 
 Original Rendering Speed: 288ms  
 New Rendering Speed: 76ms ![:fire:](https://a.slack-edge.com/production-standard-emoji-assets/10.2/apple-medium/1f525.png)  
-**About 74-80% rendering improvements** 
+**About 74-80% rendering improvements**
 
 ![Whoops Improvements](../../.gitbook/assets/screen-shot-2020-12-16-at-5.58.20-pm.png)
 
@@ -156,7 +156,7 @@ New Rendering Speed: 76ms ![:fire:](https://a.slack-edge.com/production-standard
 * \[[COLDBOX-943](https://ortussolutions.atlassian.net/browse/COLDBOX-943)\] - New global settings: `sesBasePath` and `HtmlBasePath` that represent the pathing with no host and protocol
 * \[[COLDBOX-946](https://ortussolutions.atlassian.net/browse/COLDBOX-946)\] - new request context method `getFullPath()` which returns the full url with no protocol or host
 * \[[COLDBOX-957](https://ortussolutions.atlassian.net/browse/COLDBOX-957)\] - New `autowire` annotation or \``variables.autowire`\` on integration tests so ColdBox will autowire the test with dependencies via WireBox
-* \[[COLDBOX-958](https://ortussolutions.atlassian.net/browse/COLDBOX-958)\] - Store the test case metadata on \```variables.metadata``` so it can be reused by any helper within test operations
+* \[[COLDBOX-958](https://ortussolutions.atlassian.net/browse/COLDBOX-958)\] - Store the test case metadata on \`\`\`variables.metadata\`\`\` so it can be reused by any helper within test operations
 * \[[COLDBOX-959](https://ortussolutions.atlassian.net/browse/COLDBOX-959)\] - New ColdBox `CustomMatchers` object found at `coldbox.system.testing.CustomMatchers` which is loaded on all tests
 
 ### Improvements
@@ -210,6 +210,4 @@ New Rendering Speed: 76ms ![:fire:](https://a.slack-edge.com/production-standard
 * \[[WIREBOX-104](https://ortussolutions.atlassian.net/browse/WIREBOX-104)\] - New WireBox config: `autoProcessMappings` which can be used to auto process metadata inspections on startup.
 {% endtab %}
 {% endtabs %}
-
-
 
