@@ -18,7 +18,7 @@ RewriteRule ^(.*)$ - [NC,L]
 RewriteRule ^$ index.cfm [QSA,NS]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.cfm?%{REQUEST_URI} [QSA,L,NS]
+RewriteRule ^(.*)$ /index.cfm?%{REQUEST_URI} [QSA,L,NS]
 ```
 
 {% hint style="warning" %}
@@ -33,7 +33,7 @@ RewriteEngine On
 RewriteRule ^$ index.cfm?redirect_path=/ [QSA,NS]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.cfm?redirect_path=%{REQUEST_URI} [QSA,L,NS]
+RewriteRule ^(.*)$ /index.cfm?redirect_path=%{REQUEST_URI} [QSA,L,NS]
 ```
 
 Now you can create a pathInfo provider function in your router.cfc which brings back your path info to the router:
