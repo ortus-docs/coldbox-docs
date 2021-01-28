@@ -124,7 +124,7 @@ That's it! Execute the event: `http://localhost:{port}/contacts/index` and view 
 
 Congratulations, you have made a complete **MVC** circle!
 
-![](../../.gitbook/assets/request-lifecycle.png)
+![](../../.gitbook/assets/request-lifecycle%20%281%29.png)
 
 > **Tip** You can find much more information about models and dependency injection in our [full docs](https://coldbox.ortusbooks.com/content/full/models/)
 
