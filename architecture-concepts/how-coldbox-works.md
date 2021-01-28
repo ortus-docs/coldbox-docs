@@ -14,7 +14,7 @@ ColdBox is loaded by the `Application.cfc` and makes use of the Front Controller
 
 The incoming URL, FORM, and REMOTE variables are merged into a single structure that we call the request collection and, since we love objects, that collection is stored in an object called Request Context. We also create a secondary collection called the private request collection that cannot be affected by the outside world as nothing is merged into it. You can use it for private request variables and the like.
 
-![](../.gitbook/assets/requestcollectiondatabus.jpg)
+![](../.gitbook/assets/requestcollectiondatabus%20%281%29.jpg)
 
 The request context object has tons of methods to help you in setting and getting variables from one MVC layer to another, to getting request metadata, rendering RESTful content, setting HTTP headers, and more. It is your information super highway for specific requests. Remember that the API Docs are your best friend!
 
@@ -26,7 +26,7 @@ Below you can see a UML diagram of the ColdBox Major Classes eco-system.
 
 ## Request Lifecycle
 
-![](../.gitbook/assets/request-lifecycle.png)
+![](../.gitbook/assets/request-lifecycle%20%281%29.png)
 
 A typical basic request to a ColdBox application looks like this:
 
