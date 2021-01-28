@@ -2,22 +2,89 @@
 
 ![](../../.gitbook/assets/coldboxsimplemvc.png)
 
-Event handlers are the controller layer in ColdBox and is what you will be executing via the `URL`or a `FORM`post. All event handlers are **singletons**, which means they are cached for the duration of the application, so always remember to var scope your variables in your functions.
+Event handlers are the _controller_ layer in ColdBox and is what you will be executing via the `URL`or a `FORM`post. All event handlers are **singletons**, which means they are cached for the duration of the application, so always remember to var scope your variables in your functions.
 
 {% hint style="success" %}
-**Tip:** For development we highly encourage you to turn handler caching off or you will have to reinit the application in every request, which is annoying. Open the `config/ColdBox.cfc` and look for the `coldbox.handlerCaching` setting.
+**Tip:** For development we highly encourage you to turn handler caching **off** or you will have to reinit the application in every request, which is **annoying**. Open the `config/ColdBox.cfc` and look for the `coldbox.handlerCaching` setting.
 {% endhint %}
+
+{% code title="config/Coldbox.cfc" %}
+```javascript
+/**
+ * Development environment
+ */
+function development() {
+	coldbox.customErrorTemplate = "/coldbox/system/exceptions/Whoops.cfm"; // interactive bug report
+	coldbox.handlerCaching = false;
+	coldbox.handlersIndexAutoReload = true;
+	coldobx.eventCaching = false;
+	coldbox.viewCaching = false;
+}
+```
+{% endcode %}
 
 Once you started the server in the previous section and opened the browser, the default event got executed which maps to an event handler CFC \(controller\) `handlers/main.cfc` and the method/action in that CFC called `index()`. Go open the `handlers/main.cfc` and let's explore the code.
 
 ## Handler Code
 
 ```javascript
-// Default Action
-function index( event, rc, prc ){
-    prc.welcomeMessage = "Welcome to ColdBox!";
-    event.setView( "main/index" );
+component extends="coldbox.system.EventHandler" {
+
+	/**
+	 * Default Action
+	 */
+	function index( event, rc, prc ) {
+		prc.welcomeMessage = "Welcome to ColdBox!";
+		event.setView( "main/index" );
+	}
+
+	/**
+	 * Produce some restfulf data
+	 */
+	function data( event, rc, prc ) {
+		return [
+			{ "id" : createUUID(), name : "Luis" },
+			{ "id" : createUUID(), name : "JOe" },
+			{ "id" : createUUID(), name : "Bob" },
+			{ "id" : createUUID(), name : "Darth" }
+		];
+	}
+
+	/**
+	 * Relocation example
+	 */
+	function doSomething( event, rc, prc ) {
+		relocate( "main.index" );
+	}
+
+	/************************************** IMPLICIT ACTIONS *********************************************/
+
+	function onAppInit( event, rc, prc ) {
+	}
+
+	function onRequestStart( event, rc, prc ) {
+	}
+
+	function onRequestEnd( event, rc, prc ) {
+	}
+
+	function onSessionStart( event, rc, prc ) {
+	}
+
+	function onSessionEnd( event, rc, prc ) {
+		var sessionScope     = event.getValue( "sessionReference" );
+		var applicationScope = event.getValue( "applicationReference" );
+	}
+
+	function onException( event, rc, prc ) {
+		event.setHTTPHeader( statusCode = 500 );
+		// Grab Exception From private request collection, placed by ColdBox Exception Handling
+		var exception = prc.exception;
+		// Place exception handler below:
+	}
+
 }
+
 ```
 
 Every action in ColdBox receives three arguments:

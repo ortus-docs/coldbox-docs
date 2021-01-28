@@ -10,6 +10,8 @@ The source code for this book is hosted in GitHub: [https://github.com/ortus-doc
 
 Flash, Flex, ColdFusion, and Adobe are registered trademarks and copyrights of Adobe Systems, Inc.
 
+ColdBox, CommandBox, FORGEBOX, TestBox, ContentBox, Ortus Solutions are all trademarks and copyrights of Ortus Solutions, Corp.
+
 ## Notice of Liability
 
 The information in this book is distributed “as is”, without warranty. The author and Ortus Solutions, Corp shall not have any liability to any person or entity with respect to loss or damage caused or alleged to be caused directly or indirectly by the content of this training book, software and resources described in it.

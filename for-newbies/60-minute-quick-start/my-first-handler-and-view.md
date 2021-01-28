@@ -28,7 +28,7 @@ You will now see a big `hello.index` outputted to the screen. You have now creat
 
 Let's check out the handler code:
 
-```java
+```javascript
 component{
 
     /**
@@ -82,7 +82,7 @@ All of this URL magic happens thanks to the URL mappings capabilities in ColdBox
 
 ## My First Virtual Event
 
-Now let's create a virtual event, which is basically just a view we want to execute with no event handler controller needed. This is a great way to incorporate non-mvc files into ColdBox, baby steps!
+Now let's create a virtual event, which is basically just a view we want to execute with no event handler controller needed. This is a great way to incorporate _non-mvc_ files into ColdBox, baby steps!
 
 ```bash
 coldbox create view name="virtual/hello"

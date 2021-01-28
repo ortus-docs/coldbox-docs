@@ -12,30 +12,32 @@ The method in the request context that builds links is called: `buildLink()`. He
 
 ```java
 /**
-* Builds links to events or URL Routes
-*
-* @to The event or route path you want to create the link to
-* @translate Translate between . to / depending on the SES mode on to and queryString arguments. Defaults to true.
-* @ssl Turn SSl on/off on URL creation, by default is SSL is enabled, we will use it.
-* @baseURL If not using SES, you can use this argument to create your own base url apart from the default of index.cfm. Example: https://mysample.com/index.cfm
-* @queryString The query string to append
-*/
+ * Builds links to events or URL Routes
+ *
+ * @to The event or route path you want to create the link to
+ * @queryString The query string to append which can be a regular 
+               query string string, or a struct of name-value pairs
+ * @translate Translate between . to / depending on the SES mode on to and queryString arguments. Defaults to true.
+ * @ssl Turn SSl on/off on URL creation, by default is SSL is enabled, we will use it.
+ * @baseURL If not using SES, you can use this argument to create your own base url apart from the default of index.cfm. Example: https://mysample.com/index.cfm
+ */
 string function buildLink(
-    to,
-    boolean translate=true,
-    boolean ssl,
-    baseURL="",
-    queryString="");
+	to,
+	queryString       = "",
+	boolean translate = true,
+	boolean ssl,
+	baseURL = ""
+)
 ```
 
 ## Edit Your View
 
 Edit the `views/virtual/hello.cfm` page and wrap the content in a `cfoutput` and create a link to the main ColdBox event, which by convention is `main.index`.
 
-```text
+```markup
 <cfoutput>
-<h1>Hello from ColdBox Land!</h1>
-<p><a href="#event.buildLink( "main.index" )#">Go home</a></p>
+    <h1>Hello from ColdBox Land!</h1>
+    <p><a href="#event.buildLink( "main" )#">Go home</a></p>
 </cfoutput>
 ```
 

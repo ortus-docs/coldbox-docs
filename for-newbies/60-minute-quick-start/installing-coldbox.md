@@ -46,15 +46,15 @@ We will be able to execute a-la-carte commands from our command line or go into 
 To get started open the CommandBox binary or enter the shell by typing `box` in your terminal or console. Then let's create a new folder and install ColdBox into a directory.
 
 ```bash
-mkdir myapp --cd
+mkdir 60-minute-quickstart --cd
 install coldbox
 ```
 
 CommandBox will resolve `coldbox` from ForgeBox \([www.forgebox.io](https://www.forgebox.io)\), use the **latest version** available, download and install it in this folder alongside a `box.json` file which represents your application package.
 
 ```text
-Dir 0 Apr 25,2018 11:04:05 coldbox
-File 112 Apr 25,2018 11:04:05 box.json
+Dir 0 Jan 25,2021 11:04:05 coldbox
+File 112 Jan 25,2021 11:04:05 box.json
 ```
 
 {% hint style="info" %}

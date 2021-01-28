@@ -2,7 +2,6 @@
 
 CommandBox comes with a `coldbox create app` command that can enable you to create application skeletons using one of our official skeletons or [your own](../../digging-deeper/recipes/application-templates.md):
 
-* **Advanced** : A tag based advanced template
 * **AdvancedScript**  \(`default`\): A script based advanced template
 * **elixir** : A ColdBox Elixir based template
 * **ElixirBower** : A ColdBox Elixir + Bower based template
@@ -24,13 +23,6 @@ So let's create our first app using the _default_ template skeleton **AdvancedSc
 coldbox create app MyApp
 ```
 
-NOTE: During the pre-release phase this is works to spin up based on the templates above. You just substitute the {name} of the template above.
-
-```bash
-coldbox create app skeleton=cbtemplate-{name}@6.0.0-snapshot
-coldbox create app skeleton=cbtemplate-rest-hmvc@6.0.0-snapshot
-```
-
 This will scaffold the application and also install ColdBox for you. The following folders/files are generated for you:
 
 ```text
@@ -40,6 +32,7 @@ This will scaffold the application and also install ColdBox for you. The followi
 +includes // static assets
 +interceptors // global interceptors
 +layouts // Your layouts
++lib // Java Jars to load
 +models // Your Models
 +modules // CommandBox Tracked Modules
 +modules_app // Custom modules
@@ -58,8 +51,6 @@ server start --rewritesEnable
 
 {% hint style="info" %}
 This will start up a [Lucee](https://www.lucee.org) 5 open source CFML engine \(If you are in CommandBox 4 or higher\). If you would like an **Adobe ColdFusion** server then just add to the command: `cfengine=adobe@{version}` where `{version}` can be: `2016,11,10,9.`
-
-If you are using CommandBox 3 and below, you will be using a Lucee 4.5 Server.
 {% endhint %}
 
 This command will start a server with URL rewrites enabled, open a web browser for you and execute the `index.cfm`which in turn executes the **default event** by convention in a ColdBox application: `main.index`.
@@ -92,18 +83,19 @@ ColdBox is a conventions based framework. The location of files and functions ma
 | `views` | false | Views |
 
 {% hint style="info" %}
-What is the common denominator in all the conventions? That they are all optional.
+What is the common denominator in all the conventions?   
+**That they are all optional.**
 {% endhint %}
 
 ## Re-initializing The Application
 
-There will be times when you make configuration or code changes that are not reflected immediately in the application due to caching. You can tell the framework to \_reinit \_or restart the application for you via the URL by leveraging the special URL variable `fwreinit`.
+There will be times when you make configuration or code changes that are not reflected immediately in the application due to caching. You can tell the framework to **reinit** or restart the application for you via the URL by leveraging the special URL variable `fwreinit`.
 
 ```text
 http://localhost:{port}/?fwreinit=1
 ```
 
-You can also use CommandBox to reinit the application:
+You can also use CommandBox to **reinit** the application:
 
 ```bash
 coldbox reinit

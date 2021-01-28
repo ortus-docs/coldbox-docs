@@ -61,7 +61,8 @@ Go execute the event now: `http://localhost:{port}/hello/index` and you will see
 {% hint style="info" %}
 You can also leverage the function `event.setLayout( "Funky" )` to change layouts and even concatenate the calls:
 
-`event.setView( "hello/index" )    
-.setLayout( "Funky" );`
+`event  
+  .setView( "hello/index" )    
+  .setLayout( "Funky" );`
 {% endhint %}
 
