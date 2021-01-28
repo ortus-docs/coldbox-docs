@@ -52,7 +52,9 @@ The ColdBox Platform is open source and licensed under the [Apache 2](https://ww
 
 ## Discussion & Help
 
-The ColdBox help and discussion group can be found here: [https://groups.google.com/forum/\#!forum/coldbox](https://groups.google.com/forum/#!forum/coldbox)
+![](.gitbook/assets/ortus-community-square-small.png)
+
+The Ortus Community is the way to get any type of help for our entire platform and modules: [https://community.ortussolutions.com](https://community.ortussolutions.com)
 
 ## Reporting a Bug
 
