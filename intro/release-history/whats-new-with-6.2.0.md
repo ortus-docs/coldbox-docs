@@ -1,4 +1,4 @@
-# What's New With 6.2.0
+# What's New With 6.2.x
 
 ColdBox 6.2.0 is a minor release with some major improvements in many areas like:
 
@@ -139,6 +139,8 @@ New Rendering Speed: 76ms ![:fire:](https://a.slack-edge.com/production-standard
 
 ## Release Notes
 
+### 6.2.0
+
 {% tabs %}
 {% tab title="ColdBox HMVC" %}
 ### Bugs
@@ -210,4 +212,57 @@ New Rendering Speed: 76ms ![:fire:](https://a.slack-edge.com/production-standard
 * \[[WIREBOX-104](https://ortussolutions.atlassian.net/browse/WIREBOX-104)\] - New WireBox config: `autoProcessMappings` which can be used to auto process metadata inspections on startup.
 {% endtab %}
 {% endtabs %}
+
+### 6.2.1
+
+{% tabs %}
+{% tab title="ColdBox HMVC" %}
+### Bugs
+
+* \[[COLDBOX-960](https://ortussolutions.atlassian.net/browse/COLDBOX-960)\] - `jsonPayloadToRC` is not working in 6.2 update
+* \[[COLDBOX-961](https://ortussolutions.atlassian.net/browse/COLDBOX-961)\] - Random bug dealing with integration testing when dealing with routes vs direct events
+{% endtab %}
+
+{% tab title="WireBox" %}
+### Bugs
+
+* \[[WIREBOX-105](https://ortussolutions.atlassian.net/browse/WIREBOX-105)\] - Regression: Remove default dsl of "" from `initArg()` and `addDIConstructorArgument()`
+* \[[WIREBOX-106](https://ortussolutions.atlassian.net/browse/WIREBOX-106)\] - Regression: `parentInjector() stopRecursions()` collision with internal property name
+{% endtab %}
+{% endtabs %}
+
+### 6.2.2
+
+{% tabs %}
+{% tab title="ColdBox HMVC" %}
+### Bugs
+
+* \[[COLDBOX-963](https://ortussolutions.atlassian.net/browse/COLDBOX-963)\] - Use Java URI for more `resiliant getFullURL` to avoid double slashes
+{% endtab %}
+
+{% tab title="WireBox" %}
+### Bugs
+
+* \[[WIREBOX-107](https://ortussolutions.atlassian.net/browse/WIREBOX-107)\] - wirebox metadata caching broken
+* \[[WIREBOX-109](https://ortussolutions.atlassian.net/browse/WIREBOX-109)\] - Standalone event pool `interceptData` -&gt; data not backwards compat
+
+### Improvements
+
+* \[[WIREBOX-108](https://ortussolutions.atlassian.net/browse/WIREBOX-108)\] - WireBox not handling cachebox, logbox, and asyncmanager instances properly
+{% endtab %}
+
+{% tab title="CacheBox" %}
+### Improvements
+
+* \[[CACHEBOX-65](https://ortussolutions.atlassian.net/browse/CACHEBOX-65)\] - CacheBox not handling wirebox, logbox, and asynmanager instances properly
+{% endtab %}
+
+{% tab title="LogBox" %}
+### Improvements
+
+* \[[LOGBOX-60](https://ortussolutions.atlassian.net/browse/LOGBOX-60)\] - Ignore interrupted exceptions from appenders' scheduler pool
+{% endtab %}
+{% endtabs %}
+
+
 
