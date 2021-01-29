@@ -24,7 +24,7 @@ Let's do a recap of our conventions for layouts and view locations:
 
 It is imperative to know who does the rendering in ColdBox and that is the **Renderer** class that you can see from our diagram above. As you can tell from the diagram, it includes your layouts and/or views into itself in order to render out content. So by this association and inheritance all layouts and views have some variables and methods at their disposal since they get absorbed into the object. You can visit the [API docs](http://apidocs.ortussolutions.com/coldbox/current) to learn about all the Renderer methods.
 
-The **Renderer** is a **transient** object in order to avoid variable collisions, meaning it is recreated on each request.  All of the following property members exist in all layouts and views rendered by the **Renderer**:
+All of the following property members exist in all layouts and views rendered by the **Renderer**:
 
 | **Property** | **Description** |
 | :--- | :--- |
@@ -43,12 +43,12 @@ As you can see, all views and layouts have direct reference to the request colle
 
 ## Injecting In Your Models
 
-You can also use the ColdBox Renderer in your models so you can render email templates, views, etc.  We won't inject the renderer directly because remember that the renderer is a transient object.  So we will use a WireBox feature called [**provider**](https://wirebox.ortusbooks.com/advanced-topics/providers), which will inject a proxy placeholder that looks like the renderer and behaves like the renderer.  But behinds the scene it takes care of the persistence. So you can just use it!
+You can also inject the ColdBox Renderer into your models so you can render email templates, views, etc. directly from your model code:
 
 ```java
 component{
     
-    property name="renderer" inject="provider:coldbox:renderer";
+    property name="renderer" inject="coldbox:renderer";
     
     function renderSomething(){
         return renderer.renderView( view="mail/mymail", args={} );
@@ -56,3 +56,6 @@ component{
 }
 ```
 
+{% hint style="info" %}
+In previous versions you would need to use a `provider:` syntax due to the Renderer being a transient. This is no longer true in ColdBox 6.0.
+{% endhint %}
