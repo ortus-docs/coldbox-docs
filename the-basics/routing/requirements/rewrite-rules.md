@@ -141,10 +141,8 @@ Please note that URL rewriting is handled by an optional module in IIS. More inf
         <note>Generic Front-Controller URLs</note>
         <condition type="request-uri" operator="notequal">/(index.cfm|robots.txt|osd.xml|flex2gateway|cfide|cfformgateway|railo-context|lucee|admin-context|modules/contentbox-dsncreator|modules/contentbox-installer|modules/contentbox|files|images|js|javascripts|css|styles|config).*</condition>
         <condition type="request-uri" operator="notequal">\.(bmp|gif|jpe?g|png|css|js|txt|xls|ico|swf|woff|ttf|otf)$</condition>
-        <!-- For some reason this is not working now.
         <condition type="request-filename" operator="notdir"/>
         <condition type="request-filename" operator="notfile"/>
-        -->
         <from>^/(.+)$</from>
         <to type="passthrough">/index.cfm/$1</to>
     </rule>
