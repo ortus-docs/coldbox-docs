@@ -1,6 +1,6 @@
 # How are events called?
 
-![](../../.gitbook/assets/request-lifecycle%20%281%29%20%281%29.png)
+![](../../.gitbook/assets/request-lifecycle%20%281%29%20%281%29%20%281%29.png)
 
 Events are determined via a special variable that can be sent in via the FORM, URL, or REMOTELY called `event`. If no event is detected as an incoming variable, the framework will look in the configuration directives for the `DefaultEvent` and use that instead. If you did not set a `DefaultEvent` setting then the framework will use the following convention for you: `main.index`
 
