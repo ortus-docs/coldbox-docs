@@ -39,5 +39,5 @@ Example:
 
 ## Accessing System Settings in other files
 
-If you need to access these configuration values in other components, consider adding the values to your [ColdBox settings](configuration-directives/settings.md) and injecting the values into your other components [via dependecy injection.](../using-settings.md)
+If you need to access these configuration values in other components, consider adding the values to your [ColdBox settings](configuration-directives/settings.md) and injecting the values into your other components [via dependency injection.](../using-settings.md)
 

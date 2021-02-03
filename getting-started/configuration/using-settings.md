@@ -13,27 +13,55 @@ You can use the following methods to retrieve/set/validate settings in your hand
 ```javascript
 /**
  * Get a setting from the system
+ *
  * @name The key of the setting
- * @fwSetting Retrieve from the config or fw settings, defaults to config
  * @defaultValue If not found in config, default return value
+ *
+ * @throws SettingNotFoundException
+ *
+ * @return The requested setting
  */
-function getSetting( required name, boolean fwSetting=false, defaultValue )
+function getSetting( required name, defaultValue )
 
 /**
- * Verify a setting from the system
- * @name The key of the setting
- * @fwSetting Retrieve from the config or fw settings, defaults to config
+ * Get a ColdBox setting
+ *
+ * @name The key to get
+ * @defaultValue The default value if it doesn't exist
+ *
+ * @throws SettingNotFoundException
+ *
+ * @return The framework setting value
  */
-boolean function settingExists( required name, boolean fwSetting=false )
+function getColdBoxSetting( required name, defaultValue )
+
+/**
+ * Check if the setting exists in the application
+ *
+ * @name The key of the setting
+ */
+boolean function settingExists( required name )
 
 /**
  * Set a new setting in the system
+ *
  * @name The key of the setting
  * @value The value of the setting
  *
  * @return FrameworkSuperType
  */
 any function setSetting( required name, required value )
+
+/**
+ * Get a module's settings structure or a specific setting if the setting key is passed
+ *
+ * @module The module to retrieve the configuration settings from
+ * @setting The setting to retrieve if passed
+ * @defaultValue The default value to return if setting does not exist
+ *
+ * @return struct or any
+ */
+any function getModuleSettings( required module, setting, defaultValue )
 ```
 {% endcode %}
 
@@ -41,6 +69,7 @@ You can also get access to these methods in handlers via the ColdBox Controller 
 
 ```javascript
 controller.getSetting()
+controller.getColdBoxSetting()
 controller.setSetting()
 controller.settingExists()
 controller.getConfigSettings()

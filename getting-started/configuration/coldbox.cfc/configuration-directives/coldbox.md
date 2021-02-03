@@ -40,7 +40,13 @@ http://localhost/?fwreinit=mypass
 
 ### **reinitKey**
 
-**The key used in FORM or URL to reinit the framework. The default is `fwreinit` but you can change it to whatever you like.**
+The key used in FORM or URL to reinit the framework. The default is `fwreinit` but you can change it to whatever you like.
+
+```javascript
+coldbox = {
+    reinitKey = "myreinit"
+}
+```
 
 ### **handlersIndexAutoReload**
 
