@@ -40,7 +40,7 @@ http://localhost/admin/general/index -> event=admin:general.index
 
 ## Convention Name-Value Pairs
 
-Any extra name-value pairs in the remaining URL of a discovered URL pattern will be translated to variables in the request collection \(`rc`\) for you automagically.
+Any extra name-value pairs in the remaining URL of a discovered URL pattern will be translated to variables in the request collection \(`rc`\) for you _automagically_.
 
 ```text
 http://localhost/general/show/page/2/name/luis
@@ -55,6 +55,8 @@ event=users.show, rc.export=pdf, rc.name={empty value}
 {% hint style="success" %}
 **Tip:** You can turn this feature off by using the `valuePairTranslator( false )` modifier in the routing DSL on a route by route basis
 
-`route( "/pattern" ).to( "users.show" ).valuePairTranslator( false );`
+`route( "/pattern" )  
+  .to( "users.show" )  
+  .valuePairTranslator( false );`
 {% endhint %}
 

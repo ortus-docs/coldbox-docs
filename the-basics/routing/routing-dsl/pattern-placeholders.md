@@ -18,7 +18,7 @@ http://localhost/blog/2012-> rc.year=2012
 
 ## Optional Placeholders
 
-Sometimes we will want to declare routes that are very similar in nature and since order matters, they need to be delcared in the right order. Like this one:
+Sometimes we will want to declare routes that are very similar in nature and since order matters, they need to be declared in the right order. Like this one:
 
 ```java
 route( "/blog/:year-numeric/:month-numeric/:day-numeric" );

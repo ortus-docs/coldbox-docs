@@ -1,6 +1,6 @@
 # Request Context
 
-On every request to a ColdBox event, the framework creates an object that models the incoming request. This object is called the **Request Context Object**\(`coldbox.system.web.context.RequestContext`\), it contains the incoming **FORM/REMOTE/URL** variables the client sent in and the object lives in the ColdFusion `request` scope.
+On every request to a ColdBox event, the framework creates an object that models the incoming request. This object is called the **Request Context Object**\(`coldbox.system.web.context.RequestContext`\), it contains the incoming **FORM/REMOTE/URL** variables the client sent in and the object lives in the ColdFusion `request` scope and you will use to for responses and interacting with client data.
 
 {% hint style="info" %}
 Please visit the latest [API Docs](http://apidocs.ortussolutions.com/coldbox/current) for further information about the request context.
@@ -53,44 +53,41 @@ Below you can see a listing of the most commonly used methods in the request con
 Some Samples:
 
 ```javascript
-//Get a reference
-<cfset var rc = event.getCollection()>
+// test if this is an MVC request or a remote request
+if ( event.isProxyRequest() ){
+  event.setValue('message', 'We are in proxy mode right now');
+}
 
-//test if this is an MVC request or a remote request
-<cfif event.isProxyRequest()>
-  <cfset event.setValue('message', 'We are in proxy mode right now')>
-</cfif>
+// param a variable called page
+event.paramValue('page',1);
+// then just use it
+event.setValue('link','index.cfm?page=#rc.page#');
 
-//param a variable called page
-<cfset event.paramValue('page',1)>
-//then just use it
-<cfset event.setValue('link','index.cfm?page=#rc.page#')>
+// get a value with a default value
+event.setvalue('link','index.cfm?page=#event.getValue('page',1)#');
 
-//get a value with a default value
-<cfset event.setvalue('link','index.cfm?page=#event.getValue('page',1)#')>
+// Set the view to render
+event.setView('homepage');
 
-//Set the view to render
-<cfset event.setView('homepage')>
+// Set the view to render with no layout
+event.setView('homepage',true);
 
-//Set the view to render with no layout
-<cfset event.setView('homepage',true)>
+// set the view to render with caching stuff
+event.setview(name='homepage',cache='true',cacheTimeout='30');
 
-//set the view to render with caching stuff
-<cfset event.setview(name='homepage',cache='true',cacheTimeout='30')>
+// override a layout
+event.setLayout('Layout.Ajax');
 
-//override a layout
-<cfset event.setLayout('Layout.Ajax')>
+// check if a value does not exists
+if ( !event.valueExists('username') ) {
 
-//check if a value does not exists
-<cfif not event.valueExists('username')>
+}
 
-</cfif>
+// Tell the framework to stop processing gracefully, no renderings
+event.noRender();
 
-//Tell the framework to stop processing gracefully, no renderings
-<cfset event.noRender()>
-
-//Build a link
-<form action="#event.buildLink('user.save')#" method="post">
+// Build a link
+<form action="#event.buildLink( 'user.save' )#" method="post">
 </form>
 ```
 
@@ -99,14 +96,15 @@ Please see the online [API Docs](http://apidocs.ortussolutions.com/coldbox/curre
 ## Request Metadata Methods
 
 * `getCurrentAction()` : Get the current execution action \(method\)
-* `getCurrentEvent()` : Get's the current incoming event, full syntax.
+* `getCurrentEvent()` :  Get the current incoming event, full syntax.
 * `getCurrentHandler()` : Get the handler or handler/package path.
 * `getCurrentLayout()` : Get the current set layout for the view to render.
 * `getCurrentView()` : Get the current set view
 * `getCurrentModule()` : The name of the current executing module
 * `getCurrentRoutedNamespace()` : The current routed URL mapping namespace if found.
+* `getCurrentRouteRecord()` : Get the current routed record used in resolving the event
+* `getCurrentRouteMeta()` : Get the current routed record metdata struct
 * `getCurrentRoutedURL()` : The current routed URL if matched.
-* `getDebugpanelFlag()` : Get's the boolean flag if the ColdBox debugger panel will be rendered.
 * `getDefaultLayout()` : Get the name of the default layout.
 * `getDefaultView()` : Get the name of the default view.
 

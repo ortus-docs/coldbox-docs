@@ -116,6 +116,31 @@ route( "/my-old/link" )
 The default status code for redirects are 301 redirects which are PERMANENT redirects.
 {% endhint %}
 
+### Dynamic Routing Redirection
+
+You can also pass a closure as the `target` of relocation. This closure will received the parsed parameters, the incoming route record and the event object. You can determine dynamically where the relocation will go.
+
+```javascript
+route( "/my-old/link" )
+    .toRedirect( ( route, params, event ) => "/new/route" )
+  
+route( "/my-old/link" )
+    .toRedirect( ​function( route, params, event ){ 
+        return "/new/route"; 
+} ) 
+```
+
+This is great if you need to actually parse the incoming route and do a dynamic relocation.
+
+```javascript
+route( "/old/api/users/:id" )    
+    .toRedirect( ( route, params, event ) => { 
+        return "/api/v1/users/#params.id#" } 
+    )
+```
+
+Happy Redirecting!
+
 ## Routing to Handlers
 
 You can also redirect a pattern to a handler using the `toHandler()` method. This is usually done if you have the action coming in via the URL or you are using RESTFul actions.
