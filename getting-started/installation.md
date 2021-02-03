@@ -67,7 +67,6 @@ That's it! CommandBox can now track this version of ColdBox for you in this dire
 
 CommandBox comes with a `coldbox create app` command that can enable you to create application skeletons using one of our official skeletons or by creating [your own](../digging-deeper/recipes/application-templates.md) application template:
 
-* **Advanced** : A tag based advanced template
 * **AdvancedScript**  \(`default`\): A script based advanced template
 * **elixir** : A ColdBox Elixir based template
 * **ElixirBower** : A ColdBox Elixir + Bower based template
