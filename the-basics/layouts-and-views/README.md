@@ -47,9 +47,9 @@ You can also inject the ColdBox Renderer into your models so you can render emai
 
 ```java
 component{
-    
+
     property name="renderer" inject="coldbox:renderer";
-    
+
     function renderSomething(){
         return renderer.renderView( view="mail/mymail", args={} );
     }
@@ -59,3 +59,4 @@ component{
 {% hint style="info" %}
 In previous versions you would need to use a `provider:` syntax due to the Renderer being a transient. This is no longer true in ColdBox 6.0.
 {% endhint %}
+
