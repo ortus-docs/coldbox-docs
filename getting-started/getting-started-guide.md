@@ -273,7 +273,7 @@ As easy as that was, you're just scratching the surface of what ColdBox can do f
 
 ### Getting Help
 
-If you run into issues or just have questions, please jump on our [ColdBox Google Group](https://groups.google.com/forum/#!forum/coldbox) and our [Slack team](http://boxteam.herokuapp.com/) and ask away.
+If you run into issues or just have questions, please jump on our [Ortus Community](https://community.ortussolutions.com) and our [Slack team](http://boxteam.herokuapp.com/) and ask away.
 
 ColdBox is Professional Open Source under the Apache 2.0 license. We'd love to have your help with the product.
 
