@@ -36,5 +36,5 @@ function setMyservice(MyService) inject="MyService"{
 }
 ```
 
-You can learn more about the supported injection DSLs in [the WireBox Injection DSL documentation](http://wirebox.ortusbooks.com/content/injection_dsl/index.html).
+You can learn more about the supported injection DSLs in [the WireBox Injection DSL documentation](https://wirebox.ortusbooks.com/usage/injection-dsl).
 
