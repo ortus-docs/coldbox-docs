@@ -1,6 +1,6 @@
 # Author
 
-## . Luis resides in The Woodlands, Texas with his beautiful wife Veronica, daughter Alexia and son Lucas!Luis Fernando Majano Lainez
+## Luis Fernando Majano Lainez
 
 ![](../.gitbook/assets/luismajano.jpg)
 
