@@ -46,6 +46,10 @@ You can now build all of your api’s using the native response object like the 
 Upgrade notes: the response object will be accessible using the `event.getResponse()` method but will still be available as `prc.response.` 
 {% endhint %}
 
+{% hint style="info" %}
+If you are using cbORM make sure to check the chapter [Automatic Rest Crud](https://coldbox-orm.ortusbooks.com/orm-events/automatic-rest-crud)
+{% endhint %}
+
 The Rest handler gives you the following actions out of the box:
 
 | **Core Actions** | **Purpose** |
