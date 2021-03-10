@@ -30,10 +30,10 @@ The following solution might work better if you are using a recent version of Ap
 ```text
 #The ColdBox index.cfm/{path_info} rules.
 RewriteEngine On
-RewriteRule ^$ index.cfm?redirect_path=/ [QSA,NS]
+RewriteRule ^$ /index.cfm?redirect_path=/ [QSA,NS]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.cfm?redirect_path=%{REQUEST_URI} [QSA,L,NS]
+RewriteRule ^(.*)$ /index.cfm?redirect_path=%{REQUEST_URI} [QSA,L,NS]
 ```
 
 Now you can create a pathInfo provider function in your router.cfc which brings back your path info to the router:
