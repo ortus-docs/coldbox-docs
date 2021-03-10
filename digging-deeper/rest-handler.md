@@ -12,7 +12,7 @@ Coldbox 6 has finally integrated a base handler and a response object into the c
 * Much more
 
 {% hint style="info" %}
-In previous versions of Coldbox support for RESTful services was provide by adding base handler and response objec to our application templates.  Integration into the core brings ease of use,  faster handling and above all: a uniform approach for each coldbox version.
+In previous versions of Coldbox support for RESTful services was provide by adding base handler and response objec to our application templates. Integration into the core brings ease of use, faster handling and above all: a uniform approach for each coldbox version.
 {% endhint %}
 
 ![RestHandler UML](../.gitbook/assets/resthandler.png)
@@ -40,10 +40,10 @@ component resthandler{
 }
 ```
 
-You can now build all of your api’s using the native response object like the rest templates, but now from the core directly. 
+You can now build all of your api’s using the native response object like the rest templates, but now from the core directly.
 
 {% hint style="info" %}
-Upgrade notes: the response object will be accessible using the `event.getResponse()` method but will still be available as `prc.response.` 
+Upgrade notes: the response object will be accessible using the `event.getResponse()` method but will still be available as `prc.response.`
 {% endhint %}
 
 {% hint style="info" %}
@@ -54,16 +54,16 @@ The Rest handler gives you the following actions out of the box:
 
 | **Core Actions** | **Purpose** |
 | :--- | :--- |
-| aroundHandler\(\) | Wraps all rest actions uniformly to provide consistency and error trapping. |
-| onError\(\) | An implicit error handler is provided just in case anything explodes in your restful actions. Sends an appropriate 500 error |
-| onValidationException\(\) | Traps any and makes sure it sends the appropriate 400 response with the invalid data. Useful for using **cbValidation**, for example with the `validateOrFail()` methods. |
-| onEntityNotFoundException\(\) | Traps any or exceptions and makes sure it send an appropriate 404 response. Useful for leveraging **cborm** or **Quick** ORM |
-| onInvalidHTTPMethod\(\) | Traps any invalid HTTP method security exception and sends the appropriate 405 not allowed response |
-| onMissingAction\(\) | Traps any invalid actions/resource called in your application and sends the appropriate 404 response |
-| onAuthenticationFailure\(\) | Traps InvalidCredentials exceptions and sends the appropriate 403 invalid credentials response. If you are using **cbSecurity** it will also verify jwt token expiration and change the error messages accordingly. |
-| onAuthorizationFailure\(\) | Action that can be used when a user does not have authorization or access to your application or code. Usually you will call this manually or from a security library like **cbSecurity** or **cbGuard**. It will send a 401 not authorized response. |
-| onInvalidRoute\(\) | Action that can be used as a catch all from your router so it can catch all routes that are invalid. It will send a 404 response accordingly. |
-| onExpectationFailed\(\) | Utility method for when an expectation of the request fails \( e.g. an expected parameter is not provided \). This action is called manually from your own handlers and it will output a 417 response back to the user. |
+| `aroundHandler()` | Wraps all rest actions uniformly to provide consistency and error trapping. |
+| `onError()` | An implicit error handler is provided just in case anything explodes in your restful actions. Sends an appropriate 500 error |
+| `onValidationException()` | Traps any and makes sure it sends the appropriate 400 response with the invalid data. Useful for using **cbValidation**, for example with the `validateOrFail()` methods. |
+| `onEntityNotFoundException()` | Traps any or exceptions and makes sure it send an appropriate 404 response. Useful for leveraging **cborm** or **Quick** ORM |
+| `onInvalidHTTPMethod()` | Traps any invalid HTTP method security exception and sends the appropriate 405 not allowed response |
+| `onMissingAction()` | Traps any invalid actions/resource called in your application and sends the appropriate 404 response |
+| `onAuthenticationFailure()` | Traps `InvalidCredentials` exceptions and sends the appropriate 403 invalid credentials response. If you are using **cbSecurity** it will also verify jwt token expiration and change the error messages accordingly. |
+| `onAuthorizationFailure()` | Traps `PermissionDenied` exceptions and sends the appropriate 401 response.  This Action can be used when a user does not have authorization or access to your application or code. Usually you will call this manually or from a security library like **cbSecurity** or **cbGuard**. It will send a 401 not authorized response. |
+| `onInvalidRoute()` | Action that can be used as a catch all from your router so it can catch all routes that are invalid. It will send a 404 response accordingly. |
+| `onExpectationFailed()` | Utility method for when an expectation of the request fails \( e.g. an expected parameter is not provided \). This action is called manually from your own handlers and it will output a 417 response back to the user. |
 
 ### AroundHandler in Detail
 
@@ -119,7 +119,7 @@ component extends="BaseHandler"{
 
 The response object can be found here: `coldbox.system.web.context.Response` and the rest handler constructs it by calling the request context’s `getResponse`\(\) method. The method verifies if there is a `prc.response` object and if it exists it returns it, else it creates a new one. So if you would like to use your very own, then just make sure that before the request you place your own response object in the `prc` scope.
 
-Here is a simple example using a `preProcess()` interceptor.  Create a simple interceptor with commandbox e.g
+Here is a simple example using a `preProcess()` interceptor. Create a simple interceptor with commandbox e.g
 
 ```javascript
 coldbox create interceptor name=MyInterceptor points=preProcess
@@ -133,17 +133,17 @@ function preProcess( event, interceptData, rc, prc ){
 }
 ```
 
-Don't forget to register your interceptor in  `config/Coldbox.cfc:`
+Don't forget to register your interceptor in `config/Coldbox.cfc:`
 
 ```javascript
-		interceptors = [
-			{
-			class      : "interceptors.MyInterceptor",
-				name       : "MyInterceptor",
-				properties : {}
-			}
-		];
+        interceptors = [
+            {
+            class      : "interceptors.MyInterceptor",
+                name       : "MyInterceptor",
+                properties : {}
+            }
+        ];
 ```
 
-That’s it. Once that response object is in the `prc` scope, ColdBox will utilize it. Just make sure that your custom Response object satisfies the methods in the core one. If you want to modify the output of the response object a good place to do that would  be in the `getDataPacket()` method of your own `MyResponseObject`.  Just make sure this method will return a `struct`. 
+That’s it. Once that response object is in the `prc` scope, ColdBox will utilize it. Just make sure that your custom Response object satisfies the methods in the core one. If you want to modify the output of the response object a good place to do that would be in the `getDataPacket()` method of your own `MyResponseObject`. Just make sure this method will return a `struct`.
 
