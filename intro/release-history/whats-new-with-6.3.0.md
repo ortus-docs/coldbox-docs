@@ -26,7 +26,7 @@ ColdBox 6.3.0 is a minor release that squashes lots of bugs and does tons of imp
 * \[[COLDBOX-974](https://ortussolutions.atlassian.net/browse/COLDBOX-974)\] - Have the html helper manifests in local memory instead of the template cache to avoid cleanup issues
 * \[[COLDBOX-975](https://ortussolutions.atlassian.net/browse/COLDBOX-975)\] - Remove unecessary locks for view path setups in the renderer
 * \[[COLDBOX-976](https://ortussolutions.atlassian.net/browse/COLDBOX-976)\] - Remove unecessary lock in the bootstrap to get the controller reference, it's already there for the reload checks
-* \[[COLDBOX-979](https://ortussolutions.atlassian.net/browse/COLDBOX-979)\] - Moudle service now profiles registration and activation into the logs with the version and path of a module
+* \[[COLDBOX-979](https://ortussolutions.atlassian.net/browse/COLDBOX-979)\] - Module service now profiles registration and activation into the logs with the version and path of a module
 {% endtab %}
 
 {% tab title="CacheBox" %}
