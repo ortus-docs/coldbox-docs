@@ -4,7 +4,7 @@ ColdBox 6.3.0 is a minor release that squashes lots of bugs and does tons of imp
 
 {% tabs %}
 {% tab title="ColdBox HMVC" %}
-### Bug
+## Bug
 
 * \[[COLDBOX-890](https://ortussolutions.atlassian.net/browse/COLDBOX-890)\] - Renderer methods assume the module exists and throws exception when sending invalid url data
 * \[[COLDBOX-914](https://ortussolutions.atlassian.net/browse/COLDBOX-914)\] - Can no longer have duplicate routes with different conditions
@@ -14,11 +14,11 @@ ColdBox 6.3.0 is a minor release that squashes lots of bugs and does tons of imp
 * \[[COLDBOX-968](https://ortussolutions.atlassian.net/browse/COLDBOX-968)\] - Fix declaring multiple resources at once
 * \[[COLDBOX-978](https://ortussolutions.atlassian.net/browse/COLDBOX-978)\] - AsyncManager threads don't release DB connections to pool for Adobe CF
 
-### New Feature
+## New Feature
 
 * \[[COLDBOX-973](https://ortussolutions.atlassian.net/browse/COLDBOX-973)\] - Add new exception type catch for the RestHandler: \`**PermissionDenied**\` to trap in valid authorizations
 
-### Improvement
+## Improvement
 
 * \[[COLDBOX-965](https://ortussolutions.atlassian.net/browse/COLDBOX-965)\] - Content type http header bypasses requestContext with render data - set explicit http header via request context
 * \[[COLDBOX-971](https://ortussolutions.atlassian.net/browse/COLDBOX-971)\] - Implement caching strategy for application helper lookups into the \`template\` cache
@@ -30,17 +30,15 @@ ColdBox 6.3.0 is a minor release that squashes lots of bugs and does tons of imp
 {% endtab %}
 
 {% tab title="CacheBox" %}
-### Bug
+## Bug
 
 * \[[CACHEBOX-67](https://ortussolutions.atlassian.net/browse/CACHEBOX-67)\] - `getStoreMetadataReport()` - wrong order of the `reduce()` parameters
 {% endtab %}
 
 {% tab title="WireBox" %}
-### Improvement
+## Improvement
 
 * \[[WIREBOX-111](https://ortussolutions.atlassian.net/browse/WIREBOX-111)\] - Refactor the way `cffeed` is used so that ACF 2021 doesn't choke on first startups, only when used
 {% endtab %}
 {% endtabs %}
-
-
 

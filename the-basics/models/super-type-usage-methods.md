@@ -39,7 +39,7 @@ var oUtil = getInstance("mypath.utilities.MyUtil");
 
 ## populateModel\(\)
 
-ColdBox can populate or bind model objects from data in the request collection by matching the name of the form element to the name of a property on the object. You can also populate model objects from JSON, XML, Queries and other structures a-la-carte by talking directly to [WireBox](http://wirebox.ortusbooks.com/content/wirebox_object_populator/index.html)'s object populator.
+ColdBox can populate or bind model objects from data in the request collection by matching the name of the form element to the name of a property on the object. You can also populate model objects from JSON, XML, Queries and other structures a-la-carte by talking directly to [WireBox's object populator](https://wirebox.ortusbooks.com/advanced-topics/wirebox-object-populator).
 
 ```javascript
 /**
