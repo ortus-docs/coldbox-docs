@@ -52,18 +52,92 @@ If you are using cbORM make sure to check the chapter [Automatic Rest Crud](http
 
 The Rest handler gives you the following actions out of the box:
 
-| **Core Actions** | **Purpose** |
-| :--- | :--- |
-| `aroundHandler()` | Wraps all rest actions uniformly to provide consistency and error trapping. |
-| `onError()` | An implicit error handler is provided just in case anything explodes in your restful actions. Sends an appropriate 500 error |
-| `onValidationException()` | Traps any and makes sure it sends the appropriate 400 response with the invalid data. Useful for using **cbValidation**, for example with the `validateOrFail()` methods. |
-| `onEntityNotFoundException()` | Traps any or exceptions and makes sure it send an appropriate 404 response. Useful for leveraging **cborm** or **Quick** ORM |
-| `onInvalidHTTPMethod()` | Traps any invalid HTTP method security exception and sends the appropriate 405 not allowed response |
-| `onMissingAction()` | Traps any invalid actions/resource called in your application and sends the appropriate 404 response |
-| `onAuthenticationFailure()` | Traps `InvalidCredentials` exceptions and sends the appropriate 403 invalid credentials response. If you are using **cbSecurity** it will also verify jwt token expiration and change the error messages accordingly. |
-| `onAuthorizationFailure()` | Traps `PermissionDenied` exceptions and sends the appropriate 401 response.  This Action can be used when a user does not have authorization or access to your application or code. Usually you will call this manually or from a security library like **cbSecurity** or **cbGuard**. It will send a 401 not authorized response. |
-| `onInvalidRoute()` | Action that can be used as a catch all from your router so it can catch all routes that are invalid. It will send a 404 response accordingly. |
-| `onExpectationFailed()` | Utility method for when an expectation of the request fails \( e.g. an expected parameter is not provided \). This action is called manually from your own handlers and it will output a 417 response back to the user. |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left"><b>Core Actions</b>
+      </th>
+      <th style="text-align:left"><b>Purpose</b>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><code>aroundHandler()</code>
+      </td>
+      <td style="text-align:left">Wraps all rest actions uniformly to provide consistency and error trapping.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>onError()</code>
+      </td>
+      <td style="text-align:left">An implicit error handler is provided just in case anything explodes in
+        your restful actions. Sends an appropriate 500 error</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>onValidationException()</code>
+      </td>
+      <td style="text-align:left">Traps any and makes sure it sends the appropriate 400 response with the
+        invalid data. Useful for using <b>cbValidation</b>, for example with the <code>validateOrFail()</code> methods.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>onEntityNotFoundException()</code>
+      </td>
+      <td style="text-align:left">Traps any or exceptions and makes sure it send an appropriate 404 response.
+        Useful for leveraging <b>cborm</b> or <b>Quick</b> ORM</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>onInvalidHTTPMethod()</code>
+      </td>
+      <td style="text-align:left">Traps any invalid HTTP method security exception and sends the appropriate
+        405 not allowed response</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>onMissingAction()</code>
+      </td>
+      <td style="text-align:left">Traps any invalid actions/resource called in your application and sends
+        the appropriate 404 response</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>onAuthenticationFailure()</code>
+      </td>
+      <td style="text-align:left">Traps <code>InvalidCredentials</code> exceptions and sends the appropriate
+        403 invalid credentials response. If you are using <b>cbSecurity</b> it will
+        also verify jwt token expiration and change the error messages accordingly.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>onAuthorizationFailure()</code>
+      </td>
+      <td style="text-align:left">Traps <code>PermissionDenied</code> exceptions and sends the appropriate
+        401 response. This Action can be used when a user does not have authorization
+        or access to your application or code. Usually you will call this manually
+        or from a security library like <b>cbSecurity</b> or <b>cbGuard</b>. It will
+        send a 401 not authorized response.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>onInvalidRoute()</code>
+      </td>
+      <td style="text-align:left">Action that can be used as a catch all from your router so it can catch
+        all routes that are invalid. It will send a 404 response accordingly.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>onExpectationFailed()</code>
+      </td>
+      <td style="text-align:left">Utility method for when an expectation of the request fails ( e.g. an
+        expected parameter is not provided ). This action is called manually from
+        your own handlers and it will output a 417 response back to the user.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">
+        <p></p>
+        <p><code>onAnyOtherException</code>
+        </p>
+      </td>
+      <td style="text-align:left">Fires when ANY exception that is not excplicitly trapped is detected.
+        This basically logs the issue and offers a 500 error. You can now intercept
+        it and do whatever you need on ANY type of untrapped exception.</td>
+    </tr>
+  </tbody>
+</table>
 
 ### AroundHandler in Detail
 
@@ -71,7 +145,7 @@ The `aroundHandler`\(\) provided in the `RestHandler` will intercept all rest ca
 
 * Exception Handling
   * Automatic trapping of the following exceptions: `InvalidCredentials, ValidationException, EntityNotFound, RecordNotFound`
-  * Automatic trapping of other exceptions
+  * Automatic trapping of other exceptions to the `onAnyOtherException()` action
   * Logging automatically the exception with extra restful metadata
   * If in a `development` environment it will respond with much more information necessary for debugging both in the response object and headers
 * Development Responses
