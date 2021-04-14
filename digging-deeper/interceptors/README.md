@@ -16,7 +16,7 @@ The way that interceptors are used is usually referred to as event-driven progra
 
 // Announce inside a function
 if( userCreated ){
-    announceInterception( 'onUserCreate', { user = prc.oUser } );
+    announce( 'onUserCreate', { user = prc.oUser } );
 }
 ```
 

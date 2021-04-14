@@ -4,7 +4,7 @@ Here are some common methods of our ColdBox proxy object. However, we encourage 
 
 | Method | Description |
 | :--- | :--- |
-| announceInterception\(state, data\) | Processes a remote interception. |
+| announce\(state, data\) | Processes a remote interception. |
 | getCacheBox\(\) | Get a reference to [CacheBox](http://wiki.coldbox.org/wiki/CacheBox.cfm) |
 | getCache\(cacheName='default'\) | Get a reference to a named cache provider |
 | getController\(\) | Returns the ColdBox controller instance |
