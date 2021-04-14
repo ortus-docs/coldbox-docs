@@ -17,7 +17,7 @@ function development() {
 	coldbox.customErrorTemplate = "/coldbox/system/exceptions/Whoops.cfm"; // interactive bug report
 	coldbox.handlerCaching = false;
 	coldbox.handlersIndexAutoReload = true;
-	coldobx.eventCaching = false;
+	coldbox.eventCaching = false;
 	coldbox.viewCaching = false;
 }
 ```
