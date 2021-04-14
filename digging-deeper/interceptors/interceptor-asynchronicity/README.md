@@ -3,7 +3,7 @@
 In honor of one of my favorite bands and album, [The Police](http://en.wikipedia.org/wiki/Synchronicity_%28The_Police_album%29) - [Synchronicity](https://www.youtube.com/watch?v=Si5CSpUCDGY), we have some asynchronous capabilities in ColdBox Interceptors. These features are thanks to the sponsorship of \[Guardly\] Inc, Alert, Connect, Stay Safe. So please make sure to check them out and thank them for sponsoring this great feature set. The core interceptor service and announcement methods have some arguments that can turn asynchronicity on or off and can return a structure of threading data.
 
 ```javascript
-any announceInterception(state, data, async, asyncAll, asyncAllJoin, asyncJoinTimeout, asyncPriority);
+any announce(state, data, async, asyncAll, asyncAllJoin, asyncJoinTimeout, asyncPriority);
 ```
 
 The asynchronous arguments are listed in the table below:
@@ -16,10 +16,10 @@ The asynchronous arguments are listed in the table below:
 | asyncPriority | string : _low,normal,high_ | false | normal | The thread priority that will be sent to each _cfthread_ call that is made by the system. |
 | asyncJoinTimeout | numeric | false | 0 | This argument is only used when using the _asyncAll_ and _asyncAllJoin=true_ arguments. This argument is the number of milliseconds the calling thread should wait for all the threaded CFC listeners to execute. By default it waits until all threads finalize. |
 
-All asynchronous calls will return a structure of thread information back to you when using the `announceInterception()` method or directly in the interceptor service, the `processState()` method. The structure contains information about all the threads that where created during the call and their respective information like: status, data, errors, monitoring, etc.
+All asynchronous calls will return a structure of thread information back to you when using the `announce()` method or directly in the interceptor service, the `processState()` method. The structure contains information about all the threads that where created during the call and their respective information like: status, data, errors, monitoring, etc.
 
 ```javascript
-threadData = announceInterception(
+threadData = announce(
     state           = "onLogin", 
     data            = { user=user }, 
     asyncAll        = true
