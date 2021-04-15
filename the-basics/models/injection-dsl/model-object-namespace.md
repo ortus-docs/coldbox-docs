@@ -19,8 +19,9 @@ The default namespace is not specifying one. This namespace is used to retreive 
 
 ### 3rd Level DSL
 
-| `model:{name}:{method}` | Get the {name} instance object, call the {method} and inject the results |
+| `DSL` | Description |
 | :--- | :--- |
+| `model:{name}:{method}` | Get the {name} instance object, call the {method} and inject the results |
 | `id:{name}:{method}` | Get the {name} instance object, call the {method} and inject the results |
 
 ```javascript

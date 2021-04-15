@@ -126,6 +126,7 @@
     * [CacheBox Namespace](the-basics/models/injection-dsl/cachebox-namespace.md)
     * [EntityService Namespace](the-basics/models/injection-dsl/entityservice-namespace.md)
     * [Executor Namespace](the-basics/models/injection-dsl/executor-namespace.md)
+    * [Java Namespace](the-basics/models/injection-dsl/java-namespace.md)
     * [LogBox Namespace](the-basics/models/injection-dsl/logbox-namespace.md)
     * [Models Namespace](the-basics/models/injection-dsl/model-object-namespace.md)
     * [WireBox Namespace](the-basics/models/injection-dsl/wirebox-namespace.md)
