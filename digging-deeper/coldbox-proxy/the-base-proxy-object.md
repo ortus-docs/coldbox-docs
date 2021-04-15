@@ -16,5 +16,5 @@ Here are some common methods of our ColdBox proxy object. However, we encourage 
 | loadColdBox\(\) | Gives you the ability to load any external coldbox application in the application scope. Great for remotely loading any coldbox application, it can be located anywhere. |
 | getRemotingUtil\(\) | Return a utility class to manipulate output and buffer |
 
- API Docs: [http://apidocs.ortussolutions.com/coldbox/current](http://apidocs.ortussolutions.com/coldbox/current)
+API Docs: [http://apidocs.ortussolutions.com/coldbox/current](http://apidocs.ortussolutions.com/coldbox/current)
 
