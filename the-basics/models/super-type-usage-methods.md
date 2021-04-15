@@ -9,19 +9,23 @@ The super type offers 2 methods for interacting with your model layer:
 * `getInstance()` - Retrieve a model object \(Instead of injection\)
 * `populateModel()` - Retrieve and/or populate a model object from the request collection.
 
-## getInstance\(\)
+Please also note that your models do not inherit from anything within ColdBox. They are shy and decoupled by default.  If you need anything from the ColdBox environment, then you will have to inject it using our [injection dsl.](injection-dsl/)
+
+## `getInstance()`
 
 Here is the signature
 
 ```javascript
 /**
-* Get a model object
-* @name.hint The mapping name or CFC path to retrieve
-* @dsl.hint The DSL string to use to retrieve an instance
-* @initArguments.hint The constructor structure of arguments to passthrough when initializing the instance
-* @targetObject.hint The object requesting the dependency, usually only used by DSL lookups
-*/
-function getInstance( name, dsl, initArguments={}, targetObject="" ){}
+ * Get a instance object from WireBox
+ *
+ * @name The mapping name or CFC path or DSL to retrieve
+ * @initArguments The constructor structure of arguments to passthrough when initializing the instance
+ * @dsl The DSL string to use to retrieve an instance
+ *
+ * @return The requested instance
+ */
+function getInstance( name, initArguments={}, dsl )
 ```
 
 **Examples**
@@ -37,29 +41,46 @@ var oUser = getInstance("MyUser");
 var oUtil = getInstance("mypath.utilities.MyUtil");
 ```
 
-## populateModel\(\)
+## `populateModel()`
 
 ColdBox can populate or bind model objects from data in the request collection by matching the name of the form element to the name of a property on the object. You can also populate model objects from JSON, XML, Queries and other structures a-la-carte by talking directly to [WireBox's object populator](https://wirebox.ortusbooks.com/advanced-topics/wirebox-object-populator).
 
 ```javascript
 /**
-* Populate a model object from the request Collection or a passed in memento structure
-* @model.hint The name of the model to get and populate or the acutal model object. If you already have an instance of a model, then use the populateBean() method
-* @scope.hint Use scope injection instead of setters population. Ex: scope=variables.instance.
-* @trustedSetter.hint If set to true, the setter method will be called even if it does not exist in the object
-* @include.hint A list of keys to include in the population
-* @exclude.hint A list of keys to exclude in the population
-* @ignoreEmpty.hint Ignore empty values on populations, great for ORM population
-* @nullEmptyInclude.hint A list of keys to NULL when empty
-* @nullEmptyExclude.hint A list of keys to NOT NULL when empty
-* @composeRelationships.hint Automatically attempt to compose relationships from memento
-* @memento A structure to populate the model, if not passed it defaults to the request collection
-* @jsonstring If you pass a json string, we will populate your model with it
-* @xml If you pass an xml string, we will populate your model with it
-* @qry If you pass a query, we will populate your model with it
-* @rowNumber The row of the qry parameter to populate your model with
-*/
-function populateModel()
+ * Populate a model object from the request Collection or a passed in memento structure
+ *
+ * @model The name of the model to get and populate or the acutal model object. If you already have an instance of a model, then use the populateBean() method
+ * @scope Use scope injection instead of setters population. Ex: scope=variables.instance.
+ * @trustedSetter If set to true, the setter method will be called even if it does not exist in the object
+ * @include A list of keys to include in the population
+ * @exclude A list of keys to exclude in the population
+ * @ignoreEmpty Ignore empty values on populations, great for ORM population
+ * @nullEmptyInclude A list of keys to NULL when empty
+ * @nullEmptyExclude A list of keys to NOT NULL when empty
+ * @composeRelationships Automatically attempt to compose relationships from memento
+ * @memento A structure to populate the model, if not passed it defaults to the request collection
+ * @jsonstring If you pass a json string, we will populate your model with it
+ * @xml If you pass an xml string, we will populate your model with it
+ * @qry If you pass a query, we will populate your model with it
+ * @rowNumber The row of the qry parameter to populate your model with
+ *
+ * @return The instance populated
+ */
+function populateModel(
+	required model,
+	scope="",
+	boolean trustedSetter=false,
+	include="",
+	exclude="",
+	boolean ignoreEmpty=false,
+	nullEmptyInclude="",
+	nullEmptyExclude="",
+	boolean composeRelationships=false,
+	struct memento=getRequestCollection(),
+	string jsonstring,
+	string xml,
+	query qry
+)
 ```
 
 **Examples**:

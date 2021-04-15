@@ -129,6 +129,7 @@
     * [Java Namespace](the-basics/models/injection-dsl/java-namespace.md)
     * [LogBox Namespace](the-basics/models/injection-dsl/logbox-namespace.md)
     * [Models Namespace](the-basics/models/injection-dsl/model-object-namespace.md)
+    * [Provider Namespace](the-basics/models/injection-dsl/provider-namespace.md)
     * [WireBox Namespace](the-basics/models/injection-dsl/wirebox-namespace.md)
   * [Object Scopes](the-basics/models/object-scopes.md)
   * [Coding: Solo Style](the-basics/models/coding-solo-style/README.md)
