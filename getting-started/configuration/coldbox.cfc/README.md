@@ -26,7 +26,7 @@ property name="config" inject="coldbox:setting:coldboxConfig";
 
 ![](../../../.gitbook/assets/eventdriven.jpg)
 
-Another cool concept for the Configuration CFC is that it is also registered as a [ColdBox Interceptor](../../../digging-deeper/interceptors/) once the application starts up automatically for you.  Create functions that will listen to application events:
+Another cool concept for the Configuration CFC is that it is also registered as a [ColdBox Interceptor](../../../the-basics/interceptors/) once the application starts up automatically for you.  Create functions that will listen to application events:
 
 ```javascript
 function preProcess( event, interceptData, buffer, rc, prc ){
