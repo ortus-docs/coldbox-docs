@@ -145,6 +145,10 @@ setTimezone( "America/Chicago" )
 You can find all valid time zone Id's here: [https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZoneId.html](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZoneId.html)
 {% endhint %}
 
+{% hint style="warning" %}
+Remember that some timezones utilize daylight savings time. When daylight saving time changes occur, your scheduled task may run twice or even not run at all. For this reason, we recommend avoiding timezone scheduling when possible.
+{% endhint %}
+
 #### Custom Executor
 
 By default the scheduler will register a `scheduled` executor with a default of 20 threads for you with a name of `appScheduler@coldbox-scheduler.`  If you want to add in your own executor as per your configurations, then just call the `setExecutor()` method.
@@ -293,11 +297,13 @@ Ok, now that we have seen all the capabilities of the scheduler, let's dive deep
 
 ### Registering Tasks - `task()`
 
-Once you call on this method, the scheduler will create a `ColdBoxScheduledTask` object for you, configure it, wire itm, register it and return it to you. 
+Once you call on this method, the scheduler will create a `ColdBoxScheduledTask` object for you, configure it, wire it, register it and return it to you. 
 
 ```javascript
 task( "my-task" )
 ```
+
+You can find the API Docs for this object here: [https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/web/tasks/ColdBoxScheduledTask.html](https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/web/tasks/ColdBoxScheduledTask.html)
 
 ### Callable Task - `call()`
 
@@ -326,6 +332,243 @@ task( "my-task" )
     .call( getInstance( "CacheService" ), "reapCache" )
     .everydayAt( "13:00" )
 ```
+
+### Frequencies
+
+There are many many frequency methods in ColdBox scheduled tasks that will enable the tasks in specific intervals.
+
+| Frequency Method | Description |
+| :--- | :--- |
+|  |  |
+
+### Delaying Execution
+
+Every task can also have an initial delay of execution if you use the `delay()` method.
+
+```javascript
+/**
+ * Set a delay in the running of the task that will be registered with this schedule
+ *
+ * @delay The delay that will be used before executing the task
+ * @timeUnit The time unit to use, available units are: days, hours, microseconds, milliseconds, minutes, nanoseconds, and seconds. The default is milliseconds
+ */
+ScheduledTask function delay( numeric delay, timeUnit = "milliseconds" )
+```
+
+The `delay` is numeric and the `timeUnit` can be:
+
+* days
+* hours
+* minutes
+* seconds
+* **milliseconds \(default\)**
+* microseconds
+* nanoseconds
+
+```javascript
+// Lambda Syntax
+task( "my-task" )
+    .call( () => getInstance( "myService" ).runcleanup() )
+    .delay( "5000" )
+    .everyHour();
+```
+
+Please note that the `delay` pushes the execution of the task into the future.
+
+### Life-Cycle Methods
+
+We already saw that a scheduler has life-cycle methods, but a task can also have several useful life-cycle methods:
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Method</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><code>after( target )</code>
+      </td>
+      <td style="text-align:left">
+        <p>Store the closure to execute after the task executes
+          <br />
+        </p>
+        <p><code>function( task, results )</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>before( target )</code>
+      </td>
+      <td style="text-align:left">
+        <p>Store the closure to execute before the task executes
+          <br />
+        </p>
+        <p><code>function( task )</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>onFailure( target )</code>
+      </td>
+      <td style="text-align:left">
+        <p>Store the closure to execute if there is a failure running the task
+          <br
+          />
+        </p>
+        <p><code>function( task, exception )</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>onSuccess( target )</code>
+      </td>
+      <td style="text-align:left">
+        <p>Store the closure to execute if the task completes successfully
+          <br />
+        </p>
+        <p><code>function( task, results )</code>
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+```javascript
+task( "testharness-Heartbeat" )
+	.call( function() {
+			if ( randRange(1, 5) eq 1 ){
+				 throw( message = "I am throwing up randomly!", type="RandomThrowup" );
+			}
+			  writeDump( var='====> I am in a test harness test schedule!', output="console" );
+		} )
+		.every( "5", "seconds" )
+		.before( function( task ) {
+			  writeDump( var='====> Running before the task!', output="console" );
+		} )
+		.after( function( task, results ){
+			  writeDump( var='====> Running after the task!', output="console" );
+		} )
+		.onFailure( function( task, exception ){
+			  writeDump( var='====> test schedule just failed!! #exception.message#', output="console" );
+		} )
+		.onSuccess( function( task, results ){
+			  writeDump( var="====> Test scheduler success : Stats: #task.getStats().toString()#", output="console" );
+		} );
+```
+
+### Timezone
+
+By default, all tasks will ask the scheduler for the timezone to run in.  However, you can override it on a task-by-task basis using the `setTimezone( timezone )` method:
+
+```javascript
+setTimezone( "America/Chicago" )
+```
+
+{% hint style="success" %}
+You can find all valid time zone Id's here: [https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZoneId.html](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZoneId.html)
+{% endhint %}
+
+{% hint style="warning" %}
+Remember that some timezones utilize daylight savings time. When daylight saving time changes occur, your scheduled task may run twice or even not run at all. For this reason, we recommend avoiding timezone scheduling when possible.
+{% endhint %}
+
+### Truth Test Constraints
+
+There are many ways to constrain the execution of a task. However, you can register a `when()` closure that will be executed at runtime and boolean evaluated.  If `true`, then the task can run, else it is disabled.
+
+```javascript
+task( "my-task" )
+    .call( () => getInstance( "securityService" ).cleanOldUsers() )
+    .daily()
+    .when( function(){
+        // Can we run this task?
+        return true;
+    );
+```
+
+### Server Fixation
+
+If you are running a cluster of your application and you register tasks they will run at their schedule in _EVERY_ server/container the application has been deployed to.  This might not be a great idea if you want only _**ONE**_ task to run no matter how many servers/containers you have deployed your application on.  For this situation you can use the `onOneServer()` method which tells ColdBox to _ONLY_ run the task once on the first server that wins the race condition.
+
+```javascript
+task( "my-task" )
+    .call( () => getInstance( "securityService" ).cleanOldUsers() )
+    .daily()
+    .onOneServer();
+```
+
+{% hint style="danger" %}
+This feature **ONLY** works when you are using a distributed cache like redis, mongo, elastic, couchbase or a JDBC CacheBox provider  in CacheBox.
+{% endhint %}
+
+#### Changing the Cache Provider
+
+By default this feature leverages the `template` cache provider in CacheBox.  However, you can change which cache provider will be used for storing the locking and tracking entries.
+
+```javascript
+task( "my-task" )
+    .call( () => getInstance( "securityService" ).cleanOldUsers() )
+    .daily()
+    .setCacheName( "redis" )
+    .onOneServer();
+```
+
+### Environment Constraints
+
+All ColdBox applications have a runnable environment stored in the `environment` setting.  You can use that to register a task with constraints of environment using the `onEnvironment( environment )` method.  This means that the task will **ONLY** run on those environments.  The `environment` argument can be a single string, a list of environments or an array of environments.
+
+```javascript
+task( "my-task" )
+    .call( () => getInstance( "securityService" ).cleanOldUsers() )
+    .daily()
+    .onEnvironments( "staging" );
+    
+task( "my-task" )
+    .call( () => getInstance( "securityService" ).cleanOldUsers() )
+    .daily()
+    .onEnvironments( [ "staging", "production" ] );
+    
+task( "my-task" )
+    .call( () => getInstance( "securityService" ).cleanOldUsers() )
+    .daily()
+    .onEnvironments( "staging,production" );
+```
+
+### Disabling/Pausing Tasks
+
+Every task is runnable from registration according to the frequency you set.  However, you can manually disable a task using the `disable()` method:
+
+```javascript
+task( "my-task" )
+    .call( () => getInstance( "securityService" ).cleanOldUsers() )
+    .daily()
+    .disable();
+```
+
+Once you are ready to enable the task, you can use the `enable()` method:
+
+```javascript
+myTask.enable()
+```
+
+### Task Helpers
+
+We have created some useful methods that you can use when working with asynchronous tasks:
+
+| Method | Description |
+| :--- | :--- |
+| `err( var )` | Send output to the error stream |
+| `getCache()` | Get the CacheBox provider assigned for server fixation |
+| `getCacheName()` | Get the name of the cache region to use for server fixation |
+| `getEnvironments()` | Get the assigned running environments for the task |
+| `getServerFixation()` | Get the boolean flag that indicates that this task runs on all or one server |
+| `hasScheduler()` | Verifies if the task is assigned a scheduler or not |
+| `isDisabled()` | Verifies if the task has been disabled by bit, when closure and environments |
+| `out( var )` | Send output to the output stream |
+| `setCacheName()` | Set the cache name to use for server fixation |
+| `start()` | This kicks off the task into the scheduled executor manually. This method is called for you by the scheduler upon application startup or module loading. |
 
 ## Schedulers For Modules
 
