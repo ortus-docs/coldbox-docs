@@ -631,6 +631,36 @@ Once you are ready to enable the task, you can use the `enable()` method:
 myTask.enable()
 ```
 
+### Task Stats
+
+All tasks keep track of themselves and have lovely metrics.  You can use the `getStats()` method to get a a snapshot `structure` of the stats in time.  Here is what you get in the stats structure:
+
+| Metric | Description |
+| :--- | :--- |
+| `created` | The timestamp of when the task was created in memory |
+| `inetHost` | The hostname of the machine this task is registered with |
+| `lastRun` | The last time the task ran |
+| `lastResult` | The last result the task callable produced |
+| `localIp` | The ip address of the server this task is registered with |
+| `neverRun` | A boolean flag indicating if the task has NEVER been ran |
+| `nextRun` | When the task will run next |
+| `totalFailures` | How many times the task has failed execution |
+| `totalRuns` | How many times the task has run |
+| `totalSuccess` | How many times the task has run and succeeded |
+
+```javascript
+/**
+ * Called after ANY task runs
+ *
+ * @task The task that got executed
+ * @result The result (if any) that the task produced
+ */
+function afterAnyTask( required task, result ){
+	log.info( "task #task.getName()# just ran. Metrics: #task.getStats().toString()# ");
+}
+
+```
+
 ### Task Helpers
 
 We have created some useful methods that you can use when working with asynchronous tasks:
