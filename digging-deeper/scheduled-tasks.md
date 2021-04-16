@@ -305,7 +305,7 @@ task( "my-task" )
 
 You can find the API Docs for this object here: [https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/web/tasks/ColdBoxScheduledTask.html](https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/web/tasks/ColdBoxScheduledTask.html)
 
-### The Task Closure/Lambda/Object
+### Task Closure/Lambda/Object
 
 You register the callable event via the `call()` method on the task object.  You can register  a closure/lambda or a invokable CFC.  If you register an object, then we will call on the object's `run()` method by default, but you can change it using the `method` argument and call any public/remote method.
 
@@ -335,11 +335,47 @@ task( "my-task" )
 
 ### Frequencies
 
-There are many many frequency methods in ColdBox scheduled tasks that will enable the tasks in specific intervals.
+There are many many frequency methods in ColdBox scheduled tasks that will enable the tasks in specific intervals.  Every time you see that an argument receives a `timeUnit` the available options are:
+
+* days
+* hours
+* minutes
+* seconds
+* **milliseconds \(default\)**
+* microseconds
+* nanoseconds
+
+Ok, let's go over the frequency methods:
 
 | Frequency Method | Description |
 | :--- | :--- |
-|  |  |
+| `every( period, timeunit )` | Run the task every custom period of execution |
+| `everyMinute()` | Run the task every minute from the time it get's scheduled |
+| `everyHour()` | Run the task every hour from the time it get's scheduled |
+| `everyHourAt( minutes )` | Set the period to be hourly at a specific minute mark and 00 seconds |
+| `everyDay()` | Run the task every day at midnight |
+| `everyDayAt( time )` | Run the task daily with a specific time in 24 hour format: HH:mm |
+| `everyWeek()` | Run the task every Sunday at midnight |
+| `everyWeekOn( day, time )` | Run the task weekly on the given day of the week and time |
+| `everyMonth()` | Run the task on the first day of every month at midnight |
+| `everyMonthOn( day, time )` | Run the task every month on a specific day and time |
+| `onFirstBusinessDayOfTheMonth( time )` | Run the task on the first Monday of every month |
+| `onLastBusinessDayOfTheMonth( time )` | Run the task on the last business day of the month |
+| `everyYear()` | Run the task on the first day of the year at midnight |
+| `everyYearOn( month, day, time )` | Set the period to be weekly at a specific time at a specific day of the week |
+| `onWeekends( time )` | Run the task on Saturday and Sunday |
+| `onWeekdays( time )` | Run the task only on weekdays at a specific time. |
+| `onMondays( time )` | Only on Mondays |
+| `onTuesdays( time )` | Only on Tuesdays |
+| `onWednesdays( time )` | Only on Wednesdays |
+| `onThursdays( time )` | Only on Thursdays |
+| `onFridays( time )` | Only on Fridays |
+| `onSaturdays( time )` | Only on Saturdays |
+| `onSundays( time )` | Only on Sundays |
+
+{% hint style="success" %}
+All `time` arguments are defaulted to midnight \(00:00\)
+{% endhint %}
 
 ### Preventing Overlaps
 
