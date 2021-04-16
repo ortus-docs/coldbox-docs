@@ -295,7 +295,7 @@ Every scheduler has several utility methods:
 
 Ok, now that we have seen all the capabilities of the scheduler, let's dive deep into scheduling tasks with the `task( name )` method.  
 
-### Registering Tasks - `task()`
+### Registering Tasks 
 
 Once you call on this method, the scheduler will create a `ColdBoxScheduledTask` object for you, configure it, wire it, register it and return it to you. 
 
@@ -305,9 +305,9 @@ task( "my-task" )
 
 You can find the API Docs for this object here: [https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/web/tasks/ColdBoxScheduledTask.html](https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/web/tasks/ColdBoxScheduledTask.html)
 
-### Callable Task - `call()`
+### The Task Closure/Lambda/Object
 
-You register the callable event via the `call()` method on the task object.  You can register either a closure for execution or a CFC.  If you register an object, then we will call on the object's `run()` method by default, but you can change it using the `method` argument.
+You register the callable event via the `call()` method on the task object.  You can register  a closure/lambda or a invokable CFC.  If you register an object, then we will call on the object's `run()` method by default, but you can change it using the `method` argument and call any public/remote method.
 
 ```javascript
 // Lambda Syntax
@@ -343,9 +343,11 @@ There are many many frequency methods in ColdBox scheduled tasks that will enabl
 
 ### Preventing Overlaps
 
-![Task With Fixed Delay](../.gitbook/assets/tasks-with-no-overlaps.png)
+![Tasks with a fixed frequency vs delayed frequency](../.gitbook/assets/tasks-with-and-without-overlaps.png)
 
-By default all tasks that have interval periods will execute on that interval schedule.  However, what happens if a task takes longer to execute than the period? Well, by default the new task will execute even if the previous one has not executed.  If you want to prevent this behavior, then you can use the `withNoOverlaps()` method and ColdBox will register the tasks with a _spaced delay_. Meaning the intervals do not start counting until the last task has finished executing.
+By default all tasks that have interval rates/periods that will execute on that interval schedule.  However, what happens if a task takes longer to execute than the period? Well, by default the task will execute even if the previous one has not executed.  If you want to prevent this behavior, then you can use the `withNoOverlaps()` method and ColdBox will register the tasks with a _fixed delay_. Meaning the intervals do not start counting until the last task has finished executing.
+
+![Task With Fixed Delay](../.gitbook/assets/tasks-with-no-overlaps.png)
 
 ```javascript
 task( "test" )
@@ -355,7 +357,7 @@ task( "test" )
 ```
 
 {% hint style="success" %}
-Spaced delays are a feature of the Scheduled Executors. There is even a `spacedDelay( delay, timeUnit )` method in the Task.
+Spaced delays are a feature of the Scheduled Executors. There is even a `spacedDelay( delay, timeUnit )` method in the Task object.
 {% endhint %}
 
 ### Delaying Execution
