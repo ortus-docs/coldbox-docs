@@ -12,7 +12,7 @@ The _ColdBox Scheduled Tasks_ offers a fresh, programmatic and human approach to
 The ColdBox Scheduler is built on top of the core async package Scheduler.
 {% endhint %}
 
-## Global Scheduler - `appScheduler@coldbox`
+## Global Scheduler
 
 Every ColdBox application has a global scheduler created for you by convention.  However, you can have complete control of the scheduler by creating the following file: `config/Scheduler.cfc`.  This is a simple CFC with a `configure()` method where you will define your tasks and several life-cycle methods.
 
