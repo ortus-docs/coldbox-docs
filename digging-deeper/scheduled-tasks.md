@@ -14,7 +14,7 @@ The ColdBox Scheduler is built on top of the core async package Scheduler.
 
 ## Global Scheduler
 
-Every ColdBox application has a global scheduler created for you by convention.  However, you can have complete control of the scheduler by creating the following file: `config/Scheduler.cfc`.  This is a simple CFC with a `configure()` method where you will define your tasks and several life-cycle methods.
+Every ColdBox application has a global scheduler created for you by convention and registered with a WireBox ID of `appScheduler@coldbox`.  However, you can have complete control of the scheduler by creating the following file: `config/Scheduler.cfc`.  This is a simple CFC with a `configure()` method where you will define your tasks and several life-cycle methods.
 
 {% code title="config/Scheduler.cfc" %}
 ```javascript
@@ -122,8 +122,6 @@ Every Scheduler can create life-cycle methods and monitor the scheduled tasks:
 
 ### Configuration Methods
 
-There are two methods that can alter the tasks registered in the scheduler:
-
 | Method | Description |
 | :--- | :--- |
 | `setTimezone( timezone )` | Set the timezone to use for all registered tasks |
@@ -190,4 +188,90 @@ Every scheduler has several useful ColdBox interaction methods you can use when 
 | `settingExists()` | Check if a setting exists |
 | `setSetting()` | Set a setting |
 | `view()` | Render a view |
+
+### Scheduler Utility Methods
+
+Every scheduler has several utility methods:
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Method</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><code>getRegisteredTasks()</code>
+      </td>
+      <td style="text-align:left">Get an ordered array of all the tasks registered in the scheduler</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>getTaskRecord( name )</code>
+      </td>
+      <td style="text-align:left">
+        <p>Get the task record structure by name:</p>
+        <p><code>{ </code>
+        </p>
+        <p><code> name, </code>
+        </p>
+        <p><code> task, </code>
+        </p>
+        <p><code> future, </code>
+        </p>
+        <p><code> scheduledAt, </code>
+        </p>
+        <p><code> registeredAt, </code>
+        </p>
+        <p><code> error, </code>
+        </p>
+        <p><code> errorMessage, </code>
+        </p>
+        <p><code> stacktrace </code>
+        </p>
+        <p><code>}</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>getTaskStats()</code>
+      </td>
+      <td style="text-align:left">Builds out a struct report for all the registered tasks in this scheduler</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>hasTask( name )</code>
+      </td>
+      <td style="text-align:left">Check if a scheduler has a task registered by name</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>hasStarted()</code>
+      </td>
+      <td style="text-align:left">Has the scheduler started already</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>removeTask( name )</code>
+      </td>
+      <td style="text-align:left">Cancel a task and remove it from the scheduler</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>startup()</code>
+      </td>
+      <td style="text-align:left">Startup the scheduler. This is called by ColdBox for you. No need to call
+        it.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>shutdown()</code>
+      </td>
+      <td style="text-align:left">Shutdown the scheduler</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>task( name )</code>
+      </td>
+      <td style="text-align:left">Register a new task and return back to you the task so you can build it
+        out.</td>
+    </tr>
+  </tbody>
+</table>
+
+
 
