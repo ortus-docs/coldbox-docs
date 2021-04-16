@@ -18,7 +18,7 @@ The _ColdBox Scheduled Tasks_ offers a fresh, programmatic and human approach to
 The ColdBox Scheduler is built on top of the core async package Scheduler.
 {% endhint %}
 
-## Global Scheduler
+## Global App Scheduler
 
 Every ColdBox application has a global scheduler created for you by convention and registered with a WireBox ID of `appScheduler@coldbox`.  However, you can have complete control of the scheduler by creating the following file: `config/Scheduler.cfc`.  This is a simple CFC with a `configure()` method where you will define your tasks and several life-cycle methods.
 
@@ -287,9 +287,49 @@ Every scheduler has several utility methods:
   </tbody>
 </table>
 
+## Scheduling Tasks
+
+Ok, now that we have seen all the capabilities of the scheduler, let's dive deep into scheduling tasks with the `task( name )` method.  
+
+### Registering Tasks - `task()`
+
+Once you call on this method, the scheduler will create a `ColdBoxScheduledTask` object for you, configure it, wire itm, register it and return it to you. 
+
+```javascript
+task( "my-task" )
+```
+
+### Callable Task - `call()`
+
+You register the callable event via the `call()` method on the task object.  You can register either a closure for execution or a CFC.  If you register an object, then we will call on the object's `run()` method by default, but you can change it using the `method` argument.
+
+```javascript
+// Lambda Syntax
+task( "my-task" )
+    .call( () => getInstance( "myService" ).runcleanup() )
+    .everyHour();
+    
+// Closure Syntax
+task( "my-task" )
+    .call( function(){
+        // task here
+    } )
+    .everyHourAt( 45 );
+    
+// Object with run() method
+task( "my-task" )
+    .call( getInstance( "MyTask" ) )
+    .everyDay()
+    
+// Object with a custom method
+task( "my-task" )
+    .call( getInstance( "CacheService" ), "reapCache" )
+    .everydayAt( "13:00" )
+```
+
 ## Schedulers For Modules
 
-Every module in ColdBox also has a convention of `config/Scheduler.cfc` that if detected will register that scheduler for you with a WireBox ID of `cbScheduler@{moduleName}`.  ColdBox will register the scheduler for you and also store it in the module's configuration struct with a key of `scheduler`.  ColdBox will also manage it's lifecycle and destroy it if the module is unloaded.
+Every module in ColdBox also has a convention of `config/Scheduler.cfc` that if detected will register that scheduler for you with a WireBox ID of `cbScheduler@{moduleName}`.  ColdBox will register the scheduler for you and also store it in the module's configuration struct with a key of `scheduler`.  ColdBox will also manage it's lifecycle and destroy it if the module is unloaded.  All the rules for schedulers apply, happy scheduling!
 
 ```bash
 + MyModule
