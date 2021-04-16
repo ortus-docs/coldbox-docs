@@ -341,6 +341,23 @@ There are many many frequency methods in ColdBox scheduled tasks that will enabl
 | :--- | :--- |
 |  |  |
 
+### Preventing Overlaps
+
+![Task With Fixed Delay](../.gitbook/assets/tasks-with-no-overlaps.png)
+
+By default all tasks that have interval periods will execute on that interval schedule.  However, what happens if a task takes longer to execute than the period? Well, by default the new task will execute even if the previous one has not executed.  If you want to prevent this behavior, then you can use the `withNoOverlaps()` method and ColdBox will register the tasks with a _spaced delay_. Meaning the intervals do not start counting until the last task has finished executing.
+
+```javascript
+task( "test" )
+	.call( () => getInstance( "CacheService" ).reap() )
+	.everyMinute()
+	.withNoOverlaps();
+```
+
+{% hint style="success" %}
+Spaced delays are a feature of the Scheduled Executors. There is even a `spacedDelay( delay, timeUnit )` method in the Task.
+{% endhint %}
+
 ### Delaying Execution
 
 Every task can also have an initial delay of execution if you use the `delay()` method.
