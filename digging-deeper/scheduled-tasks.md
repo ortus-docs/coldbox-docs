@@ -350,6 +350,7 @@ Ok, let's go over the frequency methods:
 | Frequency Method | Description |
 | :--- | :--- |
 | `every( period, timeunit )` | Run the task every custom period of execution |
+| `spacedDelay( spacedDelay, timeunit )` | Run the task every custom period of execution but with NO overlaps |
 | `everyMinute()` | Run the task every minute from the time it get's scheduled |
 | `everyHour()` | Run the task every hour from the time it get's scheduled |
 | `everyHourAt( minutes )` | Set the period to be hourly at a specific minute mark and 00 seconds |
@@ -396,9 +397,9 @@ task( "test" )
 Spaced delays are a feature of the Scheduled Executors. There is even a `spacedDelay( delay, timeUnit )` method in the Task object.
 {% endhint %}
 
-### Delaying Execution
+### Delaying First Execution
 
-Every task can also have an initial delay of execution if you use the `delay()` method.
+Every task can also have an initial delay of first execution by using the `delay()` method.
 
 ```javascript
 /**
@@ -428,7 +429,29 @@ task( "my-task" )
     .everyHour();
 ```
 
-Please note that the `delay` pushes the execution of the task into the future.
+{% hint style="info" %}
+Please note that the `delay` pushes the execution of the task into the future only for the first execution.
+{% endhint %}
+
+### One Off Tasks
+
+A part from registering tasks that have specific intervals/frequencies you can also register tasks that can be executed **ONCE** **ONLY**.   These are great for warming up caches, registering yourself with control planes, setting up initial data collections and so much more. 
+
+Basically, you don't register a frequency just the callable event.  Usually, you can also combine them with a delay of execution, if you need them to fire off after certain amount of time has passed.
+
+```javascript
+task( "build-up-cache" )
+    .call( () => getInstance( "DataServices" ).buildCache() )
+    .delay( 1, "minutes" );
+    
+task( "notify-admin-server-is-up" )
+    .call( () => getInstance( "SettingService" ).notifyAppIsUp( getUtil().getServerIp() ) )
+    .delay( 30, "seconds" );
+    
+task( "register-container" )
+    .call( () => runEvent( "tasks.registerContainer" ) )
+    .delay( 30, "seconds" );
+```
 
 ### Life-Cycle Methods
 
