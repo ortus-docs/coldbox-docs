@@ -1,3 +1,9 @@
+---
+description: >-
+  The ColdBox Scheduled Tasks offers a fresh, programmatic and human approach to
+  scheduling tasks on your server and multi-server application
+---
+
 # Scheduled Tasks
 
 ## Introduction
@@ -115,10 +121,10 @@ Every Scheduler can create life-cycle methods and monitor the scheduled tasks:
 | :--- | :--- |
 | `onStartup()` | Called after the scheduler has registered all schedules |
 | `onShutdown()` | Called before the scheduler is going to be shutdown |
-| `onAnyTaskError()` | Called whenever ANY task fails |
-| `onAnyTaskSuccess()` | Called whenever ANY task succeeds |
-| `beforeAnyTask()` | Called before ANY task runs |
-| `afterAnyTask()` | Called after ANY task runs |
+| `onAnyTaskError(task,exception)` | Called whenever ANY task fails |
+| `onAnyTaskSuccess(task,result)` | Called whenever ANY task succeeds |
+| `beforeAnyTask(task)` | Called before ANY task runs |
+| `afterAnyTask(task,result)` | Called after ANY task runs |
 
 ### Configuration Methods
 
@@ -135,6 +141,10 @@ By default, all tasks run under the system default timezone which usually is UTC
 setTimezone( "America/Chicago" )
 ```
 
+{% hint style="success" %}
+You can find all valid time zone Id's here: [https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZoneId.html](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZoneId.html)
+{% endhint %}
+
 #### Custom Executor
 
 By default the scheduler will register a `scheduled` executor with a default of 20 threads for you with a name of `appScheduler@coldbox-scheduler.`  If you want to add in your own executor as per your configurations, then just call the `setExecutor()` method.
@@ -144,6 +154,10 @@ setExecutor(
     getAsyncManager().newScheduledExecutor( "mymymy", 50 ) 
 );
 ```
+
+{% hint style="info" %}
+You can find how to work with executors in our [executors](promises-async-programming/executors.md) section.
+{% endhint %}
 
 ### Scheduler Properties
 
@@ -273,5 +287,14 @@ Every scheduler has several utility methods:
   </tbody>
 </table>
 
+## Schedulers For Modules
 
+Every module in ColdBox also has a convention of `config/Scheduler.cfc` that if detected will register that scheduler for you with a WireBox ID of `cbScheduler@{moduleName}`.  ColdBox will register the scheduler for you and also store it in the module's configuration struct with a key of `scheduler`.  ColdBox will also manage it's lifecycle and destroy it if the module is unloaded.
+
+```bash
++ MyModule
+  + config
+     - Router.cfc
+     - Scheduler.cfc
+```
 
