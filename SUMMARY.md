@@ -245,6 +245,7 @@
   * [Async Pipelines & Futures](digging-deeper/promises-async-programming/async-pipelines-and-futures.md)
   * [Parallel Computations](digging-deeper/promises-async-programming/parallel-computations.md)
   * [Executors](digging-deeper/promises-async-programming/executors.md)
+  * [Scheduled Tasks](digging-deeper/promises-async-programming/scheduled-tasks.md)
 * [ColdBox Proxy](digging-deeper/coldbox-proxy/README.md)
   * [Getting Started](digging-deeper/coldbox-proxy/getting-started.md)
   * [The Base Proxy Object](digging-deeper/coldbox-proxy/the-base-proxy-object.md)
@@ -269,7 +270,7 @@
   * [Debugging ColdBox Apps](digging-deeper/recipes/debugging-coldbox-apps.md)
   * [Clearing the View Cache](digging-deeper/recipes/clearing-the-view-cache.md)
   * [Basic HTTP Authentication Interceptor](digging-deeper/recipes/building-a-simple-basic-http-authentication-interceptor.md)
-* [Scheduled Tasks](digging-deeper/scheduled-tasks.md)
+* [ColdBox Scheduled Tasks](digging-deeper/scheduled-tasks.md)
 
 ## Architecture Concepts
 

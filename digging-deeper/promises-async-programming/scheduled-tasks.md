@@ -1,132 +1,79 @@
----
-description: >-
-  The ColdBox Scheduled Tasks offers a fresh, programmatic and human approach to
-  scheduling tasks on your server and multi-server application
----
+# Scheduled Tasks
 
-# ColdBox Scheduled Tasks
+## Requirements
+
+The async package is what powers scheduled tasks and it can be available to any CFML application by using any of our standalone libraries and frameworks:
+
+* [CacheBox](https://forgebox.io/view/cachebox)
+* [ColdBox](https://forgebox.io/view/coldbox)
+* [LogBox](https://forgebox.io/view/logbox)
+* [WireBox](https://forgebox.io/view/wirebox)
+
+{% hint style="danger" %}
+**YOU DON'T NEED COLDBOX TO RUN ANY SCHEDULED TASKS OR ANY FEATURES OF THE ASYNC PACKAGE. YOU CAN USE ANY OF THE STANDALONE LIBRARIES ABOVE.**
+{% endhint %}
+
+However, if you use ColdBox, you get enhanced programming and functionality.  For example, the [ColdBox Scheduled Tasks](../scheduled-tasks.md) are an enhanced implementation of the core scheduled tasks we will be reviewing in this document.
 
 ## Introduction
 
-Scheduled tasks have always been a point of soreness for many developers in _ANY_ language.  Especially choosing where to place them for execution: should it be cron? windows task scheduler? ColdFusion engine? Jenkins, Gitlab? and the list goes on and on.
+The async package offers you the ability to schedule tasks and workloads via the[ Scheduled Executors](executors.md#executor-types) you can register in the async manager.  We also provide you with a lovely `Scheduler` class that can keep track of all the tasks you would like to be executing in a ScheduledExecutor.  In essence, you have two options when scheduling tasks:
 
-![ColdBox Scheduled Tasks](../.gitbook/assets/coldboxscheduler.png)
+1. Create a scheduler and register tasks in it
+2. Create a `ScheduledExecutor` and send task objects into it
 
-The _ColdBox Scheduled Tasks_ offers a fresh, programmatic and human approach to scheduling tasks on your server and multi-server application.  It allows you to define your tasks in a portable **Scheduler** we lovingly call the `Scheduler.cfc` which not only can be used to define your tasks, but also monitor all of their life-cycles and metrics of tasks.  Since ColdBox is also hierarchical, it allows for every single ColdBox Module to also define a `Scheduler` and register their own tasks as well.  This is a revolutionary approach to scheduling tasks in an HMVC application.
+![Async Scheduler &amp; Tasks](../../.gitbook/assets/asyncscheduler.png)
 
-{% hint style="success" %}
-The ColdBox Scheduler is built on top of the core async package Scheduler.
+{% hint style="info" %}
+With our scheduled tasks you can run either one-off tasks or periodically tasks.
 {% endhint %}
 
-## Global App Scheduler
+## Task Scheduler Approach
 
-Every ColdBox application has a global scheduler created for you by convention and registered with a WireBox ID of `appScheduler@coldbox`.  However, you can have complete control of the scheduler by creating the following file: `config/Scheduler.cfc`.  This is a simple CFC with a `configure()` method where you will define your tasks and several life-cycle methods.
+To create a new scheduler you can call the Async Managers' `newScheduler( name )` method.  This will create a new `coldbox.system.async.tasks.Scheduler` object with the specified name you pass. It will also create a `ScheduledExecutor` for you with the default threads count inside the scheduler..  It will be then your responsibility to persist that scheduler so you can use it throughout your application process.
 
-{% code title="config/Scheduler.cfc" %}
 ```javascript
-component {
+application.scheduler = asyncmanager.newScheduler( "appScheduler" );
+```
 
-	/**
-	 * Configure the ColdBox Scheduler
-	 */
-	function configure() {
-		/**
-		 * --------------------------------------------------------------------------
-		 * Configuration Methods
-		 * --------------------------------------------------------------------------
-		 * From here you can set global configurations for the scheduler
-		 * - setTimezone( ) : change the timezone for ALL tasks
-		 * - setExecutor( executorObject ) : change the executor if needed
-		 * - setCacheName( "template" ) : Change the cachename for ALL tasks
-		 * - setServerFixation( true ) : Set all tasks to run on one server
-		 */
-		
+Once you get an instance to that scheduler you can begin to register tasks on it.  Once all tasks have been registered you can use the `startup()` method to startup the tasks and the `shutdown()` method to shutdown all tasks and the linked executor.
+
+{% hint style="success" %}
+The name of the `ScheduledExecutor` will be `{schedulerName}-scheduler`
+{% endhint %}
+
+{% code title="" %}
+```javascript
+application.scheduler = asyncmanager.newScheduler( "appScheduler" );
+
+/**
+ * --------------------------------------------------------------------------
+ * Register Scheduled Tasks
+ * --------------------------------------------------------------------------
+ * You register tasks with the task() method and get back a ColdBoxScheduledTask object
+ * that you can use to register your tasks configurations.
+ */
+	
+application.scheduler.task( "Clear Unregistered Users" )
+	.call( () => application.wirebox.getInstance( "UsersService" ).clearRecentUsers() )
+	.everyDayAt( "09:00" );
+	
+application.scheduler.task( "Hearbeat" )
+	.call( () => runHeartBeat() )
+	.every( 5, "minutes" )
+	.onFailure( ( task, exception ) => {
+			sendBadHeartbeat( exception );
+	} );
+
+// Startup the scheduler
+application.scheduler.startup();
 
 
-		/**
-		 * --------------------------------------------------------------------------
-		 * Register Scheduled Tasks
-		 * --------------------------------------------------------------------------
-		 * You register tasks with the task() method and get back a ColdBoxScheduledTask object
-		 * that you can use to register your tasks configurations.
-		 */
-			
-		task( "Clear Unregistered Users" )
-			.call( () => getInstance( "UserService" ).clearRecentUsers() )
-			.everyDayAt( "09:00" );
-			
-		task( "Hearbeat" )
-			.call( () => runEvent( "main.heartbeat" ) )
-			.every( 5, "minutes" )
-			.onFailure( ( task, exception ) => {
-				getInstance( "System" ).sendBadHeartbeat( exception );
-			} );
-	}
-
-	/**
-	 * Called before the scheduler is going to be shutdown
-	 */
-	function onShutdown(){
-	}
-
-	/**
-	 * Called after the scheduler has registered all schedules
-	 */
-	function onStartup(){
-	}
-
-	/**
-	 * Called whenever ANY task fails
-	 *
-	 * @task The task that got executed
-	 * @exception The ColdFusion exception object
-	 */
-	function onAnyTaskError( required task, required exception ){
-	}
-
-	/**
-	 * Called whenever ANY task succeeds
-	 *
-	 * @task The task that got executed
-	 * @result The result (if any) that the task produced
-	 */
-	function onAnyTaskSuccess( required task, result ){
-	}
-
-	/**
-	 * Called before ANY task runs
-	 *
-	 * @task The task about to be executed
-	 */
-	function beforeAnyTask( required task ){
-	}
-
-	/**
-	 * Called after ANY task runs
-	 *
-	 * @task The task that got executed
-	 * @result The result (if any) that the task produced
-	 */
-	function afterAnyTask( required task, result ){
-	}
-
-}
-
+// When the app is restart or dies make sure you cleanup
+application.scheduler.shutdown();
+	
 ```
 {% endcode %}
-
-### Life-Cycle Methods
-
-Every Scheduler can create life-cycle methods and monitor the scheduled tasks:
-
-| Method | Description |
-| :--- | :--- |
-| `onStartup()` | Called after the scheduler has registered all schedules |
-| `onShutdown()` | Called before the scheduler is going to be shutdown |
-| `onAnyTaskError(task,exception)` | Called whenever ANY task fails |
-| `onAnyTaskSuccess(task,result)` | Called whenever ANY task succeeds |
-| `beforeAnyTask(task)` | Called before ANY task runs |
-| `afterAnyTask(task,result)` | Called after ANY task runs |
 
 ### Configuration Methods
 
@@ -134,26 +81,8 @@ The following methods are used to impact the operation of all scheduled tasks ma
 
 | Method | Description |
 | :--- | :--- |
-| `setCacheName( cacheName )` | Set the cachename to use for all registered tasks |
-| `setServerFixation( boolean )` | Set the server fixation to use for all registered tasks |
 | `setTimezone( timezone )` | Set the timezone to use for all registered tasks |
 | `setExecutor( executor )` | Override the executor generated for the scheduler |
-
-#### Cachename For All Tasks
-
-By default, all tasks are fixed to use the `template` cache when doing server fixation.  You can override the cachename by a task by task basis or set the global default into the scheduler.
-
-```javascript
-setCacheName( "Redis" )
-```
-
-#### Server Fixation For All Tasks
-
-By default, all task run on each server/container they are registered with.  However, you can also pin them on a specific server using server fixation via the `onOneServer()` method of the individual scheduled task.  However, you can also tell the scheduler to do this for ALL tasks it manages using the `setServerFixation()` method.
-
-```javascript
-setServerFixation( true )
-```
 
 #### Timezone For All Tasks
 
@@ -173,7 +102,7 @@ Remember that some timezones utilize daylight savings time. When daylight saving
 
 #### Custom Executor
 
-By default the scheduler will register a `scheduled` executor with a default of 20 threads for you with a name of `appScheduler@coldbox-scheduler.`  If you want to add in your own executor as per your configurations, then just call the `setExecutor()` method.
+By default the scheduler will register a `scheduled` executor with a default of 20 threads for you with a name of `{schedulerName}-scheduler.`  If you want to add in your own executor as per your configurations, then just call the `setExecutor()` method.
 
 ```javascript
 setExecutor( 
@@ -182,54 +111,21 @@ setExecutor(
 ```
 
 {% hint style="info" %}
-You can find how to work with executors in our [executors](promises-async-programming/executors.md) section.
+You can find how to work with executors in our [executors](executors.md) section.
 {% endhint %}
 
 ### Scheduler Properties
 
-Every scheduler has the following injections available to you in the `variables` scope
+Every scheduler has the following properties available to you in the `variables` scope
 
 | Object | Description |
 | :--- | :--- |
 | `asyncManager` | Async manager reference |
-| `cachebox` | CacheBox reference |
-| `cacheName` | The name of the cache for server fixation and more for all tasks |
-| `controller` | ColdBox controller reference |
 | `executor` | Scheduled executor |
-| `log` | A pre-configured log object |
 | `started` | A boolean flag indicating if the scheduler has started or not |
-| `serverFixation` | The boolean flag that indicates the default for server fixation for all tasks |
 | `tasks` | The collection of registered tasks |
 | `timezone` | Java based timezone object |
 | `util` | ColdBox utility |
-| `wirebox` | WireBox reference |
-
-### Scheduler ColdBox Methods
-
-Every scheduler has several useful ColdBox interaction methods you can use when registering your tasks callable methods.
-
-| Method | Description |
-| :--- | :--- |
-| `announce()` | Announce an interception |
-| `externalView()` | Render an external view |
-| `getCache()` | Get a cache from CacheBox |
-| `getColdBoxSetting()` | Get a ColdBox setting |
-| `getEnv()` | Retrieve a environment variable only |
-| `getInstance()` | Get a instance object from WireBox |
-| `getModuleConfig()` | Get a module config |
-| `getModuleSettings()` | Get a module setting |
-| `getRenderer()` | Get the ColdBox Renderer |
-| `getSetting()` | Get an app Setting |
-| `getSystemSetting()` | Retrieve a Java System property or env value by name. It looks at properties first then environment variables |
-| `getSystemProperty()` | Retrieve a Java System property only |
-| `layout()` | Render a layout |
-| `locateDirectoryPath()` | Resolve a directory to be either relative or absolute in your application |
-| `locateFilePath()` | Resolve a file to be either relative or absolute in your application |
-| `runEvent()` | Run a ColdBox Event |
-| `runRoute()` | Run a ColdBox Route |
-| `settingExists()` | Check if a setting exists |
-| `setSetting()` | Set a setting |
-| `view()` | Render a view |
 
 ### Scheduler Utility Methods
 
@@ -327,7 +223,7 @@ Once you call on this method, the scheduler will create a `ColdBoxScheduledTask`
 task( "my-task" )
 ```
 
-You can find the API Docs for this object here: [https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/web/tasks/ColdBoxScheduledTask.html](https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/web/tasks/ColdBoxScheduledTask.html)
+You can find the API Docs for this object here: [https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/async/tasks/ScheduledTask.html](https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/async/tasks/ScheduledTask.html)
 
 ### Task Closure/Lambda/Object
 
@@ -336,7 +232,7 @@ You register the callable event via the `call()` method on the task object.  You
 ```javascript
 // Lambda Syntax
 task( "my-task" )
-    .call( () => getInstance( "myService" ).runcleanup() )
+    .call( () => runcleanup() )
     .everyHour();
     
 // Closure Syntax
@@ -348,18 +244,18 @@ task( "my-task" )
     
 // Object with run() method
 task( "my-task" )
-    .call( getInstance( "MyTask" ) )
+    .call( wirebox.getInstance( "MyObject" ) )
     .everyDay()
     
 // Object with a custom method
 task( "my-task" )
-    .call( getInstance( "CacheService" ), "reapCache" )
+    .call( wirebox.getInstance( "MyObject" ), "reapCache" )
     .everydayAt( "13:00" )
 ```
 
 ### Frequencies
 
-There are many many frequency methods in ColdBox scheduled tasks that will enable the tasks in specific intervals.  Every time you see that an argument receives a `timeUnit` the available options are:
+There are many many frequency methods in scheduled tasks that will enable the tasks in specific intervals.  Every time you see that an argument receives a `timeUnit` the available options are:
 
 * days
 * hours
@@ -404,11 +300,11 @@ All `time` arguments are defaulted to midnight \(00:00\)
 
 ### Preventing Overlaps
 
-![Tasks with a fixed frequency vs delayed frequency](../.gitbook/assets/tasks-with-and-without-overlaps.png)
+![Tasks with a fixed frequency vs delayed frequency](../../.gitbook/assets/tasks-with-and-without-overlaps.png)
 
 By default all tasks that have interval rates/periods that will execute on that interval schedule.  However, what happens if a task takes longer to execute than the period? Well, by default the task will execute even if the previous one has not executed.  If you want to prevent this behavior, then you can use the `withNoOverlaps()` method and ColdBox will register the tasks with a _fixed delay_. Meaning the intervals do not start counting until the last task has finished executing.
 
-![Task With Fixed Delay](../.gitbook/assets/tasks-with-no-overlaps.png)
+![Task With Fixed Delay](../../.gitbook/assets/tasks-with-no-overlaps.png)
 
 ```javascript
 task( "test" )
@@ -448,7 +344,7 @@ The `delay` is numeric and the `timeUnit` can be:
 ```javascript
 // Lambda Syntax
 task( "my-task" )
-    .call( () => getInstance( "myService" ).runcleanup() )
+    .call( () => wirebox.getInstance( "MyObject" ).runcleanup() )
     .delay( "5000" )
     .everyHour();
 ```
@@ -465,15 +361,15 @@ Basically, you don't register a frequency just the callable event.  Usually, you
 
 ```javascript
 task( "build-up-cache" )
-    .call( () => getInstance( "DataServices" ).buildCache() )
+    .call( () => wirebox.getInstance( "MyObject" ).buildCache() )
     .delay( 1, "minutes" );
     
 task( "notify-admin-server-is-up" )
-    .call( () => getInstance( "SettingService" ).notifyAppIsUp( getUtil().getServerIp() ) )
+    .call( () => wirebox.getInstance( "MyObject" ).notifyAppIsUp( getUtil().getServerIp() ) )
     .delay( 30, "seconds" );
     
 task( "register-container" )
-    .call( () => runEvent( "tasks.registerContainer" ) )
+    .call( () => ... )
     .delay( 30, "seconds" );
 ```
 
@@ -582,60 +478,12 @@ There are many ways to constrain the execution of a task. However, you can regis
 
 ```javascript
 task( "my-task" )
-    .call( () => getInstance( "securityService" ).cleanOldUsers() )
+    .call( () => wirebox.getInstance( "MyObject" ).cleanOldUsers() )
     .daily()
     .when( function(){
         // Can we run this task?
         return true;
     );
-```
-
-### Server Fixation
-
-If you are running a cluster of your application and you register tasks they will run at their schedule in _EVERY_ server/container the application has been deployed to.  This might not be a great idea if you want only _**ONE**_ task to run no matter how many servers/containers you have deployed your application on.  For this situation you can use the `onOneServer()` method which tells ColdBox to _ONLY_ run the task once on the first server that wins the race condition.
-
-```javascript
-task( "my-task" )
-    .call( () => getInstance( "securityService" ).cleanOldUsers() )
-    .daily()
-    .onOneServer();
-```
-
-{% hint style="danger" %}
-This feature **ONLY** works when you are using a distributed cache like redis, mongo, elastic, couchbase or a JDBC CacheBox provider  in CacheBox.
-{% endhint %}
-
-#### Changing the Cache Provider
-
-By default this feature leverages the `template` cache provider in CacheBox.  However, you can change which cache provider will be used for storing the locking and tracking entries.
-
-```javascript
-task( "my-task" )
-    .call( () => getInstance( "securityService" ).cleanOldUsers() )
-    .daily()
-    .setCacheName( "redis" )
-    .onOneServer();
-```
-
-### Environment Constraints
-
-All ColdBox applications have a runnable environment stored in the `environment` setting.  You can use that to register a task with constraints of environment using the `onEnvironment( environment )` method.  This means that the task will **ONLY** run on those environments.  The `environment` argument can be a single string, a list of environments or an array of environments.
-
-```javascript
-task( "my-task" )
-    .call( () => getInstance( "securityService" ).cleanOldUsers() )
-    .daily()
-    .onEnvironments( "staging" );
-    
-task( "my-task" )
-    .call( () => getInstance( "securityService" ).cleanOldUsers() )
-    .daily()
-    .onEnvironments( [ "staging", "production" ] );
-    
-task( "my-task" )
-    .call( () => getInstance( "securityService" ).cleanOldUsers() )
-    .daily()
-    .onEnvironments( "staging,production" );
 ```
 
 ### Disabling/Pausing Tasks
@@ -692,25 +540,13 @@ We have created some useful methods that you can use when working with asynchron
 | Method | Description |
 | :--- | :--- |
 | `err( var )` | Send output to the error stream |
-| `getCache()` | Get the CacheBox provider assigned for server fixation |
-| `getCacheName()` | Get the name of the cache region to use for server fixation |
-| `getEnvironments()` | Get the assigned running environments for the task |
-| `getServerFixation()` | Get the boolean flag that indicates that this task runs on all or one server |
 | `hasScheduler()` | Verifies if the task is assigned a scheduler or not |
 | `isDisabled()` | Verifies if the task has been disabled by bit |
-| `isConstrained()` | Verifies if the task has been constrained to run by server fixation, environments, weekends, weekdays, dayOfWeek, or dayOfMonth |
+| `isConstrained()` | Verifies if the task has been constrained to run by weekends, weekdays, dayOfWeek, or dayOfMonth |
 | `out( var )` | Send output to the output stream |
-| `setCacheName()` | Set the cache name to use for server fixation |
 | `start()` | This kicks off the task into the scheduled executor manually. This method is called for you by the scheduler upon application startup or module loading. |
 
-## Schedulers For Modules
+## Scheduled Executor Approach
 
-Every module in ColdBox also has a convention of `config/Scheduler.cfc` that if detected will register that scheduler for you with a WireBox ID of `cbScheduler@{moduleName}`.  ColdBox will register the scheduler for you and also store it in the module's configuration struct with a key of `scheduler`.  ColdBox will also manage it's lifecycle and destroy it if the module is unloaded.  All the rules for schedulers apply, happy scheduling!
 
-```bash
-+ MyModule
-  + config
-     - Router.cfc
-     - Scheduler.cfc
-```
 
