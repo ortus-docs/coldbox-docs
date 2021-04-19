@@ -128,10 +128,21 @@ Every Scheduler can create life-cycle methods and monitor the scheduled tasks:
 
 ### Configuration Methods
 
+The following methods are used to impact the operation of all scheduled tasks managed by the scheduler:
+
 | Method | Description |
 | :--- | :--- |
+| `setCacheName( cacheName )` | Set the cachename to use for all registered tasks |
 | `setTimezone( timezone )` | Set the timezone to use for all registered tasks |
 | `setExecutor( executor )` | Override the executor generated for the scheduler |
+
+#### Cachename For All Tasks
+
+By default, all tasks are fixed to use the `template` cache when doing server fixation.  You can override the cachename by a task by task basis or set the global default into the scheduler.
+
+```javascript
+setCacheName( "Redis" )
+```
 
 #### Timezone For All Tasks
 
@@ -673,7 +684,8 @@ We have created some useful methods that you can use when working with asynchron
 | `getEnvironments()` | Get the assigned running environments for the task |
 | `getServerFixation()` | Get the boolean flag that indicates that this task runs on all or one server |
 | `hasScheduler()` | Verifies if the task is assigned a scheduler or not |
-| `isDisabled()` | Verifies if the task has been disabled by bit, when closure and environments |
+| `isDisabled()` | Verifies if the task has been disabled by bit |
+| `isConstrained()` | Verifies if the task has been constrained to run by server fixation, environments, weekends, weekdays, dayOfWeek, or dayOfMonth |
 | `out( var )` | Send output to the output stream |
 | `setCacheName()` | Set the cache name to use for server fixation |
 | `start()` | This kicks off the task into the scheduled executor manually. This method is called for you by the scheduler upon application startup or module loading. |
