@@ -191,10 +191,12 @@ Every scheduler has the following injections available to you in the `variables`
 | :--- | :--- |
 | `asyncManager` | Async manager reference |
 | `cachebox` | CacheBox reference |
+| `cacheName` | The name of the cache for server fixation and more for all tasks |
 | `controller` | ColdBox controller reference |
 | `executor` | Scheduled executor |
 | `log` | A pre-configured log object |
 | `started` | A boolean flag indicating if the scheduler has started or not |
+| `serverFixation` | The boolean flag that indicates the default for server fixation for all tasks |
 | `tasks` | The collection of registered tasks |
 | `timezone` | Java based timezone object |
 | `util` | ColdBox utility |
