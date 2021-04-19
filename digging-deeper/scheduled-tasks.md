@@ -133,6 +133,7 @@ The following methods are used to impact the operation of all scheduled tasks ma
 | Method | Description |
 | :--- | :--- |
 | `setCacheName( cacheName )` | Set the cachename to use for all registered tasks |
+| `setServerFixation( boolean )` | Set the server fixation to use for all registered tasks |
 | `setTimezone( timezone )` | Set the timezone to use for all registered tasks |
 | `setExecutor( executor )` | Override the executor generated for the scheduler |
 
@@ -142,6 +143,14 @@ By default, all tasks are fixed to use the `template` cache when doing server fi
 
 ```javascript
 setCacheName( "Redis" )
+```
+
+#### Server Fixation For All Tasks
+
+By default, all task run on each server/container they are registered with.  However, you can also pin them on a specific server using server fixation via the `onOneServer()` method of the individual scheduled task.  However, you can also tell the scheduler to do this for ALL tasks it manages using the `setServerFixation()` method.
+
+```javascript
+setServerFixation( true )
 ```
 
 #### Timezone For All Tasks
