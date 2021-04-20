@@ -2,7 +2,7 @@
 
 ## Requirements
 
-The async package is what powers scheduled tasks and it can be available to any CFML application by using any of our standalone libraries and frameworks:
+The [async](./) package is what powers scheduled tasks and it can be available to any CFML application by using any of our standalone libraries and frameworks:
 
 * [CacheBox](https://forgebox.io/view/cachebox)
 * [ColdBox](https://forgebox.io/view/coldbox)
@@ -13,14 +13,14 @@ The async package is what powers scheduled tasks and it can be available to any 
 **YOU DON'T NEED COLDBOX TO RUN ANY SCHEDULED TASKS OR ANY FEATURES OF THE ASYNC PACKAGE. YOU CAN USE ANY OF THE STANDALONE LIBRARIES ABOVE.**
 {% endhint %}
 
-However, if you use ColdBox, you get enhanced programming and functionality.  For example, the [ColdBox Scheduled Tasks](../scheduled-tasks.md) are an enhanced implementation of the core scheduled tasks we will be reviewing in this document.
+However, if you use ColdBox, you get enhanced features and new functionality.  For example, the [ColdBox Scheduled Tasks](../scheduled-tasks.md) are an enhanced implementation of the core scheduled tasks we will be reviewing in this document.
 
 ## Introduction
 
-The async package offers you the ability to schedule tasks and workloads via the[ Scheduled Executors](executors.md#executor-types) you can register in the async manager.  We also provide you with a lovely `Scheduler` class that can keep track of all the tasks you would like to be executing in a ScheduledExecutor.  In essence, you have two options when scheduling tasks:
+The async package offers you the ability to schedule tasks and workloads via the[ Scheduled Executors](executors.md#executor-types) that you can register in the async manager.  We also provide you with a lovely `Scheduler` class that can keep track of all the tasks you would like to be executing in a `ScheduledExecutor`.  In essence, you have two options when scheduling tasks:
 
-1. Create a scheduler and register tasks in it
-2. Create a `ScheduledExecutor` and send task objects into it
+1. **Scheduler Approach**: Create a scheduler and register tasks in it
+2. **Scheduled Executor Approach**: Create a `ScheduledExecutor` and send task objects into it
 
 ![Async Scheduler &amp; Tasks](../../.gitbook/assets/asyncscheduler.png)
 
@@ -28,9 +28,13 @@ The async package offers you the ability to schedule tasks and workloads via the
 With our scheduled tasks you can run either one-off tasks or periodically tasks.
 {% endhint %}
 
-## Task Scheduler Approach
+## Scheduler Approach
 
 To create a new scheduler you can call the Async Managers' `newScheduler( name )` method.  This will create a new `coldbox.system.async.tasks.Scheduler` object with the specified name you pass. It will also create a `ScheduledExecutor` for you with the default threads count inside the scheduler..  It will be then your responsibility to persist that scheduler so you can use it throughout your application process.
+
+{% embed url="https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/async/tasks/Scheduler.html" caption="Scheduler API Docs" %}
+
+{% embed url="https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/async/executors/ScheduledExecutor.html" caption="ScheduledExecutor API Docs" %}
 
 ```javascript
 application.scheduler = asyncmanager.newScheduler( "appScheduler" );
@@ -42,36 +46,51 @@ Once you get an instance to that scheduler you can begin to register tasks on it
 The name of the `ScheduledExecutor` will be `{schedulerName}-scheduler`
 {% endhint %}
 
-{% code title="" %}
+{% code title="Application.cfc" %}
 ```javascript
-application.scheduler = asyncmanager.newScheduler( "appScheduler" );
+component{
+    
+    this.name = "My App";
+    
+    
+    function onApplicationStart(){
+        new wirebox.system.Injector();
+        application.asyncManager = application.wirebox.getInstance( "wirebox.system.async.AsyncManager" );
+        application.scheduler = application.asyncmanager.newScheduler( "appScheduler" );
 
-/**
- * --------------------------------------------------------------------------
- * Register Scheduled Tasks
- * --------------------------------------------------------------------------
- * You register tasks with the task() method and get back a ColdBoxScheduledTask object
- * that you can use to register your tasks configurations.
- */
-	
-application.scheduler.task( "Clear Unregistered Users" )
-	.call( () => application.wirebox.getInstance( "UsersService" ).clearRecentUsers() )
-	.everyDayAt( "09:00" );
-	
-application.scheduler.task( "Hearbeat" )
-	.call( () => runHeartBeat() )
-	.every( 5, "minutes" )
-	.onFailure( ( task, exception ) => {
-			sendBadHeartbeat( exception );
-	} );
+          /**
+           * --------------------------------------------------------------------------
+           * Register Scheduled Tasks
+           * --------------------------------------------------------------------------
+           * You register tasks with the task() method and get back a ColdBoxScheduledTask object
+           * that you can use to register your tasks configurations.
+           */
+          	
+          application.scheduler.task( "Clear Unregistered Users" )
+          	.call( () => application.wirebox.getInstance( "UsersService" ).clearRecentUsers() )
+          	.everyDayAt( "09:00" );
+          	
+          application.scheduler.task( "Hearbeat" )
+          	.call( () => runHeartBeat() )
+          	.every( 5, "minutes" )
+          	.onFailure( ( task, exception ) => {
+          			sendBadHeartbeat( exception );
+          	} );
+          
+          // Startup the scheduler
+          application.scheduler.startup();
+    
+    }
 
-// Startup the scheduler
-application.scheduler.startup();
+
+    function onApplicationEnd( appScope ){
+        // When the app is restart or dies make sure you cleanup
+        appScope.scheduler.shutdown();
+        appScope.wirebox.shutdown();
+    }
 
 
-// When the app is restart or dies make sure you cleanup
-application.scheduler.shutdown();
-	
+}
 ```
 {% endcode %}
 
@@ -548,5 +567,71 @@ We have created some useful methods that you can use when working with asynchron
 
 ## Scheduled Executor Approach
 
+Let's investigate now a second approach to task scheduling.  We have seen the `Scheduler` approach which is a self-contained object that can track multiple tasks for you and give you enhanced and fluent approaches to scheduling.  However, there are times, where you just want to use a `ScheduledExecutor` to send tasks into for either one-time executions, or also on specific frequencies and skip the `Scheduler.`
 
+Like with anything in life, there are pros and cons.  The Scheduler approach will track all the scheduled future results of each task so you can see their progress, metrics and even cancel them.  With this approach, it is more of a set off and forget approach.
+
+### Register a Scheduled Executor
+
+Let's get down to business. The first step is to talk to the AsyncManager and register a scheduled executor. You can do this using two methods:
+
+* `newExecutor( name, type, threads )` - Pass by type
+* `newScheduledExecutor( name, threads )` - Shorthand
+
+```javascript
+// Create it with a default of 20 threads
+application.asyncManager.newExecutor( "myTasks", "scheduled" );
+// Create it with a default of 10 threads
+application.asyncManager.newExecutor( "myTasks", "scheduled", 10 );
+// Create it as a FIFO queue of 1 thread
+application.asyncManager.newExecutor( "myTasks", "scheduled", 1 );
+
+
+// Create it with a default of 20 threads
+application.asyncManager.newScheduledExecutor( "myTasks" );
+// Create it with a default of 10 threads
+application.asyncManager.newScheduledExecutor( "myTasks", 10 );
+// Create it as a FIFO queue of 1 threa,d
+application.asyncManager.newScheduledExecutor( "myTasks", 1 );
+```
+
+Once you register the executor the Async Manager will track it's persistence and then you can request it's usage anywhere in your app via the `getExecutor( name )` method or inject it using the `executors` injection DSL.
+
+```javascript
+// Request it
+var executor = application.asyncManager.getExecutor( "myTasks" );
+
+// Inject it
+property name="myTasks" inject="executor:myTasks";
+```
+
+### Scheduling
+
+Now that we have a scheduler, we can use the `newSchedule()` method to get a `ScheduledTask` , configure it, and send it for execution.
+
+```javascript
+// Request it
+var executor = application.asyncManager.getExecutor( "myTasks" );
+
+var future = executor.newSchedule( "cache-reap" )
+    .call( () => application.cacheFactory.reapAll() )
+    .every( 5, "minutes" )
+    .start();
+```
+
+As you can see, now we are in [Scheduling Tasks](scheduled-tasks.md#scheduling-tasks) mode, and all the docs on it apply.  Several things are different in this approach:
+
+1. We talk to the executor via the `newSchedule()` method to get a new `ScheduledTask` object
+2. We call the `start()` method manually, whenever we want to send the task into scheduling
+3. We get a `ScheduledFuture` result object so we can track the results of the schedule.
+
+{% embed url="https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/async/tasks/ScheduledFuture.html" caption="ScheduledFuture API Docs" %}
+
+### Work Queues
+
+You can very easily create working queues in this approach by being able to send off tasks into the executors and forget about them.  Let's say we have an app that needs to do some Image processing afte ran image has been uploaded.  We don't want to hold up the calling thread with it, we upload, send the task for processing and return back their identifier for the operation.
+
+{% hint style="info" %}
+Remember you can set how many threads you want in a executor.  It doesn't even have to be a scheduled executor, but could be a cached one which can expand and contract according to work loads.
+{% endhint %}
 
