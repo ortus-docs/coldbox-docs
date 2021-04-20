@@ -607,13 +607,13 @@ property name="myTasks" inject="executor:myTasks";
 
 ### Scheduling
 
-Now that we have a scheduler, we can use the `newSchedule()` method to get a `ScheduledTask` , configure it, and send it for execution.
+Now that we have a scheduler, we can use the `newTask()` method to get a `ScheduledTask` , configure it, and send it for execution.
 
 ```javascript
 // Request it
 var executor = application.asyncManager.getExecutor( "myTasks" );
 
-var future = executor.newSchedule( "cache-reap" )
+var future = executor.newTask( "cache-reap" )
     .call( () => application.cacheFactory.reapAll() )
     .every( 5, "minutes" )
     .start();
@@ -621,7 +621,7 @@ var future = executor.newSchedule( "cache-reap" )
 
 As you can see, now we are in [Scheduling Tasks](scheduled-tasks.md#scheduling-tasks) mode, and all the docs on it apply.  Several things are different in this approach:
 
-1. We talk to the executor via the `newSchedule()` method to get a new `ScheduledTask` object
+1. We talk to the executor via the `newTask()` method to get a new `ScheduledTask` object
 2. We call the `start()` method manually, whenever we want to send the task into scheduling
 3. We get a `ScheduledFuture` result object so we can track the results of the schedule.
 
@@ -629,7 +629,18 @@ As you can see, now we are in [Scheduling Tasks](scheduled-tasks.md#scheduling-t
 
 ### Work Queues
 
-You can very easily create working queues in this approach by being able to send off tasks into the executors and forget about them.  Let's say we have an app that needs to do some Image processing afte ran image has been uploaded.  We don't want to hold up the calling thread with it, we upload, send the task for processing and return back their identifier for the operation.
+You can very easily create working queues in this approach by being able to send one-off tasks into the executors and forget about them.  Let's say we have an app that needs to do some image processing afte ran image has been uploaded.  We don't want to hold up \(block\) the calling thread with it, we upload, send the task for processing and return back their identifier for the operation. 
+
+```javascript
+... Upload File.
+
+// Process Image in the Executor Work Queue
+executor.newSchedule( task : function(){
+        application.wirebox.getInstance( "ImageProcessor" ).processImage( fileName );
+    }).start();
+    
+... Continue operation
+```
 
 {% hint style="info" %}
 Remember you can set how many threads you want in a executor.  It doesn't even have to be a scheduled executor, but could be a cached one which can expand and contract according to work loads.
