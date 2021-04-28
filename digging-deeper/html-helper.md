@@ -5,7 +5,7 @@
 The HTML Helper is a core ColdBox CFC that abstracts the creation of any HTML entity. It provides consistent and secure rendering of HTML within ColdBox applications.
 
 ```text
-coldbox.system.core.dynamic.HTMLHelper
+coldbox.system.modules.HTMLHelper.modles.HTMLHelper.cfc
 ```
 
 {% hint style="info" %}

@@ -625,17 +625,17 @@ All ColdBox applications have a runnable environment stored in the `environment`
 task( "my-task" )
     .call( () => getInstance( "securityService" ).cleanOldUsers() )
     .daily()
-    .onEnvironments( "staging" );
+    .onEnvironment( "staging" );
     
 task( "my-task" )
     .call( () => getInstance( "securityService" ).cleanOldUsers() )
     .daily()
-    .onEnvironments( [ "staging", "production" ] );
+    .onEnvironment( [ "staging", "production" ] );
     
 task( "my-task" )
     .call( () => getInstance( "securityService" ).cleanOldUsers() )
     .daily()
-    .onEnvironments( "staging,production" );
+    .onEnvironment( "staging,production" );
 ```
 
 ### Disabling/Pausing Tasks
