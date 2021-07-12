@@ -8,11 +8,12 @@ description: 'July 9th, 2021'
 
 #### Bug
 
-[COLDBOX-1024](https://ortussolutions.atlassian.net/browse/COLDBOX-1024) Module helpers no longer injected/mixed into interceptors
+* [COLDBOX-1024](https://ortussolutions.atlassian.net/browse/COLDBOX-1024) Module helpers no longer injected/mixed into interceptors
 
 #### Improvement
 
-[COLDBOX-1025](https://ortussolutions.atlassian.net/browse/COLDBOX-1025) Added back the finally block, just to make sure cleanup are done in bootstrap reinits
+* [COLDBOX-1026](https://ortussolutions.atlassian.net/browse/COLDBOX-1026) Update `BeanPopulator` for Hibernate 5 detection in Lucee new extension
+* [COLDBOX-1025](https://ortussolutions.atlassian.net/browse/COLDBOX-1025) Added back the finally block, just to make sure cleanup are done in bootstrap reinits
 
 ## 6.5.0 Release Notes - July 9th, 2021
 
