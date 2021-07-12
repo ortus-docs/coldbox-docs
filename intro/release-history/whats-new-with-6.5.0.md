@@ -4,7 +4,17 @@ description: 'July 9th, 2021'
 
 # What's New With 6.5.0
 
-### Release Notes
+## 6.5.1 Release Notes - July 12th, 2021
+
+#### Bug
+
+[COLDBOX-1024](https://ortussolutions.atlassian.net/browse/COLDBOX-1024) Module helpers no longer injected/mixed into interceptors
+
+#### Improvement
+
+[COLDBOX-1025](https://ortussolutions.atlassian.net/browse/COLDBOX-1025) Added back the finally block, just to make sure cleanup are done in bootstrap reinits
+
+## 6.5.0 Release Notes - July 9th, 2021
 
 {% tabs %}
 {% tab title="ColdBox HMVC" %}
