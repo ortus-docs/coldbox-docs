@@ -31,7 +31,7 @@ Every injector has the capability to store an ordered collection \(`ordered stru
   3. Children
 * `shutdown()` - The shutdown method has been enhanced to issue shutdown method calls to all child injectors registered.
 
-### Getting Instances From Specific Child Injectors
+#### Getting Instances From Specific Child Injectors
 
 The `getInstance()` has been modified to have an `injector` argument that you can use to specifically ask for an instance from that child injector. If the child injector has not been registered you will get a `InvalidChildInjector` Exception.
 
@@ -39,7 +39,7 @@ The `getInstance()` has been modified to have an `injector` argument that you ca
 getInstance( name: "CategoryService", injector : "ChildInjector" )
 ```
 
-### Child Injector Explicit DSL
+#### Child Injector Explicit DSL
 
 The following is the DSL you can use to **explicitly** target a child injector for a dependency. You will prefix it with `wirebox:child:{name}` and the name of the injector:
 
@@ -52,7 +52,7 @@ property name="categoryService" inject="wirebox:child:childInjector:CategoryServ
 property name="categoryService" inject="wirebox:child:childInjector:{DSL}"
 ```
 
-### IInjector Interface Updates
+#### IInjector Interface Updates
 
 The `coldbox.system.ioc.IInjector` interface's `getInstance()` method has been modified to include support for child injector retrievals:
 
