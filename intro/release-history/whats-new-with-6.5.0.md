@@ -2,7 +2,46 @@
 description: 'July 9th, 2021'
 ---
 
-# What's New With 6.5.0
+# What's New With 6.5.x
+
+## Compatibility Notes
+
+Please note that the following ticket corrects behavior in ColdBox that MIGHT affect `interceptors` that have injected dependencies that have the same name as application helper methods from other modules. 
+
+Example:
+
+```javascript
+component 
+{
+
+    // inject cbauth so we can use it in our interceptor
+    property name="auth" inject="provider:authenticationService@cbauth";
+
+    function preProcess( event ) {
+
+        writeDump( auth.isLoggedIn() );
+
+    }
+
+}
+```
+
+The interceptor above has a dependency of `auth` from the `cbauth` module.  However, the `cbauth` module also has an application helper called `auth`. So at runtime, this will throw an exception:
+
+```text
+Routines cannot be declared more than once.
+The routine auth has been declared twice in different templates.
+
+ColdFusion cannot determine the line of the template that caused this error. This is often caused by an error in the exception handling subsystem.
+```
+
+This is because now we can't inject the `cbauth` mixin because we already have a `cbauth` dependency injected.  **The resolution, is to RENAME the injection variables so they don't collide with module application helpers.**
+
+## 6.5.2 Release Notes - July 14, 2021
+
+**Regression**
+
+* [COLDBOX-1024](https://ortussolutions.atlassian.net/browse/COLDBOX-1024) Module helpers no longer injected/mixed into interceptors
 
 ## 6.5.1 Release Notes - July 12th, 2021
 
