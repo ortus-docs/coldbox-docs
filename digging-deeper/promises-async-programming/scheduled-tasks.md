@@ -13,7 +13,7 @@ The [async](./) package is what powers scheduled tasks and it can be available t
 **YOU DON'T NEED COLDBOX TO RUN ANY SCHEDULED TASKS OR ANY FEATURES OF THE ASYNC PACKAGE. YOU CAN USE ANY OF THE STANDALONE LIBRARIES ABOVE.**
 {% endhint %}
 
-However, if you use ColdBox, you get enhanced features and new functionality.  For example, the [ColdBox Scheduled Tasks](../scheduled-tasks.md) are an enhanced implementation of the core scheduled tasks we will be reviewing in this document.
+However, if you use ColdBox, you get enhanced features and new functionality.  For example, the [ColdBox Scheduled Tasks]() are an enhanced implementation of the core scheduled tasks we will be reviewing in this document.
 
 ## Introduction
 

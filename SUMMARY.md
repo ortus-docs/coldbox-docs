@@ -209,6 +209,7 @@
   * [URL Routing](hmvc/modules/url-routing/README.md)
     * [Default Route Execution](hmvc/modules/url-routing/default-route-execution.md)
     * [Module Routes Files](hmvc/modules/url-routing/module-routes-files.md)
+  * [Module Async Scheduling](hmvc/modules/module-async-scheduling.md)
   * [Request Context Module Methods](hmvc/modules/request-context-module-methods.md)
   * [Layout and View Renderings](hmvc/modules/layout-and-view-renderings/README.md)
     * [Layout\/View Discovery](hmvc/modules/layout-and-view-renderings/layout-view-discovery.md)
@@ -272,7 +273,6 @@
   * [Debugging ColdBox Apps](digging-deeper/recipes/debugging-coldbox-apps.md)
   * [Clearing the View Cache](digging-deeper/recipes/clearing-the-view-cache.md)
   * [Basic HTTP Authentication Interceptor](digging-deeper/recipes/building-a-simple-basic-http-authentication-interceptor.md)
-* [ColdBox Scheduled Tasks](digging-deeper/scheduled-tasks.md)
 
 ## Architecture Concepts
 
