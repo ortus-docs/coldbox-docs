@@ -273,6 +273,7 @@
   * [Debugging ColdBox Apps](digging-deeper/recipes/debugging-coldbox-apps.md)
   * [Clearing the View Cache](digging-deeper/recipes/clearing-the-view-cache.md)
   * [Basic HTTP Authentication Interceptor](digging-deeper/recipes/building-a-simple-basic-http-authentication-interceptor.md)
+* [Scheduled Tasks](digging-deeper/scheduled-tasks.md)
 
 ## Architecture Concepts
 

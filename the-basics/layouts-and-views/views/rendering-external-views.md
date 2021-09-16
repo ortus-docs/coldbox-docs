@@ -9,3 +9,4 @@ So what if I want to render a view outside of my application without using the s
 {% hint style="info" %}
 If you are using ColdBox 6.4 or older, you will want to use the `renderExternalView()` method name. In ColdBox 6.5.2+, `renderExternalView()` was deprecated in favor of the new `externalView()` method.
 {% endhint %}
+

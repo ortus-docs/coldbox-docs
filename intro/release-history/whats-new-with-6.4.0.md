@@ -13,7 +13,7 @@ The _ColdBox Scheduled Tasks_ offers a fresh, programmatic and human approach to
 You can learn all about them in our two sections:
 
 * [CFML Scheduled Tasks](../../digging-deeper/promises-async-programming/scheduled-tasks.md)
-* [ColdBox Scheduled Tasks]()
+* [ColdBox Scheduled Tasks](../../digging-deeper/scheduled-tasks.md)
 
 ### Release Notes
 
