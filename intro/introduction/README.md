@@ -68,6 +68,7 @@ ColdBox is a professional open source software backed by [Ortus Solutions, Corp]
 
 * Official Site: [https://www.coldbox.org](https://www.coldbox.org)
 * Source Code: [https://github.com/coldbox/coldbox-platform](https://github.com/coldbox/coldbox-platform)
+* Documentation Source: [https://github.com/ortus-docs/coldbox-docs](https://github.com/ortus-docs/coldbox-docs)
 * Bug Tracker: [https://ortussolutions.atlassian.net/browse/COLDBOX](https://ortussolutions.atlassian.net/browse/COLDBOX)
 * Twitter: [@coldbox](http://www.twitter.com/coldbox)
 * Facebook: [https://www.facebook.com/coldboxplatform](https://www.facebook.com/coldboxplatform)
