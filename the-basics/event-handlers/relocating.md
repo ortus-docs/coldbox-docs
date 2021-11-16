@@ -16,7 +16,7 @@ Please see the [Super Type CFC Docs](http://apidocs.ortussolutions.com/coldbox/c
 * @queryString The query string to append, if needed. If in SES mode it will be translated to convention name value pairs
 * @persist What request collection keys to persist in flash ram
 * @persistStruct A structure key-value pairs to persist in flash ram
-* @addToken Wether to add the tokens or not. Default is false
+* @addToken Whether to add the tokens or not. Default is false
 * @ssl Whether to relocate in SSL or not
 * @baseURL Use this baseURL instead of the index.cfm that is used by default. You can use this for ssl or any full base url you would like to use. Ex: https://mysite.com/index.cfm
 * @postProcessExempt Do not fire the postProcess interceptors
