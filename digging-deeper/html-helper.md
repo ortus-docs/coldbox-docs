@@ -61,3 +61,11 @@ You can inject the HTML helper anywhere you like by using the following register
 property name="html" inject="HTMLHelper@coldbox";
 ```
 
+Note: For interceptors or cases when and object is created before Coldbox activates the HTML Helper module, use the `provider:` injection as follows:
+
+```javascript
+property name="html" inject="provider:HTMLHelper@coldbox"; 
+```
+
+
+
