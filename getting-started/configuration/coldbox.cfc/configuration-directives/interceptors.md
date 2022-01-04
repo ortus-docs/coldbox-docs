@@ -18,8 +18,7 @@ interceptors = [
     { class="mypath.MyInterceptor",
       name="MyInterceptor",
       properties={useSetterInjection=false}
-    },
-    { class="coldbox.system.interceptors.SES", name="MySES" }
+    }
 ];
 ```
 
