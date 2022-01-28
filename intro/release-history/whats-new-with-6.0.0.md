@@ -4,7 +4,7 @@ ColdBox 6.0.0 is a major release for the ColdBox HMVC platform. It has some dram
 
 ## Engine Support
 
-![ColdBox 6.x Engine Support](../../.gitbook/assets/coldbox-engine-support.png)
+![ColdBox 6.x Engine Support](../../.gitbook/assets/coldbox-engine-support-2021.png)
 
 It is also yet another source code reduction due to the dropping of support for the following CFML Engines:
 
