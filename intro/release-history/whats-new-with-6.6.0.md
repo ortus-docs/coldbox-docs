@@ -1,3 +1,7 @@
+---
+description: January
+---
+
 # What's New With 6.6.0
 
 ## Major Updates
@@ -8,7 +12,7 @@
 
 Welcome to the world of hierarchical dependency injection.  We had the ability before to add a parent injector to WireBox, but now you can not only add a parent, but also many children to the hierarchy.
 
-Every injector has the capability to store an ordered collection \(`ordered struct`\) of child injectors via the `childInjectors` property. Child injectors are used internally in many instances to provide a hierarchical approach to DI where instances can be searched for locally, in the parent and in the children. Here are some of the new methods to assist with child injectors:
+Every injector has the capability to store an ordered collection (`ordered struct`) of child injectors via the `childInjectors` property. Child injectors are used internally in many instances to provide a hierarchical approach to DI where instances can be searched for locally, in the parent and in the children. Here are some of the new methods to assist with child injectors:
 
 * `hasChildInjector( name )` - Verify if a child injector has been registered
 * `registerChildInjector( name, child )` - Register a child injector by name
@@ -24,7 +28,7 @@ Every injector has the capability to store an ordered collection \(`ordered stru
   * Apart from the explicit lookup it can also do implicit hierarchical lookups using the following order:
     * Locally
     * Parent
-    * All Children \(in order of registration\)
+    * All Children (in order of registration)
 * `containsInstance( name )` - This method now also searches in the child collection for the specific `name` instance. The lookup searches in the following order:
   1. Locally
   2. Parent
@@ -74,4 +78,3 @@ function getInstance(
 	injector
 );
 ```
-
