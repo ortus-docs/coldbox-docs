@@ -14,7 +14,7 @@ ColdBox is loaded by the `Application.cfc` and makes use of the Front Controller
 
 The incoming URL, FORM, and REMOTE variables are merged into a single structure that we call the request collection and, since we love objects, that collection is stored in an object called Request Context. We also create a secondary collection called the private request collection that cannot be affected by the outside world as nothing is merged into it. You can use it for private request variables and the like.
 
-![](../.gitbook/assets/requestcollectiondatabus%20%281%29%20%281%29.jpg)
+![](<../.gitbook/assets/requestcollectiondatabus (1) (1) (1).jpg>)
 
 The request context object has tons of methods to help you in setting and getting variables from one MVC layer to another, to getting request metadata, rendering RESTful content, setting HTTP headers, and more. It is your information super highway for specific requests. Remember that the API Docs are your best friend!
 
@@ -26,17 +26,17 @@ Below you can see a UML diagram of the ColdBox Major Classes eco-system.
 
 ## Request Lifecycle
 
-![](../.gitbook/assets/request-lifecycle%20%281%29%20%281%29.png)
+![](<../.gitbook/assets/request-lifecycle (1) (1).png>)
 
 A typical basic request to a ColdBox application looks like this:
 
-* HTTP\(S\) request is sent from browser to server `http://www.example.com/index.cfm?event=home.about`
+* HTTP(S) request is sent from browser to server `http://www.example.com/index.cfm?event=home.about`
 * The request context is created for this request and FORM/URL scopes are populated into the request collection
-* The Main ColdBox Event is determined from the `event` variable \(`home.about`\). \(handler is **home** and action is **about**, notice the period separator
-* Event handler controller action is run \(`about()` method in `/handlers/home.cfc`\)
+* The Main ColdBox Event is determined from the `event` variable (`home.about`). (handler is **home** and action is **about**, notice the period separator
+* Event handler controller action is run (`about()` method in `/handlers/home.cfc`)
 * The event handler might call a model for business logic
-* The view set in the event is rendered \(`/views/home/about.cfm`\)
-* The view’s HTML is wrapped in the rendered layout \(`/layouts/main.cfm`\)
+* The view set in the event is rendered (`/views/home/about.cfm`)
+* The view’s HTML is wrapped in the rendered layout (`/layouts/main.cfm`)
 * Page is returned to the browser
 
 Below you can see the full life-cycle for MVC requests:
@@ -48,4 +48,3 @@ Below you can see the full life-cycle for MVC requests:
 ColdBox also has a proxy feature for building SOAP webservices or Flex/Air integration called [ColdBox Proxy](../digging-deeper/coldbox-proxy/). Below you can see the life-cycle for that process:
 
 ![](../.gitbook/assets/coldboxlifecyclesproxy.jpg)
-

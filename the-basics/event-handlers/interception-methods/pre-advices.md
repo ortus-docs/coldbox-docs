@@ -1,6 +1,6 @@
 # Pre Advices
 
-![](../../../.gitbook/assets/eventhandler-prepost%20%282%29%20%282%29%20%282%29%20%281%29%20%281%29.jpg)
+![](<../../../.gitbook/assets/eventhandler-prepost (2) (2) (2) (1) (2).jpg>)
 
 With this interceptor you can intercept local event actions and execute things **before** the requested action executes. You can do it globally by using the `preHandler()` method or targeted to a specific action `pre{actionName}()`.
 
@@ -36,9 +36,9 @@ The arguments received by these interceptors are:
 Here are a few options for altering the default event execution:
 
 * Use `event.overrideEvent('myHandler.myAction')` to execute a different event than the default.
-* Use `event.noExecution()` to halt execution of the current event
+* Use `event.noExecution()` to halt execution of the current event. ONLY works when executed by interceptions before the main event. It will never work in pre/post advices.
 
-See the [RequestContext](https://apidocs.ortussolutions.com/coldbox/5.0.0/coldbox/system/web/context/RequestContext.html) documentation for more details.
+See the [RequestContext](../../request-context.md) documentation for more details.
 
 ## Exceptions & Only Lists
 
@@ -53,4 +53,3 @@ this.prehandler_only = "save,delete";
 // DO NOT fire for the actions: login(), doLogin(), logout()
 this.prehandler_except = "login,doLogin,logout"
 ```
-

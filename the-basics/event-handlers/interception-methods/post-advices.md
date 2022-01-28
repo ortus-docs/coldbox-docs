@@ -1,6 +1,6 @@
 # Post Advices
 
-![](../../../.gitbook/assets/eventhandler-prepost%20%282%29%20%282%29%20%282%29%20%281%29.jpg)
+![](<../../../.gitbook/assets/eventhandler-prepost (2) (2) (2) (1) (1).jpg>)
 
 With this interceptor you can intercept local event actions and execute things **after** the requested action executes. You can do it globally by using the `postHandler()` method or targeted to a specific action `post{actionName}()`.
 
@@ -40,4 +40,3 @@ this.posthandler_only = "save,delete";
 // DO NOT fire for the actions: login(), doLogin(), logout()
 this.posthandler_except = "login,doLogin,logout"
 ```
-

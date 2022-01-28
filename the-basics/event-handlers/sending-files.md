@@ -1,6 +1,6 @@
 # Sending Files
 
-We all need to deliver files to users at one point in time.  ColdBox makes it easy to deliver any type of file even binary files via the [Request Context's](../request-context.md) \(event\) `sendFile()` method.
+We all need to deliver files to users at one point in time.  ColdBox makes it easy to deliver any type of file even binary files via the [Request Context's](../request-context.md) (event) `sendFile()` method.
 
 ```javascript
 function report( event, rc, prc ){
@@ -18,7 +18,7 @@ function report( event, rc, prc ){
 
 ### Method Signature
 
-The API Docs can help you see the entire format of the method: [https://apidocs.ortussolutions.com/coldbox/5.1.4/coldbox/system/web/context/RequestContext.html\#sendFile\(\)](https://apidocs.ortussolutions.com/coldbox/5.1.4/coldbox/system/web/context/RequestContext.html#sendFile%28%29)
+The API Docs can help you see the entire format of the method: [https://apidocs.ortussolutions.com/coldbox/5.1.4/coldbox/system/web/context/RequestContext.html#sendFile()](https://apidocs.ortussolutions.com/coldbox/5.1.4/coldbox/system/web/context/RequestContext.html#sendFile\(\))
 
 The method signature is as follows:
 
@@ -49,6 +49,4 @@ function sendFile(
 {% hint style="info" %}
 Please note that the `file` argument can be an absolute path or an actual binary file to stream out.
 {% endhint %}
-
-
 

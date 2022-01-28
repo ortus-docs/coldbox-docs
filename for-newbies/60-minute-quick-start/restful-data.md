@@ -24,12 +24,12 @@ That's it! ColdBox detects the array and automatically serializes it to JSON. Ea
 
 If you want your incoming JSON `requestbody` to be handled the same as FORM and URL variables you can enable `coldbox.jsonPayloadToRC = true` in your ColdBox config, which is the default in ColdBox 6.
 
-## renderData\(\)
+## renderData()
 
 The request context object has a special function called `renderData()` that can take any type of data and marshall it for you to other formats like `xml, json, wddx, pdf, text, html` or your own type.
 
 {% hint style="success" %}
-**Tip**: You can find more information at the API Docs for `renderData()` here [http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html\#renderData\(](http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html#renderData%28)\)
+**Tip**: You can find more information at the API Docs for `renderData()` here [http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html#renderData(](http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html#renderData\())
 {% endhint %}
 
 So let's open the `handlers/contacts.cfc` and add to our current code:
@@ -55,7 +55,7 @@ This tells ColdBox to render the contacts data in 4 formats: xml, json, pdf and 
 
 ColdBox has the ability to detect formats via URL extensions or an incoming `Accepts` header. If no extension is sent, then ColdBox attempts to determine the format by inspecting the `Accepts` header. If we still can't figure out what format to choose, the default of `html` is selected for you.
 
-```text
+```
 # Default: The view is presented using no extension or html,cfm
 http://localhost:{port}/contacts/index
 http://localhost:{port}/contacts/index.html
@@ -109,11 +109,10 @@ We have now created a new URL route called `/api/contacts` that if detected will
 
 You can now visit the new URL pattern and you have successfully built a RESTFul API for your contacts.
 
-```text
+```
 http://localhost:{port}/api/contacts.json
 ```
 
 {% hint style="info" %}
 You can find much more about routing in our [full docs](../../the-basics/routing/)
 {% endhint %}
-

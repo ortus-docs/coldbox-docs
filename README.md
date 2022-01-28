@@ -8,11 +8,11 @@ description: >-
 
 ## ColdBox HMVC Platform- v6.x
 
-![HMVC Framework](.gitbook/assets/coldboxlogo2015_300.png)
+![HMVC Framework](<.gitbook/assets/coldboxlogo2015\_300 (1).png>)
 
 ![Standalone Libraries](.gitbook/assets/coldbox-family.png)
 
-ColdBox Hierarchical MVC is the de-facto enterprise-level HMVC framework for ColdFusion \(CFML\) developers. It's professionally backed, conventions-based, modular, highly extensible, and productive. Getting started with ColdBox is quick and painless. ColdBox takes the pain out of development by giving you a standardized methodology for modern ColdFusion \(CFML\) development with features such as:
+ColdBox Hierarchical MVC is the de-facto enterprise-level HMVC framework for ColdFusion (CFML) developers. It's professionally backed, conventions-based, modular, highly extensible, and productive. Getting started with ColdBox is quick and painless. ColdBox takes the pain out of development by giving you a standardized methodology for modern ColdFusion (CFML) development with features such as:
 
 * [Conventions instead of configuration](https://coldbox.ortusbooks.com/getting-started/conventions)
 * [Modern routing engine](https://coldbox.ortusbooks.com/the-basics/routing)
@@ -33,14 +33,14 @@ It provides a set of reusable code and tools that can be used to increase your d
 
 ColdBox is maintained under the [Semantic Versioning](http://semver.org) guidelines as much as possible.Releases will be numbered with the following format:
 
-```text
+```
 <major>.<minor>.<patch>
 ```
 
 And constructed with the following guidelines:
 
-* Breaking backward compatibility bumps the major \(and resets the minor and patch\)
-* New additions without breaking backward compatibility bumps the minor \(and resets the patch\)
+* Breaking backward compatibility bumps the major (and resets the minor and patch)
+* New additions without breaking backward compatibility bumps the minor (and resets the patch)
 * Bug fixes and misc changes bumps the patch
 
 ## License
@@ -58,7 +58,7 @@ The Ortus Community is the way to get any type of help for our entire platform a
 
 ## Reporting a Bug
 
-We all make mistakes from time to time :\) So why not let us know about it and help us out. We also love pull requests, so please star us and fork us at: [https://github.com/coldbox/coldbox-platform](https://github.com/coldbox/coldbox-platform)
+We all make mistakes from time to time :) So why not let us know about it and help us out. We also love pull requests, so please star us and fork us at: [https://github.com/coldbox/coldbox-platform](https://github.com/coldbox/coldbox-platform)
 
 ### Jira Issue Tracking
 
@@ -69,7 +69,7 @@ We all make mistakes from time to time :\) So why not let us know about it and h
 
 ## Professional Open Source
 
-![Ortus Solutions, Corp](.gitbook/assets/ortussolutions_button.png)
+![Ortus Solutions, Corp](.gitbook/assets/ortussolutions\_button.png)
 
 ColdBox is a professional open source software backed by [Ortus Solutions, Corp](https://www.ortussolutions.com/services) offering services like:
 
@@ -96,4 +96,3 @@ ColdBox is a professional open source software backed by [Ortus Solutions, Corp]
 Because of His grace, this project exists. If you don't like this, then don't read it, it's not for you.
 
 > "Therefore being justified by **faith**, we have peace with God through our Lord Jesus Christ: By whom also we have access by **faith** into this **grace** wherein we stand, and rejoice in hope of the glory of God." Romans 5:5
-

@@ -1,8 +1,10 @@
 # Testing Quick Start
 
-{% embed url="https://www.youtube.com/watch?v=emGFeDa6CAA&feature=youtu.be" caption="Testing Quickstart Video" %}
+{% embed url="https://www.youtube.com/watch?v=emGFeDa6CAA&feature=youtu.be" %}
+Testing Quickstart Video
+{% endembed %}
 
-ColdBox tightly integrates with [TestBox](http://www.ortussolutions.com/products/testbox), the Behavior Driven Development Testing Framework for ColdFusion \(CFML\). We can easily do unit and integration testing for our application. To start, let's install TestBox via CommandBox. _Please note that all ColdBox application templates have already TestBox installed as part of them, so you can skip this step._
+ColdBox tightly integrates with [TestBox](http://www.ortussolutions.com/products/testbox), the Behavior Driven Development Testing Framework for ColdFusion (CFML). We can easily do unit and integration testing for our application. To start, let's install TestBox via CommandBox. _Please note that all ColdBox application templates have already TestBox installed as part of them, so you can skip this step._
 
 ```bash
 install testbox --saveDev
@@ -14,7 +16,7 @@ Please note the `--saveDev` flag we used. This tells CommandBox that this depend
 
 Every ColdBox application template comes with a pre-set testing harness under the `/tests` folder:
 
-```text
+```
 + resources (Any testing helpers)
 + results (Any automated results go here)
 + specs (Your specs)
@@ -25,7 +27,7 @@ Every ColdBox application template comes with a pre-set testing harness under th
 
 Every harness has its own unique `Application.cfc` which must mimic your application's settings because the tests run in a different memory space. It also comes with an HTML runner called `runner.cfm` and an ANT runner called `test.xml`. All your test bundles and specifications will go under the `specs` directory and in the appropriate sub-directories:
 
-```text
+```
 + integration
 + modules
 + unit
@@ -33,7 +35,7 @@ Every harness has its own unique `Application.cfc` which must mimic your applica
 
 Under the `integration` tests you will find the test bundles that come with the application template and the ones we generated:
 
-```text
+```
 + MainSpec.cfc
 ```
 
@@ -169,7 +171,7 @@ function index( event, rc, prc ) {
 
 Now execute the tests again? What do you see?
 
-You will get an error now: **component \[coldbox.system.web.context.RequestContext\] has no function with name \[setFunkyView\]**. Fix it and re-run it. Ok, hold on to something..... You are now doing live integration testing my friend. Simple, but yet accomplishing.
+You will get an error now: **component \[coldbox.system.web.context.RequestContext] has no function with name \[setFunkyView]**. Fix it and re-run it. Ok, hold on to something..... You are now doing live integration testing my friend. Simple, but yet accomplishing.
 
 ## CommandBox Runner
 
@@ -200,4 +202,3 @@ testbox watch
 ## What's Next
 
 We have a fully dedicated section on [testing](testing-coldbox-applications/), please visit it for in-depth information.
-

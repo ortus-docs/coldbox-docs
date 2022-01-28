@@ -1,18 +1,18 @@
-# The configure\(\) Method
+# The configure() Method
 
 Once the public properties are set, we are now ready to configure our module. You will do this by creating a simple method called `configure()` and adding variables to the following configuration structures:
 
-| Property | Type | Description |
-| :--- | :--- | :--- |
-| parentSettings | struct | Settings that will be appended and override the host application settings |
-| settings | struct | Custom module settings that will only be available to the module. If `parseParentSettings` is set to true \(default\), then settings from `config/Coldbox.cfc` for this module will be merged with these settings. \(Think of these as default settings in that case.\) Please see the retrieving settings section |
-| conventions | struct | A structure that explains the layout of the handlers, plugins, layouts and views of this module. |
-| datasources | struct | A structure of datasource metadata that will append and override the host application datasources configuration |
-| interceptorSettings | struct | A structure of settings for interceptor interactivity which includes the following sub-keys: |
-| interceptors | array of structs | An array of declared interceptor structures that should be loaded in the entire application. Follows the same pattern as the [ConfigurationCFC](http://wiki.coldbox.org/wiki/ConfigurationCFC.cfm) interceptor declarations. |
-| layoutSettings | struct | A structure of elements that setup layout configuration data for the module with the following keys: |
-| routes | array | An array of declared URL routes or locations of routes for this module. The keys of the structure are the same as the _addRoute\(\)_ method of the [SES interceptor](http://wiki.coldbox.org/wiki/URLMappings.cfm) or a simple string location to the routes file to include. |
-| wirebox | struct | A structure of [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) configuration data, please refer to the \[WireBox Configuration\]\([http://wiki.coldbox.org/wiki/WireBox.cfm\#Configure\(\)\_method](http://wiki.coldbox.org/wiki/WireBox.cfm#Configure%28%29_method)\) area or just use the injected binder object for mappings. |
+| Property            | Type             | Description                                                                                                                                                                                                                                                                                                                    |
+| ------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| parentSettings      | struct           | Settings that will be appended and override the host application settings                                                                                                                                                                                                                                                      |
+| settings            | struct           | Custom module settings that will only be available to the module. If `parseParentSettings` is set to true (default), then settings from `config/Coldbox.cfc` for this module will be merged with these settings. (Think of these as default settings in that case.) Please see the retrieving settings section                 |
+| conventions         | struct           | A structure that explains the layout of the handlers, plugins, layouts and views of this module.                                                                                                                                                                                                                               |
+| datasources         | struct           | A structure of datasource metadata that will append and override the host application datasources configuration                                                                                                                                                                                                                |
+| interceptorSettings | struct           | A structure of settings for interceptor interactivity which includes the following sub-keys:                                                                                                                                                                                                                                   |
+| interceptors        | array of structs | An array of declared interceptor structures that should be loaded in the entire application. Follows the same pattern as the [ConfigurationCFC](http://wiki.coldbox.org/wiki/ConfigurationCFC.cfm) interceptor declarations.                                                                                                   |
+| layoutSettings      | struct           | A structure of elements that setup layout configuration data for the module with the following keys:                                                                                                                                                                                                                           |
+| routes              | array            | An array of declared URL routes or locations of routes for this module. The keys of the structure are the same as the _addRoute()_ method of the [SES interceptor](http://wiki.coldbox.org/wiki/URLMappings.cfm) or a simple string location to the routes file to include.                                                    |
+| wirebox             | struct           | A structure of [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) configuration data, please refer to the \[WireBox Configuration]\([http://wiki.coldbox.org/wiki/WireBox.cfm#Configure()\_method](http://wiki.coldbox.org/wiki/WireBox.cfm#Configure\(\)\_method)) area or just use the injected binder object for mappings. |
 
 It is important to note that there is only ONE running application and the modules basically leach on to it. So the following structures will append their contents into the running application settings: parentSettings, datasources, webservices, customInterceptionPoints and interceptors.
 
@@ -78,4 +78,3 @@ function configure(){
   binder.mapDirectory("#moduleMapping#.model");
 }
 ```
-

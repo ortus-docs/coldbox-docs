@@ -22,7 +22,7 @@ The async package offers you the ability to schedule tasks and workloads via the
 1. **Scheduler Approach**: Create a scheduler and register tasks in it
 2. **Scheduled Executor Approach**: Create a `ScheduledExecutor` and send task objects into it
 
-![Async Scheduler &amp; Tasks](../../.gitbook/assets/asyncscheduler.png)
+![Async Scheduler & Tasks](../../.gitbook/assets/asyncscheduler.png)
 
 {% hint style="info" %}
 With our scheduled tasks you can run either one-off tasks or periodically tasks.
@@ -32,9 +32,13 @@ With our scheduled tasks you can run either one-off tasks or periodically tasks.
 
 To create a new scheduler you can call the Async Managers' `newScheduler( name )` method.  This will create a new `coldbox.system.async.tasks.Scheduler` object with the specified name you pass. It will also create a `ScheduledExecutor` for you with the default threads count inside the scheduler..  It will be then your responsibility to persist that scheduler so you can use it throughout your application process.
 
-{% embed url="https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/async/tasks/Scheduler.html" caption="Scheduler API Docs" %}
+{% embed url="https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/async/tasks/Scheduler.html" %}
+Scheduler API Docs
+{% endembed %}
 
-{% embed url="https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/async/executors/ScheduledExecutor.html" caption="ScheduledExecutor API Docs" %}
+{% embed url="https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/async/executors/ScheduledExecutor.html" %}
+ScheduledExecutor API Docs
+{% endembed %}
 
 ```javascript
 application.scheduler = asyncmanager.newScheduler( "appScheduler" );
@@ -98,14 +102,14 @@ component{
 
 The following methods are used to impact the operation of all scheduled tasks managed by the scheduler:
 
-| Method | Description |
-| :--- | :--- |
-| `setTimezone( timezone )` | Set the timezone to use for all registered tasks |
+| Method                    | Description                                       |
+| ------------------------- | ------------------------------------------------- |
+| `setTimezone( timezone )` | Set the timezone to use for all registered tasks  |
 | `setExecutor( executor )` | Override the executor generated for the scheduler |
 
 #### Timezone For All Tasks
 
-By default, all tasks run under the system default timezone which usually is UTC.  However, if you would like to change to a different execution timezone, then you can use the `setTimeZone()` method and pass in a valid timezone string: 
+By default, all tasks run under the system default timezone which usually is UTC.  However, if you would like to change to a different execution timezone, then you can use the `setTimeZone()` method and pass in a valid timezone string:&#x20;
 
 ```javascript
 setTimezone( "America/Chicago" )
@@ -137,106 +141,38 @@ You can find how to work with executors in our [executors](executors.md) section
 
 Every scheduler has the following properties available to you in the `variables` scope
 
-| Object | Description |
-| :--- | :--- |
-| `asyncManager` | Async manager reference |
-| `executor` | Scheduled executor |
-| `started` | A boolean flag indicating if the scheduler has started or not |
-| `tasks` | The collection of registered tasks |
-| `timezone` | Java based timezone object |
-| `util` | ColdBox utility |
+| Object         | Description                                                   |
+| -------------- | ------------------------------------------------------------- |
+| `asyncManager` | Async manager reference                                       |
+| `executor`     | Scheduled executor                                            |
+| `started`      | A boolean flag indicating if the scheduler has started or not |
+| `tasks`        | The collection of registered tasks                            |
+| `timezone`     | Java based timezone object                                    |
+| `util`         | ColdBox utility                                               |
 
 ### Scheduler Utility Methods
 
 Every scheduler has several utility methods:
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Method</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>getRegisteredTasks()</code>
-      </td>
-      <td style="text-align:left">Get an ordered array of all the tasks registered in the scheduler</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>getTaskRecord( name )</code>
-      </td>
-      <td style="text-align:left">
-        <p>Get the task record structure by name:</p>
-        <p><code>{ </code>
-        </p>
-        <p><code> name, </code>
-        </p>
-        <p><code> task, </code>
-        </p>
-        <p><code> future, </code>
-        </p>
-        <p><code> scheduledAt, </code>
-        </p>
-        <p><code> registeredAt, </code>
-        </p>
-        <p><code> error, </code>
-        </p>
-        <p><code> errorMessage, </code>
-        </p>
-        <p><code> stacktrace </code>
-        </p>
-        <p><code>}</code>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>getTaskStats()</code>
-      </td>
-      <td style="text-align:left">Builds out a struct report for all the registered tasks in this scheduler</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>hasTask( name )</code>
-      </td>
-      <td style="text-align:left">Check if a scheduler has a task registered by name</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>hasStarted()</code>
-      </td>
-      <td style="text-align:left">Has the scheduler started already</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>removeTask( name )</code>
-      </td>
-      <td style="text-align:left">Cancel a task and remove it from the scheduler</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>startup()</code>
-      </td>
-      <td style="text-align:left">Startup the scheduler. This is called by ColdBox for you. No need to call
-        it.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>shutdown()</code>
-      </td>
-      <td style="text-align:left">Shutdown the scheduler</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>task( name )</code>
-      </td>
-      <td style="text-align:left">Register a new task and return back to you the task so you can build it
-        out.</td>
-    </tr>
-  </tbody>
-</table>
+| Method                  | Description                                                                                                                                                                                                                                                                                                                                     |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `getRegisteredTasks()`  | Get an ordered array of all the tasks registered in the scheduler                                                                                                                                                                                                                                                                               |
+| `getTaskRecord( name )` | <p>Get the task record structure by name:</p><p><code>{</code> </p><p> <code>name,</code> </p><p> <code>task,</code> </p><p> <code>future,</code> </p><p> <code>scheduledAt,</code> </p><p> <code>registeredAt,</code> </p><p> <code>error,</code> </p><p> <code>errorMessage,</code> </p><p> <code>stacktrace</code> </p><p><code>}</code></p> |
+| `getTaskStats()`        | Builds out a struct report for all the registered tasks in this scheduler                                                                                                                                                                                                                                                                       |
+| `hasTask( name )`       | Check if a scheduler has a task registered by name                                                                                                                                                                                                                                                                                              |
+| `hasStarted()`          | Has the scheduler started already                                                                                                                                                                                                                                                                                                               |
+| `removeTask( name )`    | Cancel a task and remove it from the scheduler                                                                                                                                                                                                                                                                                                  |
+| `startup()`             | Startup the scheduler. This is called by ColdBox for you. No need to call it.                                                                                                                                                                                                                                                                   |
+| `shutdown()`            | Shutdown the scheduler                                                                                                                                                                                                                                                                                                                          |
+| `task( name )`          | Register a new task and return back to you the task so you can build it out.                                                                                                                                                                                                                                                                    |
 
 ## Scheduling Tasks
 
-Ok, now that we have seen all the capabilities of the scheduler, let's dive deep into scheduling tasks with the `task( name )` method.  
+Ok, now that we have seen all the capabilities of the scheduler, let's dive deep into scheduling tasks with the `task( name )` method. &#x20;
 
-### Registering Tasks 
+### Registering Tasks&#x20;
 
-Once you call on this method, the scheduler will create a `ColdBoxScheduledTask` object for you, configure it, wire it, register it and return it to you. 
+Once you call on this method, the scheduler will create a `ColdBoxScheduledTask` object for you, configure it, wire it, register it and return it to you.&#x20;
 
 ```javascript
 task( "my-task" )
@@ -280,41 +216,41 @@ There are many many frequency methods in scheduled tasks that will enable the ta
 * hours
 * minutes
 * seconds
-* **milliseconds \(default\)**
+* **milliseconds (default)**
 * microseconds
 * nanoseconds
 
 Ok, let's go over the frequency methods:
 
-| Frequency Method | Description |
-| :--- | :--- |
-| `every( period, timeunit )` | Run the task every custom period of execution |
-| `spacedDelay( spacedDelay, timeunit )` | Run the task every custom period of execution but with NO overlaps |
-| `everyMinute()` | Run the task every minute from the time it get's scheduled |
-| `everyHour()` | Run the task every hour from the time it get's scheduled |
-| `everyHourAt( minutes )` | Set the period to be hourly at a specific minute mark and 00 seconds |
-| `everyDay()` | Run the task every day at midnight |
-| `everyDayAt( time )` | Run the task daily with a specific time in 24 hour format: HH:mm |
-| `everyWeek()` | Run the task every Sunday at midnight |
-| `everyWeekOn( day, time )` | Run the task weekly on the given day of the week and time |
-| `everyMonth()` | Run the task on the first day of every month at midnight |
-| `everyMonthOn( day, time )` | Run the task every month on a specific day and time |
-| `onFirstBusinessDayOfTheMonth( time )` | Run the task on the first Monday of every month |
-| `onLastBusinessDayOfTheMonth( time )` | Run the task on the last business day of the month |
-| `everyYear()` | Run the task on the first day of the year at midnight |
-| `everyYearOn( month, day, time )` | Set the period to be weekly at a specific time at a specific day of the week |
-| `onWeekends( time )` | Run the task on Saturday and Sunday |
-| `onWeekdays( time )` | Run the task only on weekdays at a specific time. |
-| `onMondays( time )` | Only on Mondays |
-| `onTuesdays( time )` | Only on Tuesdays |
-| `onWednesdays( time )` | Only on Wednesdays |
-| `onThursdays( time )` | Only on Thursdays |
-| `onFridays( time )` | Only on Fridays |
-| `onSaturdays( time )` | Only on Saturdays |
-| `onSundays( time )` | Only on Sundays |
+| Frequency Method                       | Description                                                                  |
+| -------------------------------------- | ---------------------------------------------------------------------------- |
+| `every( period, timeunit )`            | Run the task every custom period of execution                                |
+| `spacedDelay( spacedDelay, timeunit )` | Run the task every custom period of execution but with NO overlaps           |
+| `everyMinute()`                        | Run the task every minute from the time it get's scheduled                   |
+| `everyHour()`                          | Run the task every hour from the time it get's scheduled                     |
+| `everyHourAt( minutes )`               | Set the period to be hourly at a specific minute mark and 00 seconds         |
+| `everyDay()`                           | Run the task every day at midnight                                           |
+| `everyDayAt( time )`                   | Run the task daily with a specific time in 24 hour format: HH:mm             |
+| `everyWeek()`                          | Run the task every Sunday at midnight                                        |
+| `everyWeekOn( day, time )`             | Run the task weekly on the given day of the week and time                    |
+| `everyMonth()`                         | Run the task on the first day of every month at midnight                     |
+| `everyMonthOn( day, time )`            | Run the task every month on a specific day and time                          |
+| `onFirstBusinessDayOfTheMonth( time )` | Run the task on the first Monday of every month                              |
+| `onLastBusinessDayOfTheMonth( time )`  | Run the task on the last business day of the month                           |
+| `everyYear()`                          | Run the task on the first day of the year at midnight                        |
+| `everyYearOn( month, day, time )`      | Set the period to be weekly at a specific time at a specific day of the week |
+| `onWeekends( time )`                   | Run the task on Saturday and Sunday                                          |
+| `onWeekdays( time )`                   | Run the task only on weekdays at a specific time.                            |
+| `onMondays( time )`                    | Only on Mondays                                                              |
+| `onTuesdays( time )`                   | Only on Tuesdays                                                             |
+| `onWednesdays( time )`                 | Only on Wednesdays                                                           |
+| `onThursdays( time )`                  | Only on Thursdays                                                            |
+| `onFridays( time )`                    | Only on Fridays                                                              |
+| `onSaturdays( time )`                  | Only on Saturdays                                                            |
+| `onSundays( time )`                    | Only on Sundays                                                              |
 
 {% hint style="success" %}
-All `time` arguments are defaulted to midnight \(00:00\)
+All `time` arguments are defaulted to midnight (00:00)
 {% endhint %}
 
 ### Preventing Overlaps
@@ -356,7 +292,7 @@ The `delay` is numeric and the `timeUnit` can be:
 * hours
 * minutes
 * seconds
-* **milliseconds \(default\)**
+* **milliseconds (default)**
 * microseconds
 * nanoseconds
 
@@ -374,7 +310,7 @@ Please note that the `delay` pushes the execution of the task into the future on
 
 ### One Off Tasks
 
-A part from registering tasks that have specific intervals/frequencies you can also register tasks that can be executed **ONCE** **ONLY**.   These are great for warming up caches, registering yourself with control planes, setting up initial data collections and so much more. 
+A part from registering tasks that have specific intervals/frequencies you can also register tasks that can be executed **ONCE** **ONLY**.   These are great for warming up caches, registering yourself with control planes, setting up initial data collections and so much more.&#x20;
 
 Basically, you don't register a frequency just the callable event.  Usually, you can also combine them with a delay of execution, if you need them to fire off after certain amount of time has passed.
 
@@ -396,61 +332,12 @@ task( "register-container" )
 
 We already saw that a scheduler has life-cycle methods, but a task can also have several useful life-cycle methods:
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Method</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>after( target )</code>
-      </td>
-      <td style="text-align:left">
-        <p>Store the closure to execute after the task executes
-          <br />
-        </p>
-        <p><code>function( task, results )</code>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>before( target )</code>
-      </td>
-      <td style="text-align:left">
-        <p>Store the closure to execute before the task executes
-          <br />
-        </p>
-        <p><code>function( task )</code>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>onFailure( target )</code>
-      </td>
-      <td style="text-align:left">
-        <p>Store the closure to execute if there is a failure running the task
-          <br
-          />
-        </p>
-        <p><code>function( task, exception )</code>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>onSuccess( target )</code>
-      </td>
-      <td style="text-align:left">
-        <p>Store the closure to execute if the task completes successfully
-          <br />
-        </p>
-        <p><code>function( task, results )</code>
-        </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Method                | Description                                                                                                                   |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `after( target )`     | <p>Store the closure to execute after the task executes<br></p><p><code>function( task, results )</code></p>                  |
+| `before( target )`    | <p>Store the closure to execute before the task executes<br></p><p><code>function( task )</code></p>                          |
+| `onFailure( target )` | <p>Store the closure to execute if there is a failure running the task<br></p><p><code>function( task, exception )</code></p> |
+| `onSuccess( target )` | <p>Store the closure to execute if the task completes successfully<br></p><p><code>function( task, results )</code></p>       |
 
 ```javascript
 task( "testharness-Heartbeat" )
@@ -526,18 +413,18 @@ myTask.enable()
 
 All tasks keep track of themselves and have lovely metrics.  You can use the `getStats()` method to get a a snapshot `structure` of the stats in time.  Here is what you get in the stats structure:
 
-| Metric | Description |
-| :--- | :--- |
-| `created` | The timestamp of when the task was created in memory |
-| `inetHost` | The hostname of the machine this task is registered with |
-| `lastRun` | The last time the task ran |
-| `lastResult` | The last result the task callable produced |
-| `localIp` | The ip address of the server this task is registered with |
-| `neverRun` | A boolean flag indicating if the task has NEVER been ran |
-| `nextRun` | When the task will run next |
-| `totalFailures` | How many times the task has failed execution |
-| `totalRuns` | How many times the task has run |
-| `totalSuccess` | How many times the task has run and succeeded |
+| Metric          | Description                                               |
+| --------------- | --------------------------------------------------------- |
+| `created`       | The timestamp of when the task was created in memory      |
+| `inetHost`      | The hostname of the machine this task is registered with  |
+| `lastRun`       | The last time the task ran                                |
+| `lastResult`    | The last result the task callable produced                |
+| `localIp`       | The ip address of the server this task is registered with |
+| `neverRun`      | A boolean flag indicating if the task has NEVER been ran  |
+| `nextRun`       | When the task will run next                               |
+| `totalFailures` | How many times the task has failed execution              |
+| `totalRuns`     | How many times the task has run                           |
+| `totalSuccess`  | How many times the task has run and succeeded             |
 
 ```javascript
 /**
@@ -556,14 +443,14 @@ function afterAnyTask( required task, result ){
 
 We have created some useful methods that you can use when working with asynchronous tasks:
 
-| Method | Description |
-| :--- | :--- |
-| `err( var )` | Send output to the error stream |
-| `hasScheduler()` | Verifies if the task is assigned a scheduler or not |
-| `isDisabled()` | Verifies if the task has been disabled by bit |
-| `isConstrained()` | Verifies if the task has been constrained to run by weekends, weekdays, dayOfWeek, or dayOfMonth |
-| `out( var )` | Send output to the output stream |
-| `start()` | This kicks off the task into the scheduled executor manually. This method is called for you by the scheduler upon application startup or module loading. |
+| Method            | Description                                                                                                                                              |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `err( var )`      | Send output to the error stream                                                                                                                          |
+| `hasScheduler()`  | Verifies if the task is assigned a scheduler or not                                                                                                      |
+| `isDisabled()`    | Verifies if the task has been disabled by bit                                                                                                            |
+| `isConstrained()` | Verifies if the task has been constrained to run by weekends, weekdays, dayOfWeek, or dayOfMonth                                                         |
+| `out( var )`      | Send output to the output stream                                                                                                                         |
+| `start()`         | This kicks off the task into the scheduled executor manually. This method is called for you by the scheduler upon application startup or module loading. |
 
 ## Scheduled Executor Approach
 
@@ -625,11 +512,13 @@ As you can see, now we are in [Scheduling Tasks](scheduled-tasks.md#scheduling-t
 2. We call the `start()` method manually, whenever we want to send the task into scheduling
 3. We get a `ScheduledFuture` result object so we can track the results of the schedule.
 
-{% embed url="https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/async/tasks/ScheduledFuture.html" caption="ScheduledFuture API Docs" %}
+{% embed url="https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/async/tasks/ScheduledFuture.html" %}
+ScheduledFuture API Docs
+{% endembed %}
 
 ### Work Queues
 
-You can very easily create working queues in this approach by being able to send one-off tasks into the executors and forget about them.  Let's say we have an app that needs to do some image processing afte ran image has been uploaded.  We don't want to hold up \(block\) the calling thread with it, we upload, send the task for processing and return back their identifier for the operation. 
+You can very easily create working queues in this approach by being able to send one-off tasks into the executors and forget about them.  Let's say we have an app that needs to do some image processing afte ran image has been uploaded.  We don't want to hold up (block) the calling thread with it, we upload, send the task for processing and return back their identifier for the operation.&#x20;
 
 ```javascript
 ... Upload File.
@@ -645,4 +534,3 @@ executor.newSchedule( task : function(){
 {% hint style="info" %}
 Remember you can set how many threads you want in a executor.  It doesn't even have to be a scheduled executor, but could be a cached one which can expand and contract according to work loads.
 {% endhint %}
-

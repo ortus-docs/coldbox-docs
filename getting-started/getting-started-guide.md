@@ -4,7 +4,9 @@ The ColdBox HMVC Platform is the de-facto enterprise-level HMVC framework for CF
 
 This is a one-page introductory guide to ColdBox. If you are new to MVC or ColdBox, you can also leverage our [60 minute quick start guide](../for-newbies/60-minute-quick-start/) as well.
 
-{% embed url="https://www.youtube.com/watch?v=eD-Lz54jC\_E" caption="ColdBox Site Quickstart" %}
+{% embed url="https://www.youtube.com/watch?v=eD-Lz54jC_E" %}
+ColdBox Site Quickstart
+{% endembed %}
 
 ## Need Help
 
@@ -65,7 +67,7 @@ Here's a rundown of the important bits.
 * **config/Router.cfc** - Your application URL Router
 * **handlers** - Your controller layer, which in ColdBox they are called event handlers
 * **layouts** - Your HTML layouts
-* **models** - This holds your model CFCs 
+* **models** - This holds your model CFCs&#x20;
 * **modules** - This holds the CommandBox tracked modules
 * **modules\_app** - This holds your app's modules
 * **views** - Your HTML views will go here
@@ -84,7 +86,7 @@ In a few seconds, a browser window will appear with your running application. Th
 **Tip:** If you are creating an app to run on any other server than the commandbox server, you will need to manually set up URL rewriting. More info here: [/the-basics/routing/requirements](../the-basics/routing/requirements/)
 {% endhint %}
 
-![Default App Template](../.gitbook/assets/app_template.png)
+![Default App Template](../.gitbook/assets/app\_template.png)
 
 ## Take A Look Around
 
@@ -255,7 +257,7 @@ One final piece. Open up the default layout located in `layouts/Main.cfm` and fi
 <div class="container">#renderView()#</div>
 ```
 
-Now hit your `helloWorld` handler one final time with `?fwreinit=1` in the URL to see it all in action! \(Again, your port number will most likely be different.
+Now hit your `helloWorld` handler one final time with `?fwreinit=1` in the URL to see it all in action! (Again, your port number will most likely be different.
 
 > 127.0.0.1:43272/helloWorld?fwreinit=1
 
@@ -273,7 +275,6 @@ As easy as that was, you're just scratching the surface of what ColdBox can do f
 
 ### Getting Help
 
-If you run into issues or just have questions, please jump on our [Ortus Community](https://community.ortussolutions.com) and our [Slack team](http://boxteam.herokuapp.com/) and ask away.
+If you run into issues or just have questions, please jump on our [Ortus Community](https://community.ortussolutions.com) and our [Slack team](http://boxteam.herokuapp.com) and ask away.
 
 ColdBox is Professional Open Source under the Apache 2.0 license. We'd love to have your help with the product.
-
