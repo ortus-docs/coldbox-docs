@@ -5,6 +5,7 @@ Handler actions can return data back to its callers in different formats
 * Complex Data
 * HTML
 * Rendered Data via `event.renderData()`
+* Uniform Response Data
 
 ## Complex Data
 
@@ -78,9 +79,9 @@ function myData( event, rc, prc ){
 }
 ```
 
-## event.renderData\(\)
+## event.renderData()
 
-Using the `renderdata()` method of the **event** object is the most flexible for RESTFul web services or pure data marshaling. Out of the box ColdBox can marshall data \(structs, queries, arrays, complex or even ORM entities\) into the following output formats:
+Using the `renderdata()` method of the **event** object is the most flexible for RESTFul web services or pure data marshaling. Out of the box ColdBox can marshall data (structs, queries, arrays, complex or even ORM entities) into the following output formats:
 
 * XML
 * JSON
@@ -178,7 +179,7 @@ function pdf(event,rc,prc){
 }
 ```
 
-There is also a `pdfArgs` argument in the render data method that can take in a structure of name-value pairs that will be used in the `cfdocument` \([See docs](http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7c21.html)\) tag when generating the PDF. This is a great way to pass in arguments to really control the way PDF's are generated uniformly.
+There is also a `pdfArgs` argument in the render data method that can take in a structure of name-value pairs that will be used in the `cfdocument` ([See docs](http://help.adobe.com/en\_US/ColdFusion/9.0/CFMLRef/WSc3ff6d0ea77859461172e0811cbec22c24-7c21.html)) tag when generating the PDF. This is a great way to pass in arguments to really control the way PDF's are generated uniformly.
 
 ```javascript
 // from content and with pdfArgs
@@ -271,4 +272,3 @@ component accessors="true"{
 ```
 
 In this approach your `$renderdata()` function can be much more customizable than our internal serializers. Just remember to use the right contentType argument so the browser knows what to do with it.
-
