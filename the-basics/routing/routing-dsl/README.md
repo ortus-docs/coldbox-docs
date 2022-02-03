@@ -2,7 +2,7 @@
 
 The ColdBox Routing DSL will be used to register routes for your application, which exists in your application or module router object.  Routing takes place using several methods inside the router, which are divided into the following 3 categories:
 
-1. **Initiators** - Starts a URL **pattern** registration, but does not fully register the route until a terminator is called (**target**).
+1. **Initiators** - Starts a URL **pattern** registration, but does not fully register the route until a terminator is called \(**target**\).
 2. **Modifiers** - Modifies the pattern with extra metdata to listen to from the incoming request.
 3. **Terminators** - Finalizes the registration process usually by telling the router what happens when the route pattern is detected. This is refered to as the **target.**
 
@@ -16,13 +16,13 @@ Please remember to check out the latest [API Docs](http://apidocs.ortussolutions
 
 ### Initiators
 
-The following methods are used to initiate a route registration process.&#x20;
+The following methods are used to initiate a route registration process. 
 
 {% hint style="danger" %}
 Please note that a route will not register unless a terminator is called or the inline target terminator is passed.
 {% endhint %}
 
-* `route( pattern, [target], [name=arguments.pattern] )` - Register a new route with optional **target** terminators and a name
+* `route( pattern, [target], [name] )` - Register a new route with optional **target** terminators and a name
 * `get( pattern, [target], [name] )` - Register a new route with optional **target** terminators, a name and a GET http verb restriction
 * `post( pattern, [target], [name] )` - Register a new route with optional **target** terminators, a name and a POST http verb restriction
 * `put( pattern, [target], [name] )` - Register a new route with optional **target** terminators, a name and a PUT http verb restriction
@@ -58,11 +58,13 @@ Terminators finalize the routing process by registering the route in the Router.
 
 * `end()` - Register the route as it exists
 * `toAction( action )` - Send the route to a specific action or RESTFul action struct
-* `toView( view, layout, noLayout=false, viewModule, layoutModule )` - Send the route to a view/layout&#x20;
+* `toView( view, layout, noLayout=false, viewModule, layoutModule )` - Send the route to a view/layout 
 * `toRedirect( target, statusCode=301 )` - Relocate the route to another event
 * `to( event )` - Execute the event if the route matches
 * `toHandler( handler )` - Execute the handler if the route matches
 * `toResponse( body, statusCode=200, statusText="ok" )` - Inline response action
 * `toModuleRouting( module )` - Send to the module router for evaluation
 * `toNamespaceRouting( namespace )` - Send to the namespace router for evaluation
+
+
 

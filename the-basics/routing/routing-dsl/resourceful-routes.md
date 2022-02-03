@@ -30,17 +30,7 @@ router.resources( "photos" )
 
 This single resource declaration will create all the necessary variations of URL patterns and HTTP Verbs to actions to handle the resource. Please see the table below with all the permutations it will create for you.
 
-| Verb      | Route              | Event         | Purpose                                    |
-| --------- | ------------------ | ------------- | ------------------------------------------ |
-| GET       | `/photos`          | photos.index  | Get all photos                             |
-| GET       | `/photos/new`      | photos.new    | Return the HTML form for creating a photo  |
-| POST      | `/photos`          | photos.create | Create a photo                             |
-| GET       | `/photos/:id`      | photos.show   | Show a photo by `id`                       |
-| GET       | `/photos/:id/edit` | photos.edit   | Return the HTML form for editing the photo |
-| PUT/PATCH | `/photos/:id`      | photos.update | Update a photo by `id`                     |
-| DELETE    | `/photos/:id`      | photos.delete | Delete a photo by `id`                     |
-
-
+![Resources Table](../../../.gitbook/assets/resourceful_routes.PNG)
 
 For in-depth usage of the `resources()` method, let's investigate the API Signature:
 
@@ -83,21 +73,4 @@ We have created a scaffolding command in CommandBox to help you register and gen
 ```bash
 coldbox create resource help
 ```
-
-### API Routes
-
-If you are building mostly API routes and not full HTML app routes, you can use the shortcut method `apiResources()` method instead.  This method will work the same as above **BUT** it will exclude the `new` and `edit` actions for you since we are in API Land.
-
-```javascript
-apiResources( "users" );
-apiResources( "photos" );
-```
-
-| Verb      | Route         | Event         | Purpose                |
-| --------- | ------------- | ------------- | ---------------------- |
-| GET       | `/photos`     | photos.index  | Get all photos         |
-| POST      | `/photos`     | photos.create | Create a photo         |
-| GET       | `/photos/:id` | photos.show   | Show a photo by `id`   |
-| PUT/PATCH | `/photos/:id` | photos.update | Update a photo by `id` |
-| DELETE    | `/photos/:id` | photos.delete | Delete a photo by `id` |
 

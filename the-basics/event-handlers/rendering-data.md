@@ -1,11 +1,15 @@
 # Rendering Data
 
-Handler actions can return data back to its callers in different formats
+Handler actions can return data back to its callers in many different formats. Either to create RESTFul services, or just send data that's not HTML back to the user.  The different usages can be:
 
 * Complex Data
 * HTML
 * Rendered Data via `event.renderData()`
-* Uniform Response Data
+* [Uniform Response Data](../../digging-deeper/rest-handler.md#resthander-and-coldbox-response)
+
+{% hint style="success" %}
+The last option on the list is to support **native REST Applications** in ColdBox by leveraging the [REST Handler.](../../digging-deeper/rest-handler.md)
+{% endhint %}
 
 ## Complex Data
 

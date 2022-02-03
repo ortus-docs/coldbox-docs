@@ -1,6 +1,6 @@
 # Named Routes
 
-You can register routes in ColdBox with a human friendly name so you can reference them later for link generation and more. &#x20;
+You can register routes in ColdBox with a human friendly name so you can reference them later for link generation and more.  
 
 ### Registering Named Routes
 
@@ -9,14 +9,7 @@ You will do this in two forms:
 1. Using the `route()` method and the `name` argument
 2. Using the `as()` method
 
-{% hint style="info" %}
-If you do not pass the `name` argument to the `route()` method, we will use the `pattern` as the name of the route.
-{% endhint %}
-
 ```java
-// Using the pattern by convention
-route( pattern="/healthcheck" ).to( "healthcheck" );
-
 // Using the name argument
 route( 
     pattern = "/users/list", 
@@ -38,7 +31,7 @@ route( "/users/:id/profile" )
 
 ### Generating URLs to Named Routes
 
-You will generate URLs to named routes by leveraging the `route()` method in the request context object (**event**).
+You will generate URLs to named routes by leveraging the `route()` method in the request context object \(**event**\).
 
 ```javascript
 route(
@@ -78,15 +71,14 @@ Then we can create routing URLs to them easily with the `event.route()` method:
 
 <!-- Named Route with array params -->
 <a href="#event.route( 'userprofile', [ 3 ] )#">View User</a>
-
-<a href="#event.route( '/healthcheck' )#">Health check</a>
 ```
 
 ### **Inspecting The Current Route**
 
-The request context object (**event**) also has some handy methods to tell you the name or even the current route that was selected for execution:
+The request context object \(**event**\) also has some handy methods to tell you the name or even the current route that was selected for execution:
 
 * `getCurrentRouteName()` - Gives you the name of the current route, if any
 * `getCurrentRoute()` - Gives you the currently executed route
 * `getCurrentRoutedURL()` - Gives you the complete routed URL pattern that matched the route
 * `getCurrentRoutedNamespace()` - Gives you the current routed namespace, if any
+

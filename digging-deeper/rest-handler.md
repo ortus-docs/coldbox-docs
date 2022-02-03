@@ -1,4 +1,4 @@
-# REST handler
+# REST Handler
 
 ## RestHander & ColdBox Response
 
@@ -57,8 +57,8 @@ You will then leverage that response object to do the following actions:
 * Set response `headers`
 * Much More
 
-{% hint style="info" %}
-Upgrade notes: the response object will be accessible using the `event.getResponse()` method but will still be available as `prc.response.`
+{% hint style="success" %}
+**Upgrade Pointers:** The response object will be accessible using the `event.getResponse()` method but will still be available as `prc.response.`
 {% endhint %}
 
 {% hint style="info" %}
@@ -67,7 +67,7 @@ If you are using cbORM make sure to check the chapter [Automatic Rest Crud](http
 
 ### Base Rest Handler Actions
 
-The Rest handler gives you the following actions coded for you out of the box:
+The Rest handler gives you the following actions coded for you out of the box.  You can override them if you want, but the idea is that this base takes you a very long way.
 
 | **Core Actions**                               | **Purpose**                                                                                                                                                                                                                                                                                                                        |
 | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -113,15 +113,14 @@ The `aroundHandler()` is also smart in detecting the following outputs from a ha
 
 * `getResponse()`
   * Will get you the current `prc.response` object, if the object doesn’t exist, it will create it and set it for you
-  * The core response object can be found here: `coldbox.system.web.context.Response`
 
 ## Response Object
 
-The `Response` object is used by the developer to set into it what the response will be by the API call.  The object is located at `coldbox.system.web.context.Response`.  It also will respond to the user in a uniform format:
+The `Response` object is used by the developer to set into it what the response will be by the API call.  The object is located at `coldbox.system.web.context.Response`.&#x20;
 
 ### Response Format
 
-Every response is created from the internal properties in the following representation:
+Every response is created from the internal properties in the following JSON representation:
 
 ```javascript
 {
@@ -140,11 +139,189 @@ You can change this response by extending the response object.
 
 The `Response` object has the following properties you can use via their getters and setter methods.
 
-| Property   | Type     | Default                                                                                                 | Usage                                               |
-| ---------- | -------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| format     | `string` | `json`                                                                                                  | The response format of the API. Defaults to `json`. |
-| data       | `struct` | ---                                                                                                     | The data struct marshalled in the response          |
-| pagination | `struct` | <p><code>{</code> <br>offset,<br>maxRows,<br>page,<br>totalRecords,<br>totalPages<br><code>}</code></p> | A pagination struct to return                       |
+| Property        | Type      | Default                                                                                                                                                                  | Usage                                                                                                                                            |
+| --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| binary          | `boolean` | false                                                                                                                                                                    | If the `data` property is binary                                                                                                                 |
+| contentType     | `string`  | ---                                                                                                                                                                      | Custom content type of the response                                                                                                              |
+| data            | `struct`  | ---                                                                                                                                                                      | The data struct marshalled in the response                                                                                                       |
+| error           | `boolean` | false                                                                                                                                                                    | Boolean bit denoting an exception or problem in the API call                                                                                     |
+| format          | `string`  | `json`                                                                                                                                                                   | The response format of the API. Defaults to `json`.                                                                                              |
+| jsonCallback    | `string`  | ---                                                                                                                                                                      | If using a callback then set the callback method here.                                                                                           |
+| jsonQueryFormat | `string`  | `true`                                                                                                                                                                   | This parameter can be a Boolean value that specifies how to serialize ColdFusion queries or a string with possible values row, column, or struct |
+| location        | `string`  | ---                                                                                                                                                                      | The location header to send with the response                                                                                                    |
+|                 |           |                                                                                                                                                                          |                                                                                                                                                  |
+| messages        | `array`   | ---                                                                                                                                                                      | Array of messages to send in the response packet                                                                                                 |
+| pagination      | `struct`  | <p><code>{</code> <br><code>offset,</code><br><code>maxRows,</code><br><code>page,</code><br><code>totalRecords,</code><br><code>totalPages</code><br><code>}</code></p> | A pagination struct to return                                                                                                                    |
+| responseTime    | `numeric` | 0                                                                                                                                                                        | The time the request and response took                                                                                                           |
+| statusCode      | `numeric` | 200                                                                                                                                                                      | The status code to send                                                                                                                          |
+| statusText      | `string`  | `OK`                                                                                                                                                                     | The status text to send                                                                                                                          |
+
+### Convenience Methods
+
+A part from the setters/getters from the properties above, the response object has some cool convenience methods:
+
+```javascript
+/**
+ * Utility function to get the state of this object
+ */
+struct function getMemento()
+
+/**
+ * Add some messages to the response
+ *
+ * @message Array or string of message to incorporate
+ */
+Response function addMessage( required any message )
+
+/**
+ * Get all messages as a string
+ */
+string function getMessagesString()
+
+/**
+ * Add a header into the response
+ *
+ * @name  The header name ( e.g. "Content-Type" )
+ * @value The header value ( e.g. "application/json" )
+ */
+Response function addHeader( required string name, required string value )
+
+/**
+ * Set the pagination data
+ *
+ * @offset       The offset
+ * @maxRows      The max rows returned
+ * @page         The page number
+ * @totalRecords The total records found
+ * @totalPages   The total pages found
+ */
+Response function setPagination(
+	numeric offset       = 0,
+	numeric maxRows      = 0,
+	numeric page         = 1,
+	numeric totalRecords = 0,
+	numeric totalPages   = 1
+)
+
+/**
+ * Returns a standard response formatted data packet using the information in the response
+ *
+ * @reset Reset the 'data' element of the original data packet
+ */
+struct function getDataPacket( boolean reset = false )
+
+/**
+ * Sets the status code with a statusText for the API response
+ *
+ * @code The status code to be set
+ * @text The status text to be set
+ *
+ * @return Returns the Response object for chaining
+ */
+Response function setStatus( required code, text )
+
+/**
+ * Sets the data and pagination from a struct with `results` and `pagination`.
+ *
+ * @data          The struct containing both results and pagination.
+ * @resultsKey    The name of the key with the results.
+ * @paginationKey The name of the key with the pagination.
+ *
+ * @return Returns the Response object for chaining
+ */
+Response function setDataWithPagination(
+	data,
+	resultsKey    = "results",
+	paginationKey = "pagination"
+)
+
+/**
+ * Sets the error message with a code for the API response
+ *
+ * @errorMessage The error message to set
+ * @statusCode   The status code to set, if any
+ * @statusText   The status text to set, if any
+ *
+ * @return Returns the Response object for chaining
+ */
+Response function setErrorMessage(
+	required errorMessage,
+	statusCode,
+	statusText = ""
+)}
+```
+
+### Status Text Lookup
+
+The response object also has as `STATUS_TEXTS` public struct exposed so you can use it for easy status text lookups:
+
+```javascript
+this.STATUS_TEXTS = {
+    "100" : "Continue",
+    "101" : "Switching Protocols",
+    "102" : "Processing",
+    "200" : "OK",
+    "201" : "Created",
+    "202" : "Accepted",
+    "203" : "Non-authoritative Information",
+    "204" : "No Content",
+    "205" : "Reset Content",
+    "206" : "Partial Content",
+    "207" : "Multi-Status",
+    "208" : "Already Reported",
+    "226" : "IM Used",
+    "300" : "Multiple Choices",
+    "301" : "Moved Permanently",
+    "302" : "Found",
+    "303" : "See Other",
+    "304" : "Not Modified",
+    "305" : "Use Proxy",
+    "307" : "Temporary Redirect",
+    "308" : "Permanent Redirect",
+    "400" : "Bad Request",
+    "401" : "Unauthorized",
+    "402" : "Payment Required",
+    "403" : "Forbidden",
+    "404" : "Not Found",
+    "405" : "Method Not Allowed",
+    "406" : "Not Acceptable",
+    "407" : "Proxy Authentication Required",
+    "408" : "Request Timeout",
+    "409" : "Conflict",
+    "410" : "Gone",
+    "411" : "Length Required",
+    "412" : "Precondition Failed",
+    "413" : "Payload Too Large",
+    "414" : "Request-URI Too Long",
+    "415" : "Unsupported Media Type",
+    "416" : "Requested Range Not Satisfiable",
+    "417" : "Expectation Failed",
+    "418" : "I'm a teapot",
+    "421" : "Misdirected Request",
+    "422" : "Unprocessable Entity",
+    "423" : "Locked",
+    "424" : "Failed Dependency",
+    "426" : "Upgrade Required",
+    "428" : "Precondition Required",
+    "429" : "Too Many Requests",
+    "431" : "Request Header Fields Too Large",
+    "444" : "Connection Closed Without Response",
+    "451" : "Unavailable For Legal Reasons",
+    "499" : "Client Closed Request",
+    "500" : "Internal Server Error",
+    "501" : "Not Implemented",
+    "502" : "Bad Gateway",
+    "503" : "Service Unavailable",
+    "504" : "Gateway Timeout",
+    "505" : "HTTP Version Not Supported",
+    "506" : "Variant Also Negotiates",
+    "507" : "Insufficient Storage",
+    "508" : "Loop Detected",
+    "510" : "Not Extended",
+    "511" : "Network Authentication Required",
+    "599" : "Network Connect Timeout Error"
+};
+```
 
 ## Extending The **RestHandler**
 
