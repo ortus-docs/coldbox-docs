@@ -18,6 +18,12 @@ Here is a breakdown of what it contains:
 The `Application.cfc` for your tests is extremly important as it should mimic your applications real `Application.cfc`.
 
 ```javascript
+/**
+********************************************************************************
+Copyright 2005-2007 ColdBox Framework by Luis Majano and Ortus Solutions, Corp
+www.ortussolutions.com
+********************************************************************************
+*/
 component{
 
 	// APPLICATION CFC PROPERTIES
@@ -50,4 +56,3 @@ Please note that we provide already a mapping to your root application via `/roo
 {% hint style="success" %}
 **Tip:** Make sure all the same settings and configs from your root `Application.cfc` are replicated in your tests `Application.cfc`
 {% endhint %}
-

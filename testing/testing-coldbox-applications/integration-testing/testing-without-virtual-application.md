@@ -4,10 +4,9 @@ The `BaseTestCase` leverages an internal virtual ColdBox application so you can 
 
 ```javascript
 component extends="coldbox.system.testing.BaseTestCase"{
-		// Do not load the Virtual Application
-		this.loadColdBox = false;
+    // Do not load the Virtual Application
+    this.loadColdBox = false;
 }
 ```
 
 This is a great approach if you still want to leverage the base test case for unit testing but without loading the entire virtual application.
-
