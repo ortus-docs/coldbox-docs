@@ -31,7 +31,7 @@ coldbox = {
 
 Protect the reinitialization of the framework URL actions. For security, if this setting is omitted, we will create a random password. Setting it to an empty string will allow you to reinitialize without a password. **Always have a password set for public-facing sites.**
 
-```text
+```
 // reinit with no password
 http://localhost/?fwreinit=1
 // reinit with password
@@ -151,7 +151,7 @@ This is the event handler that will fire masking a non-existent event that gets 
 
 The relative path from the application's root level of where the custom error template exists. This template receives a key in the private request collection called `exception` that contains the exception. By default ColdBox does not show robust exceptions, you can turn on robust exceptions by choosing the following template:
 
-```text
+```
 coldbox.customErrorTemplate = "/coldbox/system/includes/BugReport.cfm";
 ```
 
@@ -172,35 +172,50 @@ coldbox = {
     // Case for implicit views
     caseSensitiveImplicitViews = true,
     // Auto register all model objects in the `models` folder into WireBox
-    autoMapModels     = true
+    autoMapModels     = true,
+    // Your very own session tracking identifier
+    identifierProvider = function(){
+        return my own session tracking id;
+    }
 }
 ```
-
-### **handlerCaching**
-
-This is useful to be set to false in development and true in production. This tells the framework to cache your event handler objects as singletons.
-
-### **eventCaching**
-
-This directive tells ColdBox that when events are executed they will be inspected for caching metadata. This does not mean that ALL events WILL be cached if this setting is turned on. It just activates the inspection mechanisms for whenever you annotate events for caching or using the `runEvent()` caching methods.
-
-### **viewCaching**
-
-This directive tells ColdBox that when views are rendered, the `cache=true` parameter will be obeyed. Turning on this setting will not cause any views to be cached unless you are also passing in the caching parameters to your `renderView()` or `event.setView()` calls.
-
-### **proxyReturnCollection**
-
-This is a boolean setting used when calling the ColdBox proxy's `process()` method from a Flex or SOAP/REST call. If this setting is set to **true**, the proxy will return back to the remote call the entire request collection structure ALWAYS! If set to **false**, it will return, whatever the event handler returned back. Our best practice is to always have this **false** and return appropriate data back.
-
-### **implicitViews**
-
-Allows you to use implicit views in your application and view dispatching. You can get a performance boost if you disable this setting.
-
-### **caseSensitiveImplicitViews**
-
-By default implicit views are case sensitive since ColdBox version 5.2.0, before this version the default was **false**.
 
 ### **autoMapModels**
 
 ColdBox by convention can talk to, use and inject models from the `models` folder by just using their name. On startup it will scan your entire `models` folder and will register all the discovered models. This setting is **true** by default.
 
+### **caseSensitiveImplicitViews**
+
+By default implicit views are case sensitive since ColdBox version 5.2.0, before this version the default was **false**.
+
+### **eventCaching**
+
+This directive tells ColdBox that when events are executed they will be inspected for caching metadata. This does not mean that ALL events WILL be cached if this setting is turned on. It just activates the inspection mechanisms for whenever you annotate events for caching or using the `runEvent()` caching methods.
+
+### **handlerCaching**
+
+This is useful to be set to false in development and true in production. This tells the framework to cache your event handler objects as singletons.
+
+### **implicitViews**
+
+Allows you to use implicit views in your application and view dispatching. You can get a performance boost if you disable this setting.
+
+### identifierProvider
+
+This setting allows you to configure a lambda/closure that will return back the user's request identifier according to your own algorithms.  This overrides the internal way ColdBox identifies requests incoming to the application which are used internally to track sessions, flash rams, etc.
+
+The discovery algorithm we use is the following:
+
+1. If we have an `identifierProvider` closure/lambda/udf, then call it and use the return value
+2. If we have sessions enabled, use the `jessionId` or session URL Token
+3. If we have cookies enabled, use the `cfid/cftoken`
+4. If we have in the URL the `cfid/cftoken`
+5. Create a request based tracking identifier: `cbUserTrackingId`
+
+### **proxyReturnCollection**
+
+This is a boolean setting used when calling the ColdBox proxy's `process()` method from a Flex or SOAP/REST call. If this setting is set to **true**, the proxy will return back to the remote call the entire request collection structure ALWAYS! If set to **false**, it will return, whatever the event handler returned back. Our best practice is to always have this **false** and return appropriate data back.
+
+### **viewCaching**
+
+This directive tells ColdBox that when views are rendered, the `cache=true` parameter will be obeyed. Turning on this setting will not cause any views to be cached unless you are also passing in the caching parameters to your `renderView()` or `event.setView()` calls.
