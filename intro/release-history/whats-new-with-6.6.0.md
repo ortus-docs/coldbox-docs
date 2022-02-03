@@ -6,6 +6,97 @@ description: January
 
 ## Major Updates
 
+### API Resourceful Routes
+
+We have created a shortcut approach to creating RESTFul API resources in your ColdBox Routers via the new method `apiResources()`.  This method will create all the routes for your API service with no HTML views.
+
+```javascript
+apiResources( "users" );
+apiResources( "photos" );
+```
+
+| Verb      | Route         | Event         | Purpose                |
+| --------- | ------------- | ------------- | ---------------------- |
+| GET       | `/photos`     | photos.index  | Get all photos         |
+| POST      | `/photos`     | photos.create | Create a photo         |
+| GET       | `/photos/:id` | photos.show   | Show a photo by `id`   |
+| PUT/PATCH | `/photos/:id` | photos.update | Update a photo by `id` |
+| DELETE    | `/photos/:id` | photos.delete | Delete a photo by `id` |
+
+### Module Enhancements
+
+We have made several enhancements with modules:
+
+* Performance optimizations when registering and activating modules
+* Modules now track their own registration and activation load times (Which are now visible in [cbdebugger](https://forgebox.io/view/cbdebugger))
+* Better logging of modules when they activate and register
+
+### Experimental New App Structure
+
+We have been working on a new directory structure for ColdBox applications where the web root is not just dumped with everything on it.  We have made several internal tickets to allow for this to work and we have a very early alpha available in github:
+
+{% embed url="https://github.com/coldbox-templates/modern" %}
+
+### Scheduler and Task Updates
+
+There are so many tickets that helped resolved issues with the ColdBox schedulers and scheduled tasks.  We have also solidifying our Adobe scope issues and brought many new helpers for developers when building task objects.
+
+### Integration Testing of Subdomain/Domain Routing
+
+If you are building multi-tenant applications with ColdBox and are leveraging [domain and subdomain routing](whats-new-with-6.6.0.md#undefined), then you can easily use the `domain` argument in all of our `request(), execute()` and HTTP Verb methods to simulate the domain in play for THAT specific spec execution.
+
+```javascript
+
+describe( "subdomain routing", function(){
+	beforeEach( function(){
+		setup();
+	} );
+	
+	it( "can match on a specific domain", function(){
+		var event = execute( route: "/", domain: "subdomain-routing.dev" );
+		var rc    = event.getCollection();
+		expect( rc ).toHaveKey( "event" );
+		expect( rc.event ).toBe( "subdomain.index" );
+	} );
+	
+	it( "skips if the domain is not matched", function(){
+		var event = execute( route: "/", domain: "not-the-correct-domain.dev" );
+		var rc    = event.getCollection();
+		expect( rc ).toHaveKey( "event" );
+		expect( rc.event ).toBe( "main.index" );
+	} );
+	
+	it( "can match on a domain with wildcards", function(){
+		var event = execute( route: "/", domain: "luis.forgebox.dev" );
+		var rc    = event.getCollection();
+		expect( rc ).toHaveKey( "event" );
+		expect( rc.event ).toBe( "subdomain.show" );
+	} );
+	
+	it( "provides any matched values in the domain in the rc", function(){
+		var event = execute( route: "/", domain: "luis.forgebox.dev" );
+		var rc    = event.getCollection();
+		expect( rc ).toHaveKey( "username" );
+		expect( rc.username ).toBe( "luis" );
+	} );
+} );
+```
+
+### Custom Session Identifiers
+
+ColdBox has always had its internal way of figuring out what identifier to use for each user's request based on the way ColdFusion works.  However, now you can influence and provide your own approach instead of relying on the core CFML approach.  You will do this by adding a `coldbox.identifierProvider` closure/lambda into your `config/Coldbox.cfc`.
+
+```javascript
+coldbox : {
+    identifierProvider : function(){
+        if( isNull( cookie.mytracker ) ){
+            cookie.myTracker = createUUID();
+        }
+        return cookie.myTracker;
+    }
+}
+```
+
 ### WireBox Child Injectors
 
 ![WireBox Injector Hierarchy](../../.gitbook/assets/image.png)
