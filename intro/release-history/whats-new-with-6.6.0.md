@@ -43,7 +43,7 @@ There are so many tickets that helped resolved issues with the ColdBox scheduler
 
 ### Integration Testing of Subdomain/Domain Routing
 
-If you are building multi-tenant applications with ColdBox and are leveraging [domain and subdomain routing](whats-new-with-6.6.0.md#undefined), then you can easily use the `domain` argument in all of our `request(), execute()` and HTTP Verb methods to simulate the domain in play for THAT specific spec execution.
+If you are building multi-tenant applications with ColdBox and are leveraging [domain and subdomain routing](https://coldbox.ortusbooks.com/the-basics/routing/routing-dsl/routing-methods#sub-domain-routing), then you can easily use the `domain` argument in all of our `request(), execute()` and HTTP Verb methods to simulate the domain in play for THAT specific spec execution.
 
 ```javascript
 
