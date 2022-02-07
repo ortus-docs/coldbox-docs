@@ -140,7 +140,7 @@ it( "can do a relocation", function() {
 
 ## Subdomain/Domain Routing
 
-If you are building multi-tenant applications with ColdBox and are leveraging [domain and subdomain routing](the-execute-method.md#undefined), then you can easily use the `domain` argument to simulate the domain in play for THAT specific spec execution.
+If you are building multi-tenant applications with ColdBox and are leveraging [domain and subdomain routing](https://coldbox.ortusbooks.com/the-basics/routing/routing-dsl/routing-methods#sub-domain-routing), then you can easily use the `domain` argument to simulate the domain in play for THAT specific spec execution.
 
 ```javascript
 
