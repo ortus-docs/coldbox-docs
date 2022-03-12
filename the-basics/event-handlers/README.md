@@ -83,7 +83,7 @@ function name( event, rc, prc )
 
 Each action receives three arguments:
 
-1. `event` - An object that models and is used to work with the current request
+1. `event` - An object that models and is used to work with the current request (otherwise known as the [Request Context](../request-context.md))
 2. `rc` - A struct that contains both `URL/FORM` variables \(unsafe data\)
 3. `prc` - A secondary struct that is **private**.  This structure is only accessible from within your application \(safe data\)
 
