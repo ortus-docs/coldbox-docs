@@ -1,6 +1,8 @@
 # Request Context
 
-On every request to a ColdBox event, the framework creates an object that models the incoming request. This object is called the **Request Context Object**(`coldbox.system.web.context.RequestContext`), it contains the incoming **FORM/REMOTE/URL** variables the client sent in and the object lives in the ColdFusion `request` scope and you will use to for responses and interacting with client data.
+On every request to a ColdBox event, the framework creates an object that models the incoming request. This object is called the **Request Context Object**. This object will be passed to an [Event Handler](./event-handlers) and will be processed by an [Action](./event-handlers) and is by convention called an **event**)
+
+Tt contains the incoming **FORM/REMOTE/URL** variables the client sent in and the object lives in the ColdFusion `request` scope and you will use to for responses and interacting with client data.
 
 {% hint style="info" %}
 Please visit the latest [API Docs](http://apidocs.ortussolutions.com/coldbox/current) for further information about the request context.
