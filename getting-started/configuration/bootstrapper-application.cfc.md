@@ -34,10 +34,12 @@ component{
     COLDBOX_CONFIG_FILE      = "";
     // COLDBOX APPLICATION KEY OVERRIDE
     COLDBOX_APP_KEY          = "";
+    // By default if an app is reiniting and a request hits it, we will fail fast with a message
+    COLDBOX_FAIL_FAST        = true;
 
     // application start
     public boolean function onApplicationStart(){
-        application.cbBootstrap = new coldbox.system.Bootstrap( COLDBOX_CONFIG_FILE, COLDBOX_APP_ROOT_PATH, COLDBOX_APP_KEY, COLDBOX_APP_MAPPING );
+        application.cbBootstrap = new coldbox.system.Bootstrap( COLDBOX_CONFIG_FILE, COLDBOX_APP_ROOT_PATH, COLDBOX_APP_KEY, COLDBOX_APP_MAPPING, COLDBOX_FAIL_FAST );
         application.cbBootstrap.loadColdbox();
         return true;
     }
@@ -86,6 +88,8 @@ component extends="coldbox.system.Bootstrap"{
     COLDBOX_CONFIG_FILE      = "";
     // COLDBOX APPLICATION KEY OVERRIDE
     COLDBOX_APP_KEY          = "";
+    // By default if an app is reiniting and a request hits it, we will fail fast with a message
+    COLDBOX_FAIL_FAST        = true;
 }
 ```
 {% endcode %}
@@ -100,6 +104,7 @@ You can set some variables in the `Application.cfc` that can alter Bootstrapping
 | `COLDBOX_APP_MAPPING` | `/` | The application mapping is ESSENTIAL when dealing with Flex or Remote \(SOAP\) applications. This is the location of the application from the root of the web root. So if your app is at the root, leave this setting blank. If your application is embedded in a sub-folder like MyApp, then this setting will be auto-calculated to `/MyApp`. |
 | `COLDBOX_CONFIG_FILE` | `config/ColdBox.cfc` | The absolute or relative path to the configuration CFC file to load. This bypasses the conventions and uses the configuration file of your choice. |
 | `COLDBOX_APP_KEY` | `cbController` | The name of the key the framework will store the application controller under in the application scope. |
+| `COLDBOX_FAIL_FAST` | `true` | By default if an app is reiniting and a request hits it, we will fail fast with a message. This can be a boolean indicator or a closure. |
 
 ### Lock Timeout
 
