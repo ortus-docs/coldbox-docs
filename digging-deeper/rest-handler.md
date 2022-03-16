@@ -1,25 +1,29 @@
 # REST Handler
 
-## RestHander & ColdBox Response
+## RestHandler & ColdBox Response
 
-Coldbox 6 has integrated a base handler and a response object into the core, so developers can have even more support when building RESTful services. This new rest handler will provide you with tons of utilities and approaches to make all of your RESTFul services:
+ColdBox 6 has integrated a base handler and a response object into the core, so developers can have even more support when building RESTful services. This new rest handler will provide you with tons of utilities and approaches to make all of your RESTFul services:
 
-* Uniform
-* Consistent
+* Uniformity on Responses
 * A consistent and extensible response object
 * Error handling
-* Invalid Route handling
+* Invalid route handling
+* Events
 * Much more
 
 {% hint style="info" %}
-In previous versions of ColdBox support for RESTful services was provided by adding base handler and the response object to our application templates. Integration into the core brings ease of use, faster handling and above all: a uniform approach for each ColdBox version in the future.
+In previous versions of ColdBox support for RESTful services was provided by adding the base handler and the response object to our application templates. Integration into the core brings ease of use, faster handling and above all: a uniform approach for each ColdBox version in the future.
 {% endhint %}
 
 ![RestHandler UML](../.gitbook/assets/resthandler.png)
 
 ## Base Class: RestHandler
 
-For creation of REST handlers you can inherit from our base class `coldbox.system.RestHandler`, directly via `extends="coldbox.system.Resthandler"` or our using the `restHandler` annotation.&#x20;
+For the creation of REST handlers you can inherit from our base class `coldbox.system.RestHandler`, directly via `extends="coldbox.system.Resthandler"` or our using the `restHandler` annotation.&#x20;
+
+{% embed url="https://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox%2Fsystem%2FRestHandler.html=" %}
+RestHandler API Docs
+{% endembed %}
 
 This will give you access to our enhanced API utilities and the native **response** object via the request context's `getResponse()` method.
 
@@ -42,9 +46,9 @@ component resthandler{
 }
 ```
 
-You will then leverage that response object to do the following actions:
+You will then leverage that response object ([https://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/Response.html](https://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/Response.html)) to do the following actions:
 
-* Set the data to be marshalled
+* Set the data to be converted to JSON, XML or whatever
 * Set pagination data
 * Set errors
 * Set if the data is binary or not
@@ -57,17 +61,21 @@ You will then leverage that response object to do the following actions:
 * Set response `headers`
 * Much More
 
+{% embed url="https://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox%2Fsystem%2Fweb%2Fcontext%2FResponse.html=" %}
+Response API Docs
+{% endembed %}
+
 {% hint style="success" %}
 **Upgrade Pointers:** The response object will be accessible using the `event.getResponse()` method but will still be available as `prc.response.`
 {% endhint %}
 
 {% hint style="info" %}
-If you are using cbORM make sure to check the chapter [Automatic Rest Crud](https://coldbox-orm.ortusbooks.com/orm-events/automatic-rest-crud)
+If you are using `cbORM` make sure to check the chapter [Automatic Rest Crud](https://coldbox-orm.ortusbooks.com/orm-events/automatic-rest-crud)
 {% endhint %}
 
 ### Base Rest Handler Actions
 
-The Rest handler gives you the following actions coded for you out of the box.  You can override them if you want, but the idea is that this base takes you a very long way.
+The Rest handler gives you the following **actions** coded for you out of the box.  You can override them if you want, but the idea is that this base takes you a very long way.
 
 | **Core Actions**                               | **Purpose**                                                                                                                                                                                                                                                                                                                        |
 | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -87,36 +95,54 @@ The Rest handler gives you the following actions coded for you out of the box.  
 
 The `aroundHandler`() provided in the `RestHandler` will intercept all rest calls in order to provide consistency and uniformity to all your actions. It will try/catch for major known exceptions, time your requests, add extra output on development and much more. Here are a list of the features available to you:
 
-* Exception Handling
-  * Automatic trapping of the following exceptions: `InvalidCredentials, ValidationException, EntityNotFound, RecordNotFound`
-  * Automatic trapping of other exceptions to the `onAnyOtherException()` action
-  * Logging automatically the exception with extra restful metadata
-  * If in a `development` environment it will respond with much more information necessary for debugging both in the response object and headers
-* Development Responses
-  * If you are in a `development` environment it will set the following headers for you:
-    * `x-current-route`
-    * `x-current-routed-url`
-    * `x-current-routed-namespace`
-    * `x-current-event`
-* Global Headers
-  * The following headers are sent in each request
-    * `x-response-time` : The time the request took in CF
-    * `x-cached-response` : If the request is cached via event caching
+#### Exception Handling
 
-The `aroundHandler()` is also smart in detecting the following outputs from a handler:
+Automatic trapping of the following exceptions:&#x20;
+
+* `EntityNotFound`
+* `InvalidCredentials`
+* `PermissionDenied`
+* `RecordNotFound`
+* `TokenInvalidException`
+* `ValidationException`
+
+If the trapped exception is not one from above, then we will call the  `onAnyOtherException()` action.  This action will log automatically the exception with extra restful metadata according to the environment you are executing the action with.  It will also setup an exception response for you.
+
+{% hint style="info" %}
+If in a `development` environment it will respond with much more information necessary for debugging both in the response object and headers
+{% endhint %}
+
+#### Development Responses
+
+If you are in a `development` environment it will set the following headers for you in the response object automatically.
+
+* `x-current-event`
+* `x-current-route`
+* `x-current-routed-url`
+* `x-current-routed-namespace`
+
+#### Global Headers
+
+The following headers are sent in each request no matter the environment:
+
+* `x-response-time` : The time the request took in CF
+* `x-cached-response` : If the request is cached via event caching
+
+#### Output Detection
+
+The `aroundHandler()` is also smart in detecting the following outputs from a handler, which will ignore the REST response object:
 
 * Handler `return` results
 * Setting a view or layout to render
 * Explicit `renderData()` calls
 
-### Request Context Additions
-
-* `getResponse()`
-  * Will get you the current `prc.response` object, if the object doesn’t exist, it will create it and set it for you
-
 ## Response Object
 
-The `Response` object is used by the developer to set into it what the response will be by the API call.  The object is located at `coldbox.system.web.context.Response`.&#x20;
+The `Response` object is used by the developer to set into it what the response will be by the API call.  The object is located at `coldbox.system.web.context.Response` and can be retrieved by the request context object's `getResponse()` method.
+
+{% embed url="https://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox%2Fsystem%2Fweb%2Fcontext%2FResponse.html=" %}
+Response API Docs
+{% endembed %}
 
 ### Response Format
 
@@ -132,7 +158,7 @@ Every response is created from the internal properties in the following JSON rep
 ```
 
 {% hint style="success" %}
-You can change this response by extending the response object.
+You can change this response by extending the response object and doing whatever you want.
 {% endhint %}
 
 ### Properties
