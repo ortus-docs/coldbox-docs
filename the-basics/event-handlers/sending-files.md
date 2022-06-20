@@ -18,7 +18,7 @@ function report( event, rc, prc ){
 
 ### Method Signature
 
-The API Docs can help you see the entire format of the method: [https://apidocs.ortussolutions.com/coldbox/5.1.4/coldbox/system/web/context/RequestContext.html#sendFile()](https://apidocs.ortussolutions.com/coldbox/5.1.4/coldbox/system/web/context/RequestContext.html#sendFile\(\))
+The API Docs can help you see the entire format of the method: [https://apidocs.ortussolutions.com/coldbox/6.6.1/coldbox/system/web/context/RequestContext.html#sendFile()](https://apidocs.ortussolutions.com/coldbox/6.6.1/coldbox/system/web/context/RequestContext.html#sendFile\(\))
 
 The method signature is as follows:
 
