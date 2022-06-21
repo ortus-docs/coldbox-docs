@@ -1,5 +1,5 @@
 ---
-description: February 17, 202
+description: February 17, 2022
 ---
 
 # What's New With 6.6.1
