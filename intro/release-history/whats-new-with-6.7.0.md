@@ -6,7 +6,149 @@ description: June 2022
 
 ## Major Updates
 
-###
+Here is a listing of all the major updates and improvements in this version.
+
+### Event Caching HTTP Response Codes
+
+![](https://cdn0.iconfinder.com/data/icons/thin-line-icons-for-seo-and-development-1/64/Programming\_Development\_Api-128.png)
+
+Event caching has been updated to allow the caching of the set http response code from your handler code.  This is essential from a developer's perspective as it will respect whatever response code you respond with.  This is also imperative for RESTFul services.
+
+### Scheduled Tasks Exception Handling
+
+![](https://cdn2.iconfinder.com/data/icons/mobile-smart-phone/64/search\_error\_inspect\_phone\_ios11\_iphone-128.png)
+
+All scheduled tasks have automatic exception handling now.  Before, whenever you had exceptions and you did NOT implement any of the exception handling listeners, your code would be swallowed up and never to be seen!  Now, we avoid this and log them to standard error so you can debug your code.
+
+In the previous version, if you had an exception your `afterAnyTask()` or the `after()` life cycle methods would never be called. Now they are!! Hooray!!
+
+### ColdBox Schedulers Automatic Injection
+
+![](https://cdn1.iconfinder.com/data/icons/carbon-design-system-vol-3/32/column-dependency-128.png)
+
+All schedulers will have the following automatic injections so you can have ease of use for leveraging objects and contexts during your task declarations and runnables.
+
+
+
+| **Property**          | **Description**                                                                                               |
+| --------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `controller`          | The ColdBox running app controller                                                                            |
+| `cachebox`            | The CacheBox reference                                                                                        |
+| `wirebox`             | The WireBox reference                                                                                         |
+| `log`                 | A configured LogBox logger                                                                                    |
+| `coldboxVersion`      | The ColdBox version you are running                                                                           |
+| `appMapping`          | The ColdBox app mapping                                                                                       |
+| `getJavaSystem()`     | Function to get access to the java system                                                                     |
+| `getSystemSetting()`  | Retrieve a Java System property or env value by name. It looks at properties first then environment variables |
+| g`etSystemProperty()` | Retrieve a Java System property value by key                                                                  |
+| `getEnv()`            | Retrieve a Java System environment value by name                                                              |
+
+
+
+All module schedulers will have the following extra automatic injections:
+
+
+
+| **Property**     | **Description**                 |
+| ---------------- | ------------------------------- |
+| `moduleMapping`  | The module’s mapping            |
+| `modulePath`     | The module’s path on disk       |
+| `moduleSettings` | The module’s settings structure |
+
+
+
+### xTask() - Easy Disabling of Tasks
+
+![](https://cdn2.iconfinder.com/data/icons/user-interface-essential-solid/32/Artboard\_57-128.png)
+
+Thanks to the inspiration of [TestBox](https://testbox.ortusbooks.com/) where you can mark a spec or test to be skipped from execution by prefixing it with the letter `x` you can now do the same for any task declaration.  If they are prefixed with the letter `x` they will be registered but **disabled** automatically for you.
+
+```javascript
+function configure(){
+
+	xtask( "Disabled Task" )
+		.call ( function(){
+			writeDump( var="Disabled", output="console" );
+		})
+		.every( 1, "second" );
+
+	task( "Scope Test" )
+		.call( function(){
+			writeDump( var="****************************************************************************", output="console" );
+			writeDump( var="Scope Test (application) -> #getThreadName()# #application.keyList()#", output="console" );
+			writeDump( var="Scope Test (server) -> #getThreadName()# #server.keyList()#", output="console" );
+			writeDump( var="Scope Test (cgi) -> #getThreadName()# #cgi.keyList()#", output="console" );
+			writeDump( var="Scope Test (url) -> #getThreadName()# #url.keyList()#", output="console" );
+			writeDump( var="Scope Test (form) -> #getThreadName()# #form.keyList()#", output="console" );
+			writeDump( var="Scope Test (request) -> #getThreadName()# #request.keyList()#", output="console" );
+			writeDump( var="Scope Test (variables) -> #getThreadName()# #variables.keyList()#", output="console" );
+			writeDump( var="****************************************************************************", output="console" );
+		} )
+		.every( 60, "seconds" )
+		.onFailure( function( task, exception ){
+			writeDump( var='====> Scope test failed (#getThreadName()#)!! #exception.message# #exception.stacktrace.left( 500 )#', output="console" );
+		} );
+		
+}
+```
+
+### Scheduled Tasks Singular Time Units
+
+![](https://cdn3.iconfinder.com/data/icons/essential-pack-2/48/16-Time-128.png)
+
+Every time unit can now be used as plural or singular, so it can allow you to create beautiful scheduled task DSLs:
+
+```json
+// Before
+task( "my-task" )
+	.call( () => {} )
+	.every( 1, 'hours' );
+
+// Which sounds weird when you read it. So now you can use singular
+
+task( "my-task" )
+	.call( () => {} )
+	.every( 1, 'hour' );
+```
+
+#### Available Time Units
+
+* Nanosecond(s)
+* Microsecond(s)
+* Millisecond(s)
+* Second(s)
+* Minute(s)
+* Hour(s)
+* Day(s)
+
+### Safe Shutdown of Executors and Schedulers
+
+![](https://cdn0.iconfinder.com/data/icons/car-seat-belt-and-airbag/205/seatbelt-008-128.png)
+
+All executors and schedulers can now be shutdown more gracefully by passing a `timeout` argument to the async manager and automatically by the framework. This will allow the executor to shutdown and gracefully yell at it's tasks to shutdown in a default period of 30 seconds.  It will wait and then try again, if not, then well, you can't directly kill anything anymore, so you will be notified so you can do harsher punishments to these tasks.
+
+The only exception this is **NOT** the case in a normal ColdBox app is when a reinit happens or when integration testing is being executed.  Then we revert to the previous behavior of nuking the executors and schedulers.
+
+**AsyncManager**
+
+* `shutdownAllExecutors( force, timeout )`
+* `shutdownExecutor( name, force, timeout)`
+
+**The timeout ONLY works when the `force` argument is false.  If `force` is true, then it's NOT gracefully shutdown. This usually happens on ColdBox reinits or integration testing.**
+
+****
+
+**Schedulers**
+
+All schedulers have a `shutdownTimeout` property that defaults to 30 seconds.  When you configure your schedulers you can change this value to whatever you see fit.
+
+### ORM Event Handling
+
+This was a rough regression due to the way Hibernate is loaded by the CFML engines.  We have moved to a lazy load first strategy on the entire architecture of the framework.  So anything using the ColdBox proxy, like the ORM event handling, will now work in any loading situation.
+
+
+
+
 
 ## Release Notes
 
