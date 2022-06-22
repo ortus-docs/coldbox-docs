@@ -1,5 +1,5 @@
 ---
-description: June 2022
+description: June 21, 2022
 ---
 
 # What's New With 6.7.0
@@ -12,21 +12,29 @@ Here is a listing of all the major updates and improvements in this version.
 
 ![](https://cdn0.iconfinder.com/data/icons/thin-line-icons-for-seo-and-development-1/64/Programming\_Development\_Api-128.png)
 
-Event caching has been updated to allow the caching of the set http response code from your handler code.  This is essential from a developer's perspective as it will respect whatever response code you respond with.  This is also imperative for RESTFul services.
+Event caching has been updated to allow the caching of the set http response code from your handler code via `event.setHTTPHeader()` or `event.renderData()` .  This is essential from a developer's perspective as it will respect whatever response code you respond with.  This is also imperative for RESTFul services.
+
+```javascript
+function data( event, rc, prc ) cache=true cacheTimeout=5{
+    
+    event.setHTTPHeader( statusCode = 404 );
+
+}
+```
 
 ### Scheduled Tasks Exception Handling
 
 ![](https://cdn2.iconfinder.com/data/icons/mobile-smart-phone/64/search\_error\_inspect\_phone\_ios11\_iphone-128.png)
 
-All scheduled tasks have automatic exception handling now.  Before, whenever you had exceptions and you did NOT implement any of the exception handling listeners, your code would be swallowed up and never to be seen!  Now, we avoid this and log them to standard error so you can debug your code.
+All scheduled tasks have automatic exception handling now.  Before, whenever you had exceptions and you did **NOT** implement any of the exception handling listeners, your code would be swallowed up and never to be seen!  Now, we avoid this and log them to standard error so you can debug your code.
 
-In the previous version, if you had an exception your `afterAnyTask()` or the `after()` life cycle methods would never be called. Now they are!! Hooray!!
+Also, in the previous version, if you had an exception your `afterAnyTask()` or the `after()` life cycle methods would never be called. Now they are!! Hooray!!
 
 ### ColdBox Schedulers Automatic Injection
 
 ![](https://cdn1.iconfinder.com/data/icons/carbon-design-system-vol-3/32/column-dependency-128.png)
 
-All schedulers will have the following automatic injections so you can have ease of use for leveraging objects and contexts during your task declarations and runnables.
+All ColdBox enabled schedulers will have the following automatic injections so you can have ease of use for leveraging objects and contexts during your task declarations and executables.
 
 
 
@@ -45,7 +53,7 @@ All schedulers will have the following automatic injections so you can have ease
 
 
 
-All module schedulers will have the following extra automatic injections:
+All **module schedulers** will have the following extra automatic injections:
 
 
 
@@ -142,7 +150,53 @@ The only exception this is **NOT** the case in a normal ColdBox app is when a re
 
 All schedulers have a `shutdownTimeout` property that defaults to 30 seconds.  When you configure your schedulers you can change this value to whatever you see fit.
 
+```javascript
+function configure(){
+    
+    // Set shutdown timeout to 60 seconds
+    setShutdownTimeout( 60 );
+
+}
+```
+
+
+
+**Executors - shutdown and wait...**
+
+All executors now have a new method: `shutdownAndAwaitTermination( numeric timeout = 30 )` which is used to do just that. It places the executor in shutdown mode and waits the timeout for all the tasks to complete. If they don't complete then it issues a forced shutdown.
+
+### forAttribute() - Integrate with JS Frameworks Easily
+
+![Vue.JS, Alpine, React, Angular, etc.](https://cdn3.iconfinder.com/data/icons/fluent-regular-24px-vol-4/24/ic\_fluent\_javascript\_24\_regular-128.png)
+
+All handlers/layouts and views get a new function called `forAttribute( data )`which will allow you to serialize simple or complex data so it can be used within HTML attributes.  This will take care of serialize the data and encoding it correctly so it can be bound to the HTML attribute so the JavaScript framework can use it as native JSON.
+
+```html
+<div>
+    <User :data="#forAttribute( prc.user.getMemento() )#">
+</div>
+```
+
+This technique will allow you to bridge your CFML apps with your JS apps natively.
+
+### Async Interceptors Data
+
+![](https://cdn4.iconfinder.com/data/icons/essential-app-1/16/cluster-data-group-organize-128.png)
+
+Finally in this version of ColdBox asynchronous interceptors will work with any complex data without any thread contingency or duplication.  You can even use them for ORM events and it will work accordingly.  So go for it, [asynchronize](../../the-basics/interceptors/interceptor-asynchronicity/) your interception calls!
+
+```javascript
+threadData = announce(
+    state           = "onPageCreate", 
+    data            = { page= local.page }, 
+    asyncAll        = true,
+    asyncPriority   = "high"
+);
+```
+
 ### ORM Event Handling
+
+![Server, proxy](https://cdn1.iconfinder.com/data/icons/carbon-design-system-vol-7/32/server--proxy-128.png)
 
 This was a rough regression due to the way Hibernate is loaded by the CFML engines.  We have moved to a lazy load first strategy on the entire architecture of the framework.  So anything using the ColdBox proxy, like the ORM event handling, will now work in any loading situation.
 
