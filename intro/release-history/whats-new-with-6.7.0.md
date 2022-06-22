@@ -22,6 +22,14 @@ function data( event, rc, prc ) cache=true cacheTimeout=5{
 }
 ```
 
+### WireBox Performance, Performance and More Performance
+
+![Performance, stopwatch, timer, speed, time, time management](https://cdn2.iconfinder.com/data/icons/thin-line-icons-for-seo-and-development-1/64/SEO\_stopwatch\_timer\_performance-128.png)
+
+This release brings in a complete re-architecture of the creation, inspection and wiring of objects in WireBox in order to increase performance.  Every single line of code was optimized and analyzed in order to bring the creation, inspection and wiring of objects to its maximum speed.  This will be noted more on the creation of transient (non-persisted) objects more than in singleton objects.  So if you are asking WireBox for transient objects, you will see and feel the difference.
+
+In some of our performance testing we had about 4000 object instantiations running between 500ms-1,100 ms depending on CPU load. While with simple `createObject()`  and no wiring, they click around 400-700 ms.  Previously, we had the same instantiations clocking at 900-3,500 ms.  So we can definitely see a major improvement in this area.
+
 ### Scheduled Tasks Exception Handling
 
 ![](https://cdn2.iconfinder.com/data/icons/mobile-smart-phone/64/search\_error\_inspect\_phone\_ios11\_iphone-128.png)
@@ -64,6 +72,25 @@ All **module schedulers** will have the following extra automatic injections:
 | `moduleSettings` | The module’s settings structure |
 
 
+
+### Scheduled Tasks Start and End Dates
+
+![Calendar, date, event, month](https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/calendar-128.png)
+
+All scheduled tasks now support the ability to seed in the start and end dates via our DSL:
+
+* `startOn( date, time = "00:00" )`
+* `endOn( data, time = "00:00" )`
+
+This means that you can tell the scheduler when the task will become active on a specific data and time (using the scheduler's timezone), and when the task will become disabled.
+
+```javascript
+task( "restricted-task" )
+  .call( () => ... )
+  .everyHour()
+  .startOn( "2022-01-01", "00:00" )
+  .endOn( "2022-04-01" )
+```
 
 ### xTask() - Easy Disabling of Tasks
 
