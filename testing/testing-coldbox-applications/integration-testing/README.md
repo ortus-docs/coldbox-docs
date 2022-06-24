@@ -6,7 +6,7 @@ We will begin our adventure with integration testing. Integration testing allows
 
 ### Basics
 
-![](<../../../.gitbook/assets/handlertotestrelationship (1).png>)
+![](../../../.gitbook/assets/handlertotestrelationship.png)
 
 Here are the basics to follow for integration testing:
 

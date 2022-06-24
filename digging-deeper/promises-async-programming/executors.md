@@ -1,10 +1,10 @@
 # Executors
 
-The ColdBox AsyncManager will allow you to register and manage different types of executors that can execute your very own tasks! Each executor acts as a singleton and can be configured uniquely. \(See: [https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html)\)
+The ColdBox AsyncManager will allow you to register and manage different types of executors that can execute your very own tasks! Each executor acts as a singleton and can be configured uniquely. (See: [https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html))
 
 You can also create executors on the fly so your async futures can use them as well for ONLY that execution stage.
 
-> Nice video explaining the Java Executor Service: [https://www.youtube.com/watch?v=6Oo-9Can3H8&t=2s](https://www.youtube.com/watch?v=6Oo-9Can3H8&t=2s)
+> Nice video explaining the Java Executor Service: [https://www.youtube.com/watch?v=6Oo-9Can3H8\&t=2s](https://www.youtube.com/watch?v=6Oo-9Can3H8\&t=2s)
 
 ### Executor Types
 
@@ -12,9 +12,9 @@ The types that we currently support are:
 
 * `fixed` : By default it will build one with **20** threads on it. Great for multiple task execution and worker processing.
 
-![Fixed Thread](../../.gitbook/assets/fixedexecutor%20%281%29.png)
+![Fixed Thread](<../../.gitbook/assets/fixedexecutor (1) (1).png>)
 
-* `single` : A great way to control that submitted tasks will execute in the order of submission much like a FIFO queue \(First In First Out\).
+* `single` : A great way to control that submitted tasks will execute in the order of submission much like a FIFO queue (First In First Out).
 
 ![Single Thread](../../.gitbook/assets/singlethreadexecutor.png)
 
@@ -39,7 +39,7 @@ Here are the methods you can use for registering and managing singleton executor
 * `getExecutor()` : Get a registered executor registerd in this async manager
 * `getExecutorNames()` : Get the array of registered executors in the system
 * `hasExecutor()` : Verify if an executor exists
-* `deleteExecutor()` : Delete an executor from the registry, if the executor has not shutdown, it will shutdown the executor for you using the shutdownNow\(\) event
+* `deleteExecutor()` : Delete an executor from the registry, if the executor has not shutdown, it will shutdown the executor for you using the shutdownNow() event
 * `shutdownExecutor()` : Shutdown an executor or force it to shutdown, you can also do this from the Executor themselves. If an un-registered executor name is passed, it will ignore it
 * `shutdownAllExecutors()` : Shutdown all registered executors in the system
 * `getExecutorStatusMap()` : Returns a structure of status maps for every registered executor in the manager. This is composed of tons of stats about the executor.
@@ -297,4 +297,3 @@ property name="taskScheduler" inject="executor";
 // Inject the `coldbox-tasks` as `taskScheduler`
 property name="taskScheduler" inject="executor:coldbox-tasks";
 ```
-

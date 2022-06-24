@@ -1,8 +1,8 @@
 # Adding A Model
 
-![](../../.gitbook/assets/mvc%20%281%29.png)
+![](<../../.gitbook/assets/mvc (1).png>)
 
-Let's complete our saga into MVC by developing the **M**, which stands for [model](https://en.wikipedia.org/wiki/Domain_model). This layer is all your business logic, queries, external dependencies, etc. of your application, which represents the problem to solve or the domain to solve.
+Let's complete our saga into MVC by developing the **M**, which stands for [model](https://en.wikipedia.org/wiki/Domain\_model). This layer is all your business logic, queries, external dependencies, etc. of your application, which represents the problem to solve or the domain to solve.
 
 ## WireBox
 
@@ -147,14 +147,13 @@ Open the `contacts/index.cfm` and add the following to the view:
 ```
 
 {% hint style="warning" %}
-Note: If your models are `singletons`, they will persist for the life-span of your ColdFusion application. To see code changes for singletons, you have to reinit the framework by using the `?fwreinit={password}` Url action or via CommandBox using `coldbox reinit`. Please check out the API Docs to discover CommandBox: \[[https://apidocs.ortussolutions.com/commandbox/5.2.0/index.html](https://apidocs.ortussolutions.com/commandbox/5.2.0/index.html)\]
+Note: If your models are `singletons`, they will persist for the life-span of your ColdFusion application. To see code changes for singletons, you have to reinit the framework by using the `?fwreinit={password}` Url action or via CommandBox using `coldbox reinit`. Please check out the API Docs to discover CommandBox: \[[https://apidocs.ortussolutions.com/commandbox/5.2.0/index.html](https://apidocs.ortussolutions.com/commandbox/5.2.0/index.html)]
 {% endhint %}
 
 That's it! Execute the event: `http://localhost:{port}/contacts/index` and view the nice table of contacts being presented to you.
 
 Congratulations, you have made a complete **MVC** circle!
 
-![](../../.gitbook/assets/request-lifecycle%20%281%29%20%281%29.png)
+![](<../../.gitbook/assets/request-lifecycle (1) (1) (1).png>)
 
 > **Tip** You can find much more information about models and dependency injection in our [full docs](https://coldbox.ortusbooks.com/the-basics/models)
-

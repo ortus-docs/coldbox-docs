@@ -1,12 +1,12 @@
 ---
-description: 'ColdBox Promises, Executors, Async programming and Parallel Computations'
+description: ColdBox Promises, Executors, Async programming and Parallel Computations
 ---
 
 # Async Programming
 
 ## Introduction
 
-ColdBox 6 introduces the concept of asynchronous and parallel programming using Futures and Executors for ColdFusion \(CFML\). We leverage the entire arsenal in the [JDK](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/package-summary.html) to bring you a wide array of features for your applications. From the ability to create asynchronous pipelines, to parallel work loads, work queues, and scheduled tasks.
+ColdBox 6 introduces the concept of asynchronous and parallel programming using Futures and Executors for ColdFusion (CFML). We leverage the entire arsenal in the [JDK](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/package-summary.html) to bring you a wide array of features for your applications. From the ability to create asynchronous pipelines, to parallel work loads, work queues, and scheduled tasks.
 
 {% hint style="danger" %}
 **YOU DON'T NEED COLDBOX TO RUN ANY SCHEDULED TASKS OR ANY FEATURES OF THE ASYNC PACKAGE. YOU CAN USE ANY OF THE STANDALONE LIBRARIES BY USING CACHEBOX, WIREBOX OR LOGBOX STANDALONE.**
@@ -14,7 +14,7 @@ ColdBox 6 introduces the concept of asynchronous and parallel programming using 
 
 ![](../../.gitbook/assets/async-programming.png)
 
-Our async package `coldbox.system.async` is also available for all the standalone libraries: WireBox, CacheBox, and LogBox. This means that you can use the async capabilities in **ANY** ColdFusion \(CFML\) application, not only ColdBox HMVC applications.
+Our async package `coldbox.system.async` is also available for all the standalone libraries: WireBox, CacheBox, and LogBox. This means that you can use the async capabilities in **ANY** ColdFusion (CFML) application, not only ColdBox HMVC applications.
 
 {% hint style="success" %}
 We leverage Java `Executors`, `CompletableFutures` and much more classes from the concurrent packages in the JDK: [https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/package-summary.html](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/package-summary.html)
@@ -114,7 +114,7 @@ ColdFusion 2018 and Lucee 5 both have introduced the concept of async programmin
 
 * Backed by a custom wrapper to `java.util.concurrent.Future` and not Completable Futures
 * Simplistic error handler with no way to recover or continue executing pipelines after an exception
-* No way to choose or reuse the executor to run the initial task in 
+* No way to choose or reuse the executor to run the initial task in&#x20;
 * No way to choose or reuse the executor to run the sub-sequent `then()` operations.  Lucee actually creates a new `singleThreadExecutor()` for EVERY `then()` operation.
 * No way to operate on multiple futures at once
 * No way to have one future win against multiple future operations
@@ -130,7 +130,7 @@ ColdFusion 2018 and Lucee 5 both have introduced the concept of async programmin
 
 All of our futures execute in the server's common `ForkJoin` pool the JDK provides. However, the JDK since version 8 provides you a framework for simplifying the execution of asynchronous tasks. It can automatically provide you with a pool of threads and a simple API for assigning tasks or work loads to them. We have bridged the gap between Java and ColdFusion and now allow you to leverage all the functionality of the framework in your applications. You can create many types of executors and customized thread pools, so your work loads can use them.
 
-![Fixed Thread Pool Executor](../../.gitbook/assets/fixedexecutor%20%281%29%20%281%29.png)
+![Fixed Thread Pool Executor](<../../.gitbook/assets/fixedexecutor (1).png>)
 
 Some resources:
 
@@ -156,5 +156,4 @@ function index( event, rc, prc ){
 }
 ```
 
-### 
-
+###

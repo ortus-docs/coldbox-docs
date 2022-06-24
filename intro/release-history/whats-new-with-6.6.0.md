@@ -1,5 +1,5 @@
 ---
-description: January
+description: February 02, 2022
 ---
 
 # What's New With 6.6.0
@@ -8,7 +8,7 @@ description: January
 
 ### API Resourceful Routes
 
-We have created a shortcut approach to creating RESTFul API resources in your ColdBox Routers via the new method `apiResources()`.  This method will create all the routes for your API service with no HTML views.
+We have created a shortcut approach to creating RESTFul API resources in your ColdBox Routers via the new method `apiResources()`. This method will create all the routes for your API service with no HTML views.
 
 ```javascript
 apiResources( "users" );
@@ -33,20 +33,19 @@ We have made several enhancements with modules:
 
 ### Experimental New App Structure
 
-We have been working on a new directory structure for ColdBox applications where the web root is not just dumped with everything on it.  We have made several internal tickets to allow for this to work and we have a very early alpha available in github:
+We have been working on a new directory structure for ColdBox applications where the web root is not just dumped with everything on it. We have made several internal tickets to allow for this to work and we have a very early alpha available in github:
 
 {% embed url="https://github.com/coldbox-templates/modern" %}
 
 ### Scheduler and Task Updates
 
-There are so many tickets that helped resolved issues with the ColdBox schedulers and scheduled tasks.  We have also solidifying our Adobe scope issues and brought many new helpers for developers when building task objects.
+There are so many tickets that helped resolved issues with the ColdBox schedulers and scheduled tasks. We have also solidifying our Adobe scope issues and brought many new helpers for developers when building task objects.
 
 ### Integration Testing of Subdomain/Domain Routing
 
 If you are building multi-tenant applications with ColdBox and are leveraging [domain and subdomain routing](https://coldbox.ortusbooks.com/the-basics/routing/routing-dsl/routing-methods#sub-domain-routing), then you can easily use the `domain` argument in all of our `request(), execute()` and HTTP Verb methods to simulate the domain in play for THAT specific spec execution.
 
 ```javascript
-
 describe( "subdomain routing", function(){
 	beforeEach( function(){
 		setup();
@@ -84,7 +83,7 @@ describe( "subdomain routing", function(){
 
 ### Custom Session Identifiers
 
-ColdBox has always had its internal way of figuring out what identifier to use for each user's request based on the way ColdFusion works.  However, now you can influence and provide your own approach instead of relying on the core CFML approach.  You will do this by adding a `coldbox.identifierProvider` closure/lambda into your `config/Coldbox.cfc`.
+ColdBox has always had its internal way of figuring out what identifier to use for each user's request based on the way ColdFusion works. However, now you can influence and provide your own approach instead of relying on the core CFML approach. You will do this by adding a `coldbox.identifierProvider` closure/lambda into your `config/Coldbox.cfc`.
 
 ```javascript
 coldbox : {
@@ -101,7 +100,7 @@ coldbox : {
 
 ![WireBox Injector Hierarchy](../../.gitbook/assets/image.png)
 
-Welcome to the world of hierarchical dependency injection.  We had the ability before to add a parent injector to WireBox, but now you can not only add a parent, but also many children to the hierarchy.
+Welcome to the world of hierarchical dependency injection. We had the ability before to add a parent injector to WireBox, but now you can not only add a parent, but also many children to the hierarchy.
 
 Every injector has the capability to store an ordered collection (`ordered struct`) of child injectors via the `childInjectors` property. Child injectors are used internally in many instances to provide a hierarchical approach to DI where instances can be searched for locally, in the parent and in the children. Here are some of the new methods to assist with child injectors:
 
@@ -174,7 +173,7 @@ function getInstance(
 
 {% tabs %}
 {% tab title="ColdBox HMVC" %}
-#### Bug
+**Bug**
 
 * [COLDBOX-1072](https://ortussolutions.atlassian.net/browse/COLDBOX-1072) Non config apps fails since the core Settings.cfc had the configure() method removed
 * [COLDBOX-1069](https://ortussolutions.atlassian.net/browse/COLDBOX-1069) Framework Initialization Fails in @be on AutoWire of App Scheduler
@@ -185,7 +184,7 @@ function getInstance(
 * [COLDBOX-1036](https://ortussolutions.atlassian.net/browse/COLDBOX-1036) Scheduled tasks fail after upgrading to coldbox 6.5. Downgrading to 6.4.0 works.
 * [COLDBOX-1027](https://ortussolutions.atlassian.net/browse/COLDBOX-1027) actions for a specific pattern cannot point to different handlers
 
-#### Improvement
+**Improvement**
 
 * [COLDBOX-1074](https://ortussolutions.atlassian.net/browse/COLDBOX-1074) Improvements to module loading/activation log messages
 * [COLDBOX-1071](https://ortussolutions.atlassian.net/browse/COLDBOX-1071) Make unloadAll() in ModuleService more resilient by verifying loaded modules exist
@@ -198,7 +197,7 @@ function getInstance(
 * [COLDBOX-980](https://ortussolutions.atlassian.net/browse/COLDBOX-980) Deprecate declaration of multiple resources on a single `resources()` call
 * [COLDBOX-676](https://ortussolutions.atlassian.net/browse/COLDBOX-676) Improve routing DSL to allow for different HTTP verbs on the the same route to point to different events or actions
 
-#### New Feature
+**New Feature**
 
 * [COLDBOX-1082](https://ortussolutions.atlassian.net/browse/COLDBOX-1082) Announce `onException` interception points for async interceptors
 * [COLDBOX-1080](https://ortussolutions.atlassian.net/browse/COLDBOX-1080) experimental web mapping support to allow for modern app templates with assets outside of the webroot
@@ -211,36 +210,36 @@ function getInstance(
 {% endtab %}
 
 {% tab title="CacheBox" %}
-#### Bug
+**Bug**
 
 * [CACHEBOX-76](https://ortussolutions.atlassian.net/browse/CACHEBOX-76) Fixed method return value + SQL compatibility on jdbc metadata indexer thanks to @homestar9
 * [CACHEBOX-75](https://ortussolutions.atlassian.net/browse/CACHEBOX-75) reap operation was not ignoring 0 values for last access timeouts
 * [CACHEBOX-74](https://ortussolutions.atlassian.net/browse/CACHEBOX-74) Typo in queryExecute Attribute "datasource" in the JDBCStore.cfc
 
-#### Improvement
+**Improvement**
 
 * [CACHEBOX-73](https://ortussolutions.atlassian.net/browse/CACHEBOX-73) Replace IIF and urlEncodedFormat on cache content reports
 * [CACHEBOX-79](https://ortussolutions.atlassian.net/browse/CACHEBOX-79) Lower logging verbosity of cache reaping from info to debug messages
 {% endtab %}
 
 {% tab title="WireBox" %}
-#### Bug
+**Bug**
 
 * [WIREBOX-124](https://ortussolutions.atlassian.net/browse/WIREBOX-124) Killing `IInjector` interface usages due to many issues across cfml engines, leaving them for docs only
 * [WIREBOX-118](https://ortussolutions.atlassian.net/browse/WIREBOX-118) Never override an existing variables key with virtual inheritance
 
-#### Improvement
+**Improvement**
 
 * [WIREBOX-120](https://ortussolutions.atlassian.net/browse/WIREBOX-120) DSLs process method now receives the caller `targetID` alongside the `targetObject` and the `target` definition
 
-#### New Feature
+**New Feature**
 
 * [WIREBOX-122](https://ortussolutions.atlassian.net/browse/WIREBOX-122) New wirebox DSL to inject the target's metadata that's cached in the target's binder: `wirebox:objectMetadata`
 * [WIREBOX-121](https://ortussolutions.atlassian.net/browse/WIREBOX-121) New WireBoxDSL: `wirebox:targetID` to give you back the target ID used when injecting the object
 * [WIREBOX-119](https://ortussolutions.atlassian.net/browse/WIREBOX-119) Missing `coldbox:schedulerService` DSL
 * [WIREBOX-117](https://ortussolutions.atlassian.net/browse/WIREBOX-117) HDI - Ability for injectors to have a collection of child injectors to delegate lookups to, basically Hierarchical DI
 
-#### Task
+**Task**
 
 * [WIREBOX-123](https://ortussolutions.atlassian.net/browse/WIREBOX-123) Removal of usage of Injector dsl interface due to so many issues with multiple engines
 {% endtab %}

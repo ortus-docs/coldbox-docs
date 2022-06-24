@@ -30,6 +30,51 @@ This release brings in a complete re-architecture of the creation, inspection an
 
 In some of our performance testing we had about 4000 object instantiations running between 500ms-1,100 ms depending on CPU load. While with simple `createObject()`  and no wiring, they click around 400-700 ms.  Previously, we had the same instantiations clocking at 900-3,500 ms.  So we can definitely see a major improvement in this area.
 
+### New ColdBox Testing Virtual App
+
+![coldbox.system.testing.VirtualApp](<../../.gitbook/assets/image (1).png>)
+
+This release sports the creation of the encapsulated virtual ColdBox App: `coldbox.system.testing.VirtualApp.`  Previously, the only way to create virtual apps was to do it manually just like the `BaseTestCase` object did when doing integration testing and that's about it.  In this release, we provide a clean interface for starting, restarting, checking and shutting down virtual applications that can be used for testing, proxying, etc.  It also allows a faster and eager approach to starting the virtual application before your runner and tests.  This will allow any ORM bridges to be respected and best of all the ability to execute anything in the framework before your runners, suites or specs.  Database migrations anyone?
+
+#### Test Harness
+
+All application templates have been updated to use the new Virtual App in the `tests/Application.cfc.`  This will allow for a virtual application to be started once your runner or specs are executed and shutdown at the end of the request.  Here are the two methods in charge of doing this in the `Application.cfc`
+
+```java
+public boolean function onRequestStart( targetPage ){
+	// Set a high timeout for long running tests
+	setting requestTimeout="9999";
+	// New ColdBox Virtual Application Starter
+	request.coldBoxVirtualApp = new coldbox.system.testing.VirtualApp( appMapping = "/root" );
+
+	// If hitting the runner or specs, prep our virtual app
+	if ( getBaseTemplatePath().replace( expandPath( "/tests" ), "" ).reFindNoCase( "(runner|specs)" ) ) {
+		request.coldBoxVirtualApp.startup();
+	}
+
+	// ORM Reload for fresh results
+	if( structKeyExists( url, "fwreinit" ) ){
+		if( structKeyExists( server, "lucee" ) ){
+			pagePoolClear();
+		}
+		// ormReload();
+		request.coldBoxVirtualApp.restart();
+	}
+
+	return true;
+}
+
+public void function onRequestEnd( required targetPage ) {
+	request.coldBoxVirtualApp.shutdown();
+}
+```
+
+Your integration tests and unit tests remain the same.  The only difference is that internally they all use this object to create the virtual applications. &#x20;
+
+{% hint style="warning" %}
+Also note the code on line 8. This allow the developer to decide when then virtual app starts.
+{% endhint %}
+
 ### Scheduled Tasks Exception Handling
 
 ![](https://cdn2.iconfinder.com/data/icons/mobile-smart-phone/64/search\_error\_inspect\_phone\_ios11\_iphone-128.png)
