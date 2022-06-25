@@ -1,6 +1,6 @@
 # Adding A Model
 
-![](<../../.gitbook/assets/mvc (1).png>)
+![MVC](<../../.gitbook/assets/mvc (1).png>)
 
 Let's complete our saga into MVC by developing the **M**, which stands for [model](https://en.wikipedia.org/wiki/Domain\_model). This layer is all your business logic, queries, external dependencies, etc. of your application, which represents the problem to solve or the domain to solve.
 
@@ -67,19 +67,19 @@ component singleton accessors="true"{
 	 * Constructor
 	 */
 	ContactService function init(){
-		variables.data = [
+	  variables.data = [
             { "id"=1, "name"="coldbox" },
             { "id"=2, "name"="superman" },
             { "id"=3, "name"="batman" }
-        ];
+          ];
 		return this;
 	}
 
 	/**
-	 * getAll
+	 * Get all the contacts
 	 */
 	function getAll(){
-		return variables.data;
+	  return variables.data;
 	}
 
 
@@ -128,7 +128,7 @@ any function index( event, rc, prc ){
 
 ## Presenting The Data
 
-Now that we have put the array of contacts into the `prc` struct as `aContacts`, let's display it to the screen using ColdBox's HTML Helper.
+Now that we have put the array of contacts into the `prc` struct as `aContacts`, let's display it to the screen using [ColdBox's HTML Helper](../../digging-deeper/html-helper.md).
 
 The ColdBox HTML Helper is a companion class that exists in all layouts and views that allows you to generate semantic HTML5 without the needed verbosity of nesting, or binding to ORM/Business objects.
 

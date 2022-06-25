@@ -12,7 +12,7 @@ description: >-
 
 ![Standalone Libraries](.gitbook/assets/coldbox-family.png)
 
-ColdBox Hierarchical MVC is the de-facto enterprise-level HMVC framework for ColdFusion (CFML) developers. It's professionally backed, conventions-based, modular, highly extensible, and productive. Getting started with ColdBox is quick and painless. ColdBox takes the pain out of development by giving you a standardized methodology for modern ColdFusion (CFML) development with features such as:
+ColdBox [Hierarchical MVC ](https://en.wikipedia.org/wiki/Hierarchical\_model%E2%80%93view%E2%80%93controller)is the de-facto enterprise-level HMVC framework for ColdFusion (CFML) developers. It's professionally backed, conventions-based, modular, highly extensible, and productive. Getting started with ColdBox is quick and painless. ColdBox takes the pain out of development by giving you a standardized methodology for modern ColdFusion (CFML) development with features such as:
 
 * [Conventions instead of configuration](https://coldbox.ortusbooks.com/getting-started/conventions)
 * [Modern routing engine](https://coldbox.ortusbooks.com/the-basics/routing)
@@ -48,7 +48,7 @@ And constructed with the following guidelines:
 The ColdBox Platform is open source and licensed under the [Apache 2](https://www.apache.org/licenses/LICENSE-2.0.html) License.
 
 * Copyright by Ortus Solutions, Corp
-* ColdBox, CacheBox, Wirebox, LogBox are registered trademarks by Ortus Solutions, Corp
+* ColdBox, CacheBox, WireBox, LogBox are registered trademarks by Ortus Solutions, Corp
 
 ## Discussion & Help
 
@@ -69,7 +69,7 @@ We all make mistakes from time to time :) So why not let us know about it and he
 
 ## Professional Open Source
 
-![Ortus Solutions, Corp](.gitbook/assets/ortussolutions\_button.png)
+![](.gitbook/assets/space-ninja200.png)
 
 ColdBox is a professional open source software backed by [Ortus Solutions, Corp](https://www.ortussolutions.com/services) offering services like:
 

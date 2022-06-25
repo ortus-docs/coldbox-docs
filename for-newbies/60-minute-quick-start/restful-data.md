@@ -18,15 +18,11 @@ any function index( event, rc, prc ){
 ```
 {% endcode %}
 
-That's it! ColdBox detects the array and automatically serializes it to JSON. Easy Peasy!
-
-### Automatic JSON Payload to RC
-
-If you want your incoming JSON `requestbody` to be handled the same as FORM and URL variables you can enable `coldbox.jsonPayloadToRC = true` in your ColdBox config, which is the default in ColdBox 6.
+ColdBox detects the array and automatically serializes it to JSON. Easy Peasy!
 
 ## renderData()
 
-The request context object has a special function called `renderData()` that can take any type of data and marshall it for you to other formats like `xml, json, wddx, pdf, text, html` or your own type.
+The request context object has a special function called `renderData()` that can take any type of data and marshall (convert) it for you to other formats like `xml, json, wddx, pdf, text, html` or your own type.
 
 {% hint style="success" %}
 **Tip**: You can find more information at the API Docs for `renderData()` here [http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html#renderData(](http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html#renderData\())
