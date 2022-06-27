@@ -1,3 +1,9 @@
+---
+description: >-
+  The ColdBox HMVC Platform is the de-facto enterprise-level HMVC framework for
+  CFML developers.
+---
+
 # Getting Started Guide
 
 The ColdBox HMVC Platform is the de-facto enterprise-level HMVC framework for CFML developers. It's professionally backed, highly extensible, and productive. Getting started with ColdBox is quick and painless. The only thing you need to begin is [CommandBox](http://www.ortussolutions.com/products/commandbox), a command line tool for CFML developers.
@@ -60,7 +66,7 @@ This command will place several new folders and files in your working directory.
 CommandBox> ls
 ```
 
-Here's a rundown of the important bits.
+Here's a rundown of the important bits (Even thought they might be more generated files/folders)
 
 * **coldbox** - This is the ColdBox framework managed by CommandBox
 * **config/Coldbox.cfc** - Your application configuration object
@@ -70,6 +76,7 @@ Here's a rundown of the important bits.
 * **models** - This holds your model CFCs&#x20;
 * **modules** - This holds the CommandBox tracked modules
 * **modules\_app** - This holds your app's modules
+* **tests** - Your test harness for unit and integration testing
 * **views** - Your HTML views will go here
 
 ## Start It Up
@@ -86,7 +93,7 @@ In a few seconds, a browser window will appear with your running application. Th
 **Tip:** If you are creating an app to run on any other server than the commandbox server, you will need to manually set up URL rewriting. More info here: [/the-basics/routing/requirements](../the-basics/routing/requirements/)
 {% endhint %}
 
-![Default App Template](../.gitbook/assets/app\_template.png)
+![Generated ColdBox App](<../.gitbook/assets/image (2).png>)
 
 ## Take A Look Around
 
@@ -102,7 +109,7 @@ At the top, you'll see a function named "index". This represents the **default a
 // Default Action
 function index(event,rc,prc){
     prc.welcomeMessage = "Welcome to ColdBox!";
-    event.setView("main/index");
+    event.setView( "main/index" );
 }
 ```
 
@@ -148,7 +155,7 @@ Normally the URL would have `index.cfm` before the `/helloWorld` bit, but our `-
 
 ## Install Packages
 
-ColdBox's MVC is simple, but it's true power comes from the wide selection of modules you can install into your app to get additional functionality. You can checkout the full list of modules available on the Forgebox directory: [www.forgebox.io](https://www.forgebox.io).
+ColdBox's MVC is simple, but its true power comes from the wide selection of modules you can install into your app to get additional functionality. You can checkout the full list of modules available on the FORGEBOX directory: [www.forgebox.io](https://www.forgebox.io).
 
 > [forgebox.io/type/modules](http://forgebox.io/type/modules)
 
@@ -203,7 +210,7 @@ We can also add the word `singleton` to the component declaration. This will tel
 component singleton {
 
     function sayHello(){
-        return 'Hey, you sexy thing!';
+        return 'Hey you, have an awesome day!';
     }
 
 }
