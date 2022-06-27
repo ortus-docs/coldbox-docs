@@ -4,6 +4,8 @@ description: June 21, 2022
 
 # What's New With 6.7.0
 
+![ColdBox 6.7.x](../../.gitbook/assets/blog-ColdBox67.png)
+
 ## Major Updates
 
 Here is a listing of all the major updates and improvements in this version.
@@ -88,8 +90,6 @@ Also, in the previous version, if you had an exception your `afterAnyTask()` or 
 ![](https://cdn1.iconfinder.com/data/icons/carbon-design-system-vol-3/32/column-dependency-128.png)
 
 All ColdBox enabled schedulers will have the following automatic injections so you can have ease of use for leveraging objects and contexts during your task declarations and executables.
-
-
 
 | **Property**          | **Description**                                                                                               |
 | --------------------- | ------------------------------------------------------------------------------------------------------------- |
