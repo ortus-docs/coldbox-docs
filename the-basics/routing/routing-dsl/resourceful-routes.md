@@ -1,3 +1,9 @@
+---
+description: >-
+  Resourceful routes are convention based to help you create routing with less
+  boilerplate.
+---
+
 # Resourceful Routes
 
 In ColdBox, you can register resourceful routes (`resources()`) to provide automatic mappings between HTTP verbs and URLs to event handlers and actions by convention. By convention, all resources map to a handler with the same name or they can be customized if needed. This allows for a standardized convention when building routed applications and less typing :wink:
@@ -77,7 +83,7 @@ function resources(
 ){
 ```
 
-## Scaffolding Resources
+### Scaffolding Resources
 
 We have created a scaffolding command in CommandBox to help you register and generate resourceful routes. Just run the following command in CommandBox to get all the help you will need in generating resources:
 
@@ -85,7 +91,7 @@ We have created a scaffolding command in CommandBox to help you register and gen
 coldbox create resource help
 ```
 
-### API Routes
+### API Resourceful Routes
 
 If you are building mostly API routes and not full HTML app routes, you can use the shortcut method `apiResources()` method instead.  This method will work the same as above **BUT** it will exclude the `new` and `edit` actions for you since we are in API Land.
 
