@@ -1,14 +1,18 @@
+---
+description: ColdBox supports native REST handling via the RestHandler and native routing.
+---
+
 # REST Handler
 
 ## RestHandler & ColdBox Response
 
-ColdBox 6 has integrated a base handler and a response object into the core, so developers can have even more support when building RESTful services. This new rest handler will provide you with tons of utilities and approaches to make all of your RESTFul services:
+ColdBox 6 has native REST capabilities alongside the `RestHandler` and a customizable `Response` object into the core.  This `RestHandler` will provide you with utilities and approaches to make all of your RESTFul services:
 
 * Uniformity on Responses
 * A consistent and extensible response object
-* Error handling
+* Consistent Error handling
 * Invalid route handling
-* Events
+* Internal Events
 * Much more
 
 {% hint style="info" %}
@@ -25,7 +29,7 @@ For the creation of REST handlers you can inherit from our base class `coldbox.s
 RestHandler API Docs
 {% endembed %}
 
-This will give you access to our enhanced API utilities and the native **response** object via the request context's `getResponse()` method.
+This will give you access to our enhanced API of utilities and the native **response** object via the request context's `getResponse()` method.
 
 ```javascript
 component extends="coldbox.system.RestHandler"{
@@ -135,6 +139,27 @@ The `aroundHandler()` is also smart in detecting the following outputs from a ha
 * Handler `return` results
 * Setting a view or layout to render
 * Explicit `renderData()` calls
+
+### Rest Handler Security
+
+The `RestHandler` also gives you HTTP method security out of the box by convention based on [ColdBox resources](../the-basics/routing/routing-dsl/resourceful-routes.md).  The following is already created for you using the `this.allowedMethods` [structure](../the-basics/event-handlers/http-method-security.md):
+
+```javascript
+// Default REST Security for ColdBox Resources
+this.allowedMethods = {
+	"index"  : "GET",
+	"new"    : "GET",
+	"get"    : "GET",
+	"create" : "POST",
+	"show"   : "GET",
+	"list"   : "GET",
+	"edit"   : "GET",
+	"update" : "POST,PUT,PATCH",
+	"delete" : "DELETE"
+};
+```
+
+Also note that since this is a base class, you can override this structure or append to it as you see fit.
 
 ## Response Object
 
