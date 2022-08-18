@@ -31,7 +31,7 @@ You can download CommandBox from the official site: [https://www.ortussolutions.
 1. No Java Runtime (80mb)
 2. Embedded Runtime (120mb)
 
-So make sure you choose your desired installation path and follow the instructions here: [https://commandbox.ortusbooks.com/content/setup/installation.html](https://commandbox.ortusbooks.com/content/setup/installation.html)
+So make sure you choose your desired installation path and follow the instructions here: [https://commandbox.ortusbooks.com/setup/installation](https://commandbox.ortusbooks.com/setup/installation)
 
 ### Starting CommandBox
 
