@@ -190,9 +190,11 @@ Every scheduler has the following injections available to you in the `variables`
 
 | Object           | Description                                                                   |
 | ---------------- | ----------------------------------------------------------------------------- |
+| `appMapping`     | The ColdBox application mapping path                                          |
 | `asyncManager`   | Async manager reference                                                       |
 | `cachebox`       | CacheBox reference                                                            |
 | `cacheName`      | The name of the cache for server fixation and more for all tasks              |
+| `coldboxVersion` | The ColdBox version you are running                                           |
 | `controller`     | ColdBox controller reference                                                  |
 | `executor`       | Scheduled executor                                                            |
 | `log`            | A pre-configured log object                                                   |
@@ -203,7 +205,15 @@ Every scheduler has the following injections available to you in the `variables`
 | `util`           | ColdBox utility                                                               |
 | `wirebox`        | WireBox reference                                                             |
 
-### Scheduler ColdBox Methods
+All **module schedulers** will have the following extra automatic injections:
+
+| **Property**     | **Description**                 |
+| ---------------- | ------------------------------- |
+| `moduleMapping`  | The module’s mapping            |
+| `modulePath`     | The module’s path on disk       |
+| `moduleSettings` | The module’s settings structure |
+
+### Scheduler Methods
 
 Every scheduler has several useful ColdBox interaction methods you can use when registering your tasks callable methods.
 
@@ -215,6 +225,7 @@ Every scheduler has several useful ColdBox interaction methods you can use when 
 | `getColdBoxSetting()`   | Get a ColdBox setting                                                                                         |
 | `getEnv()`              | Retrieve a environment variable only                                                                          |
 | `getInstance()`         | Get a instance object from WireBox                                                                            |
+| `getJavaSystem()`       | Function to get access to the java system                                                                     |
 | `getModuleConfig()`     | Get a module config                                                                                           |
 | `getModuleSettings()`   | Get a module setting                                                                                          |
 | `getRenderer()`         | Get the ColdBox Renderer                                                                                      |
@@ -292,13 +303,17 @@ task( "my-task" )
 
 There are many many frequency methods in ColdBox scheduled tasks that will enable the tasks in specific intervals. Every time you see that an argument receives a `timeUnit` the available options are:
 
-* days
-* hours
-* minutes
-* seconds
-* **milliseconds (default)**
-* microseconds
-* nanoseconds
+* Nanosecond(s)
+* Microsecond(s)
+* **Millisecond(s) - DEFAULT**
+* Second(s)
+* Minute(s)
+* Hour(s)
+* Day(s)
+
+{% hint style="success" %}
+**Hint :** Please note you can use the singular or plural name of the time unit.
+{% endhint %}
 
 Ok, let's go over the frequency methods:
 
@@ -472,6 +487,23 @@ task( "my-task" )
     );
 ```
 
+### Scheduled Tasks Start and End Dates
+
+All scheduled tasks support the ability to seed in the **start** and **end** dates via our DSL:
+
+* `startOn( date, time = "00:00" )`
+* `endOn( data, time = "00:00" )`
+
+This means that you can tell the scheduler when the task will become active on a specific data and time (using the scheduler's timezone), and when the task will become disabled.
+
+```javascript
+task( "restricted-task" )
+  .call( () => ... )
+  .everyHour()
+  .startOn( "2022-01-01", "00:00" )
+  .endOn( "2022-04-01" )
+```
+
 ### Server Fixation
 
 If you are running a cluster of your application and you register tasks they will run at their schedule in _EVERY_ server/container the application has been deployed to. This might not be a great idea if you want only _**ONE**_ task to run no matter how many servers/containers you have deployed your application on. For this situation you can use the `onOneServer()` method which tells ColdBox to _ONLY_ run the task once on the first server that wins the race condition.
@@ -535,6 +567,39 @@ Once you are ready to enable the task, you can use the `enable()` method:
 
 ```javascript
 myTask.enable()
+```
+
+### xTask() - Easy Disabling of Tasks
+
+Thanks to the inspiration of [TestBox](https://testbox.ortusbooks.com/) where you can mark a spec or test to be skipped from execution by prefixing it with the letter `x` you can do the same for any task declaration.  If they are prefixed with the letter `x` they will be registered but **disabled** automatically for you.
+
+```javascript
+function configure(){
+
+	xtask( "Disabled Task" )
+		.call ( function(){
+			writeDump( var="Disabled", output="console" );
+		})
+		.every( 1, "second" );
+
+	task( "Scope Test" )
+		.call( function(){
+			writeDump( var="****************************************************************************", output="console" );
+			writeDump( var="Scope Test (application) -> #getThreadName()# #application.keyList()#", output="console" );
+			writeDump( var="Scope Test (server) -> #getThreadName()# #server.keyList()#", output="console" );
+			writeDump( var="Scope Test (cgi) -> #getThreadName()# #cgi.keyList()#", output="console" );
+			writeDump( var="Scope Test (url) -> #getThreadName()# #url.keyList()#", output="console" );
+			writeDump( var="Scope Test (form) -> #getThreadName()# #form.keyList()#", output="console" );
+			writeDump( var="Scope Test (request) -> #getThreadName()# #request.keyList()#", output="console" );
+			writeDump( var="Scope Test (variables) -> #getThreadName()# #variables.keyList()#", output="console" );
+			writeDump( var="****************************************************************************", output="console" );
+		} )
+		.every( 60, "seconds" )
+		.onFailure( function( task, exception ){
+			writeDump( var='====> Scope test failed (#getThreadName()#)!! #exception.message# #exception.stacktrace.left( 500 )#', output="console" );
+		} );
+		
+}
 ```
 
 ### Task Stats
