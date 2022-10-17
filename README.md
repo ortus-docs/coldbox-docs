@@ -6,12 +6,6 @@ description: >-
 
 # Introduction
 
-<figure><img src=".gitbook/assets/coldbox-vegas-training-october-2022.png" alt=""><figcaption><p><a href="https://www.eventbrite.com/e/ortus-cf-summit-training-workshop-tickets-375306340367">https://www.eventbrite.com/e/ortus-cf-summit-training-workshop-tickets-375306340367</a></p></figcaption></figure>
-
-{% embed url="https://www.eventbrite.com/e/ortus-cf-summit-training-workshop-tickets-375306340367" %}
-Get In-Person Training in the Aria Hospitality Suite
-{% endembed %}
-
 ## ColdBox HMVC Platform- v6.x
 
 ![HMVC Framework](.gitbook/assets/coldboxlogo2015\_300.png)
