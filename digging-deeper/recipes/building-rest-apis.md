@@ -403,7 +403,9 @@ You can easily get the username and password using `event.getHTTPBasicCredential
 function preHandler( event, action, eventArguments ){
     var authDetails = event.getHTTPBasicCredentials();
     if( !securityService.authenticate( authDetails.username, authDetails.password ) ) {
-        event.renderData( type="JSON", data={ message = 'Please check your credentials' }, statusCode=401, statusMessage="You're not authorized to do that");
+        event
+            .renderData( type="JSON", data={ message = 'Please check your credentials' }, statusCode=401, statusMessage="You're not authorized to do that")
+            .noExecution();
     }
 }
 ```
