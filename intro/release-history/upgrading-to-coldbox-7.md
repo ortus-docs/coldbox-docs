@@ -8,6 +8,10 @@ ColdFusion 2016 support has been dropped. Adobe doesn't support them anymore, so
 
 ## Removals
 
+### AnnounceInterception
+
+The `announceInterception()` method [has been deprecated since ColdBox 6.0.0](https://coldbox.ortusbooks.com/v/v6.x/intro/release-history/whats-new-with-6.0.0#announceinterception-processstate-deprecated). You will need to refactor any uses of `announceInterception()` to use `announce()` instead.
+
 ### routes.cfm
 
 The `routes.cfm` approach is now removed in ColdBox 7. You will need to migrate to the `Router.cfc` [approach](../../the-basics/routing/) in your application and/or modules.
