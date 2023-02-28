@@ -188,7 +188,7 @@ You can change this response by extending the response object and doing whatever
 
 ### Properties
 
-The `Response` object has the following properties you can use via their getters and setter methods.
+The `Response` object has the following properties you can use via their getter and setter methods.
 
 | Property        | Type      | Default                                                                                                                                                                  | Usage                                                                                                                                            |
 | --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
