@@ -23,9 +23,9 @@ In previous versions of ColdBox support for RESTful services was provided by add
 
 ## Base Class: RestHandler
 
-For the creation of REST handlers you can inherit from our base class `coldbox.system.RestHandler`, directly via `extends="coldbox.system.Resthandler"` or our using the `restHandler` annotation.&#x20;
+For the creation of REST handlers you can inherit from our base class `coldbox.system.RestHandler`, directly via `extends="coldbox.system.Resthandler"` or by using the `restHandler` annotation.&#x20;
 
-{% embed url="https://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox%2Fsystem%2FRestHandler.html=" %}
+{% embed url="https://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox%2Fsystem%2FRestHandler.html" %}
 RestHandler API Docs
 {% endembed %}
 
