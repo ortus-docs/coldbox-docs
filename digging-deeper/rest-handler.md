@@ -29,7 +29,7 @@ For the creation of REST handlers you can inherit from our base class `coldbox.s
 RestHandler API Docs
 {% endembed %}
 
-This will give you access to our enhanced API of utilities and the native **response** object via the request context's `getResponse()` method.
+This will give you access to our enhanced API of utilities and the native **response** object via the event object `getResponse()` method.
 
 ```javascript
 component extends="coldbox.system.RestHandler"{
