@@ -1,6 +1,6 @@
 # Post Advices
 
-![](<../../../.gitbook/assets/eventhandler-prepost (2) (2) (2) (1) (2).jpg>)
+![](<../../../.gitbook/assets/eventhandler-prepost (2) (2) (2) (1) (1) (1).jpg>)
 
 With this interceptor you can intercept local event actions and execute things **after** the requested action executes. You can do it globally by using the `postHandler()` method or targeted to a specific action `post{actionName}()`.
 
