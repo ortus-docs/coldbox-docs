@@ -2,11 +2,11 @@
 
 
 
-![ColdBox Major Classes UML](../../.gitbook/assets/coldboxmajorclasses.jpg)
+![ColdBox Major Classes UML](../../.gitbook/assets/ColdBoxMajorClasses.jpg)
 
 The super type offers 2 methods for interacting with your model layer:
 
-* `getInstance()` - Retrieve a model object \(Instead of injection\)
+* `getInstance()` - Retrieve a model object (Instead of injection)
 * `populateModel()` - Retrieve and/or populate a model object from the request collection.
 
 Please also note that your models do not inherit from anything within ColdBox. They are shy and decoupled by default.  If you need anything from the ColdBox environment, then you will have to inject it using our [injection dsl.](injection-dsl/)
@@ -122,4 +122,3 @@ var data = {
 var user = ormService.populate( target=ormService.new("User"), memento=data, composeRelationships=true, exclude="favColors" );
 // in this example, "role" will be composed, but "favColors" will be excluded
 ```
-

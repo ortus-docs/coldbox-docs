@@ -1,6 +1,6 @@
 # Request Context Decorator
 
-The **request context object** is bound to the framework release and as we all know, each application is different in requirements and architecture. Thus, we have the application of the [Decorator Pattern](https://www.tutorialspoint.com/design_pattern/decorator_pattern.htm) to our request context object in order to help developers program to their needs. 
+The **request context object** is bound to the framework release and as we all know, each application is different in requirements and architecture. Thus, we have the application of the [Decorator Pattern](https://www.tutorialspoint.com/design\_pattern/decorator\_pattern.htm) to our request context object in order to help developers program to their needs.&#x20;
 
 So what does this mean? Plain and simply, you can decorate the ColdBox request context object with one of your own. You can extend the functionality to the specifics of the software you are building. You are not modifying the framework code base, but extending it and building on top of what ColdBox offers you.
 
@@ -12,7 +12,7 @@ So what does this mean? Plain and simply, you can decorate the ColdBox request c
 
 The very first step is to create your own request context decorator component. You can see in the diagram below of the ColdBox request context design pattern.
 
-![](../.gitbook/assets/requestcontextdecorator.png)
+![](../.gitbook/assets/RequestContextDecorator.png)
 
 
 
@@ -24,7 +24,7 @@ Create a component that extends `coldbox.system.web.context.RequestContextDecora
 
 #### Declaration
 
-The following is a simple decorator class \(`MyDecorator.cfc`\) that auto-trims values when calling the `getValue()` method.  You can override methods or create new ones.
+The following is a simple decorator class (`MyDecorator.cfc`) that auto-trims values when calling the `getValue()` method.  You can override methods or create new ones.
 
 {% code title="MyDecorator.cfc" %}
 ```java
@@ -78,4 +78,3 @@ coldbox = {
 ```
 
 The value of the setting is the instantiation path of your request context decorator CFC. That's it.  From now on the framework will use your request context decoration.
-

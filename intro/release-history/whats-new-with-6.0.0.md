@@ -99,13 +99,13 @@ If you are in CacheBox standalone mode, then the task scheduler will be called `
 
 LogBox has been entirely rewritten in script and a more fluent programming approach. It has also been revamped to leverage the scheduling executors and async programming aspects of our async package. All loggers now sport logging via an async queue and it is completely non-blocking. If you do heavy logging, the performance will be substantial.
 
-![](../../.gitbook/assets/new-logging-queues.png)
+![](<../../.gitbook/assets/New Logging Queues.png>)
 
 The `ModuleService` and all internal ColdBox services have deeper logging constructs and more information logging to understand what happens inside of the core.
 
 ## Whoops! Modern Exception Handling
 
-![Whoops! Exception Template](../../.gitbook/assets/screen-shot-2020-08-05-at-2.41.20-pm.png)
+![Whoops! Exception Template](<../../.gitbook/assets/Screen Shot 2020-08-05 at 2.41.20 PM.png>)
 
 Thanks to Eric Peterson, we have included **Whoops** as part of our core exception handling template. All the new application templates come pre-configured with whoops as part of the `development` custom error template.
 

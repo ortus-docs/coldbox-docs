@@ -22,7 +22,7 @@ The async package offers you the ability to schedule tasks and workloads via the
 1. **Scheduler Approach**: Create a scheduler and register tasks in it
 2. **Scheduled Executor Approach**: Create a `ScheduledExecutor` and send task objects into it
 
-![Async Scheduler & Tasks](../../.gitbook/assets/asyncscheduler.png)
+![Async Scheduler & Tasks](../../.gitbook/assets/AsyncScheduler.png)
 
 {% hint style="info" %}
 With our scheduled tasks you can run either one-off tasks or periodically tasks.

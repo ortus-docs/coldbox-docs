@@ -119,23 +119,23 @@ expect( event.getResponse() ).toHaveInvalidData( "user", "is required" )
 
 ### More Rendering Improvements
 
-Thanks to Dom Watson \([@dom\_watson](https://twitter.com/dom_watson)\) from PresideCMS \([@presidecms](https://twitter.com/presidecms)\) for many contributions to help clean up ColdBox view rendering! This release focuses on more performance and memory utilization updates, as well as refactoring external dependencies from pre singleton rendering approaches, which has resulted in more performance gains and lower memory usages on high rendering apps.
+Thanks to Dom Watson ([@dom\_watson](https://twitter.com/dom\_watson)) from PresideCMS ([@presidecms](https://twitter.com/presidecms)) for many contributions to help clean up ColdBox view rendering! This release focuses on more performance and memory utilization updates, as well as refactoring external dependencies from pre singleton rendering approaches, which has resulted in more performance gains and lower memory usages on high rendering apps.
 
 ### Whoops! Keeps Getting Better
 
 We have had tons of updates and requests from our new exception handling experience in ColdBox: Whoops! In this release we tackle CFML core engine files so they can render appropriately, AJAX rendering for exceptions and best of all a huge performance and size boost when dealing with exceptions. Even when dealing with exceptions we want the best and the fastest experience possible for our developers.
 
-The previous approach whoops took was to read and load all the source code of all the templates that caused the exception. You could then navigate them to discover your faults. However, each template could be loaded from 1 to up to 10 times if the stack trace followed it. In this new update we provide source template caching and dynamic runtime injection and highlighting of the source code. This has granted us the following improvements in small test cases \(Your improvements could be higher\)
+The previous approach whoops took was to read and load all the source code of all the templates that caused the exception. You could then navigate them to discover your faults. However, each template could be loaded from 1 to up to 10 times if the stack trace followed it. In this new update we provide source template caching and dynamic runtime injection and highlighting of the source code. This has granted us the following improvements in small test cases (Your improvements could be higher)
 
-Original Size: 218.54 KB  
-New Size: 145.22 KB ![:fire:](https://a.slack-edge.com/production-standard-emoji-assets/10.2/apple-medium/1f525.png)  
+Original Size: 218.54 KB\
+New Size: 145.22 KB ![:fire:](https://a.slack-edge.com/production-standard-emoji-assets/10.2/apple-medium/1f525.png)\
 **About 30-40% reduction on size depending on repetition of the templates**
 
-Original Rendering Speed: 288ms  
-New Rendering Speed: 76ms ![:fire:](https://a.slack-edge.com/production-standard-emoji-assets/10.2/apple-medium/1f525.png)  
+Original Rendering Speed: 288ms\
+New Rendering Speed: 76ms ![:fire:](https://a.slack-edge.com/production-standard-emoji-assets/10.2/apple-medium/1f525.png)\
 **About 74-80% rendering improvements**
 
-![Whoops Improvements](../../.gitbook/assets/screen-shot-2020-12-16-at-5.58.20-pm.png)
+![Whoops Improvements](<../../.gitbook/assets/Screen Shot 2020-12-16 at 5.58.20 PM.png>)
 
 ## Release Notes
 
@@ -145,71 +145,71 @@ New Rendering Speed: 76ms ![:fire:](https://a.slack-edge.com/production-standard
 {% tab title="ColdBox HMVC" %}
 ### Bugs
 
-* \[[COLDBOX-936](https://ortussolutions.atlassian.net/browse/COLDBOX-936)\] - `ExceptionBean` throws exception on weird ORM illegal access collection on scope dump
-* \[[COLDBOX-937](https://ortussolutions.atlassian.net/browse/COLDBOX-937)\] - Migration to `cgi.server_name` and `server_port` did not account for the incoming browser port but the cf service port
-* \[[COLDBOX-938](https://ortussolutions.atlassian.net/browse/COLDBOX-938)\] - `getFullURL()` is not accounting for app mappings
-* \[[COLDBOX-939](https://ortussolutions.atlassian.net/browse/COLDBOX-939)\] - Invalid event handler detection was overriding some event handler beans
-* \[[COLDBOX-941](https://ortussolutions.atlassian.net/browse/COLDBOX-941)\] - `timeUnits` had type mismatches when used in async futures' `allApply`
-* \[[COLDBOX-948](https://ortussolutions.atlassian.net/browse/COLDBOX-948)\] - Whoops should validate a file exists before trying to present it to the code viewer
+* \[[COLDBOX-936](https://ortussolutions.atlassian.net/browse/COLDBOX-936)] - `ExceptionBean` throws exception on weird ORM illegal access collection on scope dump
+* \[[COLDBOX-937](https://ortussolutions.atlassian.net/browse/COLDBOX-937)] - Migration to `cgi.server_name` and `server_port` did not account for the incoming browser port but the cf service port
+* \[[COLDBOX-938](https://ortussolutions.atlassian.net/browse/COLDBOX-938)] - `getFullURL()` is not accounting for app mappings
+* \[[COLDBOX-939](https://ortussolutions.atlassian.net/browse/COLDBOX-939)] - Invalid event handler detection was overriding some event handler beans
+* \[[COLDBOX-941](https://ortussolutions.atlassian.net/browse/COLDBOX-941)] - `timeUnits` had type mismatches when used in async futures' `allApply`
+* \[[COLDBOX-948](https://ortussolutions.atlassian.net/browse/COLDBOX-948)] - Whoops should validate a file exists before trying to present it to the code viewer
 
 ### New Features
 
-* \[[COLDBOX-942](https://ortussolutions.atlassian.net/browse/COLDBOX-942)\] - Add `timeout` and `timeUnit` arguments to the `allApply()` method directly when using Futures
-* \[[COLDBOX-943](https://ortussolutions.atlassian.net/browse/COLDBOX-943)\] - New global settings: `sesBasePath` and `HtmlBasePath` that represent the pathing with no host and protocol
-* \[[COLDBOX-946](https://ortussolutions.atlassian.net/browse/COLDBOX-946)\] - new request context method `getFullPath()` which returns the full url with no protocol or host
-* \[[COLDBOX-957](https://ortussolutions.atlassian.net/browse/COLDBOX-957)\] - New `autowire` annotation or \``variables.autowire`\` on integration tests so ColdBox will autowire the test with dependencies via WireBox
-* \[[COLDBOX-958](https://ortussolutions.atlassian.net/browse/COLDBOX-958)\] - Store the test case metadata on \`\`\`variables.metadata\`\`\` so it can be reused by any helper within test operations
-* \[[COLDBOX-959](https://ortussolutions.atlassian.net/browse/COLDBOX-959)\] - New ColdBox `CustomMatchers` object found at `coldbox.system.testing.CustomMatchers` which is loaded on all tests
+* \[[COLDBOX-942](https://ortussolutions.atlassian.net/browse/COLDBOX-942)] - Add `timeout` and `timeUnit` arguments to the `allApply()` method directly when using Futures
+* \[[COLDBOX-943](https://ortussolutions.atlassian.net/browse/COLDBOX-943)] - New global settings: `sesBasePath` and `HtmlBasePath` that represent the pathing with no host and protocol
+* \[[COLDBOX-946](https://ortussolutions.atlassian.net/browse/COLDBOX-946)] - new request context method `getFullPath()` which returns the full url with no protocol or host
+* \[[COLDBOX-957](https://ortussolutions.atlassian.net/browse/COLDBOX-957)] - New `autowire` annotation or \``variables.autowire`\` on integration tests so ColdBox will autowire the test with dependencies via WireBox
+* \[[COLDBOX-958](https://ortussolutions.atlassian.net/browse/COLDBOX-958)] - Store the test case metadata on \`\`\`variables.metadata\`\`\` so it can be reused by any helper within test operations
+* \[[COLDBOX-959](https://ortussolutions.atlassian.net/browse/COLDBOX-959)] - New ColdBox `CustomMatchers` object found at `coldbox.system.testing.CustomMatchers` which is loaded on all tests
 
 ### Improvements
 
-* \[[COLDBOX-895](https://ortussolutions.atlassian.net/browse/COLDBOX-895)\] - migrating usage of `cgi.http_host` to cgi.`server_name` due to inconsistencies with proxy requests that affects caching and many other features
-* \[[COLDBOX-931](https://ortussolutions.atlassian.net/browse/COLDBOX-931)\] - `ProcessStackTrace()` Creates Many Nested Spans, improved output HTML
-* \[[COLDBOX-933](https://ortussolutions.atlassian.net/browse/COLDBOX-933)\] - Improved safety reset for base test cases
-* \[[COLDBOX-940](https://ortussolutions.atlassian.net/browse/COLDBOX-940)\] - Performance optimizations for entire **async** package
-* \[[COLDBOX-944](https://ortussolutions.atlassian.net/browse/COLDBOX-944)\] - Refactored cgi server and port detections to improve testability and single responsibiilty principles
-* \[[COLDBOX-945](https://ortussolutions.atlassian.net/browse/COLDBOX-945)\] - Event caching now bases off the multi host key from the `event.getSESBaseURL()` to improve consistencies and single responsibility
-* \[[COLDBOX-947](https://ortussolutions.atlassian.net/browse/COLDBOX-947)\] - encapsulate `processEception()` from the bootstrap to within the exception objects
-* \[[COLDBOX-949](https://ortussolutions.atlassian.net/browse/COLDBOX-949)\] - better exception tracking for interceptor `getProperty()` calls that don't exist
-* \[[COLDBOX-952](https://ortussolutions.atlassian.net/browse/COLDBOX-952)\] - `RendererEncapsulator`: use of filter method for `rendererVariables` is inefficient, migrated to less fluent but more performant approach.
-* \[[COLDBOX-953](https://ortussolutions.atlassian.net/browse/COLDBOX-953)\] - Update `DateFormat` Mask to use lowercase "d" to be compatible with ACF2021
-* \[[COLDBOX-954](https://ortussolutions.atlassian.net/browse/COLDBOX-954)\] - Refactor `viewsHelperRef` and `layoutsHelperRef` to local renderer variables instead of settings, which resulted in even better speed improvements
-* \[[COLDBOX-955](https://ortussolutions.atlassian.net/browse/COLDBOX-955)\] - If in an Ajax request and an exception occurs using Whoops the view is unusable
-* \[[COLDBOX-956](https://ortussolutions.atlassian.net/browse/COLDBOX-956)\] - Whoops loads multiple files into the DOM for the templates in the stacktrace causing major slowdownsa
+* \[[COLDBOX-895](https://ortussolutions.atlassian.net/browse/COLDBOX-895)] - migrating usage of `cgi.http_host` to cgi.`server_name` due to inconsistencies with proxy requests that affects caching and many other features
+* \[[COLDBOX-931](https://ortussolutions.atlassian.net/browse/COLDBOX-931)] - `ProcessStackTrace()` Creates Many Nested Spans, improved output HTML
+* \[[COLDBOX-933](https://ortussolutions.atlassian.net/browse/COLDBOX-933)] - Improved safety reset for base test cases
+* \[[COLDBOX-940](https://ortussolutions.atlassian.net/browse/COLDBOX-940)] - Performance optimizations for entire **async** package
+* \[[COLDBOX-944](https://ortussolutions.atlassian.net/browse/COLDBOX-944)] - Refactored cgi server and port detections to improve testability and single responsibiilty principles
+* \[[COLDBOX-945](https://ortussolutions.atlassian.net/browse/COLDBOX-945)] - Event caching now bases off the multi host key from the `event.getSESBaseURL()` to improve consistencies and single responsibility
+* \[[COLDBOX-947](https://ortussolutions.atlassian.net/browse/COLDBOX-947)] - encapsulate `processEception()` from the bootstrap to within the exception objects
+* \[[COLDBOX-949](https://ortussolutions.atlassian.net/browse/COLDBOX-949)] - better exception tracking for interceptor `getProperty()` calls that don't exist
+* \[[COLDBOX-952](https://ortussolutions.atlassian.net/browse/COLDBOX-952)] - `RendererEncapsulator`: use of filter method for `rendererVariables` is inefficient, migrated to less fluent but more performant approach.
+* \[[COLDBOX-953](https://ortussolutions.atlassian.net/browse/COLDBOX-953)] - Update `DateFormat` Mask to use lowercase "d" to be compatible with ACF2021
+* \[[COLDBOX-954](https://ortussolutions.atlassian.net/browse/COLDBOX-954)] - Refactor `viewsHelperRef` and `layoutsHelperRef` to local renderer variables instead of settings, which resulted in even better speed improvements
+* \[[COLDBOX-955](https://ortussolutions.atlassian.net/browse/COLDBOX-955)] - If in an Ajax request and an exception occurs using Whoops the view is unusable
+* \[[COLDBOX-956](https://ortussolutions.atlassian.net/browse/COLDBOX-956)] - Whoops loads multiple files into the DOM for the templates in the stacktrace causing major slowdownsa
 {% endtab %}
 
 {% tab title="CacheBox" %}
 ### Improvements
 
-* \[[COLDBOX-945](https://ortussolutions.atlassian.net/browse/COLDBOX-945)\] - Event caching now bases off the multi host key from the event.getSESBaseURL\(\) to improve consistencies and single responsibility
-* \[[COLDBOX-953](https://ortussolutions.atlassian.net/browse/COLDBOX-953)\] - Update `DateFormat` Mask to use lowercase "d" to be compatible with ACF2021
+* \[[COLDBOX-945](https://ortussolutions.atlassian.net/browse/COLDBOX-945)] - Event caching now bases off the multi host key from the event.getSESBaseURL() to improve consistencies and single responsibility
+* \[[COLDBOX-953](https://ortussolutions.atlassian.net/browse/COLDBOX-953)] - Update `DateFormat` Mask to use lowercase "d" to be compatible with ACF2021
 {% endtab %}
 
 {% tab title="LogBox" %}
 ### Bugs
 
-* \[[LOGBOX-56](https://ortussolutions.atlassian.net/browse/LOGBOX-56)\] - Missing line break on file appender control string
+* \[[LOGBOX-56](https://ortussolutions.atlassian.net/browse/LOGBOX-56)] - Missing line break on file appender control string
 
 ### New Features
 
-* \[[LOGBOX-57](https://ortussolutions.atlassian.net/browse/LOGBOX-57)\] - new `shutdown()` method to process graceful shutdown of LogBox
-* \[[LOGBOX-58](https://ortussolutions.atlassian.net/browse/LOGBOX-58)\] - New logbox config `onShutdown()` callback, which is called when LogBox has been shutdown
-* \[[LOGBOX-59](https://ortussolutions.atlassian.net/browse/LOGBOX-59)\] - New `shutdown()` method can be now used in appenders that will be called when LogBox is shutdown
+* \[[LOGBOX-57](https://ortussolutions.atlassian.net/browse/LOGBOX-57)] - new `shutdown()` method to process graceful shutdown of LogBox
+* \[[LOGBOX-58](https://ortussolutions.atlassian.net/browse/LOGBOX-58)] - New logbox config `onShutdown()` callback, which is called when LogBox has been shutdown
+* \[[LOGBOX-59](https://ortussolutions.atlassian.net/browse/LOGBOX-59)] - New `shutdown()` method can be now used in appenders that will be called when LogBox is shutdown
 {% endtab %}
 
 {% tab title="WireBox" %}
 ### Bugs
 
-* \[[WIREBOX-99](https://ortussolutions.atlassian.net/browse/WIREBOX-99)\] - parameter \[binder\] to function \[process\] is required but was not passed in When setting coldbox.autoMap to false and choosing either method of mapping a directory:
-* \[[WIREBOX-102](https://ortussolutions.atlassian.net/browse/WIREBOX-102)\] - ACF incompats with future combinations due to dumb elvis operator bug
+* \[[WIREBOX-99](https://ortussolutions.atlassian.net/browse/WIREBOX-99)] - parameter \[binder] to function \[process] is required but was not passed in When setting coldbox.autoMap to false and choosing either method of mapping a directory:
+* \[[WIREBOX-102](https://ortussolutions.atlassian.net/browse/WIREBOX-102)] - ACF incompats with future combinations due to dumb elvis operator bug
 
 ### New Features
 
-* \[[WIREBOX-98](https://ortussolutions.atlassian.net/browse/WIREBOX-98)\] - Pass the current `injector` to the binder's life-cycle methods: `onShutdown(), onLoad()`
-* \[[WIREBOX-100](https://ortussolutions.atlassian.net/browse/WIREBOX-100)\] - Create a `processEagerInits()` so it can process them at wirebox load
-* \[[WIREBOX-101](https://ortussolutions.atlassian.net/browse/WIREBOX-101)\] - Complete rewrite of the `Mapping` object to script and performance optimizations
-* \[[WIREBOX-103](https://ortussolutions.atlassian.net/browse/WIREBOX-103)\] - Complete rewrite of the WireBox `Binder` to script and optimizations
-* \[[WIREBOX-104](https://ortussolutions.atlassian.net/browse/WIREBOX-104)\] - New WireBox config: `autoProcessMappings` which can be used to auto process metadata inspections on startup.
+* \[[WIREBOX-98](https://ortussolutions.atlassian.net/browse/WIREBOX-98)] - Pass the current `injector` to the binder's life-cycle methods: `onShutdown(), onLoad()`
+* \[[WIREBOX-100](https://ortussolutions.atlassian.net/browse/WIREBOX-100)] - Create a `processEagerInits()` so it can process them at wirebox load
+* \[[WIREBOX-101](https://ortussolutions.atlassian.net/browse/WIREBOX-101)] - Complete rewrite of the `Mapping` object to script and performance optimizations
+* \[[WIREBOX-103](https://ortussolutions.atlassian.net/browse/WIREBOX-103)] - Complete rewrite of the WireBox `Binder` to script and optimizations
+* \[[WIREBOX-104](https://ortussolutions.atlassian.net/browse/WIREBOX-104)] - New WireBox config: `autoProcessMappings` which can be used to auto process metadata inspections on startup.
 {% endtab %}
 {% endtabs %}
 
@@ -219,15 +219,15 @@ New Rendering Speed: 76ms ![:fire:](https://a.slack-edge.com/production-standard
 {% tab title="ColdBox HMVC" %}
 ### Bugs
 
-* \[[COLDBOX-960](https://ortussolutions.atlassian.net/browse/COLDBOX-960)\] - `jsonPayloadToRC` is not working in 6.2 update
-* \[[COLDBOX-961](https://ortussolutions.atlassian.net/browse/COLDBOX-961)\] - Random bug dealing with integration testing when dealing with routes vs direct events
+* \[[COLDBOX-960](https://ortussolutions.atlassian.net/browse/COLDBOX-960)] - `jsonPayloadToRC` is not working in 6.2 update
+* \[[COLDBOX-961](https://ortussolutions.atlassian.net/browse/COLDBOX-961)] - Random bug dealing with integration testing when dealing with routes vs direct events
 {% endtab %}
 
 {% tab title="WireBox" %}
 ### Bugs
 
-* \[[WIREBOX-105](https://ortussolutions.atlassian.net/browse/WIREBOX-105)\] - Regression: Remove default dsl of "" from `initArg()` and `addDIConstructorArgument()`
-* \[[WIREBOX-106](https://ortussolutions.atlassian.net/browse/WIREBOX-106)\] - Regression: `parentInjector() stopRecursions()` collision with internal property name
+* \[[WIREBOX-105](https://ortussolutions.atlassian.net/browse/WIREBOX-105)] - Regression: Remove default dsl of "" from `initArg()` and `addDIConstructorArgument()`
+* \[[WIREBOX-106](https://ortussolutions.atlassian.net/browse/WIREBOX-106)] - Regression: `parentInjector() stopRecursions()` collision with internal property name
 {% endtab %}
 {% endtabs %}
 
@@ -237,32 +237,30 @@ New Rendering Speed: 76ms ![:fire:](https://a.slack-edge.com/production-standard
 {% tab title="ColdBox HMVC" %}
 ### Bugs
 
-* \[[COLDBOX-963](https://ortussolutions.atlassian.net/browse/COLDBOX-963)\] - Use Java URI for more `resiliant getFullURL` to avoid double slashes
+* \[[COLDBOX-963](https://ortussolutions.atlassian.net/browse/COLDBOX-963)] - Use Java URI for more `resiliant getFullURL` to avoid double slashes
 {% endtab %}
 
 {% tab title="WireBox" %}
 ### Bugs
 
-* \[[WIREBOX-107](https://ortussolutions.atlassian.net/browse/WIREBOX-107)\] - wirebox metadata caching broken
-* \[[WIREBOX-109](https://ortussolutions.atlassian.net/browse/WIREBOX-109)\] - Standalone event pool `interceptData` -&gt; data not backwards compat
+* \[[WIREBOX-107](https://ortussolutions.atlassian.net/browse/WIREBOX-107)] - wirebox metadata caching broken
+* \[[WIREBOX-109](https://ortussolutions.atlassian.net/browse/WIREBOX-109)] - Standalone event pool `interceptData` -> data not backwards compat
 
 ### Improvements
 
-* \[[WIREBOX-108](https://ortussolutions.atlassian.net/browse/WIREBOX-108)\] - WireBox not handling cachebox, logbox, and asyncmanager instances properly
+* \[[WIREBOX-108](https://ortussolutions.atlassian.net/browse/WIREBOX-108)] - WireBox not handling cachebox, logbox, and asyncmanager instances properly
 {% endtab %}
 
 {% tab title="CacheBox" %}
 ### Improvements
 
-* \[[CACHEBOX-65](https://ortussolutions.atlassian.net/browse/CACHEBOX-65)\] - CacheBox not handling wirebox, logbox, and asynmanager instances properly
+* \[[CACHEBOX-65](https://ortussolutions.atlassian.net/browse/CACHEBOX-65)] - CacheBox not handling wirebox, logbox, and asynmanager instances properly
 {% endtab %}
 
 {% tab title="LogBox" %}
 ### Improvements
 
-* \[[LOGBOX-60](https://ortussolutions.atlassian.net/browse/LOGBOX-60)\] - Ignore interrupted exceptions from appenders' scheduler pool
+* \[[LOGBOX-60](https://ortussolutions.atlassian.net/browse/LOGBOX-60)] - Ignore interrupted exceptions from appenders' scheduler pool
 {% endtab %}
 {% endtabs %}
-
-
 

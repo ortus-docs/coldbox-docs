@@ -1,8 +1,8 @@
 # Using Settings
 
-![](../../.gitbook/assets/controllerwithsettingstructures.jpg)
+![](../../.gitbook/assets/ControllerWithSettingStructures.jpg)
 
-The ColdBox Controller \(stored in ColdFusion `application` scope as `application.cbController`\) stores all your **application** settings and also your **system** settings:
+The ColdBox Controller (stored in ColdFusion `application` scope as `application.cbController`) stores all your **application** settings and also your **system** settings:
 
 * **`ColdboxSettings`** : Framework specific system settings
 * **`ConfigSettings`** : Your application settings
@@ -105,4 +105,3 @@ component{
 
 }
 ```
-

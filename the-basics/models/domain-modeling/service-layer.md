@@ -4,16 +4,16 @@ I want to apply best practices and use a service layer approach for my applicati
 
 > I WILL NOT PUT BUSINESS LOGIC IN EVENT HANDLERS!
 
-The whole point of the model layer is that it is separate from the other 2 layers \(controller and views\). Remember, the model is supposed to live on its own and not be dependent on external layers \(Decoupled\). Decoupling facilitates reuse. From these simple requirements I will create the following classes:
+The whole point of the model layer is that it is separate from the other 2 layers (controller and views). Remember, the model is supposed to live on its own and not be dependent on external layers (Decoupled). Decoupling facilitates reuse. From these simple requirements I will create the following classes:
 
 * `BookService.cfc` - A service layer for book operations
 * `Book.cfc` - Represents a book in my system
 
-![](../../../.gitbook/assets/servicelayers.jpg)
+![](../../../.gitbook/assets/ServiceLayers.jpg)
 
 ## What is a service layer?
 
-> A Service Layer defines an application's boundary \[Cockburn PloP\] and its set of available operations from the perspective of interfacing client layers. It encapsulates the application's business logic, controlling transactions and coordinating responses in the implementation of its operations. [Martin Fowler](http://martinfowler.com/eaaCatalog/serviceLayer.html)
+> A Service Layer defines an application's boundary \[Cockburn PloP] and its set of available operations from the perspective of interfacing client layers. It encapsulates the application's business logic, controlling transactions and coordinating responses in the implementation of its operations. [Martin Fowler](http://martinfowler.com/eaaCatalog/serviceLayer.html)
 
 A service layer approach is a way to architect enterprise applications in which there is a layer that acts as a service or mediator to your domain models, data layers and so forth. This layer is the one that event handlers or remote ColdBox proxies can talk to in order to interact with the domain model. There are basically two approaches when building a service layer:
 
@@ -29,4 +29,3 @@ The best way to determine the most effective solution is to actually try both ap
 The `BookService` object will be my API to do operations as mentioned in my requirements and this is the object that will be used by my handlers. My `Book` object will model a Book's data and behavior. It will be produced, saved and updated by the `BookService` object and will be used by event handlers in order to populate and validate them with data from the user.
 
 The view layer will also use the `Book` object in order to present the data. As you can see, the event handlers are in charge of talking to the Domain Model for operations/business logic, controlling the user's input requests, populating the correct data into the `Book` model object and making sure that it is sent to the book service for persistence.
-

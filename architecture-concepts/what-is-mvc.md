@@ -8,9 +8,9 @@ description: Model View Controller
 
 ![](../.gitbook/assets/mvc-overview.png)
 
-> "A developer often wishes to separate data \(model\) and user interface \(view\) concerns, so that changes to the user interface will not affect data handling, and that the data can be reorganized without changing the user interface. The model-view-controller solves this problem by decoupling data access and business logic from data presentation and user interaction, by introducing an intermediate component: the controller." [Wikipedia](http://en.wikipedia.org/wiki/Model-view-controller)​
+> "A developer often wishes to separate data (model) and user interface (view) concerns, so that changes to the user interface will not affect data handling, and that the data can be reorganized without changing the user interface. The model-view-controller solves this problem by decoupling data access and business logic from data presentation and user interaction, by introducing an intermediate component: the controller." [Wikipedia](http://en.wikipedia.org/wiki/Model-view-controller)​
 
-MVC is a popular design pattern called [Model View Controller](http://en.wikipedia.org/wiki/Model–view–controller) which seeks to promote good maintainable software design by separating your code into 3 main tiers:
+MVC is a popular design pattern called [Model View Controller](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) which seeks to promote good maintainable software design by separating your code into 3 main tiers:
 
 * **Model**  - Business Logic, Data, Queries, Etc
 * **View** - Representation of your models, queries, data.
@@ -20,7 +20,7 @@ Let's go a little deeper.
 
 ### Model
 
-The Model is the heart of your application. Your business logic should mostly live here in the form of services, beans, entities and DAOs. A dependency injection framework becomes invaluable when dealing with object oriented model layers: [**WireBox**](https://wirebox.ortusbooks.com) \(Dependency Injection Framework\) is the framework of choice for dependency injection and aspect oriented programming.
+The Model is the heart of your application. Your business logic should mostly live here in the form of services, beans, entities and DAOs. A dependency injection framework becomes invaluable when dealing with object oriented model layers: [**WireBox**](https://wirebox.ortusbooks.com) (Dependency Injection Framework) is the framework of choice for dependency injection and aspect oriented programming.
 
 ### Views
 
@@ -39,7 +39,7 @@ Controllers are the traffic cops of your application. They direct flow control, 
 
 ## Benefits of MVC
 
-By implementing an MVC Framework to your applications you will gain several benefits that come inherent to the MVC design pattern. The most important benefit of MVC is that you will be **separating the presentation** from the model. This is a very important heuristic of software development as [**separation of concerns**](https://en.wikipedia.org/wiki/Separation_of_concerns) is applied and responsibilities are delegated upon the layers.
+By implementing an MVC Framework to your applications you will gain several benefits that come inherent to the MVC design pattern. The most important benefit of MVC is that you will be **separating the presentation** from the model. This is a very important heuristic of software development as [**separation of concerns**](https://en.wikipedia.org/wiki/Separation\_of\_concerns) is applied and responsibilities are delegated upon the layers.
 
 ### Separation of Concerns
 
@@ -57,9 +57,9 @@ Non-visual objects are easier to test than visual objects, in theory. With the i
 
 The most important benefit that we can arise out of the MVC pattern, is the direction of the dependencies. A view depends on its model data and controller, but the model itself does not depend on the view or controllers. This is how you want to build your business logic, encapsulated and providing a good API.
 
-## Evolution of MVC Architecture <a id="coldbox-mvc"></a>
+## Evolution of MVC Architecture <a href="#coldbox-mvc" id="coldbox-mvc"></a>
 
-There are many types of MVC architectures and hopefully the following diagrams can help you in the progression from spaghetti hell to the most complex MVC architecture using an [`ORM`](https://en.wikipedia.org/wiki/Object-relational_mapping) or Object Relational Mapper.
+There are many types of MVC architectures and hopefully the following diagrams can help you in the progression from spaghetti hell to the most complex MVC architecture using an [`ORM`](https://en.wikipedia.org/wiki/Object-relational\_mapping) or Object Relational Mapper.
 
 ### Spaghetti Hell
 
@@ -69,25 +69,25 @@ As you can see from the spaghetti hell diagram above, everything is linear and c
 
 ### MVC
 
-![](../.gitbook/assets/mvc%20%281%29.png)
+![](<../.gitbook/assets/MVC (1).png>)
 
 With the introduction of MVC we can hack away our spaghetti hell and at least have three distinct and separate layers of logic. Ahh much better. However, we can get even more complex.
 
 ### MVC Plus
 
-![](../.gitbook/assets/mvc+.png)
+![](../.gitbook/assets/MVC+.png)
 
 MVC Plus shows us how you can further partition your model layer into more layers. We can identify now a layer of service CFCs and data access object CFCs. The main transportation of data between these layers by default is implied to be ColdFusion Query objects.
 
 ### MVC Plus Objects
 
-![](../.gitbook/assets/mvc+objects.png)
+![](../.gitbook/assets/MVC+objects.png)
 
-In this architecture approach, we have replaced \(mostly\) queries as our data structure of preference and converted to the usage of business objects. We are approaching a more object oriented architectural style. Remember that data is just data, objects are data plus behavior. We can encapsulate more features and abstract more behavior into actual objects now, which we could not do with queries.
+In this architecture approach, we have replaced (mostly) queries as our data structure of preference and converted to the usage of business objects. We are approaching a more object oriented architectural style. Remember that data is just data, objects are data plus behavior. We can encapsulate more features and abstract more behavior into actual objects now, which we could not do with queries.
 
 ### MVC Plus ORM
 
-![](../.gitbook/assets/mvc+orm.png)
+![](../.gitbook/assets/MVC+ORM.png)
 
 In this architecture approach we have replaced business objects for ORM entities and replaced our data access layer to be controlled now by the ORM. This takes us very deep into object oriented land where the majority of our model is now modeled vi relational objects.
 
@@ -97,9 +97,8 @@ In this architecture approach we have replaced business objects for ORM entities
 We have even build a companion package for ColdBox called [**cborm**](https://github.com/coldbox-modules/cbox-cborm) that will help you build more pragmatic and enjoyable ORM applications.
 {% endhint %}
 
-## More Resources <a id="resources"></a>
+## More Resources <a href="#resources" id="resources"></a>
 
-* ​[http://en.wikipedia.org/wiki/Domain\_model](http://en.wikipedia.org/wiki/Domain_model)​
+* ​[http://en.wikipedia.org/wiki/Domain\_model](http://en.wikipedia.org/wiki/Domain\_model)​
 * ​[http://domaindrivendesign.org/](http://domaindrivendesign.org/)​
 * ​[http://martinfowler.com/eaaCatalog/domainModel.html](http://martinfowler.com/eaaCatalog/domainModel.html)​
-

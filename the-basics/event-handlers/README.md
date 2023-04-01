@@ -2,7 +2,7 @@
 
 Event handlers are ColdBox's version of **controllers** in the MVC design pattern. So every time you hear "_event handler_", you are talking about a controller that can listen to external events or internal events in ColdBox. Event handlers are responsible for controlling your application flow, calling business logic, preparing a display to a user and much more.
 
-![](../../.gitbook/assets/controllerlayer.jpg)
+![](../../.gitbook/assets/ControllerLayer.jpg)
 
 ## Locations
 
@@ -37,7 +37,7 @@ coldbox.handlerCaching = false;
 
 ## Anatomy
 
-Event handlers are CFCs that will respond to FORM posts, HTTP requests and/or remote requests \(like Flex,Air, SOAP, REST\) via an incoming RC variable called **event** or by [URL mappings](../routing/) \(Which we saw in the previous section\).
+Event handlers are CFCs that will respond to FORM posts, HTTP requests and/or remote requests (like Flex,Air, SOAP, REST) via an incoming RC variable called **event** or by [URL mappings](../routing/) (Which we saw in the previous section).
 
 ### Components
 
@@ -84,8 +84,8 @@ function name( event, rc, prc )
 Each action receives three arguments:
 
 1. `event` - An object that models and is used to work with the current request (otherwise known as the [Request Context](../request-context.md))
-2. `rc` - A struct that contains both `URL/FORM` variables \(unsafe data\)
-3. `prc` - A secondary struct that is **private**.  This structure is only accessible from within your application \(safe data\)
+2. `rc` - A struct that contains both `URL/FORM` variables (unsafe data)
+3. `prc` - A secondary struct that is **private**. This structure is only accessible from within your application (safe data)
 
 An action will usually do one of the following:
 
@@ -120,15 +120,14 @@ So what about `private` functions? Private functions are not executable from the
 
 ### Composed Properties
 
-It is important to note that there is a pre-defined object model behind every event handler controller that will enable you to do your work more efficiently. The following are the automatically generated properties every event handler makes available in their `variables` scope:\)
+It is important to note that there is a pre-defined object model behind every event handler controller that will enable you to do your work more efficiently. The following are the automatically generated properties every event handler makes available in their `variables` scope:)
 
-![Event Handler UML](../../.gitbook/assets/eventhandlers.jpg)
+![Event Handler UML](../../.gitbook/assets/EventHandlers.jpg)
 
-* **cachebox** : A reference to the [CacheBox ](https://cachebox.ortusbooks.com)library \(`coldbox.system.cache.CacheFactory`\)
-* **controller** : A reference to the Application Controller \(`coldbox.system.web.Controller`\)
-* **flash**: A flash memory object \(`coldbox.system.web.flash.AbstractFlashScope`\)
-* **logbox**: A reference to the application [LogBox ](https://logbox.ortusbooks.com)\(`coldbox.system.logging.LogBox`\)
-* **log**: A pre-configured logging[ logger object](https://logbox.ortusbooks.com/usage/using-a-logger-object) \(`coldbox.system.logging.Logger`\)
-* **wirebox** : A reference to the application [WireBox Injector ](https://wirebox.ortusbooks.com)\(`coldbox.system.ioc.Injector`\)
+* **cachebox** : A reference to the [CacheBox ](https://cachebox.ortusbooks.com)library (`coldbox.system.cache.CacheFactory`)
+* **controller** : A reference to the Application Controller (`coldbox.system.web.Controller`)
+* **flash**: A flash memory object (`coldbox.system.web.flash.AbstractFlashScope`)
+* **logbox**: A reference to the application [LogBox ](https://logbox.ortusbooks.com)(`coldbox.system.logging.LogBox`)
+* **log**: A pre-configured logging[ logger object](https://logbox.ortusbooks.com/usage/using-a-logger-object) (`coldbox.system.logging.Logger`)
+* **wirebox** : A reference to the application [WireBox Injector ](https://wirebox.ortusbooks.com)(`coldbox.system.ioc.Injector`)
 * **$super**: A reference to the virtual super class if using non-inheritance approach.
-

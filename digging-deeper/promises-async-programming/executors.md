@@ -12,19 +12,19 @@ The types that we currently support are:
 
 * `fixed` : By default it will build one with **20** threads on it. Great for multiple task execution and worker processing.
 
-![Fixed Thread](<../../.gitbook/assets/fixedexecutor (1) (1).png>)
+![Fixed Thread](<../../.gitbook/assets/fixedexecutor (1).png>)
 
 * `single` : A great way to control that submitted tasks will execute in the order of submission much like a FIFO queue (First In First Out).
 
-![Single Thread](../../.gitbook/assets/singlethreadexecutor.png)
+![Single Thread](../../.gitbook/assets/singleThreadExecutor.png)
 
 * `cached` : An unbounded pool where the number of threads will grow according to the tasks it needs to service. The threads are killed by a default 60 second timeout if not used and the pool shrinks back to 0.
 
-![Cached Executor](../../.gitbook/assets/cachedexecutor.png)
+![Cached Executor](../../.gitbook/assets/cachedExecutor.png)
 
 * `scheduled` : A pool to use for scheduled tasks that can run one time or periodically. The default scheduled task queue has **20** threads for processing.
 
-![Scheduled Executor](../../.gitbook/assets/scheduledexecutor.png)
+![Scheduled Executor](../../.gitbook/assets/scheduledExecutor.png)
 
 Please note that each executor is unique in its way of operation, so make sure you read about each type in the JavaDocs or watch this amazing video: [https://www.youtube.com/watch?v=sIkG0X4fqs4](https://www.youtube.com/watch?v=sIkG0X4fqs4)
 

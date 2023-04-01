@@ -8,7 +8,7 @@ The ColdBox configuration CFC is the heart of your ColdBox application. It conta
 
 
 
-![ColdBox.cfc EcoSystem](../../../.gitbook/assets/coldbox-cfc.jpg)
+![ColdBox.cfc EcoSystem](../../../.gitbook/assets/Coldbox-cfc.jpg)
 
 This CFC is instantiated by ColdBox and decorated at runtime so you can take advantage of some dependencies.  Here is a table of the automatic injection this object has:
 

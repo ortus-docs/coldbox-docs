@@ -34,7 +34,7 @@ In some of our performance testing we had about 4000 object instantiations runni
 
 ### New ColdBox Testing Virtual App
 
-![coldbox.system.testing.VirtualApp](<../../.gitbook/assets/image (1).png>)
+![coldbox.system.testing.VirtualApp](../../.gitbook/assets/image.png)
 
 This release sports the creation of the encapsulated virtual ColdBox App: `coldbox.system.testing.VirtualApp.`  Previously, the only way to create virtual apps was to do it manually just like the `BaseTestCase` object did when doing integration testing and that's about it.  In this release, we provide a clean interface for starting, restarting, checking and shutting down virtual applications that can be used for testing, proxying, etc.  It also allows a faster and eager approach to starting the virtual application before your runner and tests.  This will allow any ORM bridges to be respected and best of all the ability to execute anything in the framework before your runners, suites or specs.  Database migrations anyone?
 

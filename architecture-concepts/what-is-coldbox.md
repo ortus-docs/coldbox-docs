@@ -10,18 +10,18 @@ Here’s a look at some of the core components of the ColdBox platform. Each of 
 
 ## WireBox
 
-![](../.gitbook/assets/wirebox.png)
+![](../.gitbook/assets/WireBox.png)
 
 Managing your domain objects has never been easier with this Dependency Injection and Inversion of Control (IOC) framework. WireBox supports all forms of injection as well as maintaining persistence for your domain objects. WireBox can also interface and provide Java classes, web services, and aspects of the ColdBox framework itself. WireBox also has built-in Aspect Oriented Programming (AOP) support; you’ll never need another Dependency Injection engine again.
 
 ## LogBox
 
-![](../.gitbook/assets/logbox.png)
+![](../.gitbook/assets/LogBox.png)
 
 This is a highly-configurable logging library which can be set up to relay messages of different types from any portion of your application to any number of predefined logging appenders.
 
 ## CacheBox
 
-![](../.gitbook/assets/cachebox.png)
+![](../.gitbook/assets/CacheBox.png)
 
 A highly-versatile caching aggregator and enterprise cache that allows for multiple named caching stores as well as granular control over cache behaviors and eviction policies. CacheBox can interface out of the box with Ehcache, Adobe ColdFusion cache, and any Lucee cache.

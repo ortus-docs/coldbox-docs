@@ -8,7 +8,7 @@ For example, you have an event called `blog.showEntry`. This event executes, get
 Important to note also, that any combination of URL/FORM parameters on an event will produce a unique cacheable key. So `event=blog.showEntry&id=1` & `event=blog.showEntry&id=2` are two different cacheable events.
 {% endhint %}
 
-![](../../.gitbook/assets/eventcachingflow.jpg)
+![](../../.gitbook/assets/EventCachingFlow.jpg)
 
 ## Enabling Event Caching
 
@@ -26,15 +26,15 @@ To enable event caching, you will need to set a setting in your `ColdBox.cfc` ca
 
 The way to set up an event for caching is on the function declaration with the following annotations:
 
-| **Annotation** | **Type** | **Description** |
-| :--- | :--- | :--- |
-| `cache` | boolean | A true or false will let the framework know whether to cache this event or not. The default is FALSE. So setting to false makes no sense |
-| `cachetimeout` | numeric | The timeout of the event's output in minutes. This is an optional attribute and if it is not used, the framework defaults to the default object timeout in the cache settings. You can place a 0 in order to tell the framework to cache the event's output for the entire application timeout controlled by coldfusion, NOT GOOD. Always set a decent timeout for content. |
-| `cacheLastAccesstimeout` | numeric | The last access timeout of the event's output in minutes. This is an optional attribute and if it is not used, the framework defaults to the default last access object timeout in the cache settings. This tells the framework that if the object has not been accessed in X amount of minutes, then purge it. |
-| `cacheProvider` | string | The cache provider to store the results in. By default it uses the **template** cache. |
+| **Annotation**           | **Type** | **Description**                                                                                                                                                                                                                                                                                                                                                             |
+| ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `cache`                  | boolean  | A true or false will let the framework know whether to cache this event or not. The default is FALSE. So setting to false makes no sense                                                                                                                                                                                                                                    |
+| `cachetimeout`           | numeric  | The timeout of the event's output in minutes. This is an optional attribute and if it is not used, the framework defaults to the default object timeout in the cache settings. You can place a 0 in order to tell the framework to cache the event's output for the entire application timeout controlled by coldfusion, NOT GOOD. Always set a decent timeout for content. |
+| `cacheLastAccesstimeout` | numeric  | The last access timeout of the event's output in minutes. This is an optional attribute and if it is not used, the framework defaults to the default last access object timeout in the cache settings. This tells the framework that if the object has not been accessed in X amount of minutes, then purge it.                                                             |
+| `cacheProvider`          | string   | The cache provider to store the results in. By default it uses the **template** cache.                                                                                                                                                                                                                                                                                      |
 
 {% hint style="danger" %}
-**Important** Please be aware that you should not cache output with 0 timeouts \(forever\). Always use a timeout.
+**Important** Please be aware that you should not cache output with 0 timeouts (forever). Always use a timeout.
 {% endhint %}
 
 ```javascript
@@ -133,9 +133,8 @@ So please make sure you take note of this when planning for event security.
 
 [CacheBox](http://cachebox.ortusbooks.com) has an intuitive and powerful monitor that can be used via the ColdBox Debugger Module. From the monitor you can purge, expire and view cache elements, etc.
 
-```text
+```
 box install cbdebugger
 ```
 
 ![](../../.gitbook/assets/cachemonitor.jpg)
-

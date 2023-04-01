@@ -1,6 +1,6 @@
 # Adding A Model
 
-![MVC](<../../.gitbook/assets/mvc (1).png>)
+![MVC](<../../.gitbook/assets/MVC (1).png>)
 
 Let's complete our saga into MVC by developing the **M**, which stands for [model](https://en.wikipedia.org/wiki/Domain\_model). This layer is all your business logic, queries, external dependencies, etc. of your application, which represents the problem to solve or the domain to solve.
 
@@ -154,6 +154,6 @@ That's it! Execute the event: `http://localhost:{port}/contacts/index` and view 
 
 Congratulations, you have made a complete **MVC** circle!
 
-![](<../../.gitbook/assets/request-lifecycle (1) (1) (1).png>)
+![](<../../.gitbook/assets/request-lifecycle (1) (1).png>)
 
 > **Tip** You can find much more information about models and dependency injection in our [full docs](https://coldbox.ortusbooks.com/the-basics/models)

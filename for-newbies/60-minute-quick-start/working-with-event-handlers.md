@@ -1,6 +1,6 @@
 # Working With Event Handlers
 
-![](../../.gitbook/assets/coldboxsimplemvc.png)
+![](../../.gitbook/assets/ColdBoxSimpleMVC.png)
 
 Event handlers are the _controller_ layer in ColdBox and is what you will be executing via the `URL`or a `FORM`post. All event handlers are **singletons**, which means they are cached for the duration of the application, so always remember to var scope your variables in your functions.
 

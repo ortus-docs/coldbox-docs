@@ -1,6 +1,6 @@
 # Request Context
 
-On every request to a ColdBox event, the framework creates an object that models the incoming request. This object is called the **Request Context Object**. This object will be passed to an [Event Handler](./event-handlers) and will be processed by an [Action](./event-handlers) and is by convention called an **event**)
+On every request to a ColdBox event, the framework creates an object that models the incoming request. This object is called the **Request Context Object**. This object will be passed to an [Event Handler](event-handlers/) and will be processed by an [Action](event-handlers/) and is by convention called an **event**)
 
 It contains the incoming **FORM/REMOTE/URL** variables the client sent in and the object lives in the ColdFusion `request` scope and you will use to for responses and interacting with client data.
 
@@ -10,8 +10,8 @@ Please visit the latest [API Docs](http://apidocs.ortussolutions.com/coldbox/cur
 
 This object contains two structures internally:
 
-1. `RC` - The Request Collection which contains the **FORM/REMOTE/URL** data merged into a single structure.  This is considered to be **unsafe** data as it comes from any request.
-2. `PRC` - The Private Request Collection which is a structure that can be used to safely store sensitive data.  This structure cannot be modified from the outside world.
+1. `RC` - The Request Collection which contains the **FORM/REMOTE/URL** data merged into a single structure. This is considered to be **unsafe** data as it comes from any request.
+2. `PRC` - The Private Request Collection which is a structure that can be used to safely store sensitive data. This structure cannot be modified from the outside world.
 
 {% hint style="info" %}
 The order of preference of variables when merged is **FORM** first then **REMOTE** then **URL**.
@@ -21,7 +21,7 @@ The order of preference of variables when merged is **FORM** first then **REMOTE
 
 You will use these objects in the controller and view layer of your application to get/set values, get metadata about the request, generate URLs, transform data for RESTful requests, and so much more. It is the glue that binds the controller and view layer together. As we progress in the guides, you will progress in mastering the request context.
 
-![RC/PRC Data Super Highway](<../.gitbook/assets/requestcollectiondatabus (1) (1) (1).jpg>)
+![RC/PRC Data Super Highway](<../.gitbook/assets/requestcollectiondatabus (1) (1).jpg>)
 
 {% hint style="danger" %}
 Note that there is no model layer in the diagram. This is by design; the model will receive data from the handlers/interceptors directly.
@@ -98,7 +98,7 @@ Please see the online [API Docs](http://apidocs.ortussolutions.com/coldbox/curre
 ## Request Metadata Methods
 
 * `getCurrentAction()` : Get the current execution action (method)
-* `getCurrentEvent()` :  Get the current incoming event, full syntax.
+* `getCurrentEvent()` : Get the current incoming event, full syntax.
 * `getCurrentHandler()` : Get the handler or handler/package path.
 * `getCurrentLayout()` : Get the current set layout for the view to render.
 * `getCurrentView()` : Get the current set view

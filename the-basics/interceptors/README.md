@@ -1,8 +1,8 @@
 # Interceptors
 
-Interceptors are CFC listeners that react on incoming events. Events can be announced by the core framework or be custom events from your application. These interceptors can also be stacked to form interceptor chains that can be executed implicitly for you. This is a powerful feature that can help developers and framework contributors share and interact with their work. \(Read more on [Intercepting Filters](http://www.corej2eepatterns.com/Patterns2ndEd/InterceptingFilter.htm)\)
+Interceptors are CFC listeners that react on incoming events. Events can be announced by the core framework or be custom events from your application. These interceptors can also be stacked to form interceptor chains that can be executed implicitly for you. This is a powerful feature that can help developers and framework contributors share and interact with their work. (Read more on [Intercepting Filters](http://www.corej2eepatterns.com/Patterns2ndEd/InterceptingFilter.htm))
 
-![](../../.gitbook/assets/interceptorchain.gif)
+![](../../.gitbook/assets/InterceptorChain.gif)
 
 ## Event Driven Programming
 
@@ -38,8 +38,8 @@ component extends="coldbox.system.Interceptor"{
 
 ### Resources
 
-* [http://en.wikipedia.org/wiki/Observer\_pattern](http://en.wikipedia.org/wiki/Observer_pattern)
-* [http://sourcemaking.com/design\_patterns/observer](http://sourcemaking.com/design_patterns/observer)
+* [http://en.wikipedia.org/wiki/Observer\_pattern](http://en.wikipedia.org/wiki/Observer\_pattern)
+* [http://sourcemaking.com/design\_patterns/observer](http://sourcemaking.com/design\_patterns/observer)
 * [http://java.sun.com/blueprints/corej2eepatterns/Patterns/InterceptingFilter.html](http://java.sun.com/blueprints/corej2eepatterns/Patterns/InterceptingFilter.html)
 
 ### For what can I use them
@@ -56,7 +56,6 @@ Below are just a few applications of ColdBox Interceptors:
 * View Manipulations
 * Custom SES support
 * Cache advices on insert and remove
-* Much much more...
+*   Much much more...
 
-  \*
-
+    \*

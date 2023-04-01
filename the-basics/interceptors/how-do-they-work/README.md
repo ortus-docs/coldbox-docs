@@ -1,10 +1,10 @@
 # How do they work?
 
-Interceptors are CFCs that extend the ColdBox Interceptor class \(`coldbox.system.Interceptor`\), implement a configuration method called `configure()`, and then contain methods for the events it will listen for. All interceptors are treated as **singletons** in your application, so make sure they are thread safe and var scoped.
+Interceptors are CFCs that extend the ColdBox Interceptor class (`coldbox.system.Interceptor`), implement a configuration method called `configure()`, and then contain methods for the events it will listen for. All interceptors are treated as **singletons** in your application, so make sure they are thread safe and var scoped.
 
-![](../../../.gitbook/assets/coldboxmajorclasses.jpg)
+![](../../../.gitbook/assets/ColdBoxMajorClasses.jpg)
 
-```text
+```
 /**
 * My Interceptor
 */
@@ -16,7 +16,7 @@ component extends="coldbox.system.Interceptor"{
 }
 ```
 
-> **Info** You can also remove the inheritance from the CFC \(preferred method\) and WireBox will extend the `coldbox.system.Interceptor` for you using [Virtual Inheritance](https://wirebox.ortusbooks.com/content/virtual_inheritance/).
+> **Info** You can also remove the inheritance from the CFC (preferred method) and WireBox will extend the `coldbox.system.Interceptor` for you using [Virtual Inheritance](https://wirebox.ortusbooks.com/content/virtual\_inheritance/).
 
 You can use CommandBox to create interceptors as well:
 
@@ -30,7 +30,7 @@ Interceptors can be registered in your `Coldbox.cfc` configuration file using th
 
 In `ColdBox.cfc`:
 
-```text
+```
 // Interceptors registration
 interceptors = [
     {
@@ -45,7 +45,7 @@ interceptors = [
 
 Registered manually:
 
-```text
+```
 controller.getInterceptorService().registerInterceptor( interceptorClass="cfc.path" );
 ```
 
@@ -56,4 +56,3 @@ The interceptor has one important method that you can use for configuration call
 > **Info** These properties are local to the interceptor only!
 
 As you can see on the diagram, the interceptor class is part of the ColdBox framework super type family, and thus inheriting the functionality of the framework.
-

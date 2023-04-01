@@ -93,7 +93,7 @@ In a few seconds, a browser window will appear with your running application. Th
 **Tip:** If you are creating an app to run on any other server than the commandbox server, you will need to manually set up URL rewriting. More info here: [/the-basics/routing/requirements](../the-basics/routing/requirements/)
 {% endhint %}
 
-![Generated ColdBox App](<../.gitbook/assets/image (2).png>)
+![Generated ColdBox App](<../.gitbook/assets/image (3).png>)
 
 ## Take A Look Around
 

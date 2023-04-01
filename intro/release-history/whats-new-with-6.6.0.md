@@ -98,7 +98,7 @@ coldbox : {
 
 ### WireBox Child Injectors
 
-![WireBox Injector Hierarchy](../../.gitbook/assets/image.png)
+![WireBox Injector Hierarchy](<../../.gitbook/assets/image (1).png>)
 
 Welcome to the world of hierarchical dependency injection. We had the ability before to add a parent injector to WireBox, but now you can not only add a parent, but also many children to the hierarchy.
 

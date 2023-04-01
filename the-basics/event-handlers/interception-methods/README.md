@@ -1,6 +1,6 @@
 # Interception Methods
 
-![](<../../../.gitbook/assets/eventhandler-prepost (2) (2) (2) (1) (1).jpg>)
+![](<../../../.gitbook/assets/eventhandler-prepost (2) (2) (2) (1).jpg>)
 
 There are several simple implicit [AOP](http://en.wikipedia.org/wiki/Aspect-oriented\_programming) (Aspect Oriented Programming) interceptor methods, usually referred to as **advices**, that can be declared in your event handler that the framework will use in order to execute them **before/after** and **around** an event as its fired from the current handler.
 

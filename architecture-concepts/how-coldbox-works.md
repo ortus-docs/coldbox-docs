@@ -6,7 +6,7 @@ ColdBox uses both implicit and explicit invocation methods to execute events and
 
 ## Front Controller
 
-![](../.gitbook/assets/coldboxsimplemvc.png)
+![](../.gitbook/assets/ColdBoxSimpleMVC.png)
 
 ColdBox is loaded by the `Application.cfc` and makes use of the Front Controller design pattern as its means of operation. This means that every request comes in through a single template, usually `index.cfm`. Once a request is received by the framework through this front controller, it will parse the request and redirect appropriately to the correct event handler controller by looking for an `event` variable in the URL or FORM scopes.
 
@@ -22,11 +22,11 @@ The request context object has tons of methods to help you in setting and gettin
 
 Below you can see a UML diagram of the ColdBox Major Classes eco-system.
 
-![ColdBox Major Classes UML](../.gitbook/assets/coldboxmajorclasses.jpg)
+![ColdBox Major Classes UML](../.gitbook/assets/ColdBoxMajorClasses.jpg)
 
 ## Request Lifecycle
 
-![](<../.gitbook/assets/request-lifecycle (1) (1) (1).png>)
+![](<../.gitbook/assets/request-lifecycle (1) (1).png>)
 
 A typical basic request to a ColdBox application looks like this:
 
@@ -41,10 +41,10 @@ A typical basic request to a ColdBox application looks like this:
 
 Below you can see the full life-cycle for MVC requests:
 
-![](../.gitbook/assets/coldboxlifecycles.jpg)
+![](../.gitbook/assets/ColdBoxLifecycles.jpg)
 
 ### Proxy Lifecycle
 
 ColdBox also has a proxy feature for building SOAP webservices or Flex/Air integration called [ColdBox Proxy](../digging-deeper/coldbox-proxy/). Below you can see the life-cycle for that process:
 
-![](../.gitbook/assets/coldboxlifecyclesproxy.jpg)
+![](../.gitbook/assets/ColdBoxLifecyclesProxy.jpg)

@@ -14,7 +14,7 @@ The `execute()` method is your way of making requests in to your ColdBox applica
 | `withExceptionHandling` | boolean | `false`           | If true, then ColdBox will process any errors through the exception handling framework instead of just throwing the error.           |
 | `domain`                | string  | `cgi.server_name` | The domain or subdomain that you would like to simulate the request with.                                                            |
 
-This method will execute any ColdBox event/route just like if it's coming from the browser or mobile app.  You will get back a request context object from which you can then do assertions with it.
+This method will execute any ColdBox event/route just like if it's coming from the browser or mobile app. You will get back a request context object from which you can then do assertions with it.
 
 ```javascript
 it( "can render some restful data", function() {
@@ -26,12 +26,12 @@ it( "can render some restful data", function() {
 ```
 
 {% hint style="danger" %}
-**WARNING:** Please note that this method is limited to simulating `GET` operations.  If you are building RESTFul services, then you will need to use our [HTTP Testing Methods](http-testing-methods.md) discussed next.
+**WARNING:** Please note that this method is limited to simulating `GET` operations. If you are building RESTFul services, then you will need to use our [HTTP Testing Methods](http-testing-methods.md) discussed next.
 {% endhint %}
 
 ## Rendering Results
 
-The `execute()` method has an argument called `renderResults` which defaults to **false**. If you pass in **true** then ColdBox will go through the normal rendering procedures and save the results in a request collection variable called: `cbox_rendered_content` and expose to you a method in the request context called `getRenderedContent()`. It will even work with `renderData()` or if you are returning RESTful information.&#x20;
+The `execute()` method has an argument called `renderResults` which defaults to **false**. If you pass in **true** then ColdBox will go through the normal rendering procedures and save the results in a request collection variable called: `cbox_rendered_content` and expose to you a method in the request context called `getRenderedContent()`. It will even work with `renderData()` or if you are returning RESTful information.
 
 Then you can easily assert what the content would have been for an event.
 
@@ -143,7 +143,6 @@ it( "can do a relocation", function() {
 If you are building multi-tenant applications with ColdBox and are leveraging [domain and subdomain routing](https://coldbox.ortusbooks.com/the-basics/routing/routing-dsl/routing-methods#sub-domain-routing), then you can easily use the `domain` argument to simulate the domain in play for THAT specific spec execution.
 
 ```javascript
-
 describe( "subdomain routing", function(){
 	beforeEach( function(){
 		setup();
@@ -177,5 +176,4 @@ describe( "subdomain routing", function(){
 		expect( rc.username ).toBe( "luis" );
 	} );
 } );
-
 ```

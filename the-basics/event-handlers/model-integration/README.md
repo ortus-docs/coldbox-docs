@@ -2,8 +2,8 @@
 
 We have a complete section dedicated to the [Model Layer](../../models/), but we wanted to review a little here since event handlers need to talk to the model layer all the time. By default, you can interact with your models from your event handlers in two ways:
 
-* Dependency Injection \([Aggregation](https://atomicobject.com/resources/oo-programming/object-oriented-aggregation)\)
-* Request, use and discard model objects \([Association](https://en.wikipedia.org/wiki/Association_%28object-oriented_programming%29)\)
+* Dependency Injection ([Aggregation](https://atomicobject.com/resources/oo-programming/object-oriented-aggregation))
+* Request, use and discard model objects ([Association](https://en.wikipedia.org/wiki/Association\_\(object-oriented\_programming\)))
 
 ColdBox offers its own dependency injection framework, [WireBox](https://wirebox.ortusbooks.com), which allows you, by convention, to talk to your model objects. However, ColdBox also allows you to connect to third-party dependency injection frameworks via the _IOC_ module: [http://forgebox.io/view/cbioc](http://forgebox.io/view/cbioc)
 
@@ -13,9 +13,9 @@ Aggregation differs from ordinary composition in that it does not imply ownershi
 
 ## Dependency Injection
 
-![](../../../.gitbook/assets/eventhandlerinjection.jpg)
+![](../../../.gitbook/assets/EventHandlerInjection.jpg)
 
-Your event handlers can be **autowired** with dependencies from [WireBox](https://wirebox.ortusbooks.com) by convention. By autowiring dependencies into event handlers, they will become part of the life span of the event handlers \(**singletons**\), since their references will be injected into the handler's `variables` scope.   This is a huge performance benefit since event handlers are wired with all necessary dependencies upon creation instead of requesting dependencies \(usage\) at runtime. We encourage you to use injection whenever possible.
+Your event handlers can be **autowired** with dependencies from [WireBox](https://wirebox.ortusbooks.com) by convention. By autowiring dependencies into event handlers, they will become part of the life span of the event handlers (**singletons**), since their references will be injected into the handler's `variables` scope.   This is a huge performance benefit since event handlers are wired with all necessary dependencies upon creation instead of requesting dependencies (usage) at runtime. We encourage you to use injection whenever possible.
 
 {% hint style="danger" %}
 **Warning** As a rule of thumb, inject only **singletons** into **singletons**.  If not you can create unnecessary [scope-widening injection](https://wirebox.ortusbooks.com/advanced-topics/providers/scope-widening-injection) issues and memory leaks.
@@ -24,7 +24,7 @@ Your event handlers can be **autowired** with dependencies from [WireBox](https:
 You will achieve this in your handlers via `property` injection, which is the concept of defining properties in the component with a special annotation called `inject`, which tells WireBox what reference to retrieve via the [WireBox Injection DSL](./#injection).  Let's say we have a **users** handler that needs to talk to a model called **UserService**. Here is the directory layout so we can see the conventions
 
 {% code title="Directory Layout" %}
-```text
+```
 + handlers
   + users.cfc
 + models
@@ -60,9 +60,9 @@ Notice that we define a `cfproperty` with a name and `inject` attribute.  The `n
 
 ## Requesting Model Objects
 
-![](../../../.gitbook/assets/eventhandlermodelrequested.jpg)
+![](../../../.gitbook/assets/EventHandlerModelRequested.jpg)
 
-The other approach to integrating with model objects is to request and use them as [associations](http://en.wikipedia.org/wiki/Association_%28object-oriented_programming%29) via the framework super type method: `getInstance()`, which in turn delegates to WireBox's `getInstance()` method.  We would recommend requesting objects if they are **transient** \(have state\) objects or stored in some other volatile storage scope \(session, request, application, cache, etc\). Retrieving of objects is okay, but if you will be dealing with mostly **singleton** objects or objects that are created only once, you will gain much more performance by using injection.
+The other approach to integrating with model objects is to request and use them as [associations](http://en.wikipedia.org/wiki/Association\_\(object-oriented\_programming\)) via the framework super type method: `getInstance()`, which in turn delegates to WireBox's `getInstance()` method.  We would recommend requesting objects if they are **transient** (have state) objects or stored in some other volatile storage scope (session, request, application, cache, etc). Retrieving of objects is okay, but if you will be dealing with mostly **singleton** objects or objects that are created only once, you will gain much more performance by using injection.
 
 {% code title="users.cfc" %}
 ```javascript
@@ -231,7 +231,7 @@ component{
 }
 ```
 
-Both approaches do exactly the same thing. In reality `getInstance()` does a `wirebox.getInstance()` callback \(Uncle Bob\), but it is a facade method that is easier to remember. If you run this, you will also see that it works and everything is fine and dandy. However, the biggest difference between injection and usage can be seen with some practical math:
+Both approaches do exactly the same thing. In reality `getInstance()` does a `wirebox.getInstance()` callback (Uncle Bob), but it is a facade method that is easier to remember. If you run this, you will also see that it works and everything is fine and dandy. However, the biggest difference between injection and usage can be seen with some practical math:
 
 ```javascript
 1000 Requests made to users.index
@@ -241,4 +241,3 @@ Both approaches do exactly the same thing. In reality `getInstance()` does a `wi
 ```
 
 As you can see, the best performance is due to injection as the handler object was wired and ready to roll, while the requested approach needed the dependency to be requested. Again, there are cases where you need to request objects such as transient or volatile stored objects.
-
