@@ -16,6 +16,10 @@ The `announceInterception()` method [has been deprecated since ColdBox 6.0.0](ht
 
 The `routes.cfm` approach is now removed in ColdBox 7. You will need to migrate to the `Router.cfc` [approach](../../the-basics/routing/) in your application and/or modules.
 
+### setUniqueURLs
+
+The router's `setUniqueURLs()` configuration method has been removed in favor of `setFullRewrites()`. SES (Search Engine Safe) urls are the standard now, so non-SES urls are automatically rewritten to SES format.
+
 ### renderView(), renderLayout(), renderExternalView()
 
 These methods are deprecated since version 6. Please use the shorthand versions
@@ -49,8 +53,30 @@ That will break.  You will have to move it to the delegate:
 new coldbox.system.core.delegates.Env().getSystemSetting()
 ```
 
+becomes:
+
+```js
+function process( required definition, targetObject, targetID ){
+  // process my custom DSL
+}
+```
+
+See [Custom Wirebox DSLs](https://wirebox.ortusbooks.com/extending-wirebox/custom-dsl/the-dsl-builder-interface) for more info
+
 ## Deprecations
 
 ### BeanPopulator Deprecated
 
 The name `BeanPopulator` has been deprecated in favor of `ObjectPopulator`.
+
+## Other Changes
+
+## Custom Wirebox DSLs
+
+For those of you with custom wirebox DSLs, you'll need to update your DSL to match the new process() method signature:
+
+```js
+function process( required definition, targetObject ){
+  // process my custom DSL
+}
+```
