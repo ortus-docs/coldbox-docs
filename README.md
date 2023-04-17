@@ -8,7 +8,7 @@ description: >-
 
 ## ColdBox HMVC Platform- v7.x
 
-![HMVC Framework](.gitbook/assets/coldboxlogo2015\_300.png)
+![HMVC Framework](.gitbook/assets/ColdBoxLogo2015\_300.png)
 
 ![Standalone Libraries](.gitbook/assets/coldbox-family.png)
 
@@ -40,25 +40,35 @@ ColdBox is maintained under the [Semantic Versioning](http://semver.org) guideli
 And constructed with the following guidelines:
 
 * Breaking backward compatibility bumps the major (and resets the minor and patch)
-* New additions without breaking backward compatibility bumps the minor (and resets the patch)
-* Bug fixes and misc changes bumps the patch
+* New additions without breaking backward compatibility bump the minor (and resets the patch)
+* Bug fixes and misc changes bump the patch
 
 ## License
 
 The ColdBox Platform is open source and licensed under the [Apache 2](https://www.apache.org/licenses/LICENSE-2.0.html) License.
 
 * Copyright by Ortus Solutions, Corp
-* ColdBox, CacheBox, WireBox, and LogBox are registered trademarks of Ortus Solutions, Corp
+* ColdBox, CacheBox, WireBox, and LogBox are registered trademarks of Ortus Solutions, Corp.
 
 ## Discussion & Help
 
 ![](.gitbook/assets/ortus-community-square-small.png)
 
-The Ortus Community is the way to get any type of help for our entire platform and modules: [https://community.ortussolutions.com](https://community.ortussolutions.com)
+The Ortus Community is how to get help for our entire platform and modules: [https://community.ortussolutions.com](https://community.ortussolutions.com).&#x20;
+
+{% embed url="https://community.ortussolutions.com" %}
+community.ortussolutions.com
+{% endembed %}
+
+You can also join our Slack Box Team at: [https://boxteam.ortussolutions.com](https://boxteam.ortussolutions.com)
+
+{% embed url="https://boxteam.ortussolutions.com" %}
+boxteam.ortussolutions.com
+{% endembed %}
 
 ## Reporting a Bug
 
-We all make mistakes from time to time :) So why not let us know about it and help us out? We also love pull requests, so please star us and fork us at: [https://github.com/coldbox/coldbox-platform](https://github.com/coldbox/coldbox-platform)
+We all make mistakes from time to time :) So why not let us know about it and help us out? We also love :heart\_eyes: pull requests, so please star us and fork us at: [https://github.com/coldbox/coldbox-platform](https://github.com/coldbox/coldbox-platform)
 
 ### Jira Issue Tracking
 
@@ -85,14 +95,15 @@ ColdBox is a professional open source software backed by [Ortus Solutions, Corp]
 
 * Official Site: [https://www.coldbox.org](https://www.coldbox.org)
 * CFCasts Video Training: [http://www.cfcasts.com](http://www.cfcasts.com)
+* Facebook: [https://www.facebook.com/coldboxplatform](https://www.facebook.com/coldboxplatform)
 * Source Code: [https://github.com/coldbox/coldbox-platform](https://github.com/coldbox/coldbox-platform)
 * Bug Tracker: [https://ortussolutions.atlassian.net/browse/COLDBOX](https://ortussolutions.atlassian.net/browse/COLDBOX)
-* Twitter: [@coldbox](http://www.twitter.com/coldbox)
-* Facebook: [https://www.facebook.com/coldboxplatform](https://www.facebook.com/coldboxplatform)
+* Slack: [https://boxteam.ortussolutions.com](https://boxteam.ortussolutions.com)
+* Twitter: [@coldbox](http://www.twitter.com/coldbox) [@ortussolutions](https://www.twitter.com/@ortussolutions)
 * Vimeo Channel: [https://vimeo.com/channels/coldbox](https://vimeo.com/channels/coldbox)
 
 ### HONOR GOES TO GOD ABOVE ALL
 
-Because of His grace, this project exists. If you don't like this, then don't read it, it's not for you.
+Because of His grace, this project exists. If you don't like this, don't read it, it's not for you.
 
 > "Therefore being justified by **faith**, we have peace with God through our Lord Jesus Christ: By whom also we have access by **faith** into this **grace** wherein we stand, and rejoice in hope of the glory of God." Romans 5:5

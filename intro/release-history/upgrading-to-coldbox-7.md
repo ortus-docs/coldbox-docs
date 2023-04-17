@@ -1,3 +1,7 @@
+---
+description: The official ColdBox 7 upgrade guide
+---
+
 # Upgrading to ColdBox 7
 
 The major compatibility issues will be covered as well as how to smoothly upgrade to this release from previous ColdBox versions. You can also check out the [What's New](whats-new-with-7.0.0.md) guide to give you a full overview of the changes.
@@ -5,6 +9,26 @@ The major compatibility issues will be covered as well as how to smoothly upgrad
 ## ColdFusion 2016 Support Dropped
 
 ColdFusion 2016 support has been dropped. Adobe doesn't support them anymore, so neither do we.
+
+## Hierarchical Injectors
+
+All modules have their own injector now.  Meaning the concept of a global injector no longer exists. Therefore, there are some edge cases where certain types of code will not work in ColdBox 7.
+
+### Testing Injector Creations
+
+If you are creating your own WireBox injector in your tests and using integration testing, you will have Injector collisions.
+
+```javascript
+myInjector = new coldbox.system.ioc.Injector()
+```
+
+This actually affects **EVERY** version of ColdBox because the default behavior of instantiating an Injector like the code above is to put the Injector in application scope: `application.wirebox.` This means that the REAL injector in an integration test lives in `application.wirebox` will be overridden.  To avoid this collision, disable scope registration:
+
+```javascript
+myInjector = new coldbox.system.ioc.Injector( {
+    scopeRegistration : { enabled : false }hj
+} )
+```
 
 ## Removals
 
@@ -16,13 +40,13 @@ The `announceInterception()` method [has been deprecated since ColdBox 6.0.0](ht
 
 The `routes.cfm` approach is now removed in ColdBox 7. You will need to migrate to the `Router.cfc` [approach](../../the-basics/routing/) in your application and/or modules.
 
-### setUniqueURLs
+### setUniqueURLs()
 
-The router's `setUniqueURLs()` configuration method has been removed in favor of `setFullRewrites()`. SES (Search Engine Safe) urls are the standard now, so non-SES urls are automatically rewritten to SES format.
+This setting was in charge of converting NON-SES Urls into SES URLs.  However, it was extremely error-prone and sometimes produced invalid URLs.  This is now completely removed and if the user wants to do this feature, they can use CommandBox or Nginx, or Apache rewrites.
 
 ### renderView(), renderLayout(), renderExternalView()
 
-These methods are deprecated since version 6. Please use the shorthand versions
+These methods have been deprecated since version 6. Please use the shorthand versions
 
 * `view()`
 * `layout()`
@@ -34,7 +58,7 @@ The `jsonQueryFormat` argument for rendering data is now removed. We default to 
 
 ### Utility Environment Methods
 
-The core utility methods on env and Java variables have been removed from the utility object and moved to the `Env` delegate.  Here are the methods removed:
+The core utility methods on env and Java variables have been removed from the utility object and moved to the `Env` delegate. Here are the methods removed:
 
 * `getSystemSetting()`
 * `getSystemProperty()`
@@ -47,7 +71,7 @@ So if you had code like this:
 new coldbox.system.core.util.Util().getSystemSetting()
 ```
 
-That will break.  You will have to move it to the delegate:
+That will break. You will have to move it to the delegate:
 
 ```javascript
 new coldbox.system.core.delegates.Env().getSystemSetting()
@@ -71,7 +95,7 @@ The name `BeanPopulator` has been deprecated in favor of `ObjectPopulator`.
 
 ## Other Changes
 
-## Custom Wirebox DSLs
+### Custom Wirebox DSLs
 
 For those of you with custom wirebox DSLs, you'll need to update your DSL to match the new process() method signature:
 
@@ -80,3 +104,5 @@ function process( required definition, targetObject ){
   // process my custom DSL
 }
 ```
+
+###
