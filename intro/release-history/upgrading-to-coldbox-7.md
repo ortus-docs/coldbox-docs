@@ -97,12 +97,20 @@ The name `BeanPopulator` has been deprecated in favor of `ObjectPopulator`.
 
 ### Custom Wirebox DSLs
 
-For those of you with custom wirebox DSLs, you'll need to update your DSL to match the new process() method signature:
+For those of you with custom wirebox DSLs, you'll need to update your DSL to match the new `process()` method signature:
 
 ```js
-function process( required definition, targetObject ){
-  // process my custom DSL
-}
+
+/**
+ * Process an incoming DSL definition and produce an object with it
+ *
+ * @definition   The injection dsl definition structure to process. Keys: name, dsl
+ * @targetObject The target object we are building the DSL dependency for. If empty, means we are just requesting building
+ * @targetID     The target ID we are building this dependency for
+ *
+ * @return coldbox.system.ioc.dsl.IDSLBuilder
+ */
+function process( required definition, targetObject, targetID );
 ```
 
 ###
