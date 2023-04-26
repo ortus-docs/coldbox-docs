@@ -1,6 +1,8 @@
 # What's New With 7.0.0
 
-ColdBox 7.0.0 is a major release for the ColdBox HMVC platform. It has some dramatic new features as we keep pushing for more modern and sustainable approaches to web development. We break down the major areas of development below, and you can also find the full release notes per library at the end.
+ColdBox 7.0.0 is a major release for the ColdBox HMVC platform. It has some dramatic new features as we keep pushing for more modern and sustainable approaches to web development and tons of bug fixes and improvements.
+
+We break down the major areas of development below, and you can also find the full release notes per library at the end.
 
 ## Engine Support
 
