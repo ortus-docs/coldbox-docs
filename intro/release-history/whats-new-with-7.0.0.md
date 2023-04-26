@@ -20,9 +20,16 @@ In previous versions of ColdBox, it would auto-detect unique request identifiers
 However, you can now decide what will be the unique identifier for requests by providing it via a `coldbox.identifierProvider` as a closure/lambda in your `config/Coldbox.cfc`
 
 ```javascript
-identifierProvider : () => {
-    // My own logic to provide a unique tracking id
-    return myTrackingID
+coldbox : {
+    ...
+    
+    identifierProvider : () => {
+        // My own logic to provide a unique tracking id
+        return myTrackingID
+    }
+    
+    ...
+
 }
 ```
 
