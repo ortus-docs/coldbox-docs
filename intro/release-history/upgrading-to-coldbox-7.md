@@ -4,7 +4,7 @@ description: The official ColdBox 7 upgrade guide
 
 # Upgrading to ColdBox 7
 
-The major compatibility issues will be covered, as well as how to upgrade to this release from previous ColdBox versions smoothly. You can also check out the [What's New](whats-new-with-7.0.0/) guide to give you a full overview of the changes.
+The major compatibility issues will be covered, as well as how to upgrade to this release from previous ColdBox versions smoothly. You can also check out the [What's New](whats-new-with-7.0.0.md) guide to give you a full overview of the changes.
 
 ## ColdFusion 2016 Support Dropped
 

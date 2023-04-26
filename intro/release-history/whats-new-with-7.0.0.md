@@ -6,11 +6,11 @@ description: Discover the power of ColdBox 7.0.0
 
 ColdBox 7.0.0 is a major release for the ColdBox HMVC platform. It has some dramatic new features as we keep pushing for more modern and sustainable approaches to web development and tons of bug fixes and improvements.
 
-We break down the major areas of development below, and you can also find the [full release notes](release-notes.md) per library at the end.
+We break down the major areas of development below, and you can also find the [full release notes](whats-new-with-7.0.0/release-notes.md) per library at the end.
 
 ## Engine Support
 
-<figure><img src="../../../.gitbook/assets/coldbox-engine-support.jpeg" alt=""><figcaption><p>ColdBox v7 Engine Support</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/coldbox-engine-support.jpeg" alt=""><figcaption><p>ColdBox v7 Engine Support</p></figcaption></figure>
 
 This release drops support for Adobe 2016 and adds support for Adobe 2023 and Lucee 6 (Beta).  Please note that there are still issues with Adobe 2023 as it is still in Beta.
 
@@ -23,7 +23,7 @@ In previous versions of ColdBox, it would auto-detect unique request identifiers
 3. If we have in the `URL` the `cfid/cftoken`
 4. Create a unique request-based tracking identifier: `cbUserTrackingId`
 
-However, you can now decide what will be the unique identifier for requests by providing it via a `coldbox.identifierProvider` as a closure/lambda in your `config/Coldbox.cfc`
+However, you can now decide what will be the unique identifier for requests, flash RAM, etc by providing it via a `coldbox.identifierProvider` as a closure/lambda in your `config/Coldbox.cfc`
 
 ```javascript
 coldbox : {
@@ -51,15 +51,111 @@ The supertype as well so all handlers/layouts/views/interceptors can get the use
 function getUserSessionIdentifier()
 ```
 
-## Module Injectors
+## Module Enhancements
 
+### Config Object Override
 
+In ColdBox 7, you can now store the module configurations outside of the `config/Coldbox.cfc`. Especially in an application with many modules and many configs, the `modulesettings` would get really unruly and long.  Now you can bring separation.  This new convention will allow module override configurations to exist as their own configuration file within the application’s config folder.
+
+```bash
+config/modules/{moduleName}.cfc
+```
+
+The configuration CFC will have one `configure()` method that is expected to return a struct of configuration settings as you did before in the `moduleSettings`
+
+```javascript
+component{
+
+    function configure(){
+        return {
+            key : value
+        };
+    }
+
+}
+```
+
+#### Injections
+
+Just like a `ModuleConfig` this configuration override also gets many injections:
+
+```
+* controller
+* coldboxVersion
+* appMapping
+* moduleMapping
+* modulePath
+* logBox
+* log
+* wirebox
+* binder
+* cachebox
+* getJavaSystem
+* getSystemSetting
+* getSystemProperty
+* getEnv
+* appRouter
+* router
+```
+
+#### Env Support
+
+This module configuration object will also inherit the `ModuleConfig.cfc` behavior that if you create methods with the same name as the **environment** you are on, it will execute it for you as well.
+
+```javascript
+function development( original ){
+   // add overides to the original struct
+}
+```
+
+Then you can change the `original` struct as you see fit for that environment.
+
+### Config/Settings Awareness
+
+You can now use the `{this}` placeholder in injections for module configurations-settings, and ColdBox will automatically replace it with the current module it's being injected in:
+
+```javascript
+property name="mySettings" inject="coldbox:moduleSettings:{this}"
+property name="myConfig" inject="coldbox:moduleConfig:{this}"
+```
+
+This is a great way to keep your injections clean without adhering to the module name.
+
+## Interceptor `listen()` Order
+
+You can now use `listen( closure, point )` or `listen( point, closure)` when registering closure interception points.
 
 ## Delegates
 
 
 
+## Baby got `back()!`
 
+The framework super type now sports a `back()` function so you can use it to redirect back to the referer in a request.
+
+```javascript
+function save( event, rc, prc ){
+    ... save your work
+    
+    // Go back to where you came from
+    back();
+}
+```
+
+## Whoops! Upgrades
+
+Whoops got even more love:
+
+* SQL Syntax Highlighting
+* JSON Pretty Printing
+* JSON highlighting
+* Debug Mode to show source code
+* Production detection to avoid showing source code
+* Rendering performance improvements
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>SQL Hightlighting</p></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>JSON Pretty Print + Highlights</p></figcaption></figure>
 
 
 
@@ -68,7 +164,7 @@ function getUserSessionIdentifier()
 The RESTFul handlers have been updated to present more useful debugging when exceptions are detected in any call to any resource.  You will now get the following new items in the response:
 
 * `environment`
-  * A snapshot of the current routes, urls and event
+  * A snapshot of the current routes, URLs and event
 * `exception`
   * A stack frame, detail, and type
 
@@ -158,7 +254,11 @@ component delegates="AppModes@cbDelegates"{
 
 ## Testing Enhancements
 
-### Env Detection
+### Unload ColdBox is now false
+
+All integration tests now won't unload ColdBox after execution.  Basically, the `this.unloadColdBox = false` is now the default.  This is to increase performance where each request run tries only to load the ColdBox virtual app once.
+
+### Environment Detection Method
 
 All test bundles now gets a `getEnv()` method to retrieve our environment delegate so you can get env settings and properties:
 
@@ -235,9 +335,9 @@ log.debug( () => "This is a debug message", data )
 
 ## Release Notes
 
-You can find the [release notes](./#release-notes) on the page below:
+You can find the [release notes](whats-new-with-7.0.0.md#release-notes) on the page below:
 
-{% content-ref url="release-notes.md" %}
-[release-notes.md](release-notes.md)
+{% content-ref url="whats-new-with-7.0.0/release-notes.md" %}
+[release-notes.md](whats-new-with-7.0.0/release-notes.md)
 {% endcontent-ref %}
 

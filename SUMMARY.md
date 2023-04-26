@@ -5,7 +5,7 @@
 ## Intro
 
 * [Release History](intro/release-history/README.md)
-  * [What's New With 7.0.0](intro/release-history/whats-new-with-7.0.0/README.md)
+  * [What's New With 7.0.0](intro/release-history/whats-new-with-7.0.0.md)
     * [Release Notes](intro/release-history/whats-new-with-7.0.0/release-notes.md)
   * [Upgrading to ColdBox 7](intro/release-history/upgrading-to-coldbox-7.md)
 * [About This Book](intro/about-this-book/README.md)
