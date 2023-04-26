@@ -4,7 +4,7 @@ description: The official ColdBox 7 upgrade guide
 
 # Upgrading to ColdBox 7
 
-The major compatibility issues will be covered as well as how to smoothly upgrade to this release from previous ColdBox versions. You can also check out the [What's New](whats-new-with-7.0.0.md) guide to give you a full overview of the changes.
+The major compatibility issues will be covered, as well as how to upgrade to this release from previous ColdBox versions smoothly. You can also check out the [What's New](whats-new-with-7.0.0/) guide to give you a full overview of the changes.
 
 ## ColdFusion 2016 Support Dropped
 
@@ -12,7 +12,7 @@ ColdFusion 2016 support has been dropped. Adobe doesn't support them anymore, so
 
 ## Hierarchical Injectors
 
-All modules have their own injector now.  Meaning the concept of a global injector no longer exists. Therefore, there are some edge cases where certain types of code will not work in ColdBox 7.
+All modules have their own injector now if you use the `this.moduleInjector = true` setting.  Meaning the concept of a global injector no longer exists. Therefore, there are some edge cases where certain types of code will not work in ColdBox 7.
 
 ### Testing Injector Creations
 
@@ -30,72 +30,7 @@ myInjector = new coldbox.system.ioc.Injector( {
 } )
 ```
 
-## Removals
-
-### AnnounceInterception
-
-The `announceInterception()` method [has been deprecated since ColdBox 6.0.0](https://coldbox.ortusbooks.com/v/v6.x/intro/release-history/whats-new-with-6.0.0#announceinterception-processstate-deprecated). You will need to refactor any uses of `announceInterception()` to use `announce()` instead.
-
-### routes.cfm
-
-The `routes.cfm` approach is now removed in ColdBox 7. You will need to migrate to the `Router.cfc` [approach](../../the-basics/routing/) in your application and/or modules.
-
-### setUniqueURLs()
-
-This setting was in charge of converting NON-SES Urls into SES URLs.  However, it was extremely error-prone and sometimes produced invalid URLs.  This is now completely removed and if the user wants to do this feature, they can use CommandBox or Nginx, or Apache rewrites.
-
-### renderView(), renderLayout(), renderExternalView()
-
-These methods have been deprecated since version 6. Please use the shorthand versions
-
-* `view()`
-* `layout()`
-* `externalView()`
-
-### `jsonQueryFormat` Removed
-
-The `jsonQueryFormat` argument for rendering data is now removed. We default to an array of structs format for queries as it is the only format that makes sense.
-
-### Utility Environment Methods
-
-The core utility methods on env and Java variables have been removed from the utility object and moved to the `Env` delegate. Here are the methods removed:
-
-* `getSystemSetting()`
-* `getSystemProperty()`
-* `getEnv()`
-
-So if you had code like this:
-
-```javascript
-// Deprecated
-new coldbox.system.core.util.Util().getSystemSetting()
-```
-
-That will break. You will have to move it to the delegate:
-
-```javascript
-new coldbox.system.core.delegates.Env().getSystemSetting()
-```
-
-becomes:
-
-```js
-function process( required definition, targetObject, targetID ){
-  // process my custom DSL
-}
-```
-
-See [Custom Wirebox DSLs](https://wirebox.ortusbooks.com/extending-wirebox/custom-dsl/the-dsl-builder-interface) for more info
-
-## Deprecations
-
-### BeanPopulator Deprecated
-
-The name `BeanPopulator` has been deprecated in favor of `ObjectPopulator`.
-
-## Other Changes
-
-### Custom Wirebox DSLs
+## Custom Wirebox DSLs
 
 For those of you with custom wirebox DSLs, you'll need to update your DSL to match the new `process()` method signature:
 
@@ -112,5 +47,74 @@ For those of you with custom wirebox DSLs, you'll need to update your DSL to mat
  */
 function process( required definition, targetObject, targetID );
 ```
+
+##
+
+## Removals
+
+### AnnounceInterception
+
+The `announceInterception()` method [has been deprecated since ColdBox 6.0.0](https://coldbox.ortusbooks.com/v/v6.x/intro/release-history/whats-new-with-6.0.0#announceinterception-processstate-deprecated). You will need to refactor any uses of `announceInterception()` to use `announce()` instead.
+
+### routes.cfm
+
+The `routes.cfm` approach is now removed in ColdBox 7. You will need to migrate to the `Router.cfc` [approach](../../the-basics/routing/) in your application and/or modules.
+
+### setUniqueURLs()
+
+This setting was in charge of converting NON-SES Urls into SES URLs.  However, it was extremely error-prone and sometimes produced invalid URLs.  This is now completely removed and if the user wants to do this feature, they can use CommandBox or Nginx, or Apache rewrites.
+
+### `jsonQueryFormat` Removed
+
+The `jsonQueryFormat` argument for rendering data is now removed. We default to an array of structs format for queries as it is the only format that makes sense.
+
+
+
+## Deprecations
+
+### renderView(), renderLayout(), renderExternalView()
+
+These methods have been deprecated since version 6. Please use the shorthand versions
+
+* `view()`
+* `layout()`
+* `externalView()`
+
+### Utility Environment Methods
+
+The core utility methods on `env` and Java variables have been deprecated from the utility object and moved to the `Env` delegate. Here are the methods deprecated:
+
+* `getSystemSetting()`
+* `getSystemProperty()`
+* `getEnv()`
+
+So if you had code like this:
+
+```javascript
+// Deprecated
+new coldbox.system.core.util.Util().getSystemSetting()
+```
+
+That will work, but it is deprecated now. You will have to move it to the delegate:
+
+```javascript
+new coldbox.system.core.delegates.Env().getSystemSetting()
+```
+
+If you were using them in your integration or unit tests, then you can use our shorthand methods:
+
+```javascript
+getEnv().getSystemSetting()
+getEnv().getSystemProperty()
+getEnv().getEnv()
+```
+
+### BeanPopulator Deprecated
+
+The object `BeanPopulator` has been deprecated in favor of `ObjectPopulator`.
+
+
+
+###
 
 ###
