@@ -14,9 +14,22 @@ We break down the major areas of development below, and you can also find the [f
 
 This release drops support for Adobe 2016 and adds support for Adobe 2023 and Lucee 6 (Beta).  Please note that there are still issues with Adobe 2023 as it is still in Beta.
 
+## ColdBox CLI
+
+We now have an official CLI for CommandBox, which lives outside CommandBox.  It will always be included with CommandBox, but it now has its own life cycles, and it will support each major version of ColdBox as well.
+
+```bash
+install coldbox-cli
+coldbox --help
+```
+
+The new CLI has all the previous goodness but now also v7 support and many other great features like migration creation, API testing, and more.  You can find the source for the CLI here: [https://github.com/coldbox/coldbox-cli](https://github.com/coldbox/coldbox-cli)
+
+{% embed url="https://github.com/coldbox/coldbox-cli" %}
+
 ## User Identifier Providers
 
-In previous versions of ColdBox, it would auto-detect unique request identifiers for usage in Flash Ram, storages, etc following this schema:
+In previous versions of ColdBox, it would auto-detect unique request identifiers for usage in Flash Ram, storages, etc., following this schema:
 
 1. If we have `session` enabled, use the `jessionId` or `session` URL Token
 2. If we have cookies enabled, use the `cfid/cftoken`
@@ -125,9 +138,57 @@ This is a great way to keep your injections clean without adhering to the module
 
 You can now use `listen( closure, point )` or `listen( point, closure)` when registering closure interception points.
 
+```javascript
+listen( ()=> log.info( "executed" ), "preProcess" )
+// or
+listen( "preProcess", ()=> log.info( "executed" ) )
+```
+
 ## Delegates
 
 
+
+## App Mode Helpers
+
+ColdBox 7 introduces opinionated helpers to the `FrameworkSuperType` so you can determine if you are in three modes: production, development, and testing by looking at the `environment` setting:
+
+```javascript
+function isProduction()
+function isDevelopment()
+function isTesting()
+```
+
+| Mode                      | Environment              |
+| ------------------------- | ------------------------ |
+| `inProduction() == true`  | `production`             |
+| `inTesting() == true`     | `development` or `local` |
+| `inDevelopment() == true` | `testing`                |
+
+{% hint style="info" %}
+You can also find these methods in the `controller` object.
+{% endhint %}
+
+These super-type methods delegate to the ColdBox Controller.  So that means that if you needed to change their behavior, you could do so via a [Controller Decorator.](../../digging-deeper/controller-decorator.md) &#x20;
+
+You can also use them via our new `AppModes@cbDelegates` delegate in any model:
+
+```javascript
+component delegate="AppModes@cbDelegates"{}
+```
+
+## Resource Route Names
+
+When you register resourceful routes now, they will get assigned a name so you can use it for validation via `routeIs()` or for route link creation via `route()`
+
+| Verb        | Route              | Event           | Route Name       |
+| ----------- | ------------------ | --------------- | ---------------- |
+| `GET`       | `/photos`          | `photos.index`  | `photos`         |
+| `GET`       | `/photos/new`      | `photos.new`    | `photos.new`     |
+| `POST`      | `/photos`          | `photos.create` | `photos`         |
+| `GET`       | `/photos/:id`      | `photos.show`   | `photos.process` |
+| `GET`       | `/photos/:id/edit` | `photos.edit`   | `photos.edit`    |
+| `PUT/PATCH` | `/photos/:id`      | `photos.update` | `photos.process` |
+| `DELETE`    | `/photos/:id`      | `photos.delete` | `photos.process` |
 
 ## Baby got `back()!`
 
@@ -140,6 +201,74 @@ function save( event, rc, prc ){
     // Go back to where you came from
     back();
 }
+```
+
+`Here is the method signature:`
+
+```javascript
+/**
+ * Redirect back to the previous URL via the referrer header, else use the fallback
+ *
+ * @fallback      The fallback event or uri if the referrer is empty, defaults to `/`
+ * @persist       What request collection keys to persist in flash ram
+ * @persistStruct A structure key-value pairs to persist in flash ram
+ */
+function back( fallback = "/", persist, struct persistStruct )
+```
+
+## `RequestContext` Routing/Pathing Enhancements
+
+The RequestContext has a few new methods to assist you when working with routes, paths, and URLs.
+
+| Method                                  | Purpose                                                                                     |
+| --------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `routeIs( name ):boolean`               | Verify if the passed `name` is the current route                                            |
+| `getUrl( withQuery:boolean )`           | Returns the entire URL, including the protocol, host, mapping, path info, and query string. |
+| `getPath( withQuery:boolean )`          | Return the relative path of the current request.                                            |
+| `getPathSegments():array`               | Get all of the URL path segments from the requested path.                                   |
+| `getPathSegment( index, defaultValue )` | Get a single path segment by position                                                       |
+
+## Native DateHelper
+
+The `FrameworkSuperType` now has a `getDateTimeHelper(), getIsoTime()` methods to get access to the ColdBox `coldbox.system.async.time.DateTimeHelper` to assist you with all your date/time/timezone needs and generate an **iso8601** formatted string from the incoming date/time.
+
+```javascript
+getDateTimeHelper().toLocalDateTime( now(), "Americas/Central" )
+getDateTimeHelper().getSystemTimezone()
+getDateTimeHelper().parse( "2018-05-11T13:35:11Z" )
+getIsoTime()
+```
+
+You can also use the new date time helper as a delegate in your models:
+
+```javascript
+component delegate="DateTime@coreDelegates"{
+
+}
+```
+
+{% hint style="success" %}
+Check out the API Docs for the latest methods in the helper
+
+[https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/7.0.0/coldbox/system/async/time/DateTimeHelper.html](https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/7.0.0/coldbox/system/async/time/DateTimeHelper.html)
+{% endhint %}
+
+## View `variables` Scope Variables
+
+You can now influence any view by injecting your own variables into a view's `variables` scope using our new argument: `viewVariables`.  This is great for module developers that want native objects or data to exist in a view's `varaibles` scope.
+
+```javascript
+view( view : "widget/messagebox", viewVariables : { wire : cbwire } 
+
+view( view : "widget/client", viewVariables : { client : thisClient } )
+```
+
+Then you can use the `wire` and `client` objects in your views natively:
+
+```html
+<cfif client.isLoaded()>
+    <h1>#client.getFullName()#</h1>
+</cfif>
 ```
 
 ## Whoops! Upgrades
@@ -331,7 +460,13 @@ log.info( () => "This is a log message", data )
 log.debug( () => "This is a debug message", data )
 ```
 
+### Integration Testing Request Timeout
 
+The RequestContext now has a `setRequestTimeout()` function that can provide timeouts in your application, and when in testing mode, it will mock the request timeout.  This is essential to encapsulate this setting as if you have requested timeout settings in your app; they will override the ones in testing.
+
+```javascript
+event.setRequestTimeout( 5 ) // 5 seconds
+```
 
 ## Release Notes
 

@@ -118,8 +118,6 @@ The full release notes per library can be found below. Just click on the library
 
 [COLDBOX-1164](https://ortussolutions.atlassian.net/browse/COLDBOX-1164) New convention for coldfusion tags: includes/tags. Every ColdBox app will register that location as a repository for custom tags for your application
 
-[COLDBOX-1165](https://ortussolutions.atlassian.net/browse/COLDBOX-1165) New convention for modules for storing and using coldfusion tags: \`/tags\`
-
 [COLDBOX-1166](https://ortussolutions.atlassian.net/browse/COLDBOX-1166) Lazy loading and persistence of engine helper to assist in continued performance and initial load speed
 
 [COLDBOX-1167](https://ortussolutions.atlassian.net/browse/COLDBOX-1167) New core delegates for smaller building blocks, which leverages the \`@coreDelegates\` namespace
