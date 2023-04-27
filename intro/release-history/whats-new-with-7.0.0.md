@@ -70,6 +70,206 @@ wirebox : {
 binder.transientInjectionCache( false )
 ```
 
+### `WireBox Delegators`
+
+WireBox supports the concept of [object delegation](https://en.wikipedia.org/wiki/Delegation\_\(object-oriented\_programming\)) in a simple expressive DSL.  You can now add a `delegate` annotation to injections or use the `delegates` annotations to components.
+
+```javascript
+// Inject and use as a delegate
+property name="memory" inject delegate
+
+// Delegate Component
+component name="computer" delegates="Memory"{
+}
+```
+
+In object-oriented programming, an object delegator is a programming technique where an object delegates some of its responsibilities to another object. The delegating object passes the responsibility for handling a particular task to the delegate object. This allows the delegating object to focus on its core responsibilities while the delegate object handles the delegated task.
+
+&#x20;Basically, a way to inject/proxy calls from one object to the other and avoid the [overuse of inheritance](https://en.wikipedia.org/wiki/Composition\_over\_inheritance), and avoid runtime mixins. WireBox provides a set of rules for method lookup and dispatching that will allow you to provide delegation easily in your CFML applications.  This feature is similar to [traits](https://www.php.net/manual/en/language.oop5.traits.php) in PHP or [object delegators](https://www.baeldung.com/kotlin/delegation-pattern) in Kotlin.
+
+You can use it to encapsulate behavior on small, focused, and testable classes that can be brought in as traits into ANY component without abusing inheritance. In contrast, object delegation is a more flexible approach that allows objects to delegate tasks to any other object, regardless of its class hierarchy.  Finally, object delegation can help to improve code performance by allowing objects to use specialized delegate objects for specific tasks.
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+Let's look at an example the traditional way:
+
+```javascript
+  component name="Memory"{
+  
+  function init(){
+    return reset()
+  }
+  
+  function reset(){
+    variables.data = []
+    return this;
+  }
+  
+  function read( index ){
+    return variables.data[ arguments.index ]
+  }
+  
+  function write( data ){
+    variables.data.append( arguments.data )
+  }
+  
+}
+  
+```
+
+Now let's look at the computer
+
+```javascript
+component name="computer"{
+
+    // Inject a memory object via WireBox
+    property name="memory" inject;
+    
+    // read delegator proxy method
+    function read( index ){
+        return variables.memory.read( argumentCollection = arguments )
+    }
+    
+    // write delegator proxy method
+    function write( data ){
+        return variables.memory.read( argumentCollection = arguments )
+    }
+
+}
+```
+
+`Now let's delegalize it!`
+
+```javascript
+component name="computer"{
+  // Inject and use as a delegate
+  property name="memory" inject delegate
+
+}
+
+computer = getInstance( "Computer" )
+computer.read( index )
+computer.write( data )
+```
+
+`Or use the shorthand notation`
+
+```javascript
+component name="computer" delegates="Memory"{
+
+   // code
+
+}
+
+computer = getInstance( "Computer" )
+computer.read( index )
+computer.write( data )
+```
+
+`You can also do prefixes, suffixes, method includes, excludes and even add as many delegates as you want:`
+
+```javascript
+component name="computer"
+	delegates=">Memory, <Disk=read,sleep"
+}
+
+component name="computer"{
+
+   property name="authorizable." 
+	inject="provider:Authorizable@cbsecurity"
+	delegate;
+
+}
+```
+
+`Read more about delegates here:`
+
+### `Core Delegates`
+
+Now that we have seen what delegators are, WireBox offers core delegators to your application via the `@coreDelegates` namespace
+
+* **Async** - This delegate is useful to interact with the AsyncManager and the most used functionality
+* **DateTime** - Leverage the date time helper
+* **Env** - Talk to environment variables
+* **Flow** - Several fluent flow methods
+* **JsonUtil** - JSON utilities
+* **Population** - Population utilities
+
+{% embed url="https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/7.0.0/coldbox/system/core/delegates/package-summary.html" %}
+API Docs
+{% endembed %}
+
+So let's say you have a service that needs to populate objects and work with the system environment:
+
+```javascript
+component 
+    delegates="population@coreDelegates, Env@coreDelegates"{
+}
+```
+
+### `WireBox Property Observers`
+
+WireBox supports the concepts of component property observers. Meaning that you can define a function that will be called for you when the `setter` for that property has been called and thus observe the property changes.
+
+You will accomplish this by tagging a property with an annotation called `observed` then by convention, it will look for a function called: `{propertyName}Observer` by convention. This function will receive three arguments:
+
+* `newValue` : The value being set into the property
+* `oldValue` : The old value of the property, including null
+* `property` : The name of the property
+
+```javascript
+component{
+
+  property name="data" observed;
+  
+  /**
+   * Observer for data changes.  Anytime data is set, it will be called
+     	 *
+   * @new The new value
+   * @old The old value
+   * @property The name of the property observed
+   */
+  function dataObserver( newValue, oldValue, property ){
+  	// Execute after data is set
+  }
+
+}
+```
+
+{% hint style="info" %}
+If you don’t like the convention and want to name the function as you see fit, then you can place the value of the observed annotation as the function's name to call.
+
+
+
+`property name="data" observed="myObserver"`
+{% endhint %}
+
+### `WireBox Lazy Properties`
+
+WireBox supports the concept of marking properties in your components as `lazy`. This will allow the property to be constructed **ONCE** when requested _**ONLY** (lazy loaded)_. This way, you can take advantage of the construction of the property being lazy-loaded.
+
+Internally, we will generate a _getter_ method for you that will make sure to construct your property via a builder function you will provide, lock the request (by default), store it in the `variables` scope, and return it to you.
+
+> **Note**: With lazy properties, you must use the _getter_ **only** to retrieve the property
+
+<pre class="language-jsx"><code class="lang-jsx">component{
+	
+  // Lazy property: Constructed by convention via the buildUtil() method
+  property name="util" <a data-footnote-ref href="#user-content-fn-1">lazy</a>;
+  
+  /**
+   * Build a util object lazyily.
+   * The first time you call it, it will lock, build it, and store it by convention as 'variables.util'
+   */
+  function buildUtil(){
+   return new coldbox.system.core.util.Util();
+  }
+
+}
+</code></pre>
+
+#### Read more about Lazy Properties Here:
+
 ### `onInjectorMissingDependency` event
 
 A new event called `onInjectorMissingDependency` is now registered in Wirebox. It will be called whenever a dependency cannot be located. The `data` sent into the event will contain:
@@ -389,7 +589,7 @@ Whoops got even more love:
 
 <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>SQL Hightlighting</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>JSON Pretty Print + Highlights</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>JSON Pretty Print + Highlights</p></figcaption></figure>
 
 
 
@@ -597,3 +797,6 @@ You can find the [release notes](whats-new-with-7.0.0.md#release-notes) on the p
 [release-notes.md](whats-new-with-7.0.0/release-notes.md)
 {% endcontent-ref %}
 
+
+
+[^1]: 
