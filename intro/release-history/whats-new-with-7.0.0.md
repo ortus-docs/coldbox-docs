@@ -16,6 +16,16 @@ This release drops support for Adobe 2016 and adds support for Adobe 2023 and Lu
 
 ## ColdBox CLI
 
+```
+ ██████╗ ██████╗ ██╗     ██████╗ ██████╗  ██████╗ ██╗  ██╗      ██████╗██╗     ██╗
+██╔════╝██╔═══██╗██║     ██╔══██╗██╔══██╗██╔═══██╗╚██╗██╔╝     ██╔════╝██║     ██║
+██║     ██║   ██║██║     ██║  ██║██████╔╝██║   ██║ ╚███╔╝█████╗██║     ██║     ██║
+██║     ██║   ██║██║     ██║  ██║██╔══██╗██║   ██║ ██╔██╗╚════╝██║     ██║     ██║
+╚██████╗╚██████╔╝███████╗██████╔╝██████╔╝╚██████╔╝██╔╝ ██╗     ╚██████╗███████╗██║
+ ╚═════╝ ╚═════╝ ╚══════╝╚═════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝      ╚═════╝╚══════╝╚═╝
+                                                                                  
+```
+
 We now have an official CLI for CommandBox, which lives outside CommandBox.  It will always be included with CommandBox, but it now has its own life cycles, and it will support each major version of ColdBox as well.
 
 ```bash
@@ -27,44 +37,104 @@ The new CLI has all the previous goodness but now also v7 support and many other
 
 {% embed url="https://github.com/coldbox/coldbox-cli" %}
 
-## User Identifier Providers
+##
 
-In previous versions of ColdBox, it would auto-detect unique request identifiers for usage in Flash Ram, storages, etc., following this schema:
+## WireBox Updates
 
-1. If we have `session` enabled, use the `jessionId` or `session` URL Token
-2. If we have cookies enabled, use the `cfid/cftoken`
-3. If we have in the `URL` the `cfid/cftoken`
-4. Create a unique request-based tracking identifier: `cbUserTrackingId`
+```
+ __          ___          ____
+ \ \        / (_)        |  _ \
+  \ \  /\  / / _ _ __ ___| |_) | _____  __
+   \ \/  \/ / | | '__/ _ \  _ < / _ \ \/ /
+    \  /\  /  | | | |  __/ |_) | (_) >  <
+     \/  \/   |_|_|  \___|____/ \___/_/\_\
+```
 
-However, you can now decide what will be the unique identifier for requests, flash RAM, etc by providing it via a `coldbox.identifierProvider` as a closure/lambda in your `config/Coldbox.cfc`
+WireBox has gotten tons of love in this release, with several additions, bug fixes, and improvements.
+
+### Transient Request Cache
+
+<figure><img src="../../.gitbook/assets/wirebox-transient-cache.png" alt=""><figcaption><p>Fly with me!</p></figcaption></figure>
+
+This feature is one of the most impactful for applications that leverage DI on transient objects, especially ORM-related applications.  WireBox will now, by **default**, cache the signatures of the injections and delegations for you, so they are only done once per instance type.  This addition has brought speed improvements of over 585% in Lucee and Adobe ColdFusion.  You read that right, 585% performance increases.  This is really a game changer for ORM-heavy applications that use DI and delegations. Go try it; **you don't have to do a thing. Install and run it!**
+
+If this is not for you or there are issues in your system because of it, we have a setting for it to turn it off.  Open the `WireBox.cfc` binder and add it as a config item.
 
 ```javascript
-coldbox : {
-    ...
-    
-    identifierProvider : () => {
-        // My own logic to provide a unique tracking id
-        return myTrackingID
-    }
-    
-    ...
+// Config DSL
+wirebox : {
+    transientInjectionCache : false
+}
 
+// Binder Call
+binder.transientInjectionCache( false )
+```
+
+### `onInjectorMissingDependency` event
+
+A new event called `onInjectorMissingDependency` is now registered in Wirebox. It will be called whenever a dependency cannot be located. The `data` sent into the event will contain:
+
+* name - The name of the requested dependency
+* **initArguments** - The `init` arguments, if passed
+* **targetObject** - The target object that requested the dependency
+* **injector** - The injector in use building the dependency
+
+If you return in the `data` struct an element called, `instance` we will return that as the dependency, else the normal exception will be thrown.
+
+```javascript
+// Simple listener example
+listen( "onInjectorMissingDependency", (data,event,rc,prc)=>{
+    if( data.name == "OldLegacyOne" ){
+        data.instance = myNewObject();
+    }
+});
+```
+
+### Population Enhancements
+
+* The object populator now caches ORM entity maps, so they are only loaded once, and the population with ORM objects accelerates tremendously.
+* The object populator caches relational metadata for a faster population of the same type of  objects
+
+#### Mass Population Config: `this.population`
+
+This new convention allows for objects to encapsulate the way the mass population of data is treated. This way, you don’t have to scrub or pass include excludes lists via population arguments; it can all be nicely encapsulated in the targeted objects:
+
+```javascript
+this.population = {
+    include : [ "firstName", "lastName", "username", "role" ],
+    exclude : [ "id", "password", "lastLogin" ]
+};
+```
+
+The populator will look for a `this.population` struct with the following keys:
+
+* `include` : an array of property names to allow population **ONLY**
+* `exclude` : an array of property names to **NEVER** allow population
+
+The population methods also get a new argument called: `ignoreTargetLists` which defaults to false, meaning it inspects the objects for these population markers.  If you pass it as `true` then the markers will be ignored.  This is great for the population of objects from queries or an array of structs or mementos that **YOU** have control of.
+
+```javascript
+populateFromStruct(
+    target : userService.newUser(),
+    memento : record,
+    ignoreTargetLists : true
 }
 ```
 
-If this closure exists, ColdBox will use the return value as the unique identifier.  A new method has also been added to the ColdBox Controller so you can retrieve this value:
+### Inline Configuration
+
+You can now instantiate an Injector with the `binder` argument being the config structure instead of creating a binder. This will allow you to create injectors and pass the configuration structure as well:
 
 ```javascript
-controller.getUserSessionIdentifier()
+injector  = new coldbox.system.ioc.Injector({
+	"scopeRegistration" : {
+		"enabled" : false
+	},
+	"transientInjectionCache" : true
+});
 ```
 
-The supertype as well so all handlers/layouts/views/interceptors can get the user identifier:
-
-```javascript
-function getUserSessionIdentifier()
-```
-
-## Module Enhancements
+## Module Updates
 
 ### Config Object Override
 
@@ -144,9 +214,44 @@ listen( ()=> log.info( "executed" ), "preProcess" )
 listen( "preProcess", ()=> log.info( "executed" ) )
 ```
 
-## Delegates
+## ColdBox Delegates
 
+## User Identifier Providers
 
+In previous versions of ColdBox, it would auto-detect unique request identifiers for usage in Flash Ram, storages, etc., following this schema:
+
+1. If we have `session` enabled, use the `jessionId` or `session` URL Token
+2. If we have cookies enabled, use the `cfid/cftoken`
+3. If we have in the `URL` the `cfid/cftoken`
+4. Create a unique request-based tracking identifier: `cbUserTrackingId`
+
+However, you can now decide what will be the unique identifier for requests, flash RAM, etc by providing it via a `coldbox.identifierProvider` as a closure/lambda in your `config/Coldbox.cfc`
+
+```javascript
+coldbox : {
+    ...
+    
+    identifierProvider : () => {
+        // My own logic to provide a unique tracking id
+        return myTrackingID
+    }
+    
+    ...
+
+}
+```
+
+If this closure exists, ColdBox will use the return value as the unique identifier.  A new method has also been added to the ColdBox Controller so you can retrieve this value:
+
+```javascript
+controller.getUserSessionIdentifier()
+```
+
+The supertype as well so all handlers/layouts/views/interceptors can get the user identifier:
+
+```javascript
+function getUserSessionIdentifier()
+```
 
 ## App Mode Helpers
 
@@ -397,7 +502,23 @@ getEnv().getSystemProperty()
 getEnv().getEnv()
 ```
 
-## Logging Enhancements
+##
+
+## LogBox Updates
+
+```
+$$\                          $$$$$$$\                      
+$$ |                         $$  __$$\                     
+$$ |      $$$$$$\   $$$$$$\  $$ |  $$ | $$$$$$\  $$\   $$\ 
+$$ |     $$  __$$\ $$  __$$\ $$$$$$$\ |$$  __$$\ \$$\ $$  |
+$$ |     $$ /  $$ |$$ /  $$ |$$  __$$\ $$ /  $$ | \$$$$  / 
+$$ |     $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ | $$  $$<  
+$$$$$$$$\\$$$$$$  |\$$$$$$$ |$$$$$$$  |\$$$$$$  |$$  /\$$\ 
+\________|\______/  \____$$ |\_______/  \______/ \__/  \__|
+                   $$\   $$ |                              
+                   \$$$$$$  |                              
+                    \______/                               
+```
 
 ### JSON Pretty Output
 
