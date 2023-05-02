@@ -14,4 +14,7 @@ void function preProcess(event,struct data) eventPattern="^blog:home\."{}
 
 // only execute for the blog, forums, and shop modules
 void function preProcess(event,struct data) eventPattern="^(blog|forum|shop):"{}
+
+// execute for every event except those with 'authentication' in the name
+void function preProcess(event,struct data) eventPattern="^((?!authentication).)*$"{}
 ```
