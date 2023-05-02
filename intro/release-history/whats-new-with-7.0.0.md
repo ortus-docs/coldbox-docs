@@ -432,6 +432,54 @@ function development( original ){
 
 Then you can change the `original` struct as you see fit for that environment.
 
+### Module Injectors
+
+We have an experimental feature in ColdBox 7 to enable per-module injectors.  This will create a hierarchy of injections and dependency lookups for modules.  This is in preparation for future capabilities to allow for multi-named modules in an application.  In order to activate this feature you need to use the `this.moduleInjector = true` in your `ModuleConfig.cfc`
+
+```cfscript
+this.moduleInjector = true
+```
+
+Once enabled, please note that your module injector will have a unique name, and a link to the parent and root injectors and will ONLY know about itself and its children.  Everything will be encapsulated under itself.  No more global dependencies, we are now in module-only dependencies.  This means each module must declare its dependencies beforehand.
+
+#### ModuleConfig Injections
+
+If the module injector is enabled, you will also get different injections in your `ModuleConfig`
+
+| Injection     | Description                                       |
+| ------------- | ------------------------------------------------- |
+| `binder`      | The root injector binder                          |
+| `rootWireBox` | The root injector or global injector.             |
+| `wirebox`     | This is now a reference to the module's injector. |
+
+#### Root Helpers
+
+The supertype also has methods to interact with the root and module injector `getRootWireBox()` and `getWireBox() for the module injector.`
+
+```cfscript
+getRootWireBox().getInstance( "GlobalModel" )
+```
+
+#### Injection Awareness
+
+Every module also can inject/use its `models` without the need to namespace them. &#x20;
+
+```cfscript
+// Before, using the @contacts address
+property name="contactService" inject="contactService@contacts";
+
+// If using module injectors
+property name="contactService" inject="contactService";
+```
+
+{% hint style="info" %}
+The injector will look into the `models` of the module first and then it's children.  Parent lookups are not guaranteed yet.
+{% endhint %}
+
+{% hint style="warning" %}
+Please note that this is still experimental and there could be issues of not finding models or DSLs.
+{% endhint %}
+
 ### Config/Settings Awareness
 
 You can now use the `{this}` placeholder in injections for module configurations-settings, and ColdBox will automatically replace it with the current module it's being injected in:
@@ -454,6 +502,45 @@ listen( "preProcess", ()=> log.info( "executed" ) )
 ```
 
 ## ColdBox Delegates
+
+Since WireBox introduced delegates, we have taken advantage of this great reusable feature throughout ColdBox.  We have also created several delegates for your convenience that can be used via its name and the `@cbDelegates` namespace:
+
+| Delegate      | Purpose                                                   |
+| ------------- | --------------------------------------------------------- |
+| `AppModes`    | Methods to let you know in which tier you are on and more |
+| `Interceptor` | Announce interceptions                                    |
+| `Locators`    | Locate files and/or directories                           |
+| `Population`  | Populate objects                                          |
+| `Rendering`   | Render views and layouts                                  |
+| `Settings`    | Interact with ColdBox/Module Settings                     |
+
+Let's say you have a security service that needs to get settings, announce events and render views:
+
+```cfscript
+component name="SecurityService"
+    delegates="settings@cbDelegates, rendering@cbDelegates, interceptor@cbDelegates"{
+    
+    function login(){
+        if( getSetting( "logEnabled" ) ){
+            ... 
+            
+            var viewInfo = view( "security/logdata" );
+            
+        }
+        
+        ...
+        
+        announce( "onLogin" );
+    }
+
+}
+```
+
+Here you can find more information about the CBDelegates: [https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/7.0.0/coldbox/system/web/delegates/package-summary.html](https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/7.0.0/coldbox/system/web/delegates/package-summary.html)
+
+{% embed url="https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/7.0.0/coldbox/system/web/delegates/package-summary.html" %}
+API Docs CBDelegates
+{% endembed %}
 
 ## User Identifier Providers
 
@@ -733,7 +820,7 @@ All integration tests now won't unload ColdBox after execution.  Basically, the 
 
 ### Environment Detection Method
 
-All test bundles now gets a `getEnv()` method to retrieve our environment delegate so you can get env settings and properties:
+All test bundles now get a `getEnv()` method to retrieve our environment delegate so you can get env settings and properties:
 
 ```javascript
 getEnv().getSystemSetting()
@@ -741,7 +828,7 @@ getEnv().getSystemProperty()
 getEnv().getEnv()
 ```
 
-##
+
 
 ## LogBox Updates
 
