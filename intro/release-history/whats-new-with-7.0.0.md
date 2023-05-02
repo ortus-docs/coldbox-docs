@@ -37,8 +37,6 @@ The new CLI has all the previous goodness but now also v7 support and many other
 
 {% embed url="https://github.com/coldbox/coldbox-cli" %}
 
-##
-
 ## WireBox Updates
 
 ```
@@ -54,7 +52,7 @@ WireBox has gotten tons of love in this release, with several additions, bug fix
 
 ### Transient Request Cache
 
-<figure><img src="../../.gitbook/assets/wirebox-transient-cache.png" alt=""><figcaption><p>Fly with me!</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/wirebox-transient-cache.png" alt="" width="375"><figcaption><p>Fly with me!</p></figcaption></figure>
 
 This feature is one of the most impactful for applications that leverage DI on transient objects, especially ORM-related applications.  WireBox will now, by **default**, cache the signatures of the injections and delegations for you, so they are only done once per instance type.  This addition has brought speed improvements of over 585% in Lucee and Adobe ColdFusion.  You read that right, 585% performance increases.  This is really a game changer for ORM-heavy applications that use DI and delegations. Go try it; **you don't have to do a thing. Install and run it!**
 
@@ -72,7 +70,7 @@ binder.transientInjectionCache( false )
 
 ### `WireBox Delegators`
 
-WireBox supports the concept of [object delegation](https://en.wikipedia.org/wiki/Delegation\_\(object-oriented\_programming\)) in a simple expressive DSL.  You can now add a `delegate` annotation to injections or use the `delegates` annotations to components.
+WireBox supports the concept of [object delegation](https://en.wikipedia.org/wiki/Delegation\_\(object-oriented\_programming\)) in a simple, expressive DSL.  You can now add a `delegate` annotation to injections or use the `delegates` annotations to components to inject and absorb the object's methods into yourself.
 
 ```cfscript
 // Inject and use as a delegate
@@ -85,15 +83,15 @@ component name="computer" delegates="Memory"{
 
 In object-oriented programming, an object delegator is a programming technique where an object delegates some of its responsibilities to another object. The delegating object passes the responsibility for handling a particular task to the delegate object. This allows the delegating object to focus on its core responsibilities while the delegate object handles the delegated task.
 
-&#x20;Basically, a way to inject/proxy calls from one object to the other and avoid the [overuse of inheritance](https://en.wikipedia.org/wiki/Composition\_over\_inheritance), and avoid runtime mixins. WireBox provides a set of rules for method lookup and dispatching that will allow you to provide delegation easily in your CFML applications.  This feature is similar to [traits](https://www.php.net/manual/en/language.oop5.traits.php) in PHP or [object delegators](https://www.baeldung.com/kotlin/delegation-pattern) in Kotlin.
+Basically, a way to inject/proxy calls from one object to the other and avoid the [overuse of inheritance](https://en.wikipedia.org/wiki/Composition\_over\_inheritance), and avoid runtime mixins. WireBox provides a set of rules for method lookup and dispatching that will allow you to provide delegation easily in your CFML applications.  This feature is similar to [traits](https://www.php.net/manual/en/language.oop5.traits.php) in PHP or [object delegators](https://www.baeldung.com/kotlin/delegation-pattern) in Kotlin.
 
-You can use it to encapsulate behavior on small, focused, and testable classes that can be brought in as traits into ANY component without abusing inheritance. In contrast, object delegation is a more flexible approach that allows objects to delegate tasks to any other object, regardless of its class hierarchy.  Finally, object delegation can help to improve code performance by allowing objects to use specialized delegate objects for specific tasks.
+You can use it to encapsulate behavior on **small**, **focused**, and **testable** classes that can be brought in as traits into ANY component without abusing inheritance. In contrast, object delegation is a more flexible approach that allows objects to delegate tasks to any other object, regardless of its class hierarchy.  Finally, object delegation can help to improve code performance by allowing objects to use specialized delegate objects for specific tasks.
 
 <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
-Let's look at an example the traditional way:
+Let's look at an example of how we would use delegation without this feature:
 
-```javascript
+```cfscript
   component name="Memory"{
   
   function init(){
@@ -119,7 +117,7 @@ Let's look at an example the traditional way:
 
 Now let's look at the computer
 
-```javascript
+```cfscript
 component name="computer"{
 
     // Inject a memory object via WireBox
@@ -138,9 +136,9 @@ component name="computer"{
 }
 ```
 
-`Now let's delegalize it!`
+`As you can see, in the traditional approach we must type and inject and know every detail of the delegated methods.  Now let's delegalize it via WireBox:`
 
-```javascript
+```cfscript
 component name="computer"{
   // Inject and use as a delegate
   property name="memory" inject delegate
@@ -152,9 +150,9 @@ computer.read( index )
 computer.write( data )
 ```
 
-`Or use the shorthand notation`
+Or use the shorthand notation via the `delegates` annotation of components:
 
-```javascript
+```cfscript
 component name="computer" delegates="Memory"{
 
    // code
@@ -166,9 +164,9 @@ computer.read( index )
 computer.write( data )
 ```
 
-`You can also do prefixes, suffixes, method includes, excludes and even add as many delegates as you want:`
+You can also do prefixes, suffixes, method includes, excludes, and even add as many delegates as you want:
 
-```javascript
+```cfscript
 component name="computer"
 	delegates=">Memory, <Disk=read,sleep"
 }
@@ -182,13 +180,13 @@ component name="computer"{
 }
 ```
 
-`Read more about delegates here:`
+Read more about delegates here:
 
 ### `Core Delegates`
 
 Now that we have seen what delegators are, WireBox offers core delegators to your application via the `@coreDelegates` namespace
 
-* **Async** - This delegate is useful to interact with the AsyncManager and the most used functionality
+* **Async** - This delegate is useful to interact with the AsyncManager and the most used functionality for asynchronous programming
 * **DateTime** - Leverage the date time helper
 * **Env** - Talk to environment variables
 * **Flow** - Several fluent flow methods
@@ -213,7 +211,7 @@ WireBox supports the concepts of component property observers. Meaning that you 
 
 You will accomplish this by tagging a property with an annotation called `observed` then by convention, it will look for a function called: `{propertyName}Observer` by convention. This function will receive three arguments:
 
-* `newValue` : The value being set into the property
+* `newValue` : The value is set into the property
 * `oldValue` : The old value of the property, including null
 * `property` : The name of the property
 
@@ -332,6 +330,38 @@ injector  = new coldbox.system.ioc.Injector({
 	},
 	"transientInjectionCache" : true
 });
+```
+
+### Injector Names
+
+Each injector can now have a human-friendly name via the `name` property
+
+```cfscript
+injector.getName()
+injector.setName( "AwesomeInjector" )
+```
+
+### Clear Objects From Scopes
+
+You can also now use a `clear( key )` method in ALL scopes so you can remove a-la-carte objects from any supported scope.
+
+### Root Injector
+
+In a ColdBox or WireBox context, there will always be a `root` injector in a hierarchy.  This root injector can have children, and all of these children can have a direct link to its root via a `hasRoot() and getRoot()` methods.
+
+#### Methods
+
+* `hasRoot()`
+* `getRoot()`
+* `setRoot()`
+
+#### Injection DSL
+
+There are also injection DSLs for retrieving the root injector:
+
+```cfscript
+property name="root" inject="wirebox:root"
+property name="root" inject="coldbox:rootWireBox"
 ```
 
 ## Module Updates
