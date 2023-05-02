@@ -505,8 +505,8 @@ function isTesting()
 | Mode                      | Environment              |
 | ------------------------- | ------------------------ |
 | `inProduction() == true`  | `production`             |
-| `inTesting() == true`     | `development` or `local` |
-| `inDevelopment() == true` | `testing`                |
+| `inTesting() == true`     | `testing`                |
+| `inDevelopment() == true` | `development` or `local` |
 
 {% hint style="info" %}
 You can also find these methods in the `controller` object.
