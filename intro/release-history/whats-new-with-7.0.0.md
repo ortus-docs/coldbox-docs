@@ -60,7 +60,7 @@ This feature is one of the most impactful for applications that leverage DI on t
 
 If this is not for you or there are issues in your system because of it, we have a setting for it to turn it off.  Open the `WireBox.cfc` binder and add it as a config item.
 
-```javascript
+```cfscript
 // Config DSL
 wirebox : {
     transientInjectionCache : false
@@ -74,7 +74,7 @@ binder.transientInjectionCache( false )
 
 WireBox supports the concept of [object delegation](https://en.wikipedia.org/wiki/Delegation\_\(object-oriented\_programming\)) in a simple expressive DSL.  You can now add a `delegate` annotation to injections or use the `delegates` annotations to components.
 
-```javascript
+```cfscript
 // Inject and use as a delegate
 property name="memory" inject delegate
 
