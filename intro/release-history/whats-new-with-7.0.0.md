@@ -180,7 +180,9 @@ component name="computer"{
 }
 ```
 
-Read more about delegates here:
+Read more about delegates here: [https://wirebox.ortusbooks.com/usage/wirebox-delegators](https://wirebox.ortusbooks.com/usage/wirebox-delegators)
+
+{% embed url="https://wirebox.ortusbooks.com/usage/wirebox-delegators" %}
 
 ### `Core Delegates`
 
@@ -191,6 +193,7 @@ Now that we have seen what delegators are, WireBox offers core delegators to you
 * **Env** - Talk to environment variables
 * **Flow** - Several fluent flow methods
 * **JsonUtil** - JSON utilities
+* **StringUtil** - String utilities
 * **Population** - Population utilities
 
 {% embed url="https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/7.0.0/coldbox/system/core/delegates/package-summary.html" %}
@@ -242,6 +245,10 @@ If you don’t like the convention and want to name the function as you see fit,
 `property name="data" observed="myObserver"`
 {% endhint %}
 
+Read more here: [https://wirebox.ortusbooks.com/advanced-topics/property-observers](https://wirebox.ortusbooks.com/advanced-topics/property-observers)
+
+{% embed url="https://wirebox.ortusbooks.com/advanced-topics/property-observers" %}
+
 ### `WireBox Lazy Properties`
 
 WireBox supports the concept of marking properties in your components as `lazy`. This will allow the property to be constructed **ONCE** when requested _**ONLY** (lazy loaded)_. This way, you can take advantage of the construction of the property being lazy-loaded.
@@ -266,7 +273,9 @@ Internally, we will generate a _getter_ method for you that will make sure to co
 }
 </code></pre>
 
-#### Read more about Lazy Properties Here:
+Read more about Lazy Properties here: [https://wirebox.ortusbooks.com/advanced-topics/lazy-properties](https://wirebox.ortusbooks.com/advanced-topics/lazy-properties)
+
+{% embed url="https://wirebox.ortusbooks.com/advanced-topics/lazy-properties" %}
 
 ### `onInjectorMissingDependency` event
 
