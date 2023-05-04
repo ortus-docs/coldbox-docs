@@ -68,6 +68,30 @@ wirebox : {
 binder.transientInjectionCache( false )
 ```
 
+#### Known Issues
+
+Even thought the transient cache can help tremendously with performance, there is a price to pay.  All the injections and delegations will be cached.  Thus, if you are injecting transients, those transients will become singletons.  Therefore you have two options to alleviate this side-effect:
+
+1. Disable the cache entirely
+2. Add the transient injection as a `provider` [injection](https://wirebox.ortusbooks.com/advanced-topics/providers)
+3. Add the property as a [lazy property](https://wirebox.ortusbooks.com/advanced-topics/lazy-properties) and add a builder that will construct it when called
+
+```cfscript
+component name="Transient"{
+    
+   // This will become a singleton
+   property name="transient2" inject="t2";
+   // Provider injection
+   property name="transient2" inject="provider:t2";
+   // Lazy property
+   property name="transient2" lazy;
+   
+   function buildTransient2(){
+    return variables.wirebox.getInstance( "t2" );
+   }
+}
+```
+
 ### `WireBox Delegators`
 
 WireBox supports the concept of [object delegation](https://en.wikipedia.org/wiki/Delegation\_\(object-oriented\_programming\)) in a simple, expressive DSL.  You can now add a `delegate` annotation to injections or use the `delegates` annotations to components to inject and absorb the object's methods into yourself.
