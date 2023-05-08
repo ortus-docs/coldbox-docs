@@ -37,6 +37,27 @@ The new CLI has all the previous goodness but now also v7 support and many other
 
 {% embed url="https://github.com/coldbox/coldbox-cli" %}
 
+## Application Templates
+
+All the application templates have been updated in our ColdBox Templates Org: [https://github.com/coldbox-templates](https://github.com/coldbox-templates).  They have been updated to support our LTS strategy, so now we can have templates based on each major iteration of ColdBox.
+
+{% embed url="https://github.com/coldbox-templates" %}
+github.com/coldbox-templates
+{% endembed %}
+
+Here is a listing of the latest supported templates:
+
+| Template              | Slug          | Description                                                                               |
+| --------------------- | ------------- | ----------------------------------------------------------------------------------------- |
+| Default               | `default`     | The default ColdBox application template                                                  |
+| Elixir                | `elixir`      | The `default` template with ColdBox elixir support for asset pipelines                    |
+| Modern (experimental) | `modern`      | A fresh new approach to ColdBox applications that are non-root based.  Still experimental |
+| Rest                  | `rest`        | A base REST API using ColdBox                                                             |
+| Rest HMVC             | `rest-hmvc`   | An HMVC REST API using modules                                                            |
+| Super Simple          | `supersimple` | Barebones conventions baby!                                                               |
+
+
+
 ## WireBox Updates
 
 ```
