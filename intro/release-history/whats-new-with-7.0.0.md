@@ -68,16 +68,25 @@ wirebox : {
 binder.transientInjectionCache( false )
 ```
 
-#### Known Issues
-
-Even thought the transient cache can help tremendously with performance, there is a price to pay.  All the injections and delegations will be cached.  Thus, if you are injecting transients, those transients will become singletons.  Therefore you have two options to alleviate this side-effect:
-
-1. Disable the cache entirely
-2. Add the transient injection as a `provider` [injection](https://wirebox.ortusbooks.com/advanced-topics/providers)
-3. Add the property as a [lazy property](https://wirebox.ortusbooks.com/advanced-topics/lazy-properties) and add a builder that will construct it when called
+You can also disable the cache on a per-CFC basis by using the `transientCache=false` annotation in your component declaration:
 
 ```cfscript
-component name="Transient"{
+component transientCache=false{
+
+}
+```
+
+#### Known Issues
+
+Even though the transient cache can help tremendously with performance, there is a price to pay.  All the injections and delegations will be cached on a per-cfc definition basis.  Thus, if you are injecting transients, those transients will become singletons.  Therefore you have two options to alleviate this side effect:
+
+1. Disable the cache entirely (The heavy-handed approach)
+2. Disable the cache on that specific entity via the `transientCache` annotation (The surgical approach)
+3. Add the transient injection as a `provider` [injection](https://wirebox.ortusbooks.com/advanced-topics/providers) (The ninja approach)
+4. Add the property as a [lazy property](https://wirebox.ortusbooks.com/advanced-topics/lazy-properties) and add a builder that will construct it when called (The Jedi approach)
+
+```cfscript
+component name="Transient" transientCache="false"{
     
    // This will become a singleton
    property name="transient2" inject="t2";
