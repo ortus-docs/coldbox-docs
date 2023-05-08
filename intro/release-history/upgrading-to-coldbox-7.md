@@ -10,6 +10,10 @@ The major compatibility issues will be covered, as well as how to upgrade to thi
 
 ColdFusion 2016 support has been dropped. Adobe doesn't support them anymore, so neither do we.
 
+## Integration Testing Defaults
+
+In ColdBox 7, the `this.unloadColdBox` setting is **false** by default. In ColdBox 6 this was **true** by default.  So make sure you update this setting if you want ColdBox to be unloaded on each Test Bundle iteration.
+
 ## Hierarchical Injectors
 
 All modules have their own injector now if you use the `this.moduleInjector = true` setting.  Meaning the concept of a global injector no longer exists. Therefore, there are some edge cases where certain types of code will not work in ColdBox 7.
