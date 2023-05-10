@@ -26,7 +26,7 @@ This release drops support for Adobe 2016 and adds support for Adobe 2023 and Lu
                                                                                   
 ```
 
-We now have an official CLI for CommandBox, which lives outside CommandBox.  It will always be included with CommandBox, but it now has its own life cycles, and it will support each major version of ColdBox as well.
+We now have an official CLI for ColdBox, which lives outside CommandBox.  It will always be included with CommandBox, but it now has its own life cycles, and it will support each major version of ColdBox as well.
 
 ```bash
 install coldbox-cli
