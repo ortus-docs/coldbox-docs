@@ -17,7 +17,7 @@ ColdBox, CommandBox, FORGEBOX, TestBox, ContentBox, and Ortus Solutions are all 
 
 ## Notice of Liability
 
-The information in this book is distributed “as is”, without warranty. The author and Ortus Solutions, Corp shall not have any liability to any person or entity with respect to loss or damage caused or alleged to be caused directly or indirectly by the content of this training book, software, and resources described in it.
+The information in this book is distributed “as is” without warranty. The author and Ortus Solutions, Corp shall not have any liability to any person or entity concerning loss or damage caused or alleged to be caused directly or indirectly by the content of this training book, software, and resources described in it.
 
 ## Contributing
 
