@@ -12,7 +12,7 @@ We break down the major areas of development below, and you can also find the [f
 
 <figure><img src="../../.gitbook/assets/coldbox-engine-support.jpeg" alt=""><figcaption><p>ColdBox v7 Engine Support</p></figcaption></figure>
 
-This release drops support for Adobe 2016 and adds support for Adobe 2023 and Lucee 6 (Beta).  Please note that there are still issues with Adobe 2023 as it is still in Beta.
+This release drops support for Adobe 2016 and adds support for Adobe 2023 and Lucee 6 (Beta). Please note that there are still issues with Adobe 2023 as it is still in Beta.
 
 ## ColdBox CLI
 
@@ -26,20 +26,28 @@ This release drops support for Adobe 2016 and adds support for Adobe 2023 and Lu
                                                                                   
 ```
 
-We now have an official CLI for ColdBox, which lives outside CommandBox.  It will always be included with CommandBox, but it now has its own life cycles, and it will support each major version of ColdBox as well.
+We now have an official CLI for ColdBox, which lives outside CommandBox. It will always be included with CommandBox, but it now has its own life cycles, and it will support each major version of ColdBox as well.
 
 ```bash
 install coldbox-cli
 coldbox --help
 ```
 
-The new CLI has all the previous goodness but now also v7 support and many other great features like migration creation, API testing, and more.  You can find the source for the CLI here: [https://github.com/coldbox/coldbox-cli](https://github.com/coldbox/coldbox-cli)
+The new CLI has all the previous goodness but now also v7 support and many other great features like migration creation, API testing, and more. You can find the source for the CLI here: [https://github.com/coldbox/coldbox-cli](https://github.com/coldbox/coldbox-cli)
 
 {% embed url="https://github.com/coldbox/coldbox-cli" %}
 
+## VSCode ColdBox Extension
+
+<figure><img src="../../.gitbook/assets/image (4).png" alt="" width="240"><figcaption><p>vscode-coldbox</p></figcaption></figure>
+
+We have updated our [VSCode ColdBox extension](https://marketplace.visualstudio.com/items?itemName=ortus-solutions.vscode-coldbox) now to support the latest version of snippets and skeletons for code generation.
+
+{% embed url="https://marketplace.visualstudio.com/items?itemName=ortus-solutions.vscode-coldbox" %}
+
 ## Application Templates
 
-All the application templates have been updated in our ColdBox Templates Org: [https://github.com/coldbox-templates](https://github.com/coldbox-templates).  They have been updated to support our LTS strategy, so now we can have templates based on each major iteration of ColdBox.
+All the application templates have been updated in our ColdBox Templates Org: [https://github.com/coldbox-templates](https://github.com/coldbox-templates). They have been updated to support our LTS strategy, so now we can have templates based on each major iteration of ColdBox.
 
 {% embed url="https://github.com/coldbox-templates" %}
 github.com/coldbox-templates
@@ -47,16 +55,14 @@ github.com/coldbox-templates
 
 Here is a listing of the latest supported templates:
 
-| Template              | Slug          | Description                                                                               |
-| --------------------- | ------------- | ----------------------------------------------------------------------------------------- |
-| Default               | `default`     | The default ColdBox application template                                                  |
-| Elixir                | `elixir`      | The `default` template with ColdBox elixir support for asset pipelines                    |
-| Modern (experimental) | `modern`      | A fresh new approach to ColdBox applications that are non-root based.  Still experimental |
-| Rest                  | `rest`        | A base REST API using ColdBox                                                             |
-| Rest HMVC             | `rest-hmvc`   | An HMVC REST API using modules                                                            |
-| Super Simple          | `supersimple` | Barebones conventions baby!                                                               |
-
-
+| Template              | Slug          | Description                                                                              |
+| --------------------- | ------------- | ---------------------------------------------------------------------------------------- |
+| Default               | `default`     | The default ColdBox application template                                                 |
+| Elixir                | `elixir`      | The `default` template with ColdBox elixir support for asset pipelines                   |
+| Modern (experimental) | `modern`      | A fresh new approach to ColdBox applications that are non-root based. Still experimental |
+| Rest                  | `rest`        | A base REST API using ColdBox                                                            |
+| Rest HMVC             | `rest-hmvc`   | An HMVC REST API using modules                                                           |
+| Super Simple          | `supersimple` | Barebones conventions baby!                                                              |
 
 ## WireBox Updates
 
@@ -75,9 +81,9 @@ WireBox has gotten tons of love in this release, with several additions, bug fix
 
 <figure><img src="../../.gitbook/assets/wirebox-transient-cache.png" alt="" width="375"><figcaption><p>Fly with me!</p></figcaption></figure>
 
-This feature is one of the most impactful for applications that leverage DI on transient objects, especially ORM-related applications.  WireBox will now, by **default**, cache the signatures of the injections and delegations for you, so they are only done once per instance type.  This addition has brought speed improvements of over 585% in Lucee and Adobe ColdFusion.  You read that right, 585% performance increases.  This is really a game changer for ORM-heavy applications that use DI and delegations. Go try it; **you don't have to do a thing. Install and run it!**
+This feature is one of the most impactful for applications that leverage DI on transient objects, especially ORM-related applications. WireBox will now, by **default**, cache the signatures of the injections and delegations for you, so they are only done once per instance type. This addition has brought speed improvements of over 585% in Lucee and Adobe ColdFusion. You read that right, 585% performance increases. This is really a game changer for ORM-heavy applications that use DI and delegations. Go try it; **you don't have to do a thing. Install and run it!**
 
-If this is not for you or there are issues in your system because of it, we have a setting for it to turn it off.  Open the `WireBox.cfc` binder and add it as a config item.
+If this is not for you or there are issues in your system because of it, we have a setting for it to turn it off. Open the `WireBox.cfc` binder and add it as a config item.
 
 ```cfscript
 // Config DSL
@@ -99,7 +105,7 @@ component transientCache=false{
 
 #### Known Issues
 
-Even though the transient cache can help tremendously with performance, there is a price to pay.  All the injections and delegations will be cached on a per-cfc definition basis.  Thus, if you are injecting transients, those transients will become singletons.  Therefore you have two options to alleviate this side effect:
+Even though the transient cache can help tremendously with performance, there is a price to pay. All the injections and delegations will be cached on a per-cfc definition basis. Thus, if you are injecting transients, those transients will become singletons. Therefore you have two options to alleviate this side effect:
 
 1. Disable the cache entirely (The heavy-handed approach)
 2. Disable the cache on that specific entity via the `transientCache` annotation (The surgical approach)
@@ -124,7 +130,7 @@ component name="Transient" transientCache="false"{
 
 ### `WireBox Delegators`
 
-WireBox supports the concept of [object delegation](https://en.wikipedia.org/wiki/Delegation\_\(object-oriented\_programming\)) in a simple, expressive DSL.  You can now add a `delegate` annotation to injections or use the `delegates` annotations to components to inject and absorb the object's methods into yourself.
+WireBox supports the concept of [object delegation](https://en.wikipedia.org/wiki/Delegation\_\(object-oriented\_programming\)) in a simple, expressive DSL. You can now add a `delegate` annotation to injections or use the `delegates` annotations to components to inject and absorb the object's methods into yourself.
 
 ```cfscript
 // Inject and use as a delegate
@@ -137,9 +143,9 @@ component name="computer" delegates="Memory"{
 
 In object-oriented programming, an object delegator is a programming technique where an object delegates some of its responsibilities to another object. The delegating object passes the responsibility for handling a particular task to the delegate object. This allows the delegating object to focus on its core responsibilities while the delegate object handles the delegated task.
 
-Basically, a way to inject/proxy calls from one object to the other and avoid the [overuse of inheritance](https://en.wikipedia.org/wiki/Composition\_over\_inheritance), and avoid runtime mixins. WireBox provides a set of rules for method lookup and dispatching that will allow you to provide delegation easily in your CFML applications.  This feature is similar to [traits](https://www.php.net/manual/en/language.oop5.traits.php) in PHP or [object delegators](https://www.baeldung.com/kotlin/delegation-pattern) in Kotlin.
+Basically, a way to inject/proxy calls from one object to the other and avoid the [overuse of inheritance](https://en.wikipedia.org/wiki/Composition\_over\_inheritance), and avoid runtime mixins. WireBox provides a set of rules for method lookup and dispatching that will allow you to provide delegation easily in your CFML applications. This feature is similar to [traits](https://www.php.net/manual/en/language.oop5.traits.php) in PHP or [object delegators](https://www.baeldung.com/kotlin/delegation-pattern) in Kotlin.
 
-You can use it to encapsulate behavior on **small**, **focused**, and **testable** classes that can be brought in as traits into ANY component without abusing inheritance. In contrast, object delegation is a more flexible approach that allows objects to delegate tasks to any other object, regardless of its class hierarchy.  Finally, object delegation can help to improve code performance by allowing objects to use specialized delegate objects for specific tasks.
+You can use it to encapsulate behavior on **small**, **focused**, and **testable** classes that can be brought in as traits into ANY component without abusing inheritance. In contrast, object delegation is a more flexible approach that allows objects to delegate tasks to any other object, regardless of its class hierarchy. Finally, object delegation can help to improve code performance by allowing objects to use specialized delegate objects for specific tasks.
 
 <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
@@ -190,7 +196,7 @@ component name="computer"{
 }
 ```
 
-`As you can see, in the traditional approach we must type and inject and know every detail of the delegated methods.  Now let's delegalize it via WireBox:`
+`As you can see, in the traditional approach we must type and inject and know every detail of the delegated methods. Now let's delegalize it via WireBox:`
 
 ```cfscript
 component name="computer"{
@@ -294,8 +300,6 @@ component{
 {% hint style="info" %}
 If you don’t like the convention and want to name the function as you see fit, then you can place the value of the observed annotation as the function's name to call.
 
-
-
 `property name="data" observed="myObserver"`
 {% endhint %}
 
@@ -311,10 +315,11 @@ Internally, we will generate a _getter_ method for you that will make sure to co
 
 > **Note**: With lazy properties, you must use the _getter_ **only** to retrieve the property
 
-<pre class="language-jsx"><code class="lang-jsx">component{
+```jsx
+component{
 	
   // Lazy property: Constructed by convention via the buildUtil() method
-  property name="util" <a data-footnote-ref href="#user-content-fn-1">lazy</a>;
+  property name="util" lazy;
   
   /**
    * Build a util object lazyily.
@@ -325,7 +330,7 @@ Internally, we will generate a _getter_ method for you that will make sure to co
   }
 
 }
-</code></pre>
+```
 
 Read more about Lazy Properties here: [https://wirebox.ortusbooks.com/advanced-topics/lazy-properties](https://wirebox.ortusbooks.com/advanced-topics/lazy-properties)
 
@@ -354,7 +359,7 @@ listen( "onInjectorMissingDependency", (data,event,rc,prc)=>{
 ### Population Enhancements
 
 * The object populator now caches ORM entity maps, so they are only loaded once, and the population with ORM objects accelerates tremendously.
-* The object populator caches relational metadata for a faster population of the same type of  objects
+* The object populator caches relational metadata for a faster population of the same type of objects
 
 #### Mass Population Config: `this.population`
 
@@ -372,7 +377,7 @@ The populator will look for a `this.population` struct with the following keys:
 * `include` : an array of property names to allow population **ONLY**
 * `exclude` : an array of property names to **NEVER** allow population
 
-The population methods also get a new argument called: `ignoreTargetLists` which defaults to false, meaning it inspects the objects for these population markers.  If you pass it as `true` then the markers will be ignored.  This is great for the population of objects from queries or an array of structs or mementos that **YOU** have control of.
+The population methods also get a new argument called: `ignoreTargetLists` which defaults to false, meaning it inspects the objects for these population markers. If you pass it as `true` then the markers will be ignored. This is great for the population of objects from queries or an array of structs or mementos that **YOU** have control of.
 
 ```javascript
 populateFromStruct(
@@ -410,7 +415,7 @@ You can also now use a `clear( key )` method in ALL scopes so you can remove a-l
 
 ### Root Injector
 
-In a ColdBox or WireBox context, there will always be a `root` injector in a hierarchy.  This root injector can have children, and all of these children can have a direct link to its root via a `hasRoot() and getRoot()` methods.
+In a ColdBox or WireBox context, there will always be a `root` injector in a hierarchy. This root injector can have children, and all of these children can have a direct link to its root via a `hasRoot() and getRoot()` methods.
 
 #### Methods
 
@@ -427,11 +432,73 @@ property name="root" inject="wirebox:root"
 property name="root" inject="coldbox:rootWireBox"
 ```
 
+## Schedule Tasks Revamped
+
+<figure><img src="../../.gitbook/assets/project.png" alt="" width="256"><figcaption></figcaption></figure>
+
+Thanks to [Giancarlo Gomez](https://github.com/GiancarloGomez), scheduled tasks get a big revamp in ColdBox 7.  Here are the updates:
+
+### **New Properties**
+
+* `annually`\
+  You can now task on an annual basis
+* `delayTimeUnit`\
+  used to work with delays regardless of the setting in the chain
+* `debug`\
+  used for debug output during task executions
+* `firstBusinessDay`\
+  boolean to flag the task as on the first business day schedule
+* `lastBusinessDay`\
+  boolean to flag the task as on the last business day schedule
+* `taskTime`\
+  log of time of day for first business day and last business day tasks
+* `startTime`\
+  limits tasks to run on or after a specific time of day
+* `endTime`\
+  limits tasks to run on or before a specific time of day
+* `meta`\
+  The user can use this struct to store any data for the task ( helpful for building UIs and not having to manage outside of the task )
+* `stats.nextRun`\
+  ColdBox now determines the next run for the task in its scheduler interval
+
+### **Updated Functions**
+
+* `run( boolean force = false )`\
+  Added the `force` argument, to allow running the task on demand, even if it is paused.
+* `validateTime()`\
+  Sets minutes if missing from time entry and returns time value if successful - removes a lot of repetitive code
+
+### **New Functions**
+
+* `debug()`\
+  Used for setting debug setting ( can also be done in task init )
+* `startOnTime()`\
+  used to set variables.startTime
+* `endOnTime()`\
+  used to set variables.endTime
+* `between()`\
+  used to set variables.startTime and variables.endTime in one call
+* `setMeta()`\
+  used to set variables.meta
+* `setMetaKey()`\
+  used to add / save a key to variables.meta
+* `deleteMetaKey()`\
+  used to delete a key from variables.meta
+
+### **New Private Functions**
+
+* `getLastBusinessDayOfTheMonth()`
+* `getFirstBusinessDayOfTheMonth()`
+* `setInitialNextRunTime()`
+* `setInitialDelayPeriodAndTimeUnit()`
+* `setNextRunTime()`
+* `debugLog()`
+
 ## Module Updates
 
 ### Config Object Override
 
-In ColdBox 7, you can now store the module configurations outside of the `config/Coldbox.cfc`. Especially in an application with many modules and many configs, the `modulesettings` would get really unruly and long.  Now you can bring separation.  This new convention will allow module override configurations to exist as their own configuration file within the application’s config folder.
+In ColdBox 7, you can now store the module configurations outside of the `config/Coldbox.cfc`. Especially in an application with many modules and many configs, the `modulesettings` would get really unruly and long. Now you can bring separation. This new convention will allow module override configurations to exist as their own configuration file within the application’s config folder.
 
 ```bash
 config/modules/{moduleName}.cfc
@@ -488,13 +555,13 @@ Then you can change the `original` struct as you see fit for that environment.
 
 ### Module Injectors
 
-We have an experimental feature in ColdBox 7 to enable per-module injectors.  This will create a hierarchy of injections and dependency lookups for modules.  This is in preparation for future capabilities to allow for multi-named modules in an application.  In order to activate this feature you need to use the `this.moduleInjector = true` in your `ModuleConfig.cfc`
+We have an experimental feature in ColdBox 7 to enable per-module injectors. This will create a hierarchy of injections and dependency lookups for modules. This is in preparation for future capabilities to allow for multi-named modules in an application. In order to activate this feature you need to use the `this.moduleInjector = true` in your `ModuleConfig.cfc`
 
 ```cfscript
 this.moduleInjector = true
 ```
 
-Once enabled, please note that your module injector will have a unique name, and a link to the parent and root injectors and will ONLY know about itself and its children.  Everything will be encapsulated under itself.  No more global dependencies, we are now in module-only dependencies.  This means each module must declare its dependencies beforehand.
+Once enabled, please note that your module injector will have a unique name, and a link to the parent and root injectors and will ONLY know about itself and its children. Everything will be encapsulated under itself. No more global dependencies, we are now in module-only dependencies. This means each module must declare its dependencies beforehand.
 
 #### ModuleConfig Injections
 
@@ -516,7 +583,7 @@ getRootWireBox().getInstance( "GlobalModel" )
 
 #### Injection Awareness
 
-Every module also can inject/use its `models` without the need to namespace them. &#x20;
+Every module also can inject/use its `models` without the need to namespace them.
 
 ```cfscript
 // Before, using the @contacts address
@@ -527,7 +594,7 @@ property name="contactService" inject="contactService";
 ```
 
 {% hint style="info" %}
-The injector will look into the `models` of the module first and then it's children.  Parent lookups are not guaranteed yet.
+The injector will look into the `models` of the module first and then it's children. Parent lookups are not guaranteed yet.
 {% endhint %}
 
 {% hint style="warning" %}
@@ -557,7 +624,7 @@ listen( "preProcess", ()=> log.info( "executed" ) )
 
 ## ColdBox Delegates
 
-Since WireBox introduced delegates, we have taken advantage of this great reusable feature throughout ColdBox.  We have also created several delegates for your convenience that can be used via its name and the `@cbDelegates` namespace:
+Since WireBox introduced delegates, we have taken advantage of this great reusable feature throughout ColdBox. We have also created several delegates for your convenience that can be used via its name and the `@cbDelegates` namespace:
 
 | Delegate      | Purpose                                                   |
 | ------------- | --------------------------------------------------------- |
@@ -621,7 +688,7 @@ coldbox : {
 }
 ```
 
-If this closure exists, ColdBox will use the return value as the unique identifier.  A new method has also been added to the ColdBox Controller so you can retrieve this value:
+If this closure exists, ColdBox will use the return value as the unique identifier. A new method has also been added to the ColdBox Controller so you can retrieve this value:
 
 ```javascript
 controller.getUserSessionIdentifier()
@@ -653,7 +720,7 @@ function isTesting()
 You can also find these methods in the `controller` object.
 {% endhint %}
 
-These super-type methods delegate to the ColdBox Controller.  So that means that if you needed to change their behavior, you could do so via a [Controller Decorator.](../../digging-deeper/controller-decorator.md) &#x20;
+These super-type methods delegate to the ColdBox Controller. So that means that if you needed to change their behavior, you could do so via a [Controller Decorator.](../../digging-deeper/controller-decorator.md)
 
 You can also use them via our new `AppModes@cbDelegates` delegate in any model:
 
@@ -740,7 +807,7 @@ Check out the API Docs for the latest methods in the helper
 
 ## View `variables` Scope Variables
 
-You can now influence any view by injecting your own variables into a view's `variables` scope using our new argument: `viewVariables`.  This is great for module developers that want native objects or data to exist in a view's `varaibles` scope.
+You can now influence any view by injecting your own variables into a view's `variables` scope using our new argument: `viewVariables`. This is great for module developers that want native objects or data to exist in a view's `varaibles` scope.
 
 ```javascript
 view( view : "widget/messagebox", viewVariables : { wire : cbwire } 
@@ -771,11 +838,9 @@ Whoops got even more love:
 
 <figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>JSON Pretty Print + Highlights</p></figcaption></figure>
 
-
-
 ## RESTFul Exception Responses
 
-The RESTFul handlers have been updated to present more useful debugging when exceptions are detected in any call to any resource.  You will now get the following new items in the response:
+The RESTFul handlers have been updated to present more useful debugging when exceptions are detected in any call to any resource. You will now get the following new items in the response:
 
 * `environment`
   * A snapshot of the current routes, URLs and event
@@ -824,10 +889,10 @@ The RESTFul handlers have been updated to present more useful debugging when exc
 
 ## ColdBox `DebugMode`
 
-ColdBox now has a global `debugMode` setting, which is used internally for presenting sources in Whoops and extra debugging parameters in our RESTFul handler.  However, it can also be used by module developers or developers to dictate if your application is in debug mode or not.  This is just a fancy way to say we trust the user doing the requests.
+ColdBox now has a global `debugMode` setting, which is used internally for presenting sources in Whoops and extra debugging parameters in our RESTFul handler. However, it can also be used by module developers or developers to dictate if your application is in debug mode or not. This is just a fancy way to say we trust the user doing the requests.
 
 {% hint style="info" %}
-&#x20;The default value is **false**
+The default value is **false**
 {% endhint %}
 
 ```
@@ -870,7 +935,7 @@ component delegates="AppModes@cbDelegates"{
 
 ### Unload ColdBox is now false
 
-All integration tests now won't unload ColdBox after execution.  Basically, the `this.unloadColdBox = false` is now the default.  This is to increase performance where each request run tries only to load the ColdBox virtual app once.
+All integration tests now won't unload ColdBox after execution. Basically, the `this.unloadColdBox = false` is now the default. This is to increase performance where each request run tries only to load the ColdBox virtual app once.
 
 ### Environment Detection Method
 
@@ -881,8 +946,6 @@ getEnv().getSystemSetting()
 getEnv().getSystemProperty()
 getEnv().getEnv()
 ```
-
-
 
 ## LogBox Updates
 
@@ -902,7 +965,7 @@ $$$$$$$$\\$$$$$$  |\$$$$$$$ |$$$$$$$  |\$$$$$$  |$$  /\$$\
 
 ### JSON Pretty Output
 
-All logging messages in LogBox are now inspected for simplicity or complexity.  If any extra argument is a complex variable, then LogBox will now serialize the output to JSON, and it will prettify it.  This will allow for your log messages in your console to now look pretty!
+All logging messages in LogBox are now inspected for simplicity or complexity. If any extra argument is a complex variable, then LogBox will now serialize the output to JSON, and it will prettify it. This will allow for your log messages in your console to now look pretty!
 
 ```json
 [INFO ] 2023-04-26 15:48:47 coldbox.system.EventHandler Executing index action | ExtraInfo: {
@@ -963,7 +1026,7 @@ log.debug( () => "This is a debug message", data )
 
 ### Integration Testing Request Timeout
 
-The RequestContext now has a `setRequestTimeout()` function that can provide timeouts in your application, and when in testing mode, it will mock the request timeout.  This is essential to encapsulate this setting as if you have requested timeout settings in your app; they will override the ones in testing.
+The RequestContext now has a `setRequestTimeout()` function that can provide timeouts in your application, and when in testing mode, it will mock the request timeout. This is essential to encapsulate this setting as if you have requested timeout settings in your app; they will override the ones in testing.
 
 ```javascript
 event.setRequestTimeout( 5 ) // 5 seconds
@@ -976,7 +1039,3 @@ You can find the [release notes](whats-new-with-7.0.0.md#release-notes) on the p
 {% content-ref url="whats-new-with-7.0.0/release-notes.md" %}
 [release-notes.md](whats-new-with-7.0.0/release-notes.md)
 {% endcontent-ref %}
-
-
-
-[^1]: 
