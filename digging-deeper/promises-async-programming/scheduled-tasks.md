@@ -129,7 +129,7 @@ By default the scheduler will register a `scheduled` executor with a default of 
 
 ```javascript
 setExecutor( 
-    getAsyncManager().newScheduledExecutor( "mymymy", 50 ) 
+    asyncManager.newScheduledExecutor( "mymymy", 50 ) 
 );
 ```
 
@@ -164,7 +164,7 @@ Every scheduler has several utility methods:
 | `removeTask( name )`    | Cancel a task and remove it from the scheduler                                                                                                                                                                                                                                                                                                  |
 | `startup()`             | Startup the scheduler. This is called by ColdBox for you. No need to call it.                                                                                                                                                                                                                                                                   |
 | `shutdown()`            | Shutdown the scheduler                                                                                                                                                                                                                                                                                                                          |
-| `task( name )`          | Register a new task and return back to you the task so you can build it out.                                                                                                                                                                                                                                                                    |
+| `task( name, debug )`   | Register a new task and return back to you the task so you can build it out. You can also pass in an optional debug argument to set the task's debug setting which defaults to false.                                                                                                                                                           |
 
 ## Scheduling Tasks
 
@@ -253,11 +253,11 @@ Ok, let's go over the frequency methods:
 All `time` arguments are defaulted to midnight (00:00)
 {% endhint %}
 
-### Preventing Overlaps
+### Preventing Overlaps / Stacking
 
 ![Tasks with a fixed frequency vs delayed frequency](../../.gitbook/assets/tasks-with-and-without-overlaps.png)
 
-By default all tasks that have interval rates/periods that will execute on that interval schedule.  However, what happens if a task takes longer to execute than the period? Well, by default the task will execute even if the previous one has not executed.  If you want to prevent this behavior, then you can use the `withNoOverlaps()` method and ColdBox will register the tasks with a _fixed delay_. Meaning the intervals do not start counting until the last task has finished executing.
+By default all tasks that have interval rates/periods that will execute on that interval schedule. However, what happens if a task takes longer to execute than the period? Well, by default the task will not execute if the previous one has not finished executing, causing the pending task to execute immediately after the current one completes ( Stacking Tasks ).  If you want to prevent this behavior, then you can use the `withNoOverlaps()` method and ColdBox will register the tasks with a _fixed delay_. Meaning the intervals do not start counting until the last task has finished executing.
 
 ![Task With Fixed Delay](../../.gitbook/assets/tasks-with-no-overlaps.png)
 
@@ -392,6 +392,40 @@ task( "my-task" )
     );
 ```
 
+### Start and End Dates
+
+All scheduled tasks support the ability to seed in the **startOnDateTime** and **endOnDateTime** dates via our DSL:
+
+* `startOn( date, time = "00:00" )`
+* `endOn( date, time = "00:00" )`
+
+This means that you can tell the scheduler when the task will become active on a specific date and time (using the scheduler's timezone), and when the task will become disabled.
+
+```javascript
+task( "restricted-task" )
+  .call( () => ... )
+  .everyHour()
+  .startOn( "2022-01-01", "00:00" )
+  .endOn( "2022-04-01" )
+```
+
+### Start and End Times
+
+All scheduled tasks support the ability to seed in the **startTime** and **endTime** dates via our DSL:
+
+* `startOnTime( time = "00:00" )`
+* `endOnTime( time = "00:00" )`
+* `between( startTime = "00:00", endTime "00:00" )`
+
+This means that you can tell the scheduler to restrict the execution of the task after and/or before a certain time (using the scheduler's timezone).
+
+```javascript
+task( "restricted-task" )
+  .call( () => ... )
+  .everyMinute()
+  .between( "09:00", "17:00" )
+```
+
 ### Disabling/Pausing Tasks
 
 Every task is runnable from registration according to the frequency you set.  However, you can manually disable a task using the `disable()` method:
@@ -408,6 +442,10 @@ Once you are ready to enable the task, you can use the `enable()` method:
 ```javascript
 myTask.enable()
 ```
+
+{% hint style="warning" %}
+Registering a task as disabled can lead to a task continuing to execute if it was later enabled and then removed via `removeTask( name )` and not disabled again before doing so.
+{% endhint %}
 
 ### Task Stats
 
@@ -443,14 +481,18 @@ function afterAnyTask( required task, result ){
 
 We have created some useful methods that you can use when working with asynchronous tasks:
 
-| Method            | Description                                                                                                                                              |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `err( var )`      | Send output to the error stream                                                                                                                          |
-| `hasScheduler()`  | Verifies if the task is assigned a scheduler or not                                                                                                      |
-| `isDisabled()`    | Verifies if the task has been disabled by bit                                                                                                            |
-| `isConstrained()` | Verifies if the task has been constrained to run by weekends, weekdays, dayOfWeek, or dayOfMonth                                                         |
-| `out( var )`      | Send output to the output stream                                                                                                                         |
-| `start()`         | This kicks off the task into the scheduled executor manually. This method is called for you by the scheduler upon application startup or module loading. |
+| Method                     | Description                                                                                                                                                                          |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `debug( boolean )`         | Enable / disable debug output stream                                                                                                                                                 |
+| `err( var )`               | Send output to the error stream                                                                                                                                                      |
+| `hasScheduler()`           | Verifies if the task is assigned a scheduler or not                                                                                                                                  |
+| `isDisabled()`             | Verifies if the task has been disabled by bit                                                                                                                                        |
+| `isConstrained()`          | Verifies if the task has been constrained to run by dayOfMonth, dayOfWeek, firstBusinessDay, lastBusinessDay, weekdays, weekends, startOnDateTime, endOnDateTime, startTime, endTime |
+| `out( var )`               | Send output to the output stream                                                                                                                                                     |
+| `start()`                  | This kicks off the task into the scheduled executor manually. This method is called for you by the scheduler upon application startup or module loading.                             |
+| `setMeta( struct )`        | Set the meta struct of the task. This is a placeholder for any data you want to be made available to you when working with a task.                                                   |
+| `setMetaKey( key, value )` | Set a key on the custom meta struct.                                                                                                                                                 |
+| `deleteMetaKey( key )`     | Delete a key from the custom meta struct.                                                                                                                                            |
 
 ## Scheduled Executor Approach
 

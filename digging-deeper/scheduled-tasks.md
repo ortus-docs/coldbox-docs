@@ -4,7 +4,7 @@ description: >-
   scheduling tasks on your server and multi-server application
 ---
 
-# Scheduled Tasks
+# ColdBox Scheduled Tasks
 
 ## Introduction
 
@@ -176,7 +176,7 @@ By default the scheduler will register a `scheduled` executor with a default of 
 
 ```javascript
 setExecutor( 
-    getAsyncManager().newScheduledExecutor( "mymymy", 50 ) 
+    asyncManager.newScheduledExecutor( "mymymy", 50 ) 
 );
 ```
 
@@ -348,11 +348,11 @@ Ok, let's go over the frequency methods:
 All `time` arguments are defaulted to midnight (00:00)
 {% endhint %}
 
-### Preventing Overlaps
+### Preventing Overlaps / Stacking
 
 ![Tasks with a fixed frequency vs delayed frequency](../.gitbook/assets/tasks-with-and-without-overlaps.png)
 
-By default all tasks that have interval rates/periods that will execute on that interval schedule. However, what happens if a task takes longer to execute than the period? Well, by default the task will execute even if the previous one has not executed. If you want to prevent this behavior, then you can use the `withNoOverlaps()` method and ColdBox will register the tasks with a _fixed delay_. Meaning the intervals do not start counting until the last task has finished executing.
+By default all tasks that have interval rates/periods that will execute on that interval schedule. However, what happens if a task takes longer to execute than the period? Well, by default the task will not execute if the previous one has not finished executing, causing the pending task to execute immediately after the current one completes ( Stacking Tasks ).  If you want to prevent this behavior, then you can use the `withNoOverlaps()` method and ColdBox will register the tasks with a _fixed delay_. Meaning the intervals do not start counting until the last task has finished executing.
 
 ![Task With Fixed Delay](../.gitbook/assets/tasks-with-no-overlaps.png)
 
@@ -487,14 +487,14 @@ task( "my-task" )
     );
 ```
 
-### Scheduled Tasks Start and End Dates
+### Start and End Dates
 
-All scheduled tasks support the ability to seed in the **start** and **end** dates via our DSL:
+All scheduled tasks support the ability to seed in the **startOnDateTime** and **endOnDateTime** dates via our DSL:
 
 * `startOn( date, time = "00:00" )`
-* `endOn( data, time = "00:00" )`
+* `endOn( date, time = "00:00" )`
 
-This means that you can tell the scheduler when the task will become active on a specific data and time (using the scheduler's timezone), and when the task will become disabled.
+This means that you can tell the scheduler when the task will become active on a specific date and time (using the scheduler's timezone), and when the task will become disabled.
 
 ```javascript
 task( "restricted-task" )
@@ -502,6 +502,23 @@ task( "restricted-task" )
   .everyHour()
   .startOn( "2022-01-01", "00:00" )
   .endOn( "2022-04-01" )
+```
+
+### Start and End Times
+
+All scheduled tasks support the ability to seed in the **startTime** and **endTime** dates via our DSL:
+
+* `startOnTime( time = "00:00" )`
+* `endOnTime( time = "00:00" )`
+* `between( startTime = "00:00", endTime "00:00" )`
+
+This means that you can tell the scheduler to restrict the execution of the task after and/or before a certain time (using the scheduler's timezone).
+
+```javascript
+task( "restricted-task" )
+  .call( () => ... )
+  .everyMinute()
+  .between( "09:00", "17:00" )
 ```
 
 ### Server Fixation
@@ -602,6 +619,10 @@ function configure(){
 }
 ```
 
+{% hint style="warning" %}
+Registering a task as disabled either via `xtask` or the `disable()` method, can lead to a task continuing to execute if it was later enabled and then removed via `removeTask( name )` and not disabled again before doing so.
+{% endhint %}
+
 ### Task Stats
 
 All tasks keep track of themselves and have lovely metrics. You can use the `getStats()` method to get a a snapshot `structure` of the stats in time. Here is what you get in the stats structure:
@@ -635,19 +656,23 @@ function afterAnyTask( required task, result ){
 
 We have created some useful methods that you can use when working with asynchronous tasks:
 
-| Method                | Description                                                                                                                                              |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `err( var )`          | Send output to the error stream                                                                                                                          |
-| `getCache()`          | Get the CacheBox provider assigned for server fixation                                                                                                   |
-| `getCacheName()`      | Get the name of the cache region to use for server fixation                                                                                              |
-| `getEnvironments()`   | Get the assigned running environments for the task                                                                                                       |
-| `getServerFixation()` | Get the boolean flag that indicates that this task runs on all or one server                                                                             |
-| `hasScheduler()`      | Verifies if the task is assigned a scheduler or not                                                                                                      |
-| `isDisabled()`        | Verifies if the task has been disabled by bit                                                                                                            |
-| `isConstrained()`     | Verifies if the task has been constrained to run by server fixation, environments, weekends, weekdays, dayOfWeek, or dayOfMonth                          |
-| `out( var )`          | Send output to the output stream                                                                                                                         |
-| `setCacheName()`      | Set the cache name to use for server fixation                                                                                                            |
-| `start()`             | This kicks off the task into the scheduled executor manually. This method is called for you by the scheduler upon application startup or module loading. |
+| Method                     | Description                                                                                                                                                                                                         |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `debug( boolean )`         | Enable / disable debug output stream                                                                                                                                                                                |
+| `err( var )`               | Send output to the error stream                                                                                                                                                                                     |
+| `getCache()`               | Get the CacheBox provider assigned for server fixation                                                                                                                                                              |
+| `getCacheName()`           | Get the name of the cache region to use for server fixation                                                                                                                                                         |
+| `getEnvironments()`        | Get the assigned running environments for the task                                                                                                                                                                  |
+| `getServerFixation()`      | Get the boolean flag that indicates that this task runs on all or one server                                                                                                                                        |
+| `hasScheduler()`           | Verifies if the task is assigned a scheduler or not                                                                                                                                                                 |
+| `isDisabled()`             | Verifies if the task has been disabled by bit                                                                                                                                                                       |
+| `isConstrained()`          | Verifies if the task has been constrained to run by server fixation, environments, dayOfMonth, dayOfWeek, firstBusinessDay, lastBusinessDay, weekdays, weekends, startOnDateTime, endOnDateTime, startTime, endTime |
+| `out( var )`               | Send output to the output stream                                                                                                                                                                                    |
+| `setCacheName()`           | Set the cache name to use for server fixation                                                                                                                                                                       |
+| `start()`                  | This kicks off the task into the scheduled executor manually. This method is called for you by the scheduler upon application startup or module loading.                                                            |
+| `setMeta( struct )`        | Set the meta struct of the task. This is a placeholder for any data you want to be made available to you when working with a task.                                                                                  |
+| `setMetaKey( key, value )` | Set a key on the custom meta struct.                                                                                                                                                                                |
+| `deleteMetaKey( key )`     | Delete a key from the custom meta struct.                                                                                                                                                                           |
 
 ## Schedulers For Modules
 
