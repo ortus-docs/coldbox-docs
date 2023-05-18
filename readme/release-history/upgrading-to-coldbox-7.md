@@ -4,11 +4,29 @@ description: The official ColdBox 7 upgrade guide
 
 # Upgrading to ColdBox 7
 
-The major compatibility issues will be covered, as well as how to upgrade to this release from previous ColdBox versions smoothly. You can also check out the [What's New](whats-new-with-7.0.0.md) guide to give you a full overview of the changes.
+The major compatibility issues will be covered, as well as how to upgrade to this release from previous ColdBox versions smoothly. You can also check out the [What's New](whats-new-with-7.0.0/) guide to give you a full overview of the changes.
 
 ## ColdFusion 2016 Support Dropped
 
 ColdFusion 2016 support has been dropped. Adobe doesn't support them anymore, so neither do we.
+
+### HTML Helper `addAsset()` Changes
+
+The `addAsset()` now leverages the following settings for determining the convention locations for JavaScript and CSS assets:
+
+| Setting               | Default Value   |
+| --------------------- | --------------- |
+| `htmlhelper_js_path`  | `/includes/js`  |
+| `htmlhelper_css_path` | `/includes/css` |
+
+So if you want to change the location of your JavaScript and CSS, you can create these settings in your `ColdBox.cfc`
+
+```cfscript
+settings = {
+    htmlhelper_js_path : "/assets/js",
+    htmlhelper_css_path : "assets/css"
+}
+```
 
 ## Integration Testing Defaults
 

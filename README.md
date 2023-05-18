@@ -27,21 +27,7 @@ ColdBox [Hierarchical MVC ](https://en.wikipedia.org/wiki/Hierarchical\_model%E2
 * [An extensive ecosystem](https://forgebox.io)
 * Much More
 
-It provides a set of reusable code and tools that can be used to increase your development productivity as well as a development standard for working in team environments.
-
-## Versioning
-
-ColdBox is maintained under the [Semantic Versioning](http://semver.org) guidelines as much as possible. Releases will be numbered in the following format:
-
-```
-<major>.<minor>.<patch>
-```
-
-And constructed with the following guidelines:
-
-* Breaking backward compatibility bumps the major (and resets the minor and patch)
-* New additions without breaking backward compatibility bump the minor (and resets the patch)
-* Bug fixes and misc changes bump the patch
+It provides a set of reusable code and tools that can be used to increase your development productivity, as well as a development standard for working in team environments.
 
 ## License
 

@@ -6,11 +6,11 @@ description: Discover the power of ColdBox 7.0.0
 
 ColdBox 7.0.0 is a major release for the ColdBox HMVC platform. It has some dramatic new features as we keep pushing for more modern and sustainable approaches to web development and tons of bug fixes and improvements.
 
-We break down the major areas of development below, and you can also find the [full release notes](whats-new-with-7.0.0/release-notes.md) per library at the end.
+We break down the major areas of development below, and you can also find the [full release notes](release-notes.md) per library at the end.
 
 ## Engine Support
 
-<figure><img src="../../.gitbook/assets/coldbox-engine-support.jpeg" alt=""><figcaption><p>ColdBox v7 Engine Support</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/coldbox-engine-support.jpeg" alt=""><figcaption><p>ColdBox v7 Engine Support</p></figcaption></figure>
 
 This release drops support for Adobe 2016 and adds support for Adobe 2023 and Lucee 6 (Beta). Please note that there are still issues with Adobe 2023 as it is still in Beta.
 
@@ -39,7 +39,7 @@ The new CLI has all the previous goodness but now also v7 support and many other
 
 ## VSCode ColdBox Extension
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt="" width="240"><figcaption><p>vscode-coldbox</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt="" width="240"><figcaption><p>vscode-coldbox</p></figcaption></figure>
 
 We have updated our [VSCode ColdBox extension](https://marketplace.visualstudio.com/items?itemName=ortus-solutions.vscode-coldbox) now to support the latest version of snippets and skeletons for code generation.
 
@@ -79,7 +79,7 @@ WireBox has gotten tons of love in this release, with several additions, bug fix
 
 ### Transient Request Cache
 
-<figure><img src="../../.gitbook/assets/wirebox-transient-cache.png" alt="" width="375"><figcaption><p>Fly with me!</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/wirebox-transient-cache.png" alt="" width="375"><figcaption><p>Fly with me!</p></figcaption></figure>
 
 This feature is one of the most impactful for applications that leverage DI on transient objects, especially ORM-related applications. WireBox will now, by **default**, cache the signatures of the injections and delegations for you, so they are only done once per instance type. This addition has brought speed improvements of over 585% in Lucee and Adobe ColdFusion. You read that right, 585% performance increases. This is really a game changer for ORM-heavy applications that use DI and delegations. Go try it; **you don't have to do a thing. Install and run it!**
 
@@ -147,7 +147,7 @@ Basically, a way to inject/proxy calls from one object to the other and avoid th
 
 You can use it to encapsulate behavior on **small**, **focused**, and **testable** classes that can be brought in as traits into ANY component without abusing inheritance. In contrast, object delegation is a more flexible approach that allows objects to delegate tasks to any other object, regardless of its class hierarchy. Finally, object delegation can help to improve code performance by allowing objects to use specialized delegate objects for specific tasks.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 Let's look at an example of how we would use delegation without this feature:
 
@@ -434,7 +434,7 @@ property name="root" inject="coldbox:rootWireBox"
 
 ## Schedule Tasks Revamped
 
-<figure><img src="../../.gitbook/assets/project.png" alt="" width="256"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/project.png" alt="" width="256"><figcaption></figcaption></figure>
 
 Thanks to [Giancarlo Gomez](https://github.com/GiancarloGomez), scheduled tasks get a big revamp in ColdBox 7.  Here are the updates:
 
@@ -720,7 +720,7 @@ function isTesting()
 You can also find these methods in the `controller` object.
 {% endhint %}
 
-These super-type methods delegate to the ColdBox Controller. So that means that if you needed to change their behavior, you could do so via a [Controller Decorator.](../../digging-deeper/controller-decorator.md)
+These super-type methods delegate to the ColdBox Controller. So that means that if you needed to change their behavior, you could do so via a [Controller Decorator.](../../../digging-deeper/controller-decorator.md)
 
 You can also use them via our new `AppModes@cbDelegates` delegate in any model:
 
@@ -834,9 +834,9 @@ Whoops got even more love:
 * Production detection to avoid showing source code
 * Rendering performance improvements
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>SQL Hightlighting</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>SQL Hightlighting</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>JSON Pretty Print + Highlights</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>JSON Pretty Print + Highlights</p></figcaption></figure>
 
 ## RESTFul Exception Responses
 
@@ -1034,8 +1034,8 @@ event.setRequestTimeout( 5 ) // 5 seconds
 
 ## Release Notes
 
-You can find the [release notes](whats-new-with-7.0.0.md#release-notes) on the page below:
+You can find the [release notes](./#release-notes) on the page below:
 
-{% content-ref url="whats-new-with-7.0.0/release-notes.md" %}
-[release-notes.md](whats-new-with-7.0.0/release-notes.md)
+{% content-ref url="release-notes.md" %}
+[release-notes.md](release-notes.md)
 {% endcontent-ref %}
