@@ -2,10 +2,10 @@
 
 ## Handler Scaffolding
 
-Now let's create our first controller, which in ColdBox is called **Event Handler**. Let's go to CommandBox again:
+Now let's create our first event handler controller, which in ColdBox is called **Event Handler**. Let's go to CommandBox again:
 
 ```bash
-coldbox create handler name="hello" actions="index"
+coldbox create handler name="hello" actions="index" --open
 ```
 
 This will generate the following files:
@@ -14,7 +14,7 @@ This will generate the following files:
 * A **view** called `index.cfm` in the `views/hello` folder&#x20;
 * An **integration test** at `tests/specs/integration/helloTest.cfc`.&#x20;
 
-### Default URL Routing
+## Default URL Routing
 
 Now go to your browser and enter the following URL to execute the generated event:
 
@@ -23,7 +23,7 @@ Now go to your browser and enter the following URL to execute the generated even
 http://localhost:{port}/hello/index
 ```
 
-You will now see a big `hello.index` outputted to the screen. You have now created your first handler and view combination.  However, how did this work?  It works as ColdBox by convention creates another agreement with you on how to execute events, default URL routing.
+You will now see a big `hello.index` outputted to the screen. You have now created your first handler and view combination.  However, how did this work?  It works by convention.
 
 Your application router is located at : `config/Router.cfc`.  It will include a few default routes for you and the following default URL route:
 
@@ -32,7 +32,9 @@ Your application router is located at : `config/Router.cfc`.  It will include a 
 route( ":handler/:action?" ).end();
 ```
 
-This route tells ColdBox to look for the names of handlers (including directory names) and for names of the handler actions (functions).  The `?` on the `:action` portion denotes that the action might or might not exist in the URL.  If it doesn't exist, then another convention is in play, the default action which is `index`.
+This route tells ColdBox to look for the names of handlers (including directory names) and names of the handler actions (functions).  The `?` on the `:action` portion denotes that the action might or might not exist in the URL.  If it doesn't exist, then another convention is in play, the default action, which is `index`.
+
+So /`main` will execute `main.index` and `/main/index` will execute `main.index`
 
 ## Handler Code
 
@@ -73,7 +75,7 @@ Did you detect a convention here?
 The sections in the URL are the same as the name of the event handler CFC (`hello.cfc`) and method that was generated `index()`. By convention, this is how you execute events in ColdBox by leveraging the following URL pattern that matches the name of a handler and action function.
 
 {% hint style="success" %}
-**Tip :** You can also nest handlers into folders and you can also pass the name of the folder(s) as well.
+**Tip :** You can also nest handlers into folders and pass the name of the folder(s) as well.
 {% endhint %}
 
 ```
@@ -82,7 +84,7 @@ http://localhost:{port}/handler/action
 http://localhost:{port}/handler
 ```
 
-If no `action` is defined in the URL then the default action of `index` will be used.
+If no `action` is defined in the URL, then the default action of `index` will be used.
 
 All of this URL magic happens thanks to the URL mappings capabilities in ColdBox. By convention, you can write beautiful URLs that are RESTFul and by convention. You can also extend them and create more expressive URL Mappings by leveraging the `config/Router.cfc` which is your application router.
 
@@ -92,10 +94,10 @@ All of this URL magic happens thanks to the URL mappings capabilities in ColdBox
 
 ## My First Virtual Event
 
-Now let's create a virtual event, which is basically just a view we want to execute with no event handler controller needed. This is a great way to incorporate _non-mvc_ files into ColdBox.  Migrating from a traditional application?
+Now let's create a virtual event, just a view we want to execute with no event handler controller needed. This is a great way to incorporate _non-mvc_ files into ColdBox.  Migrating from a traditional application?
 
 ```bash
-coldbox create view name="virtual/hello"
+coldbox create view name="virtual/hello" --open
 ```
 
 Open the view now (`/views/virtual/hello.cfm`) and add the following:

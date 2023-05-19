@@ -96,35 +96,17 @@ Let's recap: Every action in ColdBox receives three arguments:
 * `rc` - A struct that contains both URL/FORM variables (unsafe data)
 * `prc` - A secondary struct that is private only settable from within your application (safe data)
 
-### Setting Views - Default Layout
+## Setting Views - Default Layout
 
 This line `event.setView( "main/index" )` in the `index` action told ColdBox to render a view back to the user found in `views/main/index.cfm`. &#x20;
 
-ColdBox also has the concepts of layouts, which are essentially reusable views that can wrap other views or layouts.  They allow you to reuse content so you can render views/layouts inside in a specific location in the CFML content.  By convention, ColdBox looks for a layout called `layouts/Main.cfm.`  This is yet another convention, the default layout.  Your application can have many layouts or non layouts at all.
-
-
-
-## Executing Events
-
-We have now seen how to add handlers via CommandBox using the `coldbox create handler` command and also execute them by convention by leveraging the following URL pattern:
-
-```
-http://localhost:{port}/folder/handler/action
-http://localhost:{port}/handler/action
-http://localhost:{port}/handler
-```
-
-Also remember, that if no `action` is defined in the incoming URL then the default action of `index` will be used.
-
-{% hint style="info" %}
-Remember that the URL mappings support in ColdBox is what allows you to execute events in such a way from the URL. These are controlled by your application router: `config/Router.cfc`
-{% endhint %}
+ColdBox also has the concept of layouts, which are essentially reusable views that can wrap up other views or layouts.  They allow you to reuse content to render views/layouts inside a specific location in the CFML content.  By convention, ColdBox looks for a layout called `layouts/Main.cfm.`  This is yet another convention, the default layout.  Your application can have many layouts or non-layouts at all.
 
 ## Working With Incoming Data
 
-Now, let's open the handler we created before called `handlers/hello.cfc` and add some public and private variables to it so our views can render the variables.
+Now, let's open the handler we created before called `handlers/hello.cfc` and add some public and private variables so our views can render the variables.
 
-```javascript
+```cfscript
 function index( event, rc, prc ){
     // param an incoming variable.
     event.paramValue( "name", "nobody" );
@@ -152,5 +134,21 @@ If you execute the event now: `http://localhost:{port}/hello/index` you will see
 Now change the incoming URL to this: `http://localhost:{port}/hello/index?name=ColdBox` and you will see a message of `Hello ColdBox`.
 
 {% hint style="success" %}
-**Tip:** Please see the [layouts and views](../../the-basics/layouts-and-views/) section for in-depth information about them.
+**Tip:** Please see the [layouts and views](../../the-basics/layouts-and-views/) section for in-depth information.
 {% endhint %}
+
+### Routing Params
+
+Now let's expect the name as part of the URL pattern; open the `config/Router.cfc` and let's add another route:
+
+```cfscript
+route( "/hello/:name" ).as( "hello" ).to( "hello" )
+```
+
+We use the `:` colon to denote incoming URL/FORM placeholder params that, if found are translated to the request collection (`rc`).  So let's try it out: `http://localhost:{port}/hello/coldbox`
+
+You can use the `route()` to generate the URL with params in a nice struct way:
+
+```html
+<a href="#event.route( "hello", { name: "Luis" } )#">Say Hello Luis</a>
+```

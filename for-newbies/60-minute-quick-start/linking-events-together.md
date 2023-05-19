@@ -8,7 +8,12 @@ ColdBox provides you with a nice method for generating links between events by l
 
 ## Building Links
 
-The method in the request context that builds links is called: `buildLink()`. Here are some of the arguments you can use:
+You can easily build links with ColdBox by using two methods:
+
+1. `event.buildLink()` - Build links to events or URL routes
+2. `event.route()` - Build links to specifically [named routes](../../the-basics/routing/routing-dsl/named-routes.md)
+
+Here are the signatures
 
 ```java
 /**
@@ -26,12 +31,26 @@ string function buildLink(
 	boolean translate = true,
 	boolean ssl,
 	baseURL = ""
-){
+)
+
+
+/**
+ * Builds links to named routes with or without parameters. If the named route is not found, this method will throw an `InvalidArgumentException`.
+ * If you need a route from a module then append the module address: `@moduleName` or prefix it like in run event calls `moduleName:routeName` in order to find the right route.
+ *
+ * @name   The name of the route
+ * @params The parameters of the route to replace
+ * @ssl    Turn SSL on/off or detect it by default
+ *
+ * @throws InvalidArgumentException - If thre requested route name is not registered
+ */
+string function route( required name, struct params = {}, boolean ssl )
+
 ```
 
 ## Edit Your View
 
-Edit the `views/virtual/hello.cfm` page and wrap the content in a `cfoutput` and create a link to the main ColdBox event, which by convention is `main.index`.  You can use `main.index` or just `main` (Remember that `index` is the default action)
+Edit the `views/virtual/hello.cfm` page and wrap the content in a `cfoutput` and create a link to the main ColdBox event, which by convention, is `main.index`.  You can use `main.index` or just `main` (Remember that `index` is the default action)
 
 ```markup
 <cfoutput>
@@ -40,7 +59,7 @@ Edit the `views/virtual/hello.cfm` page and wrap the content in a `cfoutput` and
 </cfoutput>
 ```
 
-This code will generate a link to the `main.index` event in a search engine safe manner and in SSL detection mode. Go execute the event: `http://localhost:{port}/virtual/hello` and click on the generated URL, you will now be navigating to the default event `/main/index`. This technique will also apply to FORM submissions:
+This code will generate a link to the `main.index` event in a search engine-safe manner and in SSL detection mode. Go execute the event: `http://localhost:{port}/virtual/hello` and click on the generated URL; you will now be navigating to the default event `/main/index`. This technique will also apply to FORM submissions:
 
 ```markup
 <form action="#event.buildLink( 'user.save' )#" method="post">
@@ -54,26 +73,30 @@ This code will generate a link to the `main.index` event in a search engine safe
 For extra credit try to use more of the `buildLink` arguments.
 {% endhint %}
 
-## URL Structure & Mappings
+## Routing
 
-ColdBox allows you to manipulate the incoming URL so you can create robust URL strategies especially for RESTFul services. This is all done by convention and you can configure it via the [application router](../../the-basics/routing/application-router.md): `config/Router.cfc` for more granular control.
+We have been using routing by convention, but let's do named routes now to control the URL.  Let's create a `/home` route that will execute the `main.index` event and update our view to change the building of the URL via `route()`. Let's open the `config/Router.cfc`
 
-{% hint style="info" %}
-Out of the box we provide you with convention based routing that maps the URL to modules/folders/handlers and actions.
+```cfscript
+// @app_routes@
 
-`route( "/:handler/:action" ).end()`
-{% endhint %}
+route( "/home" ).as( "home" ).to( "main.index" );
 
-We have now seen how to execute events via nice URLs. Behind the scenes, ColdBox translates the URL into an executable event string just like if you were using a normal URL string:
+// Conventions-Based Routing
+route( ":handler/:action?" ).end();
+```
 
-* `/main/index` -> `?event=main.index`
-* `/virtual/hello` -> `?event=virtual.hello`
-* `/admin/users/list` -> `?event=admin.users.list`
-* `/handler/action/name/value` -> `?event=handler.action&name=value`
-* `/handler/action/name` -> `?event=handler.action&name=`
+We use the `route()` method to register URL patterns and then tell the router what to execute if matched.  This can be an event, but it can also be a view, an inline action, a relocation, and much more. Since we registered new URLs you need to reinit the app (`?fwreinit=1`).  Now let's update the link in the `hello` view:
 
-By convention, any name-value pairs detected after an event variable will be treated as an incoming `URL` variables. If there is no pair, then the value will be an empty string.
+```html
+<cfoutput>
+    <h1>Hello from ColdBox Land!</h1>
+    <p><a href="#event.route( "home" )#">Go home</a></p>
+</cfoutput>
+```
+
+Try it out now!
 
 {% hint style="success" %}
-**Tip:** By default the ColdBox application templates are using full URL rewrites. If your web server does not support them, then open the `config/Router.cfc` and change the full rewrites method to **false**: `setFullRewrites( false ).`
+**Tip:** Check out the routing API Docs for further information.
 {% endhint %}
