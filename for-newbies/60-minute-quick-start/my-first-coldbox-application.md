@@ -1,15 +1,13 @@
 # My First ColdBox Application
 
-CommandBox comes with a `coldbox create app` command that can enable you to create application skeletons using one of our official skeletons or [your own](../../digging-deeper/recipes/application-templates.md).  Here are the names of the common ones you can find in our Github Organization:
+The `coldbox create app` command enables you to create application skeletons using one of our official skeletons or [your own](../../digging-deeper/recipes/application-templates.md).  Here are the names of the common ones you can find in our Github Organization:
 
-* **AdvancedScript**  (`default`): A script based advanced template
-* **elixir** : A [ColdBox Elixir](https://coldbox-elixir.ortusbooks.com/) based template
-* **ElixirBower** : A [ColdBox Elixir](https://coldbox-elixir.ortusbooks.com/) + Bower based template
-* **ElixirVueJS** : A [ColdBox Elixir](https://coldbox-elixir.ortusbooks.com/) + Vue.js based template
-* **rest**: A RESTFul services template
-* **rest-hmvc**: A RESTFul service built with modules
-* **Simple** : A traditional simple template
+* **Default**: The default app template
+* **Elixir** : A [ColdBox Elixir](https://coldbox-elixir.ortusbooks.com/) based template to do asset compilation for you
+* **Rest**: A RESTFul services template
+* **Rest-hmvc**: A RESTFul service built with modules
 * **SuperSimple** : The bare-bones template
+* **Vite:** The default template using VITE for asset bundling
 
 {% hint style="success" %}
 You can find all our template skeletons here: [github.com/coldbox-templates](https://github.com/coldbox-templates)
@@ -21,35 +19,25 @@ ColdBox Elixir Docs
 
 ## Scaffolding Our Application
 
-So let's create our first app using the _default_ template skeleton **AdvancedScript**:
+So let's create our first app using the _default_ template skeleton:
 
 ```bash
 coldbox create app Quickstart
 ```
 
-This will scaffold the application and also install ColdBox for you. The following folders/files are generated for you:
+### Conventions
 
-```
-+ coldbox // The ColdBox framework library (CommandBox Tracked)
-+ config // Configuration files
-+ handlers // Your handlers/controllers
-+ includes // static assets
-+ interceptors // global interceptors
-+ layouts // Your layouts
-+ lib // Java Jars to load
-+ models // Your Models
-+ modules // CommandBox Tracked Modules
-+ modules_app // Custom modules
-+ tests // Test harness
-+ views // Your Views
-+ Application.cfc // Bootstrap
-+ box.json // CommandBox package descriptor
-+ index.cfm // Front controller
-```
+Here are some of the major files and directory conventions you should know about:
+
+<table><thead><tr><th>Directory</th><th data-type="checkbox">Convention</th><th data-type="checkbox">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>.vscode</td><td>false</td><td>false</td><td>Mappings and build tasks for VSCode</td></tr><tr><td>build</td><td>false</td><td>false</td><td>Docker helpers</td></tr><tr><td>coldbox</td><td>false</td><td>true</td><td>The framework library</td></tr><tr><td>config</td><td>true</td><td>true</td><td>Configurations and module configurations</td></tr><tr><td>handlers</td><td>true</td><td>false</td><td>Event handler controllers</td></tr><tr><td>includes</td><td>true</td><td>false</td><td>i18n, JavaScript, helpers, CSS</td></tr><tr><td>interceptors</td><td>false</td><td>false</td><td>Event driven listeners go here</td></tr><tr><td>layouts</td><td>true</td><td>false</td><td>Application CFML layouts</td></tr><tr><td>lib</td><td>true</td><td>false</td><td>Java libraries or third party libraries</td></tr><tr><td>models</td><td>true</td><td>false</td><td>Model objects</td></tr><tr><td>modules</td><td>true</td><td>false</td><td>CommandBox driven dependencies</td></tr><tr><td>modules_app</td><td>true</td><td>false</td><td>Custom applicaiton modules</td></tr><tr><td>tests</td><td>false</td><td>false</td><td>Your application specs</td></tr><tr><td>views</td><td>true</td><td>false</td><td>Application CFML views</td></tr></tbody></table>
+
+Here are the major files you should know about:
+
+<table><thead><tr><th>File</th><th data-type="checkbox">Convention</th><th data-type="checkbox">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>.cfconfig.json</td><td>true</td><td>false</td><td>Loads the CFML Engine settings</td></tr><tr><td>.cfformat.json</td><td>true</td><td>false</td><td>Formatting rules</td></tr><tr><td>.cflintrc</td><td>true</td><td>false</td><td>Linting rules</td></tr><tr><td>.env</td><td>true</td><td>false</td><td>Environment variables (Never commit)</td></tr><tr><td>.env.example</td><td>false</td><td>false</td><td>Example env file</td></tr><tr><td>Application.cfc</td><td>true</td><td>true</td><td>Your application bootstrap</td></tr><tr><td>box.json</td><td>true</td><td>false</td><td>Your CommandBox package descriptor</td></tr><tr><td>index.cfm</td><td>true</td><td>true</td><td></td></tr><tr><td>server.json</td><td>true</td><td>false</td><td></td></tr></tbody></table>
 
 Now let's start a server so we can see our application running:
 
-```
+```bash
 server start
 ```
 
