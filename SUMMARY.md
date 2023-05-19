@@ -16,7 +16,7 @@
   * [My First ColdBox Application](for-newbies/60-minute-quick-start/my-first-coldbox-application.md)
   * [My First Handler & View](for-newbies/60-minute-quick-start/my-first-handler-and-view.md)
   * [Linking Events Together](for-newbies/60-minute-quick-start/linking-events-together.md)
-  * [Working With Event Handlers](for-newbies/60-minute-quick-start/working-with-event-handlers.md)
+  * [Working with Events](for-newbies/60-minute-quick-start/working-with-event-handlers.md)
   * [Adding A Layout](for-newbies/60-minute-quick-start/adding-a-layout.md)
   * [Adding A Model](for-newbies/60-minute-quick-start/adding-a-model.md)
   * [RESTFul Data](for-newbies/60-minute-quick-start/restful-data.md)
