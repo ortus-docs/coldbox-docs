@@ -1,11 +1,13 @@
 # Table of contents
 
 * [Introduction](README.md)
+  * [Contributing Guide](readme/contributing-guide.md)
   * [Release History](readme/release-history/README.md)
     * [What's New With 7.0.0](readme/release-history/whats-new-with-7.0.0/README.md)
       * [Release Notes](readme/release-history/whats-new-with-7.0.0/release-notes.md)
     * [Upgrading to ColdBox 7](readme/release-history/upgrading-to-coldbox-7.md)
-  * [Contributing Guide](readme/contributing-guide.md)
+  * [What is ColdBox](readme/what-is-coldbox.md)
+  * [What is MVC](readme/what-is-mvc.md)
   * [About This Book](readme/about-this-book/README.md)
     * [Author](readme/about-this-book/author.md)
 
@@ -253,6 +255,7 @@
   * [Standard Return Types](digging-deeper/coldbox-proxy/standard-return-types.md)
   * [Caveats & Gotchas](digging-deeper/coldbox-proxy/caveats-and-gotchas.md)
 * [Controller Decorator](digging-deeper/controller-decorator.md)
+* [ColdBox Scheduled Tasks](digging-deeper/scheduled-tasks.md)
 * [Flash RAM](digging-deeper/flash-ram/README.md)
   * [Flash Storage](digging-deeper/flash-ram/flash-storage.md)
   * [Using Flash RAM](digging-deeper/flash-ram/using-flash-ram.md)
@@ -266,18 +269,7 @@
   * [Debugging ColdBox Apps](digging-deeper/recipes/debugging-coldbox-apps.md)
   * [Clearing the View Cache](digging-deeper/recipes/clearing-the-view-cache.md)
   * [Basic HTTP Authentication Interceptor](digging-deeper/recipes/building-a-simple-basic-http-authentication-interceptor.md)
-* [ColdBox Scheduled Tasks](digging-deeper/scheduled-tasks.md)
 
 ## Architecture Concepts
 
-* [What is MVC](architecture-concepts/what-is-mvc.md)
-* [What is ColdBox](architecture-concepts/what-is-coldbox.md)
 * [How ColdBox Works](architecture-concepts/how-coldbox-works.md)
-* [Testing Concepts](architecture-concepts/testing-concepts/README.md)
-  * [Functional Testing](architecture-concepts/testing-concepts/functional-testing.md)
-  * [Non-Functional Testing](architecture-concepts/testing-concepts/non-functional-testing.md)
-  * [Bugs Cost Money](architecture-concepts/testing-concepts/bugs-cost-money.md)
-  * [Static Testing](architecture-concepts/testing-concepts/static-testing.md)
-  * [Dynamic Testing](architecture-concepts/testing-concepts/dynamic-testing.md)
-  * [Developer Focus](architecture-concepts/testing-concepts/developer-focus.md)
-  * [Testing Vocabulary](architecture-concepts/testing-concepts/testing-vocabulary.md)
