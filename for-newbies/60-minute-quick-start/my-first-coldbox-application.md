@@ -1,6 +1,6 @@
 # My First ColdBox Application
 
-The `coldbox create app` command enables you to create application skeletons using one of our official skeletons or [your own](../../getting-started/application-templates.md).  Here are the names of the common ones you can find in our Github Organization:
+The `coldbox create app` command enables you to create application skeletons using one of our official skeletons or [your own](../../digging-deeper/recipes/application-templates.md).  Here are the names of the common ones you can find in our Github Organization:
 
 * **Default**: The default app template
 * **Elixir** : A [ColdBox Elixir](https://coldbox-elixir.ortusbooks.com/) based template to do asset compilation for you

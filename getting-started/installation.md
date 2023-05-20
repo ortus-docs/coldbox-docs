@@ -59,7 +59,7 @@ The ColdBox CLI is your best friend when developing with ColdBox and it's based 
 install coldbox-cli
 ```
 
-Now you will have a `coldbox` namespace of commands.  Explore them `coldbox help.` To install ColdBox, you can do so via `install coldbox` or by scaffolding a starter application template.  We would highly encourage you to visit our [application templates](application-templates.md) section to discover how to get started quickly.
+Now you will have a `coldbox` namespace of commands.  Explore them `coldbox help.` To install ColdBox, you can do so via `install coldbox` or by scaffolding a starter application template.  We would highly encourage you to visit our [application templates](../digging-deeper/recipes/application-templates.md) section to discover how to get started quickly.
 
 **Please remember to** [**Star**](https://github.com/coldbox/coldbox-platform) **us in Github.**
 

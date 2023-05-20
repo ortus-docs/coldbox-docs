@@ -26,7 +26,7 @@
 ## Getting Started
 
 * [Installation](getting-started/installation.md)
-* [Application Templates](getting-started/application-templates.md)
+* [Application Templates](digging-deeper/recipes/application-templates.md)
 * [Conventions](getting-started/conventions.md)
 * [Configuration](getting-started/configuration/README.md)
   * [ColdBox.cfc](getting-started/configuration/coldbox.cfc/README.md)

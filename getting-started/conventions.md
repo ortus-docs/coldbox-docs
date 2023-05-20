@@ -8,19 +8,23 @@ The core conventions delineate the contract between ColdBox and **you** for file
 
 ## Directory/File Conventions
 
-* **config/Coldbox.cfc** - Your application configuration object (_optional_ )
-* **config/Router.cfc** - Your application URL Router (_optional_ )
-* **config/CacheBox.cfc** - Your application CacheBox configuration (_optional_ )
-* **config/WireBox.cfc** - Your application WireBox Configuration (_optional_ )
-* **handlers** - This holds the app's event handlers (controller layer)
-* **includes/css** - This can hold your CSS (optional)
-* **includes/js** - This can hold your JavaScript (optional)
-* **layouts** - Your HTML layouts (view layer)
-* **models** - This holds your app's CFCs  (model layer)
-* **modules** - This holds the CommandBox tracked modules
-* **modules\_app** - This holds your app's modules
-* **tests** - Your test harness, including unit and integration testing
-* **views** - Your HTML views will go here (view layer)
+* **/config** - Where configuration files are stored
+  * **/Coldbox.cfc** - Your application configuration object (_optional_ )
+  * **/CacheBox.cfc** - Your application CacheBox configuration (_optional_ )
+  * **/Router.cfc** - Your application URL Router (_optional_ )
+  * **/Scheduler.cfc** - Your application global task scheduler (optional)
+  * **/WireBox.cfc** - Your application WireBox Configuration (_optional_ )
+* **/handlers** - This holds the app's event handlers (controller layer)
+* **/includes** - For public assets, helpers and i18n resources
+  * **/css** - This can hold your CSS (optional)
+  * **/js** - This can hold your JavaScript (optional)
+* **/layouts** - Your HTML layouts (view layer)
+* **/models** - This holds your app's CFCs  (model layer)
+* **/modules** - This holds the CommandBox tracked modules
+* **/modules\_app** - This holds your app's modules
+* **/tests** - Your test harness, including unit and integration testing
+  * **/specs** - Where your test bundles go
+* **/views** - Your HTML views will go here (view layer)
 
 ## Execution Conventions
 
