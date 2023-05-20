@@ -13,7 +13,7 @@ This layer is controlled by [WireBox](https://wirebox.ortusbooks.com), the depen
 Let's create a simple contact listing, so open up CommandBox and issue the following command:
 
 ```bash
-coldbox create model name="ContactService" methods="getAll" persistence="singleton"
+coldbox create service name="ContactService" methods="getAll" --open
 ```
 
 This will create a `models/ContactService.cfc` with a `getAll()` method and a companion unit test at `tests/specs/unit/ContactServiceTest.cfc`. Let's open the model object:
@@ -47,14 +47,14 @@ component singleton accessors="true"{
 ```
 
 {% hint style="warning" %}
-Notice the `singleton` annotation on the component tag. This tells WireBox that this service should be cached for the entire application life-span. If you remove the annotation, then the service will become a _transient_ object, which means that it will be re-created every time it is requested.
+Notice the `singleton` annotation on the component tag. This tells WireBox that this service should be cached for the entire application lifespan. If you remove the annotation, then the service will become a _transient_ object, which means that it will be re-created every time it is requested.
 {% endhint %}
 
 ## Add Some Data
 
 Let's mock an array of contacts so we can display them later. We can move this to a SQL call later.
 
-```javascript
+```cfscript
 /**
  * I am a new Model Object
  */
@@ -94,17 +94,17 @@ You can then leverage it to mock your contacts or any simple/complex data requir
 
 ## Wiring Up The Model To a Handler
 
-We have now created our model so let's tell our event handler about it. Let's create a new handler using CommandBox:
+We have created our model, so let's tell our event handler about it. Let's create a new handler using CommandBox:
 
 ```bash
-coldbox create handler name="contacts" actions="index"
+coldbox create handler name="contacts" actions="index" --open
 ```
 
 This will create the `handler/contacts.cfc` handler with an `index()` action, the `views/contacts/index.cfm` view and the accompanying integration test `tests/specs/integration/contactsTest.cfc`.
 
 Let's open the handler and add a new ColdFusion `property` that will have a reference to our model object.
 
-```javascript
+```cfscript
 component{ 
 
     property name="contactService" inject="ContactService";
@@ -117,7 +117,7 @@ component{
 
 Please note that `inject` annotation on the `property` definition. This tells WireBox what model to inject into the handler's `variables`scope.
 
-By convention it looks in the `models` folder for the value, which in our case is `ContactService`. Now let's call it and place some data in the private request collection `prc` so our views can use it.
+By convention, it looks in the `models` folder for the value, which in our case, is `ContactService`. Now let's call it and place some data in the private request collection `prc` so our views can use it.
 
 ```javascript
 any function index( event, rc, prc ){
@@ -130,7 +130,7 @@ any function index( event, rc, prc ){
 
 Now that we have put the array of contacts into the `prc` struct as `aContacts`, let's display it to the screen using [ColdBox's HTML Helper](../../digging-deeper/html-helper.md).
 
-The ColdBox HTML Helper is a companion class that exists in all layouts and views that allows you to generate semantic HTML5 without the needed verbosity of nesting, or binding to ORM/Business objects.
+The ColdBox HTML Helper is a companion class in all layouts and views that allows you to generate semantic HTML without the needed verbosity of nesting or binding to ORM/Business objects.
 
 {% hint style="info" %}
 Please check out the API Docs to discover the HTML Helper: [http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/modules/HTMLHelper/models/HTMLHelper.html](http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/modules/HTMLHelper/models/HTMLHelper.html)
@@ -147,7 +147,7 @@ Open the `contacts/index.cfm` and add the following to the view:
 ```
 
 {% hint style="warning" %}
-Note: If your models are `singletons`, they will persist for the life-span of your ColdFusion application. To see code changes for singletons, you have to reinit the framework by using the `?fwreinit={password}` Url action or via CommandBox using `coldbox reinit`. Please check out the API Docs to discover CommandBox: \[[https://apidocs.ortussolutions.com/commandbox/5.2.0/index.html](https://apidocs.ortussolutions.com/commandbox/5.2.0/index.html)]
+Note: If your models are `singletons`, they will persist for the lifespan of your ColdFusion application. To see code changes for singletons, you have to reinit the framework by using the `?fwreinit={password}` Url action or via CommandBox using `coldbox reinit`. Please check out the API Docs to discover CommandBox: \[[https://apidocs.ortussolutions.com/commandbox/current/index.html](https://apidocs.ortussolutions.com/commandbox/current/index.html)]
 {% endhint %}
 
 That's it! Execute the event: `http://localhost:{port}/contacts/index` and view the nice table of contacts being presented to you.

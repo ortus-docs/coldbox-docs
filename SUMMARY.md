@@ -21,10 +21,10 @@
   * [Adding A Model](for-newbies/60-minute-quick-start/adding-a-model.md)
   * [RESTFul Data](for-newbies/60-minute-quick-start/restful-data.md)
   * [Next Steps](for-newbies/60-minute-quick-start/next-steps.md)
+* [Getting Started Guide](for-newbies/getting-started-guide.md)
 
 ## Getting Started
 
-* [Getting Started Guide](getting-started/getting-started-guide.md)
 * [Installation](getting-started/installation.md)
 * [Conventions](getting-started/conventions.md)
 * [Configuration](getting-started/configuration/README.md)

@@ -8,11 +8,11 @@ Out of the box, ColdBox gives you all the RESTFul capabilities you will need to 
 
 ## Producing JSON
 
-If you know beforehand what type of format you will be responding with, you can leverage ColdBox auto-marshalling in your handlers. By default, ColdBox detects any return value from handlers and if they are complex it will convert them to JSON automatically for you:
+If you know beforehand what type of format you will be responding with, you can leverage ColdBox auto-marshaling in your handlers. By default, ColdBox detects **any** return value from handlers, and if they are complex, it will convert them to JSON automatically for you:
 
 {% code title="contacts.cfc" %}
 ```javascript
-any function index( event, rc, prc ){
+any function data( event, rc, prc ){
     return contactService.getAll();    
 }
 ```
@@ -28,24 +28,18 @@ The request context object has a special function called `renderData()` that can
 **Tip**: You can find more information at the API Docs for `renderData()` here [http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html#renderData(](http://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/RequestContext.html#renderData\())
 {% endhint %}
 
-So let's open the `handlers/contacts.cfc` and add to our current code:
+So let's open the `handlers/contacts.cfc` and lets create a new action called `data`
 
 {% code title="contacts.cfc" %}
 ```javascript
-any function index( event, rc, prc ){
+any function data( event, rc, prc ){
     prc.aContacts = contactService.getAll();    
-    event.renderData( data=prc.aContacts, formats="xml,json,pdf,html" );
+    event.renderData( data=prc.aContacts, formats="xml,json,pdf" );
 }
 ```
 {% endcode %}
 
-We have added the following line:
-
-```javascript
-event.renderData( data=prc.aContacts, formats="xml,json,pdf,html" );
-```
-
-This tells ColdBox to render the contacts data in 4 formats: xml, json, pdf and html. WOW! So how would you trigger each format? Via the URL of course.
+This tells ColdBox to render the contacts data in 4 formats: XML, JSON, pdf, and HTML. WOW! So how would you trigger each format? Via the URL, of course.
 
 ## Format Detection
 
@@ -76,34 +70,31 @@ http://localhost:{port}/contacts/index.pdf
 
 ## Routing
 
-Let's add a new route to our system that is more RESTFul than `/contacts/index.json`. You will do so by leveraging the application's router found at `config/Router.cfc`. Find the `configure()` method and let's add a new route:
+Let's add a new route to our system that is more RESTFul than `/contacts/index.json`. You will do so by leveraging the application's router found at `config/Router.cfc`. Find the `configure()` method, and let's add a new route:
 
-```java
+```cfscript
 
 // Restuful Route
-route( 
-    pattern="/api/contacts",
-    target="contacts.index",
-    name="api.contacts"
-);
+route( "/api/contacts" )
+    .as( "api.contacts" )
+    .rc( "format", "json" )
+    .to( "contacts.data" );
 
 // Default Route
 route( ":handler/:action?" ).end();
 ```
 
-The `route()` method allows you to register new URL patterns in your application and immediately route them to a target event. You can even give it a human readable name that can be later referenced in the `buildLink()` method.
+We have registered the API route and also defaulted the format to `JSON`. Try it out.
 
 {% hint style="danger" %}
 Make sure you add routes above the default ColdBox route. If not, your route will never fire.
 {% endhint %}
 
-We have now created a new URL route called `/api/contacts` that if detected will execute the `contacts.index` event. Now reinit the application, why, well we changed the application router and we need the changes to take effect.
-
 {% hint style="success" %}
-**Tip:** Every time you add new routes make sure you reinit the application: `http://localhost:{port}/?fwreinit`.
+**Tip:** Every time you add new routes, make sure you reinit the application: `http://localhost:{port}/?fwreinit`.
 {% endhint %}
 
-You can now visit the new URL pattern and you have successfully built a RESTFul API for your contacts.
+You can now visit the new URL pattern, and you have successfully built a RESTFul API for your contacts.
 
 ```
 http://localhost:{port}/api/contacts.json
