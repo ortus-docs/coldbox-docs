@@ -21,11 +21,12 @@
   * [Adding A Model](for-newbies/60-minute-quick-start/adding-a-model.md)
   * [RESTFul Data](for-newbies/60-minute-quick-start/restful-data.md)
   * [Next Steps](for-newbies/60-minute-quick-start/next-steps.md)
-* [Getting Started Guide](for-newbies/getting-started-guide.md)
+* [Getting Started Guide](getting-started/getting-started-guide.md)
 
 ## Getting Started
 
 * [Installation](getting-started/installation.md)
+* [Application Templates](getting-started/application-templates.md)
 * [Conventions](getting-started/conventions.md)
 * [Configuration](getting-started/configuration/README.md)
   * [ColdBox.cfc](getting-started/configuration/coldbox.cfc/README.md)
@@ -261,7 +262,6 @@
 * [Request Context Decorator](digging-deeper/request-context-decorator.md)
 * [Recipes](digging-deeper/recipes/README.md)
   * [Building REST APIs](digging-deeper/recipes/building-rest-apis.md)
-  * [Application Templates](digging-deeper/recipes/application-templates.md)
   * [ColdBox Exception Handling](digging-deeper/recipes/coldbox-exception-handling.md)
   * [Debugging ColdBox Apps](digging-deeper/recipes/debugging-coldbox-apps.md)
   * [Clearing the View Cache](digging-deeper/recipes/clearing-the-view-cache.md)
