@@ -18,10 +18,16 @@ You will then see the following JSON output:
 
 ```javascript
 {
-    data: "Welcome to my ColdBox RESTFul Service",
-    error: false,
-    messages: [ ],
-    errorcode: "0"
+    "data": "Welcome to my ColdBox RESTFul Service",
+    "error": false,
+    "pagination": {
+        "totalPages": 1,
+        "maxRows": 0,
+        "offset": 0,
+        "page": 1,
+        "totalRecords": 0
+    },
+    "messages":[ ]
 }
 ```
 
