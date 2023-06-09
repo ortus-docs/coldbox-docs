@@ -5,6 +5,7 @@
 ## Intro
 
 * [Release History](intro/release-history/README.md)
+  * [What's New With 6.9.0](intro/release-history/whats-new-with-6.9.0.md)
   * [What's New With 6.8.2](intro/release-history/whats-new-with-6.8.2.md)
   * [What's New With 6.8.1](intro/release-history/whats-new-with-6.8.1.md)
   * [What's New With 6.8.0](intro/release-history/whats-new-with-6.8.0.md)
