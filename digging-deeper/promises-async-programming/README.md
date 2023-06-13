@@ -130,7 +130,7 @@ ColdFusion 2018 and Lucee 5 both have introduced the concept of async programmin
 
 All of our futures execute in the server's common `ForkJoin` pool the JDK provides. However, the JDK since version 8 provides you a framework for simplifying the execution of asynchronous tasks. It can automatically provide you with a pool of threads and a simple API for assigning tasks or work loads to them. We have bridged the gap between Java and ColdFusion and now allow you to leverage all the functionality of the framework in your applications. You can create many types of executors and customized thread pools, so your work loads can use them.
 
-![Fixed Thread Pool Executor](<../../.gitbook/assets/fixedexecutor (1) (1).png>)
+![Fixed Thread Pool Executor](<../../.gitbook/assets/fixedexecutor (1).png>)
 
 Some resources:
 

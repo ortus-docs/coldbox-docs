@@ -5,7 +5,7 @@
   * [Release History](readme/release-history/README.md)
     * [What's New With 7.0.0](readme/release-history/whats-new-with-7.0.0/README.md)
       * [Release Notes](readme/release-history/whats-new-with-7.0.0/release-notes.md)
-    * [Upgrading to ColdBox 7](readme/release-history/upgrading-to-coldbox-7.md)
+  * [Upgrading to ColdBox 7](readme/upgrading-to-coldbox-7.md)
   * [What is ColdBox](readme/what-is-coldbox.md)
   * [What is MVC](readme/what-is-mvc.md)
   * [About This Book](readme/about-this-book/README.md)

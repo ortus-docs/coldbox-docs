@@ -8,7 +8,7 @@ description: >-
 
 ## ColdBox HMVC Platform- v7.x
 
-![HMVC Framework](.gitbook/assets/coldboxlogo2015\_300.png)
+![HMVC Framework](.gitbook/assets/ColdBoxLogo2015\_300.png)
 
 ![Standalone Libraries](.gitbook/assets/coldbox-family.png)
 

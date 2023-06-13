@@ -16,14 +16,7 @@ coldbox create app help
 
 Here is a listing of the latest supported templates:
 
-| Template              | Slug          | Description                                                                              |
-| --------------------- | ------------- | ---------------------------------------------------------------------------------------- |
-| Default               | `default`     | The default ColdBox application template                                                 |
-| Elixir                | `elixir`      | The `default` template with ColdBox elixir support for asset pipelines                   |
-| Modern (experimental) | `modern`      | A fresh new approach to ColdBox applications that are non-root based. Still experimental |
-| Rest                  | `rest`        | A base REST API using ColdBox                                                            |
-| Rest HMVC             | `rest-hmvc`   | An HMVC REST API using modules                                                           |
-| Super Simple          | `supersimple` | Barebones conventions baby!                                                              |
+<table><thead><tr><th>Template</th><th width="177.33333333333331">Slug</th><th>Description</th></tr></thead><tbody><tr><td>Default</td><td><code>default</code></td><td>The default ColdBox application template</td></tr><tr><td>Elixir</td><td><code>elixir</code></td><td>The <code>default</code> template with ColdBox elixir support for asset pipelines</td></tr><tr><td>Modern (experimental)</td><td><code>modern</code></td><td>A fresh new approach to ColdBox applications that are non-root based. Still experimental</td></tr><tr><td>Rest</td><td><code>rest</code></td><td>A base REST API using ColdBox</td></tr><tr><td>Rest HMVC</td><td><code>rest-hmvc</code></td><td>An HMVC REST API using modules</td></tr><tr><td>Super Simple</td><td><code>supersimple</code></td><td>Barebones conventions baby!</td></tr></tbody></table>
 
 
 

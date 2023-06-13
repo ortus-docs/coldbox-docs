@@ -4,7 +4,7 @@ description: The official ColdBox 7 upgrade guide
 
 # Upgrading to ColdBox 7
 
-The major compatibility issues will be covered, as well as how to upgrade to this release from previous ColdBox versions smoothly. You can also check out the [What's New](whats-new-with-7.0.0/) guide to give you a full overview of the changes.
+The major compatibility issues will be covered, as well as how to upgrade to this release from previous ColdBox versions smoothly. You can also check out the [What's New](release-history/whats-new-with-7.0.0/) guide to give you a full overview of the changes.
 
 ## ColdFusion 2016 Support Dropped
 
@@ -80,7 +80,7 @@ The `announceInterception()` method [has been deprecated since ColdBox 6.0.0](ht
 
 ### routes.cfm
 
-The `routes.cfm` approach is now removed in ColdBox 7. You will need to migrate to the `Router.cfc` [approach](../../the-basics/routing/) in your application and/or modules.
+The `routes.cfm` approach is now removed in ColdBox 7. You will need to migrate to the `Router.cfc` [approach](../the-basics/routing/) in your application and/or modules.
 
 ### setUniqueURLs()
 

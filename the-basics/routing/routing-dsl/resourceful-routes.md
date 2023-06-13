@@ -30,15 +30,7 @@ router.resources( "photos" )
 
 This single resource declaration will create all the necessary variations of URL patterns and HTTP Verbs to actions to handle the resource. Please see the table below with all the permutations it will create for you.
 
-| Verb      | Route              | Event         | Purpose                                    |
-| --------- | ------------------ | ------------- | ------------------------------------------ |
-| GET       | `/photos`          | photos.index  | Get all photos                             |
-| GET       | `/photos/new`      | photos.new    | Return the HTML form for creating a photo  |
-| POST      | `/photos`          | photos.create | Create a photo                             |
-| GET       | `/photos/:id`      | photos.show   | Show a photo by `id`                       |
-| GET       | `/photos/:id/edit` | photos.edit   | Return the HTML form for editing the photo |
-| PUT/PATCH | `/photos/:id`      | photos.update | Update a photo by `id`                     |
-| DELETE    | `/photos/:id`      | photos.delete | Delete a photo by `id`                     |
+<table><thead><tr><th width="150">Verb</th><th width="211.29008361235645">Route</th><th width="173.4138930709248">Event</th><th>Purpose</th></tr></thead><tbody><tr><td>GET</td><td><code>/photos</code></td><td>photos.index</td><td>Get all photos</td></tr><tr><td>GET</td><td><code>/photos/new</code></td><td>photos.new</td><td>Return the HTML form for creating a photo</td></tr><tr><td>POST</td><td><code>/photos</code></td><td>photos.create</td><td>Create a photo</td></tr><tr><td>GET</td><td><code>/photos/:id</code></td><td>photos.show</td><td>Show a photo by <code>id</code></td></tr><tr><td>GET</td><td><code>/photos/:id/edit</code></td><td>photos.edit</td><td>Return the HTML form for editing the photo</td></tr><tr><td>PUT/PATCH</td><td><code>/photos/:id</code></td><td>photos.update</td><td>Update a photo by <code>id</code></td></tr><tr><td>DELETE</td><td><code>/photos/:id</code></td><td>photos.delete</td><td>Delete a photo by <code>id</code></td></tr></tbody></table>
 
 For in-depth usage of the `resources()` method, let's investigate the API Signature:
 
@@ -100,11 +92,5 @@ apiResources( "users" );
 apiResources( "photos" );
 ```
 
-| Verb      | Route         | Event         | Purpose                |
-| --------- | ------------- | ------------- | ---------------------- |
-| GET       | `/photos`     | photos.index  | Get all photos         |
-| POST      | `/photos`     | photos.create | Create a photo         |
-| GET       | `/photos/:id` | photos.show   | Show a photo by `id`   |
-| PUT/PATCH | `/photos/:id` | photos.update | Update a photo by `id` |
-| DELETE    | `/photos/:id` | photos.delete | Delete a photo by `id` |
+<table><thead><tr><th width="150">Verb</th><th width="154.28538283062645">Route</th><th width="173.4138930709248">Event</th><th>Purpose</th></tr></thead><tbody><tr><td>GET</td><td><code>/photos</code></td><td>photos.index</td><td>Get all photos</td></tr><tr><td>POST</td><td><code>/photos</code></td><td>photos.create</td><td>Create a photo</td></tr><tr><td>GET</td><td><code>/photos/:id</code></td><td>photos.show</td><td>Show a photo by <code>id</code></td></tr><tr><td>PUT/PATCH</td><td><code>/photos/:id</code></td><td>photos.update</td><td>Update a photo by <code>id</code></td></tr><tr><td>DELETE</td><td><code>/photos/:id</code></td><td>photos.delete</td><td>Delete a photo by <code>id</code></td></tr></tbody></table>
 

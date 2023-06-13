@@ -22,12 +22,7 @@ And constructed with the following guidelines:
 
 For all ColdBox releases, updates are provided for 12 months, and security fixes are provided for 2 years after the next major release.
 
-| Version | Release | Updates | Security Fixes |
-| ------- | ------- | ------- | -------------- |
-| 6.x     | 2022    | 2023    | 2025           |
-| **7.x** | 2023    | 2024    | 2026           |
-| 8.x     | 2024    | 2025    | 2027           |
-| 9.x     | 2025    | 2026    | 2028           |
+<table><thead><tr><th width="141">Version</th><th width="142">Release</th><th width="142">Updates</th><th>Security Fixes</th></tr></thead><tbody><tr><td>6.x</td><td>2022</td><td>2023</td><td>2025</td></tr><tr><td><strong>7.x</strong></td><td>2023</td><td>2024</td><td>2026</td></tr><tr><td>8.x</td><td>2024</td><td>2025</td><td>2027</td></tr><tr><td>9.x</td><td>2025</td><td>2026</td><td>2028</td></tr></tbody></table>
 
 ## Releases
 

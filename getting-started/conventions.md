@@ -30,8 +30,4 @@ The core conventions delineate the contract between ColdBox and **you** for file
 
 ColdBox also has several execution conventions.  This means that we have a convention or a default for the event, action, and layout to be used if you do not tell it what to use:
 
-| **Convention** | **Default Value**  | **Description**                                                                   |
-| -------------- | ------------------ | --------------------------------------------------------------------------------- |
-| Default Event  | `main.index`       | The default event to execute when no event is specified                           |
-| Default Action | `index()`          | The default action to execute in an event handler controller if none is specified |
-| Default Layout | `layouts/Main.cfm` | The default system layout to use                                                  |
+<table data-header-hidden><thead><tr><th width="179">Convention</th><th width="199.33333333333331">Default Value</th><th>Description</th></tr></thead><tbody><tr><td><strong>Convention</strong></td><td><strong>Default Value</strong></td><td><strong>Description</strong></td></tr><tr><td>Default Event</td><td><code>main.index</code></td><td>The default event to execute when no event is specified</td></tr><tr><td>Default Action</td><td><code>index()</code></td><td>The default action to execute in an event handler controller if none is specified</td></tr><tr><td>Default Layout</td><td><code>layouts/Main.cfm</code></td><td>The default system layout to use</td></tr></tbody></table>
