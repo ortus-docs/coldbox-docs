@@ -94,6 +94,10 @@ The `jsonQueryFormat` argument for rendering data is now removed. We default to 
 
 ## Deprecations
 
+{% hint style="warning" %}
+There is a performance penalty to use any deprecated methods now, since they emit warnings to the logs.
+{% endhint %}
+
 ### renderView(), renderLayout(), renderExternalView()
 
 These methods have been deprecated since version 6. Please use the shorthand versions
