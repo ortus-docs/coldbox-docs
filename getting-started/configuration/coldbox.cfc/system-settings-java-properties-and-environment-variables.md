@@ -14,23 +14,24 @@ If you are inside `config/ColdBox.cfc` or a `ModuleConfig.cfc` or a `config/Wire
 
 ## Accessing System Settings in `Application.cfc`
 
-If you would like to access these methods in your `Application.cfc`, create an instance of `coldbox.system.core.util.Util` and access them off of that component. This is required when adding a datasource from environment variables.
+If you would like to access these methods in your `Application.cfc`, create an instance of `coldbox.system.core.delegates.Env` and access them off of that component. This is required when adding a datasource from environment variables.
 
 Example:
 
 {% code title="Application.cfc" %}
 ```javascript
-component {
 
-    variables.util = new coldbox.system.core.util.Util();
+component {
+
+    variables.env = new coldbox.system.core.delegates.Env();
 
     this.datasources[ "my_datasource" ] = {
-        driver = util.getSystemSetting( "DB_DRIVER" ),
-        host = util.getSystemSetting( "DB_HOST" ),
-        port = util.getSystemSetting( "DB_PORT" ),
-        database = util.getSystemSetting( "DB_DATABASE" ),
-        username = util.getSystemSetting( "DB_USERNAME" ),
-        password = util.getSystemSetting( "DB_PASSWORD" )
+        driver = env.getSystemSetting( "DB_DRIVER" ),
+        host = env.getSystemSetting( "DB_HOST" ),
+        port = env.getSystemSetting( "DB_PORT" ),
+        database = env.getSystemSetting( "DB_DATABASE" ),
+        username = env.getSystemSetting( "DB_USERNAME" ),
+        password = env.getSystemSetting( "DB_PASSWORD" )
     };
 
 }
