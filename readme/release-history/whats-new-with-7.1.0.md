@@ -4,6 +4,34 @@ description: August 3, 2023
 
 # What's New With 7.1.0
 
+This is a minor release with tons of updates and bug fixes.
+
+### Scheduled Tasks Debugging
+
+You can now add a `debug` argument to your task definitions, and your console will add tons of debugging for your tasks:
+
+```cfscript
+task( name : "My Task", debug : true )
+```
+
+### toRedirectTo() Matcher
+
+You can now use this matcher to test relocations in a nice fluent expectation:
+
+```cfscript
+expect( event ).toRedirectTo( "main.index" )
+```
+
+### REST on{errorType}Exception() Convention
+
+Thanks to our very own Gavin Pickin you can now create exception handlers in your REST Handlers that follow the `on{type}Exception()` convention and you can listen to specific error type exceptions:
+
+```cfscript
+function onTypeMismatchException( event, rc, prc )
+```
+
+### Release Notes
+
 The full release notes per library can be found below. Just click on the library tab and explore their release notes:
 
 {% tabs %}
