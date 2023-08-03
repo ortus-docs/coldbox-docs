@@ -2,15 +2,9 @@
 
 ![ColdBox Testing Classes](../../.gitbook/assets/TestingClasses.png)
 
-Before we begin our adventures in testing, let's review what classes does ColdBox give you for testing and where you can find them. From the diagram you can see that our pivot class for testing is the TestBox `BaseSpec` class.
+Before we begin our adventures in testing, let's review what classes ColdBox gives you for testing and where you can find them. From the diagram, you can see that our pivot class for testing is the TestBox `BaseSpec` class.
 
-From that super class we have our own ColdBox `BaseTestCase` which is our base class for any testing in ColdBox and the class used for Integration Testing. We then spawn several child classes for targeted testing of different objects in your ColdBox applications:
+From that superclass, we have our own ColdBox `BaseTestCase` , our base class for any testing in ColdBox, and the class used for Integration Testing. We then spawn several child classes for targeted testing of different objects in your ColdBox applications:
 
-* `BaseTestCase` - Used for **Integration Testing**
-* `BaseModelTest` - Used for model object unit testing
-* `BaseInterceptorTest` - Used for interceptor unit testing
-* `BaseHandlerTest` - Used for isolated handler unit testing
+<table><thead><tr><th width="260">Test Class</th><th>Description</th></tr></thead><tbody><tr><td><code>BaseTestCase</code></td><td>Used for Integration Testing</td></tr><tr><td><code>BaseModelTest</code></td><td>Used for model object unit testing</td></tr><tr><td><code>BaseInterceptorTest</code></td><td>Used for interceptor unit testing</td></tr><tr><td><code>BaseHandlerTest</code></td><td>Used for isolated handler unit testing</td></tr></tbody></table>
 
-We highly encourage you to check out the API Docs for this [package](https://apidocs.ortussolutions.com/coldbox/6.0.0/coldbox/system/testing/package-summary.html)
-
-* [https://apidocs.ortussolutions.com/coldbox/6.0.0/coldbox/system/testing/BaseTestCase.html](https://apidocs.ortussolutions.com/coldbox/6.0.0/coldbox/system/testing/BaseTestCase.html)
