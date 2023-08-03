@@ -3,6 +3,7 @@
 * [Introduction](README.md)
   * [Contributing Guide](readme/contributing-guide.md)
   * [Release History](readme/release-history/README.md)
+    * [What's New With 7.1.0](readme/release-history/whats-new-with-7.1.0.md)
     * [What's New With 7.0.0](readme/release-history/whats-new-with-7.0.0/README.md)
       * [Release Notes](readme/release-history/whats-new-with-7.0.0/release-notes.md)
   * [Upgrading to ColdBox 7](readme/upgrading-to-coldbox-7.md)
