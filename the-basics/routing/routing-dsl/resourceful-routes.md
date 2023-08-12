@@ -94,3 +94,43 @@ apiResources( "photos" );
 
 <table><thead><tr><th width="150">Verb</th><th width="154.28538283062645">Route</th><th width="173.4138930709248">Event</th><th>Purpose</th></tr></thead><tbody><tr><td>GET</td><td><code>/photos</code></td><td>photos.index</td><td>Get all photos</td></tr><tr><td>POST</td><td><code>/photos</code></td><td>photos.create</td><td>Create a photo</td></tr><tr><td>GET</td><td><code>/photos/:id</code></td><td>photos.show</td><td>Show a photo by <code>id</code></td></tr><tr><td>PUT/PATCH</td><td><code>/photos/:id</code></td><td>photos.update</td><td>Update a photo by <code>id</code></td></tr><tr><td>DELETE</td><td><code>/photos/:id</code></td><td>photos.delete</td><td>Delete a photo by <code>id</code></td></tr></tbody></table>
 
+Here is the full method signature:
+
+```cfscript
+/**
+ * Create all API RESTful routes for a resource. It will provide automagic mappings between HTTP verbs and URLs to event handlers and actions.
+ *
+ * By convention the following rules apply
+ * - The name of the resource maps to the name of the event handler
+ * - The default paremeter name is called `:id`
+ * - The available actions are: index, create, show, update, delete
+ *
+ * Example: `resource = photos` Then we will create the following routes:
+ * - `/photos` : `GET` -> `photos.index` Get a list of photos from the API
+ * - `/photos` : `POST` -> `photos.create` Create a new photo
+ * - `/photos/:id` : `GET` -> `photos.show` Get a specific photo from the API
+ * - `/photos/:id` : `PUT/PATCH` -> `photos.update` Update a specific photo
+ * - `/photos/:id` : `DELETE` -> `photos.delete` Delete a specific photo
+ *
+ * @resource      The name of a single resource to map
+ * @handler       The handler for the route. Defaults to the resource name.
+ * @parameterName The name of the id/parameter for the resource. Defaults to `id`.
+ * @only          Limit routes created with only this list or array of actions, e.g. "index,show"
+ * @except        Exclude routes with an except list or array of actions, e.g. "show"
+ * @module        If passed, the module these resources will be attached to.
+ * @namespace     If passed, the namespace these resources will be attached to.
+ * @pattern       If passed, the actual URL pattern to use, else it defaults to `/#arguments.resource#` the name of the resource.
+ * @meta          A struct of metadata to store with ALL the routes created from this resource
+ */
+function apiResources(
+	required resource,
+	handler,
+	parameterName    = "id",
+	only             = [],
+	except           = [ "new", "edit" ],
+	string module    = "",
+	string namespace = "",
+	string pattern   = "",
+	struct meta      = {}
+){
+```
