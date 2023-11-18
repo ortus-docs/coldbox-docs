@@ -6,6 +6,150 @@ description: November 18, 2023
 
 Welcome to ColdBox 7.2.0, which packs a big punch on stability and tons of new features.
 
+## ColdBox Updates
+
+### SchemaInfo Helper
+
+A new helper has been born that assists you with dealing with Database Schema-related methods that are very common and core to ColdBox and supporting modules.  This will grow as needed and be decoupled to its own module later.
+
+* `hasTable()`
+* `hasColumn()`
+* `getDatabaseInfo()`
+* `getTextColumnType()`
+* `getDateTimeColumnType()`
+* `getQueryParamDateTimeType()`
+
+### Async `allApply()` error handlers
+
+The `allApply()` is great when dealing with async operations on arrays or collections of objects. However, if something blows up, it would blow up with no way for you to log in or know what happened.  However, now you can pass an `errorHandler` argument which is a UDF/closure that will be attached to the `onException()` method of the future object.  This way, you can react, log, or recover.
+
+```cfscript
+results = asyncManager.newFuture().allApply(
+	items : data,
+	fn : ( record ) => {
+		var thisItem = new tests.tmp.User();
+		thisItem.injectState = variables.injectState;
+
+		// Inject Both States
+		thisItem.injectState( protoTypeState );
+		thisItem.injectState( record );
+
+		return thisItem;
+	},
+	errorHandler : ( e ) => systemOutput( "error: #e.message#" )
+)
+```
+
+### Scheduled Task Groups
+
+All scheduled tasks now have a `group` property so you can group your tasks.  This is now available when creating tasks or setting them manually.
+
+```cfscript
+task( "email-notifications" )
+  .setGroup( "admin" )
+  .call( () => getInstance( "UserService" ).sendNotifications() )
+  .everyDayAt( "13:00" )
+```
+
+You can then get the group using the `getGroup()` method or it will be added to all task metadata and stats.
+
+### New `everySecond()` period
+
+A new period method shortcut: `everySecond()`.  Very useful so you can fill up your logs with data.
+
+```cfscript
+task( "heartbeat" )
+    .call( () => systemOutput( "data" ) )
+    .everySecond()
+```
+
+### Task Results Are Optionals
+
+All task results, if any, are now stored in a ColdBox Optional. Which is a class that can deal with nulls gracefully and it's very fluent:
+
+{% embed url="https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox-modules/cbproxies/1.1.0/models/Optional.html" %}
+API Docs
+{% endembed %}
+
+{% hint style="info" %}
+A container object which may or may not contain a non-null value. If a value is present, `isPresent()` will return `true` and `get()` will return the value. Additional methods that depend on the presence or absence of a contained value are provided, such as `orElse()` (return a default value if value not present) and `ifPresent()` (execute a block of code if the value is present). See https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html
+{% endhint %}
+
+### Task Get Last Result
+
+New method to get the last result, if any, from a task via the `getLastResult()` method.
+
+```cfscript
+var result = task.getLastResult().orElse( "nada" )
+```
+
+### DateTimeHelper Updates
+
+Lot's of great new methods and goodies so you can deal with date and times and timezones Oh My!
+
+* `now( [timezone] )`
+* `getSystemTimezoneAsString()`
+* `getLastBusinessDayOfTheMonth()`
+* `getFirstBusinessDayOfTheMonth()`
+* `dateTimeAdd()`
+* `timeUnitToSeconds()`
+* `validateTime()`
+* `getIsoTime()`
+* `toInstant()`
+* `toLocalDateTime()`
+* `parse()`
+* `toLocalDate()`
+* `getTimezone()`
+* `getSystemTimezone()`
+* `toJavaDate()`
+* `duration()`
+* `period()`
+
+## WireBox Updates
+
+### AOP Auto Mixer
+
+If in your binder you declare aspects or AOP bindings. Then WireBox will automatically detect it and load the AOP Mixer listener for you.  You no longer have to declare it manually.
+
+## CacheBox Updates
+
+### New Struct Literal Config
+
+You can now configure CacheBox by just passing a struct of [CacheBox DSL](https://cachebox.ortusbooks.com/configuration/cachebox-configuration/cachebox-dsl) config data:
+
+[https://cachebox.ortusbooks.com/configuration/cachebox-configuration](https://cachebox.ortusbooks.com/configuration/cachebox-configuration)
+
+```cfscript
+new cachebox.system.cache.CacheFactory( {
+	// LogBox Configuration file
+	logBoxConfig      : "coldbox.system.cache.config.LogBox",
+	// Scope registration, automatically register the cachebox factory instance on any CF scope
+	// By default it registers itself on server scope
+	scopeRegistration : {
+		enabled : true,
+		scope   : "application", // the cf scope you want
+		key     : "cacheBox"
+	},
+	// The defaultCache has an implicit name of "default" which is a reserved cache name
+	// It also has a default provider of cachebox which cannot be changed.
+	// All timeouts are in minutes
+	// Please note that each object store could have more configuration properties
+	defaultCache : {
+		objectDefaultTimeout           : 120,
+		objectDefaultLastAccessTimeout : 30,
+		useLastAccessTimeouts          : true,
+		reapFrequency                  : 2,
+		freeMemoryPercentageThreshold  : 0,
+		evictionPolicy                 : "LRU",
+		evictCount                     : 1,
+		maxObjects                     : 300,
+		objectStore                    : "ConcurrentSoftReferenceStore",
+		// This switches the internal provider from normal cacheBox to coldbox enabled cachebox
+		coldboxEnabled                 : false
+	}
+} );
+```
+
 ## LogBox Updates
 
 ### New Struct Literal Config
