@@ -6,7 +6,82 @@ description: November 18, 2023
 
 Welcome to ColdBox 7.2.0, which packs a big punch on stability and tons of new features.
 
-### Release Notes
+## LogBox Updates
+
+### New Struct Literal Config
+
+You can now configure LogBox by just passing a struct of [LogBox DSL](https://logbox.ortusbooks.com/configuration/configuring-logbox/logbox-dsl) config data:
+
+[https://logbox.ortusbooks.com/configuration/configuring-logbox](https://logbox.ortusbooks.com/configuration/configuring-logbox)
+
+```cfscript
+var logBox = new logbox.system.logging.LogBox(
+   {
+	appenders : { myConsoleLiteral : { class : "ConsoleAppender" } },
+	root      : { levelmax : "FATAL", appenders : "*" },
+	info      : [ "hello.model", "yes.wow.wow" ],
+	warn      : [ "hello.model", "yes.wow.wow" ],
+	error     : [ "hello.model", "yes.wow.wow" ]
+   }
+);
+```
+
+### Category Appender Excludes
+
+When you declare categories in LogBox you usually choose the appenders to send messages to, but you could never exclude certain ones. Now you can use the `exclude` property:
+
+```javascript
+root : { levelmax : "INFO", appenders : "*", exclude: "slackAppender" },
+categories = {
+    "coldbox.system" = { levelmax="WARN", appenders="*", exclude: "slackAppender" },
+    "coldbox.system.web.services.HandlerService" = { levelMax="FATAL", appenders="*", exclude: "slackAppender" },
+    "slackLogger" = { levelmax="WARN", appenders="slackAppender", exclude: "slackAppender" }
+}
+```
+
+### New Event Listeners
+
+You now have two new event listeners that all LogBox appenders can listen to:
+
+* `preProcessQueue( queue, context )` : Fires before a log queue is processed element by element.
+* `postProcessQueue( queue, context )` : After the log queue has been processed and after the listener has slept.
+
+### `processQueueElement` receives the queue
+
+The `processQueueElement( data, context, queue )` now receives the entire queue as well as the `queue` third argument.
+
+### New Archive Layouts
+
+If you use the `RollingFileAppender` the default layout format of the archive package was static and you could not change it.  The default is:
+
+```cfscript
+#filename#-#yyy-mm-dd#-#hh-mm#-#archiveNumber#
+```
+
+Now you have the power. You can set a property for the appender called `archiveLayout` which maps to a closure/UDF that will build out the layout of the file name.
+
+```cfscript
+
+appenders : {
+  files : {
+      class : "RollingFileAppender",
+      properties : {
+          archiveLayout : variables.getDefaultArchiveLayout
+      }
+  }
+}
+
+function getDefaultArchiveLayout( required filename, required archiveCount ){
+    return arguments.fileName &
+    "-" &
+    dateFormat( now(), "yyyy-mm-dd" ) &
+    "-" &
+    timeFormat( now(), "HH-mm" ) &
+    "-#arguments.archiveCount + 1#";
+}
+```
+
+## Release Notes
 
 The full release notes per library can be found below. Just click on the library tab and explore their release notes:
 
