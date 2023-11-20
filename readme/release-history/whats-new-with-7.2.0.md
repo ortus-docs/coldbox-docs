@@ -6,6 +6,8 @@ description: November 18, 2023
 
 Welcome to ColdBox 7.2.0, which packs a big punch on stability and tons of new features.
 
+<figure><img src="../../.gitbook/assets/coldbox-7-2-0-release.jpg" alt=""><figcaption><p>Version 7.2.0</p></figcaption></figure>
+
 ## ColdBox Updates
 
 ### SchemaInfo Helper
