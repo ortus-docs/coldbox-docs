@@ -4,6 +4,8 @@ description: Discover the power of ColdBox 7.0.0
 
 # What's New With 7.0.0
 
+<figure><img src="../../../.gitbook/assets/coldbox-7-0-0-release.png" alt=""><figcaption><p>Version 7.0.0</p></figcaption></figure>
+
 ColdBox 7.0.0 is a major release for the ColdBox HMVC platform. It has some dramatic new features as we keep pushing for more modern and sustainable approaches to web development and tons of bug fixes and improvements.
 
 We break down the major areas of development below, and you can also find the [full release notes](release-notes.md) per library at the end.
@@ -35,7 +37,7 @@ coldbox --help
 
 The new CLI has all the previous goodness but now also v7 support and many other great features like migration creation, API testing, and more. You can find the source for the CLI here: [https://github.com/coldbox/coldbox-cli](https://github.com/coldbox/coldbox-cli)
 
-{% embed url="https://github.com/coldbox/coldbox-cli" %}
+{% @github-files/github-code-block url="https://github.com/coldbox/coldbox-cli" %}
 
 ## VSCode ColdBox Extension
 
@@ -49,9 +51,7 @@ We have updated our [VSCode ColdBox extension](https://marketplace.visualstudio.
 
 All the application templates have been updated in our ColdBox Templates Org: [https://github.com/coldbox-templates](https://github.com/coldbox-templates). They have been updated to support our LTS strategy, so now we can have templates based on each major iteration of ColdBox.
 
-{% embed url="https://github.com/coldbox-templates" %}
-github.com/coldbox-templates
-{% endembed %}
+{% @github-files/github-code-block url="https://github.com/coldbox-templates" %}
 
 Here is a listing of the latest supported templates:
 

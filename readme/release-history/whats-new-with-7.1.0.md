@@ -6,6 +6,8 @@ description: August 3, 2023
 
 This is a minor release with tons of updates and bug fixes.
 
+<figure><img src="../../.gitbook/assets/coldbox-7-1-0-release.jpg" alt=""><figcaption><p>Version 7.1.0</p></figcaption></figure>
+
 ### Scheduled Tasks Debugging
 
 You can now add a `debug` argument to your task definitions, and your console will add tons of debugging for your tasks:
