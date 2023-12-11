@@ -48,7 +48,7 @@ This actually affects **EVERY** version of ColdBox because the default behavior 
 
 ```javascript
 myInjector = new coldbox.system.ioc.Injector( {
-    scopeRegistration : { enabled : false }hj
+    scopeRegistration : { enabled : false }
 } )
 ```
 
