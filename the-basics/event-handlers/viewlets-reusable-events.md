@@ -31,12 +31,12 @@ function userinfo( event, rc, prc, userID=0 ){
     prc.userinfo_qData = userService.getUserInfo( arguments.userID );
 
     // render out content 
-    return renderView( "viewlets/userinfo" );
+    return view( "viewlets/userinfo" );
 }
 ```
 {% endcode %}
 
-As you can see from the code above, the handler signature can accept arguments which are passed via the `eventArguments` structure. It talks to a service layer and place some data on the private request collection the viewlet will use. It then returns the results of a `renderView()` call that will render out the exact viewlet I want. You can be more creative and do things like:
+As you can see from the code above, the handler signature can accept arguments which are passed via the `eventArguments` structure. It talks to a service layer and place some data on the private request collection the viewlet will use. It then returns the results of a `view()` call that will render out the exact viewlet I want. You can be more creative and do things like:
 
 * render a layout + view combo
 * render data
@@ -69,7 +69,7 @@ A content variable is a variable that contains HTML/XML or any kind of visual co
 function home(event,rc,prc){
 
     // render some content variables with funky arguments
-    prc.sideColumn = renderView(view='tags/sideColumn',cache=true,cacheTimeout=10);
+    prc.sideColumn = view(view='tags/sideColumn',cache=true,cacheTimeout=10);
 
     // set view
     event.setView('general/home');
@@ -85,7 +85,7 @@ So how do I render it?
   </div>
 
   <div id="mainView">
-  <cfoutput>#renderView()#</cfoutput>
+  <cfoutput>#view()#</cfoutput>
   </div>
 </div>
 ```
@@ -99,7 +99,7 @@ Another example, is what if we do not know if the content variable will actually
   </div>
 
   <div id="mainView">
-  <cfoutput>#renderView()#</cfoutput>
+  <cfoutput>#view()#</cfoutput>
   </div>
 </div>
 ```
