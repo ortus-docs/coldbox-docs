@@ -10,7 +10,7 @@ function postHandler( event, rc, prc, action, eventArguments ){
 }
 
 // executes after the list() action ONLY
-function postList( event, rc, prc, action, eventArguments ){
+function postList( event, rc, prc, eventArguments ){
 }
 
 // concrete examples
@@ -22,7 +22,7 @@ function postHandler( event, rc, prc, action, eventArguments ){
 The arguments received by these interceptors are:
 
 * `event` : The request context reference
-* `action` : The action name that was intercepted
+* `action` : The action name that was intercepted by `postHandler()`
 * `eventArguments` : The struct of extra arguments sent to an action if executed via `runEvent()`
 * `rc` : The **RC** reference
 * `prc` : The **PRC** Reference
