@@ -10,7 +10,7 @@ function preHandler( event, rc, prc, action, eventArguments ){
 }
 
 // executes before the list() action ONLY
-function preList( event, rc, prc, action, eventArguments ){
+function preList( event, rc, prc, eventArguments ){
 }
 
 // concrete example
@@ -20,7 +20,7 @@ function preHandler( event, rc, prc, action, eventArguments ){
         log.info( "Unauthorized accessed detected!", getHTTPRequestData() );
     }
 }
-function preList( event, rc, prc, action, eventArguments ){
+function preList( event, rc, prc, eventArguments ){
     log.info("Starting executing the list action");
 }
 ```
@@ -28,7 +28,7 @@ function preList( event, rc, prc, action, eventArguments ){
 The arguments received by these interceptors are:
 
 * `event` : The request context reference
-* `action` : The action name that was intercepted
+* `action` : The action name that was intercepted by `preHandler()`
 * `eventArguments` : The struct of extra arguments sent to an action if executed via `runEvent()`
 * `rc` : The **RC** reference
 * `prc` : The **PRC** Reference
