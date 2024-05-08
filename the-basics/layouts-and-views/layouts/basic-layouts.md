@@ -14,7 +14,7 @@
 
   <div id="content">
     <!--- Render set view --->
-    #renderView()#
+    #view()#
   </div>
 
   #renderView( view='tags/footer' )#
