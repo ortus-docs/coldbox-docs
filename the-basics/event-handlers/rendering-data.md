@@ -79,7 +79,7 @@ function index(event,rc,prc){
 
 function myData( event, rc, prc ){
      prc.mydata = myservice.getData();
-     return renderView( "main/myData" );
+     return view( "main/myData" );
 }
 ```
 
@@ -179,7 +179,7 @@ function pdf(event,rc,prc){
 
 // from content
 function pdf(event,rc,prc){
-  event.renderData( data=renderView("views/page"), type="PDF" );
+  event.renderData( data=view("views/page"), type="PDF" );
 }
 ```
 
@@ -189,7 +189,7 @@ There is also a `pdfArgs` argument in the render data method that can take in a 
 // from content and with pdfArgs
 function pdf(event,rc,prc){
   var pdfArgs = { bookmark = "yes", backgroundVisible = "yes", orientation="landscape" };
-  event.renderData(data=renderView("views/page"), type="PDF", pdfArgs=pdfArgs);
+  event.renderData(data=view("views/page"), type="PDF", pdfArgs=pdfArgs);
 }
 ```
 
@@ -206,7 +206,7 @@ switch( rc.format ){
         break;
     } 
     case "pdf" : {
-        event.renderData(data=renderView("even/action"), type="pdf");
+        event.renderData(data=view("even/action"), type="pdf");
         break;
     }
     case "html" : {
