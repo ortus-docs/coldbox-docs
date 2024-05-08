@@ -261,11 +261,11 @@ function index( event, rc, prc ){
 }
 ```
 
-One final piece. Open up the default layout located in `layouts/Main.cfm` and find the `#renderView()#`. Add this line right before it to render out the message box that we set in our handler.
+One final piece. Open up the default layout located in `layouts/Main.cfm` and find the `#view()#`. Add this line right before it to render out the message box that we set in our handler.
 
 ```markup
 #cbMessagebox().renderIt()#
-<div class="container">#renderView()#</div>
+<div class="container">#view()#</div>
 ```
 
 Here we leverage the `cbMessagebox()` helper function which the MessageBox module collaborates to all layouts, views, handlers and interceptors.
