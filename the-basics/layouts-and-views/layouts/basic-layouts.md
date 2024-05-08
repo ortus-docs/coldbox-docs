@@ -10,14 +10,14 @@
 </head>
 <body>
   <!--- Header: Direct Render --->
-  #renderView( view='tags/header')#
+  #view( view='tags/header')#
 
   <div id="content">
     <!--- Render set view --->
-    #renderView()#
+    #view()#
   </div>
 
-  #renderView( view='tags/footer' )#
+  #view( view='tags/footer' )#
 </body>
 </html>
 </cfoutput>
