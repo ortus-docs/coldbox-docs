@@ -69,7 +69,7 @@ function userInfo( event, rc, prc, widget=false ){
 
     // set or widget render
     if( arguments.widget ){
-        return renderView( "widgets/userInfo" );
+        return view( "widgets/userInfo" );
     }
 
     // else set view
