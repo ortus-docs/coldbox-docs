@@ -1,6 +1,6 @@
 # Rendering Collections
 
-You have a few arguments in the `renderView()` method that deal with collection rendering. Meaning you can pass any array or query and the Renderer will iterate over that collection and render out the view as many times as the records in the colleciton.
+You have a few arguments in the `view()` method that deal with collection rendering. Meaning you can pass any array or query and the Renderer will iterate over that collection and render out the view as many times as the records in the colleciton.
 
 * `collection` : A data collection that can be a query or an array of objects, structs or whatever
 * `collectionAs` : The name of the variable in the variables scope that will hold the collection pivot.
@@ -8,10 +8,10 @@ You have a few arguments in the `renderView()` method that deal with collection 
 * `collectionMaxRows` : Defaults to show all rows or you can cap the rendering display
 * `collectionDelim` : An optional delimiter to use to separate the collection renderings. By default it is empty.
 
-Once you call `renderView()` with a collection, the renderer will render the view once for each member in the collection. The views have access to the collection via arguments.collection or the member currently iterating. The name of the member being iterated as is by convention the same name as the view. So if we do this in any layout or simple view:
+Once you call `view()` with a collection, the renderer will render the view once for each member in the collection. The views have access to the collection via arguments.collection or the member currently iterating. The name of the member being iterated as is by convention the same name as the view. So if we do this in any layout or simple view:
 
 ```javascript
-#renderView(view='tags/comment',collection=rc.comments)#
+#view(view='tags/comment',collection=rc.comments)#
 ```
 
 Then the `tags/comment` will be rendered as many times as the collection `rc.comments` has members on it and by convention the name of the variable is comment the same as the view name.
@@ -26,7 +26,7 @@ Then the `tags/comment` will be rendered as many times as the collection `rc.com
 If you don't like that, then use the collectionAs argument:
 
 ```javascript
-#renderView(view='tags/comment',collection=rc.comments,collectionAs='MyComment')#
+#view(view='tags/comment',collection=rc.comments,collectionAs='MyComment')#
 ```
 
 So let's see the collection view now:
@@ -46,5 +46,5 @@ You can see that I just call methods on the member as if I was looping (which we
 This will then render that specific dynamic HTML view as many times as their are records in the rc.comments array and concatenate them all for you. In my case, I separate each iteration with a simple   but you can get fancy and creative.
 
 ```javascript
-#renderView(view="home/news", collection=prc.news, collectionStartRow=11, collectionMaxRows=20)#
+#view(view="home/news", collection=prc.news, collectionStartRow=11, collectionMaxRows=20)#
 ```
