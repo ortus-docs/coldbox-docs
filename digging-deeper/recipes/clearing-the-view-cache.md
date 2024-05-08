@@ -2,7 +2,7 @@
 
 ## Introduction
 
-If you use any of the view partial caching mechanisms in Coldbox either through `setView()` or`renderView()` you might be asking yourself:
+If you use any of the view partial caching mechanisms in Coldbox either through `setView()` or`view()` you might be asking yourself:
 
 > Is there an easy, programmatic way to remove a specific element from the view cache?
 
