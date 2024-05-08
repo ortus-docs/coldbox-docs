@@ -218,4 +218,4 @@ This is a boolean setting used when calling the ColdBox proxy's `process()` meth
 
 ### **viewCaching**
 
-This directive tells ColdBox that when views are rendered, the `cache=true` parameter will be obeyed. Turning on this setting will not cause any views to be cached unless you are also passing in the caching parameters to your `renderView()` or `event.setView()` calls.
+This directive tells ColdBox that when views are rendered, the `cache=true` parameter will be obeyed. Turning on this setting will not cause any views to be cached unless you are also passing in the caching parameters to your `view()` or `event.setView()` calls.
