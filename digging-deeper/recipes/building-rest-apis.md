@@ -252,7 +252,7 @@ function getUsersJSON( event, rc, prc ){
 // pdf marshalling
 function getUsersAsPDF( event, rc, prc ){
     prc.user = userService.getUser( rc.id );
-    event.renderData( data=renderView( "users/pdf" ), type="pdf" );
+    event.renderData( data=view( "users/pdf" ), type="pdf" );
 }
 // Multiple formats
 function listUsers( event, rc, prc ){
