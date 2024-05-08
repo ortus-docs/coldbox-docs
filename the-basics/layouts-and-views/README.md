@@ -51,7 +51,7 @@ component{
     property name="renderer" inject="coldbox:renderer";
 
     function renderSomething(){
-        return renderer.renderView( view="mail/mymail", args={} );
+        return renderer.view( view="mail/mymail", args={} );
     }
 }
 ```
