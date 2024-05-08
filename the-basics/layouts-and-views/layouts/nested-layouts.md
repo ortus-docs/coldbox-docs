@@ -1,9 +1,9 @@
 # Nested Layouts
 
-You can also wrap layouts within other layouts and get incredible reusability. This is accomplished by using the `renderLayout()` method in the Renderer. As always, refer to the CFC API for the latest method arguments and capabilities.
+You can also wrap layouts within other layouts and get incredible reusability. This is accomplished by using the `layout()` method in the Renderer. As always, refer to the CFC API for the latest method arguments and capabilities.
 
 ```javascript
-renderLayout([any layout], [any module=''], [any view=''], [struct args={}], [any viewModule=''], [boolean prePostExempt='false'])
+layout([any layout], [any module=''], [any view=''], [struct args={}], [any viewModule=''], [boolean prePostExempt='false'])
 ```
 
 So if I wanted to wrap my basic layout in a PDF wrapper layout (`pdf.cfm`) I could do the following:
@@ -31,10 +31,10 @@ So if I wanted to wrap my basic layout in a PDF wrapper layout (`pdf.cfm`) I cou
 
     <!---  Main Content via nested layout --->
     <cfoutput>
-    #renderLayout(layout="basic")#
+    #layout(layout="basic")#
     </cfoutput>
 
 </cfdocument>
 ```
 
-That's it! The `renderLayout()` method is extremely power as it can allow you to not only nest layouts but actually render a-la-carte layout/view combinations also.
+That's it! The `layout()` method is extremely power as it can allow you to not only nest layouts but actually render a-la-carte layout/view combinations also.
