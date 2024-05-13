@@ -3,6 +3,7 @@
 * [Introduction](README.md)
   * [Contributing Guide](readme/contributing-guide.md)
   * [Release History](readme/release-history/README.md)
+    * [What's New With 7.3.0](readme/release-history/whats-new-with-7.3.0.md)
     * [What's New With 7.2.0](readme/release-history/whats-new-with-7.2.0.md)
     * [What's New With 7.1.0](readme/release-history/whats-new-with-7.1.0.md)
     * [What's New With 7.0.0](readme/release-history/whats-new-with-7.0.0/README.md)
