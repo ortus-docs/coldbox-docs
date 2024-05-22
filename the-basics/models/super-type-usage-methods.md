@@ -7,7 +7,7 @@
 The super type offers 2 methods for interacting with your model layer:
 
 * `getInstance()` - Retrieve a model object (Instead of injection)
-* `populateModel()` - Retrieve and/or populate a model object from the request collection.
+* `populate()` - Retrieve and/or populate a model object from the request collection.
 
 Please also note that your models do not inherit from anything within ColdBox. They are shy and decoupled by default.  If you need anything from the ColdBox environment, then you will have to inject it using our [injection dsl.](injection-dsl/)
 
@@ -41,7 +41,7 @@ var oUser = getInstance("MyUser");
 var oUtil = getInstance("mypath.utilities.MyUtil");
 ```
 
-## `populateModel()`
+## `populate()`
 
 ColdBox can populate or bind model objects from data in the request collection by matching the name of the form element to the name of a property on the object. You can also populate model objects from JSON, XML, Queries and other structures a-la-carte by talking directly to [WireBox's object populator](https://wirebox.ortusbooks.com/advanced-topics/wirebox-object-populator).
 
@@ -66,7 +66,7 @@ ColdBox can populate or bind model objects from data in the request collection b
  *
  * @return The instance populated
  */
-function populateModel(
+function populate(
 	required model,
 	scope="",
 	boolean trustedSetter=false,
