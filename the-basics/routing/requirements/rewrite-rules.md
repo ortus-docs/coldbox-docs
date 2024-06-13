@@ -18,14 +18,26 @@ RewriteRule ^(.*)$ - [NC,L]
 RewriteRule ^$ index.cfm [QSA,NS]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.cfm/%{REQUEST_URI} [PT,QSA,L,NS]
+RewriteRule ^(.*)$ index.cfm/%{REQUEST_URI} [QSA,L,NS]
 ```
 
 {% hint style="warning" %}
-Recent versions of Apache don't send the CGI.PATH\_INFO variable to your cfml engine when using ProxyPass and ProxyPassMatch without the `PT` ( Pass Through ) directive. On current versions of Coldbox, you can also use a [pathInfoProvider](../pathinfo-providers.md) function in your router.cfc
+Recent versions of Apache don't send the CGI.PATH\_INFO variable to your cfml engine when using ProxyPass and ProxyPassMatch without the `PT` ( Pass Through ) directive.&#x20;
+
+On current versions of Coldbox, you can also use a [pathInfoProvider](../pathinfo-providers.md) function in your router.cfc or use the updated PassThrough configuration with a leading slash on the index.cfm below
 {% endhint %}
 
-The following solution will also work if you are using a recent version of Apache. This should be part of your `.htaccess` file
+Updated syntax for Apache:
+
+```
+#The ColdBox index.cfm/{path_info} rules.
+RewriteRule ^$ index.cfm [QSA,NS]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.cfm/%{REQUEST_URI} [PT,QSA,L,NS]
+```
+
+The following solution will also work if you are using recent versions of Apache and Coldbox:
 
 ```
 #The ColdBox index.cfm/{path_info} rules.
