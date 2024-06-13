@@ -25,7 +25,7 @@ RewriteRule ^(.*)$ index.cfm/%{REQUEST_URI} [PT,QSA,L,NS]
 Recent versions of Apache don't send the CGI.PATH\_INFO variable to your cfml engine when using ProxyPass and ProxyPassMatch without the `PT` ( Pass Through ) directive. On current versions of Coldbox, you can also use a [pathInfoProvider](../pathinfo-providers.md) function in your router.cfc
 {% endhint %}
 
-The following solution might work better if you are using a recent version of Apache. This should be part of your `.htaccess` file
+The following solution will also work if you are using a recent version of Apache. This should be part of your `.htaccess` file
 
 ```
 #The ColdBox index.cfm/{path_info} rules.
