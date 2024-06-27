@@ -1,3 +1,3 @@
 # CacheBox Events
 
-Our caching engine, [CacheBox](http://cachebox.ortusbooks.com/content/cachebox\_event\_model/index.html), also announces several events during its life cycle, so please see The [CacheBox Events Section](http://cachebox.ortusbooks.com/content/cachebox\_event\_model/index.html) as well.
+Our caching engine, [CacheBox](https://cachebox.ortusbooks.com/), also announces several events during its life cycle, so please see The [CacheBox Events Section](https://cachebox.ortusbooks.com/advanced-usage/cachebox-event-model/cachebox-events) as well.
