@@ -16,8 +16,8 @@ Here is a sample interceptor that trims any content before it is renderer:
 ```javascript
 component{
 
-    function postViewRender(event,interceptData){
-        interceptData.renderedView = trim( interceptData.renderedView );
+    function postViewRender(event,data){
+        data.renderedView = trim( data.renderedView );
     }
 }
 ```

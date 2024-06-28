@@ -128,7 +128,7 @@ coldbox create interceptor name=MyInterceptor points=preProcess
 and add the following method:
 
 ```javascript
-function preProcess( event, interceptData, rc, prc ){
+function preProcess( event, data, buffer, rc, prc ){
   prc.response = wirebox.getInstance( "MyResponseObject" );
 }
 ```
