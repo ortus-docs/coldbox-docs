@@ -426,7 +426,7 @@ In addition to having access to the entire request collection, the event object 
 */
 component{
     // This will only run when the event starts with "api."
-    function preProcess( event, interceptData, buffer ) eventPattern = '^api\.' {
+    function preProcess( event, data, buffer ) eventPattern = '^api\.' {
         var APIUser = event.getHTTPHeader( 'APIUser', 'default' );
 
         // Only Honest Abe can access our API

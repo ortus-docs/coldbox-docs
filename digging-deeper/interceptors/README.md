@@ -29,7 +29,7 @@ If you are familiar with design patterns, custom interceptors can give you an im
 ```javascript
 component extends="coldbox.system.Interceptor"{
 
-    function onError( event, interceptData={} ){
+    function onError( event, data={} ){
         // Listen to onError events
     }
 

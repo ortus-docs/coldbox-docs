@@ -32,7 +32,7 @@ function onUnLoad(){
 Also, remember that the configuration object itself is an interceptor so you can declare all of the framework's interception points in the configuration object and they will be registered as interceptors.
 
 ```javascript
-function preProcess(event, interceptData){
+function preProcess(event, data){
   // I just intercepted ALL incoming requests to the application
   log.info('The event executed is #arguments.event.getCurrentEvent()#');
 }

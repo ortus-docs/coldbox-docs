@@ -49,9 +49,9 @@ Interceptors are designed to be decoupled classes that can react to announced ev
 ```javascript
 component extends="coldbox.system.Interceptor"{
 
-    function onException(event, interceptData){
+    function onException(event, data){
         // Get the exception
-        var exception = arguments.interceptData.exception;
+        var exception = arguments.data.exception;
 
         // Do some logging only for some type of error and relocate
         if( exception.type eq "myType" ){
@@ -111,7 +111,7 @@ This is a standard ColdBox interception point that can be used to intercept when
 
 Interceptors are designed to be decoupled classes that can react to announced events, thus an event-driven approach. You can have as many CFCs listening to the `onInvalidEvent` event and react accordingly without them ever knowing about each other and doing one job and one job only. This is a much more flexible and decoupled approach than calling a single event handler where you will procedurally decide what happens in an invalid event.
 
-The `interceptData` argument receives the following variables:
+The `data` argument receives the following variables:
 
 * `invalidEvent` : The invalid event string
 * `ehBean` : The internal ColdBox event handler bean
@@ -122,17 +122,17 @@ You must tell ColdBox that you want to override the invalid event \(`override = 
 ```javascript
 component extends="coldbox.system.Interceptor"{
 
-    function onInvalidEvent(event, interceptData){
+    function onInvalidEvent(event, data){
         // Log a warning
-        log.warn( "Invalid page detected: #arguments.interceptData.invalidEvent#");
+        log.warn( "Invalid page detected: #arguments.data.invalidEvent#");
 
         // Set the invalid event to run
-        arguments.interceptData.ehBean
+        arguments.data.ehBean
             .setHandler("Main")
             .setMethod("pageNotFound");
 
         // Override
-        arguments.interceptData.override = true;
+        arguments.data.override = true;
     }
 }
 ```

@@ -66,7 +66,7 @@ If `parseParentSettings` is set to `false`, your module's `settings` will instea
 If you want to use the overridden settings in your `ModuleConfig.cfc`, you will need to use it in the `postModuleLoad` interceptor. Remember, all your modules register the `ModuleConfig.cfc` as an interceptor, so all you need to do is add the `postModuleLoad` function and you're off!
 
 ```javascript
-function postModuleLoad( event, interceptData, buffer, rc, prc ) {
+function postModuleLoad( event, data, buffer, rc, prc ) {
   binder.map( "MyAlias@MyModule" )
     .to( "#moduleMapping#.models.#settings.moduleName#" );
 }

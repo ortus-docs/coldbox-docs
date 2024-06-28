@@ -260,7 +260,7 @@ component {
 
     void function configure(){}
 
-    void function preProcess( event, interceptData, rc, prc ){
+    void function preProcess( event, data, buffer, rc, prc ){
 
         // Verify Incoming Headers to see if we are authorizing already or we are already Authorized
         if( !securityService.isLoggedIn() OR len( event.getHTTPHeader( "Authorization", "" ) ) ){

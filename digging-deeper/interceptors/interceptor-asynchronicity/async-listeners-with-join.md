@@ -10,7 +10,7 @@ var threadData = announce(
 );
 ```
 
-> **Caution** Please remember that you are also sharing state between interceptors via the `event` and `interceptData`, so make sure you either lock or are careful in asynchronous land.
+> **Caution** Please remember that you are also sharing state between interceptors via the `event` and `data`, so make sure you either lock or are careful in asynchronous land.
 
 ## Configuration Arguments
 
@@ -21,7 +21,7 @@ You can also combine this call with the following arguments:
 * `asyncAllJoin` : The flag that determines if the caller should wait for all spawned threads or should just spawn all threads and continue immediately. By default, it waits until all spawned threads finalize.
 
 ```javascript
-var threadData = announce(state="onPageCreate", interceptData={}, asyncAll=true, asyncAllJoin=false);
+var threadData = announce(state="onPageCreate", data={}, asyncAll=true, asyncAllJoin=false);
 var threadData = announce(
     state           = "onPageCreate", 
     data            = {}, 

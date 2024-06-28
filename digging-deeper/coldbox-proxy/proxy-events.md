@@ -5,8 +5,8 @@ The ColdBox Proxy also has a different life cycle than traditional MVC. All of a
 ```javascript
 component{
 
-    function preProxyResults(event, interceptData){
-        log.debug("Proxy request finalized: ", interceptData.proxyResults );
+    function preProxyResults(event, data){
+        log.debug("Proxy request finalized: ", data.proxyResults );
     }
 
 }
