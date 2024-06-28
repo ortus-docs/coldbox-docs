@@ -104,9 +104,7 @@ We have provided an interception point in ColdBox that allows you to add variabl
 ```javascript
 component{
 
-    onRequestCapture(event,interceptData){
-        var rc = event.getCollection();
-
+    onRequestCapture( event, data, buffer, rc, prc ){
         // Add user's locale to the request collection to influence event caching
         rc._user_locale = getFWLocale();
     }
