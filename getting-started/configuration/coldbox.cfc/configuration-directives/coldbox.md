@@ -94,7 +94,11 @@ A list or array of absolute or relative paths to a UDF helper file. The framewor
 
 ### **viewsHelper**
 
-A list or array of absolute or relative paths to a UDF helper file. The framework will load all the methods found in this helper in layouts and views only.
+This is a location within your application or an absolute path to a `cfm or bxm` template that will act as your global helper for all rendered views.
+
+```json
+coldbox.viewsHelper = "includes/helpers/global"
+```
 
 ### **modulesExternalLocation**
 
@@ -202,7 +206,7 @@ Allows you to use implicit views in your application and view dispatching. You c
 
 ### identifierProvider
 
-This setting allows you to configure a lambda/closure that will return back the user's request identifier according to your own algorithms.  This overrides the internal way ColdBox identifies requests incoming to the application which are used internally to track sessions, flash rams, etc.
+This setting allows you to configure a lambda/closure that will return back the user's request identifier according to your own algorithms. This overrides the internal way ColdBox identifies requests incoming to the application which are used internally to track sessions, flash rams, etc.
 
 The discovery algorithm we use is the following:
 
