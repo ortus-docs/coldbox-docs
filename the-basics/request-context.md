@@ -66,7 +66,7 @@ event.paramValue('page',1);
 event.setValue('link','index.cfm?page=#rc.page#');
 
 // get a value with a default value
-event.setvalue('link','index.cfm?page=#event.getValue('page',1)#');
+event.getValue('link','index.cfm?page=#event.getValue('page',1)#');
 
 // Set the view to render
 event.setView('homepage');
