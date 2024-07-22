@@ -15,8 +15,10 @@ component name="general"{
     function index(event,rc,prc){
 
         // call some model for data and put into the request collection
+        // this data will not be cached, the service will still be called for each request
         prc.myQuery = getInstance('MyService').getData();    
         // view with caching parameters
+        // even if data changes in prc.myQuery, the cached view will be returned
         event.setView(
             view="general/index",
             cache=true,
@@ -28,6 +30,13 @@ component name="general"{
 
 }
 ```
+
+If you want the data and view cached, you might consider [event caching](/the-basics/event-handlers/event-caching)
+
+
+
+
+
 
 ## Purging Views
 
