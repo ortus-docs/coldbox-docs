@@ -37,4 +37,4 @@ So if I wanted to wrap my basic layout in a PDF wrapper layout (`pdf.cfm`) I cou
 </cfdocument>
 ```
 
-That's it! The `layout()` method is extremely power as it can allow you to not only nest layouts but actually render a-la-carte layout/view combinations also.
+That's it! The `layout()` method is extremely powerful as it can allow you to not only nest layouts but actually render a-la-carte layout/view combinations also.
