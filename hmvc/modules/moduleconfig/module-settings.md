@@ -61,6 +61,19 @@ component {
 
 If `parseParentSettings` is set to `false`, your module's `settings` will instead overwrite the settings set in the same `moduleSettings` struct.
 
+## Module Settings Order of Precedence
+
+When considering overriding module settings, be mindful of the following order of precedence:
+
+```
+/modules/{moduleName}/ModuleConfig.cfc // configure method
+/modules/{moduleName}/ModuleConfig.cfc // environment override
+/config/ColdBox.cfc                    // configure method
+/config/ColdBox.cfc                    // environment override
+/config/modules/{moduleName}.cfc       // configure method
+/config/modules/{moduleName}.cfc       // environment override
+```
+
 ## Using Overridden Settings in your `ModuleConfig.cfc`
 
 If you want to use the overridden settings in your `ModuleConfig.cfc`, you will need to use it in the `postModuleLoad` interceptor. Remember, all your modules register the `ModuleConfig.cfc` as an interceptor, so all you need to do is add the `postModuleLoad` function and you're off!
