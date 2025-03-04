@@ -1,8 +1,16 @@
 ---
-description: May 13, 2024
+description: March 2, 2025
 ---
 
-# What's New With 7.3.0
+# What's New With 7.3.x
+
+## 7.3.1 - March 2, 2025
+
+### Bug
+
+[COLDBOX-1293](https://ortussolutions.atlassian.net/browse/COLDBOX-1293) DBAppender with SQL Server Not Compatible with Adobe 2023
+
+## 7.3.0 - May 13, 2024
 
 ### New Feature
 
