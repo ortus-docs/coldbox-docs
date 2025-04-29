@@ -18,15 +18,17 @@ With the latest updates, ColdBox extends its capabilities to support the develop
 
 For those who prefer a gradual transition, ColdBox offers the flexibility to integrate BoxLang within existing ColdFusion Markup Language (CFML) applications. Consequently, developers can choose to write components, handlers, views, and models using either BoxLang, CFML, or a combination of both. This dual-support approach not only facilitates a seamless transition for applications migrating from CFML to BoxLang but also enables new projects to be crafted entirely in the more modern and robust BoxLang environment.
 
-Nothing for you to do except create `.bx, bxm` templates for your application
+There is nothing you do in terms of settings or configuration.  ColdBox will detect if your handlers, interceptors, models and views are in BoxLang or CFML and act accordingly and seamlessly.
 
 ### BoxLang Template
 
-You also now have a `bx-default` application template you can use to build your applications with.  You can find it here: [https://github.com/coldbox-templates/bx-default](https://github.com/coldbox-templates/bx-default)
+You also now have a `bx-default` application template you can use to build your applications with.  You can find it here: [https://github.com/coldbox-templates/bx-default](https://github.com/coldbox-templates/bx-default).  You can use the `coldbox-cli` to get started with pure BoxLang apps with a simple command:
 
 ```bash
 coldbox create app skeleton=boxlang
 ```
+
+More templates are coming soon.
 
 ### ColdBox CLI
 
@@ -34,6 +36,16 @@ The entire ColdBox CLI has been updated and all commands now have a new `boxlang
 
 ```bash
 coldbox create handler main --boxlang
+```
+
+You can also tell the ColdBox and TestBox CLI that your application is a pure BoxLang application by using the new `language` setting in your `box.json`.
+
+```json5
+{
+    
+    "language" : "boxlang"
+
+}
 ```
 
 ## CacheBox Updates
