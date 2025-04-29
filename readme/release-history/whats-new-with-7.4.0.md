@@ -24,6 +24,18 @@ Nothing for you to do except create `.bx, bxm` templates for your application
 
 You also now have a `bx-default` application template you can use to build your applications with.  You can find it here: [https://github.com/coldbox-templates/bx-default](https://github.com/coldbox-templates/bx-default)
 
+```bash
+coldbox create app skeleton=boxlang
+```
+
+### ColdBox CLI
+
+The entire ColdBox CLI has been updated and all commands now have a new `boxlang` boolean argument.  You can either pass it or it will try to detect if your server of choice is BoxLang or if you have a `language: "BoxLang"` key in your `box.json`.  If so, then it will treat your project as a BoxLang language and all generations will be BoxLang classes or templates.
+
+```bash
+coldbox create handler main --boxlang
+```
+
 ## CacheBox Updates
 
 ### DiskStore Rewrite
