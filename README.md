@@ -4,7 +4,9 @@ description: >-
   (CFML).
 ---
 
-[![Building Reactive UIs with CBWire!](.gitbook/assets/CBWire-workshop-sept2025.png)](https://workshop-reactive-uis-cbwire.eventbrite.com/)
+<a target="_blank" href="https://workshop-reactive-uis-cbwire.eventbrite.com/">
+  <img src=".gitbook/assets/CBWire-workshop-sept2025.png" alt="Building Reactive UIs with CBWire!" style="width: 100%; height: auto;" />
+</a>
 
 # Introduction
 
