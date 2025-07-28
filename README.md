@@ -4,6 +4,8 @@ description: >-
   (CFML).
 ---
 
+[![Building Reactive UIs with CBWire!](.gitbook/assets/CBWire-workshop-sept2025.png)](https://workshop-reactive-uis-cbwire.eventbrite.com/)
+
 # Introduction
 
 ## ColdBox HMVC Platform- v7.x
