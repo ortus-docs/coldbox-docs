@@ -32,10 +32,17 @@ The way to set up an event for caching is on the function declaration with the f
 | `cachetimeout`           | numeric  | The timeout of the event's output in minutes. This is an optional attribute and if it is not used, the framework defaults to the default object timeout in the cache settings. You can place a 0 in order to tell the framework to cache the event's output for the entire application timeout controlled by coldfusion, NOT GOOD. Always set a decent timeout for content. |
 | `cacheLastAccesstimeout` | numeric  | The last access timeout of the event's output in minutes. This is an optional attribute and if it is not used, the framework defaults to the default last access object timeout in the cache settings. This tells the framework that if the object has not been accessed in X amount of minutes, then purge it.                                                             |
 | `cacheProvider`          | string   | The cache provider to store the results in. By default it uses the **template** cache.                                                                                                                                                                                                                                                                                      |
+| `cacheFilter`            | string   | Should reference the name of a private method in the handler that returns a closure.                                                                                                                                                                                                                                                                                        |
+| `cacheInclude`           | string   | A comma separated list of keys in the `rc` to include when creating the cache key. All other keys will be ignored                                                                                                                                                                                                                                                           |
+| `cacheExclude`           | string   | A comma separated list of keys in the `rc` to ignore when creating the cache key                                                                                                                                                                                                                                                                                            |
 
 {% hint style="danger" %}
-**Important** Please be aware that you should not cache output with 0 timeouts (forever). Always use a timeout.
+**Important** Please be aware that you should not cache output with 0 timeouts (forever). Always use a timeout. Also, all events can have an unlimited amount of permutations, so make sure they expire and you purge them constantly. Every event + URL/FORM variable combination will produce a new cacheable entry.
 {% endhint %}
+
+### Examples
+
+#### Basic implementation of event caching using annotations:
 
 ```javascript
 // In Script
@@ -48,11 +55,69 @@ function showEntry(event,rc,prc) cache="true" cacheTimeout="30" cacheLastAccessT
 }
 ```
 
-{% hint style="danger" %}
-**Alert:** DO NOT cache events as unlimited timeouts. Also, all events can have an unlimited amount of permutations, so make sure they expire and you purge them constantly. Every event + URL/FORM variable combination will produce a new cacheable entry.
-{% endhint %}
+### Greater Control Over Cache Keys
 
-## Storage
+You can customize how cache keys are generated using three specialized annotations: `cacheInclude`, `cacheExclude`, and `cacheFilter`.
+
+#### How Cache Keys Work
+
+By default, the cache key includes all keys from the request context (`rc`). The cache key annotations allow you to modify this behavior by including specific keys, excluding unwanted keys, or applying custom filtering logic.
+
+This is particularly useful for removing common tracking parameters (like `utm_source`, `utm_medium`, etc.) that shouldn't affect caching behavior.
+
+### Available Annotations
+
+* `cacheInclude` Specifies which keys from the request context to include in the cache key calculation.
+* `cacheExclude`  Specifies which keys from the request context to exclude from the cache key calculation.
+* `cacheFilter` Points to a private method that returns a closure for custom filtering logic. The closure receives a struct containing all potential cache key parameters and should return the filtered struct.
+
+### Processing Order
+
+When multiple annotations are used together, ColdBox processes them in this specific order:
+
+1. **`cacheFilter`** - Apply custom filtering logic
+2. **`cacheInclude`** - Include only specified keys
+3. **`cacheExclude`** - Remove specified keys
+
+Understanding this order is important when combining annotations, as each step operates on the results of the previous step.
+
+### Implementation Notes
+
+* The `cacheFilter` annotation must reference a private method within the same handler
+* The filter method should return a closure/lambda that accepts one argument (a struct)
+* The closure should return the modified struct to be used for cache key generation
+
+#### Examples
+
+```javascript
+// CacheInclude: Only use the specified keys in the `rc` when creating the cache key
+function show( event, rc, prc ) cache="true" cacheTimeout="30" cacheInclude="slug,id" {
+  ...
+}
+
+// CacheExclude: Use all `rc` keys except those in the annotation
+function show( event, rc, prc ) cache="true" cacheTimeout="30" cacheInclude="utm_source,utm_medium,utm_campaign" {
+  ...
+}
+
+// CacheFilter: Filter the `rc` keys based on a private method that returns a closure
+function show( event, rc, prc ) cache="true" cacheTimeout="30" cacheFilter="getCacheKeys" {
+  ...
+}
+
+// private method used be CacheFilter. Returns a closure that accepts one argument
+function getCacheKeys() {
+  var allowedKeys = [ "slug", "id" ];
+  // return a closure/lambda
+  return ( rcTarget ) => {
+    return rcTarget.filter( ( key, value ) => {
+      return allowedKeys.findNoCase( key ); // do custom filtering
+    }
+  }
+}
+```
+
+## &#x20;Storage
 
 All event and view caching are stored in a named cache called `template` which all ColdBox applications have by default. You can open or create a new [CacheBox](https://cachebox.ortusbooks.com) configuration object and decide where the storage is, timeouts, providers, etc. You have complete control of how event and view caching is stored.
 

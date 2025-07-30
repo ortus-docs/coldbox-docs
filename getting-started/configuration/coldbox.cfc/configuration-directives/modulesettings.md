@@ -24,13 +24,29 @@ Starting in ColdBox 7, you can store module configurations as their own configur
 
 The configuration CFC will have one configure() method that is expected to return a struct of configuration settings as you did before in the moduleSettings
 
+The following example overrides the original module configuration entirely:
+
 ```
 component{
 
-    function configure(){
+    function configure( original ){
         return {
             key : value
         };
+    }
+
+}
+```
+
+For large module configs where only a few keys need to be changed, you can update the config by modifying the struct passed in as an argument and then returning the updated version.
+
+```
+component{
+
+    function configure( original ){
+        // override only specific keys, not the entire config
+	original.users.requireEmailVerification = false;
+	return original;
     }
 
 }
