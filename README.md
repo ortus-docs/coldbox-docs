@@ -4,19 +4,17 @@ description: >-
   (CFML).
 ---
 
-<a target="_blank" href="https://workshop-reactive-uis-cbwire.eventbrite.com/">
-  <img src=".gitbook/assets/CBWire-workshop-sept2025.png" alt="Building Reactive UIs with CBWire!" style="width: 100%; height: auto;" />
-</a>
-
 # Introduction
 
-## ColdBox HMVC Platform- v7.x
+## Introduction
 
-![HMVC Framework](.gitbook/assets/ColdBoxLogo2015\_300.png)
+### ColdBox HMVC Platform- v7.x
+
+![HMVC Framework](.gitbook/assets/ColdBoxLogo2015_300.png)
 
 ![Standalone Libraries](.gitbook/assets/coldbox-family.png)
 
-ColdBox [Hierarchical MVC ](https://en.wikipedia.org/wiki/Hierarchical\_model%E2%80%93view%E2%80%93controller)is the de-facto enterprise-level HMVC framework for ColdFusion (CFML) developers. It's professionally backed, conventions-based, modular, highly extensible, and productive. Getting started with ColdBox is quick and painless. ColdBox takes the pain out of development by giving you a standardized methodology for modern ColdFusion (CFML) development with features such as:
+ColdBox [Hierarchical MVC ](https://en.wikipedia.org/wiki/Hierarchical_model%E2%80%93view%E2%80%93controller)is the de-facto enterprise-level HMVC framework for ColdFusion (CFML) developers. It's professionally backed, conventions-based, modular, highly extensible, and productive. Getting started with ColdBox is quick and painless. ColdBox takes the pain out of development by giving you a standardized methodology for modern ColdFusion (CFML) development with features such as:
 
 * [Conventions instead of configuration](https://coldbox.ortusbooks.com/getting-started/conventions)
 * [Modern routing engine](https://coldbox.ortusbooks.com/the-basics/routing)
@@ -33,18 +31,18 @@ ColdBox [Hierarchical MVC ](https://en.wikipedia.org/wiki/Hierarchical\_model%E2
 
 It provides a set of reusable code and tools that can be used to increase your development productivity, as well as a development standard for working in team environments.
 
-## License
+### License
 
 The ColdBox Platform is open source and licensed under the [Apache 2](https://www.apache.org/licenses/LICENSE-2.0.html) License.
 
 * Copyright by Ortus Solutions, Corp
 * ColdBox, CacheBox, WireBox, and LogBox are registered trademarks of Ortus Solutions, Corp.
 
-## Discussion & Help
+### Discussion & Help
 
 ![](.gitbook/assets/ortus-community-square-small.png)
 
-The Ortus Community is how to get help for our entire platform and modules: [https://community.ortussolutions.com](https://community.ortussolutions.com).&#x20;
+The Ortus Community is how to get help for our entire platform and modules: [https://community.ortussolutions.com](https://community.ortussolutions.com).
 
 {% embed url="https://community.ortussolutions.com" %}
 community.ortussolutions.com
@@ -56,18 +54,18 @@ You can also join our Slack Box Team at: [https://boxteam.ortussolutions.com](ht
 boxteam.ortussolutions.com
 {% endembed %}
 
-## Reporting a Bug
+### Reporting a Bug
 
 We all make mistakes from time to time :) So why not let us know about it and help us out? We also love :heart\_eyes: pull requests, so please star us and fork us at: [https://github.com/coldbox/coldbox-platform](https://github.com/coldbox/coldbox-platform)
 
-### Jira Issue Tracking
+#### Jira Issue Tracking
 
 * [https://ortussolutions.atlassian.net/browse/COLDBOX](https://ortussolutions.atlassian.net/browse/COLDBOX)
 * [https://ortussolutions.atlassian.net/browse/WIREBOX](https://ortussolutions.atlassian.net/browse/WIREBOX)
 * [https://ortussolutions.atlassian.net/browse/LOGBOX](https://ortussolutions.atlassian.net/browse/LOGBOX)
 * [https://ortussolutions.atlassian.net/browse/CACHEBOX](https://ortussolutions.atlassian.net/browse/CACHEBOX)
 
-## Professional Open Source
+### Professional Open Source
 
 ![](.gitbook/assets/space-ninja200.png)
 
@@ -81,7 +79,7 @@ ColdBox is a professional open source software backed by [Ortus Solutions, Corp]
 * Code Reviews
 * [Much More](http://www.ortussolutions.com/services)
 
-## Resources
+### Resources
 
 * Official Site: [https://www.coldbox.org](https://www.coldbox.org)
 * CFCasts Video Training: [http://www.cfcasts.com](http://www.cfcasts.com)
@@ -92,7 +90,7 @@ ColdBox is a professional open source software backed by [Ortus Solutions, Corp]
 * Twitter: [@coldbox](http://www.twitter.com/coldbox) [@ortussolutions](https://www.twitter.com/@ortussolutions)
 * Vimeo Channel: [https://vimeo.com/channels/coldbox](https://vimeo.com/channels/coldbox)
 
-### HONOR GOES TO GOD ABOVE ALL
+#### HONOR GOES TO GOD ABOVE ALL
 
 Because of His grace, this project exists. If you don't like this, don't read it, it's not for you.
 
