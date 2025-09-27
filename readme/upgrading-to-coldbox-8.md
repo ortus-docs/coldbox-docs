@@ -83,6 +83,28 @@ The `includeRoutes()` method was deprecated in ColdBox 6 and has now been remove
 
 The `with()` and `endWith()` methods were deprecated in ColdBox 7 and have now been removed.  Please use the `group()` method with closures instead.
 
+```js
+// Old way - removed
+with( namespace = "luis" )
+    .addRoute(
+        pattern = "contactus",
+        view    = "simpleview"
+    )
+    .addRoute(
+        pattern      = "contactus2",
+        view         = "simpleview",
+        viewnoLayout = true
+    )
+    .endWith();
+
+// New way - use group() with closure
+group( { namespace : "luis" }, ( options ) => {
+    route( pattern: "contactus" ).toView( view: "simpleview" );
+    route( pattern: "contactus2" ).toView( view: "simpleview", noLayout: true );
+} );
+
+```
+
 ### Router.addRoute() `matchVariables` Argument Removed
 
 The `matchVariables` string argument that mimicked a query string was deprecated in ColdBox 6 and has now been removed.  Please use the `rc` or `prc` struct arguments instead.
