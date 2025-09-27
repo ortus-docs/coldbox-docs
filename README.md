@@ -1,22 +1,18 @@
 ---
 description: >-
-  ColdBox is a conventions-based HMVC web development framework for ColdFusion
-  (CFML).
+  ColdBox is a conventions-based HMVC web development framework for the BoxLang
+  JVM Language and ColdFusion (CFML).
 ---
 
 # Introduction
 
-[![Building Reactive UIs with CBWire!](.gitbook/assets/CBWire-workshop-sept2025.png)](https://workshop-reactive-uis-cbwire.eventbrite.com/)
-
-## Introduction
-
-### ColdBox HMVC Platform- v7.x
+## ColdBox HMVC v8.x
 
 ![HMVC Framework](.gitbook/assets/coldboxlogo2015_300.png)
 
 ![Standalone Libraries](.gitbook/assets/coldbox-family.png)
 
-ColdBox [Hierarchical MVC ](https://en.wikipedia.org/wiki/Hierarchical_model%E2%80%93view%E2%80%93controller)is the de-facto enterprise-level HMVC framework for ColdFusion (CFML) developers. It's professionally backed, conventions-based, modular, highly extensible, and productive. Getting started with ColdBox is quick and painless. ColdBox takes the pain out of development by giving you a standardized methodology for modern ColdFusion (CFML) development with features such as:
+ColdBox [Hierarchical MVC ](https://en.wikipedia.org/wiki/Hierarchical_model%E2%80%93view%E2%80%93controller)is the de-facto enterprise-level HMVC framework for the [BoxLang](https://www.boxlang.io/) JVM language and the ColdFusion (CFML) language. It's professionally backed, conventions-based, modular, highly extensible, and productive. Getting started with ColdBox is quick and painless. ColdBox takes the pain out of development by giving you a standardized methodology for modern web development with features such as:
 
 * [Conventions instead of configuration](https://coldbox.ortusbooks.com/getting-started/conventions)
 * [Modern routing engine](https://coldbox.ortusbooks.com/the-basics/routing)
@@ -32,6 +28,16 @@ ColdBox [Hierarchical MVC ](https://en.wikipedia.org/wiki/Hierarchical_model%E2%
 * Much More
 
 It provides a set of reusable code and tools that can be used to increase your development productivity, as well as a development standard for working in team environments.
+
+### What is BoxLang?
+
+**BoxLang** is a modern dynamic JVM language developed by the ColdBox team that can be deployed on multiple runtimes: operating system (Windows/Mac/\*nix/Embedded), web server, lambda, iOS, android, web assembly, and more. BoxLang combines many features from different programming languages, including Java, CFML, Python, Ruby, Go, and PHP, to provide developers with a modern, functional and expressive syntax.
+
+ColdBox has been designed to work in both BoxLang and CFML language engines.  However, it is extremely optimized for BoxLang, since it is the same team that develops the language and the framework.
+
+Read more about BoxLang here: [https://boxlang.io](https://boxlang.io/)
+
+<figure><img src=".gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 ### License
 
@@ -84,13 +90,17 @@ ColdBox is a professional open source software backed by [Ortus Solutions, Corp]
 ### Resources
 
 * Official Site: [https://www.coldbox.org](https://www.coldbox.org)
-* CFCasts Video Training: [http://www.cfcasts.com](http://www.cfcasts.com)
-* Facebook: [https://www.facebook.com/coldboxplatform](https://www.facebook.com/coldboxplatform)
+* Community: [https://community.ortussolutions.com](https://community.ortussolutions.com/)
+* Video Training:&#x20;
+  * [https://www.cfcasts.com](https://www.cfcasts.com/)
+  * [https://learn.boxlang.io](https://learn.boxlang.io/)
+  * [http://youtube.com/ortussolutions](http://youtube.com/ortussolutions)
 * Source Code: [https://github.com/coldbox/coldbox-platform](https://github.com/coldbox/coldbox-platform)
 * Bug Tracker: [https://ortussolutions.atlassian.net/browse/COLDBOX](https://ortussolutions.atlassian.net/browse/COLDBOX)
-* Slack: [https://boxteam.ortussolutions.com](https://boxteam.ortussolutions.com)
-* Twitter: [@coldbox](http://www.twitter.com/coldbox) [@ortussolutions](https://www.twitter.com/@ortussolutions)
-* Vimeo Channel: [https://vimeo.com/channels/coldbox](https://vimeo.com/channels/coldbox)
+* Social
+  * Facebook: [https://www.facebook.com/coldboxplatform](https://www.facebook.com/coldboxplatform)
+  * X: [@coldbox](http://www.twitter.com/coldbox) [@ortussolutions](https://www.twitter.com/@ortussolutions)
+  * Slack: [https://boxteam.ortussolutions.com](https://boxteam.ortussolutions.com)
 
 #### HONOR GOES TO GOD ABOVE ALL
 
