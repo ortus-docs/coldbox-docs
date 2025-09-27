@@ -1,8 +1,8 @@
 ---
-description: The official ColdBox 7 upgrade guide
+description: The official ColdBox 8 upgrade guide
 ---
 
-# Upgrading to ColdBox 7
+# Upgrading to ColdBox 8
 
 The major compatibility issues will be covered, as well as how to upgrade to this release from previous ColdBox versions smoothly. You can also check out the [What's New](https://github.com/ortus-docs/coldbox-docs/blob/v7.x/readme/release-history/whats-new-with-7.0.0) guide to give you a full overview of the changes.
 
