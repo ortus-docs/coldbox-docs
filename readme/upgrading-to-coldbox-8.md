@@ -4,139 +4,352 @@ description: The official ColdBox 8 upgrade guide
 
 # Upgrading to ColdBox 8
 
-The major compatibility issues will be covered, as well as how to upgrade to this release from previous ColdBox versions smoothly. You can also check out the [What's New](https://github.com/ortus-docs/coldbox-docs/blob/v7.x/readme/release-history/whats-new-with-7.0.0) guide to give you a full overview of the changes.
+The major compatibility issues will be covered, as well as how to upgrade to this release from previous ColdBox versions smoothly. You can also check out the [What's New](https://github.com/ortus-docs/coldbox-docs/blob/v8.x/readme/release-history/whats-new-with-8.0.0) guide to give you a full overview of the changes.
 
-## ColdFusion 2016 Support Dropped
+An upgrade from ColdBox 7 should not incur any breaking changes, but you should still read through the guide to ensure you are not using any deprecated features.
 
-ColdFusion 2016 support has been dropped. Adobe doesn't support them anymore, so neither do we.
+## ColdFusion 2018 Support Dropped
 
-### HTML Helper `addAsset()` Changes
-
-The `addAsset()` now leverages the following settings for determining the convention locations for JavaScript and CSS assets:
-
-| Setting               | Default Value   |
-| --------------------- | --------------- |
-| `htmlhelper_js_path`  | `/includes/js`  |
-| `htmlhelper_css_path` | `/includes/css` |
-
-So if you want to change the location of your JavaScript and CSS, you can create these settings in your `ColdBox.cfc`
-
-```cfscript
-settings = {
-    htmlhelper_js_path : "/assets/js",
-    htmlhelper_css_path : "assets/css"
-}
-```
-
-## Integration Testing Defaults
-
-In ColdBox 7, the `this.unloadColdBox` setting is **false** by default. In ColdBox 6 this was **true** by default. So make sure you update this setting if you want ColdBox to be unloaded on each Test Bundle iteration.
-
-## Hierarchical Injectors
-
-All modules have their own injector now if you use the `this.moduleInjector = true` setting. Meaning the concept of a global injector no longer exists. Therefore, there are some edge cases where certain types of code will not work in ColdBox 7.
-
-### Testing Injector Creations
-
-If you are creating your own WireBox injector in your tests and using integration testing, you will have Injector collisions.
-
-```javascript
-myInjector = new coldbox.system.ioc.Injector()
-```
-
-This actually affects **EVERY** version of ColdBox because the default behavior of instantiating an Injector like the code above is to put the Injector in application scope: `application.wirebox.` This means that the REAL injector in an integration test lives in `application.wirebox` will be overridden. To avoid this collision, disable scope registration:
-
-```javascript
-myInjector = new coldbox.system.ioc.Injector( {
-    scopeRegistration : { enabled : false }
-} )
-```
-
-## Custom Wirebox DSLs
-
-For those of you with custom wirebox DSLs, you'll need to update your DSL to match the new `process()` method signature:
-
-```js
-
-/**
- * Process an incoming DSL definition and produce an object with it
- *
- * @definition   The injection dsl definition structure to process. Keys: name, dsl
- * @targetObject The target object we are building the DSL dependency for. If empty, means we are just requesting building
- * @targetID     The target ID we are building this dependency for
- *
- * @return coldbox.system.ioc.dsl.IDSLBuilder
- */
-function process( required definition, targetObject, targetID );
-```
-
-##
+ColdFusion 2018 support has been dropped. Adobe doesn't support them anymore, so neither do we.
 
 ## Removals
 
-### AnnounceInterception
+### CacheBox Tag Interfaces: ICacheProvider, IStats
 
-The `announceInterception()` method [has been deprecated since ColdBox 6.0.0](https://coldbox.ortusbooks.com/v/v6.x/intro/release-history/whats-new-with-6.0.0#announceinterception-processstate-deprecated). You will need to refactor any uses of `announceInterception()` to use `announce()` instead.
+The old interfaces that had been marked for deprecation in 6 are now removed. If you have custom cache providers or stats providers, you will need to update them to extend from the base classes:
 
-### routes.cfm
+* `coldbox.system.cache.ICacheProvider` -> `coldbox.system.cache.providers.ICacheProvider`
+* `coldbox.system.cache.IStats` -> `coldbox.system.cache.util.IStats`
 
-The `routes.cfm` approach is now removed in ColdBox 7. You will need to migrate to the `Router.cfc` [approach](../the-basics/routing/) in your application and/or modules.
+### BeanPopulator
 
-### setUniqueURLs()
+The `BeanPopulator` class has been removed.  This class was deprecated in ColdBox 6 and was replaced by the `ObjectPopulator` class.  Please use `coldbox.system.core.dynamic.ObjectPopulator` instead.
 
-This setting was in charge of converting NON-SES Urls into SES URLs. However, it was extremely error-prone and sometimes produced invalid URLs. This is now completely removed and if the user wants to do this feature, they can use CommandBox or Nginx, or Apache rewrites.
+### Client Flash
 
-### `jsonQueryFormat` Removed
+The Client Flash has been removed as it was deprecated in v6.  The `client` scope is a very old, unperformant and insecure way of storing data.  We recommend using `CacheBox` or `Session` scope instead.
 
-The `jsonQueryFormat` argument for rendering data is now removed. We default to an array of structs format for queries as it is the only format that makes sense.
+### ColdBox Util Env/System Methods
+
+The following methods were removed in preference to the Environment Delegate class: `coldbox.system.core.delegates.Env`.
+
+```js
+/**
+* @deprecated Refactor to use the Env Delegate: coldbox.system.core.delegates.Env
+*/
+function getSystemSetting( required key, defaultValue ){
+    return new coldbox.system.core.delegates.Env().getSystemSetting( argumentCollection = arguments );
+}
+
+/**
+* @deprecated Refactor to use the Env Delegate: coldbox.system.core.delegates.Env
+*/
+function getSystemProperty( required key, defaultValue ){
+    return new coldbox.system.core.delegates.Env().getSystemProperty( argumentCollection = arguments );
+}
+
+/**
+* @deprecated Refactor to use the Env Delegate: coldbox.system.core.delegates.Env
+*/
+function getEnv( required key, defaultValue ){
+    return new coldbox.system.core.delegates.Env().getEnv( argumentCollection = arguments );
+}
+```
+
+### Binder.getProperty() `default` Argument Removed
+
+The `default` argument was deprecated in ColdBox 6 and has now been removed.  Please use `defaultValue` instead.
+
+### Binder.getCacheBoxConfig() Removed
+
+The `getCacheBoxConfig()` method was deprecated in ColdBox 6 and has now been removed.  Please use `getCacheBox()` instead.
+
+### RequestContext SES Methods Removed
+
+The following methods were removed from the `RequestContext` class.  These methods were deprecated in ColdBox 7.
+
+* `isSES()`
+* `setSESEnabled()`
+
+### Router.getModulesRoutingTable() Removed
+
+The `getModulesRoutingTable()` method was deprecated in ColdBox 7 and has now been removed.  Please use `getModuleRoutingTable()` instead.
+
+### Router.includeRoutes() removed
+
+The `includeRoutes()` method was deprecated in ColdBox 6 and has now been removed.  This was for `cfm` routers which are no longer in use.
+
+### Router.with() and endWith() removed
+
+The `with()` and `endWith()` methods were deprecated in ColdBox 7 and have now been removed.  Please use the `group()` method with closures instead.
+
+### Router.addRoute() `matchVariables` Argument Removed
+
+The `matchVariables` string argument that mimicked a query string was deprecated in ColdBox 6 and has now been removed.  Please use the `rc` or `prc` struct arguments instead.
+
+```js
+// Old way - removed
+router.addRoute(
+        pattern : "/myroute",
+        handler : "myHandler",
+        action : "myAction",
+        matchVariables : "id=1&name=test"
+    )
+
+// New way - use rc or prc
+router.addRoute(
+        pattern : "/myroute",
+        handler : "myHandler",
+        action : "myAction",
+        rc : { id = 1, name = "test" }
+    )
+```
 
 ## Deprecations
 
-{% hint style="warning" %}
-There is a performance penalty to use any deprecated methods now, since they emit warnings to the logs.
-{% endhint %}
+The following methods were deprecated in ColdBox 7 and will be removed in ColdBox 9.
 
-### renderView(), renderLayout(), renderExternalView()
+### Super Type Methods
 
-These methods have been deprecated since version 6. Please use the shorthand versions
+* `renderView()` -> use `view()`
+* `renderLayout()` -> use `layout()`
+* `renderExternalView()` -> use `externalView()`
+* `announceInterception()` -> use `announce()`
+* `populateModel()` -> use `populate()`
 
-* `view()`
-* `layout()`
-* `externalView()`
+### ScheduledExecutor
 
-### Utility Environment Methods
+* `newSchedule()` -> use `newTask()`
 
-The core utility methods on `env` and Java variables have been deprecated from the utility object and moved to the `Env` delegate. Here are the methods deprecated:
+## AI-Assisted Upgrade Instructions
 
-* `getSystemSetting()`
-* `getSystemProperty()`
-* `getEnv()`
+The following instructions are designed to help AI assistants inspect and automatically upgrade ColdBox applications from version 7 to version 8.
 
-So if you had code like this:
+### Code Inspection Patterns
 
-```javascript
-// Deprecated
-new coldbox.system.core.util.Util().getSystemSetting()
-```
+When analyzing ColdBox applications for upgrade compatibility, check for these patterns:
 
-That will work, but it is deprecated now. You will have to move it to the delegate:
+#### 1. Cache Provider Interface Usage
+
+Look for implementations extending deprecated interfaces:
 
 ```javascript
-new coldbox.system.core.delegates.Env().getSystemSetting()
+// Search for these deprecated patterns:
+- extends="coldbox.system.cache.ICacheProvider"
+- extends="coldbox.system.cache.IStats"
 ```
 
-If you were using them in your integration or unit tests, then you can use our shorthand methods:
+#### 2. BeanPopulator Usage
 
 ```javascript
-getEnv().getSystemSetting()
-getEnv().getSystemProperty()
-getEnv().getEnv()
+// Search for BeanPopulator instantiation or injection:
+- new coldbox.system.core.dynamic.BeanPopulator()
+- property name="beanPopulator" inject="BeanPopulator"
+- wirebox.getInstance( "BeanPopulator" )
 ```
 
-### BeanPopulator Deprecated
+#### 3. Client Flash Scope Usage
 
-The object `BeanPopulator` has been deprecated in favor of `ObjectPopulator`.
+```javascript
+// Search for client flash scope references:
+- flash.setFlash()
+- flash.getFlash()
+- flashScope="client"
+- setNextEvent( flashScope="client" )
+```
 
-###
+#### 4. Environment Method Usage
 
-###
+```javascript
+// Search for deprecated util methods:
+- getSystemSetting()
+- getSystemProperty()
+- getEnv()
+// When found in non-Env delegate contexts
+```
+
+#### 5. Deprecated Binder Methods
+
+```javascript
+// In WireBox binders, search for:
+- .getProperty( default=
+- .getCacheBoxConfig()
+```
+
+#### 6. RequestContext SES Methods
+
+```javascript
+// Search for these method calls:
+- event.isSES()
+- event.setSESEnabled()
+```
+
+#### 7. Router Deprecated Methods
+
+```javascript
+// Search for these router method calls:
+- router.getModulesRoutingTable()
+- router.includeRoutes()
+- router.with()
+- router.endWith()
+- matchVariables argument in addRoute()
+```
+
+#### 8. Super Type Method Usage
+
+```javascript
+// Search for these method calls in handlers/interceptors:
+- renderView()
+- renderLayout()
+- renderExternalView()
+- announceInterception()
+- populateModel()
+- newSchedule() // in ScheduledExecutor context
+```
+
+### Automated Replacement Rules
+
+Apply these replacements when upgrading code:
+
+#### Cache Provider Updates
+
+```javascript
+// Replace:
+extends="coldbox.system.cache.ICacheProvider"
+// With:
+extends="coldbox.system.cache.providers.ICacheProvider"
+
+// Replace:
+extends="coldbox.system.cache.IStats"
+// With:
+extends="coldbox.system.cache.util.IStats"
+```
+
+#### BeanPopulator to ObjectPopulator
+
+```javascript
+// Replace all instances of:
+BeanPopulator
+// With:
+ObjectPopulator
+
+// Replace injection:
+inject="BeanPopulator"
+// With:
+inject="ObjectPopulator"
+```
+
+#### Environment Method Delegation
+
+```javascript
+// Replace utility method calls with Env delegate:
+getSystemSetting( "key", "default" )
+// With:
+new coldbox.system.core.delegates.Env().getSystemSetting( "key", "default" )
+
+// Or inject the delegate:
+property name="env" inject="coldbox.system.core.delegates.Env";
+// Then use:
+env.getSystemSetting( "key", "default" )
+```
+
+#### Binder Method Updates
+
+```javascript
+// Replace:
+.getProperty( key, default=value )
+// With:
+.getProperty( key, defaultValue=value )
+
+// Replace:
+.getCacheBoxConfig()
+// With:
+.getCacheBox()
+```
+
+#### Router Method Updates
+
+```javascript
+// Replace:
+router.getModulesRoutingTable()
+// With:
+router.getModuleRoutingTable()
+
+// Replace with() and endWith() patterns:
+router.with( "api", function( route ) {
+    route.get( "/users", "users.index" );
+} ).endWith();
+// With:
+router.group( { prefix: "api" }, function( route ) {
+    route.get( "/users", "users.index" );
+} );
+
+// Replace matchVariables:
+router.addRoute(
+    pattern="/route",
+    handler="handler",
+    matchVariables="id=1&name=test"
+)
+// With:
+router.addRoute(
+    pattern="/route",
+    handler="handler",
+    rc={ id=1, name="test" }
+)
+```
+
+#### Super Type Method Updates
+
+```javascript
+// Replace deprecated methods:
+renderView() -> view()
+renderLayout() -> layout()
+renderExternalView() -> externalView()
+announceInterception() -> announce()
+populateModel() -> populate()
+newSchedule() -> newTask()
+```
+
+#### Client Flash Removal
+
+```javascript
+// Remove or replace client flash usage:
+// Replace with session or cachebox alternatives
+setNextEvent( url="page", flashScope="client" )
+// With:
+setNextEvent( url="page" ) // uses session by default
+// Or:
+setNextEvent( url="page", flashScope="session" )
+```
+
+### Upgrade Validation
+
+After applying automated changes, verify:
+
+1. **Engine Compatibility**: Ensure minimum ColdFusion 2021+ or Lucee 5.3+
+2. **Test Coverage**: Run existing test suites to validate functionality
+3. **Cache Providers**: Test custom cache provider implementations
+4. **Module Compatibility**: Verify all modules work with updated router methods
+5. **Environment Variables**: Ensure environment delegate usage works correctly
+
+### Manual Review Required
+
+These patterns require manual developer review:
+
+* **Custom cache providers** extending old interfaces need logic review
+* **Complex routing configurations** using deprecated methods may need restructuring
+* **Client flash scope usage** requires architectural decisions for replacement
+* **Environment method usage** in performance-critical code may benefit from injection optimization
+
+### Completion Checklist
+
+* [ ] All deprecated interface extensions updated
+* [ ] BeanPopulator references changed to ObjectPopulator
+* [ ] Client flash scope usage removed or replaced
+* [ ] Environment method calls updated to use Env delegate
+* [ ] Binder method calls updated (default -> defaultValue)
+* [ ] RequestContext SES methods removed
+* [ ] Router deprecated methods updated
+* [ ] Super type method calls updated to new names
+* [ ] All tests passing
+* [ ] Manual review completed for complex patterns
