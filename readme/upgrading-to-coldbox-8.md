@@ -6,7 +6,7 @@ description: The official ColdBox 8 upgrade guide
 
 The major compatibility issues will be covered, as well as how to upgrade to this release from previous ColdBox versions smoothly. You can also check out the [What's New](https://github.com/ortus-docs/coldbox-docs/blob/v8.x/readme/release-history/whats-new-with-8.0.0) guide to give you a full overview of the changes.
 
-An upgrade from ColdBox 7 should not incur any breaking changes, but you should still read through the guide to ensure you are not using any deprecated features.
+An upgrade from ColdBox 7 should not incur any breaking changes, but you should still read through the guide to ensure you are not using any deprecated or removed features.
 
 ## ColdFusion 2018 Support Dropped
 
@@ -127,6 +127,10 @@ router.addRoute(
     )
 ```
 
+### Router.setFullRewrites() Removed
+
+The `setFullRewrites()` method has been removed from the Router. This method was used to enable/disable SES URL rewrites but is no longer needed as SES routing is handled automatically.
+
 ## Deprecations
 
 The following methods were deprecated in ColdBox 7 and will be removed in ColdBox 9.
@@ -206,7 +210,7 @@ Look for implementations extending deprecated interfaces:
 - event.setSESEnabled()
 ```
 
-#### 7. Router Deprecated Methods
+#### 7. Router Removed Methods
 
 ```javascript
 // Search for these router method calls:
@@ -214,6 +218,7 @@ Look for implementations extending deprecated interfaces:
 - router.includeRoutes()
 - router.with()
 - router.endWith()
+- router.setFullRewrites()
 - matchVariables argument in addRoute()
 ```
 
