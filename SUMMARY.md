@@ -5,13 +5,13 @@
   * [Release History](readme/release-history/README.md)
     * [What's New With 8.0.0](readme/release-history/whats-new-with-8.0.0.md)
   * [Upgrading to ColdBox 8](readme/upgrading-to-coldbox-8.md)
-  * [What is ColdBox](readme/what-is-coldbox.md)
-  * [What is MVC](readme/what-is-mvc.md)
   * [About This Book](readme/about-this-book/README.md)
     * [Author](readme/about-this-book/author.md)
 
 ## For Newbies
 
+* [What is MVC](for-newbies/what-is-mvc.md)
+* [What is ColdBox](for-newbies/what-is-coldbox.md)
 * [60 Minute Quick Start](for-newbies/60-minute-quick-start/README.md)
   * [Installing ColdBox](for-newbies/60-minute-quick-start/installing-coldbox.md)
   * [My First ColdBox Application](for-newbies/60-minute-quick-start/my-first-coldbox-application.md)
@@ -27,6 +27,7 @@
 ## Getting Started
 
 * [Installation](getting-started/installation.md)
+* [ColdBox CLI](getting-started/coldbox-cli.md)
 * [Application Templates](getting-started/application-templates.md)
 * [Conventions](getting-started/conventions.md)
 * [Configuration](getting-started/configuration/README.md)
