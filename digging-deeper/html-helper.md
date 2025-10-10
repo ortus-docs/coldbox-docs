@@ -1,3 +1,7 @@
+---
+icon: file-code
+---
+
 # HTML Helper
 
 ## Introduction

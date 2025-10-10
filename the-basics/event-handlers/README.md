@@ -1,7 +1,9 @@
 ---
 description: >-
-  Event handlers are ColdBox's controllers that manage application flow, handle user interactions, call business logic, and prepare responses. Learn MVC controller patterns.
-icon: target
+  Event handlers are ColdBox's controllers that manage application flow, handle
+  user interactions, call business logic, and prepare responses. Learn MVC
+  controller patterns.
+icon: gamepad-modern
 ---
 
 # Event Handlers

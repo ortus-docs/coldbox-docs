@@ -2,6 +2,7 @@
 description: >-
   ColdBox is a conventions-based HMVC web development framework for the BoxLang
   JVM Language and ColdFusion (CFML).
+icon: computer-classic
 ---
 
 # Introduction

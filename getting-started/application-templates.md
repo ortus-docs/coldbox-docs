@@ -1,5 +1,6 @@
 ---
 description: The best way to get started with ColdBox
+icon: bulldozer
 ---
 
 # Application Templates

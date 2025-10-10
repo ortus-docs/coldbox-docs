@@ -1,5 +1,6 @@
 ---
 description: Get up and running with ColdBox easily.
+icon: sign-posts-wrench
 ---
 
 # Installation

@@ -2,6 +2,7 @@
 description: >-
   The ColdBox Scheduled Tasks offers a fresh, programmatic and human approach to
   scheduling tasks on your server and multi-server application
+icon: calendars
 ---
 
 # ColdBox Scheduled Tasks

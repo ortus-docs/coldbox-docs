@@ -1,5 +1,6 @@
 ---
 description: A 60 minute guide to start working with ColdBox
+icon: jet-fighter
 ---
 
 # 60 Minute Quick Start

@@ -1,7 +1,9 @@
 ---
 description: >-
-  ColdBox's flexible layout manager and content renderer system. Create beautiful, dynamic layouts and views with powerful rendering mechanisms for HTML, JSON, XML and more.
-icon: paint-brush
+  ColdBox's flexible layout manager and content renderer system. Create
+  beautiful, dynamic layouts and views with powerful rendering mechanisms for
+  HTML, JSON, XML and more.
+icon: table-layout
 ---
 
 # Layouts & Views

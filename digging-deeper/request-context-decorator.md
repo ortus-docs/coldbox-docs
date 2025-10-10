@@ -1,3 +1,7 @@
+---
+icon: waves-sine
+---
+
 # Request Context Decorator
 
 The **request context object** is bound to the framework release and as we all know, each application is different in requirements and architecture. Thus, we have the application of the [Decorator Pattern](https://www.tutorialspoint.com/design_pattern/decorator_pattern.htm) to our request context object in order to help developers program to their needs.&#x20;

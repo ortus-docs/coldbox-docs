@@ -1,3 +1,7 @@
+---
+icon: trillium
+---
+
 # ColdBox Proxy
 
 ![](../../.gitbook/assets/ColdBoxProxy.png)

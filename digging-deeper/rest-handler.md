@@ -1,5 +1,6 @@
 ---
 description: ColdBox supports native REST handling via the RestHandler and native routing.
+icon: spider-web
 ---
 
 # REST Handler

@@ -1,5 +1,6 @@
 ---
 description: Model View Controller
+icon: gears
 ---
 
 # What is MVC

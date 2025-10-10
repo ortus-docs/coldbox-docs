@@ -1,5 +1,6 @@
 ---
 description: Discover the major conventions of the ColdBox framework
+icon: folder-tree
 ---
 
 # Conventions
