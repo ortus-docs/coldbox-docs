@@ -280,6 +280,16 @@ MyModernApp/
 
 We have completely revamped the ColdBox Whoops experience to include AI capabilities, enhanced stack traces, improved UI and so much more. This means that when an error happens, you will get not only the stack trace, but also AI generated suggestions on how to fix it, links to documentation, and more.
 
+<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+
+
+
+<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+
 ### ⚡ Major New Features & Enhancements
 
 #### 🔥 Virtual Thread Executors Support
