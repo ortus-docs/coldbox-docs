@@ -1,5 +1,7 @@
 ---
-description: Get a quick start with ColdBox Testing
+description: >-
+  Get a quick start with ColdBox Testing. Learn the fundamentals of testing your ColdBox applications with integration and unit tests.
+icon: vial
 ---
 
 # Testing Quick Start
@@ -68,12 +70,12 @@ component
 {
 
 	/*********************************** LIFE CYCLE Methods ***********************************/
-	
+
 	function beforeAll() {
 		super.beforeAll();
 		// do your own stuff here
 	}
-	
+
 	function afterAll() {
 		// do your own stuff here
 		super.afterAll();

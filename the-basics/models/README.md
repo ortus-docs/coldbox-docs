@@ -1,3 +1,9 @@
+---
+description: >-
+  Integrate your business logic and data models seamlessly with ColdBox using WireBox dependency injection. Learn domain modeling patterns and best practices.
+icon: database
+---
+
 # Models
 
 ColdBox allows you to integrate with the model layer easily by leveraging **WireBox** as your default dependency injection framework. However, you can integrate your model layer with any third-party DI framework via our `cbioc` module ([https://github.com/ColdBox/cbox-ioc](https://github.com/ColdBox/cbox-ioc)) as well.

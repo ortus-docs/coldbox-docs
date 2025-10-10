@@ -1,7 +1,8 @@
 ---
 description: >-
   The ColdBox HMVC Platform is the de-facto enterprise-level HMVC framework for
-  CFML developers.
+  CFML developers. Quick and painless getting started guide.
+icon: rocket
 ---
 
 # Getting Started Guide

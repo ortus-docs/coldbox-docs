@@ -1,3 +1,9 @@
+---
+description: >-
+  The Request Context Object models incoming requests and provides access to form, URL, and remote variables. Learn how to interact with client data and manage responses.
+icon: clipboard-list
+---
+
 # Request Context
 
 On every request to a ColdBox event, the framework creates an object that models the incoming request. This object is called the **Request Context Object**. This object will be passed to an [Event Handler](event-handlers/) and will be processed by an [Action](event-handlers/) and is by convention called an **event**)

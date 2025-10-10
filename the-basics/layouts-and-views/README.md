@@ -1,3 +1,9 @@
+---
+description: >-
+  ColdBox's flexible layout manager and content renderer system. Create beautiful, dynamic layouts and views with powerful rendering mechanisms for HTML, JSON, XML and more.
+icon: paint-brush
+---
+
 # Layouts & Views
 
 ColdBox provides you with a very simple but flexible and powerful layout manager and content **renderer**. You no longer need to create module tags or convoluted broken up HTML anymore. You can concentrate on the big picture and create as many [layouts](../../getting-started/configuration/coldbox.cfc/configuration-directives/layouts.md) as your application needs. Then you can programmatically change rendering schemas (or skinning) and also create composite or component based views.

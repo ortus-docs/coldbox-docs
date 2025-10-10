@@ -1,3 +1,9 @@
+---
+description: >-
+  ColdBox Modules are self-contained subsets of applications that bring reusability and extensibility. Break down monolithic apps into manageable, modular components.
+icon: puzzle-piece
+---
+
 # Modules
 
 ![](https://github.com/ortus-docs/coldbox-docs/raw/master/.gitbook/assets/modules.png)

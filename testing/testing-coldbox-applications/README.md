@@ -1,5 +1,7 @@
 ---
-description: Getting started with testing ColdBox applications with TestBox
+description: >-
+  Getting started with testing ColdBox applications with TestBox. Learn unit testing, integration testing, and BDD for event handlers, interceptors, and models.
+icon: flask
 ---
 
 # Testing ColdBox Applications

@@ -1,3 +1,9 @@
+---
+description: >-
+  Event handlers are ColdBox's controllers that manage application flow, handle user interactions, call business logic, and prepare responses. Learn MVC controller patterns.
+icon: target
+---
+
 # Event Handlers
 
 Event handlers are ColdBox's version of **controllers** in the MVC design pattern. So every time you hear "_event handler_", you are talking about a controller that can listen to external events or internal events in ColdBox. Event handlers are responsible for controlling your application flow, calling business logic, preparing a display to a user and much more.
@@ -58,7 +64,7 @@ component extends="coldbox.system.EventHandler"{
      */
     function data( event, rc, prc ){
         var data = getInstance( "MyModel" ).getArray();
-        return data; 
+        return data;
     }
 
 }

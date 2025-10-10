@@ -1,3 +1,9 @@
+---
+description: >-
+  Learn how ColdBox works with implicit and explicit invocation methods, front controller patterns, and configuration-driven development.
+icon: building
+---
+
 # How ColdBox Works
 
 ColdBox uses both implicit and explicit invocation methods to execute events and render content back to a user. You have a single configuration CFC: `config/Coldbox.cfc`, from where you can configure your entire application and a set of folder/file conventions. This configuration file activates certain aspects of your application and configures all the implicit events that mostly reflect the events in the `Application.cfc` that ColdFusion exposes to you.

@@ -1,5 +1,7 @@
 ---
-description: ColdBox Promises, Executors, Async programming and Parallel Computations
+description: >-
+  ColdBox Promises, Executors, Async programming and Parallel Computations. Leverage the entire JDK arsenal for asynchronous pipelines, parallel workloads, and scheduled tasks.
+icon: clock
 ---
 
 # Async Programming
@@ -47,7 +49,7 @@ async().all(
 ).then( (results)=> logResults( results ) );
 
 // Race Conditions, let the fastest dns resolve
-var dnsServer = async().any( 
+var dnsServer = async().any(
     () => dns1.resolve(),
     () => dns2.resolve()
 ).get();
@@ -56,8 +58,8 @@ var dnsServer = async().any(
 async().newFuture( () => orderService.getOrder() )
     .then( (order) => enrichOrder( order ) )
     .then( (order) => performPayment( order ) )
-    .thenAsync( 
-        (order) => dispatchOrder( order ), 
+    .thenAsync(
+        (order) => dispatchOrder( order ),
         async().getExecutor( "cpuIntensive" )
      )
     .then( (order) => sendConfirmation( order ) );

@@ -1,5 +1,7 @@
 ---
-description: Learn how to configure ColdBox according to your needs beyond the conventions.
+description: >-
+  Learn how to configure ColdBox programmatically via config/ColdBox.cfc. Understand conventions over configuration and fine-grained control settings.
+icon: cog
 ---
 
 # Configuration
