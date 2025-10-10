@@ -208,7 +208,6 @@ ColdBox 8.0.0 removes deprecated features to keep the codebase modern and mainta
 
 [COLDBOX-1358](https://ortussolutions.atlassian.net/browse/COLDBOX-1358) ProcessState in the InterceptorService is now finally removed
 
-
 ## CacheBox
 
 ### New Features

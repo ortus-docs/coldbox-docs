@@ -131,6 +131,20 @@ router.addRoute(
 
 The `setFullRewrites()` method has been removed from the Router. This method was used to enable/disable SES URL rewrites but is no longer needed as SES routing is handled automatically.
 
+### InterceptorService.processState() Removed
+
+The `processState()` method has been removed from the `InterceptorService` ([COLDBOX-1358](https://ortussolutions.atlassian.net/browse/COLDBOX-1358)). This method was deprecated and has now been completely removed.
+
+**Migration:** Use the `announce()` method instead.
+
+```js
+// Old way - removed
+interceptorService.processState( "myEvent", data );
+
+// New way - use announce()
+interceptorService.announce( "myEvent", data );
+```
+
 ## Deprecations
 
 The following methods were deprecated in ColdBox 7 and will be removed in ColdBox 9.
@@ -222,7 +236,15 @@ Look for implementations extending deprecated interfaces:
 - matchVariables argument in addRoute()
 ```
 
-#### 8. Super Type Method Usage
+#### 8. InterceptorService Removed Methods
+
+```javascript
+// Search for deprecated InterceptorService method calls:
+- interceptorService.processState()
+- processState() // when called within interceptor context
+```
+
+#### 9. Super Type Method Usage
 
 ```javascript
 // Search for these method calls in handlers/interceptors:
@@ -323,6 +345,20 @@ router.addRoute(
     handler="handler",
     rc={ id=1, name="test" }
 )
+```
+
+#### InterceptorService Method Updates
+
+```javascript
+// Replace:
+interceptorService.processState( "eventName", data )
+// With:
+interceptorService.announce( "eventName", data )
+
+// Replace:
+processState( "eventName", data )
+// With:
+announce( "eventName", data )
 ```
 
 #### Super Type Method Updates
