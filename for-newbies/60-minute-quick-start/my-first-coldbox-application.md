@@ -41,10 +41,6 @@ Now let's start a server so we can see our application running:
 server start
 ```
 
-{% hint style="info" %}
-This will start up a [Lucee](https://www.lucee.org) 5 open-source CFML engine. If you would like an **Adobe ColdFusion** server then add to the command: `cfengine=adobe@{version}` where `{version}` can be: `2021,2018,2016.`
-{% endhint %}
-
 ### Default Event
 
 This command will start a server with URL rewrites enabled, open a web browser for you, and execute the `index.cfm` which in turn executes the **default event** by convention in a ColdBox application: `main.index`.   This is now our first runtime convention!
@@ -166,6 +162,3 @@ coldbox reinit
 {% hint style="success" %}
 **Tip:** You can add a password to the **reinit** procedures for further security, please see the [configuration section](https://github.com/ortus-docs/coldbox-docs/tree/7a8d2250f812e1b65cfc9c2888a8489110724897/the-basics/configuration/coldbox.cfc).
 {% endhint %}
-
-
-

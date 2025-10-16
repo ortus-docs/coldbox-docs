@@ -13,8 +13,9 @@ We are excited you are taking this development journey with us. Before we get st
 
 Please note that the supported CFML engines can change from major version to major version.  Always verify them in the [project's readme.](https://github.com/coldbox/coldbox-platform)
 
+* BoxLang 1+
 * Lucee 5+
-* Adobe 2018+
+* Adobe 2023+
 
 ## IDE Tools
 

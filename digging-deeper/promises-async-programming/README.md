@@ -112,7 +112,7 @@ You get the picture. They exist, but they are not easy to deal with and the API 
 
 #### `runAsync()` vs ColdBox Futures
 
-ColdFusion 2018 and Lucee 5 both have introduced the concept of async programming via their `runAsync()` function. Lucee also has the concept of executing collections in parallel via the `each(), map(), filter()` operations as well.  However, there is much to be desired in their implementations. Here are a list of deficiencies of their current implementations:
+ColdFusion 2018+ and Lucee 5+ both have introduced the concept of async programming via their `runAsync()` function. Lucee also has the concept of executing collections in parallel via the `each(), map(), filter()` operations as well.  However, there is much to be desired in their implementations. Here are a list of deficiencies of their current implementations:
 
 * Backed by a custom wrapper to `java.util.concurrent.Future` and not Completable Futures
 * Simplistic error handler with no way to recover or continue executing pipelines after an exception

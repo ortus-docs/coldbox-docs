@@ -57,8 +57,9 @@ We have added all the necessary information to develop on ColdBox in our [readme
 
 Please make sure your code runs on the following Supported CFML Engines:
 
+* BoxLang 1+
 * Lucee 5+
-* Adobe ColdFusion 2018+
+* Adobe ColdFusion 2023+
 
 ### Coding Styles & Formatting
 

@@ -8,9 +8,9 @@ The major compatibility issues will be covered, as well as how to upgrade to thi
 
 An upgrade from ColdBox 7 should not incur any breaking changes, but you should still read through the guide to ensure you are not using any deprecated or removed features.
 
-## ColdFusion 2018 Support Dropped
+## ColdFusion 2018-2021 Support Dropped
 
-ColdFusion 2018 support has been dropped. Adobe doesn't support them anymore, so neither do we.
+ColdFusion 2018-2021 support has been dropped. Adobe doesn't support them anymore, so neither do we.
 
 ## Removals
 
