@@ -40,7 +40,7 @@ install cbcommons
 A module that protects you against CSRF attacks by generating unique FORM/client tokens and providing your ColdBox application with new functions for protection.
 
 ```
-install csrf
+install cbcsrf
 ```
 
 ## `cbdebugger` - ColdBox Debugger
