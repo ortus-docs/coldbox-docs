@@ -389,7 +389,7 @@ setNextEvent( url="page", flashScope="session" )
 
 After applying automated changes, verify:
 
-1. **Engine Compatibility**: Ensure minimum ColdFusion 2021+ or Lucee 5.3+
+1. **Engine Compatibility**: Ensure minimum ColdFusion 2023+ or Lucee 5.3+
 2. **Test Coverage**: Run existing test suites to validate functionality
 3. **Cache Providers**: Test custom cache provider implementations
 4. **Module Compatibility**: Verify all modules work with updated router methods
