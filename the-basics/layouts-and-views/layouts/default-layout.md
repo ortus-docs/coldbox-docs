@@ -7,7 +7,7 @@ The default layout in a ColdBox application is `layouts/main.cfm` by convention.
 ```javascript
 //Layout Settings
 layoutSettings = {
-    defaultLayout = "basic.cfm"
+    defaultLayout = "basic"
 }
 ```
 
@@ -18,8 +18,8 @@ There is no default view in ColdBox, but you can configure one by using the same
 ```javascript
 //Layout Settings
 layoutSettings = {
-    defaultLayout = "basic.cfm",
-    defaultView   = "noview.cfm"
+    defaultLayout = "basic",
+    defaultView   = "noview"
 }
 ```
 
