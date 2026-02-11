@@ -44,6 +44,10 @@ The system combines four key components:
 
 Together, these components ensure AI assistants generate high-quality, idiomatic code that follows ColdBox conventions and leverages the full power of the BoxLang/CFML ecosystem.
 
+{% hint style="info" %}
+To start make sure you are on the latest `coldbox-cli` in your CommandBox installation.
+{% endhint %}
+
 #### System Architecture
 
 ```mermaid
@@ -156,6 +160,8 @@ After installation, the following structure is created in your project:
 └── manifest.json       # AI integration metadata
 ```
 
+
+
 ```mermaid
 graph TD
     Root[".ai/"]
@@ -165,7 +171,8 @@ graph TD
     Root --> MCP["🌐 mcp-servers/"]
     Root --> Manifest["📋 manifest.json"]
     
-    Guidelines --> GCore["⚙️ core/<br/>(8 guidelines)"]    Guidelines --> GModules["📦 modules/<br/>(28 guidelines)"]
+    Guidelines --> GCore["⚙️ core/<br/>(8 guidelines)"]    
+    Guidelines --> GModules["📦 modules/<br/>(28 guidelines)"]
     Guidelines --> GCustom["📝 custom/<br/>(Your guidelines)"]
     Guidelines --> GOverride["🎯 overrides/<br/>(Customizations)"]
     
@@ -189,6 +196,8 @@ graph TD
     style MCP fill:#4caf50,color:#fff
     style Manifest fill:#ff9800,color:#fff
 ```
+
+
 
 Additionally, agent configuration files are created:
 
@@ -271,6 +280,8 @@ ColdBox AI Integration uses two complementary approaches to provide context:
 
 **Skills** are activated on-demand when working on specific tasks. This reduces context bloat while providing deep expertise exactly when needed.
 
+
+
 ```mermaid
 graph LR
     subgraph "Guidelines (Upfront)"
@@ -328,6 +339,8 @@ coldbox ai stats                 # Quick overview
 coldbox ai stats --verbose       # Detailed model breakdowns
 coldbox ai stats --json          # Machine-readable output
 ```
+
+
 
 ```mermaid
 flowchart LR
@@ -449,6 +462,8 @@ Guidelines are organized into four tiers:
 
 This hierarchy allows seamless integration from framework to module to project level.
 
+
+
 ```mermaid
 graph TD
     subgraph "Priority (High to Low)"
@@ -492,7 +507,11 @@ Add project-specific guidelines to tailor AI assistance to your codebase:
 touch .ai/guidelines/custom/payment-processing.md
 ```
 
+
+
 Example guideline structure:
+
+
 
 ```markdown
 # Payment Processing
@@ -940,6 +959,8 @@ Benefits:
 * **Cross-Agent Testing**: Verify AI-generated code across multiple assistants
 * **Redundancy**: Switch agents if one has issues
 
+
+
 ```mermaid
 graph TB
     subgraph "Shared Knowledge Base"
@@ -1035,6 +1056,8 @@ Model Context Protocol (MCP) servers provide extended capabilities to AI agents.
 * **@modelcontextprotocol/server-raycast** - Raycast integration
 * **@modelcontextprotocol/server-time** - Time operations
 * **@modelcontextprotocol/server-youtube-transcript** - YouTube transcripts
+
+
 
 View configured MCP servers:
 
@@ -1349,9 +1372,11 @@ coldbox ai skills list | grep qb
 4. Integrates content into agent configurations
 5. Updates `.ai/manifest.json` with module sources
 
+
+
 ```mermaid
 flowchart TD
-    Install["box install qb"]]
+    Install["box install qb"]
     Install --> Scan["🔍 Scan /modules/ directory"]
     Scan --> Check{"Has resources/<br/>coldbox-cli/ai/?"}
     Check -->|Yes| Load["📥 Load guidelines & skills"]
@@ -1377,6 +1402,7 @@ flowchart TD
     style Complete fill:#4caf50,color:#fff
     style Load fill:#ff9800,color:#fff
     style Integrate fill:#9c27b0,color:#fff
+    
 ```
 
 #### Creating Module Guidelines
