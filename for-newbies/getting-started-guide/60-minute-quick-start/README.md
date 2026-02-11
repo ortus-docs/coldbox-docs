@@ -5,7 +5,7 @@ icon: jet-fighter
 
 # 60 Minute Quick Start
 
-This guide has been designed to get you started with ColdBox in fewer than 60 minutes. We will take you by the hand and help you build a RESTFul application in 60 minutes or less. After you complete this guide, we encourage you to move on to the [Getting Started Guide](../getting-started-guide.md) and then to the other guides in this book.
+This guide has been designed to get you started with ColdBox in fewer than 60 minutes. We will take you by the hand and help you build a RESTFul application in 60 minutes or less. After you complete this guide, we encourage you to move on to the [Getting Started Guide](../) and then to the other guides in this book.
 
 You can find the source code of this quickstart here: [https://github.com/coldbox-samples/60-minute-quickstart](https://github.com/coldbox-samples/60-minute-quickstart)
 
@@ -19,6 +19,6 @@ You can find the source code of this quickstart here: [https://github.com/coldbo
 
 ## Need Help?
 
-![](../../.gitbook/assets/ortus-community-square-small.png)
+![](../../../.gitbook/assets/ortus-community-square-small.png)
 
 The Ortus Community is the way to get any help for our entire platform and modules: [https://community.ortussolutions.com](https://community.ortussolutions.com)

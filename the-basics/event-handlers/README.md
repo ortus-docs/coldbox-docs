@@ -14,7 +14,7 @@ Event handlers are ColdBox's version of **controllers** in the MVC design patter
 
 ## Locations
 
-All your handlers will be stored in the **handlers** folder of your application template. If you get to the point where your application needs even more decoupling and separation, please consider building [ColdBox Modules](../../hmvc/modules/) instead.
+All your handlers will be stored in the **handlers** folder of your application template. If you get to the point where your application needs even more decoupling and separation, please consider building [ColdBox Modules](../modules/) instead.
 
 {% hint style="info" %}
 **Tip:** You can create packages or sub-folders inside of the **handlers** directory. This is encouraged on large applications so you can organize or package handlers logically to facilitate better maintenance and URL experience.

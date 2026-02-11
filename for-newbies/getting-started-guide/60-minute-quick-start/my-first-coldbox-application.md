@@ -1,6 +1,6 @@
 # My First ColdBox Application
 
-The `coldbox create app` command enables you to create application skeletons using one of our official skeletons or [your own](../../getting-started/application-templates.md).  Here are the names of the common ones you can find in our Github Organization:
+The `coldbox create app` command enables you to create application skeletons using one of our official skeletons or [your own](../../../getting-started/application-templates.md). Here are the names of the common ones you can find in our Github Organization:
 
 * **Default**: The default app template
 * **Elixir** : A [ColdBox Elixir](https://coldbox-elixir.ortusbooks.com/) based template to do asset compilation for you
@@ -43,9 +43,9 @@ server start
 
 ### Default Event
 
-This command will start a server with URL rewrites enabled, open a web browser for you, and execute the `index.cfm` which in turn executes the **default event** by convention in a ColdBox application: `main.index`.   This is now our first runtime convention!
+This command will start a server with URL rewrites enabled, open a web browser for you, and execute the `index.cfm` which in turn executes the **default event** by convention in a ColdBox application: `main.index`. This is now our first runtime convention!
 
-Instead of executing pages like in a traditional application, we always execute the same page but distinguish the event we want via [URL routing](../../the-basics/routing/).  When no mappings are present, we execute the default event by convention.
+Instead of executing pages like in a traditional application, we always execute the same page but distinguish the event we want via [URL routing](../../../the-basics/routing/). When no mappings are present, we execute the default event by convention.
 
 {% hint style="success" %}
 **Tip:** ColdBox Events map to handlers (**cfc**) and appropriate actions (**functions**)
@@ -55,13 +55,9 @@ Instead of executing pages like in a traditional application, we always execute 
 **Tip**: The default event can also be changed in the configuration file: `config/Coldbox.cfc`
 {% endhint %}
 
+![](../../../.gitbook/assets/image.png)
 
-
-![](../../.gitbook/assets/image.png)
-
-
-
-Hooray, we have scaffolded our first application, started a server, and executed the default event.  Explore the application template generated, which contains useful information about your application.
+Hooray, we have scaffolded our first application, started a server, and executed the default event. Explore the application template generated, which contains useful information about your application.
 
 {% hint style="success" %}
 **Tip:** Type `coldbox create app help` to get help on all the options for creating ColdBox applications.
@@ -143,7 +139,7 @@ function index( event, rc, prc ){
 }
 ```
 
-It sets a message in an incoming `prc` argument and then calls a method in the incoming `event` argument to set a view for rendering.  We will discover these arguments in the next section.  For now, we need to understand that handler actions are in place of traditional CFML pages.  Depending on the incoming URL route, we execute the appropriate handler and action function.
+It sets a message in an incoming `prc` argument and then calls a method in the incoming `event` argument to set a view for rendering. We will discover these arguments in the next section. For now, we need to understand that handler actions are in place of traditional CFML pages. Depending on the incoming URL route, we execute the appropriate handler and action function.
 
 ### Re-initializing the Application
 

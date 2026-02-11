@@ -56,7 +56,7 @@ component{
 
 As you can see, a handler is a simple CFC with functions on them. Each function maps to an **action** that is executed via the URL. The default action in ColdBox is `index()`which receives three arguments:
 
-* `event` - An object that represents the request and can modify the response. We call this object the [request context](../../the-basics/request-context.md).
+* `event` - An object that represents the request and can modify the response. We call this object the [request context](../../../the-basics/request-context.md).
 * `rc` - A struct that contains both `URL/FORM` variables (unsafe data)
 * `prc` - A secondary struct that is **private** only settable from within your application (safe data)
 
@@ -89,7 +89,7 @@ If no `action` is defined in the URL, then the default action of `index` will be
 All of this URL magic happens thanks to the URL mappings capabilities in ColdBox. By convention, you can write beautiful URLs that are RESTFul and by convention. You can also extend them and create more expressive URL Mappings by leveraging the `config/Router.cfc` which is your application router.
 
 {% hint style="success" %}
-**Tip:** Please see the [event handlers](../../the-basics/event-handlers/) guide for more in-depth information.
+**Tip:** Please see the [event handlers](../../../the-basics/event-handlers/) guide for more in-depth information.
 {% endhint %}
 
 ## My First Virtual Event
@@ -115,5 +115,5 @@ http://localhost:{port}/virtual/hello
 You will get the `Hello From ColdBox Land!` displayed! This is a great way to create tests or even bring in legacy/procedural templates into an MVC framework.
 
 {% hint style="success" %}
-**Tip:** You can see our [layouts and views](../../the-basics/layouts-and-views/) section for more in-depth information.
+**Tip:** You can see our [layouts and views](../../../the-basics/layouts-and-views/) section for more in-depth information.
 {% endhint %}

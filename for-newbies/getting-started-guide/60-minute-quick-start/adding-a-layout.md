@@ -15,7 +15,7 @@ Every time the framework renders a view, it will try to leverage the default lay
 The layout has everything you want to wrap views or other layouts with.  You can use our rendering methods to do inline renderings or tell ColdBox where the set view should render:
 
 * `view()` - Render the set view via `event.setView()`
-* `view( name: "toolbar" )` - Render a [named view](../../the-basics/layouts-and-views/views/rendering-views.md)
+* `view( name: "toolbar" )` - Render a [named view](../../../the-basics/layouts-and-views/views/rendering-views.md)
 * `view( "partials/footer" )` - Render a explicit view
 * `layout( name )` - Render another layout within this layout
 
@@ -72,7 +72,7 @@ Now let's do our footer:
 
 ### Settings
 
-As you can see from the footer, we introduced a new function called `getSetting()` .  All layouts, handlers, interceptors, and views inherit the [Framework Super Type](../../the-basics/models/super-type-usage-methods.md) functionality.  There are tons of methods inherited from this class that you can use in your application, from getting models to settings, relocating, async computations, and so much more.&#x20;
+As you can see from the footer, we introduced a new function called `getSetting()` .  All layouts, handlers, interceptors, and views inherit the [Framework Super Type](../../../the-basics/models/super-type-usage-methods.md) functionality.  There are tons of methods inherited from this class that you can use in your application, from getting models to settings, relocating, async computations, and so much more.&#x20;
 
 ## Using The Layout
 

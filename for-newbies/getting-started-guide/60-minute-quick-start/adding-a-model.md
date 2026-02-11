@@ -1,6 +1,6 @@
 # Adding A Model
 
-![MVC](<../../.gitbook/assets/MVC (1).png>)
+![MVC](<../../../.gitbook/assets/MVC (1).png>)
 
 Let's complete our saga into MVC by developing the **M**, which stands for [model](https://en.wikipedia.org/wiki/Domain_model). This layer is all your business logic, queries, external dependencies, etc. of your application, which represents the problem to solve or the domain to solve.
 
@@ -128,7 +128,7 @@ any function index( event, rc, prc ){
 
 ## Presenting The Data
 
-Now that we have put the array of contacts into the `prc` struct as `aContacts`, let's display it to the screen using [ColdBox's HTML Helper](../../digging-deeper/html-helper.md).
+Now that we have put the array of contacts into the `prc` struct as `aContacts`, let's display it to the screen using [ColdBox's HTML Helper](../../../digging-deeper/html-helper.md).
 
 The ColdBox HTML Helper is a companion class in all layouts and views that allows you to generate semantic HTML without the needed verbosity of nesting or binding to ORM/Business objects.
 
@@ -154,6 +154,6 @@ That's it! Execute the event: `http://localhost:{port}/contacts/index` and view 
 
 Congratulations, you have made a complete **MVC** circle!
 
-![](<../../.gitbook/assets/request-lifecycle (1) (1) (1).png>)
+![](<../../../.gitbook/assets/request-lifecycle (1) (1) (1).png>)
 
 > **Tip** You can find much more information about models and dependency injection in our [full docs](https://coldbox.ortusbooks.com/the-basics/models)

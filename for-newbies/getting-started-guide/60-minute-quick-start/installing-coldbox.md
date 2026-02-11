@@ -13,7 +13,7 @@ ColdBox has the following supported IDE Tools:
 
 ## CommandBox CLI
 
-<div align="left"><img src="../../.gitbook/assets/CommandBoxLogo.png" alt=""></div>
+<div align="left"><img src="../../../.gitbook/assets/CommandBoxLogo.png" alt=""></div>
 
 The first step in our journey is to [install](https://commandbox.ortusbooks.com/content/setup/installation.html) CommandBox. [CommandBox](https://www.ortussolutions.com/products/commandbox) is a ColdFusion (CFML) Command Line Interface (CLI), REPL, Package Manager, and Embedded Server. We will be using CommandBox for almost every exercise in this book, and it will also allow you to get up and running with ColdFusion and ColdBox in a much speedier manner.
 
@@ -30,7 +30,7 @@ So make sure you choose your desired installation path and follow the instructio
 
 Once you download and expand CommandBox, you will have the `box.exe` or `box` binary, which you can place in your Windows Path or \*Unix `/usr/bin` folder to have it available system-wide. Then open the binary, and CommandBox will unpack to your user's directory: `{User}/.CommandBox`. This happens only once, and the next thing you know, you are in the CommandBox interactive shell!
 
-![CommandBox Shell](<../../.gitbook/assets/image (5).png>)
+![CommandBox Shell](<../../../.gitbook/assets/image (5).png>)
 
 We can execute a-la-carte commands from our command line or go into the interactive shell for multiple commands. We recommend the interactive shell as it is faster and can remain open in your project root.
 

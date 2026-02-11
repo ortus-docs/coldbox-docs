@@ -5,7 +5,7 @@ description: >-
 icon: rocket
 ---
 
-# Getting Started Guide
+# Newbie Guide
 
 The ColdBox HMVC Platform is the de-facto enterprise-level HMVC framework for CFML developers. It's professionally backed, highly extensible, and productive. Getting started with ColdBox is quick and painless. The only thing you need to begin is [CommandBox](http://www.ortussolutions.com/products/commandbox), a command line tool for CFML developers. **Please remember to** [**Star**](https://github.com/coldbox/coldbox-platform) **us in Github.**
 
@@ -17,7 +17,7 @@ ColdBox Site Quickstart
 
 ## Need Help
 
-![](../.gitbook/assets/ortus-community-square-small.png)
+![](../../.gitbook/assets/ortus-community-square-small.png)
 
 The Ortus Community is the way to get any help for our entire platform and modules: [https://community.ortussolutions.com](https://community.ortussolutions.com)
 
@@ -36,7 +36,7 @@ You can read through our one-page [CommandBox Getting Started Guide](https://com
 
 You should now be seeing a prompt that looks like this:
 
-![CommandBox Shell](../.gitbook/assets/commandbox.png)
+![CommandBox Shell](../../.gitbook/assets/commandbox.png)
 
 Now let's install the ColdBox CLI
 
@@ -98,10 +98,10 @@ server start
 In a few seconds, a browser window will appear with your running application. This is a full server with access to the web administrator, where you can add data sources, and mappings, or adjust the server settings. Notice the handy icon added to your system tray as well. The `--rewritesEnable` flag will turn on some basic URL rewriting so we have nice, pretty URLs.
 
 {% hint style="success" %}
-**Tip:** If you are creating an app to run on any server other than the CommandBox server, you will need to set up URL rewriting manually. More info here: [/the-basics/routing/requirements](../the-basics/routing/requirements/)
+**Tip:** If you are creating an app to run on any server other than the CommandBox server, you will need to set up URL rewriting manually. More info here: [/the-basics/routing/requirements](../../the-basics/routing/requirements/)
 {% endhint %}
 
-![Generated ColdBox App](../.gitbook/assets/image.png)
+![Generated ColdBox App](../../.gitbook/assets/image.png)
 
 ## Take A Look Around
 

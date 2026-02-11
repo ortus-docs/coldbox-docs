@@ -22,7 +22,7 @@ event={module:}{package.}{handler}{.action}
 * **event={handler}** : Default action method by convention is `index()`
 * **event={handler}.{action}** : Explicit handler + action method
 * **event={package}.{handler}.{action}** : Packaged notation
-* **event={module}:{package}.{handler}.{action}** : Module Notation (See [ColdBox Modules](../../hmvc/modules/))
+* **event={module}:{package}.{handler}.{action}** : Module Notation (See [ColdBox Modules](../modules/))
 
 This looks very similar to a Java or CFC method call, example: `String.getLength(),` but without the parentheses. Once the event variable is set and detected by the framework, the framework will tokenize the event string to retrieve the CFC and action call to validate it against the internal registry of registered events. It then continues to instantiate the event handler CFC or retrieve it from cache, finally executing the event handler's action method.
 

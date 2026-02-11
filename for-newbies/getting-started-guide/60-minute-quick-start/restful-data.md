@@ -3,7 +3,7 @@
 Out of the box, ColdBox gives you all the RESTFul capabilities you will need to create robust and scalable RESTFul services. Let's add some RESTFul capabilities to our contact listing we created in the previous section.
 
 {% hint style="success" %}
-**Tip:** You can find much more information about building ColdBox RESTFul services in our [full docs.](../../digging-deeper/recipes/building-rest-apis.md)
+**Tip:** You can find much more information about building ColdBox RESTFul services in our [full docs.](../../../digging-deeper/recipes/building-rest-apis.md)
 {% endhint %}
 
 ## Producing JSON
@@ -101,5 +101,5 @@ http://localhost:{port}/api/contacts.json
 ```
 
 {% hint style="info" %}
-You can find much more about routing in our [full docs](../../the-basics/routing/)
+You can find much more about routing in our [full docs](../../../the-basics/routing/)
 {% endhint %}

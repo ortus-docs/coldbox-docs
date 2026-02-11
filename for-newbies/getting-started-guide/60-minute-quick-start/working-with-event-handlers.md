@@ -1,6 +1,6 @@
 # Working with Events
 
-![](../../.gitbook/assets/ColdBoxSimpleMVC.png)
+![](../../../.gitbook/assets/ColdBoxSimpleMVC.png)
 
 Event handlers are the _controller_ layer in ColdBox and is what you will be executing via the `URL`or a `FORM`post. All event handlers are **singletons**, which means they are cached for the duration of the application, so always remember to var scope your variables in your functions.
 
@@ -92,7 +92,7 @@ component extends="coldbox.system.EventHandler" {
 
 Let's recap: Every action in ColdBox receives three arguments:
 
-* `event` - An object that models and is used to work with the current request, called the [request context](../../the-basics/request-context.md).
+* `event` - An object that models and is used to work with the current request, called the [request context](../../../the-basics/request-context.md).
 * `rc` - A struct that contains both URL/FORM variables (unsafe data)
 * `prc` - A secondary struct that is private only settable from within your application (safe data)
 
@@ -134,7 +134,7 @@ If you execute the event now: `http://localhost:{port}/hello/index` you will see
 Now change the incoming URL to this: `http://localhost:{port}/hello/index?name=ColdBox` and you will see a message of `Hello ColdBox`.
 
 {% hint style="success" %}
-**Tip:** Please see the [layouts and views](../../the-basics/layouts-and-views/) section for in-depth information.
+**Tip:** Please see the [layouts and views](../../../the-basics/layouts-and-views/) section for in-depth information.
 {% endhint %}
 
 ### Routing Params

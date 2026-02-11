@@ -1,10 +1,11 @@
 ---
 description: >-
-  Get a quick start with ColdBox Testing. Learn the fundamentals of testing your ColdBox applications with integration and unit tests.
+  Get a quick start with ColdBox Testing. Learn the fundamentals of testing your
+  ColdBox applications with integration and unit tests.
 icon: vial
 ---
 
-# Testing Quick Start
+# Testing
 
 {% embed url="https://www.youtube.com/watch?v=emGFeDa6CAA&feature=youtu.be" %}
 Testing Quickstart Video
@@ -162,11 +163,11 @@ component
 
 To execute your application template tests and the generated tests just browse to the URL: `http://127.0.0.1:{port}/tests/runner.cfm` and you will get a full integration report:
 
-![Test Runner](../.gitbook/assets/template-tests-runner.png)
+![Test Runner](../../.gitbook/assets/template-tests-runner.png)
 
-Everything is already pre-wired for you and ready for you to do full life-cycle integration testing.  This means that upon first request to the spec, a virtual ColdBox application will load and setup your application from where you can test any part of it. From executing events just like from the browser, or execution API requests just like any application.
+Everything is already pre-wired for you and ready for you to do full life-cycle integration testing. This means that upon first request to the spec, a virtual ColdBox application will load and setup your application from where you can test any part of it. From executing events just like from the browser, or execution API requests just like any application.
 
-Sounds too good to be true?  Let's try this out.  Open the `handlers/Main.cfc` and look for the `index()` action.  Let's change it to this:
+Sounds too good to be true? Let's try this out. Open the `handlers/Main.cfc` and look for the `index()` action. Let's change it to this:
 
 ```javascript
 function index( event, rc, prc ) {
@@ -193,7 +194,7 @@ Then use the `testbox run` command:
 testbox run
 ```
 
-![CommandBox TestBox Runner](../.gitbook/assets/template-tests-commandbox-runner.png)
+![CommandBox TestBox Runner](../../.gitbook/assets/template-tests-commandbox-runner.png)
 
 You will then execute your tests and get a text report from it. If you want CommandBox to watch for changes to your source code and THEN re-execute the tests, then start a watcher:
 
@@ -207,4 +208,4 @@ testbox watch
 
 ## What's Next
 
-We have a fully dedicated section on [testing](testing-coldbox-applications/), please visit it for in-depth information.
+We have a fully dedicated section on [testing](/broken/pages/-LA-Uh37LFUNwo6aCR4O), please visit it for in-depth information.
