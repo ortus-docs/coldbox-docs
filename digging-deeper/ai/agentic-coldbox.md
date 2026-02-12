@@ -9,17 +9,17 @@ icon: terminal
 
 ## Table of Contents
 
-* Introduction
-* Installation
-* Core Concepts
-* AI Guidelines
-* AI Skills
-* AI Agents
-* MCP Servers
-* CLI Commands
-* Developer Experience
-* Module Integration
-* Best Practices
+* [Introduction](#introduction)
+* [Installation](#installation)
+* [Core Concepts](#core-concepts)
+* [AI Guidelines](#ai-guidelines)
+* [AI Skills](#ai-skills)
+* [AI Agents](#ai-agents)
+* [MCP Servers](#mcp-servers)
+* [CLI Commands](#cli-commands)
+* [Developer Experience](#developer-experience)
+* [Module Integration](#module-integration)
+* [Best Practices](#best-practices)
 
 ***
 
