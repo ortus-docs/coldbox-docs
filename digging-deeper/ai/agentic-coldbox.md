@@ -562,11 +562,9 @@ CommandBox module authors can include AI guidelines in their packages:
 ```
 your-module/
 ├── ModuleConfig.cfc
-└── resources/
-    └── coldbox-cli/
-        └── ai/
-            └── guidelines/
-                └── core.md           # Auto-discovered
+└── .ai/
+    └── guidelines/
+        └── core.md           # Auto-discovered
 ```
 
 **Module Guideline Template:**
@@ -818,12 +816,10 @@ Module authors can bundle skills with their packages:
 ```
 your-module/
 ├── ModuleConfig.cfc
-└── resources/
-    └── coldbox-cli/
-        └── ai/
-            └── skills/
-                └── using-your-module/
-                    └── SKILL.md
+└── .ai/
+    └── skills/
+        └── using-your-module/
+            └── SKILL.md
 ```
 
 **Module Skill Template:**
@@ -1356,7 +1352,7 @@ coldbox ai skills list | grep qb
 **Discovery Process:**
 
 1. Scans installed modules in `/modules/`
-2. Looks for `resources/coldbox-cli/ai/` directory
+2. Looks for `.ai/` directory at module root
 3. Loads `guidelines/` and `skills/` subdirectories
 4. Integrates content into agent configurations
 5. Updates `.ai/manifest.json` with module sources
@@ -1366,7 +1362,7 @@ coldbox ai skills list | grep qb
 flowchart TD
     Install["box install qb"]
     Install --> Scan["🔍 Scan /modules/ directory"]
-    Scan --> Check{"Has resources/<br/>coldbox-cli/ai/?"}
+    Scan --> Check{"Has .ai/<br/>directory?"}
     Check -->|Yes| Load["📥 Load guidelines & skills"]
     Check -->|No| Skip["⏭️ Skip module"]
     Load --> Integrate["🔗 Integrate into .ai/ structure"]
@@ -1377,7 +1373,7 @@ flowchart TD
 
     subgraph "Module Structure"
         ModuleDir[".../modules/qb/"]
-        ResourceDir["resources/coldbox-cli/ai/"]
+        ResourceDir[".ai/"]
         GuidelineFile["guidelines/core.md"]
         SkillFile["skills/using-qb/SKILL.md"]
 
@@ -1403,14 +1399,12 @@ Module authors: Include AI guidelines in your packages:
 your-module/
 ├── box.json
 ├── ModuleConfig.cfc
-└── resources/
-    └── coldbox-cli/
-        └── ai/
-            └── guidelines/
-                └── core.md        # Required
+└── .ai/
+    └── guidelines/
+        └── core.md        # Required
 ```
 
-**Guideline Template:** (`resources/coldbox-cli/ai/guidelines/core.md`)
+**Guideline Template:** (`.ai/guidelines/core.md`)
 
 ```markdown
 # Module Name v1.0.0
@@ -1483,19 +1477,17 @@ Module authors: Include AI skills for complex tasks:
 your-module/
 ├── box.json
 ├── ModuleConfig.cfc
-└── resources/
-    └── coldbox-cli/
-        └── ai/
-            └── skills/
-                └── using-your-module/
-                    ├── SKILL.md           # Required
-                    ├── templates/         # Optional
-                    │   └── example.cfc
-                    └── scripts/           # Optional
-                        └── setup.sh
+└── .ai/
+    └── skills/
+        └── using-your-module/
+            ├── SKILL.md           # Required
+            ├── templates/         # Optional
+            │   └── example.cfc
+            └── scripts/           # Optional
+                └── setup.sh
 ```
 
-**Skill Template:** (`resources/coldbox-cli/ai/skills/using-your-module/SKILL.md`)
+**Skill Template:** (`.ai/skills/using-your-module/SKILL.md`)
 
 ```markdown
 ---
