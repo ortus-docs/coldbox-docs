@@ -23,7 +23,7 @@ icon: terminal
 
 ***
 
-## Introduction
+### Introduction
 
 ColdBox AI Integration supercharges your development workflow by providing comprehensive AI assistance for both **BoxLang** and **CFML** applications. Unlike single-framework solutions, ColdBox AI Integration offers:
 
@@ -45,7 +45,7 @@ The system combines four key components:
 Together, these components ensure AI assistants generate high-quality, idiomatic code that follows ColdBox conventions and leverages the full power of the BoxLang/CFML ecosystem.
 
 {% hint style="info" %}
-To start make sure you are on the latest `coldbox-cli` in your CommandBox installation.
+To start, make sure you are on the latest `coldbox-cli` in your CommandBox installation.
 {% endhint %}
 
 #### System Architecture
@@ -109,7 +109,7 @@ Install ColdBox AI Integration using CommandBox:
 # Install ColdBox CLI (if not already installed)
 box install coldbox-cli
 
-# Set up AI integration with interactive wizard
+# Set up AI integration with an interactive wizard
 coldbox ai install
 ```
 
@@ -142,6 +142,8 @@ flowchart TD
     style SelectMCP fill:#00bcd4,color:#fff
 ```
 
+
+
 After installation, the following structure is created in your project:
 
 ```
@@ -163,7 +165,7 @@ After installation, the following structure is created in your project:
 
 
 ```mermaid
-graph TD
+graph LR
     Root[".ai/"]
     
     Root --> Guidelines["📚 guidelines/"]
@@ -199,7 +201,7 @@ graph TD
 
 
 
-Additionally, agent configuration files are created:
+Additionally, agent configuration files are created for you:
 
 * `CLAUDE.md` - Claude Desktop/Code assistant
 * `.github/copilot-instructions.md` - GitHub Copilot

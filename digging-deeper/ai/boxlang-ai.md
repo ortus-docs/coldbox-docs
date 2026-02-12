@@ -9,13 +9,21 @@ icon: bilibili
 
 ColdBox has deep integrations with the BoxLang AI library in order to build AI applications and services.  All you need to do is install the `bx-ai` module in your web application and you will have a powerful library for building fluent and scalable AI applications with ColdBox.
 
+{% hint style="info" %}
+You can find the complete AI SDK docs here: [https://ai.ortusbooks.com/](https://ai.ortusbooks.com/)
+{% endhint %}
+
 ## Introduction
 
 Welcome to the **BoxLang AI Library** - your unified gateway to integrating AI capabilities into any JVM application. This library provides an elegant, easy-to-use API for interacting with multiple AI providers, from simple chat requests to complex multi-agent systems.
 
+{% embed url="https://ai.ortusbooks.com/" %}
+
 ### 🙋 What is BoxLang AI?
 
 BoxLang AI is a comprehensive library that brings enterprise-grade artificial intelligence capabilities to the JVM ecosystem. Whether you're building chatbots, content generators, code assistants, RAG systems, or complex AI workflows, this module provides everything you need.
+
+
 
 ```mermaid
 graph LR
@@ -32,7 +40,7 @@ graph LR
     VectorDB --> RAG["🔍 RAG"]
     Tools --> RAG
 
-    RAG --> AI["🚀 AI Models"]
+    RAG --> AI["🚀 LLM"]
     AI --> Response["💬 Response"]
     Response --> Agent
     Agent --> User
