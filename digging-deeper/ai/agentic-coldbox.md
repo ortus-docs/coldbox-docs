@@ -7,7 +7,7 @@ icon: terminal
 
 # Agentic ColdBox
 
-### Table of Contents
+## Table of Contents
 
 * Introduction
 * Installation
@@ -23,7 +23,7 @@ icon: terminal
 
 ***
 
-### Introduction
+## Introduction
 
 ColdBox AI Integration supercharges your development workflow by providing comprehensive AI assistance for both **BoxLang** and **CFML** applications. Unlike single-framework solutions, ColdBox AI Integration offers:
 
@@ -37,10 +37,12 @@ ColdBox AI Integration supercharges your development workflow by providing compr
 
 The system combines four key components:
 
-1. **Guidelines** - Framework documentation and best practices loaded upfront
+1. **Guidelines** - Framework documentation and best practices (core inlined, others on-demand)
 2. **Skills** - On-demand coding cookbooks for specific tasks
 3. **Agents** - AI assistant configurations (Claude, Copilot, etc.)
 4. **MCP Servers** - Context protocol servers for enhanced AI capabilities
+
+**Subagent Pattern Architecture**: Core framework guidelines (ColdBox + language) are embedded directly in agent files for immediate access, while module guidelines and all skills are available on-demand. This reduces context from ~62KB to ~8KB while maintaining full capability.
 
 Together, these components ensure AI assistants generate high-quality, idiomatic code that follows ColdBox conventions and leverages the full power of the BoxLang/CFML ecosystem.
 
@@ -48,31 +50,31 @@ Together, these components ensure AI assistants generate high-quality, idiomatic
 To start, make sure you are on the latest `coldbox-cli` in your CommandBox installation.
 {% endhint %}
 
-#### System Architecture
+### System Architecture
 
 ```mermaid
 graph TB
     subgraph "ColdBox AI Integration"
-        Guidelines["📚 Guidelines<br/>(41+ Core)<br/>Framework documentation<br/>loaded upfront"]
-        Skills["🎯 Skills<br/>(62+ Core)<br/>On-demand cookbooks<br/>for specific tasks"]
+        Guidelines["📚 Guidelines<br/>(46+ Total)<br/>Core inlined<br/>Others on-demand"]
+        Skills["🎯 Skills<br/>(71+ Total)<br/>On-demand cookbooks<br/>with inventory"]
         Agents["🤖 Agents<br/>(6 Supported)<br/>Claude, Copilot, Cursor<br/>Codex, Gemini, OpenCode"]
         MCP["🌐 MCP Servers<br/>(30+ Built-in)<br/>Extended AI capabilities<br/>via protocol"]
     end
-    
+
     subgraph "Sources"
         Core["Core<br/>(Built-in)"]
         Modules["Modules<br/>(Auto-discovered)"]
         Custom["Custom<br/>(Project-specific)"]
         Override["Overrides<br/>(Customizations)"]
     end
-    
+
     subgraph "AI Assistants"
         Claude["Claude Desktop/Code"]
         Copilot["GitHub Copilot"]
         Cursor["Cursor IDE"]
         Other["Codex/Gemini/OpenCode"]
     end
-    
+
     Core --> Guidelines
     Core --> Skills
     Modules --> Guidelines
@@ -81,16 +83,16 @@ graph TB
     Custom --> Skills
     Override --> Guidelines
     Override --> Skills
-    
+
     Guidelines --> Agents
     Skills --> Agents
     MCP --> Agents
-    
+
     Agents --> Claude
     Agents --> Copilot
     Agents --> Cursor
     Agents --> Other
-    
+
     style Guidelines fill:#e1f5ff,stroke:#01579b
     style Skills fill:#fff9e1,stroke:#f57f17
     style Agents fill:#f3e5f5,stroke:#4a148c
@@ -99,9 +101,9 @@ graph TB
 
 ***
 
-### Installation
+## Installation
 
-#### Quick Start
+### Quick Start
 
 Install ColdBox AI Integration using CommandBox:
 
@@ -132,7 +134,7 @@ flowchart TD
     CreateStructure --> GenerateConfigs["⚙️ Generate agent configs<br/>CLAUDE.md, .cursorrules, etc."]
     GenerateConfigs --> SyncModules["🔄 Sync module resources"]
     SyncModules --> Complete(["✅ Installation Complete"])
-    
+
     style Start fill:#4caf50,color:#fff
     style Complete fill:#2e7d32,color:#fff
     style Detect fill:#ff9800,color:#fff
@@ -141,7 +143,6 @@ flowchart TD
     style SelectSkills fill:#ffc107,color:#000
     style SelectMCP fill:#00bcd4,color:#fff
 ```
-
 
 
 After installation, the following structure is created in your project:
@@ -163,35 +164,34 @@ After installation, the following structure is created in your project:
 ```
 
 
-
 ```mermaid
 graph LR
     Root[".ai/"]
-    
+
     Root --> Guidelines["📚 guidelines/"]
     Root --> Skills["🎯 skills/"]
     Root --> MCP["🌐 mcp-servers/"]
     Root --> Manifest["📋 manifest.json"]
-    
-    Guidelines --> GCore["⚙️ core/<br/>(8 guidelines)"]    
+
+    Guidelines --> GCore["⚙️ core/<br/>(8 guidelines)"]
     Guidelines --> GModules["📦 modules/<br/>(28 guidelines)"]
     Guidelines --> GCustom["📝 custom/<br/>(Your guidelines)"]
     Guidelines --> GOverride["🎯 overrides/<br/>(Customizations)"]
-    
+
     Skills --> SCore["⚙️ core/<br/>(62 skills)"]
     Skills --> SModules["📦 modules/<br/>(Module skills)"]
     Skills --> SCustom["📝 custom/<br/>(Your skills)"]
     Skills --> SOverride["🎯 overrides/<br/>(Customizations)"]
-    
+
     MCP --> MCPCore["⚙️ core/<br/>(30+ servers)"]
     MCP --> MCPCustom["📝 custom/<br/>(Your servers)"]
-    
+
     Root --> Agents["Agent Configs"]
     Agents --> Claude["CLAUDE.md"]
     Agents --> Copilot[".github/copilot-instructions.md"]
     Agents --> Cursor[".cursorrules"]
     Agents --> Other["+ 3 more agents"]
-    
+
     style Root fill:#9c27b0,color:#fff
     style Guidelines fill:#2196f3,color:#fff
     style Skills fill:#ffc107,color:#000
@@ -200,17 +200,15 @@ graph LR
 ```
 
 
-
-Additionally, agent configuration files are created for you:
+Additionally, agent configuration files are created for you (paths defined in `AgentRegistry.cfc`):
 
 * `CLAUDE.md` - Claude Desktop/Code assistant
 * `.github/copilot-instructions.md` - GitHub Copilot
 * `.cursorrules` - Cursor IDE
-* `.codex/instructions.md` - Codex
-* `.gemini/instructions.md` - Gemini CLI
-* `.opencode/instructions.md` - OpenCode
+* `AGENTS.md` - Codex & OpenCode (shared file)
+* `GEMINI.md` - Gemini CLI
 
-#### Keeping Resources Updated
+### Keeping Resources Updated
 
 Keep your AI resources synchronized with installed modules:
 
@@ -234,7 +232,7 @@ Automate updates by adding to your CommandBox scripts in `box.json`:
 }
 ```
 
-#### Setting Up AI Agents
+### Setting Up AI Agents
 
 After installation, configure your AI agents:
 
@@ -263,69 +261,57 @@ After installation, configure your AI agents:
 
 ***
 
-### Core Concepts
+## Core Concepts
 
-#### Guidelines vs Skills
+### Guidelines vs Skills
 
-ColdBox AI Integration uses two complementary approaches to provide context:
+ColdBox AI Integration uses a **subagent pattern** with three tiers of context:
 
-| Aspect          | Guidelines                                 | Skills                                |
-| --------------- | ------------------------------------------ | ------------------------------------- |
-| **When Loaded** | Upfront, always present                    | On-demand, when invoked               |
-| **Scope**       | Broad, architectural                       | Focused, task-specific                |
-| **Purpose**     | Framework conventions & patterns           | Step-by-step implementation guides    |
-| **Content**     | "What" and "Why"                           | "How" and "When"                      |
-| **Size**        | Concise (1-3KB typically)                  | Detailed (2-10KB typically)           |
-| **Examples**    | ColdBox MVC structure, Handler conventions | Creating REST APIs, Async programming |
+| Aspect          | Core Guidelines (Inlined)                  | Module Guidelines (On-Demand)         | Skills (On-Demand)                    |
+| --------------- | ------------------------------------------ | ------------------------------------- | ------------------------------------- |
+| **When Loaded** | Always embedded in agent files             | Requested by name when needed         | Requested by name when needed         |
+| **Scope**       | Essential framework knowledge              | Module-specific documentation         | Focused, task-specific                |
+| **Purpose**     | Core ColdBox + language conventions        | Extended module patterns              | Step-by-step implementation guides    |
+| **Content**     | "What" and "Why" (fundamentals)           | "What" and "Why" (specialized)       | "How" and "When" (actionable)        |
+| **Size**        | ~20KB (ColdBox + language)                 | 1-5KB per guideline                   | 2-10KB per skill                      |
+| **Examples**    | ColdBox MVC structure, BoxLang syntax      | CBSecurity patterns, QB query builder | Creating REST APIs, Writing tests     |
 
-**Guidelines** provide foundational knowledge that applies broadly across your codebase. They're loaded when the AI agent starts and inform every interaction.
+**Core Guidelines** (ColdBox framework + language) are always present in agent files, providing immediate access to essential knowledge.
 
-**Skills** are activated on-demand when working on specific tasks. This reduces context bloat while providing deep expertise exactly when needed.
+**Module Guidelines** are inventoried with descriptions, allowing agents to discover and request specific module documentation when needed.
 
+**Skills** are activated on-demand when working on specific tasks. Both module guidelines and skills use the inventory pattern to reduce context bloat while providing deep expertise exactly when needed.
 
 
 ```mermaid
-graph LR
-    subgraph "Guidelines (Upfront)"
-        G1["📚 ColdBox MVC"]
-        G2["📚 WireBox DI"]
-        G3["📚 Handler Conventions"]
-        G4["📚 Routing"]
+flowchart TB
+    subgraph "Inlined (Always Present)"
+        CoreG["⚡ Core Guidelines<br/><b>ColdBox Framework</b><br/><b>BoxLang/CFML Language</b><br/>Embedded in agent files"]
     end
-    
-    subgraph "AI Agent Context"
-        Agent["🤖 AI Assistant<br/>Always loaded"]
+
+    subgraph "Inventoried (On-Request)"
+        ModuleG["📦 Module Guidelines<br/><b>CBSecurity, QB, Quick</b><br/>Listed with descriptions"]
+        Skills["🎯 Skills<br/><b>REST APIs, Testing, etc.</b><br/>Listed with descriptions"]
     end
-    
-    subgraph "Skills (On-Demand)"
-        S1["🎯 Creating REST APIs"]
-        S2["🎯 Writing Tests"]
-        S3["🎯 Database Migrations"]
-        S4["🎯 Async Programming"]
-    end
-    
-    G1 --> Agent
-    G2 --> Agent
-    G3 --> Agent
-    G4 --> Agent
-    
-    Agent -."Invoke when needed".-> S1
-    Agent -."Invoke when needed".-> S2
-    Agent -."Invoke when needed".-> S3
-    Agent -."Invoke when needed".-> S4
-    
-    style Agent fill:#9c27b0,color:#fff
-    style G1 fill:#2196f3,color:#fff
-    style G2 fill:#2196f3,color:#fff
-    style G3 fill:#2196f3,color:#fff
-    style G4 fill:#2196f3,color:#fff
-    style S1 fill:#ffc107,color:#000
-    style S2 fill:#ffc107,color:#000
-    style S3 fill:#ffc107,color:#000
-    style S4 fill:#ffc107,color:#000
+
+    AgentFile["🤖 AI Agent File<br/>(CLAUDE.md, .cursorrules, etc.)<br/>Base: ~33KB"]
+
+    CoreG --> AgentFile
+    ModuleG -.-|"Inventory Only<br/>Request: 'Load cbsecurity guideline'"| AgentFile
+    Skills -.-|"Inventory Only<br/>Request: 'Load rest-api-development skill'"| AgentFile
+
+    AgentFile --> Request["💬 AI Request<br/>'Create a REST endpoint'"]
+    Request --> Response["✨ Generated Code<br/>Using core knowledge<br/>+ on-demand resources"]
+
+    style CoreG fill:#4caf50,color:#fff
+    style ModuleG fill:#2196f3,color:#fff
+    style Skills fill:#ffc107,color:#000
+    style AgentFile fill:#9c27b0,color:#fff
+    style Request fill:#ff9800,color:#fff
+    style Response fill:#4caf50,color:#fff
 ```
 
-#### Context Management
+### Context Management
 
 ColdBox AI Integration includes sophisticated context tracking:
 
@@ -343,29 +329,41 @@ coldbox ai stats --json          # Machine-readable output
 ```
 
 
-
 ```mermaid
 flowchart LR
-    Guidelines["📚 Guidelines<br/>~85 KB"]
-    Skills["🎯 Skills<br/>~124 KB"]
-    Total["💾 Total Context<br/>~209 KB<br/>~62,700 tokens"]
-    
-    Guidelines --> Total
-    Skills --> Total
-    
-    Total --> Claude["Claude 3.5<br/>200K tokens<br/>7.84% used"]
-    Total --> GPT4["GPT-4<br/>128K tokens<br/>12.27% used"]
-    Total --> GPT35["GPT-3.5-Turbo<br/>16K tokens<br/>⚠️ 97.97% used"]
-    Total --> Gemini["Gemini 1.5 Pro<br/>1M tokens<br/>0.98% used"]
-    
-    style Total fill:#ff9800,color:#fff
+    subgraph "Inlined (Always Present)"
+        Core["⚡ Core Guidelines<br/>~20 KB<br/>ColdBox + Language"]
+    end
+
+    subgraph "On-Demand (Inventory Only)"
+        ModuleG["📦 Module Guidelines<br/>~65 KB<br/>Load when needed"]
+        Skills["🎯 Skills<br/>~124 KB<br/>Load when needed"]
+    end
+
+    AgentFile["📄 Agent File<br/>~33 KB<br/>~8,400 tokens"]
+
+    Core --> AgentFile
+    ModuleG -.-|"Inventory + Description"| AgentFile
+    Skills -.-|"Inventory + Description"| AgentFile
+
+    AgentFile --> Claude["Claude 3.5<br/>200K tokens<br/>✅ 4.2% used"]
+    AgentFile --> GPT4["GPT-4<br/>128K tokens<br/>✅ 6.6% used"]
+    AgentFile --> GPT35["GPT-3.5-Turbo<br/>16K tokens<br/>✅ 52.5% used"]
+    AgentFile --> Gemini["Gemini 1.5 Pro<br/>1M tokens<br/>✅ 0.8% used"]
+
+    style Core fill:#4caf50,color:#fff
+    style ModuleG fill:#2196f3,color:#fff
+    style Skills fill:#ffc107,color:#000
+    style AgentFile fill:#9c27b0,color:#fff
     style Claude fill:#4caf50,color:#fff
     style GPT4 fill:#8bc34a,color:#000
-    style GPT35 fill:#f44336,color:#fff
-    style Gemini fill:#2e7d32,color:#fff
+    style GPT35 fill:#8bc34a,color:#000
+    style Gemini fill:#4caf50,color:#fff
 ```
 
-#### Multi-Language Support
+**Context Optimization**: The subagent pattern achieves a **58% reduction in base context** (from ~62KB to ~33KB) while maintaining full framework knowledge through the inventory system.
+
+### Multi-Language Support
 
 ColdBox AI Integration is **the only AI system with native BoxLang and CFML support**:
 
@@ -389,62 +387,54 @@ ColdBox AI Integration is **the only AI system with native BoxLang and CFML supp
 
 ***
 
-### AI Guidelines
+## AI Guidelines
 
-Guidelines are instructional documents that teach AI agents about framework conventions, architectural patterns, and best practices. They're loaded upfront and inform all AI interactions.
+Guidelines are instructional documents that teach AI agents about framework conventions, architectural patterns, and best practices. **Core framework guidelines (ColdBox + language) are embedded directly in agent files**, while module and custom guidelines are available on-demand through an inventory system with descriptions.
 
-#### Available Guidelines
+### Available Guidelines
 
-ColdBox AI Integration includes **41+ built-in guidelines** covering the entire ecosystem:
+ColdBox AI Integration includes **46+ built-in guidelines** covering the entire ecosystem:
 
-**Core Framework (8)**
+**Core Framework (5 - Inlined in Agent Files)**
 
 * **boxlang** - BoxLang language features and syntax
 * **cfml** - CFML language fundamentals
 * **coldbox** - ColdBox framework architecture and conventions
-* **coldbox-routing** - URL routing and SES URLs
-* **wirebox** - Dependency injection and IoC
-* **logbox** - Logging and debugging
-* **cachebox** - Caching strategies
-* **async** - Asynchronous programming patterns
-
-**Testing & Quality (4)**
-
 * **testbox** - BDD/TDD testing framework
-* **testbox-cli** - TestBox command-line tools
-* **mocking** - Test doubles and mocking
-* **integration-testing** - Full-stack testing strategies
+* **docbox** - Documentation generation
 
-**Data Layer (6)**
+**Module Guidelines (41+ - Available On-Demand)**
 
+*Authentication & Security*
+* **cbsecurity** - Enterprise security framework
+* **cbauth** - Authentication system
+* **cbcsrf** - CSRF protection
+* **cbsecurity-passkeys** - Passwordless authentication
+
+*Database & ORM*
 * **qb** - Query Builder
-* **cborm** - ORM integration
-* **migrations** - Database migrations (commandbox-migrations)
 * **quick** - Active Record ORM
-* **cbvalidation** - Data validation
-* **cbsecurity** - Authentication and authorization
+* **cborm** - ORM integration
+* **cbmigrations** / **commandbox-migrations** - Database migrations
 
-**Web Development (8)**
-
+*REST & APIs*
 * **cbswagger** - API documentation
-* **cbdebugger** - Debugging tools
-* **cbstreams** - Stream processing
-* **cbjavaloader** - Java integration
-* **cbmailservices** - Email handling
-* **cbmarked** - Markdown processing
-* **elixir** - Asset pipeline
-* **vite** - Modern frontend tooling
+* **hyper** - HTTP client
+* **cbvalidation** - Data validation
+* **cors** - CORS configuration
 
-**Specialized (15+)**
-
-* **cbmessagebox** - Flash messages
+*Caching & Performance*
+* **cachebox** - Caching strategies (when not using core)
 * **cbstorages** - Storage abstractions
-* **cbfeeds** - RSS/Atom feeds
-* **cbguard** - Security middleware
-* **cbcommons** - Common utilities
-* **cbpaginator** - Pagination
-* **cbproxies** - Proxy patterns
-* And more...
+
+*Development Tools*
+* **cbdebugger** - Debugging tools
+* **route-visualizer** - Route inspection
+* **commandbox-cfformat** - Code formatting
+* **commandbox-boxlang** - BoxLang runtime
+
+*Additional Modules (20+)*
+* And many more: cbstreams, cbmailservices, cbmessagebox, cbpaginator, cbwire, mementifier, etc.
 
 View installed guidelines:
 
@@ -453,7 +443,7 @@ coldbox ai guidelines list              # Brief list
 coldbox ai guidelines list --verbose    # With descriptions
 ```
 
-#### Guideline Types
+### Guideline Types
 
 Guidelines are organized into four tiers:
 
@@ -465,7 +455,6 @@ Guidelines are organized into four tiers:
 This hierarchy allows seamless integration from framework to module to project level.
 
 
-
 ```mermaid
 graph TD
     subgraph "Priority (High to Low)"
@@ -474,12 +463,12 @@ graph TD
         Module["📦 Modules<br/>.ai/guidelines/modules/<br/>From installed packages"]
         Core["⚙️ Core<br/>.ai/guidelines/core/<br/>Built-in (Lowest Priority)"]
     end
-    
+
     Override -."Replaces".-> Core
     Override -."Replaces".-> Module
     Custom -."Adds to".-> Module
     Module -."Extends".-> Core
-    
+
     subgraph "Example: coldbox.md"
         Check{"Which version<br/>to use?"}
         UseOverride["✅ Use override version<br/>Custom conventions"]
@@ -487,12 +476,12 @@ graph TD
         UseCustom["Use custom version<br/>If exists"]
         UseCore["Use core version<br/>Default fallback"]
     end
-    
+
     Check -->|"Override exists"| UseOverride
     Check -->|"Custom exists"| UseCustom
     Check -->|"Module exists"| UseModule
     Check -->|"None exist"| UseCore
-    
+
     style Override fill:#f44336,color:#fff
     style Custom fill:#ff9800,color:#fff
     style Module fill:#2196f3,color:#fff
@@ -500,7 +489,7 @@ graph TD
     style UseOverride fill:#4caf50,color:#fff
 ```
 
-#### Custom Guidelines
+### Custom Guidelines
 
 Add project-specific guidelines to tailor AI assistance to your codebase:
 
@@ -510,9 +499,7 @@ touch .ai/guidelines/custom/payment-processing.md
 ```
 
 
-
 Example guideline structure:
-
 
 
 ```markdown
@@ -552,7 +539,7 @@ function chargeCustomer( required amount, required customerID ){
 
 Custom guidelines will be automatically included in agent configurations.
 
-#### Overriding Guidelines
+### Overriding Guidelines
 
 Override core or module guidelines to customize them for your needs:
 
@@ -566,7 +553,7 @@ edit .ai/guidelines/overrides/coldbox.md
 
 Overrides take precedence over core/module guidelines, allowing you to adapt standard documentation to your team's conventions.
 
-#### Module Guidelines
+### Module Guidelines
 
 CommandBox module authors can include AI guidelines in their packages:
 
@@ -618,13 +605,13 @@ Keep module guidelines concise (1-3KB). Users can override them if needed.
 
 ***
 
-### AI Skills
+## AI Skills
 
-Skills are on-demand coding cookbooks that provide detailed, step-by-step guidance for specific development tasks. Unlike guidelines (loaded upfront), skills are invoked when needed, keeping AI context lean while providing deep expertise.
+Skills are on-demand coding cookbooks that provide detailed, step-by-step guidance for specific development tasks. Like module guidelines, skills use an inventory system with descriptions, allowing AI agents to discover and request them when needed. This keeps AI context lean while providing deep expertise exactly when required.
 
-#### Available Skills
+### Available Skills
 
-ColdBox AI Integration includes **62+ built-in skills**:
+ColdBox AI Integration includes **71+ built-in skills** (all available on-demand through the inventory system):
 
 **Scaffolding & Creation (12)**
 
@@ -719,7 +706,7 @@ coldbox ai skills list              # Brief list
 coldbox ai skills list --verbose    # With descriptions
 ```
 
-#### Custom Skills
+### Custom Skills
 
 Create custom skills for your domain-specific workflows:
 
@@ -752,7 +739,7 @@ Use this skill when deploying ColdBox applications to Kubernetes clusters using 
 
 ## Deployment Steps
 
-### 1. Configure Helm Values
+## 1. Configure Helm Values
 
 Edit `kubernetes/values.yaml`:
 
@@ -767,7 +754,7 @@ database:
   name: myapp_production
 \`\`\`
 
-### 2. Deploy Application
+## 2. Deploy Application
 
 \`\`\`bash
 helm upgrade --install my-app ./kubernetes/chart \
@@ -775,7 +762,7 @@ helm upgrade --install my-app ./kubernetes/chart \
   --namespace production
 \`\`\`
 
-### 3. Verify Deployment
+## 3. Verify Deployment
 
 \`\`\`bash
 kubectl get pods -n production
@@ -810,7 +797,7 @@ Skills support additional files:
     └── architecture.md
 ```
 
-#### Overriding Skills
+### Overriding Skills
 
 Override built-in skills to adapt them to your conventions:
 
@@ -822,7 +809,7 @@ coldbox ai skills install creating-handlers --override
 edit .ai/skills/overrides/creating-handlers/SKILL.md
 ```
 
-#### Module Skills
+### Module Skills
 
 Module authors can bundle skills with their packages:
 
@@ -886,10 +873,10 @@ function doSomething( event, rc, prc ){
 
 ## Common Patterns
 
-### Pattern 1: Async Processing
+## Pattern 1: Async Processing
 [Details...]
 
-### Pattern 2: Error Handling
+## Pattern 2: Error Handling
 [Details...]
 
 ## Best Practices
@@ -901,22 +888,24 @@ function doSomething( event, rc, prc ){
 
 ***
 
-### AI Agents
+## AI Agents
 
 ColdBox AI Integration supports **6 major AI agents** with automatic configuration generation.
 
-#### Supported Agents
+### Supported Agents
+
+> **Note**: Agent configuration paths are centrally managed in `models/AgentRegistry.cfc`
 
 | Agent              | Config File                       | Description                    |
 | ------------------ | --------------------------------- | ------------------------------ |
 | **Claude**         | `CLAUDE.md`                       | Claude Desktop and Claude Code |
 | **GitHub Copilot** | `.github/copilot-instructions.md` | VS Code Copilot integration    |
 | **Cursor**         | `.cursorrules`                    | Cursor IDE rules               |
-| **Codex**          | `.codex/instructions.md`          | Codex AI assistant             |
-| **Gemini**         | `.gemini/instructions.md`         | Gemini CLI integration         |
-| **OpenCode**       | `.opencode/instructions.md`       | OpenCode assistant             |
+| **Codex**          | `AGENTS.md` (shared)              | Codex AI assistant             |
+| **Gemini**         | `GEMINI.md`                       | Gemini CLI integration         |
+| **OpenCode**       | `AGENTS.md` (shared)              | OpenCode assistant             |
 
-#### Agent Configuration
+### Agent Configuration
 
 Manage agent configurations:
 
@@ -942,7 +931,7 @@ Each agent configuration includes:
 * Language-specific context (BoxLang/CFML)
 * Project metadata and conventions
 
-#### Multi-Agent Development
+### Multi-Agent Development
 
 ColdBox AI Integration supports multiple agents simultaneously:
 
@@ -962,7 +951,6 @@ Benefits:
 * **Redundancy**: Switch agents if one has issues
 
 
-
 ```mermaid
 graph TB
     subgraph "Shared Knowledge Base"
@@ -970,37 +958,37 @@ graph TB
         Skills["🎯 62+ Skills"]
         MCP["🌐 30+ MCP Servers"]
     end
-    
+
     subgraph "Agent Configurations"
         Guidelines --> ClaudeConfig["CLAUDE.md"]
         Guidelines --> CopilotConfig[".github/copilot-instructions.md"]
         Guidelines --> CursorConfig[".cursorrules"]
-        Guidelines --> CodexConfig[".codex/instructions.md"]
-        Guidelines --> GeminiConfig[".gemini/instructions.md"]
-        Guidelines --> OpenCodeConfig[".opencode/instructions.md"]
-        
+        Guidelines --> CodexConfig["AGENTS.md"]
+        Guidelines --> GeminiConfig["GEMINI.md"]
+        Guidelines --> OpenCodeConfig["AGENTS.md"]
+
         Skills --> ClaudeConfig
         Skills --> CopilotConfig
         Skills --> CursorConfig
         Skills --> CodexConfig
         Skills --> GeminiConfig
         Skills --> OpenCodeConfig
-        
+
         MCP --> ClaudeConfig
     end
-    
+
     subgraph "Team Members"
         ClaudeConfig --> Dev1["👨‍💻 Developer 1<br/>Uses Claude"]
         CopilotConfig --> Dev2["👩‍💻 Developer 2<br/>Uses Copilot"]
         CursorConfig --> Dev3["👨‍💻 Developer 3<br/>Uses Cursor"]
         CodexConfig --> Dev4["👩‍💻 Developer 4<br/>Uses Codex"]
     end
-    
+
     Dev1 -."All follow same standards".-> Standards["✅ Consistent Code Quality"]
     Dev2 -.-> Standards
     Dev3 -.-> Standards
     Dev4 -.-> Standards
-    
+
     style Guidelines fill:#2196f3,color:#fff
     style Skills fill:#ffc107,color:#000
     style MCP fill:#4caf50,color:#fff
@@ -1009,11 +997,11 @@ graph TB
 
 ***
 
-### MCP Servers
+## MCP Servers
 
 Model Context Protocol (MCP) servers provide extended capabilities to AI agents. ColdBox AI Integration includes the **largest collection of MCP servers** in any framework tooling.
 
-#### Built-in MCP Servers
+### Built-in MCP Servers
 
 **30+ Core MCP Servers** organized by category:
 
@@ -1060,7 +1048,6 @@ Model Context Protocol (MCP) servers provide extended capabilities to AI agents.
 * **@modelcontextprotocol/server-youtube-transcript** - YouTube transcripts
 
 
-
 View configured MCP servers:
 
 ```bash
@@ -1068,7 +1055,7 @@ coldbox ai mcp list         # List all servers
 coldbox ai mcp info          # Show configuration details
 ```
 
-#### Custom MCP Servers
+### Custom MCP Servers
 
 Add project-specific or third-party MCP servers:
 
@@ -1097,7 +1084,7 @@ Custom server configuration in `.ai/manifest.json`:
 }
 ```
 
-#### MCP Configuration
+### MCP Configuration
 
 Generate agent-specific MCP configurations:
 
@@ -1131,11 +1118,11 @@ Example generated `.mcp.json`:
 
 ***
 
-### CLI Commands
+## CLI Commands
 
 ColdBox AI Integration provides comprehensive CLI commands for managing your AI integration.
 
-#### Setup & Management
+### Setup & Management
 
 ```bash
 # Initial setup
@@ -1151,7 +1138,7 @@ coldbox ai tree --verbose           # Include file paths
 coldbox ai refresh                  # Sync with installed modules
 ```
 
-#### Component Management
+### Component Management
 
 **Guidelines:**
 
@@ -1192,7 +1179,7 @@ coldbox ai mcp remove postgres                # Remove server
 coldbox ai mcp config                         # Generate .mcp.json
 ```
 
-#### Diagnostics & Analytics
+### Diagnostics & Analytics
 
 ```bash
 # Health diagnostics
@@ -1211,11 +1198,11 @@ coldbox ai tree --verbose           # With file paths
 
 ***
 
-### Developer Experience
+## Developer Experience
 
 ColdBox AI Integration includes unique developer experience tools not found in other solutions.
 
-#### Visual Tree Structure
+### Visual Tree Structure
 
 Visualize your AI integration structure:
 
@@ -1269,7 +1256,7 @@ AI Integration Structure for MyApp (1.0.0)
 └─────────────────┴───────┘
 ```
 
-#### Context Usage Statistics
+### Context Usage Statistics
 
 Analyze AI context consumption:
 
@@ -1323,7 +1310,7 @@ AI Integration Statistics
   Gemini 1.5 Pro: 0.98% (~62,700 tokens of 1,000,000)
 ```
 
-#### Health Diagnostics
+### Health Diagnostics
 
 Check integration health and get actionable fixes:
 
@@ -1343,11 +1330,11 @@ The doctor command validates:
 
 ***
 
-### Module Integration
+## Module Integration
 
 One of ColdBox AI Integration's most powerful features is **automatic module awareness**.
 
-#### Automatic Discovery
+### Automatic Discovery
 
 Guidelines and skills from CommandBox modules are automatically discovered:
 
@@ -1375,7 +1362,6 @@ coldbox ai skills list | grep qb
 5. Updates `.ai/manifest.json` with module sources
 
 
-
 ```mermaid
 flowchart TD
     Install["box install qb"]
@@ -1388,26 +1374,26 @@ flowchart TD
     Update --> Refresh["🔄 Refresh agent configs"]
     Refresh --> Complete(["✅ QB guidelines & skills available"])
     Skip --> End(["Done"])
-    
+
     subgraph "Module Structure"
         ModuleDir[".../modules/qb/"]
         ResourceDir["resources/coldbox-cli/ai/"]
         GuidelineFile["guidelines/core.md"]
         SkillFile["skills/using-qb/SKILL.md"]
-        
+
         ModuleDir --> ResourceDir
         ResourceDir --> GuidelineFile
         ResourceDir --> SkillFile
     end
-    
+
     style Install fill:#2196f3,color:#fff
     style Complete fill:#4caf50,color:#fff
     style Load fill:#ff9800,color:#fff
     style Integrate fill:#9c27b0,color:#fff
-    
+
 ```
 
-#### Creating Module Guidelines
+### Creating Module Guidelines
 
 Module authors: Include AI guidelines in your packages:
 
@@ -1487,7 +1473,7 @@ function example( event, rc, prc ){
 * Mention gotchas and common mistakes
 * Reference official docs for deep dives
 
-#### Creating Module Skills
+### Creating Module Skills
 
 Module authors: Include AI skills for complex tasks:
 
@@ -1537,13 +1523,13 @@ Use this skill when:
 
 ## Step-by-Step Guide
 
-### 1. Installation
+## 1. Installation
 
 \`\`\`bash
 box install your-module
 \`\`\`
 
-### 2. Configuration
+## 2. Configuration
 
 Add to `config/ColdBox.cfc`:
 
@@ -1558,7 +1544,7 @@ moduleSettings = {
 };
 \`\`\`
 
-### 3. Basic Implementation
+## 3. Basic Implementation
 
 Create a service that uses the module:
 
@@ -1593,7 +1579,7 @@ component singleton {
 }
 \`\`\`
 
-### 4. Handler Integration
+## 4. Handler Integration
 
 Use in your handlers:
 
@@ -1610,7 +1596,7 @@ component {
 }
 \`\`\`
 
-### 5. Testing
+## 5. Testing
 
 Create tests for your integration:
 
@@ -1632,7 +1618,7 @@ component extends="testbox.system.BaseSpec" {
 
 ## Common Patterns
 
-### Pattern 1: Async Processing
+## Pattern 1: Async Processing
 
 For long-running operations:
 
@@ -1645,7 +1631,7 @@ runAsync( () => {
 });
 \`\`\`
 
-### Pattern 2: Retry Logic
+## Pattern 2: Retry Logic
 
 With built-in retries:
 
@@ -1668,13 +1654,13 @@ function processWithRetry( data ){
 
 ## Troubleshooting
 
-### Issue: "Module not initialized"
+## Issue: "Module not initialized"
 **Solution**: Ensure module is loaded in `config/ColdBox.cfc` modules array
 
-### Issue: API timeouts
+## Issue: API timeouts
 **Solution**: Increase `timeout` setting or implement async processing
 
-### Issue: Cache invalidation
+## Issue: Cache invalidation
 **Solution**: Call `moduleService.clearCache()` after data modifications
 
 ## Performance Tips
@@ -1703,9 +1689,9 @@ function processWithRetry( data ){
 
 ***
 
-### Best Practices
+## Best Practices
 
-#### Managing Context Size
+### Managing Context Size
 
 **Monitor Usage Regularly:**
 
@@ -1727,7 +1713,7 @@ coldbox ai stats
 * ⚠️ **High** (60-90%): Consider optimization
 * ⛔ **Very High** (> 90%): Reduce immediately for best AI performance
 
-#### Project-Specific Customization
+### Project-Specific Customization
 
 **Use Custom Guidelines for:**
 
@@ -1760,7 +1746,7 @@ coldbox ai stats
         └── migrating-data/        # Data migration
 ```
 
-#### Team Collaboration
+### Team Collaboration
 
 **Version Control:**
 
@@ -1772,14 +1758,6 @@ coldbox ai stats
 .ai/skills/custom/
 .ai/manifest.json
 
-# DON'T commit these (regenerated):
-CLAUDE.md
-.github/copilot-instructions.md
-.cursorrules
-.codex/instructions.md
-.gemini/instructions.md
-.opencode/instructions.md
-.mcp.json
 ```
 
 **Team Workflow:**
