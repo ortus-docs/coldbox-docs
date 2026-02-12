@@ -23,10 +23,11 @@ And constructed with the following guidelines:
 For all ColdBox releases, updates are provided for 12 months, and security fixes are provided for 2 years after the next major release.
 
 | Version | Release | Updates | Security Fixes |
-|---------|---------|---------|----------------|
-| **8.x** | 2025    | 2026    | 2027           |
-| 7.x     | 2023    | 2024    | 2025           |
-| 6.x     | 2022    | 2023    | 2024           |
+| --- | --- | --- | --- |
+| 9.x | 2027 | 2029 | 2030 |
+| **8.x** | 2025 | 2027 | 2028 |
+| 7.x | 2023 | 2024 | 2026 |
+| 6.x | 2022 | 2023 | 2025 |
 
 If you need professional support, please contact [Ortus Solutions](https://www.ortussolutions.com/services/support).
 
