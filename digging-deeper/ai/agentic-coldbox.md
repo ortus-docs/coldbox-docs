@@ -25,7 +25,11 @@ icon: terminal
 
 ## Introduction
 
-ColdBox AI Integration supercharges your development workflow by providing comprehensive AI assistance for both **BoxLang** and **CFML** applications. Unlike single-framework solutions, ColdBox AI Integration offers:
+Welcome to Agentic ColdBox!  We have enhanced the ColdBox CLI to include a new `ai` namespace with a plethora of commands and tools to make your ColdBox applications shine with Coding Agents!
+
+ColdBox AI Integration supercharges your development workflow by providing comprehensive AI assistance for both **BoxLang** and **CFML** applications. 
+
+### Key Features
 
 * **Dual-Language Support**: First-class support for BoxLang and CFML with automatic detection
 * **Multi-Agent Ecosystem**: Works with Claude, GitHub Copilot, Cursor, Codex, Gemini, and OpenCode
@@ -42,7 +46,9 @@ The system combines four key components:
 3. **Agents** - AI assistant configurations (Claude, Copilot, etc.)
 4. **MCP Servers** - Context protocol servers for enhanced AI capabilities
 
+{% hint style="info" %}
 **Subagent Pattern Architecture**: Core framework guidelines (ColdBox + language) are embedded directly in agent files for immediate access, while module guidelines and all skills are available on-demand. This reduces context from ~62KB to ~8KB while maintaining full capability.
+{% endhint %}
 
 Together, these components ensure AI assistants generate high-quality, idiomatic code that follows ColdBox conventions and leverages the full power of the BoxLang/CFML ecosystem.
 
