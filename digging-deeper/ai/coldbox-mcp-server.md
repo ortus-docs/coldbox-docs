@@ -18,14 +18,14 @@ icon: server
 ┌──────────────────────────────────────────────────────────────────────┐
 │                        Your ColdBox Application                      │
 │                                                                      │
-│  ┌─────────────┐  ┌─────────────────────────────────────────────┐   │
-│  │  cbMCP      │  │              MCP Tool Registry               │   │
-│  │  Module     │  │                                             │   │
-│  │             │  │  SystemTools   HandlerTools  RoutingTools   │   │
-│  │  /cbmcp     │  │  ModuleTools   WireBoxTools  CacheBoxTools  │   │
-│  │  (endpoint) │  │  LogBoxTools   SchedulerTools AsyncTools    │   │
-│  │             │  │  InterceptorTools                           │   │
-│  └──────┬──────┘  └─────────────────────────────────────────────┘   │
+│  ┌─────────────┐  ┌─────────────────────────────────────────────┐    │
+│  │  cbMCP      │  │              MCP Tool Registry              │    │
+│  │  Module     │  │                                             │    │
+│  │             │  │  SystemTools   HandlerTools  RoutingTools   │    │
+│  │  /cbmcp     │  │  ModuleTools   WireBoxTools  CacheBoxTools  │    │
+│  │  (endpoint) │  │  LogBoxTools   SchedulerTools AsyncTools    │    │
+│  │             │  │  InterceptorTools                           │    │
+│  └──────┬──────┘  └─────────────────────────────────────────────┘    │
 │         │                                                            │
 └─────────┼────────────────────────────────────────────────────────────┘
           │  HTTP / SSE (MCP protocol)
@@ -83,6 +83,8 @@ Once installed and the application boots, the MCP endpoint is **immediately live
 
 ```
 http://<host>:<port>/cbmcp
+// If you enable SSL, it will be available at, which we recommend for secure AI client connections:
+https://<host>:<port>/cbmcp
 ```
 
 No routing configuration is needed — cbMCP registers its own entry point at `cbmcp` via `ModuleConfig.bx`.
@@ -96,6 +98,7 @@ No routing configuration is needed — cbMCP registers its own entry point at `c
 Add the following entry to `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) or the equivalent path on Windows:
 
 ```json
+// If using http insecure connection:
 {
   "mcpServers": {
     "cbMCP": {
@@ -106,6 +109,16 @@ Add the following entry to `~/Library/Application Support/Claude/claude_desktop_
         "--url",
         "http://127.0.0.1:<port>/cbmcp"
       ]
+    }
+  }
+}
+
+// If you are using SSL (recommended):
+{
+  "mcpServers": {
+    "cbMCP": {
+      "type": "http",
+      "url": "https://127.0.0.1:<port>/cbmcp"
     }
   }
 }
@@ -124,7 +137,7 @@ Add to your `.vscode/mcp.json` (project-scoped) or your user-level VS Code MCP s
   "servers": {
     "cbMCP": {
       "type": "http",
-      "url": "http://127.0.0.1:<port>/cbmcp"
+      "url": "https://127.0.0.1:<port>/cbmcp"
     }
   }
 }
@@ -135,7 +148,7 @@ Add to your `.vscode/mcp.json` (project-scoped) or your user-level VS Code MCP s
 Point the client directly at the SSE endpoint:
 
 ```
-http://<host>:<port>/cbmcp
+https://<host>:<port>/cbmcp
 ```
 
 ---
@@ -310,13 +323,31 @@ class {
 Both `@AITool` and `@mcpTool` annotations are required. `@AITool` registers the function with the `bx-ai` tool registry; `@mcpTool` marks it for MCP protocol discovery and exposure.
 {% endhint %}
 
-Register the class as a WireBox mapping so the module can discover and inject it:
+Get access to the MCP server and register more tools (https://ai.ortusbooks.com/advanced/mcp-server#tool-registration) or [prompts](https://ai.ortusbooks.com/advanced/mcp-server#prompt-registration) or [resources](https://ai.ortusbooks.com/advanced/mcp-server#resource-registration)!
 
 ```javascript
-// config/WireBox.bx  (or inside your ModuleConfig.bx)
-map( "MyAppTools" )
-    .to( "models.tools.MyAppTools" )
-    .asSingleton();
+// Get the cbMCP server instance from BoxLang AI
+mcpServer( "cbMCP" )
+    // Register a new tool class
+    .registerTool(
+        aiTool( "getWeather", "Get current weather for a location", ( location ) => {
+            return weatherService.getCurrent( location )
+        } )
+        .describeArg( "location", "City name or coordinates" )
+    )
+    // Register an array of tools
+    .registerTools( [
+        aiTool( "getNews", "Get latest news headlines", ( topic ) => {
+            return newsService.getHeadlines( topic )
+        } ).describeArg( "topic", "News topic or category" ),
+        aiTool( "getTime", "Get current server time", () => {
+            return new Date().toISOString();
+        } )
+    ] )
+    // Scan my own tools
+    .scan( "models.aitools" )
+    // Scan my single tool
+    .scan( "my.tool.Here" )
 ```
 
 ---

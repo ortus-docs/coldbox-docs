@@ -7,9 +7,9 @@ description: >-
 
 # AI
 
-ColdBox 8.x brings first-class artificial intelligence capabilities to the platform, organized around four complementary pillars:
+ColdBox 8.x brings first-class artificial intelligence capabilities to the platform thanks to [BoxLang](https://www.boxlang.io/) and [BoxLang AI](https://ai.boxlang.io), organized around four complementary pillars:
 
-1. **BoxLang AI (`bx-ai`)** — a unified fluent SDK for every major LLM provider, supporting chat, streaming, RAG pipelines, tool calling, vector memory, and autonomous agents
+1. **BoxLang AI (`bx-ai`)** — a unified fluent SDK for every major LLM provider, supporting chat, streaming, RAG pipelines, tool calling, vector memory, and autonomous agents: https://ai.boxlang.io
 2. **AI Routing** — first-class Router terminators (`toAi()`, `toMCP()`) that auto-generate standard HTTP endpoints for any AI runnable or MCP server, no boilerplate required
 3. **ColdBox MCP Server (`cbMCP`)** — a ColdBox module that exposes your running application as a live MCP server, giving any AI client (Claude, Copilot, Cursor) real-time introspection into routing, handlers, WireBox, CacheBox, LogBox, schedulers, and more
 4. **Agentic ColdBox CLI** — AI guidelines, skills, agents, and MCP servers baked into `coldbox-cli` so your AI coding assistant always knows the ColdBox ecosystem
@@ -18,7 +18,10 @@ ColdBox 8.x brings first-class artificial intelligence capabilities to the platf
 Most AI features require **BoxLang** and the **bx-ai** module. CFML engines are not supported for AI routing or the `bx-ai` library.
 
 ```bash
+# Using CommandBox
 box install bx-ai
+# Using OS package manager
+install-bx-module bx-ai
 ```
 {% endhint %}
 
@@ -72,7 +75,6 @@ graph TB
         Claude["Anthropic\nClaude"]
         Gemini["Google\nGemini"]
         Ollama["Ollama\n(Local)"]
-        Bedrock["AWS\nBedrock"]
     end
 
     HTTP --> Router
@@ -102,7 +104,6 @@ graph TB
     LLMClient --> Claude
     LLMClient --> Gemini
     LLMClient --> Ollama
-    LLMClient --> Bedrock
 
     style ColdBox fill:#1e3a5f,stroke:#4a90d9,stroke-width:2px,color:#fff
     style BXAI fill:#2d5016,stroke:#6abf40,stroke-width:2px,color:#fff
@@ -155,7 +156,7 @@ graph LR
 
 ## Pillar 2 — AI Routing
 
-ColdBox Router terminators let you expose any `IAiRunnable` object — or any MCP server — as a fully-formed HTTP API **in a single line**.
+ColdBox Router terminators let you expose any `IAiRunnable` object — or any MCP server — as a fully-formed HTTP API **in a single line**.  This will allow you to focus on building your AI logic and not worry about the HTTP endpoint plumbing. The `IAiRunnable` interface defines three methods (`invoke()`, `stream()`, and `batch()`) that you can implement to handle different types of AI interactions, and the Router terminators will take care of routing requests to the correct method based on the HTTP verb and headers.
 
 ### toAi() — Four-endpoint expansion
 
@@ -176,6 +177,8 @@ graph LR
 ```
 
 ### toMCP() — Model Context Protocol server
+
+Expose your MCP servers to any MCP-compatible AI client (Claude, Copilot, Cursor) with a single terminator:
 
 ```
 route( "/mcp/:mcpServer" ).toMCP();
@@ -240,19 +243,19 @@ The `coldbox-cli` CommandBox module embeds AI context directly into your develop
 ┌─────────────────────────────────────────────────────────────────┐
 │                  Agentic ColdBox CLI                            │
 │                                                                 │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐  │
-│  │  Guidelines  │  │    Skills    │  │       Agents         │  │
-│  │  46+ total   │  │  71+ total   │  │  Claude, Copilot,    │  │
-│  │  Core inline │  │  On-demand   │  │  Cursor, Codex,      │  │
-│  │  Modules OD  │  │  cookbooks   │  │  Gemini, OpenCode    │  │
-│  └──────┬───────┘  └──────┬───────┘  └──────────┬───────────┘  │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐   │
+│  │  Guidelines  │  │    Skills    │  │       Agents         │   │
+│  │  46+ total   │  │  71+ total   │  │  Claude, Copilot,    │   │
+│  │  Core inline │  │  On-demand   │  │  Cursor, Codex,      │   │
+│  │  Modules OD  │  │  cookbooks   │  │  Gemini, OpenCode    │   │
+│  └──────┬───────┘  └──────┬───────┘  └──────────┬───────────┘   │
 │         │                 │                     │               │
 │         └─────────────────┴──────────────┬──────┘               │
 │                                          ▼                      │
 │                              ┌───────────────────────┐          │
-│                              │    MCP Servers (30+)   │          │
-│                              │  ColdBox, ForgeBox,    │          │
-│                              │  TestBox, WireBox, ... │          │
+│                              │    MCP Servers (30+)  │          │
+│                              │  ColdBox, ForgeBox,   │          │
+│                              │  TestBox, WireBox, ...│          │
 │                              └───────────────────────┘          │
 └─────────────────────────────────────────────────────────────────┘
             │                               │
@@ -267,7 +270,7 @@ The `coldbox-cli` CommandBox module embeds AI context directly into your develop
 
 **How it works:**
 
-1. You run `coldbox ai setup` — agent config files are written to your project
+1. You run `coldbox ai install` — agent config files are written to your project
 2. Core ColdBox + language guidelines are **inlined** in the agent file (~8 KB context)
 3. Module guidelines and skills are loaded **on-demand** when the AI needs them — keeping context lean
 4. MCP servers expose live data (ForgeBox packages, documentation, framework internals) to compatible IDE agents
@@ -317,46 +320,23 @@ box install bx-ai
 
 ### 2. Create an AI Runnable
 
+Create an agent or a model pipeline:
+
 ```javascript
 // models/ChatAgent.bx
-class implements="coldbox.system.web.routing.IAiRunnable" {
-
-    property name="ai" inject="BxAI@bx-ai";
-
-    function invoke( event, rc, prc ){
-        var prompt = rc.prompt ?: "Hello!";
-        var response = ai.chat()
-            .withModel( "gpt-4o" )
-            .send( prompt );
-        return event.renderData( type="json", data={ response: response.getText() } );
-    }
-
-    function stream( event, rc, prc ){
-        var prompt = rc.prompt ?: "Hello!";
-        event.setHTTPHeader( name="Content-Type", value="text/event-stream" );
-        ai.chat()
-            .withModel( "gpt-4o" )
-            .stream( prompt, ( token ) => {
-                event.write( "data: " & serializeJSON({ token: token }) & chr(10) & chr(10) );
-            } );
-        event.write( "data: [DONE]" & chr(10) & chr(10) );
-    }
-
-    function batch( event, rc, prc ){
-        var prompts  = rc.prompts ?: [];
-        var responses = ai.chat().withModel( "gpt-4o" ).batch( prompts );
-        return event.renderData( type="json", data={ responses: responses } );
-    }
-
-    function info( event, rc, prc ){
-        return event.renderData( type="json", data={
-            model       : "gpt-4o",
-            provider    : "openai",
-            capabilities: [ "invoke", "stream", "batch" ]
-        } );
-    }
-
-}
+// Full-featured agent (v3.0)
+agent = aiAgent(
+    name           : "SupportBot",
+    description    : "Customer support specialist",
+    instructions   : "Help customers with product questions",
+    model          : aiModel( "openai" ),
+    tools          : [ searchTool, ticketTool ],
+    memory         : aiMemory( "cache" ),
+    skills         : aiSkill( ".ai/skills" ),
+    availableSkills: aiSkill( ".ai/advanced-skills" ),
+    middleware     : [ new LoggingMiddleware(), new RetryMiddleware() ],
+    mcpServers     : [ { url: "http://tools-server/mcp", toolNames: ["search"] } ]
+)
 ```
 
 ### 3. Register the Route
@@ -364,7 +344,7 @@ class implements="coldbox.system.web.routing.IAiRunnable" {
 ```javascript
 // config/Router.bx
 function configure(){
-    route( "/api/chat" ).toAi( "models.ChatAgent" );
+    route( "/agents/support" ).toAi( agent )
 }
 ```
 
@@ -372,12 +352,12 @@ function configure(){
 
 ```bash
 # Synchronous inference
-curl -X POST https://myapp.com/api/chat/invoke \
+curl -X POST https://myapp.com/agents/support/invoke \
      -H "Content-Type: application/json" \
      -d '{"prompt":"Explain dependency injection in one sentence"}'
 
 # Server-Sent Events stream
-curl -X POST https://myapp.com/api/chat/stream \
+curl -X POST https://myapp.com/agents/support/stream \
      -H "Accept: text/event-stream" \
      -d '{"prompt":"Write a haiku about routing"}'
 ```
