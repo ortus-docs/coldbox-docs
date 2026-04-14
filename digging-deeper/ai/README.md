@@ -405,4 +405,3 @@ curl -X POST https://myapp.com/api/chat/stream \
 | [Agentic ColdBox](agentic-coldbox.md) | AI features in `coldbox-cli` — guidelines, skills, agents, and MCP servers |
 | [ColdBox MCP Server](coldbox-mcp-server.md) | `cbMCP` module — live MCP server exposing 50+ introspection tools for your running app |
 | [AI Routing](../../the-basics/routing/routing-dsl/ai-routing.md) | `toAi()` and `toMCP()` router terminators — full reference |
-

@@ -176,8 +176,8 @@ Remember that some timezones utilize daylight savings time. When daylight saving
 By default the scheduler will register a `scheduled` executor with a default of 20 threads for you with a name of `appScheduler@coldbox-scheduler.` If you want to add in your own executor as per your configurations, then just call the `setExecutor()` method.
 
 ```javascript
-setExecutor( 
-    asyncManager.newScheduledExecutor( "mymymy", 50 ) 
+setExecutor(
+    asyncManager.newScheduledExecutor( "mymymy", 50 )
 );
 ```
 
@@ -613,7 +613,7 @@ function configure(){
 		.onFailure( function( task, exception ){
 			writeDump( var='====> Scope test failed (#getThreadName()#)!! #exception.message# #exception.stacktrace.left( 500 )#', output="console" );
 		} );
-		
+
 }
 ```
 
