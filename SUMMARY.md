@@ -234,6 +234,9 @@
 
 ## Digging Deeper
 
+* [Delegates](digging-deeper/delegates/README.md)
+  * [Core Delegates](digging-deeper/delegates/core-delegates.md)
+  * [ColdBox Delegates](digging-deeper/delegates/coldbox-delegates.md)
 * [AI](digging-deeper/ai/README.md)
   * [BoxLang AI](digging-deeper/ai/boxlang-ai.md)
   * [Agentic ColdBox](digging-deeper/ai/agentic-coldbox.md)
