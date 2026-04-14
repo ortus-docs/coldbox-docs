@@ -200,6 +200,7 @@ Every scheduler has the following injections available to you in the `variables`
 | `executor`       | Scheduled executor                                                            |
 | `log`            | A pre-configured log object                                                   |
 | `started`        | A boolean flag indicating if the scheduler has started or not                 |
+| `startedAt`      | A date/time stamp of when the scheduler was started                           |
 | `serverFixation` | The boolean flag that indicates the default for server fixation for all tasks |
 | `tasks`          | The collection of registered tasks                                            |
 | `timezone`       | Java based timezone object                                                    |

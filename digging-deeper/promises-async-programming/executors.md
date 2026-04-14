@@ -287,6 +287,42 @@ function configure(){
 
 ColdBox will register your executors upon startup and un-register and shut them down when the module is unloaded.
 
+### Virtual Thread Executor
+
+ColdBox also supports **Java 21 Virtual Thread** executors via the `virtual` type. Virtual threads are lightweight, JVM-managed threads designed for high-throughput I/O-bound workloads. Instead of blocking a platform thread, each task runs on its own virtual thread — eliminating thread-pool sizing concerns for tasks that spend most of their time waiting on I/O (database queries, HTTP calls, file reads, etc.).
+
+{% hint style="warning" %}
+Virtual thread executors require **Java 21+**. Using this type on an older JVM will throw a runtime error.
+{% endhint %}
+
+```javascript
+// In your config/ColdBox.cfc
+function configure(){
+
+    executors = {
+        "io-tasks" : {
+            "type" : "virtual"
+        }
+    };
+
+}
+```
+
+{% hint style="info" %}
+The `virtual` type does **not** accept a `threads` setting — each task automatically gets its own virtual thread. This is by design and matches Java's `Executors.newVirtualThreadPerTaskExecutor()` behavior.
+{% endhint %}
+
+Inject and use a virtual thread executor just like any other registered executor:
+
+```javascript
+property name="ioTasks" inject="executor:io-tasks";
+
+function processRequests( items ){
+    return asyncManager
+        .allApply( items, ( item ) => fetchRemote( item ), ioTasks );
+}
+```
+
 ### WireBox Injection DSL
 
 We have extended WireBox so you can inject registered executors using the following DSL: `executors:{name}`
