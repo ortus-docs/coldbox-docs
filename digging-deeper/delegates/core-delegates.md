@@ -38,7 +38,7 @@ Provides access to the ColdBox `AsyncManager`. Delegates `newFuture()` and `arra
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```bx
+```java
 class delegates="Async@coreDelegates" {
 
     function process() {
@@ -73,7 +73,7 @@ Delegates **all** public methods from `coldbox.system.async.time.DateTimeHelper`
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```bx
+```java
 class delegates="DateTime@coreDelegates" {
 
     function isExpired( required date expiresAt ) {
@@ -125,7 +125,7 @@ In ColdBox 8+, the old `getSystemSetting()`, `getSystemProperty()`, and `getEnv(
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```bx
+```java
 class delegates="Env@coreDelegates" {
 
     function getDatabaseUrl() {
@@ -178,7 +178,7 @@ Fluent flow-control methods. All methods return the parent object so calls can b
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```bx
+```java
 class delegates="Flow@coreDelegates" {
 
     function save( required struct data ) {
@@ -224,7 +224,7 @@ JSON serialization utilities. `toJson`, `prettyJson`, and `toPrettyJson` are del
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```bx
+```java
 class delegates="JsonUtil@coreDelegates" {
 
     function toApiResponse( required struct data ) {
@@ -277,7 +277,7 @@ If you need to populate an object **from the current HTTP request collection**, 
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```bx
+```java
 class delegates="Population@coreDelegates" {
 
     function update( required struct data ) {
@@ -331,7 +331,7 @@ String manipulation and formatting utilities.
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```bx
+```java
 class delegates="StringUtil@coreDelegates" {
 
     function getPageSlug( required string title ) {

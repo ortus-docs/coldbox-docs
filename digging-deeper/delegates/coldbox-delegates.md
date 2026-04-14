@@ -41,7 +41,7 @@ Delegates mode-detection methods from the ColdBox `Controller`. Useful for condi
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```bx
+```java
 class delegates="AppModes@cbDelegates" {
 
     function getConfig() {
@@ -118,7 +118,7 @@ Delegates interception methods from the ColdBox `InterceptorService`. Allows any
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```bx
+```java
 class delegates="Interceptor@cbDelegates" {
 
     function save( required entity ) {
@@ -181,7 +181,7 @@ Delegates file and directory location methods from the ColdBox `Controller`. Use
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```bx
+```java
 class delegates="Locators@cbDelegates" {
 
     function loadTemplate( required string name ) {
@@ -257,7 +257,7 @@ This is different from `Population@coreDelegates`. The ColdBox version defaults 
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```bx
+```java
 // In a handler — rc is automatically the source when no memento is given
 class delegates="Population@cbDelegates" {
 
@@ -329,7 +329,7 @@ Delegates rendering methods from the ColdBox `Renderer`. Allows any object — s
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```bx
+```java
 class delegates="Rendering@cbDelegates" {
 
     function buildEmailBody( required struct user ) {
@@ -392,7 +392,7 @@ Delegates routing and URL-building methods from the ColdBox `RequestContext`. Us
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```bx
+```java
 class delegates="Routable@cbDelegates" {
 
     function getProfileUrl( required string username ) {
@@ -452,7 +452,7 @@ Delegates settings access methods from the ColdBox `Controller`. Provides read/w
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```bx
+```java
 class delegates="Settings@cbDelegates" {
 
     function getApiBaseUrl() {
@@ -515,7 +515,7 @@ Delegates compose cleanly. A scheduler that needs to render emails, read setting
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```bx
+```java
 class
     extends="coldbox.system.web.tasks.ColdBoxScheduledTask"
     delegates="Rendering@cbDelegates,

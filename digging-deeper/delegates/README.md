@@ -23,7 +23,7 @@ ColdBox registers delegates under two WireBox namespaces:
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```bx
+```java
 // A model that can render views, read settings, and build links
 class
     delegates="Rendering@cbDelegates,
@@ -68,7 +68,7 @@ Or use individual `property` injections when you need prefixes/suffixes or targe
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```bx
+```java
 class {
 
     property name="rendering" inject="Rendering@cbDelegates" delegate;
