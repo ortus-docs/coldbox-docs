@@ -27,7 +27,7 @@ icon: terminal
 
 Welcome to Agentic ColdBox!  We have enhanced the ColdBox CLI to include a new `ai` namespace with a plethora of commands and tools to make your ColdBox applications shine with Coding Agents!
 
-ColdBox AI Integration supercharges your development workflow by providing comprehensive AI assistance for both **BoxLang** and **CFML** applications. 
+ColdBox AI Integration supercharges your development workflow by providing comprehensive AI assistance for both **BoxLang** and **CFML** applications.
 
 ### Key Features
 
@@ -1001,54 +1001,173 @@ graph TB
 
 ## MCP Servers
 
-Model Context Protocol (MCP) servers provide extended capabilities to AI agents. ColdBox AI Integration includes the **largest collection of MCP servers** in any framework tooling.
+Model Context Protocol (MCP) servers provide extended capabilities to AI agents. ColdBox AI Integration includes the **largest collection of MCP servers** in any framework tooling by being able to add them according to what you are using in your applications.  These servers will be tracked in your application and used when needed. You can also add custom ones and extend the built-in servers with additional functionality.
 
 ### Built-in MCP Servers
 
-**30+ Core MCP Servers** organized by category:
-
-**Development Tools (10)**
-
-* **@modelcontextprotocol/server-filesystem** - File system operations
-* **@modelcontextprotocol/server-github** - GitHub integration
-* **@modelcontextprotocol/server-gitlab** - GitLab integration
-* **@modelcontextprotocol/server-git** - Git operations
-* **@modelcontextprotocol/server-brave-search** - Web search
-* **@modelcontextprotocol/server-fetch** - HTTP requests
-* **@modelcontextprotocol/server-memory** - Persistent memory
-* **@modelcontextprotocol/server-sequential-thinking** - Reasoning chains
-* **@modelcontextprotocol/server-everart** - Image generation
-* **@modelcontextprotocol/server-slack** - Slack integration
-
-**Database (5)**
-
-* **@modelcontextprotocol/server-postgres** - PostgreSQL
-* **@modelcontextprotocol/server-mysql** - MySQL/MariaDB
-* **@modelcontextprotocol/server-sqlite** - SQLite
-* **@modelcontextprotocol/server-mssql** - SQL Server
-* **@modelcontextprotocol/server-mongodb** - MongoDB
-
-**Cloud & Infrastructure (7)**
-
-* **@modelcontextprotocol/server-aws-kb-retrieval-server** - AWS Knowledge Bases
-* **@modelcontextprotocol/server-cloudflare-ai** - Cloudflare AI
-* **@modelcontextprotocol/server-google-drive** - Google Drive
-* **@modelcontextprotocol/server-google-maps** - Google Maps API
-* **@modelcontextprotocol/server-gdrive** - Advanced Drive integration
-* **@modelcontextprotocol/server-kubernetes** - K8s cluster management
-* **@modelcontextprotocol/server-docker** - Docker operations
-
-**Productivity (8)**
-
-* **@modelcontextprotocol/server-puppeteer** - Browser automation
-* **@modelcontextprotocol/server-playwright** - Browser testing
-* **@modelcontextprotocol/server-sentry** - Error tracking
-* **@modelcontextprotocol/server-linear** - Project management
-* **@modelcontextprotocol/server-obsidian** - Note management
-* **@modelcontextprotocol/server-raycast** - Raycast integration
-* **@modelcontextprotocol/server-time** - Time operations
-* **@modelcontextprotocol/server-youtube-transcript** - YouTube transcripts
-
+```
+{
+// Core Platform
+"boxlang" : {
+    "name"        : "boxlang",
+    "description" : "BoxLang Language Documentation",
+    "url"         : "https://ai.ortusbooks.com/~gitbook/mcp"
+},
+"boxlang-ide" : {
+    "name"        : "boxlang-ide",
+    "description" : "BoxLang IDE Documentation",
+    "url"         : "https://boxlang-ide.ortusbooks.com/~gitbook/mcp"
+},
+"modern-cfml" : {
+    "name"        : "modern-cfml",
+    "description" : "Modern CFML Guide",
+    "url"         : "https://modern-cfml.ortusbooks.com/~gitbook/mcp"
+},
+// Core Frameworks
+"coldbox" : {
+    "name"        : "coldbox",
+    "description" : "ColdBox Framework Documentation",
+    "url"         : "https://coldbox.ortusbooks.com/~gitbook/mcp"
+},
+"commandbox" : {
+    "name"        : "commandbox",
+    "description" : "CommandBox CLI Documentation",
+    "url"         : "https://commandbox.ortusbooks.com/~gitbook/mcp"
+},
+"testbox" : {
+    "name"        : "testbox",
+    "description" : "TestBox Testing Framework",
+    "url"         : "https://testbox.ortusbooks.com/~gitbook/mcp"
+},
+"wirebox" : {
+    "name"        : "wirebox",
+    "description" : "WireBox Dependency Injection",
+    "url"         : "https://wirebox.ortusbooks.com/~gitbook/mcp"
+},
+"cachebox" : {
+    "name"        : "cachebox",
+    "description" : "CacheBox Caching Framework",
+    "url"         : "https://cachebox.ortusbooks.com/~gitbook/mcp"
+},
+"logbox" : {
+    "name"        : "logbox",
+    "description" : "LogBox Logging Framework",
+    "url"         : "https://logbox.ortusbooks.com/~gitbook/mcp"
+},
+"docbox" : {
+    "name"        : "docbox",
+    "description" : "DocBox Documentation Generator",
+    "url"         : "https://docbox.ortusbooks.com/~gitbook/mcp"
+},
+// ORM & Database
+"bxorm" : {
+    "name"        : "bxorm",
+    "description" : "BoxLang ORM",
+    "url"         : "https://bxorm.ortusbooks.com/~gitbook/mcp"
+},
+"cborm" : {
+    "name"        : "cborm",
+    "description" : "ColdBox ORM Utilities",
+    "url"         : "https://coldbox-orm.ortusbooks.com/~gitbook/mcp"
+},
+"qb" : {
+    "name"        : "qb",
+    "description" : "Query Builder (QB)",
+    "url"         : "https://qb.ortusbooks.com/~gitbook/mcp"
+},
+"quick" : {
+    "name"        : "quick",
+    "description" : "Quick ORM Active Record",
+    "url"         : "https://quick.ortusbooks.com/~gitbook/mcp"
+},
+"cfmigrations" : {
+    "name"        : "cfmigrations",
+    "description" : "Database Migrations",
+    "url"         : "https://cfmigrations.ortusbooks.com/~gitbook/mcp"
+},
+// Security
+"cbsecurity" : {
+    "name"        : "cbsecurity",
+    "description" : "CBSecurity Authentication/Authorization",
+    "url"         : "https://coldbox-security.ortusbooks.com/~gitbook/mcp"
+},
+"cbauth" : {
+    "name"        : "cbauth",
+    "description" : "CBAuth User Authentication",
+    "url"         : "https://cbauth.ortusbooks.com/~gitbook/mcp"
+},
+"cbsso" : {
+    "name"        : "cbsso",
+    "description" : "CBSSO Single Sign-On",
+    "url"         : "https://cbsso.ortusbooks.com/~gitbook/mcp"
+},
+// Validation & Data
+"cbvalidation" : {
+    "name"        : "cbvalidation",
+    "description" : "CBValidation Validation Framework",
+    "url"         : "https://coldbox-validation.ortusbooks.com/~gitbook/mcp"
+},
+"cbi18n" : {
+    "name"        : "cbi18n",
+    "description" : "CBI18N Internationalization",
+    "url"         : "https://coldbox-i18n.ortusbooks.com/~gitbook/mcp"
+},
+"cbmailservices" : {
+    "name"        : "cbmailservices",
+    "description" : "CBMailServices Email Integration",
+    "url"         : "https://coldbox-mailservices.ortusbooks.com/~gitbook/mcp"
+},
+// Development Tools
+"cbdebugger" : {
+    "name"        : "cbdebugger",
+    "description" : "CBDebugger Debugging Tools",
+    "url"         : "https://cbdebugger.ortusbooks.com/~gitbook/mcp"
+},
+"cbelasticsearch" : {
+    "name"        : "cbelasticsearch",
+    "description" : "CBElasticsearch Integration",
+    "url"         : "https://cbelasticsearch.ortusbooks.com/~gitbook/mcp"
+},
+"cbfs" : {
+    "name"        : "cbfs",
+    "description" : "CBFS File System Abstraction",
+    "url"         : "https://cbfs.ortusbooks.com/~gitbook/mcp"
+},
+"cfconfig" : {
+    "name"        : "cfconfig",
+    "description" : "CFConfig Server Configuration",
+    "url"         : "https://cfconfig.ortusbooks.com/~gitbook/mcp"
+},
+// Modern Development
+"cbwire" : {
+    "name"        : "cbwire",
+    "description" : "CBWire Reactive Components",
+    "url"         : "https://cbwire.ortusbooks.com/~gitbook/mcp"
+},
+"cbq" : {
+    "name"        : "cbq",
+    "description" : "CBQ Job Queues",
+    "url"         : "https://cbq.ortusbooks.com/~gitbook/mcp"
+},
+"megaphone" : {
+    "name"        : "megaphone",
+    "description" : "Megaphone Messaging",
+    "url"         : "https://megaphone.ortusbooks.com/~gitbook/mcp"
+},
+// CMS
+"contentbox" : {
+    "name"        : "contentbox",
+    "description" : "ContentBox CMS",
+    "url"         : "https://contentbox.ortusbooks.com/~gitbook/mcp"
+},
+// API & Documentation
+"relax" : {
+    "name"        : "relax",
+    "description" : "Relax REST API Documentation",
+    "url"         : "https://coldbox-relax.ortusbooks.com/~gitbook/mcp"
+}
+}
+```
 
 View configured MCP servers:
 
