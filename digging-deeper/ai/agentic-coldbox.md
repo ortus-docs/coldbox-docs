@@ -623,9 +623,13 @@ Skills are on-demand coding cookbooks that teach AI agents *how to implement spe
 
 Skills use an inventory system where the agent file lists all available skills **grouped by category** with 80-character truncated descriptions. AI agents scan the inventory, then pull the full `SKILL.md` on-demand when working on a matching task \u2014 providing deep implementation expertise without bloating the agent file.
 
+{% hint style="info" %}
+**Official Skills Directory**: Browse and discover all available skills at [skills.boxlang.io](https://skills.boxlang.io) \u2014 the official registry for ColdBox, BoxLang, TestBox, CommandBox, and module skills. Skills installed via `coldbox ai install` are sourced from this registry.
+{% endhint %}
+
 ### Available Skills
 
-ColdBox AI Integration includes **71+ built-in skills** (all available on-demand through the category-grouped inventory):
+ColdBox AI Integration includes **71+ built-in skills** sourced from [skills.boxlang.io](https://skills.boxlang.io) (all available on-demand through the category-grouped inventory):
 
 **Scaffolding & Creation (12)**
 
