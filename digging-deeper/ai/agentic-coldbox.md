@@ -33,21 +33,22 @@ ColdBox AI Integration supercharges your development workflow by providing compr
 
 * **Dual-Language Support**: First-class support for BoxLang and CFML with automatic detection
 * **Multi-Agent Ecosystem**: Works with Claude, GitHub Copilot, Cursor, Codex, Gemini, and OpenCode
-* **30+ MCP Servers**: Extensive Model Context Protocol server registry for enhanced AI capabilities
-* **Module Awareness**: Automatically integrates guidelines and skills from installed modules
-* **Context Analytics**: Built-in tools to visualize and optimize AI context usage
+* **30+ MCP Servers**: Extensive Model Context Protocol server registry tracked in `.mcp.json`, with auto-detection from installed modules
+* **Module Awareness**: Automatically integrates guidelines and skills from installed modules on refresh
+* **Lean Agent Files**: Core guidelines live on-disk in `.ai/guidelines/core/` and are referenced via `read_file` — agent files stay under ~250 lines
 * **Override System**: Flexible customization at core, module, and project levels
 * **Health Diagnostics**: Intelligent validation and troubleshooting tools
+* **Live App Introspection**: `coldbox ai mcp install` sets up `cbMCP` so AI agents can query your running application in real time
 
 The system combines four key components:
 
-1. **Guidelines** - Framework documentation and best practices (core inlined, others on-demand)
-2. **Skills** - On-demand coding cookbooks for specific tasks
-3. **Agents** - AI assistant configurations (Claude, Copilot, etc.)
-4. **MCP Servers** - Context protocol servers for enhanced AI capabilities
+1. **Guidelines** - Framework documentation and best practices. Core guidelines live on-disk in `.ai/guidelines/core/` and are referenced via `read_file`; module and custom guidelines are inventoried on-demand
+2. **Skills** - On-demand coding cookbooks for implementing specific features, grouped by category in the agent file inventory
+3. **Agents** - AI assistant configurations (Claude, Copilot, Cursor, Codex, Gemini, OpenCode)
+4. **MCP Servers** - Context protocol servers tracked in `.mcp.json` for live documentation and application introspection
 
 {% hint style="info" %}
-**Subagent Pattern Architecture**: Core framework guidelines (ColdBox + language) are embedded directly in agent files for immediate access, while module guidelines and all skills are available on-demand. This reduces context from ~62KB to ~8KB while maintaining full capability.
+**Lean Agent File Architecture**: Core framework guidelines (ColdBox + language) are stored locally in `.ai/guidelines/core/` and referenced via `read_file` instructions in agent files — keeping agent files to ~250 lines. Module guidelines and all skills are inventoried with descriptions and loaded fully on-demand. This gives AI assistants quick access to fundamentals without bloating the agent file.
 {% endhint %}
 
 Together, these components ensure AI assistants generate high-quality, idiomatic code that follows ColdBox conventions and leverages the full power of the BoxLang/CFML ecosystem.
@@ -61,10 +62,10 @@ To start, make sure you are on the latest `coldbox-cli` in your CommandBox insta
 ```mermaid
 graph TB
     subgraph "ColdBox AI Integration"
-        Guidelines["📚 Guidelines<br/>(46+ Total)<br/>Core inlined<br/>Others on-demand"]
-        Skills["🎯 Skills<br/>(71+ Total)<br/>On-demand cookbooks<br/>with inventory"]
-        Agents["🤖 Agents<br/>(6 Supported)<br/>Claude, Copilot, Cursor<br/>Codex, Gemini, OpenCode"]
-        MCP["🌐 MCP Servers<br/>(30+ Built-in)<br/>Extended AI capabilities<br/>via protocol"]
+        Guidelines["📚 Guidelines\n(46+ Total)\nCore on-disk (.ai/guidelines/core/)\nModules & custom on-demand"]
+        Skills["🎯 Skills\n(71+ Total)\nOn-demand cookbooks\ngrouped by category"]
+        Agents["🤖 Agents\n(6 Supported)\nClaude, Copilot, Cursor\nCodex, Gemini, OpenCode"]
+        MCP["🌐 MCP Servers\n(30+ Built-in)\nTracked in .mcp.json\ncbMCP for live app access"]
     end
 
     subgraph "Sources"
@@ -156,18 +157,22 @@ After installation, the following structure is created in your project:
 ```
 .ai/
 ├── guidelines/          # AI guidelines (documentation)
-│   ├── core/           # ColdBox core guidelines
+│   ├── core/           # ColdBox core guidelines (coldbox.md, boxlang.md, etc.)
 │   ├── modules/        # From installed modules
 │   ├── custom/         # Your project-specific guidelines
 │   └── overrides/      # Custom versions of core/module guidelines
 ├── skills/             # AI skills (cookbooks)
-│   ├── core/           # Built-in skills
-│   ├── modules/        # From installed modules
-│   ├── custom/         # Your custom skills
+│   ├── {name}/         # One folder per skill
+│   │   └── SKILL.md   # Skill content
 │   └── overrides/      # Custom versions of core/module skills
 ├── mcp-servers/        # MCP server configurations
 └── manifest.json       # AI integration metadata
+.mcp.json               # Project MCP server registry (project root)
 ```
+
+{% hint style="info" %}
+After installation completes, add your project context to the generated agent file \u2014 business domain, key services, authentication approach, API endpoints, and deployment details. This gives the AI assistant the application-specific knowledge it needs to generate accurate, relevant code.
+{% endhint %}
 
 
 ```mermaid
@@ -179,18 +184,16 @@ graph LR
     Root --> MCP["🌐 mcp-servers/"]
     Root --> Manifest["📋 manifest.json"]
 
-    Guidelines --> GCore["⚙️ core/<br/>(8 guidelines)"]
-    Guidelines --> GModules["📦 modules/<br/>(28 guidelines)"]
-    Guidelines --> GCustom["📝 custom/<br/>(Your guidelines)"]
-    Guidelines --> GOverride["🎯 overrides/<br/>(Customizations)"]
+    Guidelines --> GCore["⚙️ core/\n(coldbox.md, boxlang.md, etc.)"]
+    Guidelines --> GModules["📦 modules/\n(from installed packages)"]
+    Guidelines --> GCustom["📝 custom/\n(your guidelines)"]
+    Guidelines --> GOverride["🎯 overrides/\n(customizations)"]
 
-    Skills --> SCore["⚙️ core/<br/>(62 skills)"]
-    Skills --> SModules["📦 modules/<br/>(Module skills)"]
-    Skills --> SCustom["📝 custom/<br/>(Your skills)"]
-    Skills --> SOverride["🎯 overrides/<br/>(Customizations)"]
+    Skills --> SSkills["⚙️ {name}/SKILL.md\n(71+ skills)"]
+    Skills --> SOverride["🎯 overrides/\n(customizations)"]
 
-    MCP --> MCPCore["⚙️ core/<br/>(30+ servers)"]
-    MCP --> MCPCustom["📝 custom/<br/>(Your servers)"]
+    MCP --> MCPCore["⚙️ core/\n(30+ servers)"]
+    MCP --> MCPCustom["📝 custom/\n(your servers)"]
 
     Root --> Agents["Agent Configs"]
     Agents --> Claude["CLAUDE.md"]
@@ -216,13 +219,17 @@ Additionally, agent configuration files are created for you (paths defined in `A
 
 ### Keeping Resources Updated
 
-Keep your AI resources synchronized with installed modules:
+Keep your AI resources synchronized with installed modules. Running `coldbox ai refresh` will:
+
+* Update module guidelines and skills from installed packages
+* Auto-detect MCP documentation servers from `box.json` dependencies and update `.mcp.json`
+* Re-generate agent configuration files with the latest inventory
 
 ```bash
-# Update guidelines and skills
+# Sync everything
 coldbox ai refresh
 
-# Run this after installing/updating modules
+# Run this after installing or updating modules
 box install qb
 coldbox ai refresh
 ```
@@ -271,43 +278,42 @@ After installation, configure your AI agents:
 
 ### Guidelines vs Skills
 
-ColdBox AI Integration uses a **subagent pattern** with three tiers of context:
+Understanding the difference between guidelines and skills is key to getting the most from Agentic ColdBox:
 
-| Aspect          | Core Guidelines (Inlined)                  | Module Guidelines (On-Demand)         | Skills (On-Demand)                    |
-| --------------- | ------------------------------------------ | ------------------------------------- | ------------------------------------- |
-| **When Loaded** | Always embedded in agent files             | Requested by name when needed         | Requested by name when needed         |
-| **Scope**       | Essential framework knowledge              | Module-specific documentation         | Focused, task-specific                |
-| **Purpose**     | Core ColdBox + language conventions        | Extended module patterns              | Step-by-step implementation guides    |
-| **Content**     | "What" and "Why" (fundamentals)           | "What" and "Why" (specialized)       | "How" and "When" (actionable)        |
-| **Size**        | ~20KB (ColdBox + language)                 | 1-5KB per guideline                   | 2-10KB per skill                      |
-| **Examples**    | ColdBox MVC structure, BoxLang syntax      | CBSecurity patterns, QB query builder | Creating REST APIs, Writing tests     |
+**Guidelines** teach AI agents *what the framework is and how it works* — they are architectural documentation, conventions, API references, and configuration knowledge. Think of them as a framework manual. A guideline answers: _"What tools do I have?"_ and _"What are the conventions?"_
 
-**Core Guidelines** (ColdBox framework + language) are always present in agent files, providing immediate access to essential knowledge.
+**Skills** teach AI agents *how to do specific things* — they are step-by-step cookbooks with concrete implementation patterns and working code examples. A skill answers: _"How do I build this exact feature?"_
 
-**Module Guidelines** are inventoried with descriptions, allowing agents to discover and request specific module documentation when needed.
-
-**Skills** are activated on-demand when working on specific tasks. Both module guidelines and skills use the inventory pattern to reduce context bloat while providing deep expertise exactly when needed.
+| Aspect | Core Guidelines | Module/Custom Guidelines | Skills |
+| ------ | --------------- | ------------------------ | ------ |
+| **Storage** | `.ai/guidelines/core/` on disk | `.ai/guidelines/modules/` or `custom/` | `.ai/skills/{name}/SKILL.md` |
+| **When Loaded** | Referenced via `read_file` in agent file | Inventoried; loaded on-demand by name | Inventoried by category; loaded on-demand |
+| **Scope** | Essential framework fundamentals | Module-specific documentation | Focused, task-specific implementation |
+| **Purpose** | Core ColdBox + language conventions | Extended module patterns | Step-by-step how-to guides |
+| **Content style** | _"What" and "Why"_ — declarative knowledge | _"What" and "Why"_ — specialized knowledge | _"How" and "When"_ — procedural knowledge |
+| **Size** | ~10–20KB per file | 1–5KB per guideline | 2–10KB per skill |
+| **Examples** | ColdBox MVC structure, BoxLang syntax | CBSecurity patterns, QB query builder | Creating REST APIs, writing handler tests |
 
 
 ```mermaid
 flowchart TB
-    subgraph "Inlined (Always Present)"
-        CoreG["⚡ Core Guidelines<br/><b>ColdBox Framework</b><br/><b>BoxLang/CFML Language</b><br/>Embedded in agent files"]
+    subgraph "On-Disk (read_file reference in agent file)"
+        CoreG["⚡ Core Guidelines\n.ai/guidelines/core/\ncoldbox.md, boxlang.md, cfml.md\nReferenced via read_file"]
     end
 
     subgraph "Inventoried (On-Request)"
-        ModuleG["📦 Module Guidelines<br/><b>CBSecurity, QB, Quick</b><br/>Listed with descriptions"]
-        Skills["🎯 Skills<br/><b>REST APIs, Testing, etc.</b><br/>Listed with descriptions"]
+        ModuleG["📦 Module Guidelines\nCBSecurity, QB, Quick\nListed with descriptions"]
+        Skills["🎯 Skills\nREST APIs, Testing, etc.\nGrouped by category"]
     end
 
-    AgentFile["🤖 AI Agent File<br/>(CLAUDE.md, .cursorrules, etc.)<br/>Base: ~33KB"]
+    AgentFile["🤖 AI Agent File\n(CLAUDE.md, .cursorrules, etc.)\n~250 lines"]
 
-    CoreG --> AgentFile
-    ModuleG -.-|"Inventory Only<br/>Request: 'Load cbsecurity guideline'"| AgentFile
-    Skills -.-|"Inventory Only<br/>Request: 'Load rest-api-development skill'"| AgentFile
+    CoreG -.-|"read_file reference"| AgentFile
+    ModuleG -.-|"Inventory only\nRequest: 'Load cbsecurity guideline'"| AgentFile
+    Skills -.-|"Inventory only\nRequest: 'Load rest-api-development skill'"| AgentFile
 
-    AgentFile --> Request["💬 AI Request<br/>'Create a REST endpoint'"]
-    Request --> Response["✨ Generated Code<br/>Using core knowledge<br/>+ on-demand resources"]
+    AgentFile --> Request["💬 AI Request\n'Create a REST endpoint'"]
+    Request --> Response["✨ Generated Code\nUsing core knowledge\n+ on-demand resources"]
 
     style CoreG fill:#4caf50,color:#fff
     style ModuleG fill:#2196f3,color:#fff
@@ -337,18 +343,18 @@ coldbox ai stats --json          # Machine-readable output
 
 ```mermaid
 flowchart LR
-    subgraph "Inlined (Always Present)"
-        Core["⚡ Core Guidelines<br/>~20 KB<br/>ColdBox + Language"]
+    subgraph "On-Disk (read_file reference)"
+        Core["⚡ Core Guidelines\n~20 KB total\n.ai/guidelines/core/"]
     end
 
     subgraph "On-Demand (Inventory Only)"
-        ModuleG["📦 Module Guidelines<br/>~65 KB<br/>Load when needed"]
-        Skills["🎯 Skills<br/>~124 KB<br/>Load when needed"]
+        ModuleG["📦 Module Guidelines\n~65 KB\nLoad when needed"]
+        Skills["🎯 Skills\n~124 KB\nLoad when needed"]
     end
 
-    AgentFile["📄 Agent File<br/>~33 KB<br/>~8,400 tokens"]
+    AgentFile["📄 Agent File\n~250 lines\n~5 KB"]
 
-    Core --> AgentFile
+    Core -.-|"read_file reference"| AgentFile
     ModuleG -.-|"Inventory + Description"| AgentFile
     Skills -.-|"Inventory + Description"| AgentFile
 
@@ -367,7 +373,7 @@ flowchart LR
     style Gemini fill:#4caf50,color:#fff
 ```
 
-**Context Optimization**: The subagent pattern achieves a **58% reduction in base context** (from ~62KB to ~33KB) while maintaining full framework knowledge through the inventory system.
+**Context Optimization**: Moving core guidelines to on-disk `read_file` references reduces agent file size from ~1,000 lines to **~250 lines** while maintaining full access to all framework documentation.
 
 ### Multi-Language Support
 
@@ -395,13 +401,15 @@ ColdBox AI Integration is **the only AI system with native BoxLang and CFML supp
 
 ## AI Guidelines
 
-Guidelines are instructional documents that teach AI agents about framework conventions, architectural patterns, and best practices. **Core framework guidelines (ColdBox + language) are embedded directly in agent files**, while module and custom guidelines are available on-demand through an inventory system with descriptions.
+Guidelines are instructional documents that teach AI agents *what the framework is and how it works* — architectural conventions, API references, and configuration options. They answer the question _"What tools do I have and how does this framework work?"_
+
+**Core framework guidelines** (ColdBox + language) are stored in `.ai/guidelines/core/` on disk and referenced via `read_file` instructions in the agent file. This means the AI can load them fully when needed without bloating the agent file. **Module and custom guidelines** are inventoried with descriptions and loaded entirely on-demand.
 
 ### Available Guidelines
 
 ColdBox AI Integration includes **46+ built-in guidelines** covering the entire ecosystem:
 
-**Core Framework (5 - Inlined in Agent Files)**
+**Core Framework (5 - Stored in `.ai/guidelines/core/`, referenced via `read_file`)**
 
 * **boxlang** - BoxLang language features and syntax
 * **cfml** - CFML language fundamentals
@@ -611,11 +619,13 @@ Keep module guidelines concise (1-3KB). Users can override them if needed.
 
 ## AI Skills
 
-Skills are on-demand coding cookbooks that provide detailed, step-by-step guidance for specific development tasks. Like module guidelines, skills use an inventory system with descriptions, allowing AI agents to discover and request them when needed. This keeps AI context lean while providing deep expertise exactly when required.
+Skills are on-demand coding cookbooks that teach AI agents *how to implement specific features* \u2014 they provide step-by-step guidance with concrete, working code patterns. While guidelines answer _"what is this?"_, skills answer _"how do I build it?"_
+
+Skills use an inventory system where the agent file lists all available skills **grouped by category** with 80-character truncated descriptions. AI agents scan the inventory, then pull the full `SKILL.md` on-demand when working on a matching task \u2014 providing deep implementation expertise without bloating the agent file.
 
 ### Available Skills
 
-ColdBox AI Integration includes **71+ built-in skills** (all available on-demand through the inventory system):
+ColdBox AI Integration includes **71+ built-in skills** (all available on-demand through the category-grouped inventory):
 
 **Scaffolding & Creation (12)**
 
@@ -956,9 +966,9 @@ Benefits:
 ```mermaid
 graph TB
     subgraph "Shared Knowledge Base"
-        Guidelines["📚 41+ Guidelines"]
-        Skills["🎯 62+ Skills"]
-        MCP["🌐 30+ MCP Servers"]
+        Guidelines["📚 46+ Guidelines\n(on-disk, read_file referenced)"]
+        Skills["🎯 71+ Skills\n(inventoried by category)"]
+        MCP["🌐 30+ MCP Servers\n(tracked in .mcp.json)"]
     end
 
     subgraph "Agent Configurations"
@@ -1001,7 +1011,85 @@ graph TB
 
 ## MCP Servers
 
-Model Context Protocol (MCP) servers provide extended capabilities to AI agents. ColdBox AI Integration includes the **largest collection of MCP servers** in any framework tooling by being able to add them according to what you are using in your applications.  These servers will be tracked in your application and used when needed. You can also add custom ones and extend the built-in servers with additional functionality.
+Model Context Protocol (MCP) servers provide extended capabilities to AI agents. ColdBox AI Integration includes the **largest collection of MCP servers** in any framework tooling, automatically matched to the modules you install. All registered servers are tracked in **`.mcp.json`** in your project root \u2014 a single source of truth consumed by agent files and IDE integrations alike.
+
+### `.mcp.json` \u2014 Project MCP Registry
+
+The `.mcp.json` file in your project root tracks every registered MCP documentation server:
+
+```json
+{
+  "mcpServers": {
+    "boxlang": {
+      "name": "boxlang",
+      "description": "BoxLang Language Documentation",
+      "url": "https://ai.ortusbooks.com/~gitbook/mcp",
+      "source": "core"
+    },
+    "coldbox": {
+      "name": "coldbox",
+      "description": "ColdBox Framework Documentation",
+      "url": "https://coldbox.ortusbooks.com/~gitbook/mcp",
+      "source": "core"
+    }
+  }
+}
+```
+
+Servers added via `coldbox ai mcp add` are saved here automatically. During `coldbox ai refresh`, the CLI auto-detects MCP servers from installed modules and updates `.mcp.json` with any new entries.
+
+### Installing the ColdBox Live MCP Server (cbMCP)
+
+The `cbMCP` module turns your **running ColdBox application** into an MCP server, giving AI agents real-time access to your routes, handlers, WireBox mappings, and more. Install it with a single command:
+
+```bash
+# Install cbMCP and register it in .mcp.json
+coldbox ai mcp install
+
+# With custom host/port
+coldbox ai mcp install --host=localhost --port=8080
+
+# Force reinstall
+coldbox ai mcp install --force
+```
+
+This installs the `cbmcp` CommandBox module and registers the live MCP endpoint (`http://<host>:<port>/cbmcp`) as a custom server in `.mcp.json`. Once installed, AI agents can ask live questions about your app:
+
+```
+AI: "What routes does my app expose under /api?"
+  → cbMCP introspects the live RoutingService
+
+AI: "Show me all WireBox singletons."
+  → cbMCP queries the live WireBox container
+
+AI: "Are there any ERROR log entries in the last hour?"
+  → cbMCP reads from LogBox appenders
+```
+
+### Managing MCP Servers
+
+```bash
+# List all registered servers
+coldbox ai mcp list
+
+# Add a documentation server
+coldbox ai mcp add --name="myDocs" --url="https://docs.example.com/mcp"
+
+# Remove a server
+coldbox ai mcp remove myDocs
+
+# Get help
+coldbox ai mcp help
+```
+
+### MCP Auto-Detection
+
+During `coldbox ai refresh`, the CLI inspects your `box.json` dependencies and automatically adds MCP servers for any recognized modules \u2014 zero configuration required:
+
+```bash
+box install qb
+coldbox ai refresh   # → auto-detects and adds the "qb" MCP server to .mcp.json
+```
 
 ### Built-in MCP Servers
 
