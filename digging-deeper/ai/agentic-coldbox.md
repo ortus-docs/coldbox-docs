@@ -62,8 +62,8 @@ To start, make sure you are on the latest `coldbox-cli` in your CommandBox insta
 ```mermaid
 graph TB
     subgraph "ColdBox AI Integration"
-        Guidelines["📚 Guidelines\n(46+ Total)\nCore on-disk (.agents/guidelines/core/)\nModules & custom on-demand"]
-        Skills["🎯 Skills\n(71+ Total)\nOn-demand cookbooks\ngrouped by category"]
+        Guidelines["📚 Guidelines\n(Project-scoped inventory)\nCore on-disk (.agents/guidelines/core/)\nModules & custom on-demand"]
+        Skills["🎯 Skills\n(200+ Registry-sourced)\nOn-demand cookbooks\ngrouped by category"]
         Agents["🤖 Agents\n(6 Supported)\nClaude, Copilot, Cursor\nCodex, Gemini, OpenCode"]
         MCP["🌐 MCP Servers\n(30+ Built-in)\nTracked in .mcp.json\ncbMCP for live app access"]
     end
@@ -151,7 +151,6 @@ flowchart TD
     style SelectMCP fill:#00bcd4,color:#fff
 ```
 
-
 After installation, the following structure is created in your project:
 
 ```
@@ -174,7 +173,6 @@ After installation, the following structure is created in your project:
 After installation completes, add your project context to the generated agent file \u2014 business domain, key services, authentication approach, API endpoints, and deployment details. This gives the AI assistant the application-specific knowledge it needs to generate accurate, relevant code.
 {% endhint %}
 
-
 ```mermaid
 graph LR
     Root[".agents/"]
@@ -189,7 +187,7 @@ graph LR
     Guidelines --> GCustom["📝 custom/\n(your guidelines)"]
     Guidelines --> GOverride["🎯 overrides/\n(customizations)"]
 
-    Skills --> SSkills["⚙️ {name}/SKILL.md\n(71+ skills)"]
+    Skills --> SSkills["⚙️ {name}/SKILL.md\n(200+ skills)"]
     Skills --> SOverride["🎯 overrides/\n(customizations)"]
 
     MCP --> MCPCore["⚙️ core/\n(30+ servers)"]
@@ -207,7 +205,6 @@ graph LR
     style MCP fill:#4caf50,color:#fff
     style Manifest fill:#ff9800,color:#fff
 ```
-
 
 Additionally, agent configuration files are created for you (paths defined in `AgentRegistry.cfc`):
 
@@ -280,9 +277,9 @@ After installation, configure your AI agents:
 
 Understanding the difference between guidelines and skills is key to getting the most from Agentic ColdBox:
 
-**Guidelines** teach AI agents *what the framework is and how it works* — they are architectural documentation, conventions, API references, and configuration knowledge. Think of them as a framework manual. A guideline answers: _"What tools do I have?"_ and _"What are the conventions?"_
+**Guidelines** teach AI agents *what the framework is and how it works* — they are architectural documentation, conventions, API references, and configuration knowledge. Think of them as a framework manual. A guideline answers: *"What tools do I have?"* and *"What are the conventions?"*
 
-**Skills** teach AI agents *how to do specific things* — they are step-by-step cookbooks with concrete implementation patterns and working code examples. A skill answers: _"How do I build this exact feature?"_
+**Skills** teach AI agents *how to do specific things* — they are step-by-step cookbooks with concrete implementation patterns and working code examples. A skill answers: *"How do I build this exact feature?"*
 
 | Aspect | Core Guidelines | Module/Custom Guidelines | Skills |
 | ------ | --------------- | ------------------------ | ------ |
@@ -290,10 +287,9 @@ Understanding the difference between guidelines and skills is key to getting the
 | **When Loaded** | Referenced via `read_file` in agent file | Inventoried; loaded on-demand by name | Inventoried by category; loaded on-demand |
 | **Scope** | Essential framework fundamentals | Module-specific documentation | Focused, task-specific implementation |
 | **Purpose** | Core ColdBox + language conventions | Extended module patterns | Step-by-step how-to guides |
-| **Content style** | _"What" and "Why"_ — declarative knowledge | _"What" and "Why"_ — specialized knowledge | _"How" and "When"_ — procedural knowledge |
+| **Content style** | *"What" and "Why"* — declarative knowledge | *"What" and "Why"* — specialized knowledge | *"How" and "When"* — procedural knowledge |
 | **Size** | ~10–20KB per file | 1–5KB per guideline | 2–10KB per skill |
 | **Examples** | ColdBox MVC structure, BoxLang syntax | CBSecurity patterns, QB query builder | Creating REST APIs, writing handler tests |
-
 
 ```mermaid
 flowchart TB
@@ -339,7 +335,6 @@ coldbox ai stats                 # Quick overview
 coldbox ai stats --verbose       # Detailed model breakdowns
 coldbox ai stats --json          # Machine-readable output
 ```
-
 
 ```mermaid
 flowchart LR
@@ -401,53 +396,58 @@ ColdBox AI Integration is **the only AI system with native BoxLang and CFML supp
 
 ## AI Guidelines
 
-Guidelines are instructional documents that teach AI agents *what the framework is and how it works* — architectural conventions, API references, and configuration options. They answer the question _"What tools do I have and how does this framework work?"_
+Guidelines are instructional documents that teach AI agents *what the framework is and how it works* — architectural conventions, API references, and configuration options. They answer the question *"What tools do I have and how does this framework work?"*
 
 **Core framework guidelines** (ColdBox + language) are stored in `.agents/guidelines/core/` on disk and referenced via `read_file` instructions in the agent file. This means the AI can load them fully when needed without bloating the agent file. **Module and custom guidelines** are inventoried with descriptions and loaded entirely on-demand.
 
 ### Available Guidelines
 
-ColdBox AI Integration includes **46+ built-in guidelines** covering the entire ecosystem:
+Guideline availability is **project-dependent** and tracked in `.agents/manifest.json`.
+The currently installed set depends on language mode, installed modules, and your custom/override files.
 
-**Core Framework (5 - Stored in `.agents/guidelines/core/`, referenced via `read_file`)**
+**Core Framework (stored in `.agents/guidelines/core/`, referenced via `read_file`)**
 
 * **boxlang** - BoxLang language features and syntax
 * **cfml** - CFML language fundamentals
 * **coldbox** - ColdBox framework architecture and conventions
-* **testbox** - BDD/TDD testing framework
-* **docbox** - Documentation generation
 
-**Module Guidelines (41+ - Available On-Demand)**
+**Module/Custom Guidelines (available on-demand)**
 
 *Authentication & Security*
+
 * **cbsecurity** - Enterprise security framework
 * **cbauth** - Authentication system
 * **cbcsrf** - CSRF protection
 * **cbsecurity-passkeys** - Passwordless authentication
 
 *Database & ORM*
+
 * **qb** - Query Builder
 * **quick** - Active Record ORM
 * **cborm** - ORM integration
 * **cbmigrations** / **commandbox-migrations** - Database migrations
 
 *REST & APIs*
+
 * **cbswagger** - API documentation
 * **hyper** - HTTP client
 * **cbvalidation** - Data validation
 * **cors** - CORS configuration
 
 *Caching & Performance*
+
 * **cachebox** - Caching strategies (when not using core)
 * **cbstorages** - Storage abstractions
 
 *Development Tools*
+
 * **cbdebugger** - Debugging tools
 * **route-visualizer** - Route inspection
 * **commandbox-cfformat** - Code formatting
 * **commandbox-boxlang** - BoxLang runtime
 
 *Additional Modules (20+)*
+
 * And many more: cbstreams, cbmailservices, cbmessagebox, cbpaginator, cbwire, mementifier, etc.
 
 View installed guidelines:
@@ -467,7 +467,6 @@ Guidelines are organized into four tiers:
 4. **Override** - Custom versions replacing core/module guidelines
 
 This hierarchy allows seamless integration from framework to module to project level.
-
 
 ```mermaid
 graph TD
@@ -512,9 +511,7 @@ Add project-specific guidelines to tailor AI assistance to your codebase:
 touch .agents/guidelines/custom/payment-processing.md
 ```
 
-
 Example guideline structure:
-
 
 ```markdown
 # Payment Processing
@@ -619,7 +616,7 @@ Keep module guidelines concise (1-3KB). Users can override them if needed.
 
 ## AI Skills
 
-Skills are on-demand coding cookbooks that teach AI agents *how to implement specific features* \u2014 they provide step-by-step guidance with concrete, working code patterns. While guidelines answer _"what is this?"_, skills answer _"how do I build it?"_
+Skills are on-demand coding cookbooks that teach AI agents *how to implement specific features* \u2014 they provide step-by-step guidance with concrete, working code patterns. While guidelines answer *"what is this?"*, skills answer *"how do I build it?"*
 
 Skills use an inventory system where the agent file lists all available skills **grouped by category** with 80-character truncated descriptions. AI agents scan the inventory, then pull the full `SKILL.md` on-demand when working on a matching task \u2014 providing deep implementation expertise without bloating the agent file.
 
@@ -629,7 +626,7 @@ Skills use an inventory system where the agent file lists all available skills *
 
 ### Available Skills
 
-ColdBox AI Integration includes **71+ built-in skills** sourced from [skills.boxlang.io](https://skills.boxlang.io) (all available on-demand through the category-grouped inventory):
+ColdBox AI Integration includes **200+ skills** sourced from [skills.boxlang.io](https://skills.boxlang.io) (all available on-demand through the category-grouped inventory):
 
 **Scaffolding & Creation (12)**
 
@@ -966,12 +963,11 @@ Benefits:
 * **Cross-Agent Testing**: Verify AI-generated code across multiple assistants
 * **Redundancy**: Switch agents if one has issues
 
-
 ```mermaid
 graph TB
     subgraph "Shared Knowledge Base"
-        Guidelines["📚 46+ Guidelines\n(on-disk, read_file referenced)"]
-        Skills["🎯 71+ Skills\n(inventoried by category)"]
+        Guidelines["📚 Project Guidelines\n(on-disk + manifest inventory)"]
+        Skills["🎯 200+ Skills\n(inventoried by category)"]
         MCP["🌐 30+ MCP Servers\n(tracked in .mcp.json)"]
     end
 
@@ -1488,16 +1484,16 @@ AI Integration Statistics
   Template: modern
   Last Sync: 2026-02-11 10:30:45
 
-📚 Guidelines (41)
-  Core: 8
-  Module: 28
-  Custom: 5
+📚 Guidelines (22)
+    Core: 2
+    Module: 17
+    Custom: 3
   Override: 0
 
-🎯 Skills (62)
-  Core: 50
-  Module: 0
-  Custom: 12
+🎯 Skills (214)
+    Core: 180
+    Module: 12
+    Custom: 22
   Override: 0
 
 🤖 Agents (3)
@@ -1505,8 +1501,8 @@ AI Integration Statistics
   • copilot
   • cursor
 
-🌐 MCP Servers (30)
-  Core: 27
+🌐 MCP Servers (31)
+    Core: 28
   Module: 2
   Custom: 1
 
@@ -1573,7 +1569,6 @@ coldbox ai skills list | grep qb
 3. Loads `guidelines/` and `skills/` subdirectories
 4. Integrates content into agent configurations
 5. Updates `.agents/manifest.json` with module sources
-
 
 ```mermaid
 flowchart TD
