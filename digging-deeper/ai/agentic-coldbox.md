@@ -35,20 +35,20 @@ ColdBox AI Integration supercharges your development workflow by providing compr
 * **Multi-Agent Ecosystem**: Works with Claude, GitHub Copilot, Cursor, Codex, Gemini, and OpenCode
 * **30+ MCP Servers**: Extensive Model Context Protocol server registry tracked in `.mcp.json`, with auto-detection from installed modules
 * **Module Awareness**: Automatically integrates guidelines and skills from installed modules on refresh
-* **Lean Agent Files**: Core guidelines live on-disk in `.ai/guidelines/core/` and are referenced via `read_file` — agent files stay under ~250 lines
+* **Lean Agent Files**: Core guidelines live on-disk in `.agents/guidelines/core/` and are referenced via `read_file` — agent files stay under ~250 lines
 * **Override System**: Flexible customization at core, module, and project levels
 * **Health Diagnostics**: Intelligent validation and troubleshooting tools
 * **Live App Introspection**: `coldbox ai mcp install` sets up `cbMCP` so AI agents can query your running application in real time
 
 The system combines four key components:
 
-1. **Guidelines** - Framework documentation and best practices. Core guidelines live on-disk in `.ai/guidelines/core/` and are referenced via `read_file`; module and custom guidelines are inventoried on-demand
+1. **Guidelines** - Framework documentation and best practices. Core guidelines live on-disk in `.agents/guidelines/core/` and are referenced via `read_file`; module and custom guidelines are inventoried on-demand
 2. **Skills** - On-demand coding cookbooks for implementing specific features, grouped by category in the agent file inventory
 3. **Agents** - AI assistant configurations (Claude, Copilot, Cursor, Codex, Gemini, OpenCode)
 4. **MCP Servers** - Context protocol servers tracked in `.mcp.json` for live documentation and application introspection
 
 {% hint style="info" %}
-**Lean Agent File Architecture**: Core framework guidelines (ColdBox + language) are stored locally in `.ai/guidelines/core/` and referenced via `read_file` instructions in agent files — keeping agent files to ~250 lines. Module guidelines and all skills are inventoried with descriptions and loaded fully on-demand. This gives AI assistants quick access to fundamentals without bloating the agent file.
+**Lean Agent File Architecture**: Core framework guidelines (ColdBox + language) are stored locally in `.agents/guidelines/core/` and referenced via `read_file` instructions in agent files — keeping agent files to ~250 lines. Module guidelines and all skills are inventoried with descriptions and loaded fully on-demand. This gives AI assistants quick access to fundamentals without bloating the agent file.
 {% endhint %}
 
 Together, these components ensure AI assistants generate high-quality, idiomatic code that follows ColdBox conventions and leverages the full power of the BoxLang/CFML ecosystem.
@@ -62,7 +62,7 @@ To start, make sure you are on the latest `coldbox-cli` in your CommandBox insta
 ```mermaid
 graph TB
     subgraph "ColdBox AI Integration"
-        Guidelines["📚 Guidelines\n(46+ Total)\nCore on-disk (.ai/guidelines/core/)\nModules & custom on-demand"]
+        Guidelines["📚 Guidelines\n(46+ Total)\nCore on-disk (.agents/guidelines/core/)\nModules & custom on-demand"]
         Skills["🎯 Skills\n(71+ Total)\nOn-demand cookbooks\ngrouped by category"]
         Agents["🤖 Agents\n(6 Supported)\nClaude, Copilot, Cursor\nCodex, Gemini, OpenCode"]
         MCP["🌐 MCP Servers\n(30+ Built-in)\nTracked in .mcp.json\ncbMCP for live app access"]
@@ -137,7 +137,7 @@ flowchart TD
     SelectAgents --> SelectGuidelines["📚 Select Guidelines<br/>ColdBox, WireBox, TestBox, etc."]
     SelectGuidelines --> SelectSkills["🎯 Select Skills<br/>Creating handlers, REST APIs, etc."]
     SelectSkills --> SelectMCP["🌐 Select MCP Servers<br/>Filesystem, GitHub, Database, etc."]
-    SelectMCP --> CreateStructure["📁 Create .ai/ structure"]
+    SelectMCP --> CreateStructure["📁 Create .agents/ structure"]
     CreateStructure --> GenerateConfigs["⚙️ Generate agent configs<br/>CLAUDE.md, .cursorrules, etc."]
     GenerateConfigs --> SyncModules["🔄 Sync module resources"]
     SyncModules --> Complete(["✅ Installation Complete"])
@@ -155,7 +155,7 @@ flowchart TD
 After installation, the following structure is created in your project:
 
 ```
-.ai/
+.agents/
 ├── guidelines/          # AI guidelines (documentation)
 │   ├── core/           # ColdBox core guidelines (coldbox.md, boxlang.md, etc.)
 │   ├── modules/        # From installed modules
@@ -177,7 +177,7 @@ After installation completes, add your project context to the generated agent fi
 
 ```mermaid
 graph LR
-    Root[".ai/"]
+    Root[".agents/"]
 
     Root --> Guidelines["📚 guidelines/"]
     Root --> Skills["🎯 skills/"]
@@ -286,7 +286,7 @@ Understanding the difference between guidelines and skills is key to getting the
 
 | Aspect | Core Guidelines | Module/Custom Guidelines | Skills |
 | ------ | --------------- | ------------------------ | ------ |
-| **Storage** | `.ai/guidelines/core/` on disk | `.ai/guidelines/modules/` or `custom/` | `.ai/skills/{name}/SKILL.md` |
+| **Storage** | `.agents/guidelines/core/` on disk | `.agents/guidelines/modules/` or `custom/` | `.agents/skills/{name}/SKILL.md` |
 | **When Loaded** | Referenced via `read_file` in agent file | Inventoried; loaded on-demand by name | Inventoried by category; loaded on-demand |
 | **Scope** | Essential framework fundamentals | Module-specific documentation | Focused, task-specific implementation |
 | **Purpose** | Core ColdBox + language conventions | Extended module patterns | Step-by-step how-to guides |
@@ -298,7 +298,7 @@ Understanding the difference between guidelines and skills is key to getting the
 ```mermaid
 flowchart TB
     subgraph "On-Disk (read_file reference in agent file)"
-        CoreG["⚡ Core Guidelines\n.ai/guidelines/core/\ncoldbox.md, boxlang.md, cfml.md\nReferenced via read_file"]
+        CoreG["⚡ Core Guidelines\n.agents/guidelines/core/\ncoldbox.md, boxlang.md, cfml.md\nReferenced via read_file"]
     end
 
     subgraph "Inventoried (On-Request)"
@@ -344,7 +344,7 @@ coldbox ai stats --json          # Machine-readable output
 ```mermaid
 flowchart LR
     subgraph "On-Disk (read_file reference)"
-        Core["⚡ Core Guidelines\n~20 KB total\n.ai/guidelines/core/"]
+        Core["⚡ Core Guidelines\n~20 KB total\n.agents/guidelines/core/"]
     end
 
     subgraph "On-Demand (Inventory Only)"
@@ -403,13 +403,13 @@ ColdBox AI Integration is **the only AI system with native BoxLang and CFML supp
 
 Guidelines are instructional documents that teach AI agents *what the framework is and how it works* — architectural conventions, API references, and configuration options. They answer the question _"What tools do I have and how does this framework work?"_
 
-**Core framework guidelines** (ColdBox + language) are stored in `.ai/guidelines/core/` on disk and referenced via `read_file` instructions in the agent file. This means the AI can load them fully when needed without bloating the agent file. **Module and custom guidelines** are inventoried with descriptions and loaded entirely on-demand.
+**Core framework guidelines** (ColdBox + language) are stored in `.agents/guidelines/core/` on disk and referenced via `read_file` instructions in the agent file. This means the AI can load them fully when needed without bloating the agent file. **Module and custom guidelines** are inventoried with descriptions and loaded entirely on-demand.
 
 ### Available Guidelines
 
 ColdBox AI Integration includes **46+ built-in guidelines** covering the entire ecosystem:
 
-**Core Framework (5 - Stored in `.ai/guidelines/core/`, referenced via `read_file`)**
+**Core Framework (5 - Stored in `.agents/guidelines/core/`, referenced via `read_file`)**
 
 * **boxlang** - BoxLang language features and syntax
 * **cfml** - CFML language fundamentals
@@ -463,7 +463,7 @@ Guidelines are organized into four tiers:
 
 1. **Core** - Built into ColdBox CLI, framework-level documentation
 2. **Module** - Automatically discovered from installed CommandBox modules
-3. **Custom** - Your project-specific guidelines in `.ai/guidelines/custom/`
+3. **Custom** - Your project-specific guidelines in `.agents/guidelines/custom/`
 4. **Override** - Custom versions replacing core/module guidelines
 
 This hierarchy allows seamless integration from framework to module to project level.
@@ -472,10 +472,10 @@ This hierarchy allows seamless integration from framework to module to project l
 ```mermaid
 graph TD
     subgraph "Priority (High to Low)"
-        Override["🎯 Overrides<br/>.ai/guidelines/overrides/<br/>Highest Priority"]
-        Custom["📝 Custom<br/>.ai/guidelines/custom/<br/>Project-specific"]
-        Module["📦 Modules<br/>.ai/guidelines/modules/<br/>From installed packages"]
-        Core["⚙️ Core<br/>.ai/guidelines/core/<br/>Built-in (Lowest Priority)"]
+        Override["🎯 Overrides<br/>.agents/guidelines/overrides/<br/>Highest Priority"]
+        Custom["📝 Custom<br/>.agents/guidelines/custom/<br/>Project-specific"]
+        Module["📦 Modules<br/>.agents/guidelines/modules/<br/>From installed packages"]
+        Core["⚙️ Core<br/>.agents/guidelines/core/<br/>Built-in (Lowest Priority)"]
     end
 
     Override -."Replaces".-> Core
@@ -509,7 +509,7 @@ Add project-specific guidelines to tailor AI assistance to your codebase:
 
 ```bash
 # Create a custom guideline
-touch .ai/guidelines/custom/payment-processing.md
+touch .agents/guidelines/custom/payment-processing.md
 ```
 
 
@@ -562,7 +562,7 @@ Override core or module guidelines to customize them for your needs:
 coldbox ai guidelines install coldbox --override
 
 # Edit the override
-edit .ai/guidelines/overrides/coldbox.md
+edit .agents/guidelines/overrides/coldbox.md
 ```
 
 Overrides take precedence over core/module guidelines, allowing you to adapt standard documentation to your team's conventions.
@@ -576,7 +576,7 @@ CommandBox module authors can include AI guidelines in their packages:
 ```
 your-module/
 ├── ModuleConfig.cfc
-└── .ai/
+└── .agents/
     └── guidelines/
         └── core.md           # Auto-discovered
 ```
@@ -730,8 +730,8 @@ Create custom skills for your domain-specific workflows:
 
 ```bash
 # Create a custom skill directory
-mkdir -p .ai/skills/custom/deploying-to-kubernetes
-touch .ai/skills/custom/deploying-to-kubernetes/SKILL.md
+mkdir -p .agents/skills/custom/deploying-to-kubernetes
+touch .agents/skills/custom/deploying-to-kubernetes/SKILL.md
 ```
 
 Example skill structure following [Agent Skills format](https://agentskills.io):
@@ -805,7 +805,7 @@ helm rollback my-app -n production
 Skills support additional files:
 
 ```
-.ai/skills/custom/deploying-to-kubernetes/
+.agents/skills/custom/deploying-to-kubernetes/
 ├── SKILL.md              # Main skill content (required)
 ├── templates/            # Code templates
 │   └── helm-values.yaml
@@ -824,7 +824,7 @@ Override built-in skills to adapt them to your conventions:
 coldbox ai skills install creating-handlers --override
 
 # Edit the override
-edit .ai/skills/overrides/creating-handlers/SKILL.md
+edit .agents/skills/overrides/creating-handlers/SKILL.md
 ```
 
 ### Module Skills
@@ -836,7 +836,7 @@ Module authors can bundle skills with their packages:
 ```
 your-module/
 ├── ModuleConfig.cfc
-└── .ai/
+└── .agents/
     └── skills/
         └── using-your-module/
             └── SKILL.md
@@ -1280,7 +1280,7 @@ coldbox ai mcp add @mycompany/internal-tools @vendor/custom-server
 coldbox ai mcp remove @vendor/custom-server
 ```
 
-Custom server configuration in `.ai/manifest.json`:
+Custom server configuration in `.agents/manifest.json`:
 
 ```json
 {
@@ -1428,7 +1428,7 @@ Output example:
 ```
 AI Integration Structure for MyApp (1.0.0)
 
-.ai/
+.agents/
 ├── guidelines/ (41)
 │   ├── core/ (8)
 │   │   ├── boxlang
@@ -1569,20 +1569,20 @@ coldbox ai skills list | grep qb
 **Discovery Process:**
 
 1. Scans installed modules in `/modules/`
-2. Looks for `.ai/` directory at module root
+2. Looks for `.agents/` directory at module root
 3. Loads `guidelines/` and `skills/` subdirectories
 4. Integrates content into agent configurations
-5. Updates `.ai/manifest.json` with module sources
+5. Updates `.agents/manifest.json` with module sources
 
 
 ```mermaid
 flowchart TD
     Install["box install qb"]
     Install --> Scan["🔍 Scan /modules/ directory"]
-    Scan --> Check{"Has .ai/<br/>directory?"}
+    Scan --> Check{"Has .agents/<br/>directory?"}
     Check -->|Yes| Load["📥 Load guidelines & skills"]
     Check -->|No| Skip["⏭️ Skip module"]
-    Load --> Integrate["🔗 Integrate into .ai/ structure"]
+    Load --> Integrate["🔗 Integrate into .agents/ structure"]
     Integrate --> Update["📝 Update manifest.json"]
     Update --> Refresh["🔄 Refresh agent configs"]
     Refresh --> Complete(["✅ QB guidelines & skills available"])
@@ -1590,7 +1590,7 @@ flowchart TD
 
     subgraph "Module Structure"
         ModuleDir[".../modules/qb/"]
-        ResourceDir[".ai/"]
+        ResourceDir[".agents/"]
         GuidelineFile["guidelines/core.md"]
         SkillFile["skills/using-qb/SKILL.md"]
 
@@ -1616,12 +1616,12 @@ Module authors: Include AI guidelines in your packages:
 your-module/
 ├── box.json
 ├── ModuleConfig.cfc
-└── .ai/
+└── .agents/
     └── guidelines/
         └── core.md        # Required
 ```
 
-**Guideline Template:** (`.ai/guidelines/core.md`)
+**Guideline Template:** (`.agents/guidelines/core.md`)
 
 ```markdown
 # Module Name v1.0.0
@@ -1694,7 +1694,7 @@ Module authors: Include AI skills for complex tasks:
 your-module/
 ├── box.json
 ├── ModuleConfig.cfc
-└── .ai/
+└── .agents/
     └── skills/
         └── using-your-module/
             ├── SKILL.md           # Required
@@ -1704,7 +1704,7 @@ your-module/
                 └── setup.sh
 ```
 
-**Skill Template:** (`.ai/skills/using-your-module/SKILL.md`)
+**Skill Template:** (`.agents/skills/using-your-module/SKILL.md`)
 
 ```markdown
 ---
@@ -1942,7 +1942,7 @@ coldbox ai stats
 **Example Structure:**
 
 ```
-.ai/
+.agents/
 ├── guidelines/
 │   └── custom/
 │       ├── authentication.md      # Auth architecture
@@ -1963,9 +1963,9 @@ coldbox ai stats
 # .gitignore
 
 # DO commit these:
-.ai/guidelines/custom/
-.ai/skills/custom/
-.ai/manifest.json
+.agents/guidelines/custom/
+.agents/skills/custom/
+.agents/manifest.json
 
 ```
 
