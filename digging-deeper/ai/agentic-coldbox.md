@@ -7,112 +7,24 @@ icon: terminal
 
 # Agentic ColdBox
 
-## Table of Contents
-
-* [Introduction](#introduction)
-* [Installation](#installation)
-* [Core Concepts](#core-concepts)
-* [AI Guidelines](#ai-guidelines)
-* [AI Skills](#ai-skills)
-* [AI Agents](#ai-agents)
-* [MCP Servers](#mcp-servers)
-* [CLI Commands](#cli-commands)
-* [Developer Experience](#developer-experience)
-* [Module Integration](#module-integration)
-* [Best Practices](#best-practices)
-
-***
-
 ## Introduction
 
-Welcome to Agentic ColdBox!  We have enhanced the ColdBox CLI to include a new `ai` namespace with a plethora of commands and tools to make your ColdBox applications shine with Coding Agents!
-
-ColdBox AI Integration supercharges your development workflow by providing comprehensive AI assistance for both **BoxLang** and **CFML** applications.
-
-### Key Features
-
-* **Dual-Language Support**: First-class support for BoxLang and CFML with automatic detection
-* **Multi-Agent Ecosystem**: Works with Claude, GitHub Copilot, Cursor, Codex, Gemini, and OpenCode
-* **30+ MCP Servers**: Extensive Model Context Protocol server registry tracked in `.mcp.json`, with auto-detection from installed modules
-* **Module Awareness**: Automatically integrates guidelines and skills from installed modules on refresh
-* **Lean Agent Files**: Core guidelines live on-disk in `.agents/guidelines/core/` and are referenced via `read_file` — agent files stay under ~250 lines
-* **Override System**: Flexible customization at core, module, and project levels
-* **Health Diagnostics**: Intelligent validation and troubleshooting tools
-* **Live App Introspection**: `coldbox ai mcp install` sets up `cbMCP` so AI agents can query your running application in real time
+Agentic ColdBox supercharges your development workflow by providing comprehensive AI assistance for both **BoxLang** and **CFML** applications through the ColdBox CLI.
 
 The system combines four key components:
 
-1. **Guidelines** - Framework documentation and best practices. Core guidelines live on-disk in `.agents/guidelines/core/` and are referenced via `read_file`; module and custom guidelines are inventoried on-demand
-2. **Skills** - On-demand coding cookbooks for implementing specific features, grouped by category in the agent file inventory
+1. **Guidelines** - Framework documentation stored locally in `.agents/guidelines/core/` and referenced via `read_file`
+2. **Skills** - On-demand coding cookbooks sourced from [skills.boxlang.io](https://skills.boxlang.io)
 3. **Agents** - AI assistant configurations (Claude, Copilot, Cursor, Codex, Gemini, OpenCode)
 4. **MCP Servers** - Context protocol servers tracked in `.mcp.json` for live documentation and application introspection
 
 {% hint style="info" %}
-**Lean Agent File Architecture**: Core framework guidelines (ColdBox + language) are stored locally in `.agents/guidelines/core/` and referenced via `read_file` instructions in agent files — keeping agent files to ~250 lines. Module guidelines and all skills are inventoried with descriptions and loaded fully on-demand. This gives AI assistants quick access to fundamentals without bloating the agent file.
+Make sure you are on the latest `coldbox-cli` in your CommandBox installation before getting started.
 {% endhint %}
-
-Together, these components ensure AI assistants generate high-quality, idiomatic code that follows ColdBox conventions and leverages the full power of the BoxLang/CFML ecosystem.
-
-{% hint style="info" %}
-To start, make sure you are on the latest `coldbox-cli` in your CommandBox installation.
-{% endhint %}
-
-### System Architecture
-
-```mermaid
-graph TB
-    subgraph "ColdBox AI Integration"
-        Guidelines["📚 Guidelines\n(3 Core Built-in)\nBoxLang, CFML, ColdBox\n+ Module-provided"]
-        Skills["🎯 Skills\n(200+ Registry)\nOn-demand cookbooks\nfrom skills.boxlang.io"]
-        Agents["🤖 Agents\n(6 Supported)\nClaude, Copilot, Cursor\nCodex, Gemini, OpenCode"]
-        MCP["🌐 MCP Servers\n(30+ Built-in)\nTracked in .mcp.json\ncbMCP for live app access"]
-    end
-
-    subgraph "Sources"
-        Core["Core<br/>(Built-in)"]
-        Modules["Modules<br/>(Auto-discovered)"]
-        Custom["Custom<br/>(Project-specific)"]
-        Override["Overrides<br/>(Customizations)"]
-    end
-
-    subgraph "AI Assistants"
-        Claude["Claude Desktop/Code"]
-        Copilot["GitHub Copilot"]
-        Cursor["Cursor IDE"]
-        Other["Codex/Gemini/OpenCode"]
-    end
-
-    Core --> Guidelines
-    Core --> Skills
-    Modules --> Guidelines
-    Modules --> Skills
-    Custom --> Guidelines
-    Custom --> Skills
-    Override --> Guidelines
-    Override --> Skills
-
-    Guidelines --> Agents
-    Skills --> Agents
-    MCP --> Agents
-
-    Agents --> Claude
-    Agents --> Copilot
-    Agents --> Cursor
-    Agents --> Other
-
-    style Guidelines fill:#e1f5ff,stroke:#01579b
-    style Skills fill:#fff9e1,stroke:#f57f17
-    style Agents fill:#f3e5f5,stroke:#4a148c
-    style MCP fill:#e8f5e9,stroke:#1b5e20
-```
 
 ***
 
 ## Installation
-
-### Quick Start
-
-Install ColdBox AI Integration using CommandBox:
 
 ```bash
 # Install ColdBox CLI (if not already installed)
@@ -122,154 +34,54 @@ box install coldbox-cli
 coldbox ai install
 ```
 
-The installation wizard will guide you through:
-
-1. **Agent Selection** - Choose which AI assistants you use (Claude, Copilot, Cursor, etc.)
-2. **Guidelines** - Select framework documentation to include
-3. **Skills** - Choose coding cookbooks for your workflow
-4. **MCP Servers** - Configure Model Context Protocol servers
-
-```mermaid
-flowchart TD
-    Start(["coldbox ai install"])
-    Start --> Detect{"Detect<br/>BoxLang/CFML"}
-    Detect --> SelectAgents["👤 Select AI Agents<br/>Claude, Copilot, Cursor, etc."]
-    SelectAgents --> SelectGuidelines["📚 Select Guidelines<br/>ColdBox, WireBox, TestBox, etc."]
-    SelectGuidelines --> SelectSkills["🎯 Select Skills<br/>Creating handlers, REST APIs, etc."]
-    SelectSkills --> SelectMCP["🌐 Select MCP Servers<br/>Filesystem, GitHub, Database, etc."]
-    SelectMCP --> CreateStructure["📁 Create .agents/ structure"]
-    CreateStructure --> GenerateConfigs["⚙️ Generate agent configs<br/>CLAUDE.md, .cursorrules, etc."]
-    GenerateConfigs --> SyncModules["🔄 Sync module resources"]
-    SyncModules --> Complete(["✅ Installation Complete"])
-
-    style Start fill:#4caf50,color:#fff
-    style Complete fill:#2e7d32,color:#fff
-    style Detect fill:#ff9800,color:#fff
-    style SelectAgents fill:#9c27b0,color:#fff
-    style SelectGuidelines fill:#2196f3,color:#fff
-    style SelectSkills fill:#ffc107,color:#000
-    style SelectMCP fill:#00bcd4,color:#fff
-```
-
-After installation, the following structure is created in your project:
+The wizard guides you through agent selection, language detection, and MCP server configuration. After installation, the following structure is created:
 
 ```
 .agents/
-├── guidelines/          # AI guidelines (documentation)
-│   ├── core/           # ColdBox core guidelines (coldbox.md, boxlang.md, etc.)
-│   ├── modules/        # From installed modules
-│   ├── custom/         # Your project-specific guidelines
-│   └── overrides/      # Custom versions of core/module guidelines
-├── skills/             # AI skills (cookbooks)
-│   ├── {name}/         # One folder per skill
-│   │   └── SKILL.md   # Skill content
-│   └── overrides/      # Custom versions of core/module skills
-├── mcp-servers/        # MCP server configurations
-└── manifest.json       # AI integration metadata
-.mcp.json               # Project MCP server registry (project root)
+├── guidelines/
+│   ├── core/        # 3 core guidelines: coldbox.md, boxlang.md, cfml.md
+│   ├── custom/      # Your project-specific guidelines
+│   └── overrides/   # Override core guidelines
+├── skills/          # Installed skills (one folder per skill)
+│   └── {name}/
+│       └── SKILL.md
+├── mcp-servers/     # MCP server configurations
+└── manifest.json    # AI integration metadata
+.mcp.json            # Project MCP server registry (project root)
 ```
+
+Agent configuration files are generated automatically:
+
+| Agent              | Config File          |
+| ------------------ | -------------------- |
+| **Claude**         | `CLAUDE.md`          |
+| **GitHub Copilot** | `AGENTS.md` (shared) |
+| **Cursor**         | `.cursorrules`       |
+| **Codex**          | `AGENTS.md` (shared) |
+| **Gemini**         | `GEMINI.md`          |
+| **OpenCode**       | `AGENTS.md` (shared) |
 
 {% hint style="info" %}
-After installation completes, add your project context to the generated agent file \u2014 business domain, key services, authentication approach, API endpoints, and deployment details. This gives the AI assistant the application-specific knowledge it needs to generate accurate, relevant code.
+After installation, add your project context to the generated agent file — business domain, key services, authentication approach, and API endpoints. This gives AI assistants the application-specific knowledge they need.
 {% endhint %}
-
-```mermaid
-graph LR
-    Root[".agents/"]
-
-    Root --> Guidelines["📚 guidelines/"]
-    Root --> Skills["🎯 skills/"]
-    Root --> MCP["🌐 mcp-servers/"]
-    Root --> Manifest["📋 manifest.json"]
-
-    Guidelines --> GCore["⚙️ core/\n(3 guidelines:\nboxlang.md, cfml.md, coldbox.md)"]
-    Guidelines --> GModules["📦 modules/\n(from installed packages)"]
-    Guidelines --> GCustom["📝 custom/\n(your guidelines)"]
-    Guidelines --> GOverride["🎯 overrides/\n(customizations)"]
-
-    Skills --> SSkills["⚙️ {skill-name}/\n(installed from registry)"]
-    Skills --> SSkillFile["📋 SKILL.md"]
-    Skills --> SCustom["📝 custom/\n(your skills)"]
-    Skills --> SOverride["🎯 overrides/\n(customizations)"]
-
-    MCP --> MCPCore["🔗 core/\n(auto-detected from modules)"]
-    MCP --> MCPCustom["📝 custom/\n(your servers)"]
-
-    Root --> Agents["Agent Configs"]
-    Agents --> Claude["CLAUDE.md"]
-    Agents --> Copilot["AGENTS.md"]
-    Agents --> Cursor[".cursorrules"]
-    Agents --> Other["+ 3 more agents"]
-
-    style Root fill:#9c27b0,color:#fff
-    style Guidelines fill:#2196f3,color:#fff
-    style Skills fill:#ffc107,color:#000
-    style MCP fill:#4caf50,color:#fff
-    style Manifest fill:#ff9800,color:#fff
-```
-
-Additionally, agent configuration files are created for you (paths defined in `AgentRegistry.cfc`):
-
-* `CLAUDE.md` - Claude Desktop/Code assistant
-* `AGENTS.md` - GitHub Copilot (shared with Codex and OpenCode)
-* `.cursorrules` - Cursor IDE
-* `AGENTS.md` - Codex & OpenCode (shared file)
-* `GEMINI.md` - Gemini CLI
 
 ### Keeping Resources Updated
 
-Keep your AI resources synchronized with installed modules. Running `coldbox ai refresh` will:
-
-* Update module guidelines and skills from installed packages
-* Auto-detect MCP documentation servers from `box.json` dependencies and update `.mcp.json`
-* Re-generate agent configuration files with the latest inventory
-
 ```bash
-# Sync everything
-coldbox ai refresh
-
-# Run this after installing or updating modules
-box install qb
+# Sync everything after installing or updating modules
 coldbox ai refresh
 ```
 
-Automate updates by adding to your CommandBox scripts in `box.json`:
+Automate with CommandBox scripts:
 
 ```json
 {
   "scripts": {
     "postInstall": "coldbox ai refresh",
-    "postUpdate": "coldbox ai refresh"
+    "postUpdate":  "coldbox ai refresh"
   }
 }
 ```
-
-### Setting Up AI Agents
-
-After installation, configure your AI agents:
-
-**Claude Desktop:**
-
-1. Open Claude Desktop settings
-2. Enable the MCP server for your project
-3. Restart Claude Desktop
-
-**GitHub Copilot (VS Code):**
-
-1. Agent configuration is automatically in `AGENTS.md`
-2. Reload VS Code window
-3. Copilot will use the instructions automatically
-
-**Cursor:**
-
-1. The `.cursorrules` file is automatically recognized
-2. Restart Cursor IDE
-3. Rules are applied to all AI interactions
-
-**Other Agents:**
-
-* Follow the specific agent's documentation for loading instruction files
-* Configuration files are generated during `coldbox ai install`
 
 ***
 
@@ -277,772 +89,95 @@ After installation, configure your AI agents:
 
 ### Guidelines vs Skills
 
-Understanding the difference between guidelines and skills is key to getting the most from Agentic ColdBox:
+**Guidelines** teach AI agents *what the framework is and how it works* — architecture, conventions, and API references. They answer: *"What tools do I have?"*
 
-**Guidelines** teach AI agents *what the framework is and how it works* — they are architectural documentation, conventions, API references, and configuration knowledge. Think of them as a framework manual. A guideline answers: *"What tools do I have?"* and *"What are the conventions?"*
+**Skills** teach AI agents *how to do specific things* — step-by-step cookbooks with working code patterns. They answer: *"How do I build this exact feature?"*
 
-**Skills** teach AI agents *how to do specific things* — they are step-by-step cookbooks with concrete implementation patterns and working code examples. A skill answers: *"How do I build this exact feature?"*
-
-| Aspect | Core Guidelines | Module/Custom Guidelines | Skills |
-| ------ | --------------- | ------------------------ | ------ |
-| **Storage** | `.agents/guidelines/core/` on disk | `.agents/guidelines/modules/` or `custom/` | `.agents/skills/{name}/SKILL.md` |
-| **When Loaded** | Referenced via `read_file` in agent file | Inventoried; loaded on-demand by name | Inventoried by category; loaded on-demand |
-| **Scope** | Essential framework fundamentals | Module-specific documentation | Focused, task-specific implementation |
-| **Purpose** | Core ColdBox + language conventions | Extended module patterns | Step-by-step how-to guides |
-| **Content style** | *"What" and "Why"* — declarative knowledge | *"What" and "Why"* — specialized knowledge | *"How" and "When"* — procedural knowledge |
-| **Size** | ~10–20KB per file | 1–5KB per guideline | 2–10KB per skill |
-| **Examples** | ColdBox MVC structure, BoxLang syntax | CBSecurity patterns, QB query builder | Creating REST APIs, writing handler tests |
-
-```mermaid
-flowchart TB
-    subgraph "On-Disk (read_file reference in agent file)"
-        CoreG["⚡ Core Guidelines\n.agents/guidelines/core/\ncoldbox.md, boxlang.md, cfml.md\nReferenced via read_file"]
-    end
-
-    subgraph "Inventoried (On-Request)"
-        ModuleG["📦 Module Guidelines\nCBSecurity, QB, Quick\nListed with descriptions"]
-        Skills["🎯 Skills\nREST APIs, Testing, etc.\nGrouped by category"]
-    end
-
-    AgentFile["🤖 AI Agent File\n(CLAUDE.md, .cursorrules, etc.)\n~250 lines"]
-
-    CoreG -.-|"read_file reference"| AgentFile
-    ModuleG -.-|"Inventory only\nRequest: 'Load cbsecurity guideline'"| AgentFile
-    Skills -.-|"Inventory only\nRequest: 'Load rest-api-development skill'"| AgentFile
-
-    AgentFile --> Request["💬 AI Request\n'Create a REST endpoint'"]
-    Request --> Response["✨ Generated Code\nUsing core knowledge\n+ on-demand resources"]
-
-    style CoreG fill:#4caf50,color:#fff
-    style ModuleG fill:#2196f3,color:#fff
-    style Skills fill:#ffc107,color:#000
-    style AgentFile fill:#9c27b0,color:#fff
-    style Request fill:#ff9800,color:#fff
-    style Response fill:#4caf50,color:#fff
-```
-
-### Context Management
-
-ColdBox AI Integration includes sophisticated context tracking:
-
-* **Automatic Estimation**: Calculates total context size in KB and tokens
-* **Usage Indicators**: Color-coded warnings (Low/Moderate/High/Very High)
-* **Model Compatibility**: Shows utilization for Claude, GPT-4, GPT-3.5-Turbo, Gemini
-* **Optimization Alerts**: Warns when context exceeds recommended thresholds
-
-Use the stats command to monitor context usage:
-
-```bash
-coldbox ai stats                 # Quick overview
-coldbox ai stats --verbose       # Detailed model breakdowns
-coldbox ai stats --json          # Machine-readable output
-```
-
-```mermaid
-flowchart LR
-    subgraph "On-Disk (read_file reference)"
-        Core["⚡ Core Guidelines\n~20 KB total\n.agents/guidelines/core/"]
-    end
-
-    subgraph "On-Demand (Inventory Only)"
-        ModuleG["📦 Module Guidelines\n~65 KB\nLoad when needed"]
-        Skills["🎯 Skills\n~124 KB\nLoad when needed"]
-    end
-
-    AgentFile["📄 Agent File\n~250 lines\n~5 KB"]
-
-    Core -.-|"read_file reference"| AgentFile
-    ModuleG -.-|"Inventory + Description"| AgentFile
-    Skills -.-|"Inventory + Description"| AgentFile
-
-    AgentFile --> Claude["Claude 3.5<br/>200K tokens<br/>✅ 4.2% used"]
-    AgentFile --> GPT4["GPT-4<br/>128K tokens<br/>✅ 6.6% used"]
-    AgentFile --> GPT35["GPT-3.5-Turbo<br/>16K tokens<br/>✅ 52.5% used"]
-    AgentFile --> Gemini["Gemini 1.5 Pro<br/>1M tokens<br/>✅ 0.8% used"]
-
-    style Core fill:#4caf50,color:#fff
-    style ModuleG fill:#2196f3,color:#fff
-    style Skills fill:#ffc107,color:#000
-    style AgentFile fill:#9c27b0,color:#fff
-    style Claude fill:#4caf50,color:#fff
-    style GPT4 fill:#8bc34a,color:#000
-    style GPT35 fill:#8bc34a,color:#000
-    style Gemini fill:#4caf50,color:#fff
-```
-
-**Context Optimization**: Moving core guidelines to on-disk `read_file` references reduces agent file size from ~1,000 lines to **~250 lines** while maintaining full access to all framework documentation.
-
-### Multi-Language Support
-
-ColdBox AI Integration is **the only AI system with native BoxLang and CFML support**:
-
-**Automatic Language Detection:**
-
-* Server engine detection (BoxLang runtime)
-* `box.json` configuration (`language` property)
-* TestBox runner settings
-
-**Language-Specific Content:**
-
-* Separate templates for BoxLang and CFML
-* Syntax-appropriate code examples
-* Version-specific best practices
-
-**Seamless Switching:**
-
-* Override detection with `--boxlang` or `--cfml` flags
-* Per-guideline language targeting
-* Mixed-language project support
+Core guidelines (ColdBox + language) live on-disk in `.agents/guidelines/core/` and are referenced via `read_file` in agent files — keeping agent files lean (~250 lines) while maintaining full framework knowledge. Skills are sourced from [skills.boxlang.io](https://skills.boxlang.io) and loaded on-demand.
 
 ***
 
 ## AI Guidelines
 
-Guidelines are instructional documents that teach AI agents *what the framework is and how it works* — architectural conventions, API references, and configuration options. They answer the question *"What tools do I have and how does this framework work?"*
+Three core guidelines are installed automatically:
 
-**Core framework guidelines** (ColdBox + language) are stored in `.agents/guidelines/core/` on disk and referenced via `read_file` instructions in the agent file. This means the AI can load them fully when needed without bloating the agent file. **Module and custom guidelines** are inventoried with descriptions and loaded entirely on-demand.
-
-### Available Guidelines
-
-Guideline availability is **project-dependent** and tracked in `.agents/manifest.json`.
-The currently installed set depends on language mode, installed modules, and your custom/override files.
-
-**Core Framework (stored in `.agents/guidelines/core/`, referenced via `read_file`)**
-
-* **boxlang** - BoxLang language features and syntax
-* **cfml** - CFML language fundamentals
-* **coldbox** - ColdBox framework architecture and conventions
-
-**Module/Custom Guidelines (available on-demand)**
-
-*Authentication & Security*
-
-* **cbsecurity** - Enterprise security framework
-* **cbauth** - Authentication system
-* **cbcsrf** - CSRF protection
-* **cbsecurity-passkeys** - Passwordless authentication
-
-*Database & ORM*
-
-* **qb** - Query Builder
-* **quick** - Active Record ORM
-* **cborm** - ORM integration
-* **cbmigrations** / **commandbox-migrations** - Database migrations
-
-*REST & APIs*
-
-* **cbswagger** - API documentation
-* **hyper** - HTTP client
-* **cbvalidation** - Data validation
-* **cors** - CORS configuration
-
-*Caching & Performance*
-
-* **cachebox** - Caching strategies (when not using core)
-* **cbstorages** - Storage abstractions
-
-*Development Tools*
-
-* **cbdebugger** - Debugging tools
-* **route-visualizer** - Route inspection
-* **commandbox-cfformat** - Code formatting
-* **commandbox-boxlang** - BoxLang runtime
-
-*Additional Modules (20+)*
-
-* And many more: cbstreams, cbmailservices, cbmessagebox, cbpaginator, cbwire, mementifier, etc.
-
-View installed guidelines:
-
-```bash
-coldbox ai guidelines list              # Brief list
-coldbox ai guidelines list --verbose    # With descriptions
-```
-
-### Guideline Types
-
-Guidelines are organized into four tiers:
-
-1. **Core** - Built into ColdBox CLI, framework-level documentation
-2. **Module** - Automatically discovered from installed CommandBox modules
-3. **Custom** - Your project-specific guidelines in `.agents/guidelines/custom/`
-4. **Override** - Custom versions replacing core/module guidelines
-
-This hierarchy allows seamless integration from framework to module to project level.
-
-```mermaid
-graph TD
-    subgraph "Priority (High to Low)"
-        Override["🎯 Overrides<br/>.agents/guidelines/overrides/<br/>Highest Priority"]
-        Custom["📝 Custom<br/>.agents/guidelines/custom/<br/>Project-specific"]
-        Module["📦 Modules<br/>.agents/guidelines/modules/<br/>From installed packages"]
-        Core["⚙️ Core<br/>.agents/guidelines/core/<br/>Built-in (Lowest Priority)"]
-    end
-
-    Override -."Replaces".-> Core
-    Override -."Replaces".-> Module
-    Custom -."Adds to".-> Module
-    Module -."Extends".-> Core
-
-    subgraph "Example: coldbox.md"
-        Check{"Which version<br/>to use?"}
-        UseOverride["✅ Use override version<br/>Custom conventions"]
-        UseModule["Use module version<br/>If no override"]
-        UseCustom["Use custom version<br/>If exists"]
-        UseCore["Use core version<br/>Default fallback"]
-    end
-
-    Check -->|"Override exists"| UseOverride
-    Check -->|"Custom exists"| UseCustom
-    Check -->|"Module exists"| UseModule
-    Check -->|"None exist"| UseCore
-
-    style Override fill:#f44336,color:#fff
-    style Custom fill:#ff9800,color:#fff
-    style Module fill:#2196f3,color:#fff
-    style Core fill:#9e9e9e,color:#fff
-    style UseOverride fill:#4caf50,color:#fff
-```
+| Guideline   | File         | Description                                    |
+| ----------- | ------------ | ---------------------------------------------- |
+| **coldbox** | `coldbox.md` | ColdBox framework architecture and conventions |
+| **boxlang** | `boxlang.md` | BoxLang language features and syntax           |
+| **cfml**    | `cfml.md`    | CFML language fundamentals                     |
 
 ### Custom Guidelines
 
-Add project-specific guidelines to tailor AI assistance to your codebase:
+Add project-specific guidelines for your business domain, third-party integrations, or team conventions:
 
 ```bash
 # Create a custom guideline
 touch .agents/guidelines/custom/payment-processing.md
 ```
 
-Example guideline structure:
-
-```markdown
-# Payment Processing
-
-This application uses Stripe for payment processing with a custom abstraction layer.
-
-## Architecture
-
-- `models/payments/` - Payment domain models
-- `services/PaymentService.cfc` - Main payment service
-- `config/stripe.cfc` - Stripe configuration
-
-## Creating Charges
-
-Always use the PaymentService singleton:
-
-\`\`\`javascript
-property name="paymentService" inject="PaymentService";
-
-function chargeCustomer( required amount, required customerID ){
-    return paymentService.createCharge({
-        amount: arguments.amount,
-        customer: arguments.customerID,
-        currency: "usd"
-    });
-}
-\`\`\`
-
-## Important Conventions
-
-1. Always validate amounts before charging
-2. Log all payment attempts to `payment-audit` logger
-3. Use idempotency keys for charge retries
-4. Handle webhook events in `handlers/webhooks/Stripe.cfc`
-```
-
-Custom guidelines will be automatically included in agent configurations.
-
 ### Overriding Guidelines
 
-Override core or module guidelines to customize them for your needs:
-
 ```bash
-# Override a core guideline
+# Override a core guideline with your own version
 coldbox ai guidelines install coldbox --override
-
-# Edit the override
-edit .agents/guidelines/overrides/coldbox.md
 ```
-
-Overrides take precedence over core/module guidelines, allowing you to adapt standard documentation to your team's conventions.
-
-### Module Guidelines
-
-CommandBox module authors can include AI guidelines in their packages:
-
-**Directory Structure:**
-
-```
-your-module/
-├── ModuleConfig.cfc
-└── .agents/
-    └── guidelines/
-        └── core.md           # Auto-discovered
-```
-
-**Module Guideline Template:**
-
-```markdown
-# Module Name
-
-Brief description of what your module does.
-
-## Installation
-
-\`\`\`bash
-box install your-module
-\`\`\`
-
-## Key Concepts
-
-- Concept 1: Brief explanation
-- Concept 2: Brief explanation
-
-## Common Usage
-
-\`\`\`javascript
-// Example code
-moduleService.doSomething();
-\`\`\`
-
-## Best Practices
-
-1. Always do X before Y
-2. Use setting `foo` for production
-3. Call `z()` in your Application.cfc
-```
-
-Keep module guidelines concise (1-3KB). Users can override them if needed.
 
 ***
 
 ## AI Skills
 
-Skills are on-demand coding cookbooks that teach AI agents *how to implement specific features* \u2014 they provide step-by-step guidance with concrete, working code patterns. While guidelines answer *"what is this?"*, skills answer *"how do I build it?"*
-
-Skills use an inventory system where the agent file lists all available skills **grouped by category** with 80-character truncated descriptions. AI agents scan the inventory, then pull the full `SKILL.md` on-demand when working on a matching task \u2014 providing deep implementation expertise without bloating the agent file.
-
-{% hint style="info" %}
-**Official Skills Directory**: Browse and discover all available skills at [skills.boxlang.io](https://skills.boxlang.io) \u2014 the official registry for ColdBox, BoxLang, TestBox, CommandBox, and module skills. Skills installed via `coldbox ai install` are sourced from this registry.
-{% endhint %}
-
-### Available Skills
-
-ColdBox AI Integration includes **200+ skills** sourced from [skills.boxlang.io](https://skills.boxlang.io) (all available on-demand through the category-grouped inventory):
-
-**Scaffolding & Creation (12)**
-
-* **creating-applications** - New app generation
-* **creating-handlers** - Controller creation
-* **creating-models** - Model and service creation
-* **creating-views** - View templates
-* **creating-layouts** - Layout templates
-* **creating-resources** - RESTful resources
-* **creating-interceptors** - AOP interceptors
-* **creating-modules** - Module scaffolding
-* **generating-crud** - Complete CRUD generation
-* **generating-migrations** - Database migrations
-* **generating-tests** - Test case creation
-* **scaffolding-commands** - CLI command creation
-
-**Testing & Quality (8)**
-
-* **writing-unit-tests** - Unit testing patterns
-* **writing-integration-tests** - Integration test strategies
-* **writing-bdd-specs** - BDD specification style
-* **using-mocks** - Test doubles and mocking
-* **testing-handlers** - Controller testing
-* **testing-models** - Model testing
-* **testing-interceptors** - Interceptor testing
-* **test-driven-development** - TDD workflow
-
-**Configuration & Setup (6)**
-
-* **configuring-environments** - Environment management
-* **configuring-datasources** - Database configuration
-* **configuring-routes** - Routing setup
-* **configuring-wirebox** - DI configuration
-* **configuring-caching** - Cache configuration
-* **configuring-logging** - Logger setup
-
-**Database & ORM (10)**
-
-* **using-qb** - Query Builder patterns
-* **using-cborm** - ORM usage
-* **using-quick** - Quick ORM
-* **creating-migrations** - Migration authoring
-* **database-seeding** - Test data seeding
-* **query-optimization** - SQL optimization
-* **using-transactions** - Transaction management
-* **database-relationships** - Entity relationships
-* **using-scopes** - Query scopes
-* **database-testing** - Database test strategies
-
-**REST APIs (8)**
-
-* **building-rest-apis** - RESTful API design
-* **api-authentication** - API auth strategies
-* **api-versioning** - version management
-* **api-documentation** - OpenAPI/Swagger
-* **api-error-handling** - Error responses
-* **api-testing** - API testing
-* **jwt-authentication** - JWT implementation
-* **oauth-integration** - OAuth flows
-
-**Security (6)**
-
-* **implementing-authentication** - Auth systems
-* **implementing-authorization** - Permission systems
-* **using-cbsecurity** - CBSecurity module
-* **securing-endpoints** - Endpoint protection
-* **csrf-protection** - CSRF mitigation
-* **input-validation** - Request validation
-
-**Performance & Optimization (6)**
-
-* **caching-strategies** - Cache patterns
-* **async-programming** - Async execution
-* **background-jobs** - Job queues
-* **performance-monitoring** - Performance tracking
-* **query-optimization** - Database optimization
-* **memory-management** - Memory optimization
-
-**Web Development (6+)**
-
-* **handling-forms** - Form processing
-* **file-uploads** - Upload handling
-* **sending-email** - Email delivery
-* **working-with-sessions** - Session management
-* **flash-messaging** - Flash message patterns
-* **asset-management** - Frontend assets
-
-View installed skills:
+Skills are sourced from [skills.boxlang.io](https://skills.boxlang.io) — the official registry for ColdBox, BoxLang, TestBox, CommandBox, and module skills. Browse the full catalog there. Install them via:
 
 ```bash
-coldbox ai skills list              # Brief list
-coldbox ai skills list --verbose    # With descriptions
+# Install a skill
+coldbox ai skills install creating-handlers
+
+# List installed skills
+coldbox ai skills list
+coldbox ai skills list --verbose
 ```
 
 ### Custom Skills
 
-Create custom skills for your domain-specific workflows:
+Create project-specific skills for domain workflows:
 
 ```bash
-# Create a custom skill directory
-mkdir -p .agents/skills/custom/deploying-to-kubernetes
-touch .agents/skills/custom/deploying-to-kubernetes/SKILL.md
-```
-
-Example skill structure following [Agent Skills format](https://agentskills.io):
-
-```markdown
----
-name: deploying-to-kubernetes
-description: Deploy ColdBox applications to Kubernetes with Helm
-version: 1.0.0
----
-
-# Deploying to Kubernetes
-
-## When to use this skill
-
-Use this skill when deploying ColdBox applications to Kubernetes clusters using our custom Helm charts.
-
-## Prerequisites
-
-- Helm 3.x installed
-- kubectl configured
-- Docker image built and pushed
-
-## Deployment Steps
-
-## 1. Configure Helm Values
-
-Edit `kubernetes/values.yaml`:
-
-\`\`\`yaml
-app:
-  name: my-coldbox-app
-  image: registry.example.com/my-app:latest
-  replicas: 3
-
-database:
-  host: postgres.default.svc.cluster.local
-  name: myapp_production
-\`\`\`
-
-## 2. Deploy Application
-
-\`\`\`bash
-helm upgrade --install my-app ./kubernetes/chart \
-  -f kubernetes/values.yaml \
-  --namespace production
-\`\`\`
-
-## 3. Verify Deployment
-
-\`\`\`bash
-kubectl get pods -n production
-kubectl logs -f deployment/my-app -n production
-\`\`\`
-
-## Rollback Procedure
-
-If deployment fails:
-
-\`\`\`bash
-helm rollback my-app -n production
-\`\`\`
-
-## Troubleshooting
-
-- **Pods not starting**: Check image pull secrets
-- **Database connection failed**: Verify service DNS
-- **Health check failing**: Review `/healthcheck` endpoint
-```
-
-Skills support additional files:
-
-```
-.agents/skills/custom/deploying-to-kubernetes/
-├── SKILL.md              # Main skill content (required)
-├── templates/            # Code templates
-│   └── helm-values.yaml
-├── scripts/              # Helper scripts
-│   └── deploy.sh
-└── docs/                 # Additional documentation
-    └── architecture.md
-```
-
-### Overriding Skills
-
-Override built-in skills to adapt them to your conventions:
-
-```bash
-# Override a core skill
-coldbox ai skills install creating-handlers --override
-
-# Edit the override
-edit .agents/skills/overrides/creating-handlers/SKILL.md
-```
-
-### Module Skills
-
-Module authors can bundle skills with their packages:
-
-**Directory Structure:**
-
-```
-your-module/
-├── ModuleConfig.cfc
-└── .agents/
-    └── skills/
-        └── using-your-module/
-            └── SKILL.md
-```
-
-**Module Skill Template:**
-
-```markdown
----
-name: using-your-module
-description: Integrate and use YourModule features in ColdBox applications
-version: 1.0.0
----
-
-# Using YourModule
-
-## When to use this skill
-
-Use this skill when integrating YourModule for [specific functionality].
-
-## Installation
-
-\`\`\`bash
-box install your-module
-\`\`\`
-
-## Configuration
-
-Add to `config/ColdBox.cfc`:
-
-\`\`\`javascript
-moduleSettings = {
-    "your-module" = {
-        apiKey = getSystemSetting("YOURMODULE_KEY"),
-        timeout = 30
-    }
-};
-\`\`\`
-
-## Basic Usage
-
-\`\`\`javascript
-property name="yourService" inject="YourService@your-module";
-
-function doSomething( event, rc, prc ){
-    var result = yourService.process( rc.data );
-    event.renderData( data = result );
-}
-\`\`\`
-
-## Common Patterns
-
-## Pattern 1: Async Processing
-[Details...]
-
-## Pattern 2: Error Handling
-[Details...]
-
-## Best Practices
-
-1. Always set timeout values
-2. Cache API responses when possible
-3. Use event listeners for notifications
+mkdir -p .agents/skills/deploying-to-kubernetes
+touch .agents/skills/deploying-to-kubernetes/SKILL.md
 ```
 
 ***
 
 ## AI Agents
 
-ColdBox AI Integration supports **6 major AI agents** with automatic configuration generation.
+ColdBox AI Integration supports **6 major AI agents** with automatic configuration generation:
 
-### Supported Agents
-
-> **Note**: Agent configuration paths are centrally managed in `models/AgentRegistry.cfc`
-
-| Agent              | Config File                       | Description                    |
-| ------------------ | --------------------------------- | ------------------------------ |
-| **Claude**         | `CLAUDE.md`                       | Claude Desktop and Claude Code |
-| **GitHub Copilot** | `AGENTS.md` (shared)              | VS Code Copilot integration    |
-| **Cursor**         | `.cursorrules`                    | Cursor IDE rules               |
-| **Codex**          | `AGENTS.md` (shared)              | Codex AI assistant             |
-| **Gemini**         | `GEMINI.md`                       | Gemini CLI integration         |
-| **OpenCode**       | `AGENTS.md` (shared)              | OpenCode assistant             |
-
-### Agent Configuration
-
-Manage agent configurations:
+| Agent              | Config File          | Description                    |
+| ------------------ | -------------------- | ------------------------------ |
+| **Claude**         | `CLAUDE.md`          | Claude Desktop and Claude Code |
+| **GitHub Copilot** | `AGENTS.md` (shared) | VS Code Copilot integration    |
+| **Cursor**         | `.cursorrules`       | Cursor IDE rules               |
+| **Codex**          | `AGENTS.md` (shared) | Codex AI assistant             |
+| **Gemini**         | `GEMINI.md`          | Gemini CLI integration         |
+| **OpenCode**       | `AGENTS.md` (shared) | OpenCode assistant             |
 
 ```bash
-# List available agents
-coldbox ai agents list
-
-# Add agents
-coldbox ai agents add claude copilot cursor
-
-# Remove agents
-coldbox ai agents remove cursor
-
-# Regenerate all configurations
-coldbox ai agents refresh
-```
-
-Each agent configuration includes:
-
-* All active guidelines (core, module, custom, overrides)
-* Available skills (with invocation instructions)
-* MCP server configurations (where supported)
-* Language-specific context (BoxLang/CFML)
-* Project metadata and conventions
-
-### Multi-Agent Development
-
-ColdBox AI Integration supports multiple agents simultaneously:
-
-```bash
-# Set up for team with varied preferences
-coldbox ai agents add claude copilot cursor codex
-
-# Each developer uses their preferred agent
-# All agents receive the same guidelines and skills
-```
-
-Benefits:
-
-* **Team Flexibility**: Developers choose their preferred tools
-* **Consistent Standards**: All agents follow same guidelines
-* **Cross-Agent Testing**: Verify AI-generated code across multiple assistants
-* **Redundancy**: Switch agents if one has issues
-
-```mermaid
-graph TB
-    subgraph "Shared Knowledge Base"
-        Guidelines["📚 Project Guidelines\n(on-disk + manifest inventory)"]
-        Skills["🎯 200+ Skills\n(inventoried by category)"]
-        MCP["🌐 30+ MCP Servers\n(tracked in .mcp.json)"]
-    end
-
-    subgraph "Agent Configurations"
-        Guidelines --> ClaudeConfig["CLAUDE.md"]
-        Guidelines --> CopilotConfig["AGENTS.md"]
-        Guidelines --> CursorConfig[".cursorrules"]
-        Guidelines --> CodexConfig["AGENTS.md"]
-        Guidelines --> GeminiConfig["GEMINI.md"]
-        Guidelines --> OpenCodeConfig["AGENTS.md"]
-
-        Skills --> ClaudeConfig
-        Skills --> CopilotConfig
-        Skills --> CursorConfig
-        Skills --> CodexConfig
-        Skills --> GeminiConfig
-        Skills --> OpenCodeConfig
-
-        MCP --> ClaudeConfig
-    end
-
-    subgraph "Team Members"
-        ClaudeConfig --> Dev1["👨‍💻 Developer 1<br/>Uses Claude"]
-        CopilotConfig --> Dev2["👩‍💻 Developer 2<br/>Uses Copilot"]
-        CursorConfig --> Dev3["👨‍💻 Developer 3<br/>Uses Cursor"]
-        CodexConfig --> Dev4["👩‍💻 Developer 4<br/>Uses Codex"]
-    end
-
-    Dev1 -."All follow same standards".-> Standards["✅ Consistent Code Quality"]
-    Dev2 -.-> Standards
-    Dev3 -.-> Standards
-    Dev4 -.-> Standards
-
-    style Guidelines fill:#2196f3,color:#fff
-    style Skills fill:#ffc107,color:#000
-    style MCP fill:#4caf50,color:#fff
-    style Standards fill:#9c27b0,color:#fff
+coldbox ai agents list                     # List available
+coldbox ai agents add claude copilot       # Add agents
+coldbox ai agents remove cursor            # Remove agent
+coldbox ai agents refresh                  # Regenerate configs
 ```
 
 ***
 
 ## MCP Servers
 
-Model Context Protocol (MCP) servers provide extended capabilities to AI agents. ColdBox AI Integration includes the **largest collection of MCP servers** in any framework tooling, automatically matched to the modules you install. All registered servers are tracked in **`.mcp.json`** in your project root \u2014 a single source of truth consumed by agent files and IDE integrations alike.
-
-### `.mcp.json` \u2014 Project MCP Registry
-
-The `.mcp.json` file in your project root tracks every registered MCP documentation server:
-
-```json
-{
-  "mcpServers": {
-    "boxlang": {
-      "name": "boxlang",
-      "description": "BoxLang Language Documentation",
-      "url": "https://ai.ortusbooks.com/~gitbook/mcp",
-      "source": "core"
-    },
-    "coldbox": {
-      "name": "coldbox",
-      "description": "ColdBox Framework Documentation",
-      "url": "https://coldbox.ortusbooks.com/~gitbook/mcp",
-      "source": "core"
-    }
-  }
-}
-```
-
-Servers added via `coldbox ai mcp add` are saved here automatically. During `coldbox ai refresh`, the CLI auto-detects MCP servers from installed modules and updates `.mcp.json` with any new entries.
+Model Context Protocol (MCP) servers provide AI agents with live documentation and application introspection. All servers are tracked in **`.mcp.json`** at your project root.
 
 ### Installing the ColdBox Live MCP Server (cbMCP)
 
-The `cbMCP` module turns your **running ColdBox application** into an MCP server, giving AI agents real-time access to your routes, handlers, WireBox mappings, and more. Install it with a single command:
+The `cbMCP` module turns your **running ColdBox application** into an MCP server, giving AI agents real-time access to routes, handlers, WireBox mappings, and more:
 
 ```bash
 # Install cbMCP and register it in .mcp.json
@@ -1050,931 +185,128 @@ coldbox ai mcp install
 
 # With custom host/port
 coldbox ai mcp install --host=localhost --port=8080
-
-# Force reinstall
-coldbox ai mcp install --force
 ```
 
-This installs the `cbmcp` CommandBox module and registers the live MCP endpoint (`http://<host>:<port>/cbmcp`) as a custom server in `.mcp.json`. Once installed, AI agents can ask live questions about your app:
+Once installed, AI agents can introspect your live app:
 
 ```
 AI: "What routes does my app expose under /api?"
-  → cbMCP introspects the live RoutingService
-
 AI: "Show me all WireBox singletons."
-  → cbMCP queries the live WireBox container
-
 AI: "Are there any ERROR log entries in the last hour?"
-  → cbMCP reads from LogBox appenders
 ```
 
 ### Managing MCP Servers
 
 ```bash
-# List all registered servers
-coldbox ai mcp list
-
-# Add a documentation server
-coldbox ai mcp add --name="myDocs" --url="https://docs.example.com/mcp"
-
-# Remove a server
-coldbox ai mcp remove myDocs
-
-# Get help
-coldbox ai mcp help
+coldbox ai mcp list                              # List registered servers
+coldbox ai mcp add --name="myDocs" --url="..."  # Add a server
+coldbox ai mcp remove myDocs                    # Remove a server
 ```
 
-### MCP Auto-Detection
-
-During `coldbox ai refresh`, the CLI inspects your `box.json` dependencies and automatically adds MCP servers for any recognized modules \u2014 zero configuration required:
-
-```bash
-box install qb
-coldbox ai refresh   # → auto-detects and adds the "qb" MCP server to .mcp.json
-```
+During `coldbox ai refresh`, the CLI auto-detects MCP servers from installed modules and updates `.mcp.json` automatically.
 
 ### Built-in MCP Servers
 
-```
-{
-// Core Platform
-"boxlang" : {
-    "name"        : "boxlang",
-    "description" : "BoxLang Language Documentation",
-    "url"         : "https://ai.ortusbooks.com/~gitbook/mcp"
-},
-"boxlang-ide" : {
-    "name"        : "boxlang-ide",
-    "description" : "BoxLang IDE Documentation",
-    "url"         : "https://boxlang-ide.ortusbooks.com/~gitbook/mcp"
-},
-"modern-cfml" : {
-    "name"        : "modern-cfml",
-    "description" : "Modern CFML Guide",
-    "url"         : "https://modern-cfml.ortusbooks.com/~gitbook/mcp"
-},
-// Core Frameworks
-"coldbox" : {
-    "name"        : "coldbox",
-    "description" : "ColdBox Framework Documentation",
-    "url"         : "https://coldbox.ortusbooks.com/~gitbook/mcp"
-},
-"commandbox" : {
-    "name"        : "commandbox",
-    "description" : "CommandBox CLI Documentation",
-    "url"         : "https://commandbox.ortusbooks.com/~gitbook/mcp"
-},
-"testbox" : {
-    "name"        : "testbox",
-    "description" : "TestBox Testing Framework",
-    "url"         : "https://testbox.ortusbooks.com/~gitbook/mcp"
-},
-"wirebox" : {
-    "name"        : "wirebox",
-    "description" : "WireBox Dependency Injection",
-    "url"         : "https://wirebox.ortusbooks.com/~gitbook/mcp"
-},
-"cachebox" : {
-    "name"        : "cachebox",
-    "description" : "CacheBox Caching Framework",
-    "url"         : "https://cachebox.ortusbooks.com/~gitbook/mcp"
-},
-"logbox" : {
-    "name"        : "logbox",
-    "description" : "LogBox Logging Framework",
-    "url"         : "https://logbox.ortusbooks.com/~gitbook/mcp"
-},
-"docbox" : {
-    "name"        : "docbox",
-    "description" : "DocBox Documentation Generator",
-    "url"         : "https://docbox.ortusbooks.com/~gitbook/mcp"
-},
-// ORM & Database
-"bxorm" : {
-    "name"        : "bxorm",
-    "description" : "BoxLang ORM",
-    "url"         : "https://bxorm.ortusbooks.com/~gitbook/mcp"
-},
-"cborm" : {
-    "name"        : "cborm",
-    "description" : "ColdBox ORM Utilities",
-    "url"         : "https://coldbox-orm.ortusbooks.com/~gitbook/mcp"
-},
-"qb" : {
-    "name"        : "qb",
-    "description" : "Query Builder (QB)",
-    "url"         : "https://qb.ortusbooks.com/~gitbook/mcp"
-},
-"quick" : {
-    "name"        : "quick",
-    "description" : "Quick ORM Active Record",
-    "url"         : "https://quick.ortusbooks.com/~gitbook/mcp"
-},
-"cfmigrations" : {
-    "name"        : "cfmigrations",
-    "description" : "Database Migrations",
-    "url"         : "https://cfmigrations.ortusbooks.com/~gitbook/mcp"
-},
-// Security
-"cbsecurity" : {
-    "name"        : "cbsecurity",
-    "description" : "CBSecurity Authentication/Authorization",
-    "url"         : "https://coldbox-security.ortusbooks.com/~gitbook/mcp"
-},
-"cbauth" : {
-    "name"        : "cbauth",
-    "description" : "CBAuth User Authentication",
-    "url"         : "https://cbauth.ortusbooks.com/~gitbook/mcp"
-},
-"cbsso" : {
-    "name"        : "cbsso",
-    "description" : "CBSSO Single Sign-On",
-    "url"         : "https://cbsso.ortusbooks.com/~gitbook/mcp"
-},
-// Validation & Data
-"cbvalidation" : {
-    "name"        : "cbvalidation",
-    "description" : "CBValidation Validation Framework",
-    "url"         : "https://coldbox-validation.ortusbooks.com/~gitbook/mcp"
-},
-"cbi18n" : {
-    "name"        : "cbi18n",
-    "description" : "CBI18N Internationalization",
-    "url"         : "https://coldbox-i18n.ortusbooks.com/~gitbook/mcp"
-},
-"cbmailservices" : {
-    "name"        : "cbmailservices",
-    "description" : "CBMailServices Email Integration",
-    "url"         : "https://coldbox-mailservices.ortusbooks.com/~gitbook/mcp"
-},
-// Development Tools
-"cbdebugger" : {
-    "name"        : "cbdebugger",
-    "description" : "CBDebugger Debugging Tools",
-    "url"         : "https://cbdebugger.ortusbooks.com/~gitbook/mcp"
-},
-"cbelasticsearch" : {
-    "name"        : "cbelasticsearch",
-    "description" : "CBElasticsearch Integration",
-    "url"         : "https://cbelasticsearch.ortusbooks.com/~gitbook/mcp"
-},
-"cbfs" : {
-    "name"        : "cbfs",
-    "description" : "CBFS File System Abstraction",
-    "url"         : "https://cbfs.ortusbooks.com/~gitbook/mcp"
-},
-"cfconfig" : {
-    "name"        : "cfconfig",
-    "description" : "CFConfig Server Configuration",
-    "url"         : "https://cfconfig.ortusbooks.com/~gitbook/mcp"
-},
-// Modern Development
-"cbwire" : {
-    "name"        : "cbwire",
-    "description" : "CBWire Reactive Components",
-    "url"         : "https://cbwire.ortusbooks.com/~gitbook/mcp"
-},
-"cbq" : {
-    "name"        : "cbq",
-    "description" : "CBQ Job Queues",
-    "url"         : "https://cbq.ortusbooks.com/~gitbook/mcp"
-},
-"megaphone" : {
-    "name"        : "megaphone",
-    "description" : "Megaphone Messaging",
-    "url"         : "https://megaphone.ortusbooks.com/~gitbook/mcp"
-},
-// CMS
-"contentbox" : {
-    "name"        : "contentbox",
-    "description" : "ContentBox CMS",
-    "url"         : "https://contentbox.ortusbooks.com/~gitbook/mcp"
-},
-// API & Documentation
-"relax" : {
-    "name"        : "relax",
-    "description" : "Relax REST API Documentation",
-    "url"         : "https://coldbox-relax.ortusbooks.com/~gitbook/mcp"
-}
-}
-```
-
-View configured MCP servers:
-
-```bash
-coldbox ai mcp list         # List all servers
-coldbox ai mcp info          # Show configuration details
-```
-
-### Custom MCP Servers
-
-Add project-specific or third-party MCP servers:
-
-```bash
-# Add custom servers
-coldbox ai mcp add @mycompany/internal-tools @vendor/custom-server
-
-# Remove servers
-coldbox ai mcp remove @vendor/custom-server
-```
-
-Custom server configuration in `.agents/manifest.json`:
-
-```json
-{
-  "mcpServers": {
-    "custom": [
-      {
-        "name": "@mycompany/internal-tools",
-        "command": "npx",
-        "args": ["-y", "@mycompany/internal-tools"],
-        "description": "Company internal development tools"
-      }
-    ]
-  }
-}
-```
-
-### MCP Configuration
-
-Generate agent-specific MCP configurations:
-
-```bash
-# Generate .mcp.json for all agents
-coldbox ai mcp config
-
-# Agent-specific configuration
-coldbox ai mcp config --agent=claude
-```
-
-Example generated `.mcp.json`:
-
-```json
-{
-  "mcpServers": {
-    "filesystem": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/project/root"]
-    },
-    "github": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
-      "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_..."
-      }
-    }
-  }
-}
-```
+| Server            | Description                             |
+| ----------------- | --------------------------------------- |
+| `boxlang`         | BoxLang Language Documentation          |
+| `boxlang-ide`     | BoxLang IDE Documentation               |
+| `modern-cfml`     | Modern CFML Guide                       |
+| `coldbox`         | ColdBox Framework Documentation         |
+| `commandbox`      | CommandBox CLI Documentation            |
+| `testbox`         | TestBox Testing Framework               |
+| `wirebox`         | WireBox Dependency Injection            |
+| `cachebox`        | CacheBox Caching Framework              |
+| `logbox`          | LogBox Logging Framework                |
+| `docbox`          | DocBox Documentation Generator          |
+| `bxorm`           | BoxLang ORM                             |
+| `cborm`           | ColdBox ORM Utilities                   |
+| `qb`              | Query Builder (QB)                      |
+| `quick`           | Quick ORM Active Record                 |
+| `cfmigrations`    | Database Migrations                     |
+| `cbsecurity`      | CBSecurity Authentication/Authorization |
+| `cbauth`          | CBAuth User Authentication              |
+| `cbsso`           | CBSSO Single Sign-On                    |
+| `cbvalidation`    | CBValidation Validation Framework       |
+| `cbi18n`          | CBI18N Internationalization             |
+| `cbmailservices`  | CBMailServices Email Integration        |
+| `cbdebugger`      | CBDebugger Debugging Tools              |
+| `cbelasticsearch` | CBElasticsearch Integration             |
+| `cbfs`            | CBFS File System Abstraction            |
+| `cfconfig`        | CFConfig Server Configuration           |
+| `cbwire`          | CBWire Reactive Components              |
+| `cbq`             | CBQ Job Queues                          |
+| `megaphone`       | Megaphone Messaging                     |
+| `contentbox`      | ContentBox CMS                          |
+| `relax`           | Relax REST API Documentation            |
 
 ***
 
 ## CLI Commands
 
-ColdBox AI Integration provides comprehensive CLI commands for managing your AI integration.
-
 ### Setup & Management
 
 ```bash
-# Initial setup
 coldbox ai install                  # Interactive installation wizard
-coldbox ai install --agents=claude  # Install for specific agent
-
-# View configuration
 coldbox ai info                     # Show current configuration
 coldbox ai tree                     # Visual hierarchy of components
 coldbox ai tree --verbose           # Include file paths
-
-# Update resources
 coldbox ai refresh                  # Sync with installed modules
 ```
 
 ### Component Management
 
-**Guidelines:**
-
 ```bash
+# Guidelines
 coldbox ai guidelines list                    # List installed
 coldbox ai guidelines list --verbose          # With descriptions
-coldbox ai guidelines install coldbox qb      # Install specific
-coldbox ai guidelines uninstall qb            # Remove guideline
-coldbox ai guidelines refresh                 # Update from modules
-```
+coldbox ai guidelines install coldbox         # Install specific
+coldbox ai guidelines uninstall coldbox       # Remove guideline
 
-**Skills:**
-
-```bash
+# Skills
 coldbox ai skills list                        # List installed
 coldbox ai skills list --verbose              # With descriptions
 coldbox ai skills install creating-handlers   # Install specific
 coldbox ai skills uninstall creating-handlers # Remove skill
-coldbox ai skills refresh                     # Update from modules
-```
 
-**Agents:**
-
-```bash
+# Agents
 coldbox ai agents list                        # List available
 coldbox ai agents add claude copilot          # Add agents
 coldbox ai agents remove cursor               # Remove agent
 coldbox ai agents refresh                     # Regenerate configs
-```
 
-**MCP Servers:**
-
-```bash
+# MCP Servers
 coldbox ai mcp list                           # List servers
-coldbox ai mcp info                           # Show configuration
-coldbox ai mcp add github postgres            # Add servers
-coldbox ai mcp remove postgres                # Remove server
-coldbox ai mcp config                         # Generate .mcp.json
+coldbox ai mcp add --name="x" --url="..."     # Add server
+coldbox ai mcp remove myServer                # Remove server
+coldbox ai mcp install                        # Install cbMCP live server
 ```
 
-### Diagnostics & Analytics
+### Diagnostics
 
 ```bash
-# Health diagnostics
 coldbox ai doctor                   # Check integration health
 coldbox ai doctor --fix             # Auto-fix common issues
-
-# Context statistics
-coldbox ai stats                    # Quick overview
+coldbox ai stats                    # Context usage overview
 coldbox ai stats --verbose          # Detailed breakdown
-coldbox ai stats --json             # Machine-readable
-
-# Visual structure
-coldbox ai tree                     # Component hierarchy
-coldbox ai tree --verbose           # With file paths
 ```
-
-***
-
-## Developer Experience
-
-ColdBox AI Integration includes unique developer experience tools not found in other solutions.
-
-### Visual Tree Structure
-
-Visualize your AI integration structure:
-
-```bash
-coldbox ai tree
-```
-
-Output example:
-
-```
-AI Integration Structure for MyApp (1.0.0)
-
-.agents/
-├── guidelines/ (3 core guidelines)
-│   ├── core/ (8)
-│   │   ├── boxlang
-│   │   ├── coldbox
-│   │   ├── coldbox-routing
-│   │   ├── wirebox
-│   │   ├── logbox
-│   │   ├── cachebox
-│   │   ├── testbox
-│   │   └── async
-│   ├── modules/ (28)
-│   │   ├── qb
-│   │   ├── cborm
-│   │   ├── cbsecurity
-│   │   └── ...
-│   └── custom/ (5)
-│       ├── payment-processing
-│       └── ...
-├── skills/ (62)
-│   ├── core/ (50)
-│   └── custom/ (12)
-├── agents/ (3)
-│   ├── claude
-│   ├── copilot
-│   └── cursor
-└── mcp-servers/ (30)
-    ├── core/ (27)
-    ├── module/ (2)
-    └── custom/ (1)
-
-┌─────────────────┬───────┐
-│ Component       │ Count │
-├─────────────────┼───────┤
-│ Guidelines      │ 3 core built-in    |
-│ Skills          │ 200+  │
-│ Agents          │ 6     │
-│ MCP Servers     │ 30+   │
-└─────────────────┴───────┘
-```
-
-### Context Usage Statistics
-
-Analyze AI context consumption:
-
-```bash
-coldbox ai stats --verbose
-```
-
-Output example:
-
-```
-AI Integration Statistics
-
-📋 Project
-  Name: MyApp
-  Language: boxlang
-  Template: modern
-  Last Sync: 2026-02-11 10:30:45
-
-📚 Guidelines (22)
-    Core: 2
-    Module: 17
-    Custom: 3
-  Override: 0
-
-🎯 Skills (214)
-    Core: 180
-    Module: 12
-    Custom: 22
-  Override: 0
-
-🤖 Agents (3)
-  • claude
-  • copilot
-  • cursor
-
-🌐 MCP Servers (31)
-    Core: 28
-  Module: 2
-  Custom: 1
-
-💾 Estimated AI Context Usage
-  Guidelines: ~85 KB
-  Skills: ~124 KB
-  Total: ~209 KB
-  Usage: ✓ Low (24.6% of typical AI context)
-
-📈 Context Window Utilization:
-  Claude 3.5 Sonnet: 7.84% (~62,700 tokens of 200,000)
-  GPT-4: 12.27% (~62,700 tokens of 128,000)
-  GPT-3.5-Turbo: 97.97% (~62,700 tokens of 16,000)
-  Gemini 1.5 Pro: 0.98% (~62,700 tokens of 1,000,000)
-```
-
-### Health Diagnostics
-
-Check integration health and get actionable fixes:
-
-```bash
-coldbox ai doctor
-```
-
-The doctor command validates:
-
-* ✅ Installation completeness
-* ✅ File structure integrity
-* ✅ Configuration validity
-* ✅ Module guideline sync
-* ✅ Agent configuration correctness
-* ✅ Context size optimization
-* ⚠️ Potential issues and solutions
-
-***
-
-## Module Integration
-
-One of ColdBox AI Integration's most powerful features is **automatic module awareness**.
-
-### Automatic Discovery
-
-Guidelines and skills from CommandBox modules are automatically discovered:
-
-```bash
-# Install a module
-box install qb
-
-# Refresh AI integration
-coldbox ai refresh
-
-# QB guidelines and skills are now available
-coldbox ai guidelines list | grep qb
-# ✓ qb (module)
-
-coldbox ai skills list | grep qb
-# ✓ using-qb (module)
-```
-
-**Discovery Process:**
-
-1. Scans installed modules in `/modules/`
-2. Looks for `.agents/` directory at module root
-3. Loads `guidelines/` and `skills/` subdirectories
-4. Integrates content into agent configurations
-5. Updates `.agents/manifest.json` with module sources
-
-```mermaid
-flowchart TD
-    Install["box install qb"]
-    Install --> Scan["🔍 Scan /modules/ directory"]
-    Scan --> Check{"Has .agents/<br/>directory?"}
-    Check -->|Yes| Load["📥 Load guidelines & skills"]
-    Check -->|No| Skip["⏭️ Skip module"]
-    Load --> Integrate["🔗 Integrate into .agents/ structure"]
-    Integrate --> Update["📝 Update manifest.json"]
-    Update --> Refresh["🔄 Refresh agent configs"]
-    Refresh --> Complete(["✅ QB guidelines & skills available"])
-    Skip --> End(["Done"])
-
-    subgraph "Module Structure"
-        ModuleDir[".../modules/qb/"]
-        ResourceDir[".agents/"]
-        GuidelineFile["guidelines/core.md"]
-        SkillFile["skills/using-qb/SKILL.md"]
-
-        ModuleDir --> ResourceDir
-        ResourceDir --> GuidelineFile
-        ResourceDir --> SkillFile
-    end
-
-    style Install fill:#2196f3,color:#fff
-    style Complete fill:#4caf50,color:#fff
-    style Load fill:#ff9800,color:#fff
-    style Integrate fill:#9c27b0,color:#fff
-
-```
-
-### Creating Module Guidelines
-
-Module authors: Include AI guidelines in your packages:
-
-**Directory Structure:**
-
-```
-your-module/
-├── box.json
-├── ModuleConfig.cfc
-└── .agents/
-    └── guidelines/
-        └── core.md        # Required
-```
-
-**Guideline Template:** (`.agents/guidelines/core.md`)
-
-```markdown
-# Module Name v1.0.0
-
-Brief one-sentence description of what your module does.
-
-## Installation
-
-\`\`\`bash
-box install your-module
-\`\`\`
-
-## Core Concepts
-
-**Primary Feature**: Brief explanation
-**Secondary Feature**: Brief explanation
-
-## Configuration
-
-\`\`\`javascript
-// config/ColdBox.cfc
-moduleSettings = {
-    "your-module" = {
-        enabled = true,
-        apiKey = getSystemSetting("MODULE_KEY")
-    }
-};
-\`\`\`
-
-## Common Usage
-
-\`\`\`javascript
-property name="moduleService" inject="ModuleService@your-module";
-
-function example( event, rc, prc ){
-    var result = moduleService.doSomething( rc.input );
-    return result;
-}
-\`\`\`
-
-## Best Practices
-
-1. Always validate input before calling module methods
-2. Use the ModuleService singleton for consistency
-3. Configure caching for expensive operations
-4. Handle module-specific exceptions with try/catch
-
-## Important Notes
-
-- Feature X requires Y to be configured first
-- Method Z has a side effect of A
-- Don't use deprecated function B, use C instead
-```
-
-**Guidelines Best Practices:**
-
-* Keep under 3KB when possible
-* Focus on "what" and "why", not exhaustive "how"
-* Include practical code examples
-* Mention gotchas and common mistakes
-* Reference official docs for deep dives
-
-### Creating Module Skills
-
-Module authors: Include AI skills for complex tasks:
-
-**Directory Structure:**
-
-```
-your-module/
-├── box.json
-├── ModuleConfig.cfc
-└── .agents/
-    └── skills/
-        └── using-your-module/
-            ├── SKILL.md           # Required
-            ├── templates/         # Optional
-            │   └── example.cfc
-            └── scripts/           # Optional
-                └── setup.sh
-```
-
-**Skill Template:** (`.agents/skills/using-your-module/SKILL.md`)
-
-```markdown
----
-name: using-your-module
-description: Integrate and use YourModule features effectively in ColdBox apps
-version: 1.0.0
-tags: [integration, api, data-processing]
----
-
-# Using YourModule
-
-## When to use this skill
-
-Use this skill when:
-- Integrating YourModule for the first time
-- Implementing feature X
-- Troubleshooting module issues
-- Optimizing module performance
-
-## Prerequisites
-
-- ColdBox 7.0+
-- Your Module 1.0+
-- WireBox dependency injection enabled
-
-## Step-by-Step Guide
-
-## 1. Installation
-
-\`\`\`bash
-box install your-module
-\`\`\`
-
-## 2. Configuration
-
-Add to `config/ColdBox.cfc`:
-
-\`\`\`javascript
-moduleSettings = {
-    "your-module" = {
-        apiKey = getSystemSetting("YOURMODULE_KEY"),
-        timeout = 30,
-        retries = 3,
-        cacheEnabled = true
-    }
-};
-\`\`\`
-
-## 3. Basic Implementation
-
-Create a service that uses the module:
-
-\`\`\`javascript
-// models/DataProcessor.cfc
-component singleton {
-
-    property name="moduleService" inject="ModuleService@your-module";
-
-    function processData( required struct data ){
-        // Validate input
-        if ( !structKeyExists( data, "required_field" ) ) {
-            throw( type="ValidationException", message="Missing required_field" );
-        }
-
-        // Process with module
-        try {
-            var result = moduleService.process( data );
-            return {
-                success: true,
-                data: result
-            };
-        } catch ( any e ) {
-            // Handle module-specific errors
-            logError( e );
-            return {
-                success: false,
-                error: e.message
-            };
-        }
-    }
-}
-\`\`\`
-
-## 4. Handler Integration
-
-Use in your handlers:
-
-\`\`\`javascript
-// handlers/Data.cfc
-component {
-
-    property name="dataProcessor" inject="DataProcessor";
-
-    function create( event, rc, prc ){
-        prc.result = dataProcessor.processData( rc );
-        event.renderData( data = prc.result );
-    }
-}
-\`\`\`
-
-## 5. Testing
-
-Create tests for your integration:
-
-\`\`\`javascript
-// tests/specs/unit/DataProcessorTest.cfc
-component extends="testbox.system.BaseSpec" {
-
-    function run(){
-        describe( "DataProcessor", () => {
-            it( "processes valid data", () => {
-                var processor = getInstance( "DataProcessor" );
-                var result = processor.processData({ required_field: "value" });
-                expect( result.success ).toBeTrue();
-            });
-        });
-    }
-}
-\`\`\`
-
-## Common Patterns
-
-## Pattern 1: Async Processing
-
-For long-running operations:
-
-\`\`\`javascript
-runAsync( () => {
-    var result = moduleService.processBatch( largeDatset );
-    return result;
-}).then( ( result ) => {
-    // Handle completion
-});
-\`\`\`
-
-## Pattern 2: Retry Logic
-
-With built-in retries:
-
-\`\`\`javascript
-function processWithRetry( data ){
-    var attempts = 0;
-    var maxAttempts = 3;
-
-    while ( attempts < maxAttempts ) {
-        try {
-            return moduleService.process( data );
-        } catch ( any e ) {
-            attempts++;
-            if ( attempts >= maxAttempts ) rethrow;
-            sleep( 1000 * attempts ); // Exponential backoff
-        }
-    }
-}
-\`\`\`
-
-## Troubleshooting
-
-## Issue: "Module not initialized"
-**Solution**: Ensure module is loaded in `config/ColdBox.cfc` modules array
-
-## Issue: API timeouts
-**Solution**: Increase `timeout` setting or implement async processing
-
-## Issue: Cache invalidation
-**Solution**: Call `moduleService.clearCache()` after data modifications
-
-## Performance Tips
-
-1. **Enable caching** for read-heavy operations
-2. **Use batch methods** for multiple items
-3. **Implement connection pooling** for external APIs
-4. **Monitor metrics** using ModuleService.getMetrics()
-
-## References
-
-- [Official Documentation](https://docs.example.com/your-module)
-- [API Reference](https://api.example.com/your-module)
-- [GitHub Examples](https://github.com/your-org/your-module/examples)
-```
-
-**Skills Best Practices:**
-
-* Include YAML frontmatter (name, description, version)
-* Provide complete, runnable code examples
-* Cover common patterns and edge cases
-* Include troubleshooting section
-* Link to detailed documentation
-* Keep focused on one main workflow
-* Size: 2-10KB typical
 
 ***
 
 ## Best Practices
 
-### Managing Context Size
-
-**Monitor Usage Regularly:**
-
-```bash
-coldbox ai stats
-```
-
-**Optimize When Needed:**
-
-1. **Review Custom Content**: Are all custom guidelines/skills necessary?
-2. **Use Overrides Sparingly**: Only override when truly needed
-3. **Leverage Skills**: Move detailed how-tos from guidelines to skills
-4. **Modular Guidelines**: Split large guidelines into focused ones
-
-**Warning Thresholds:**
-
-* ✅ **Low** (< 30%): Optimal, plenty of room for code context
-* ⚠️ **Moderate** (30-60%): Good, monitor growth
-* ⚠️ **High** (60-90%): Consider optimization
-* ⛔ **Very High** (> 90%): Reduce immediately for best AI performance
-
-### Project-Specific Customization
-
-**Use Custom Guidelines for:**
-
-* Business domain concepts
-* Project architecture decisions
-* Third-party service integrations
-* Team conventions and standards
-* Deployment procedures
-
-**Use Custom Skills for:**
-
-* Company-specific workflows
-* Internal tool usage
-* Complex deployment procedures
-* Domain-specific test patterns
-
-**Example Structure:**
+**Version Control** — commit your custom guidelines and skills to share them with your team:
 
 ```
-.agents/
-├── guidelines/
-│   └── custom/
-│       ├── authentication.md      # Auth architecture
-│       ├── payment-processing.md  # Stripe integration
-│       └── data-policies.md       # Data handling rules
-└── skills/
-    └── custom/
-        ├── deploying-production/  # Deploy workflow
-        ├── creating-reports/      # Report generation
-        └── migrating-data/        # Data migration
-```
-
-### Team Collaboration
-
-**Version Control:**
-
-```gitignore
-# .gitignore
-
-# DO commit these:
+# Commit these:
 .agents/guidelines/custom/
-.agents/skills/custom/
+.agents/skills/
 .agents/manifest.json
-
+.mcp.json
 ```
 
-**Team Workflow:**
+**Stay Synced** — run `coldbox ai refresh` after pulling updates or installing new modules to keep agent configs current.
 
-1. **Agree on Agents**: Team decides which agents to support
-2. **Share Custom Content**: Commit custom guidelines/skills to repo
-3. **Individual Setup**: Each developer runs `coldbox ai install`
-4. **Stay Synced**: Run `coldbox ai refresh` after pulling updates
+**Custom Guidelines** — use `.agents/guidelines/custom/` for business domain concepts, third-party service integrations, and team conventions that the AI should always know about.
 
-**Documentation:**
-
-* Document custom guidelines/skills in `README.md`
-* Explain project-specific conventions
-* Note any overrides and why they exist
+**Custom Skills** — use `.agents/skills/` for project-specific workflows, deployment procedures, and domain patterns not covered by [skills.boxlang.io](https://skills.boxlang.io).
