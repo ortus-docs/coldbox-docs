@@ -62,8 +62,8 @@ To start, make sure you are on the latest `coldbox-cli` in your CommandBox insta
 ```mermaid
 graph TB
     subgraph "ColdBox AI Integration"
-        Guidelines["📚 Guidelines\n(Project-scoped inventory)\nCore on-disk (.agents/guidelines/core/)\nModules & custom on-demand"]
-        Skills["🎯 Skills\n(200+ Registry-sourced)\nOn-demand cookbooks\ngrouped by category"]
+        Guidelines["📚 Guidelines\n(3 Core Built-in)\nBoxLang, CFML, ColdBox\n+ Module-provided"]
+        Skills["🎯 Skills\n(200+ Registry)\nOn-demand cookbooks\nfrom skills.boxlang.io"]
         Agents["🤖 Agents\n(6 Supported)\nClaude, Copilot, Cursor\nCodex, Gemini, OpenCode"]
         MCP["🌐 MCP Servers\n(30+ Built-in)\nTracked in .mcp.json\ncbMCP for live app access"]
     end
@@ -182,20 +182,22 @@ graph LR
     Root --> MCP["🌐 mcp-servers/"]
     Root --> Manifest["📋 manifest.json"]
 
-    Guidelines --> GCore["⚙️ core/\n(coldbox.md, boxlang.md, etc.)"]
+    Guidelines --> GCore["⚙️ core/\n(3 guidelines:\nboxlang.md, cfml.md, coldbox.md)"]
     Guidelines --> GModules["📦 modules/\n(from installed packages)"]
     Guidelines --> GCustom["📝 custom/\n(your guidelines)"]
     Guidelines --> GOverride["🎯 overrides/\n(customizations)"]
 
-    Skills --> SSkills["⚙️ {name}/SKILL.md\n(200+ skills)"]
+    Skills --> SSkills["⚙️ {skill-name}/\n(installed from registry)"]
+    Skills --> SSkillFile["📋 SKILL.md"]
+    Skills --> SCustom["📝 custom/\n(your skills)"]
     Skills --> SOverride["🎯 overrides/\n(customizations)"]
 
-    MCP --> MCPCore["⚙️ core/\n(30+ servers)"]
+    MCP --> MCPCore["🔗 core/\n(auto-detected from modules)"]
     MCP --> MCPCustom["📝 custom/\n(your servers)"]
 
     Root --> Agents["Agent Configs"]
     Agents --> Claude["CLAUDE.md"]
-    Agents --> Copilot[".github/copilot-instructions.md"]
+    Agents --> Copilot["AGENTS.md"]
     Agents --> Cursor[".cursorrules"]
     Agents --> Other["+ 3 more agents"]
 
@@ -209,7 +211,7 @@ graph LR
 Additionally, agent configuration files are created for you (paths defined in `AgentRegistry.cfc`):
 
 * `CLAUDE.md` - Claude Desktop/Code assistant
-* `.github/copilot-instructions.md` - GitHub Copilot
+* `AGENTS.md` - GitHub Copilot (shared with Codex and OpenCode)
 * `.cursorrules` - Cursor IDE
 * `AGENTS.md` - Codex & OpenCode (shared file)
 * `GEMINI.md` - Gemini CLI
@@ -254,7 +256,7 @@ After installation, configure your AI agents:
 
 **GitHub Copilot (VS Code):**
 
-1. Agent configuration is automatically in `.github/copilot-instructions.md`
+1. Agent configuration is automatically in `AGENTS.md`
 2. Reload VS Code window
 3. Copilot will use the instructions automatically
 
@@ -912,7 +914,7 @@ ColdBox AI Integration supports **6 major AI agents** with automatic configurati
 | Agent              | Config File                       | Description                    |
 | ------------------ | --------------------------------- | ------------------------------ |
 | **Claude**         | `CLAUDE.md`                       | Claude Desktop and Claude Code |
-| **GitHub Copilot** | `.github/copilot-instructions.md` | VS Code Copilot integration    |
+| **GitHub Copilot** | `AGENTS.md` (shared)              | VS Code Copilot integration    |
 | **Cursor**         | `.cursorrules`                    | Cursor IDE rules               |
 | **Codex**          | `AGENTS.md` (shared)              | Codex AI assistant             |
 | **Gemini**         | `GEMINI.md`                       | Gemini CLI integration         |
@@ -973,7 +975,7 @@ graph TB
 
     subgraph "Agent Configurations"
         Guidelines --> ClaudeConfig["CLAUDE.md"]
-        Guidelines --> CopilotConfig[".github/copilot-instructions.md"]
+        Guidelines --> CopilotConfig["AGENTS.md"]
         Guidelines --> CursorConfig[".cursorrules"]
         Guidelines --> CodexConfig["AGENTS.md"]
         Guidelines --> GeminiConfig["GEMINI.md"]
@@ -1425,7 +1427,7 @@ Output example:
 AI Integration Structure for MyApp (1.0.0)
 
 .agents/
-├── guidelines/ (41)
+├── guidelines/ (3 core guidelines)
 │   ├── core/ (8)
 │   │   ├── boxlang
 │   │   ├── coldbox
@@ -1458,10 +1460,10 @@ AI Integration Structure for MyApp (1.0.0)
 ┌─────────────────┬───────┐
 │ Component       │ Count │
 ├─────────────────┼───────┤
-│ Guidelines      │ 41    │
-│ Skills          │ 62    │
-│ Agents          │ 3     │
-│ MCP Servers     │ 30    │
+│ Guidelines      │ 3 core built-in    |
+│ Skills          │ 200+  │
+│ Agents          │ 6     │
+│ MCP Servers     │ 30+   │
 └─────────────────┴───────┘
 ```
 

@@ -693,10 +693,10 @@ ColdBox CLI includes a comprehensive AI integration system that gives AI coding 
 
 | Component | What It Is | Count |
 |-----------|-----------|-------|
-| **📚 Guidelines** | Framework documentation and best practices stored in `.agents/guidelines/` | 46+ built-in |
-| **🎯 Skills** | On-demand coding cookbooks for specific tasks (REST APIs, testing, ORM, etc.) | 71+ built-in |
-| **🤖 Agents** | Configuration files generated for each AI assistant | 6 supported |
-| **🌐 MCP Servers** | Model Context Protocol servers for live app introspection | 30+ built-in |
+| **📚 Guidelines** | Core framework documentation (ColdBox, BoxLang, CFML) + module-provided | 3 core built-in |
+| **🎯 Skills** | On-demand coding cookbooks from registry | 200+ available via registry |
+| **🤖 Agents** | Configuration files for AI assistants | 6 supported agents |
+| **🌐 MCP Servers** | Model Context Protocol documentation servers | Auto-detected from installed modules |
 
 All four components live in a `.agents/` directory at your project root.
 
@@ -723,15 +723,15 @@ After installation, the `.agents/` directory is created:
 ```
 .agents/
 ├── guidelines/          # AI guidelines (documentation)
-│   ├── core/           # ColdBox core guidelines
+│   ├── core/           # 3 core guidelines (boxlang.md, cfml.md, coldbox.md)
 │   ├── modules/        # From installed modules (auto-discovered)
 │   ├── custom/         # Your project-specific guidelines
-│   └── overrides/      # Custom versions of core/module guidelines
+│   └── overrides/      # Customized versions of guidelines
 ├── skills/             # AI skills (task cookbooks)
-│   ├── core/           # Built-in skills
-│   ├── modules/        # From installed modules
+│   ├── {skill-name}/   # Individual skill folders (from registry installs)
+│   │   └── SKILL.md
 │   ├── custom/         # Your custom skills
-│   └── overrides/      # Custom versions of core/module skills
+│   └── overrides/      # Customized versions of skills
 ├── mcp-servers/        # MCP server configurations
 └── manifest.json       # AI integration metadata
 ```
@@ -763,9 +763,9 @@ coldbox ai stats            # Context consumption with token estimates
 coldbox ai tree             # Visual tree of the .agents/ directory
 ```
 
-#### 📚 Managing Guidelines (46+)
+#### 📚 Managing Guidelines
 
-Guidelines teach AI agents about framework conventions and architectural patterns. Core framework guidelines (ColdBox + BoxLang/CFML) are stored locally and referenced on-demand. Module guidelines are auto-discovered from installed modules.
+Guidelines teach AI agents about framework conventions and architectural patterns. ColdBox CLI ships with **3 core guidelines** (boxlang.md, cfml.md, coldbox.md) which are stored on-disk in `.agents/guidelines/core/`. Additional guidelines are auto-discovered from installed modules via the registry.
 
 ```bash
 coldbox ai guidelines list              # List all guidelines
@@ -777,22 +777,18 @@ coldbox ai guidelines refresh           # Sync from installed modules
 coldbox ai guidelines create            # Scaffold a new custom guideline
 ```
 
-**Built-in Guideline Categories:**
+**Core Guidelines (3):**
 
-| Category | Guidelines |
-|----------|-----------|
-| **Core Framework (10)** | boxlang, cfml, coldbox, coldbox-cli, cachebox, wirebox, logbox, testbox, testbox-cli, docbox |
-| **Security & Auth (6)** | cbsecurity, cbauth, cbsecurity-passkeys, cbsso, cbcsrf, cbantisamy |
-| **Validation & Data (6)** | cbvalidation, cbi18n, cbmailservices, cbmessagebox, cbpaginator, cbfeeds |
-| **ORM & Database (4)** | cborm, qb, quick, cfmigrations |
-| **API & Integration (5)** | hyper, cbproxies, cbswagger, cbelasticsearch, s3sdk |
-| **Utility & Dev (8)** | cbdebugger, cbfs, cbstorages, stachebox, cbjavaloader, cbmarkdown, cbmockdata, docbox |
-| **Modern Development (6)** | cbwire, cbq, socketbox, mementifier, unleashsdk, cbplaywright |
-| **Additional (7)** | bcrypt, cors, rulebox, commandbox-migrations, commandbox-boxlang, route-visualizer, relax |
+The CLI ships with these 3 core guidelines stored in `.agents/guidelines/core/`:
+- **boxlang** - BoxLang language syntax and features
+- **cfml** - CFML language fundamentals
+- **coldbox** - ColdBox framework architecture and conventions
 
-#### 🎯 Managing Skills (71+)
+Additional module-provided guidelines are auto-discovered when you install modules that include AI guidelines.
 
-Skills are on-demand coding cookbooks - step-by-step guides for specific tasks. They use an inventory system so agents can request them when needed without bloating the base context.
+#### 🎯 Managing Skills (200+)
+
+Skills are on-demand coding cookbooks - step-by-step guides for specific tasks sourced from [skills.boxlang.io](https://skills.boxlang.io). They use an inventory system so agents can request them when needed without bloating the base context.
 
 ```bash
 coldbox ai skills list                        # List installed skills
@@ -807,17 +803,17 @@ coldbox ai skills create                      # Scaffold a new custom skill
 coldbox ai skills find "rest api"             # Search skills by keyword
 ```
 
-**Built-in Skill Groups:**
+**Available Skills (200+ in registry):**
 
-| Group | Count | Examples |
-|-------|-------|---------|
-| **BoxLang** | 21 | syntax, classes, lambdas, streams, futures, jdbc, templating |
-| **ColdBox** | 12 | handler-development, rest-api-development, routing-development, event-model |
-| **Testing** | 8 | testing-bdd, testing-unit, testing-integration, testing-mocking |
-| **Security** | 9 | security-implementation, jwt-development, passkeys-integration, api-authentication |
-| **ORM & Database** | 5 | cborm, query-builder, orm-quick, boxlang-queries, database-migrations |
-| **Internal Libraries** | 3 | cachebox-caching-patterns, logbox-logging-patterns, wirebox-di-patterns |
-| **Modern Dev** | 1+ | cbwire-development |
+Skills are available from [skills.boxlang.io](https://skills.boxlang.io) and cover topics like:
+- **BoxLang Development** - Language syntax, classes, functions, streams, futures, etc.
+- **ColdBox Development** - Handler creation, REST APIs, routing, event models, modules, etc.
+- **Testing** - BDD testing, unit tests, integration tests, mocking, fixtures, etc.
+- **Security** - Authentication, authorization, JWT, passkeys, CSRF protection, etc.
+- **ORM & Database** - cborm, query builders, database migrations, transactions, etc.
+- **Modern Development** - CBWire, real-time features, performance optimization, etc.
+
+Use `coldbox ai skills install --list` to browse and install skills from the registry.
 
 #### 🤖 Managing Agents
 
