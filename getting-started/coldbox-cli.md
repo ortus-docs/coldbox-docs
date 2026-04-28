@@ -17,7 +17,7 @@ The CLI follows semantic versioning aligned with ColdBox major releases:
 | ColdBox Version | CLI Version | Status | Installation Command |
 |----------------|-------------|--------|---------------------|
 | **ColdBox 8** | `@8` | ✅ **Current** | `box install coldbox-cli@8` |
-| **ColdBox 7** | `@7.8.0` | 🟡 **Supported** | `box install coldbox-cli@7.8.0` |
+| **ColdBox 7** | `@7.8.0` | 🟡 **Legacy** | `box install coldbox-cli@7.8.0` |
 | **ColdBox 6** | `@6` | 🔶 **Legacy** | `box install coldbox-cli@6` |
 
 > 💡 **Pro Tip**: Always use the CLI version that matches your ColdBox framework version for the best compatibility and latest features.
@@ -77,10 +77,13 @@ coldbox create app myApp --migrations       # 🗃️ Database migrations
 coldbox create app myApp --docker          # 🐳 Container ready
 coldbox create app myApp --vite           # 🎨 Modern frontend assets
 coldbox create app myApp --rest           # 🌐 REST API configuration
+coldbox create app myApp --ai             # 🤖 AI integration setup
 
 # 🎪 Combine Multiple Features
-coldbox create app myFullStackApp --migrations --docker --vite --rest
+coldbox create app myFullStackApp --migrations --docker --vite --rest --ai
 ```
+
+> 🤖 **AI-Ready Apps**: The `--ai` flag triggers `coldbox ai install` automatically after app creation, setting up guidelines, skills, and agent configurations for your preferred AI assistant. The `aiAgent` parameter accepts a comma-separated list: `claude`, `copilot`, `cursor`, `codex`, `gemini`, `opencode`.
 
 #### 🧙‍♂️ Interactive App Wizard - Perfect for Beginners!
 
@@ -89,6 +92,9 @@ New to ColdBox? The **App Wizard** is your friendly guide to creating the perfec
 ```bash
 # Launch the interactive wizard
 coldbox create app-wizard
+
+# Alternatively, use the --wizard flag
+coldbox create app myApp --wizard
 ```
 
 The wizard walks you through every decision with helpful prompts:
@@ -154,6 +160,7 @@ Modern templates (`boxlang`, `modern`) unlock powerful development features thro
 | `--rest` 🌐 | REST API configuration with OpenAPI docs | Microservices, APIs |
 | `--docker` 🐳 | Complete containerization setup | Cloud deployment, consistency |
 | `--migrations` 🗃️ | Database migration system | Data-driven apps |
+| `--ai` 🤖 | AI integration (guidelines, skills, agents) | AI-assisted development |
 
 **Power Combinations**:
 
@@ -278,6 +285,8 @@ coldbox create handler Users --views --integrationTests
 
 > 💡 **Smart Generation**: The CLI creates handlers in the correct directory structure and generates appropriate code for your project language (BoxLang/CFML)!
 
+> 🏗️ **Automatic Layout Detection (v8.10.0)**: The CLI detects whether your project uses a modern layout (`app/` + `public/`) or a flat layout and places files in the correct location automatically. In a modern layout, `coldbox create handler Users` places the handler in `app/handlers/Users.bx` rather than `handlers/Users.cfc`. No flags needed - it just works!
+
 ### 📊 Models & Services - Your Business Logic Powerhouse
 
 Create robust domain models and business services that form the backbone of your application:
@@ -301,6 +310,8 @@ coldbox create model Customer --all
 # ⚙️ Standalone business service
 coldbox create service PaymentService
 ```
+
+> 🏗️ **Smart File Placement**: Model files are automatically placed in `app/models` (modern layout) or `models` (flat layout) based on your project structure. See [Automatic App Layout Detection](#automatic-app-layout-detection) for details.
 
 **🎁 Model Generation Features**:
 
@@ -340,6 +351,8 @@ coldbox create layout main
 # 🎯 Layout with view rendering
 coldbox create layout admin content="<cfoutput>#renderView()#</cfoutput>"
 ```
+
+> 🏗️ **Smart File Placement**: View files are automatically placed in `app/views` (modern layout) or `views` (flat layout) based on your project structure.
 
 **🎁 View Generation Options**:
 
@@ -412,6 +425,9 @@ coldbox create module UserManagement
 
 # 🎪 Full-featured module with all components
 coldbox create module BlogEngine --models --handlers --views
+
+# 🤖 Module with AI guideline/skill scaffold for module authors
+coldbox create module BlogEngine --ai
 ```
 
 **🎁 Module Architecture**:
@@ -424,8 +440,11 @@ Modules are mini-applications within your ColdBox app, complete with their own:
 - **📦 Dependencies** - Isolated dependency management
 - **🔧 Models & Handlers** - Complete MVC architecture _(optional)_
 - **🎨 Views & Layouts** - Independent UI components _(optional)_
+- **🤖 AI Integration** - Optional `.agents/` directory with guidelines and skill templates for AI assistants _(with `--ai` flag)_
 
 > 🚀 **Modular Power**: Modules enable microservice architecture, code reuse, and team collaboration on large applications!
+
+> 🤖 **AI-Ready Modules**: The `--ai` flag creates a `.agents/guidelines/` and `.agents/skills/` directory structure inside your module with starter templates. This lets your module's consumers automatically receive relevant AI context when they run `coldbox ai refresh`. See the [AI Integration](#ai-integration) section for details.
 
 ### 🧪 Testing - Quality Assurance Made Easy
 
@@ -542,6 +561,8 @@ Enhance any CLI command with these powerful options for a customized experience:
 | `--docker` 🐳 | Complete containerization | Cloud deployments, consistency |
 | `--vite` ⚡ | Modern frontend asset pipeline | Interactive UIs, SPAs |
 | `--rest` 🌐 | REST API configuration | Microservices, API development |
+| `--ai` 🤖 | AI integration (guidelines, skills, agents) | AI-assisted development |
+| `--wizard` 🧙 | Alias to launch the interactive creation wizard | Beginners, exploring options |
 
 #### 🔥 Language Control
 
@@ -627,27 +648,276 @@ When BoxLang mode is detected or forced:
 - Uses BoxLang-specific template variants
 - Creates BoxLang test files (`.bxm` extensions)
 
-### 🤖 AI Coding Assistance
+### 🏗️ Automatic App Layout Detection
 
-The CLI now includes **Copilot instructions** to enhance AI-powered development workflows. These instructions help AI assistants understand ColdBox project structure and generate appropriate code:
+> **New in v8.10.0**: The CLI now automatically detects your project's directory layout and places generated files in the correct location without any manual configuration.
 
-#### Features
+#### How Detection Works
 
-- **Intelligent Code Generation**: AI assistants can better understand ColdBox conventions and patterns
-- **Template-Aware Suggestions**: Context-aware code suggestions based on your project type
-- **BoxLang & CFML Support**: Appropriate suggestions for both language targets
-- **Framework Integration**: Deep understanding of ColdBox architecture and best practices
+The CLI checks for two directories in your project root:
 
-#### Copilot Instructions
+| Condition | Detected Layout | File Placement |
+|-----------|----------------|----------------|
+| Both `app/` and `public/` exist | **Modern Layout** | Files go into `app/handlers/`, `app/models/`, `app/views/`, etc. |
+| One or neither exists | **Flat Layout** | Files go into `handlers/`, `models/`, `views/`, etc. |
 
-The CLI includes specialized instruction sets:
+#### In Practice
 
-- **Modern Apps**: Instructions optimized for contemporary ColdBox applications
-- **Legacy Projects**: Support for traditional flat-structure applications
-- **BoxLang Focus**: Enhanced support for BoxLang-specific patterns
-- **Framework Patterns**: MVC, HMVC, and REST API architectural guidance
+```bash
+# In a modern layout project (has app/ and public/)
+coldbox create handler Users
+# → Creates: app/handlers/Users.bx
 
-These instructions are automatically included in modern application templates to provide the best AI coding experience out of the box.
+# In the same command on a flat layout project
+coldbox create handler Users
+# → Creates: handlers/Users.cfc
+```
+
+This applies to all scaffolding commands:
+
+| Command | Modern Layout Path | Flat Layout Path |
+|---------|--------------------|-----------------|
+| `coldbox create handler` | `app/handlers/` | `handlers/` |
+| `coldbox create model` | `app/models/` | `models/` |
+| `coldbox create view` | `app/views/` | `views/` |
+
+> 💡 **Zero Configuration**: There are no flags to set and no configuration required. The CLI detects your layout on every command invocation by checking for the presence of `app/` and `public/` directories in your current working directory.
+
+### 🤖 AI Integration
+
+ColdBox CLI includes a comprehensive AI integration system that gives AI coding assistants - Claude, GitHub Copilot, Cursor, Codex, Gemini, and OpenCode - deep knowledge of your ColdBox project, its installed modules, and the entire BoxLang/CFML ecosystem.
+
+> 📚 **Deep Dive**: For full documentation including module authoring, custom skills, override system, and team collaboration workflows, see the [Agentic ColdBox](../ai-integration/agentic-coldbox.md) guide.
+
+#### 🧠 Four Core Components
+
+| Component | What It Is | Count |
+|-----------|-----------|-------|
+| **📚 Guidelines** | Framework documentation and best practices stored in `.agents/guidelines/` | 46+ built-in |
+| **🎯 Skills** | On-demand coding cookbooks for specific tasks (REST APIs, testing, ORM, etc.) | 71+ built-in |
+| **🤖 Agents** | Configuration files generated for each AI assistant | 6 supported |
+| **🌐 MCP Servers** | Model Context Protocol servers for live app introspection | 30+ built-in |
+
+All four components live in a `.agents/` directory at your project root.
+
+#### ⚡ Quick Setup
+
+```bash
+# Install AI integration (interactive wizard)
+coldbox ai install
+
+# Or install when creating a new app
+coldbox create app myApp --ai
+
+# Keep resources in sync after installing modules
+coldbox ai refresh
+```
+
+The installation wizard prompts you to:
+1. Choose which AI agents you use (Claude, Copilot, Cursor, etc.)
+2. Select your project language (BoxLang, CFML, or Hybrid)
+3. Configure guidelines, skills, and MCP servers
+
+After installation, the `.agents/` directory is created:
+
+```
+.agents/
+├── guidelines/          # AI guidelines (documentation)
+│   ├── core/           # ColdBox core guidelines
+│   ├── modules/        # From installed modules (auto-discovered)
+│   ├── custom/         # Your project-specific guidelines
+│   └── overrides/      # Custom versions of core/module guidelines
+├── skills/             # AI skills (task cookbooks)
+│   ├── core/           # Built-in skills
+│   ├── modules/        # From installed modules
+│   ├── custom/         # Your custom skills
+│   └── overrides/      # Custom versions of core/module skills
+├── mcp-servers/        # MCP server configurations
+└── manifest.json       # AI integration metadata
+```
+
+Agent configuration files are generated at your project root:
+
+| Agent | Config File | Notes |
+|-------|-------------|-------|
+| **Claude** | `CLAUDE.md` | References `@AGENTS.md` for shared content |
+| **GitHub Copilot** | `AGENTS.md` (shared) | Also used by Codex and OpenCode |
+| **Cursor** | `.cursorrules` | Recognized automatically by Cursor IDE |
+| **Codex** | `AGENTS.md` (shared) | |
+| **Gemini** | `GEMINI.md` | Gemini CLI integration |
+| **OpenCode** | `AGENTS.md` (shared) | |
+
+#### 🔧 Core Commands
+
+```bash
+# Setup & lifecycle
+coldbox ai install          # Interactive setup wizard
+coldbox ai uninstall        # Remove AI integration
+coldbox ai refresh          # Sync with installed modules, auto-recover missing skills
+coldbox ai info             # Show current configuration
+coldbox ai info --json      # Machine-readable output
+
+# Diagnostics
+coldbox ai doctor           # Health check (Good / Needs Attention / Critical)
+coldbox ai stats            # Context consumption with token estimates
+coldbox ai tree             # Visual tree of the .agents/ directory
+```
+
+#### 📚 Managing Guidelines (46+)
+
+Guidelines teach AI agents about framework conventions and architectural patterns. Core framework guidelines (ColdBox + BoxLang/CFML) are stored locally and referenced on-demand. Module guidelines are auto-discovered from installed modules.
+
+```bash
+coldbox ai guidelines list              # List all guidelines
+coldbox ai guidelines list --verbose    # With descriptions
+coldbox ai guidelines add qb cbsecurity # Add specific guidelines
+coldbox ai guidelines remove qb         # Remove a guideline
+coldbox ai guidelines override coldbox  # Create a customizable local override
+coldbox ai guidelines refresh           # Sync from installed modules
+coldbox ai guidelines create            # Scaffold a new custom guideline
+```
+
+**Built-in Guideline Categories:**
+
+| Category | Guidelines |
+|----------|-----------|
+| **Core Framework (10)** | boxlang, cfml, coldbox, coldbox-cli, cachebox, wirebox, logbox, testbox, testbox-cli, docbox |
+| **Security & Auth (6)** | cbsecurity, cbauth, cbsecurity-passkeys, cbsso, cbcsrf, cbantisamy |
+| **Validation & Data (6)** | cbvalidation, cbi18n, cbmailservices, cbmessagebox, cbpaginator, cbfeeds |
+| **ORM & Database (4)** | cborm, qb, quick, cfmigrations |
+| **API & Integration (5)** | hyper, cbproxies, cbswagger, cbelasticsearch, s3sdk |
+| **Utility & Dev (8)** | cbdebugger, cbfs, cbstorages, stachebox, cbjavaloader, cbmarkdown, cbmockdata, docbox |
+| **Modern Development (6)** | cbwire, cbq, socketbox, mementifier, unleashsdk, cbplaywright |
+| **Additional (7)** | bcrypt, cors, rulebox, commandbox-migrations, commandbox-boxlang, route-visualizer, relax |
+
+#### 🎯 Managing Skills (71+)
+
+Skills are on-demand coding cookbooks - step-by-step guides for specific tasks. They use an inventory system so agents can request them when needed without bloating the base context.
+
+```bash
+coldbox ai skills list                        # List installed skills
+coldbox ai skills list --verbose              # With descriptions
+coldbox ai skills install --list              # Interactive install from registry
+coldbox ai skills install --list coldbox/skills   # Filtered by prefix
+coldbox ai skills install --all               # Install all available skills
+coldbox ai skills remove creating-handlers    # Remove a skill
+coldbox ai skills override creating-handlers  # Create a customizable override
+coldbox ai skills refresh                     # Sync from installed modules
+coldbox ai skills create                      # Scaffold a new custom skill
+coldbox ai skills find "rest api"             # Search skills by keyword
+```
+
+**Built-in Skill Groups:**
+
+| Group | Count | Examples |
+|-------|-------|---------|
+| **BoxLang** | 21 | syntax, classes, lambdas, streams, futures, jdbc, templating |
+| **ColdBox** | 12 | handler-development, rest-api-development, routing-development, event-model |
+| **Testing** | 8 | testing-bdd, testing-unit, testing-integration, testing-mocking |
+| **Security** | 9 | security-implementation, jwt-development, passkeys-integration, api-authentication |
+| **ORM & Database** | 5 | cborm, query-builder, orm-quick, boxlang-queries, database-migrations |
+| **Internal Libraries** | 3 | cachebox-caching-patterns, logbox-logging-patterns, wirebox-di-patterns |
+| **Modern Dev** | 1+ | cbwire-development |
+
+#### 🤖 Managing Agents
+
+```bash
+coldbox ai agents list                    # List all available agents
+coldbox ai agents add claude copilot      # Add agents (regenerates configs)
+coldbox ai agents remove cursor           # Remove an agent
+coldbox ai agents active                  # Show currently active agents
+coldbox ai agents open claude             # Open the Claude config file in editor
+```
+
+> 💡 **Multi-Agent Teams**: You can configure multiple agents simultaneously. Each developer uses their preferred tool while all agents follow the same guidelines and skills for consistent code quality.
+
+#### 🌐 MCP Servers (30+)
+
+MCP (Model Context Protocol) servers give AI agents live access to your application, documentation servers, databases, cloud services, and more.
+
+```bash
+coldbox ai mcp list                        # List configured servers
+coldbox ai mcp add github postgres         # Add servers from registry
+coldbox ai mcp remove postgres             # Remove a server
+coldbox ai mcp install                     # Install cbMCP module (live app introspection)
+```
+
+**cbMCP - Live App Introspection:**
+
+```bash
+# Install cbMCP to let AI agents query your running app
+coldbox ai mcp install
+# Exposes your app at http://localhost:8080/cbmcp
+# AI agents can inspect live routes, handlers, models, and more
+```
+
+**Built-in MCP Server Categories:**
+
+| Category | Examples |
+|----------|---------|
+| **ColdBox Core (7)** | boxlang, coldbox, commandbox, testbox, wirebox, cachebox, logbox |
+| **Database (5)** | postgres, mysql, sqlite, mssql, mongodb |
+| **Dev Tools (10)** | filesystem, github, gitlab, git, brave-search, fetch, memory, sequential-thinking |
+| **Cloud & Infra (7)** | aws, cloudflare, google-drive, google-maps, kubernetes, docker |
+| **Productivity (8)** | puppeteer, playwright, sentry, linear, slack, time |
+
+> 🔄 **Auto-Detection**: When you run `coldbox ai refresh`, MCP servers for your installed modules are automatically detected and registered in `.mcp.json` at your project root.
+
+#### 📊 Diagnostics and Analytics
+
+```bash
+# Health check
+coldbox ai doctor
+# Reports: Good / Needs Attention / Critical status per component
+# Validates: installation completeness, file structure, config validity,
+#            module sync status, agent config correctness, context size
+
+# Context consumption statistics
+coldbox ai stats
+# Shows: KB and token estimates for Claude, GPT-4, Gemini, Grok
+# Color-coded: ✅ Low / ⚠️ Moderate / ⚠️ High / ⛔ Very High
+
+# Visual directory tree
+coldbox ai tree
+# Shows counts of guidelines, skills, agents, and MCP servers
+```
+
+#### 🔄 Staying in Sync
+
+After installing or updating CommandBox modules, run refresh to automatically:
+- Discover and install new module guidelines and skills
+- Auto-recover any missing core skills (boxlang, coldbox, testbox, commandbox)
+- Detect and register MCP documentation servers from newly installed modules
+- Regenerate agent configuration files
+
+```bash
+box install qb
+coldbox ai refresh      # QB guidelines and skills automatically added
+```
+
+Automate this with CommandBox scripts in `box.json`:
+
+```json
+{
+  "scripts": {
+    "postInstall": "coldbox ai refresh",
+    "postUpdate": "coldbox ai refresh"
+  }
+}
+```
+
+#### 🧩 Module Authors: Bundle AI Resources
+
+When creating a module with `--ai`, a starter `.agents/` structure is scaffolded:
+
+```bash
+coldbox create module BlogEngine --ai
+# Creates:
+#   modules_app/BlogEngine/.agents/guidelines/core.md
+#   modules_app/BlogEngine/.agents/skills/using-blogengine/SKILL.md
+```
+
+When users install your module and run `coldbox ai refresh`, your guidelines and skills are automatically discovered and added to their AI context.
 
 ### 📖 Getting Help - Never Get Stuck
 
