@@ -22,6 +22,16 @@ The system combines four key components:
 Make sure you are on the latest `coldbox-cli` in your CommandBox installation before getting started.
 {% endhint %}
 
+### Key Features
+
+* **Dual-Language Support** - First-class support for BoxLang and CFML with automatic detection
+* **Multi-Agent Ecosystem** - Works with Claude, GitHub Copilot, Cursor, Codex, Gemini, and OpenCode
+* **3 Core Guidelines** - ColdBox, BoxLang, and CFML guidelines ship on-disk; agent files stay lean (~250 lines)
+* **200+ Skills Registry** - All skills sourced from [skills.boxlang.io](https://skills.boxlang.io), the centralized Ortus ecosystem skill repository
+* **30+ MCP Servers** - Built-in documentation servers auto-matched to installed modules
+* **Live App Introspection** - [`cbMCP`](coldbox-mcp-server.md) (BoxLang only) lets AI agents query your running application in real time
+* **Override System** - Customize core guidelines and skills at the project level
+
 ***
 
 ## Installation
@@ -109,11 +119,31 @@ Three core guidelines are installed automatically:
 
 ### Custom Guidelines
 
-Add project-specific guidelines for your business domain, third-party integrations, or team conventions:
+Custom guidelines live in `.agents/guidelines/custom/` and are always available to the AI without needing to be explicitly requested. Use them to document your business domain, third-party integrations, architecture decisions, and team conventions:
 
 ```bash
 # Create a custom guideline
 touch .agents/guidelines/custom/payment-processing.md
+```
+
+Example guideline structure:
+
+```markdown
+# Payment Processing
+
+This application uses Stripe with a custom abstraction layer in `models/payments/`.
+
+## Architecture
+
+- `models/payments/` - Payment domain models
+- `services/PaymentService.cfc` - Main payment service
+
+## Key Conventions
+
+1. Always validate amounts before charging
+2. Log all payment attempts to the `payment-audit` logger
+3. Use idempotency keys for charge retries
+4. Webhook events are handled in `handlers/webhooks/Stripe.cfc`
 ```
 
 ### Overriding Guidelines
@@ -127,7 +157,7 @@ coldbox ai guidelines install coldbox --override
 
 ## AI Skills
 
-Skills are sourced from [skills.boxlang.io](https://skills.boxlang.io) — the official registry for ColdBox, BoxLang, TestBox, CommandBox, and module skills. Browse the full catalog there. Install them via:
+[skills.boxlang.io](https://skills.boxlang.io) is the **centralized skill repository for the entire Ortus ecosystem** — ColdBox, BoxLang, TestBox, CommandBox, and all major modules. With 200+ skills available, it is the single source of truth for implementation cookbooks. Skills are installed per-project and loaded on-demand by AI agents when the task matches.
 
 ```bash
 # Install a skill
@@ -140,11 +170,38 @@ coldbox ai skills list --verbose
 
 ### Custom Skills
 
-Create project-specific skills for domain workflows:
+Create project-specific skills for workflows not covered by the registry. Each skill lives in its own folder with a `SKILL.md` file:
 
 ```bash
 mkdir -p .agents/skills/deploying-to-kubernetes
 touch .agents/skills/deploying-to-kubernetes/SKILL.md
+```
+
+A `SKILL.md` should include a brief description of when to use the skill, step-by-step implementation instructions, and working code examples:
+
+```markdown
+---
+name: deploying-to-kubernetes
+description: Deploy ColdBox applications to our Kubernetes cluster using Helm
+---
+
+# Deploying to Kubernetes
+
+## When to use this skill
+
+Use this skill when deploying any ColdBox application to our production cluster.
+
+## Steps
+
+1. Build the Docker image: `docker build -t myapp:latest .`
+2. Update `kubernetes/values.yaml` with the new image tag
+3. Deploy: `helm upgrade --install myapp ./kubernetes/chart -f kubernetes/values.yaml`
+
+## Rollback
+
+```bash
+helm rollback myapp -n production
+```
 ```
 
 ***
@@ -177,7 +234,11 @@ Model Context Protocol (MCP) servers provide AI agents with live documentation a
 
 ### Installing the ColdBox Live MCP Server (cbMCP)
 
-The `cbMCP` module turns your **running ColdBox application** into an MCP server, giving AI agents real-time access to routes, handlers, WireBox mappings, and more:
+{% hint style="warning" %}
+`cbMCP` is available for **BoxLang applications only**.
+{% endhint %}
+
+The [`cbMCP`](coldbox-mcp-server.md) module turns your **running BoxLang ColdBox application** into an MCP server, giving AI agents real-time access to routes, handlers, WireBox mappings, and more. See the [ColdBox MCP Server documentation](coldbox-mcp-server.md) for the full tool reference, custom tool development, and AI client setup.
 
 ```bash
 # Install cbMCP and register it in .mcp.json
