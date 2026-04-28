@@ -14,7 +14,7 @@ icon: server
 
 `cbMCP` is a ColdBox module that turns your running application into a fully-compliant [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server. AI clients — Claude Desktop, VS Code Copilot, Cursor, Codex, or any MCP-capable tool — can connect and gain live, read-only introspection across the entire ColdBox platform layer: routing, handlers, modules, dependency injection, caching, logging, scheduling, and more.
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────────────┐
 │                        Your ColdBox Application                      │
 │                                                                      │
@@ -81,7 +81,7 @@ box install cbmcp
 
 Once installed and the application boots, the MCP endpoint is **immediately live** at:
 
-```
+```text
 http://<host>:<port>/cbmcp
 // If you enable SSL, it will be available at, which we recommend for secure AI client connections:
 https://<host>:<port>/cbmcp
@@ -91,14 +91,29 @@ No routing configuration is needed — cbMCP registers its own entry point at `c
 
 ---
 
+## Configuration
+
+The module automatically registers itself at the `/cbmcp` endpoint with the following default settings:
+
+- **CORS**: Enabled for all origins (`*`)
+- **Statistics**: Enabled (collects usage metrics)
+- **Entry Point**: `/cbmcp`
+
+No manual routing or configuration is required. Once installed and your application boots, the MCP endpoint is live immediately.
+
+---
+
 ## Connecting an AI Client
 
 ### Claude Desktop
 
-Add the following entry to `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) or the equivalent path on Windows:
+Add the following entry to your Claude Desktop configuration:
+
+**macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+**Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
 
 ```json
-// If using http insecure connection:
+// If using HTTP Redirects (local development only):
 {
   "mcpServers": {
     "cbMCP": {
@@ -112,8 +127,10 @@ Add the following entry to `~/Library/Application Support/Claude/claude_desktop_
     }
   }
 }
+```
 
-// If you are using SSL (recommended):
+```json
+// If using HTTP/s
 {
   "mcpServers": {
     "cbMCP": {
@@ -147,7 +164,7 @@ Add to your `.vscode/mcp.json` (project-scoped) or your user-level VS Code MCP s
 
 Point the client directly at the SSE endpoint:
 
-```
+```text
 https://<host>:<port>/cbmcp
 ```
 
@@ -283,6 +300,127 @@ https://<host>:<port>/cbmcp
 | `debug_handler` | Diagnoses issues with a specific event handler (requires `handlerName` arg) |
 | `cache_health_report` | Produces a CacheBox health report across all cache providers |
 | `interceptor_audit` | Audits all registered interceptors and interception points for conflicts and ordering issues |
+
+---
+
+## Security & Best Practices
+
+### CORS Configuration
+
+By default, cbMCP enables CORS for all origins (`*`). This is suitable for local development, but in production environments, consider restricting CORS to specific AI client domains:
+
+**Custom CORS in ModuleConfig:**
+```boxlang
+mcpServer(
+    name: "cbMCP",
+    cors: "https://your-ai-platform.com",  // Restrict to specific domain
+    ...
+)
+```
+
+### HTTPS / SSL
+
+**Always use HTTPS in production.** Set up SSL in your ColdBox application and configure AI clients to use the secure endpoint:
+
+```text
+https://your-domain.com/cbmcp
+```
+
+### Environment Variables
+
+Store sensitive configuration in environment variables instead of hardcoding:
+
+```bash
+export CBMCP_ENABLED=true
+export CBMCP_CORS_ORIGIN=https://your-ai-platform.com
+```
+
+Then reference in ModuleConfig:
+
+```boxlang
+cors: systemSettings.get( "CBMCP_CORS_ORIGIN", "*" )
+```
+
+---
+
+## Performance & Statistics
+
+cbMCP collects usage statistics by default (`statsEnabled: true`). Monitor these metrics via the `bx-ai` module's stats endpoint to:
+
+- Track tool usage frequency
+- Identify most-used features
+- Monitor response times
+- Detect performance bottlenecks
+
+The module is read-only, so it has minimal performance impact. For large applications with heavy MCP traffic, consider:
+
+- Implementing caching strategies in custom tools
+- Optimizing data retrieval in resource handlers
+- Using async executors for long-running operations
+
+---
+
+## Troubleshooting
+
+### Connection Issues
+
+**Problem:** Claude Desktop shows "Connection Failed"
+
+1. Verify the endpoint is accessible: `curl https://127.0.0.1:<port>/cbmcp`
+2. Check that ColdBox is running and the module is loaded
+3. Review ColdBox logs for errors: `logs:boxlang` (or your server command)
+4. Ensure the port number in your config matches your running application
+
+**Problem:** CORS errors in browser console
+
+- Verify the client is connecting via the correct protocol (HTTP/HTTPS)
+- If behind a proxy, ensure the proxy forwards MCP protocol headers
+- Check ModuleConfig CORS settings
+
+### Module Not Loading
+
+If `/cbmcp` endpoint is not available:
+
+1. Verify `cbmcp` is installed: `box list`
+2. Verify `bx-ai` module dependency is installed: `box list | grep bx-ai`
+3. Reinitialize the application: `?fwreinit=1`
+4. Check application logs for startup errors
+
+### Tool Not Available
+
+If a tool is registered but not showing in the AI client:
+
+1. Verify the tool class has both `@AITool` and `@mcpTool` annotations
+2. Check that the function is public (not private)
+3. Restart Claude Desktop to refresh the tools list
+4. Check the ColdBox debug output to confirm auto-scan picked up the tool
+
+---
+
+## Advanced Configuration
+
+### Custom Module Configuration
+
+Extend cbMCP by overriding ModuleConfig settings in your application:
+
+```boxlang
+// In your app's ColdBox.cfc configure() method:
+moduleSettings = {
+    cbMCP = {
+        // Custom settings here
+    }
+}
+```
+
+### Monitoring Tool Calls
+
+View all MCP operations via the stats endpoint (if stats are enabled):
+
+```text
+GET /api/cbmcp/stats
+```
+
+Returns detailed metrics on tool calls, resources accessed, and performance data.
 
 ---
 
