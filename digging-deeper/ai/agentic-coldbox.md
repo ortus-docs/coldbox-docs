@@ -15,7 +15,7 @@ The system combines four key components:
 
 1. **Guidelines** - Framework documentation stored locally in `.agents/guidelines/core/` and referenced via `read_file`
 2. **Skills** - On-demand coding cookbooks sourced from [skills.boxlang.io](https://skills.boxlang.io)
-3. **Agents** - AI assistant configurations (Claude, Copilot, Cursor, Codex, Gemini, OpenCode)
+3. **Agents** - AI assistant configurations (Claude, Copilot, Cursor, Codex, Gemini, Kilo Code, OpenCode, Pi)
 4. **MCP Servers** - Context protocol servers tracked in `.mcp.json` for live documentation and application introspection
 
 {% hint style="info" %}
@@ -25,7 +25,7 @@ Make sure you are on the latest `coldbox-cli` in your CommandBox installation be
 ### Key Features
 
 * **Dual-Language Support** - First-class support for BoxLang and CFML with automatic detection
-* **Multi-Agent Ecosystem** - Works with Claude, GitHub Copilot, Cursor, Codex, Gemini, and OpenCode
+* **Multi-Agent Ecosystem** - Works with Claude, GitHub Copilot, Cursor, Codex, Gemini, Kilo Code, OpenCode, and Pi
 * **3 Core Guidelines** - ColdBox, BoxLang, and CFML guidelines ship on-disk; agent files stay lean (~250 lines)
 * **200+ Skills Registry** - All skills sourced from [skills.boxlang.io](https://skills.boxlang.io), the centralized Ortus ecosystem skill repository
 * **30+ MCP Servers** - Built-in documentation servers auto-matched to installed modules
@@ -69,11 +69,30 @@ Agent configuration files are generated automatically:
 | **Cursor**         | `.cursorrules`       |
 | **Codex**          | `AGENTS.md` (shared) |
 | **Gemini**         | `GEMINI.md`          |
+| **Kilo Code**      | `AGENTS.md` (shared) |
 | **OpenCode**       | `AGENTS.md` (shared) |
+| **Pi**             | `AGENTS.md` (shared) |
 
 {% hint style="info" %}
 After installation, add your project context to the generated agent file — business domain, key services, authentication approach, and API endpoints. This gives AI assistants the application-specific knowledge they need.
 {% endhint %}
+
+### Agent File Conflict Resolution
+
+If `coldbox ai install` or `coldbox ai refresh` detects existing agent configuration files (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.cursorrules`) that were **not created by ColdBox CLI**, you'll be prompted to choose how to handle each conflict:
+
+| Option | Behavior |
+| ------ | -------- |
+| **Overwrite** | Replace the entire file with ColdBox CLI content |
+| **Merge** | Prepend the ColdBox CLI managed section at the top, preserving your custom content below |
+| **Skip** | Leave the existing file untouched |
+
+Use `--force` to automatically overwrite all conflicting files without prompting:
+
+```bash
+coldbox ai install --force
+coldbox ai refresh --force
+```
 
 ### Keeping Resources Updated
 
@@ -166,7 +185,32 @@ coldbox ai skills install creating-handlers
 # List installed skills
 coldbox ai skills list
 coldbox ai skills list --verbose
+coldbox ai skills list --json            # Machine-readable JSON output
+
+# Check for registry updates
+coldbox ai skills list --outdated
+
+# Update skills from registry
+coldbox ai skills update                 # Re-download all installed skills
+coldbox ai skills update creating-handlers  # Re-download a single skill
 ```
+
+### Agent Skill-Directory Symlinks
+
+Each supported AI agent has a dedicated skills directory where it expects to find skills:
+
+| Agent | Skills Directory |
+| ----- | ---------------- |
+| **Claude** | `.claude/skills/` |
+| **Copilot** | `.github/instructions/` |
+| **Cursor** | `.cursor/rules/` |
+| **Kilo Code** | `.kilo/skills/` |
+| **Pi** | `.pi/skills/` |
+| **Codex, Gemini, OpenCode** | Use `.agents/skills/` directly |
+
+When a skill is installed, the CLI creates the skill at `.agents/skills/{name}/` and automatically creates a **relative directory symlink** inside each active agent's dedicated skills directory (e.g., `.claude/skills/{name}` → `../../.agents/skills/{name}`). This lets every agent discover skills through its own expected path without duplicating content.
+
+Symlinks are automatically removed when a skill is removed (`coldbox ai skills remove`) or pruned during refresh.
 
 ### Custom Skills
 
@@ -208,16 +252,20 @@ helm rollback myapp -n production
 
 ## AI Agents
 
-ColdBox AI Integration supports **6 major AI agents** with automatic configuration generation:
+ColdBox AI Integration supports **8 major AI agents** with automatic configuration generation:
 
-| Agent              | Config File          | Description                    |
-| ------------------ | -------------------- | ------------------------------ |
-| **Claude**         | `CLAUDE.md`          | Claude Desktop and Claude Code |
-| **GitHub Copilot** | `AGENTS.md` (shared) | VS Code Copilot integration    |
-| **Cursor**         | `.cursorrules`       | Cursor IDE rules               |
-| **Codex**          | `AGENTS.md` (shared) | Codex AI assistant             |
-| **Gemini**         | `GEMINI.md`          | Gemini CLI integration         |
-| **OpenCode**       | `AGENTS.md` (shared) | OpenCode assistant             |
+| Agent              | Config File          | Description                         |
+| ------------------ | -------------------- | ----------------------------------- |
+| **Claude**         | `CLAUDE.md`          | Claude Desktop and Claude Code      |
+| **GitHub Copilot** | `AGENTS.md` (shared) | VS Code Copilot integration         |
+| **Cursor**         | `.cursorrules`       | Cursor IDE rules                    |
+| **Codex**          | `AGENTS.md` (shared) | Codex AI assistant                  |
+| **Gemini**         | `GEMINI.md`          | Gemini CLI integration              |
+| **Kilo Code**      | `AGENTS.md` (shared) | Kilo Code AI assistant              |
+| **OpenCode**       | `AGENTS.md` (shared) | OpenCode assistant                  |
+| **Pi**             | `AGENTS.md` (shared) | Pi AI assistant                     |
+
+> 📁 **Shared Config**: GitHub Copilot, Codex, Kilo Code, OpenCode, and Pi all share the `AGENTS.md` file, following the [Agents.md standard](https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions/).
 
 ```bash
 coldbox ai agents list                     # List available
@@ -266,6 +314,10 @@ coldbox ai mcp remove myDocs                    # Remove a server
 
 During `coldbox ai refresh`, the CLI auto-detects MCP servers from installed modules and updates `.mcp.json` automatically.
 
+### VSCode Copilot MCP Mirroring
+
+When **Copilot** is a configured agent, MCP server configuration is automatically mirrored to `.vscode/mcp.json` using the VSCode-specific schema (`"servers"` + `"inputs": []`). This ensures GitHub Copilot in VS Code can discover all registered MCP servers without additional configuration. The `.vscode/mcp.json` file is written alongside the root `.mcp.json` whenever MCP configuration is regenerated (install, refresh, MCP add/remove).
+
 ### Built-in MCP Servers
 
 | Server            | Description                             |
@@ -312,8 +364,16 @@ coldbox ai install                  # Interactive installation wizard
 coldbox ai info                     # Show current configuration
 coldbox ai tree                     # Visual hierarchy of components
 coldbox ai tree --verbose           # Include file paths
-coldbox ai refresh                  # Sync with installed modules
+coldbox ai refresh                  # Sync with installed modules, auto-recover missing skills, regenerate agent configs
 ```
+
+During refresh, the CLI automatically:
+- Discovers and installs new module guidelines and skills
+- **Auto-recovers** any missing core skills (boxlang, coldbox, testbox, commandbox)
+- **Auto-installs** skills for newly added `box.json` module dependencies
+- Detects and registers MCP documentation servers from installed modules
+- Regenerates agent configuration files and skill symlinks
+- Respects the `manifest.excludes[]` list — removed skills won't be reinstalled
 
 ### Component Management
 
@@ -327,8 +387,12 @@ coldbox ai guidelines uninstall coldbox       # Remove guideline
 # Skills
 coldbox ai skills list                        # List installed
 coldbox ai skills list --verbose              # With descriptions
+coldbox ai skills list --json                 # Machine-readable JSON
+coldbox ai skills list --outdated             # Check for registry updates
 coldbox ai skills install creating-handlers   # Install specific
-coldbox ai skills uninstall creating-handlers # Remove skill
+coldbox ai skills update                      # Re-download all registry skills
+coldbox ai skills update creating-handlers    # Re-download a single skill
+coldbox ai skills uninstall creating-handlers # Remove skill (tracked to prevent auto-reinstall)
 
 # Agents
 coldbox ai agents list                        # List available
@@ -366,7 +430,9 @@ coldbox ai stats --verbose          # Detailed breakdown
 .mcp.json
 ```
 
-**Stay Synced** — run `coldbox ai refresh` after pulling updates or installing new modules to keep agent configs current.
+**Stay Synced** — run `coldbox ai refresh` after pulling updates or installing new modules to keep agent configs current. Removed skills are tracked in `manifest.excludes[]` and won't be auto-reinstalled.
+
+**VSCode Users** — when Copilot is configured as an agent, `.vscode/mcp.json` is auto-generated alongside `.mcp.json` so Copilot can discover MCP servers. Commit both files to share MCP configuration with your team.
 
 **Custom Guidelines** — use `.agents/guidelines/custom/` for business domain concepts, third-party service integrations, and team conventions that the AI should always know about.
 

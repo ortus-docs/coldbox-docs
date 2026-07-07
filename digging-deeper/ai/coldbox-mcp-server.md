@@ -72,11 +72,18 @@ sequenceDiagram
 ## Installation
 
 ```bash
-# Step 1 — BoxLang AI runtime (required dependency)
-box install bx-ai
+# Quick install via ColdBox CLI (recommended)
+coldbox ai mcp install
 
-# Step 2 — cbMCP module
+# Or manual installation
+box install bx-ai
 box install cbmcp
+```
+
+The `coldbox ai mcp install` command installs both `bx-ai` and `cbmcp` and registers the server in `.mcp.json` and the AI manifest, making it immediately available to your AI assistants. Use `--host` and `--port` flags to customize the endpoint:
+
+```bash
+coldbox ai mcp install --host=localhost --port=8080
 ```
 
 Once installed and the application boots, the MCP endpoint is **immediately live** at:

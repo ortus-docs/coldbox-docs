@@ -285,7 +285,9 @@ coldbox create handler Users --views --integrationTests
 
 > 💡 **Smart Generation**: The CLI creates handlers in the correct directory structure and generates appropriate code for your project language (BoxLang/CFML)!
 
-> 🏗️ **Automatic Layout Detection (v8.10.0)**: The CLI detects whether your project uses a modern layout (`app/` + `public/`) or a flat layout and places files in the correct location automatically. In a modern layout, `coldbox create handler Users` places the handler in `app/handlers/Users.bx` rather than `handlers/Users.cfc`. No flags needed - it just works!
+> 🔄 **Language Propagation (v8.13.0+)**: When using `--boxlang` or `--noboxlang` with handlers, the language choice automatically propagates to auto-generated views — `.bxm` extensions for BoxLang, `.cfm` for CFML.
+
+> 🏗️ **Automatic Layout Detection (v8.10.0+)**: The CLI detects whether your project uses a modern layout (`app/` + `public/`) or a flat layout and places files in the correct location automatically. In a modern layout, `coldbox create handler Users` places the handler in `app/handlers/Users.bx` rather than `handlers/Users.cfc`. No flags needed - it just works!
 
 ### 📊 Models & Services - Your Business Logic Powerhouse
 
@@ -695,7 +697,7 @@ ColdBox CLI includes a comprehensive AI integration system that gives AI coding 
 |-----------|-----------|-------|
 | **📚 Guidelines** | Core framework documentation (ColdBox, BoxLang, CFML) + module-provided | 3 core built-in |
 | **🎯 Skills** | On-demand coding cookbooks from registry | 200+ available via registry |
-| **🤖 Agents** | Configuration files for AI assistants | 6 supported agents |
+| **🤖 Agents** | Configuration files for AI assistants | 8 supported agents |
 | **🌐 MCP Servers** | Model Context Protocol documentation servers | Auto-detected from installed modules |
 
 All four components live in a `.agents/` directory at your project root.
@@ -711,7 +713,12 @@ coldbox create app myApp --ai
 
 # Keep resources in sync after installing modules
 coldbox ai refresh
+
+# Overwrite existing agent files (skip conflict prompts)
+coldbox ai install --force
 ```
+
+> ⚠️ **Agent File Conflicts**: If `coldbox ai install` or `coldbox ai refresh` detects existing agent configuration files (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.cursorrules`) that were not created by ColdBox CLI, you'll be prompted to **Overwrite** (replace with CLI content), **Merge** (prepend CLI section at top, preserving your content below), or **Skip** (leave untouched). Use `--force` to automatically overwrite all conflicting files.
 
 The installation wizard prompts you to:
 1. Choose which AI agents you use (Claude, Copilot, Cursor, etc.)
@@ -741,11 +748,13 @@ Agent configuration files are generated at your project root:
 | Agent | Config File | Notes |
 |-------|-------------|-------|
 | **Claude** | `CLAUDE.md` | References `@AGENTS.md` for shared content |
-| **GitHub Copilot** | `AGENTS.md` (shared) | Also used by Codex and OpenCode |
+| **GitHub Copilot** | `AGENTS.md` (shared) | Also used by Codex, Kilo, Pi, and OpenCode |
 | **Cursor** | `.cursorrules` | Recognized automatically by Cursor IDE |
 | **Codex** | `AGENTS.md` (shared) | |
 | **Gemini** | `GEMINI.md` | Gemini CLI integration |
+| **Kilo Code** | `AGENTS.md` (shared) | Kilo Code AI assistant; `.kilo/skills/` for dedicated skills |
 | **OpenCode** | `AGENTS.md` (shared) | |
+| **Pi** | `AGENTS.md` (shared) | Pi AI assistant; `.pi/skills/` for dedicated skills |
 
 #### 🔧 Core Commands
 
@@ -793,10 +802,14 @@ Skills are on-demand coding cookbooks - step-by-step guides for specific tasks s
 ```bash
 coldbox ai skills list                        # List installed skills
 coldbox ai skills list --verbose              # With descriptions
+coldbox ai skills list --json                 # Machine-readable JSON output
+coldbox ai skills list --outdated             # Check for registry updates
+coldbox ai skills update                      # Re-download all installed registry skills
+coldbox ai skills update creating-handlers    # Re-download a single skill
 coldbox ai skills install --list              # Interactive install from registry
 coldbox ai skills install --list coldbox/skills   # Filtered by prefix
 coldbox ai skills install --all               # Install all available skills
-coldbox ai skills remove creating-handlers    # Remove a skill
+coldbox ai skills remove creating-handlers    # Remove a skill (tracked to prevent auto-reinstall)
 coldbox ai skills override creating-handlers  # Create a customizable override
 coldbox ai skills refresh                     # Sync from installed modules
 coldbox ai skills create                      # Scaffold a new custom skill
@@ -814,6 +827,8 @@ Skills are available from [skills.boxlang.io](https://skills.boxlang.io) and cov
 - **Modern Development** - CBWire, real-time features, performance optimization, etc.
 
 Use `coldbox ai skills install --list` to browse and install skills from the registry.
+
+> 🔗 **Agent Skill Symlinks**: Skills are installed to `.agents/skills/{name}/` and automatically symlinked into each agent's dedicated skills directory (e.g., `.claude/skills/`, `.kilo/skills/`, `.pi/skills/`, `.cursor/rules/`, `.github/instructions/`). This lets every agent discover skills through its own expected path without duplicating content.
 
 #### 🤖 Managing Agents
 
@@ -837,6 +852,8 @@ coldbox ai mcp add github postgres         # Add servers from registry
 coldbox ai mcp remove postgres             # Remove a server
 coldbox ai mcp install                     # Install cbMCP module (live app introspection)
 ```
+
+> 🔷 **VSCode Copilot MCP Mirroring**: When Copilot is a configured agent, MCP server configuration is automatically mirrored to `.vscode/mcp.json` using the VSCode-specific schema, ensuring GitHub Copilot in VS Code can discover all registered MCP servers.
 
 **cbMCP - Live App Introspection:**
 

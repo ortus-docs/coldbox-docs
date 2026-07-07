@@ -246,8 +246,9 @@ The `coldbox-cli` CommandBox module embeds AI context directly into your develop
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐   │
 │  │  Guidelines  │  │    Skills    │  │       Agents         │   │
 │  │  46+ total   │  │  71+ total   │  │  Claude, Copilot,    │   │
-│  │  Core on-disk│  │  On-demand   │  │  Cursor, Codex,      │   │
-│  │  Modules OD  │  │  cookbooks   │  │  Gemini, OpenCode    │   │
+│  │  Core on-disk│  │  On-demand   │  │  Codex, Gemini,      │   │
+│  │  Modules OD  │  │  cookbooks   │  │  Kilo Code, OpenCode,│   │
+│  │              │  │              │  │  Pi                  │   │
 │  └──────┬───────┘  └──────┬───────┘  └──────────┬───────────┘   │
 │         │                 │                     │               │
 │         └─────────────────┴──────────────┬──────┘               │
@@ -270,8 +271,8 @@ The `coldbox-cli` CommandBox module embeds AI context directly into your develop
 
 **How it works:**
 
-1. You run `coldbox ai install` — agent config files and a `.ai/` directory are written to your project
-2. Core ColdBox + language guidelines are stored in **`.ai/guidelines/core/`** and referenced via `read_file` instructions in the agent file — keeping agent files to ~250 lines
+1. You run `coldbox ai install` — agent config files and a `.agents/` directory are written to your project
+2. Core ColdBox + language guidelines are stored in **`.agents/guidelines/core/`** and referenced via `read_file` instructions in the agent file — keeping agent files to ~250 lines
 3. Module guidelines and skills are **inventoried with descriptions** and loaded on-demand — the AI asks for them only when needed
 4. MCP servers are tracked in **`.mcp.json`** and expose live data (ForgeBox packages, framework docs, your running app via `cbMCP`) to compatible IDE agents
 
