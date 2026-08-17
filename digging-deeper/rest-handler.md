@@ -94,7 +94,7 @@ The Rest handler gives you the following **actions** coded for you out of the bo
 | `onAuthorizationFailure()`    | Traps `PermissionDenied` exceptions and sends the appropriate 401 response. This Action can be used when a user does not have authorization or access to your application or code. Usually you will call this manually or from a security library like **cbSecurity** or **cbGuard**. It will send a 401 not authorized response. |
 | `onInvalidRoute()`            | Action that can be used as a catch all from your router so it can catch all routes that are invalid. It will send a 404 response accordingly.                                                                                                                                                                                     |
 | `onExpectationFailed()`       | Utility method for when an expectation of the request fails ( e.g. an expected parameter is not provided ). This action is called manually from your own handlers and it will output a 417 response back to the user.                                                                                                             |
-| `onAnyOtherException`         | Fires when ANY exception that is not excplicitly trapped is detected. This basically logs the issue and offers a 500 error. You can now intercept it and do whatever you need on ANY type of untrapped exception.                                                                                                                 |
+| `onAnyOtherException`         | Fires when ANY exception that is not excplicitly trapped is detected. This basically logs the issue and offers a 500 error. You can now intercept it and do whatever you need on ANY type of untrapped exception.                                                                                                                |
 
 ### AroundHandler in Detail
 
@@ -302,6 +302,10 @@ Response function setErrorMessage(
 	statusText = ""
 )}
 ```
+
+{% hint style="success" %}
+For conditional-GET support (`ETag`/`Last-Modified`/`Cache-Control`), see `withETag()` and `withCacheControl()` in [HTTP Caching](http-caching.md).
+{% endhint %}
 
 ### Status Text Lookup
 

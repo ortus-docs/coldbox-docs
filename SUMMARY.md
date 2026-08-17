@@ -263,6 +263,8 @@
   * [Creating Your Own Flash Scope](digging-deeper/flash-ram/creating-your-own-flash-scope.md)
 * [HTML Helper](digging-deeper/html-helper.md)
 * [REST Handler](digging-deeper/rest-handler.md)
+* [HTTP Caching](digging-deeper/http-caching.md)
+* [Server-Sent Events](digging-deeper/server-sent-events.md)
 * [Request Context Decorator](digging-deeper/request-context-decorator.md)
 * [Recipes](digging-deeper/recipes/README.md)
   * [Building REST APIs](digging-deeper/recipes/building-rest-apis.md)
