@@ -30,5 +30,20 @@ group( { pattern="/news", target="public.news." }, function(){
 } );
 ```
 
-The **options** struct can contain any values that you can use within the closure.  Grouping can also be very nice when creating [namespaces](routing-namespaces.md), which is our next section.
+The **options** struct can contain any values that you can use within the closure.  Grouping can also be very nice when creating [namespaces](routing-namespaces.md).
+
+## Sharing More Than Patterns
+
+A group's `options` struct isn't limited to `pattern`/`target`. Any modifier a route accepts can be shared the same way - `handler`, `module`, `namespace`, `domain`, and `middleware` all apply to every route declared inside the body:
+
+```javascript
+group( { pattern : "/api", middleware : [ "RequireApiKey" ] }, function(){
+    route( "/users" ).toHandler( "users" );
+    route( "/products" ).toHandler( "products" );
+} );
+```
+
+{% hint style="success" %}
+**Next:** see [Route Middleware](middleware.md) for how a shared `middleware` list actually runs, and [Middleware Groups & Exclusions](middleware-groups.md) for reusing one by name across unrelated groups.
+{% endhint %}
 
