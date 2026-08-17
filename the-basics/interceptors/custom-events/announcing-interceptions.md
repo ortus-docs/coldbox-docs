@@ -18,3 +18,17 @@ controller.getInterceptorService().announce( "onRecordInsert", {} );
 ```
 
 > **Hint** Announcing events can also get some asynchronous love, read the [Interceptor Asynchronicity](../interceptor-asynchronicity/) for some asynchronous love.
+
+## Detecting a Short-Circuit
+
+On the default synchronous path, `announce()` returns `true` if an interceptor short-circuited the chain by returning `true` from its handler, `false` otherwise (interceptors that never return a boolean, and points with no registered interceptors, resolve to `false`). Use this to detect that an interceptor consumed or rejected the announcement:
+
+```javascript
+if ( controller.getInterceptorService().announce( "preSSEConnection", data ) ) {
+    // an interceptor returned true - the chain was short-circuited
+}
+```
+
+{% hint style="info" %}
+This only applies to the synchronous path. `async`/`asyncAll` announcements return a thread structure report instead, as documented in [Interceptor Asynchronicity](../interceptor-asynchronicity/).
+{% endhint %}

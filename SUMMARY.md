@@ -3,6 +3,7 @@
 * [Introduction](README.md)
   * [Contributing Guide](readme/contributing-guide.md)
   * [Release History](readme/release-history/README.md)
+    * [What's New With 8.2.0](readme/release-history/whats-new-with-8.2.0.md)
     * [What's New With 8.1.0](readme/release-history/whats-new-with-8.1.0.md)
     * [What's New With 8.0.0](readme/release-history/whats-new-with-8.0.0.md)
   * [Upgrading to ColdBox 8](readme/upgrading-to-coldbox-8.md)
