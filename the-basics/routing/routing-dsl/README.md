@@ -14,6 +14,10 @@ Please note that order of declaration of the routes is imperative.  Order matter
 Please remember to check out the latest [API Docs](http://apidocs.ortussolutions.com/coldbox/current) for the latest methods and argument signatures.
 {% endhint %}
 
+{% hint style="success" %}
+**New here?** Read in order: [Pattern Placeholders](pattern-placeholders.md) → [Routing by Convention](routing-by-convention.md) → [Sending Requests Somewhere](targets.md) → [Resourceful Routes](resourceful-routes.md) → [Named Routes](named-routes.md) → [Routing Groups](routing-groups.md) → [Route Middleware](middleware.md). Everything else on this page is reference material you can jump to as needed.
+{% endhint %}
+
 ### Initiators
 
 The following methods are used to initiate a route registration process.&#x20;
@@ -29,6 +33,7 @@ Please note that a route will not register unless a terminator is called or the 
 * `patch( pattern, [target], [name] )` - Register a new route with optional **target** terminators, a name and a PATCH http verb restriction
 * `options( pattern, [target], [name] )` - Register a new route with optional **target** terminators, a name and a OPTIONS http verb restriction
 * `group( struct options, body )` - Group routes together with options that will be applied to all routes declared in the `body` closure/lambda.
+* `middlewareGroup( name, targets )` - Register a [named, reusable middleware bundle](middleware-groups.md) referenced later by name.
 
 ### Modifiers
 
@@ -51,6 +56,8 @@ Modifiers will tell the routing service about certain restrictions, conditions o
 * `withVerbs( verbs )` - Restrict the route to listen to only these HTTP Verbs
 * `packageResolver( toggle )` - Turn on/off convention for packages
 * `valuePairTranslator( toggle )` - Turn on/off automatic name value pair translations
+* `middleware( target, [point="preProcess"] )` - Attach [route-scoped middleware](middleware.md): a closure, WireBox ID, object, or `middlewareGroup()` name
+* `withoutMiddleware( target )` - [Exclude](middleware-groups.md) inherited or own middleware by name, or `"*"` for all
 
 ### Terminators
 
@@ -67,3 +74,4 @@ Terminators finalize the routing process by registering the route in the Router.
 * `toNamespaceRouting( namespace )` - Send to the namespace router for evaluation
 * `toAi( target, [name] )` - Register four AI inference routes (invoke, stream, batch, info) for an `IAiRunnable` target. **BoxLang + bx-ai only.**
 * `toMCP( [name] )` - Register a Model Context Protocol (MCP) server endpoint. **BoxLang + bx-ai only.**
+* `toSSE( callback )` - Terminate the route with a [Server-Sent Events stream](sse-routes.md). **BoxLang only.**

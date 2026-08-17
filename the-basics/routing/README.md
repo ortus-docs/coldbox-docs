@@ -91,3 +91,7 @@ As you create route-heavy applications visualizing the routes will be challengin
 ```bash
 box install route-visualizer
 ```
+
+{% hint style="success" %}
+**Next:** [Application Router](application-router.md) for where routes live, then the [Routing DSL](routing-dsl/README.md) to start writing them.
+{% endhint %}

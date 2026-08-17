@@ -104,7 +104,7 @@ The `invoke` action handles a standard synchronous request/response cycle.
 
 ### Stream Endpoint
 
-The `stream` action returns a **Server-Sent Events (SSE)** stream. The client should set `Accept: text/event-stream`.
+The `stream` action returns a **Server-Sent Events (SSE)** stream. The client should set `Accept: text/event-stream`. See [Streaming Routes (SSE)](sse-routes.md) for the underlying `toSSE()`/`event.sse()` mechanics this endpoint builds on.
 
 **Request body (JSON):**
 
@@ -233,7 +233,7 @@ route( "/mcp/:mcpServer" )
 
 ### MCP Server Registration
 
-MCP servers are registered via WireBox or the ColdBox configuration. Refer to the [BoxLang AI documentation](https://ai.ortusbooks.com/) and the [Agentic ColdBox](../../digging-deeper/ai/agentic-coldbox.md) guide for details on building and registering MCP servers.
+MCP servers are registered via WireBox or the ColdBox configuration. Refer to the [BoxLang AI documentation](https://ai.ortusbooks.com/) and the [Agentic ColdBox](../../../digging-deeper/ai/agentic-coldbox.md) guide for details on building and registering MCP servers.
 
 ---
 
