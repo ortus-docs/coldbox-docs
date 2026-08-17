@@ -29,23 +29,24 @@ route( "/api/assistant" ).toAi( "models.AssistantAgent" );
 
 A single `toAi()` call registers **four** routes automatically:
 
-| HTTP Verb | Pattern                | Handler Action   | Purpose                                    |
-| --------- | ---------------------- | ---------------- | ------------------------------------------ |
-| `POST`    | `/api/assistant/invoke` | `invoke`         | Synchronous single-turn inference          |
-| `POST`    | `/api/assistant/stream` | `stream`         | Server-Sent Events (SSE) streaming output  |
-| `POST`    | `/api/assistant/batch`  | `batch`          | Batch / multi-turn inference               |
-| `GET`     | `/api/assistant/info`   | `info`           | Metadata — model name, capabilities, etc. |
+| HTTP Verb | Pattern                  | Calls on the runnable                          | Purpose                                   |
+| --------- | ------------------------- | ------------------------------------------------ | -------------------------------------------- |
+| `POST`    | `/api/assistant/invoke`   | `run( input, params, options )`                   | Synchronous single-turn inference            |
+| `POST`    | `/api/assistant/stream`   | `stream( onChunk, input, params, options )`        | Server-Sent Events (SSE) streaming output    |
+| `POST`    | `/api/assistant/batch`    | `run()` for each item in `inputs[]`                | Batch inference                              |
+| `GET`     | `/api/assistant/info`     | `getName()` (no call for `description`)             | Metadata — name, description, endpoint list  |
 
 ### Arguments
 
 ```javascript
-route( pattern ).toAi( target, [name] )
+route( pattern ).toAi( runnable )
 ```
 
-| Argument | Type             | Description                                                                                   |
-| -------- | ---------------- | --------------------------------------------------------------------------------------------- |
-| `target` | string or object | A WireBox mapping string **or** a live object instance that implements `IAiRunnable`          |
-| `name`   | string           | Optional base name for the generated routes. Defaults to the route pattern.                   |
+| Argument   | Type              | Description                                                                    |
+| ----------- | ------------------ | ---------------------------------------------------------------------------------- |
+| `runnable`  | string or object   | A WireBox ID string (resolved lazily on every request) **or** a live `IAiRunnable` instance |
+
+There's no separate `name` argument — sub-route names are derived from `.as()`/the route's own name if you've set one, or from the pattern otherwise, exactly like every other terminator.
 
 ### Basic Example
 
@@ -62,10 +63,10 @@ function configure(){
 This produces the following routes:
 
 ```
-POST /api/chat/invoke  → models.ChatAgent::invoke()
-POST /api/chat/stream  → models.ChatAgent::stream()
-POST /api/chat/batch   → models.ChatAgent::batch()
-GET  /api/chat/info    → models.ChatAgent::info()
+POST /api/chat/invoke  → chatAgent.run( input, params, options )
+POST /api/chat/stream  → chatAgent.stream( onChunk, input, params, options )
+POST /api/chat/batch   → chatAgent.run( item, params, options ) per item in inputs[]
+GET  /api/chat/info    → chatAgent.getName() / getDescription()
 ```
 
 ### Modifier Inheritance
@@ -81,14 +82,15 @@ route( "/api/chat" )
 
 ### Invoke Endpoint
 
-The `invoke` action handles a standard synchronous request/response cycle.
+The `invoke` action calls `run()` on the runnable for a standard synchronous request/response cycle.
 
 **Request body (JSON):**
 
 ```json
 {
-  "prompt": "Summarize this document",
-  "context": { "documentId": 42 }
+  "input": "Summarize this document",
+  "params": {},
+  "options": {}
 }
 ```
 
@@ -96,42 +98,49 @@ The `invoke` action handles a standard synchronous request/response cycle.
 
 ```json
 {
-  "response": "This document covers...",
-  "model": "gpt-4o",
-  "tokens": 128
+  "output": "This document covers...",
+  "success": true,
+  "threadId": "5b1e2c7a-..."
 }
 ```
+
+`input`/`params`/`options` are all optional and forwarded as-is to `runnable.run( input, params, options )`. `threadId` is always present — see [Conversational Context](#conversational-context) below.
 
 ### Stream Endpoint
 
-The `stream` action returns a **Server-Sent Events (SSE)** stream. The client should set `Accept: text/event-stream`. See [Streaming Routes (SSE)](sse-routes.md) for the underlying `toSSE()`/`event.sse()` mechanics this endpoint builds on.
+The `stream` action calls `stream()` on the runnable and pipes each chunk out as a **Server-Sent Events (SSE)** frame. The client should set `Accept: text/event-stream`. See [Server-Sent Events](../../event-handlers/server-sent-events.md) for the underlying `event.sse()` mechanics this endpoint builds on.
 
-**Request body (JSON):**
-
-```json
-{
-  "prompt": "Write a haiku about coding"
-}
-```
+**Request body (JSON):** same shape as `invoke` - `{ "input": ..., "params": {}, "options": {} }`
 
 **SSE Response:**
 
 ```
+event: thread
+data: {"threadId":"5b1e2c7a-..."}
+
+event: chunk
 data: {"token": "Code"}
+
+event: chunk
 data: {"token": " flows"}
-data: {"token": " like water"}
+
+event: done
 data: [DONE]
 ```
 
+The leading `thread` frame carries the resolved `threadId` - the response header (below) isn't readable from a browser `EventSource`, so this is how a browser client learns a server-generated thread id in time to persist it.
+
 ### Batch Endpoint
 
-The `batch` action accepts an array of prompts and returns an array of responses in the same order.
+The `batch` action calls `run()` once per item in `inputs[]`, sharing the same `params`/`options` (and resolved conversational context) across every item, and returns the results in the same order.
 
 **Request body (JSON):**
 
 ```json
 {
-  "prompts": [
+  "params": {},
+  "options": {},
+  "inputs": [
     "Translate: Hello",
     "Translate: Goodbye"
   ]
@@ -142,42 +151,101 @@ The `batch` action accepts an array of prompts and returns an array of responses
 
 ```json
 {
-  "responses": [
-    { "response": "Hola", "model": "gpt-4o" },
-    { "response": "Adiós", "model": "gpt-4o" }
-  ]
+  "outputs": [
+    { "output": "Hola", "success": true },
+    { "output": "Adiós", "success": true }
+  ],
+  "threadId": "5b1e2c7a-..."
 }
 ```
 
+An item that throws is reported inline instead of failing the whole batch: `{ "error": "<message>", "success": false }`.
+
 ### Info Endpoint
 
-The `info` action (`GET`) returns metadata about the AI runnable — model name, version, available capabilities, etc.
+The `info` action (`GET`) returns metadata about the AI runnable and the sub-routes registered for it.
 
 **Response (JSON):**
 
 ```json
 {
-  "model":    "gpt-4o",
-  "provider": "openai",
-  "capabilities": ["invoke", "stream", "batch"]
+  "name": "ChatAgent",
+  "description": "",
+  "pattern": "/api/chat",
+  "endpoints": [
+    { "verb": "POST", "path": "/api/chat/invoke", "description": "Synchronous execution" },
+    { "verb": "POST", "path": "/api/chat/stream", "description": "Streaming SSE execution" },
+    { "verb": "POST", "path": "/api/chat/batch",  "description": "Batch execution" },
+    { "verb": "GET",  "path": "/api/chat/info",   "description": "Endpoint metadata" }
+  ]
+}
+```
+
+### Conversational Context
+
+Alongside `input`/`params`/`options`, the request body accepted by `invoke`, `stream`, and `batch` may carry `userId`, `conversationId`, and `threadId`. Whatever's resolved is merged into `options` before the runnable is called, so a runnable reads them at `options.userId`/`options.conversationId`/`options.threadId` with no interface changes:
+
+| Field              | Behavior                                                                                                   |
+| -------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `userId`             | The request body's `userId` if supplied, else the framework's own request/session tracking identifier (`Controller.getUserSessionIdentifier()`) - so every call is attributable to *someone* |
+| `conversationId`     | Passed through only if supplied. **No default is generated** - an absent `conversationId` means the caller isn't tracking conversations |
+| `threadId`           | Passed through if supplied, otherwise a new one is generated. **Always** present in the result, so a follow-up call can continue the same thread |
+
+`threadId` is echoed back three ways, so it's usable from any client:
+
+* On the JSON response body (`invoke`/`batch`) as `threadId`
+* As an `X-Thread-Id` response header (all three sub-routes)
+* As a leading `event: thread` SSE frame on `/stream` (shown above)
+
+```javascript
+// POST /api/chat/invoke
+// { "input": "hi", "threadId": "t-123" }
+
+// → runnable.run( "hi", {}, { userId: "<session id>", threadId: "t-123" } )
+// → { "output": ..., "success": true, "threadId": "t-123" }
+// → response header: X-Thread-Id: t-123
+```
+
+A runnable that wants to persist conversation history reads the resolved context straight off `options`:
+
+```javascript
+// models/ChatAgent.bx
+class implements="bxModules.bxai.models.runnables.IAiRunnable" {
+
+    function run( input, params = {}, options = {} ){
+        var thread = conversationStore.loadOrCreate(
+            userId         = options.userId,
+            conversationId = options.conversationId ?: "",
+            threadId       = options.threadId
+        );
+        return chatModel.reply( thread, input );
+    }
+
 }
 ```
 
 ### IAiRunnable Interface
 
-Your agent class must implement `coldbox.system.web.routing.IAiRunnable` (or satisfy its duck-typed interface on BoxLang). The expected methods are:
+Your agent class must implement `IAiRunnable` from the **bx-ai** module (or satisfy its duck-typed interface). The methods `toAi()` actually calls are:
 
 ```javascript
 // models/ChatAgent.bx
-class implements="coldbox.system.web.routing.IAiRunnable" {
+class implements="bxModules.bxai.models.runnables.IAiRunnable" {
 
-    function invoke( event, rc, prc ){}
-    function stream( event, rc, prc ){}
-    function batch( event, rc, prc ){}
-    function info( event, rc, prc ){}
+    // Called by invoke and once per item by batch
+    any function run( any input = {}, struct params = {}, struct options = {} ){}
+
+    // Called by stream - invoke onChunk for each chunk produced
+    void function stream( required function onChunk, any input = {}, struct params = {}, struct options = {} ){}
+
+    // Used by the info endpoint
+    string function getName(){}
+    string function getDescription(){}
 
 }
 ```
+
+`params` configures the operation (model knobs, temperature, etc, overriding whatever defaults the runnable has); `options` carries runtime context - `userId`/`conversationId`/`threadId` land here, alongside anything else you pass through the request body's `options` key.
 
 ---
 
