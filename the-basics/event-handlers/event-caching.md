@@ -40,6 +40,30 @@ The way to set up an event for caching is on the function declaration with the f
 **Important** Please be aware that you should not cache output with 0 timeouts (forever). Always use a timeout. Also, all events can have an unlimited amount of permutations, so make sure they expire and you purge them constantly. Every event + URL/FORM variable combination will produce a new cacheable entry.
 {% endhint %}
 
+### HTTP Caching Annotations
+
+A `cache="true"` action can also opt into automatic conditional-GET support - an `ETag` and/or `Last-Modified` header computed once when the entry is written, then reused (and checked against the incoming request) on every cache hit, with no per-request work.
+
+| **Annotation** | **Type**  | **Description**                                                                                       |
+| -------------- | --------- | -------------------------------------------------------------------------------------------------------- |
+| `etag`         | boolean   | Compute an `ETag` from an MD5 hash of the rendered content at cache-write time. Default `false`             |
+| `etagWeak`     | boolean   | Mark the computed `ETag` as a weak validator (`W/"..."`). Default `false`                                    |
+| `lastModified` | boolean   | Stamp the entry with the write-time timestamp and send it as `Last-Modified`. Default `false`                |
+| `cacheControl` | string    | A literal `Cache-Control` header value to send alongside the cached entry                                    |
+
+```javascript
+function show( event, rc, prc ) cache="true" cacheTimeout="30" etag="true" lastModified="true" {
+    prc.entry = getEntryService().getEntry( event.getValue( "entryID", 0 ) );
+    event.setView( "blog/showEntry" );
+}
+```
+
+With no explicit `cacheControl`, opting into `etag` or `lastModified` sends a default `Cache-Control: private, max-age=<cacheTimeout in seconds>` for you - explicit values in `cacheControl` always win.
+
+{% hint style="info" %}
+This piggybacks entirely on event caching - it only ever runs for an action that's already `cache="true"`. For conditional-GET on an action that *isn't* event-cached, or when you need to control exactly what the tag represents, call `event.etag()`/`event.lastModified()`/`event.cacheControl()` directly - see [HTTP Caching](../../digging-deeper/http-caching.md).
+{% endhint %}
+
 ### Examples
 
 #### Basic implementation of event caching using annotations:
@@ -154,13 +178,15 @@ getCache( "template" ).clearEvent('blog.dspBlog','id=12345')
 
 ### this.event\_cache\_suffix
 
-You can now leverage the cache suffix property in handlers to be declared as a closure so it can be evaluated at runtime so it can add dynamic suffixes to cache keys. This can allow you to incorporate elements into the cache key at runtime instead of statically. This is a great way to incorporate the user's language locale or session identifier to make unique entries.
+You can leverage the cache suffix property in handlers, declared as a closure, to add a dynamic suffix to the event's cache key. The closure is evaluated **on every request** - never memoized or frozen - so it's a great way to incorporate something that varies per request, like the user's language locale or session identifier, into the cache key.
 
 ```java
-this.EVENT_CACHE_SUFFIX = function( eventHandlerBean ){
-  return "a localized string, etc";
+this.EVENT_CACHE_SUFFIX = function( eventHandlerBean, event ){
+  return arguments.event.getValue( "locale", "en" );
 };
 ```
+
+The closure receives the `eventHandlerBean` and the current `event` (request context), so it can read anything available on either.
 
 ## `OnRequestCapture` - Influence Cache Keys
 
