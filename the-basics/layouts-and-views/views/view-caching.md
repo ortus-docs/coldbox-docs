@@ -64,3 +64,18 @@ coldbox = {
 viewCaching = false
 }
 ```
+
+## View Discovery Caching
+
+`viewDiscoveryCaching` is a separate setting from `viewCaching` above - it's on by default and controls a different thing entirely. `viewCaching` caches a view's rendered **output**; `viewDiscoveryCaching` caches the **path resolution** work the Renderer does to locate a view/layout file on disk (module fallback checks, extension detection, etc) - pure overhead that never changes once a file exists at a given path.
+
+```javascript
+coldbox = {
+    // Cache the filesystem lookups that locate view/layout files. Default: true
+    viewDiscoveryCaching = true
+}
+```
+
+{% hint style="info" %}
+Turning this off does not disable `viewCaching` - the two settings are independent. You'd disable `viewDiscoveryCaching` only if you're dynamically adding view files to a running application and need every request to re-check the filesystem for them.
+{% endhint %}
