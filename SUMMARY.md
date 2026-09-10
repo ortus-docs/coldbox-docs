@@ -74,6 +74,7 @@
     * [Adding Data to a Route](the-basics/routing/routing-dsl/adding-data-to-a-route.md)
     * [Streaming Routes (SSE)](the-basics/routing/routing-dsl/sse-routes.md)
     * [AI & MCP Routing](the-basics/routing/routing-dsl/ai-routing.md)
+    * [AI Gateway Routing](the-basics/routing/routing-dsl/ai-gateway-routing.md)
   * [Building Routable Links](the-basics/routing/building-routable-links.md)
   * [Advanced Routing Topics](the-basics/routing/advanced-topics.md)
     * [Requirements](the-basics/routing/requirements/README.md)

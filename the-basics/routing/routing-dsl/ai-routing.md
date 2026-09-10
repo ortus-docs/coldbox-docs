@@ -15,6 +15,8 @@ ColdBox 8.1 introduces two powerful routing terminators for building AI-powered 
 * `toAi()` — Registers four standard AI inference endpoints (invoke, stream, batch, info) for any `IAiRunnable` object
 * `toMCP()` — Registers a Model Context Protocol (MCP) server endpoint handled by `MCPRequestProcessor`
 
+A third terminator, [`toAiGateway()`](ai-gateway-routing.md), covers the other direction: a platform (Slack, Telegram, WhatsApp, a signed webhook) talking to your agent on its own terms, signatures and human approvals included.
+
 Both terminators behave like the `resources()` terminator: a single declaration expands to multiple concrete routes and all shared route **modifiers** (`.as()`, `.withModule()`, `.withDomain()`, etc.) are inherited by every generated sub-route.
 
 ---

@@ -97,6 +97,29 @@ See [Server-Sent Events](../../the-basics/event-handlers/server-sent-events.md) 
 
 This release also corrects the `toAi()` reference documentation, which had drifted from the actual `run()`/`stream()`-based `IAiRunnable` interface and request/response shapes. See [AI Routing](../../the-basics/routing/routing-dsl/ai-routing.md).
 
+### 🚪 AI Gateway Routing — `toAiGateway()`
+
+A third AI terminator joins `toAi()` and `toMCP()`, covering the direction they don't: a platform talking to *your* agent, on the platform's terms. One declaration mounts everything a [BoxLang AI Gateway](https://ai.ortusbooks.com/) needs over HTTP.
+
+```javascript
+route( "/gateways" ).withSSL().toAiGateway( session: "SupportAgentSession" );
+```
+
+| Verb        | Pattern                                       | Purpose                                     |
+| ----------- | --------------------------------------------- | ------------------------------------------- |
+| `POST`      | `{pattern}[/:gateway]/events`                 | An inbound platform event                   |
+| `GET`       | `{pattern}[/:gateway]/events`                 | The platform's URL verification handshake   |
+| `GET`       | `{pattern}/interactions/:requestID`           | Poll a pending human-in-the-loop approval   |
+| `POST`      | `{pattern}/interactions/:requestID/decisions` | Submit a human's decision                   |
+| `GET`       | `{pattern}/info`                              | What this mount serves                      |
+
+* `GET` and `POST` share `/events` on purpose: a platform is given **one** URL and verifies it with a `GET` before it will `POST` to it.
+* Pin a mount with `toAiGateway( "slack" )`, or leave the name out and one mount serves every gateway registered in `aiGatewayRegistry()`. A pinned name always wins over the URL placeholder.
+* Pass a `session` and every inbound message is dispatched as an agent turn and acked `202` **immediately**, without waiting on the turn - a platform webhook times out in seconds, an agent turn does not. The thread each message landed on comes back in the response (and as `X-Thread-Id`) so you can correlate the reply. Without a session, events are verified and parsed only.
+* Signatures are verified by the gateway itself before anything is parsed or dispatched.
+
+BoxLang + `bx-ai` only. See [AI Gateway Routing](../../the-basics/routing/routing-dsl/ai-gateway-routing.md).
+
 ### 🔒 Hardened HTTP Method Spoofing
 
 The `_method` form-field override (`GET`/`POST` browsers use to fake `PUT`/`PATCH`/`DELETE`) is now only honored when the *original* transport-level request is a `POST`. Previously, a plain `GET` request carrying `?_method=DELETE` was silently treated as a `DELETE` — enabling CSRF-style attacks via a link, an `<img>` tag, a crawler, or a browser prefetch. A new `event.getOriginalHTTPMethod()` returns the raw, un-spoofed verb when you need it. See [HTTP Method Spoofing](../../the-basics/routing/http-method-spoofing.md).
@@ -120,6 +143,8 @@ The `_method` form-field override (`GET`/`POST` browsers use to fake `PUT`/`PATC
 [COLDBOX-1417](https://ortussolutions.atlassian.net/browse/COLDBOX-1417) Conversational context (userId/conversationId/threadId) on `toAi()` routes
 
 First-class Server-Sent Events streaming - `event.sse()`, `SSEEmitter`, `Router.toSSE()`, interception points, `this.sse` settings ([#676](https://github.com/ColdBox/coldbox-platform/pull/676))
+
+AI Gateway routing - `Router.toAiGateway()` mounts a BoxLang AI Gateway's inbound events, verification handshake, and human-in-the-loop approval endpoints ([#694](https://github.com/ColdBox/coldbox-platform/pull/694))
 
 ### Improvements
 
