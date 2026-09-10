@@ -10,7 +10,7 @@ description: >-
 ColdBox 8.x brings first-class artificial intelligence capabilities to the platform thanks to [BoxLang](https://www.boxlang.io/) and [BoxLang AI](https://ai.boxlang.io), organized around four complementary pillars:
 
 1. **BoxLang AI (`bx-ai`)** — a unified fluent SDK for every major LLM provider, supporting chat, streaming, RAG pipelines, tool calling, vector memory, and autonomous agents: https://ai.boxlang.io
-2. **AI Routing** — first-class Router terminators (`toAi()`, `toMCP()`) that auto-generate standard HTTP endpoints for any AI runnable or MCP server, no boilerplate required
+2. **AI Routing** — first-class Router terminators (`toAi()`, `toMCP()`, `toAiGateway()`) that auto-generate standard HTTP endpoints for any AI runnable, MCP server, or AI gateway, no boilerplate required
 3. **ColdBox MCP Server (`cbMCP`)** — a ColdBox module that exposes your running application as a live MCP server, giving any AI client (Claude, Copilot, Cursor) real-time introspection into routing, handlers, WireBox, CacheBox, LogBox, schedulers, and more
 4. **Agentic ColdBox CLI** — AI guidelines, skills, agents, and MCP servers baked into `coldbox-cli` so your AI coding assistant always knows the ColdBox ecosystem
 
@@ -371,6 +371,7 @@ curl -X POST https://myapp.com/agents/support/stream \
 | ------- | :-----: | :--: |
 | `toAi()` routing terminator | ✅ | ❌ |
 | `toMCP()` routing terminator | ✅ | ❌ |
+| `toAiGateway()` routing terminator | ✅ | ❌ |
 | `bx-ai` LLM SDK | ✅ | ❌ |
 | `cbMCP` live MCP server | ✅ | ❌ |
 | Agentic CLI guidelines / skills | ✅ | ✅ |
@@ -386,3 +387,4 @@ curl -X POST https://myapp.com/agents/support/stream \
 | [Agentic ColdBox](agentic-coldbox.md) | AI features in `coldbox-cli` — guidelines, skills, agents, and MCP servers |
 | [ColdBox MCP Server](coldbox-mcp-server.md) | `cbMCP` module — live MCP server exposing 50+ introspection tools for your running app |
 | [AI Routing](../../the-basics/routing/routing-dsl/ai-routing.md) | `toAi()` and `toMCP()` router terminators — full reference |
+| [AI Gateway Routing](../../the-basics/routing/routing-dsl/ai-gateway-routing.md) | `toAiGateway()` — platform webhooks, verification handshakes, and human-in-the-loop approvals |

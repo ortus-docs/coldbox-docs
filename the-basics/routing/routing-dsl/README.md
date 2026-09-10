@@ -74,4 +74,5 @@ Terminators finalize the routing process by registering the route in the Router.
 * `toNamespaceRouting( namespace )` - Send to the namespace router for evaluation
 * `toAi( target, [name] )` - Register four AI inference routes (invoke, stream, batch, info) for an `IAiRunnable` target. **BoxLang + bx-ai only.**
 * `toMCP( [name] )` - Register a Model Context Protocol (MCP) server endpoint. **BoxLang + bx-ai only.**
+* `toAiGateway( [gateway], [session] )` - Expose a [BoxLang AI Gateway](ai-gateway-routing.md) over HTTP: inbound platform events, URL verification handshakes, and human-in-the-loop approvals. **BoxLang + bx-ai only.**
 * `toSSE( callback )` - Terminate the route with a [Server-Sent Events stream](sse-routes.md). **BoxLang only.**

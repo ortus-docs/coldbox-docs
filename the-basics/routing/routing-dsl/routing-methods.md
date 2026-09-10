@@ -14,5 +14,6 @@ This page used to hold every route terminator in one long document. It's now spl
 | [Adding Data to a Route](adding-data-to-a-route.md) | `rc()`, `prc()`, `rcAppend()`, `prcAppend()` |
 | [Streaming Routes (SSE)](sse-routes.md)        | `toSSE()`                                         |
 | [AI & MCP Routing](ai-routing.md)              | `toAi()`, `toMCP()`                               |
+| [AI Gateway Routing](ai-gateway-routing.md)    | `toAiGateway()`                                   |
 
 See the [Routing DSL overview](README.md) for the full method reference across initiators, modifiers, and terminators.
