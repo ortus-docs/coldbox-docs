@@ -52,7 +52,7 @@ coldbox = {
 
 ### **handlersIndexAutoReload**
 
-Will scan the conventions directory for new handler CFCs on each request if activated. Use **false** for production, this is only a development true setting.
+Will scan the conventions directory for new handler classes on each request if activated. Use **false** for production, this is only a development true setting.
 
 ## Implicit Event Settings
 
@@ -120,11 +120,11 @@ The CF dot notation path of where to look for secondary events for your applicat
 
 ### **requestContextDecorator**
 
-The CF dot notation path of the CFC that will decorate the system Request Context object.
+The CF dot notation path of the class that will decorate the system Request Context object.
 
 ### **controllerDecorator**
 
-The CF dot notation path of the CFC that will decorate the system Controller
+The CF dot notation path of the class that will decorate the system Controller
 
 ## Exception Handling
 

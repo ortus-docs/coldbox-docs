@@ -73,7 +73,7 @@ component{
 {% endtab %}
 {% endtabs %}
 
-As you can see, a handler is a simple CFC with functions on them. Each function maps to an **action** that is executed via the URL. The default action in ColdBox is `index()`which receives three arguments:
+As you can see, a handler is a simple class with functions on them. Each function maps to an **action** that is executed via the URL. The default action in ColdBox is `index()`which receives three arguments:
 
 * `event` - An object that represents the request and can modify the response. We call this object the [request context](../../../the-basics/request-context.md).
 * `rc` - A struct that contains both `URL/FORM` variables (unsafe data)
@@ -91,7 +91,7 @@ The **event** object is used for many things, in the case of this function we ar
 
 Did you detect a convention here?
 
-The sections in the URL are the same as the name of the event handler CFC (`hello.cfc`) and method that was generated `index()`. By convention, this is how you execute events in ColdBox by leveraging the following URL pattern that matches the name of a handler and action function.
+The sections in the URL are the same as the name of the event handler class (`hello.cfc`) and method that was generated `index()`. By convention, this is how you execute events in ColdBox by leveraging the following URL pattern that matches the name of a handler and action function.
 
 {% hint style="success" %}
 **Tip :** You can also nest handlers into folders and pass the name of the folder(s) as well.

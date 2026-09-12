@@ -22,7 +22,7 @@ All your handlers will be stored in the **handlers** folder of your application 
 
 ### External Location
 
-You can also declare a `HandlersExternalLocation` directive in your [Configuration CFC](../../getting-started/configuration/). This will be a dot notation path or instantiation path where more external event handlers can be found.
+You can also declare a `HandlersExternalLocation` directive in your [Configuration Class](../../getting-started/configuration/). This will be a dot notation path or instantiation path where more external event handlers can be found.
 
 ```javascript
 coldbox.handlersExternalLocation  = "shared.myapp.handlers";
@@ -45,7 +45,7 @@ coldbox.handlerCaching = false;
 
 ## Anatomy
 
-Event handlers are CFCs that will respond to FORM posts, HTTP requests and/or remote requests (like Flex,Air, SOAP, REST) via an incoming RC variable called **event** or by [URL mappings](../routing/) (Which we saw in the previous section).
+Event handlers are classes that will respond to FORM posts, HTTP requests and/or remote requests (like Flex,Air, SOAP, REST) via an incoming RC variable called **event** or by [URL mappings](../routing/) (Which we saw in the previous section).
 
 ### Classes
 
@@ -103,7 +103,7 @@ component extends="coldbox.system.EventHandler"{
 {% endtabs %}
 
 {% hint style="info" %}
-You can also remove the inheritance from the CFC and WireBox will extend the `coldbox.system.EventHandler` for you using [Virtual Inheritance](https://wirebox.ortusbooks.com/advanced-topics/virtual-inheritance).
+You can also remove the inheritance from the class and WireBox will extend the `coldbox.system.EventHandler` for you using [Virtual Inheritance](https://wirebox.ortusbooks.com/advanced-topics/virtual-inheritance).
 {% endhint %}
 
 {% hint style="info" %}

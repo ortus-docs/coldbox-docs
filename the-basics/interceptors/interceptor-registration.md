@@ -1,6 +1,6 @@
 # Interceptor Registration
 
-You can also register CFCs as interceptors programmatically by talking to the application's Interceptor Service that lives inside the main ColdBox controller. You can access this service like so:
+You can also register classes as interceptors programmatically by talking to the application's Interceptor Service that lives inside the main ColdBox controller. You can access this service like so:
 
 ```javascript
 // via the controller
@@ -12,7 +12,7 @@ property name="interceptorService" inject="coldbox:interceptorService";
 
 Once you have a handle on the interceptor service you can use the following methods to register interceptors:
 
-* `registerInterceptor()` - Register an instance or CFC path and discover all events it listens to by conventions
+* `registerInterceptor()` - Register an instance or class path and discover all events it listens to by conventions
 * `registerInterceptionPoint()` - Register an instance in a specific event only
 
 Here are the method signatures:

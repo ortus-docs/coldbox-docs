@@ -235,7 +235,7 @@ You can find the API Docs for this object here: [https://s3.amazonaws.com/apidoc
 
 ### Task Closure/Lambda/Object
 
-You register the callable event via the `call()` method on the task object.  You can register  a closure/lambda or a invokable CFC.  If you register an object, then we will call on the object's `run()` method by default, but you can change it using the `method` argument and call any public/remote method.
+You register the callable event via the `call()` method on the task object.  You can register  a closure/lambda or a invokable class.  If you register an object, then we will call on the object's `run()` method by default, but you can change it using the `method` argument and call any public/remote method.
 
 ```javascript
 // Lambda Syntax

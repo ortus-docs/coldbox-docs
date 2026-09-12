@@ -4,8 +4,8 @@ Interceptors can be declared in the `Coldbox.cfc` configuration file or programm
 
 In the configuration file, interceptors are declared as an array of structures in an element called `interceptors`. The elements of each interceptor structure are:
 
-* `class` - The required instantiation path of the CFC.
-* `name` - An optional unique name for the interceptor. If this is not passed then the name of the CFC will be used. We highly encourage the use of a name to avoid collisions.
+* `class` - The required instantiation path of the class.
+* `name` - An optional unique name for the interceptor. If this is not passed then the name of the class will be used. We highly encourage the use of a name to avoid collisions.
 * `properties` - A structure of configuration properties to be passed to the interceptor
 
 In `ColdBox.cfc`:

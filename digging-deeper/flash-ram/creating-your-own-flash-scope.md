@@ -2,7 +2,7 @@
 
 The ColdBox Flash capabilities are very flexible and you can easily create your own Flash Implementations by doing two things:
 
-1. Create a CFC that inherits from `coldbox.system.web.flash.AbstractFlashScope`
+1. Create a class that inherits from `coldbox.system.web.flash.AbstractFlashScope`
 2. Implement the following functions: `clearFlash(), saveFlash(), flashExists(), and getFlash()`
 
 ## Implementable Methods

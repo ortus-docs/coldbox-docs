@@ -247,7 +247,7 @@ event.renderData( data=MyData, formats="xml,json,html,pdf", formatsRedirect={eve
 
 ### Custom Data Conversion
 
-You can do custom data conversion by convention when marshalling CFCs. If you pass in a CFC as the `data` argument and that CFC has a method called `$renderdata()`, then the marshalling utility will call that function for you instead of using the internal marshalling utilities. You can pass in the custom content type for encoding as well:
+You can do custom data conversion by convention when marshalling classes. If you pass in a class as the `data` argument and that class has a method called `$renderdata()`, then the marshalling utility will call that function for you instead of using the internal marshalling utilities. You can pass in the custom content type for encoding as well:
 
 ```javascript
 // get an instance of your custom converter
@@ -258,7 +258,7 @@ myConverter.setData( data );
 event.renderData( data= myConverter, contentType=myConverter.getContentType() );
 ```
 
-The CFC converter:
+The class converter:
 
 {% tabs %}
 {% tab title="BoxLang" %}

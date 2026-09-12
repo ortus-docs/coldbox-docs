@@ -5,7 +5,7 @@ The CacheBox structure is based on the [CacheBox declaration DSL](https://cacheb
 ```javascript
 //cachebox configuration
 cachebox = {
-    // Location of the configuration CFC for CacheBox
+    // Location of the configuration class for CacheBox
     configFile = "config/CacheBox.cfc",
     // Scope registration for CacheBox
     scopeRegistration = {enabled=true,scope=application,key=cacheBox},
@@ -20,7 +20,7 @@ cachebox = {
 
 ## ConfigFile
 
-An absolute or relative path to the CacheBox configuration CFC or XML file to use instead of declaring the rest of the keys in this structure. So if you do not define a cacheBox structure, the framework will look for the default value: `config/CacheBox.cfc` and it will load it if found. If not found, it will use the default CacheBox configuration found in `/coldbox/system/web/config/CacheBox.cfc`
+An absolute or relative path to the CacheBox configuration class or XML file to use instead of declaring the rest of the keys in this structure. So if you do not define a cacheBox structure, the framework will look for the default value: `config/CacheBox.cfc` and it will load it if found. If not found, it will use the default CacheBox configuration found in `/coldbox/system/web/config/CacheBox.cfc`
 
 ## ScopeRegistration
 

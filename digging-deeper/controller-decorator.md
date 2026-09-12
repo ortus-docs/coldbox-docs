@@ -82,7 +82,7 @@ coldbox.controllerDecorator = "models.MyControllerDecorator";
 ```
 {% endcode %}
 
-The value of the setting is the instantiation path of your Controller decorator CFC.
+The value of the setting is the instantiation path of your Controller decorator class.
 
 ### Conclusion
 

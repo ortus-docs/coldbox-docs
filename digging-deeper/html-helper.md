@@ -6,14 +6,14 @@ icon: file-code
 
 ## Introduction
 
-The HTML Helper is a core ColdBox CFC that abstracts the creation of any HTML entity. It provides consistent and secure rendering of HTML within ColdBox applications.
+The HTML Helper is a core ColdBox class that abstracts the creation of any HTML entity. It provides consistent and secure rendering of HTML within ColdBox applications.
 
 ```
 coldbox.system.modules.HTMLHelper.modles.HTMLHelper.cfc
 ```
 
 {% hint style="info" %}
-Please check out the [latest CFC Docs ](http://apidocs.ortussolutions.com/coldbox/current)for all the methods available to the HTML Helper.
+Please check out the [latest Class Docs ](http://apidocs.ortussolutions.com/coldbox/current)for all the methods available to the HTML Helper.
 {% endhint %}
 
 There is no special setup needed to use it in a ColdBox application, it's already baked in. Just reference the object by the `html` prefix and call the desired function within any layout or view.

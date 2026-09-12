@@ -7,7 +7,7 @@ The basic configuration object has 1 method for application configuration called
 {% code title="ColdBox.cfc" %}
 ```boxlang
 /**
-* A simple CFC that configures a ColdBox application.  You can even extend, compose, strategize and do your OO goodness.
+* A simple class that configures a ColdBox application.  You can even extend, compose, strategize and do your OO goodness.
 */
 class{
 

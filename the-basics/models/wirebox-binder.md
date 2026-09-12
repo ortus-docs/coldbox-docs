@@ -113,6 +113,6 @@ WireBox has several methods for mappings, the easiest of them are the following:
 // map the service with an alias.
 map( "SecurityService" ).to( "models.security.SecurityService" );
 
-// map the entire models directory by CFC name as the alias
+// map the entire models directory by class name as the alias
 mapDirectory( "models" );
 ```

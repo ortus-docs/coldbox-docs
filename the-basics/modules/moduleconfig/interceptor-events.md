@@ -38,4 +38,4 @@ function preProcess(event, interceptData){
 }
 ```
 
-This is a powerful feature, you can create an entire module based on a single CFC and just treat it as an interceptor. So get your brain into gear and let the gas run, you are going for a ride baby!
+This is a powerful feature, you can create an entire module based on a single class and just treat it as an interceptor. So get your brain into gear and let the gas run, you are going for a ride baby!

@@ -41,7 +41,7 @@ component {
 
 Starting in ColdBox 7, you can store module configurations as their own configuration file within the application’s config folder outside of the config/Coldbox.cfc. The naming convention is config/modules/{moduleName}.cfc
 
-The configuration CFC will have one configure() method that is expected to return a struct of configuration settings as you did before in the moduleSettings
+The configuration class will have one configure() method that is expected to return a struct of configuration settings as you did before in the moduleSettings
 
 The following example overrides the original module configuration entirely:
 

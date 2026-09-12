@@ -21,7 +21,7 @@ The ColdBox Scheduler is built on top of the core async package Scheduler.
 
 ## Global App Scheduler
 
-Every ColdBox application has a global scheduler created for you by convention and registered with a WireBox ID of `appScheduler@coldbox`. However, you can have complete control of the scheduler by creating the following file: `config/Scheduler.cfc`. This is a simple CFC with a `configure()` method where you will define your tasks and several life-cycle methods.
+Every ColdBox application has a global scheduler created for you by convention and registered with a WireBox ID of `appScheduler@coldbox`. However, you can have complete control of the scheduler by creating the following file: `config/Scheduler.cfc`. This is a simple class with a `configure()` method where you will define your tasks and several life-cycle methods.
 
 {% tabs %}
 {% tab title="BoxLang" %}
@@ -368,7 +368,7 @@ You can find the API Docs for this object here: [https://s3.amazonaws.com/apidoc
 
 ### Task Closure/Lambda/Object
 
-You register the callable event via the `call()` method on the task object. You can register a closure/lambda or a invokable CFC. If you register an object, then we will call on the object's `run()` method by default, but you can change it using the `method` argument and call any public/remote method.
+You register the callable event via the `call()` method on the task object. You can register a closure/lambda or a invokable class. If you register an object, then we will call on the object's `run()` method by default, but you can change it using the `method` argument and call any public/remote method.
 
 ```javascript
 // Lambda Syntax

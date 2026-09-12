@@ -2,7 +2,7 @@
 
 ![](<../../../.gitbook/assets/ColdBox Virtual App Life-Cycle.png>)
 
-ColdBox testing leverages TestBox's testing life-cycle events ([https://testbox.ortusbooks.com/primers/testbox-bdd-primer/life-cycle-methods](https://testbox.ortusbooks.com/primers/testbox-bdd-primer/life-cycle-methods)) in order to prepare the virtual ColdBox application, request context and then destroy it. By default, a virtual application is loaded for all test cases contained within a test bundle CFC via the `beforeAll()` and destroyed under `afterAll()`.
+ColdBox testing leverages TestBox's testing life-cycle events ([https://testbox.ortusbooks.com/primers/testbox-bdd-primer/life-cycle-methods](https://testbox.ortusbooks.com/primers/testbox-bdd-primer/life-cycle-methods)) in order to prepare the virtual ColdBox application, request context and then destroy it. By default, a virtual application is loaded for all test cases contained within a test bundle class via the `beforeAll()` and destroyed under `afterAll()`.
 
 ```javascript
 function beforeAll(){

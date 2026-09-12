@@ -1,6 +1,6 @@
 # Listening
 
-Once your custom interception or event points are registered and CFC are registered then you can write the methods for listening to those events just like any other interceptor event:
+Once your custom interception or event points are registered and classes are registered then you can write the methods for listening to those events just like any other interceptor event:
 
 {% tabs %}
 {% tab title="BoxLang" %}

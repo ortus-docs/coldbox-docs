@@ -7,9 +7,9 @@ This is an array of interceptor definitions that you will use to register in you
 interceptors = [
 
     { 
-        // The CFC instantiation path
+        // The class instantiation path
         class="",
-        // The alias to register in WireBox, if not defined it uses the name of the CFC
+        // The alias to register in WireBox, if not defined it uses the name of the class
         name="",
         // A struct of data to configure the interceptor with.
         properties={}
@@ -22,4 +22,4 @@ interceptors = [
 ];
 ```
 
-> **Warning** : Important: Order of declaration matters! Also, when declaring multiple instances of the same CFC (interceptor), make sure you use the name attribute in order to distinguish them. If not, only one will be registered (the last one declared).
+> **Warning** : Important: Order of declaration matters! Also, when declaring multiple instances of the same class (interceptor), make sure you use the name attribute in order to distinguish them. If not, only one will be registered (the last one declared).

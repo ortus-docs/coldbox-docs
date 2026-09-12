@@ -81,7 +81,7 @@ Here's a rundown of the important bits (Even though they might be more generated
 * **config/Router.cfc** - Your application URL Router
 * **handlers** - Your controller layer, which in ColdBox they are called event handlers
 * **layouts** - Your HTML layouts
-* **models** - This holds your model CFCs
+* **models** - This holds your model classes
 * **modules** - This holds the CommandBox tracked modules
 * **modules\_app** - This holds your app's modules
 * **tests** - Your test harness for unit and integration testing
@@ -193,7 +193,7 @@ Dependency Hierarchy for myApp (0.0.0)
 +-- coldbox (4.0.0)
 ```
 
-Right now we can see that our app depends on `coldbox` and `cbmessagebox` to run. We'll use our new `cbmessagebox` module in a few minutes. But first, we'll create a simple Model CFC to round out our `MVC` app.
+Right now we can see that our app depends on `coldbox` and `cbmessagebox` to run. We'll use our new `cbmessagebox` module in a few minutes. But first, we'll create a simple Model class to round out our `MVC` app.
 
 ## Creating A Model
 
@@ -239,7 +239,7 @@ component singleton {
 {% hint style="info" %}
 What is WireBox?
 
-WireBox is a dependency injection framework that is included with ColdBox. It will manage all object creations, persistence and assembling. You don't have to worry about using `new` or `createobject()` for CFCs anymore.
+WireBox is a dependency injection framework that is included with ColdBox. It will manage all object creations, persistence and assembling. You don't have to worry about using `new` or `createobject()` for classes anymore.
 {% endhint %}
 
 ## Tie It All Together

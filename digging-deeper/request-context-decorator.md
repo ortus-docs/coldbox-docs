@@ -121,4 +121,4 @@ coldbox = {
 };
 ```
 
-The value of the setting is the instantiation path of your request context decorator CFC. That's it.  From now on the framework will use your request context decoration.
+The value of the setting is the instantiation path of your request context decorator class. That's it.  From now on the framework will use your request context decoration.

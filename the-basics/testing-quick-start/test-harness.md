@@ -22,7 +22,7 @@ The `Application.cfc` for your tests is extremely important as it should mimic y
  */
 class {
 
-	// APPLICATION CFC PROPERTIES
+	// APPLICATION CLASS PROPERTIES
 	this.name                 = "ColdBoxTestingSuite";
 	this.sessionManagement    = true;
 	this.setClientCookies     = true;

@@ -20,7 +20,7 @@ Created /Users/lmajano/tmp/myapp/modules_app/helloworld/views/home
 Created /Users/lmajano/tmp/myapp/modules_app/helloworld/views/home/index.cfm
 ```
 
-The layout of a ColdBox Module is optional except for one file: `ModuleConfig.cfc`. This is a simple CFC that boots up your module and tells the host application how your module is loaded, unloaded and behaves. If you are leveraging CommandBox then you can also declare a `box.json` for the module itself in order to declare dependencies and development dependencies for it.
+The layout of a ColdBox Module is optional except for one file: `ModuleConfig.cfc`. This is a simple class that boots up your module and tells the host application how your module is loaded, unloaded and behaves. If you are leveraging CommandBox then you can also declare a `box.json` for the module itself in order to declare dependencies and development dependencies for it.
 
 Below are all the possible combinations of a module layout, you will notice that it is EXACTLY the same as a ColdBox application.
 

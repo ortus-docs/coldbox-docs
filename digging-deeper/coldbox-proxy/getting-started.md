@@ -1,6 +1,6 @@
 # Getting Started
 
-The concept behind the ColdBox proxy is to create CFC's that extend our proxy class: `coldbox.system.remote.ColdboxProxy`. This will give you the ability to locate and talk to your running ColdBox application so you can proxy in requests from remote systems like Flex/Air, Event Gateways, ColdFusion REST/Soap Web Services and even CFC data binding.
+The concept behind the ColdBox proxy is to create classes that extend our proxy class: `coldbox.system.remote.ColdboxProxy`. This will give you the ability to locate and talk to your running ColdBox application so you can proxy in requests from remote systems like Flex/Air, Event Gateways, ColdFusion REST/Soap Web Services and even CFC data binding.
 
 {% tabs %}
 {% tab title="BoxLang" %}
