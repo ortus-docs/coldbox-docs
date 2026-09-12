@@ -115,3 +115,34 @@ Please see the online [API Docs](http://apidocs.ortussolutions.com/coldbox/curre
 * `getCurrentRoutedURL()` : The current routed URL if matched.
 * `getDefaultLayout()` : Get the name of the default layout.
 * `getDefaultView()` : Get the name of the default view.
+* `getPathSegments()` : Get all the URL path segments of the requested path as an array
+* `getPathSegment( index, defaultValue )` : Get the path segment at the given (1-based) `index`. Throws an `InvalidSegmentIndex` exception if the index doesn't exist and no `defaultValue` was provided
+* `getHTTPBasicCredentials()` : Returns a struct of `{ username, password }` parsed from an incoming HTTP Basic `Authorization` header. Both keys default to an empty string when no credentials were sent
+
+```javascript
+// /users/luis/profile -> [ "users", "luis", "profile" ]
+var segments = event.getPathSegments();
+
+// Get the 2nd segment, or "guest" if it doesn't exist
+var username = event.getPathSegment( 2, "guest" );
+
+// Basic Auth
+var creds = event.getHTTPBasicCredentials();
+if ( creds.username == "admin" && creds.password == "secret" ) {
+    // ...
+}
+```
+
+## Request Control Methods
+
+* `setRequestTimeout( seconds )` : Sets the ColdFusion/BoxLang request timeout, in seconds, for the current request. Returns the `RequestContext` object for chaining
+* `setIsInvalidHTTPMethod( target=true )` : Flags the current request as having used an invalid HTTP method. Returns the `RequestContext` object for chaining
+* `isInvalidHTTPMethod()` : Boolean check to see if the request was flagged as an invalid HTTP method
+
+```javascript
+// Give this request 60 seconds to complete
+event.setRequestTimeout( 60 );
+
+// Flag the request as invalid due to a disallowed http verb
+event.setIsInvalidHTTPMethod( true );
+```

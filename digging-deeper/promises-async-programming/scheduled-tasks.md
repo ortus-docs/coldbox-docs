@@ -279,6 +279,7 @@ Ok, let's go over the frequency methods:
 | -------------------------------------- | ---------------------------------------------------------------------------- |
 | `every( period, timeunit )`            | Run the task every custom period of execution                                |
 | `spacedDelay( spacedDelay, timeunit )` | Run the task every custom period of execution but with NO overlaps           |
+| `everySecond()`                        | Run the task every second from the time it get's scheduled                   |
 | `everyMinute()`                        | Run the task every minute from the time it get's scheduled                   |
 | `everyHour()`                          | Run the task every hour from the time it get's scheduled                     |
 | `everyHourAt( minutes )`               | Set the period to be hourly at a specific minute mark and 00 seconds         |
@@ -305,6 +306,20 @@ Ok, let's go over the frequency methods:
 {% hint style="success" %}
 All `time` arguments are defaulted to midnight (00:00)
 {% endhint %}
+
+### Time Unit Methods
+
+If you find yourself calling `every( period, timeunit )` repeatedly with the same `timeunit`, you can instead chain one of these methods to set the time unit alone, leaving the period to be set (or defaulted) separately. Please note that the **last one called wins**.
+
+| Time Unit Method    | Description                          |
+| -------------------- | ------------------------------------ |
+| `inDays()`           | Set the time unit to days            |
+| `inHours()`          | Set the time unit to hours           |
+| `inMinutes()`        | Set the time unit to minutes         |
+| `inSeconds()`        | Set the time unit to seconds         |
+| `inMilliseconds()`   | Set the time unit to milliseconds    |
+| `inMicroseconds()`   | Set the time unit to microseconds    |
+| `inNanoseconds()`    | Set the time unit to nanoseconds     |
 
 ### Preventing Overlaps / Stacking
 
