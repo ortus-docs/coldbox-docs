@@ -48,7 +48,7 @@ Interceptors are designed to be decoupled classes that can react to announced ev
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class extends="coldbox.system.Interceptor"{
 
     function onException(event, interceptData){
@@ -143,7 +143,7 @@ You must tell ColdBox that you want to override the invalid event (`override = t
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class extends="coldbox.system.Interceptor"{
 
     function onInvalidEvent(event, interceptData){

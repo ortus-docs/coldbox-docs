@@ -14,7 +14,7 @@ The `Application.cfc` for your tests is extremely important as it should mimic y
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 /**
  * Copyright 2005-2007 ColdBox Framework by Luis Majano and Ortus Solutions, Corp
  * www.ortussolutions.com

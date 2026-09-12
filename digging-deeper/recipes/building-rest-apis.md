@@ -93,7 +93,7 @@ Here in my handler, I have stubbed out actions for each of the operations I need
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class {
 
   function index( event, rc, prc ) {
@@ -156,7 +156,7 @@ Let's add our new routes BEFORE the default route. We add them BEFORE because yo
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 // Map route to specific user.  Different verbs call different actions!
 class{
 
@@ -483,7 +483,7 @@ In addition to having access to the entire request collection, the event object 
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 /**
 * This interceptor secures all API requests
 */
@@ -540,7 +540,7 @@ In our route configuration we mapped HTTP verbs to handlers and actions, but wha
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{
 
     this.allowedMethods = { 
@@ -648,7 +648,7 @@ Then create that action and put your exception handling code inside. You can cho
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 // /handlers/main.cfc
 class {
     function onException( event, rc, prc ){

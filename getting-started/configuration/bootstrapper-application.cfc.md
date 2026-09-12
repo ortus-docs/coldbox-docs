@@ -20,7 +20,7 @@ The composition approach allows you to have a more flexible configuration as it 
 {% tabs %}
 {% tab title="BoxLang" %}
 {% code title="Application.cfc" %}
-```boxlang
+```js
 class{
     // Application properties
     this.name = hash( getCurrentTemplatePath() );
@@ -129,7 +129,7 @@ component{
 {% tabs %}
 {% tab title="BoxLang" %}
 {% code title="Application.cfc" %}
-```boxlang
+```js
 class extends="coldbox.system.Bootstrap"{
 
     // Application properties

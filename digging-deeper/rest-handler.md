@@ -34,7 +34,7 @@ This will give you access to our enhanced API of utilities and the native **resp
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class extends="coldbox.system.RestHandler"{
 
   function index( event, rc, prc ){
@@ -409,7 +409,7 @@ If you would like to extend or modify the behavior of the core `RestHandler` the
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 // BaseHandler
 class extends="coldbox.system.Resthandler"{
 

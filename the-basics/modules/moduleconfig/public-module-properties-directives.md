@@ -29,7 +29,7 @@ Below you can see an example of declarations for the configuration object:
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{
     // Module Properties
     this.title      = "My Test Module";

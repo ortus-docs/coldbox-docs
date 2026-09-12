@@ -4,7 +4,7 @@ Modules can easily tie in to ColdBox's [async scheduling engine](../../digging-d
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class {
 
     property name="settings" inject="coldbox:moduleSettings:unleashsdk";

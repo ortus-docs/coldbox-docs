@@ -32,7 +32,7 @@ Here is the Controller Decorator code:
 {% tabs %}
 {% tab title="BoxLang" %}
 {% code title="models/MyControllerDecorator.cfc" %}
-```boxlang
+```js
 class extends="coldbox.system.web.ControllerDecorator"{
 
     function configure(){

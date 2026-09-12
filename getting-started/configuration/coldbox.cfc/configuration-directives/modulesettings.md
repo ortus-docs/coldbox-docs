@@ -6,7 +6,7 @@ This structure within config/Coldbox.cfc is used to house module configurations.
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class {
 
      function configure() {
@@ -47,7 +47,7 @@ The following example overrides the original module configuration entirely:
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{
 
     function configure( original ){
@@ -78,7 +78,7 @@ For large module configs where only a few keys need to be changed, you can updat
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{
 
     function configure( original ){

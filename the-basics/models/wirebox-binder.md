@@ -4,7 +4,7 @@ You can have an optional WireBox configuration binder that can fine-tune the Wir
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class extends="coldbox.system.ioc.config.Binder"{
 
     function configure(){

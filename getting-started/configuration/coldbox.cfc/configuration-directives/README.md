@@ -5,7 +5,7 @@ The basic configuration object has 1 method for application configuration called
 {% tabs %}
 {% tab title="BoxLang" %}
 {% code title="ColdBox.cfc" %}
-```boxlang
+```js
 /**
 * A simple class that configures a ColdBox application.  You can even extend, compose, strategize and do your OO goodness.
 */

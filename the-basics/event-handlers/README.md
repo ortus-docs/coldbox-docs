@@ -52,7 +52,7 @@ Event handlers are classes that will respond to FORM posts, HTTP requests and/or
 {% tabs %}
 {% tab title="BoxLang" %}
 {% code title="Main.cfc" %}
-```boxlang
+```js
 class extends="coldbox.system.EventHandler"{
 
     /**
@@ -135,7 +135,7 @@ The **default action** for all event handlers is called `index()`. This means th
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class extends="coldbox.system.EventHandler"{
 
     function index( event, rc, prc ){

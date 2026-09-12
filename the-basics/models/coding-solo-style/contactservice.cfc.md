@@ -10,7 +10,7 @@ Then spice it up
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class accessors="true" singleton{
 
     // Dependency Injection

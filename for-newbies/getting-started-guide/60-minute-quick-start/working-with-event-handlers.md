@@ -33,7 +33,7 @@ Go open the `handlers/main.cfc` and let's explore the code.
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class extends="coldbox.system.EventHandler" {
 
     /**

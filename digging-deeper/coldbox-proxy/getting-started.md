@@ -4,7 +4,7 @@ The concept behind the ColdBox proxy is to create classes that extend our proxy 
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class extends="coldbox.system.remote.ColdboxProxy"{
 
 }
@@ -43,7 +43,7 @@ Here is a sample proxy object that just proxies a remote call
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class extends="coldbox.system.remote.ColdboxProxy"{
 
     /**

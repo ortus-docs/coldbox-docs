@@ -14,7 +14,7 @@ Here are the annotations you can add to your testing bundle class to change beha
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class extends="coldbox.system.testing.BaseTestCase" appMapping="/apps/MyApp"{}
 
 class extends="coldbox.system.testing.BaseTestCase"

@@ -19,7 +19,7 @@ All of the mock objects are essentially the dependencies of interceptor objects.
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 /**
 * The base interceptor test case will use the 'interceptor' annotation as the instantiation path to the interceptor
 * and then create it, prepare it for mocking, and then place it in the variables scope as 'interceptor'. It is your

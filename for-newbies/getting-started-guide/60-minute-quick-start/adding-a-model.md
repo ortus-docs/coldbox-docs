@@ -20,7 +20,7 @@ This will create a `models/ContactService.cfc` with a `getAll()` method and a co
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 /**
  * I am a new Model Object
  */
@@ -89,7 +89,7 @@ Let's mock an array of contacts so we can display them later. We can move this t
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 /**
  * I am a new Model Object
  */
@@ -176,7 +176,7 @@ Let's open the handler and add a new ColdFusion `property` that will have a refe
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{ 
 
     property name="contactService" inject="ContactService";

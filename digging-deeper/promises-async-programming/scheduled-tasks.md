@@ -53,7 +53,7 @@ The name of the `ScheduledExecutor` will be `{schedulerName}-scheduler`
 {% tabs %}
 {% tab title="BoxLang" %}
 {% code title="Application.cfc" %}
-```boxlang
+```js
 class{
     
     this.name = "My App";

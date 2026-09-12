@@ -24,7 +24,7 @@ The default for integration testing is that the virtual ColdBox application will
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class extends="coldbox.system.testing.BaseTestCase" unloadColdBox=false{
     
     this.unloadColdBox = false;

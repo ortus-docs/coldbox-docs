@@ -6,7 +6,7 @@ Interceptors are classes that extend the ColdBox Interceptor class (`coldbox.sys
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 /**
 * My Interceptor
 */

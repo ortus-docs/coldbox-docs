@@ -32,7 +32,7 @@ If you have `parseParentSettings` set to true in your `ModuleConfig.cfc` (which 
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 // myModule/ModuleConfig.cfc
 class {
   function configure() {

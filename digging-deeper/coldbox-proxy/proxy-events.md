@@ -4,7 +4,7 @@ The ColdBox Proxy also has a different life cycle than traditional MVC. All of a
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{
 
     function preProxyResults(event, interceptData){

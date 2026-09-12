@@ -10,7 +10,7 @@ Spice it up now
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{
 
     // Dependency Injection

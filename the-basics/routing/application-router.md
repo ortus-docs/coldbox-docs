@@ -15,7 +15,7 @@ Please see the latest [API Docs](http://apidocs.ortussolutions.com/coldbox/5.0.0
 {% tabs %}
 {% tab title="BoxLang" %}
 {% code title="config/Router.cfc" %}
-```boxlang
+```js
 class {
 
 	function configure() {

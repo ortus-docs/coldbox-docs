@@ -6,7 +6,7 @@ The only requirement is that this object MUST exist in the root of the module fo
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{
 
     function configure(){

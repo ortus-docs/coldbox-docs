@@ -317,7 +317,7 @@ https://<host>:<port>/cbmcp
 By default, cbMCP enables CORS for all origins (`*`). This is suitable for local development, but in production environments, consider restricting CORS to specific AI client domains:
 
 **Custom CORS in ModuleConfig:**
-```boxlang
+```js
 mcpServer(
     name: "cbMCP",
     cors: "https://your-ai-platform.com",  // Restrict to specific domain
@@ -344,7 +344,7 @@ export CBMCP_CORS_ORIGIN=https://your-ai-platform.com
 
 Then reference in ModuleConfig:
 
-```boxlang
+```js
 cors: systemSettings.get( "CBMCP_CORS_ORIGIN", "*" )
 ```
 
@@ -410,7 +410,7 @@ If a tool is registered but not showing in the AI client:
 
 Extend cbMCP by overriding ModuleConfig settings in your application:
 
-```boxlang
+```js
 // In your app's ColdBox.cfc configure() method:
 moduleSettings = {
     cbMCP = {

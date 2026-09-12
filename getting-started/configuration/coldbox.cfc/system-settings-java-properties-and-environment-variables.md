@@ -21,7 +21,7 @@ Example:
 {% tabs %}
 {% tab title="BoxLang" %}
 {% code title="Application.cfc" %}
-```boxlang
+```js
 
 class {
 

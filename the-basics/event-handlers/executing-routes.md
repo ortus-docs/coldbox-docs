@@ -51,7 +51,7 @@ In the example above, the `userData` named route points to the `user.data` event
 {% tabs %}
 {% tab title="BoxLang" %}
 {% code title="user.cfc" %}
-```boxlang
+```js
 class{
 
     property name="userService" inject;

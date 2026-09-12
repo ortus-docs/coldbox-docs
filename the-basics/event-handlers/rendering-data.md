@@ -54,7 +54,7 @@ You can also add the renderData annotation to the class definition and this will
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class renderdata="xml"{
 
 }
@@ -262,7 +262,7 @@ The class converter:
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class accessors="true"{
 
     property name="data" type="mytype";

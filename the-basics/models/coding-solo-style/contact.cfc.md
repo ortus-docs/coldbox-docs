@@ -10,7 +10,7 @@ Then spice up with some properties and constraints:
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class accessors="true"{
 
     // properties

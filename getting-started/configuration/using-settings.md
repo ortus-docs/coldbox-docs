@@ -97,7 +97,7 @@ You can use the WireBox injection DSL to inject settings in your models or non-C
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{
 
     property name="mysetting"    inject="coldbox:setting:mysetting";

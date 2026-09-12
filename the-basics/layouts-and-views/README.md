@@ -55,7 +55,7 @@ You can also inject the ColdBox Renderer into your models so you can render emai
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{
 
     property name="renderer" inject="coldbox:renderer";

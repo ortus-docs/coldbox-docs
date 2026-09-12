@@ -37,7 +37,7 @@ Here is the event handler code to leverage the injection:
 {% tabs %}
 {% tab title="BoxLang" %}
 {% code title="users.cfc" %}
-```boxlang
+```js
 class name="MyHandler"{
     
     // Dependency injection of the model: UserService -> variables.userService
@@ -88,7 +88,7 @@ The other approach to integrating with model objects is to request and use them 
 {% tabs %}
 {% tab title="BoxLang" %}
 {% code title="users.cfc" %}
-```boxlang
+```js
 class{
 
     function index( event, rc, prc ){
@@ -154,7 +154,7 @@ In this practical example we will see how to integrate with our model layer via 
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class singleton{
 
     function init(){
@@ -211,7 +211,7 @@ Our funky service is not that funky after all, but it is simple. How do we inter
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{
 
     // Injection via property
@@ -302,7 +302,7 @@ Let's look at the requesting approach. We can either use the following approache
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{
 
     function index(event,rc,prc){
@@ -337,7 +337,7 @@ component{
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{
 
     function index(event,rc,prc){

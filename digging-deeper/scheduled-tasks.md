@@ -26,7 +26,7 @@ Every ColdBox application has a global scheduler created for you by convention a
 {% tabs %}
 {% tab title="BoxLang" %}
 {% code title="config/Scheduler.cfc" %}
-```boxlang
+```js
 class {
 
     /**
@@ -306,7 +306,11 @@ Every scheduler has the following injections available to you in the `variables`
 
 All **module schedulers** will have the following extra automatic injections:
 
-<table data-header-hidden><thead><tr><th width="150"></th><th></th></tr></thead><tbody><tr><td><strong>Property</strong></td><td><strong>Description</strong></td></tr><tr><td><code>moduleMapping</code></td><td>The module’s mapping</td></tr><tr><td><code>modulePath</code></td><td>The module’s path on disk</td></tr><tr><td><code>moduleSettings</code></td><td>The module’s settings structure</td></tr></tbody></table>
+| Property          | Description                         |
+| ----------------- | ------------------------------------ |
+| `moduleMapping`   | The module's mapping                 |
+| `modulePath`      | The module's path on disk            |
+| `moduleSettings`  | The module's settings structure      |
 
 ### Scheduler Methods
 

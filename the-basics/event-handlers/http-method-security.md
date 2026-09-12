@@ -39,7 +39,7 @@ You can listen for [global invalid HTTP](../../getting-started/configuration/col
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{
 
     this.allowedMethods = {

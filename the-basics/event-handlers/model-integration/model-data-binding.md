@@ -70,7 +70,7 @@ Let's do a quick example.  Here is a `Person.cfc` that has two properties with a
 {% tabs %}
 {% tab title="BoxLang" %}
 {% code title="models/Person.cfc" lineNumbers="true" %}
-```boxlang
+```js
 class accessors="true"{
 
     property name="name";
@@ -129,7 +129,7 @@ Here is an event handler to do the saving
 {% tabs %}
 {% tab title="BoxLang" %}
 {% code title="handlers/person.cfc" lineNumbers="true" %}
-```boxlang
+```js
 class{
 
     function editor(event,rc,prc){

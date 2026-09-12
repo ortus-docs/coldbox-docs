@@ -33,7 +33,7 @@ The following is a simple decorator class (`MyDecorator.cfc`) that auto-trims va
 {% tabs %}
 {% tab title="BoxLang" %}
 {% code title="MyDecorator.cfc" %}
-```boxlang
+```js
 class extends="coldbox.system.web.context.RequestContextDecorator"{
 	
 	function configure(){

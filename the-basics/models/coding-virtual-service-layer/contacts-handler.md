@@ -10,7 +10,7 @@ Now spice it up
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 /**
 * I am a new handler
 */

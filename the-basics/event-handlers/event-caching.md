@@ -194,7 +194,7 @@ We have provided an interception point in ColdBox that allows you to add variabl
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{
 
     onRequestCapture( event, data, buffer, rc, prc ){

@@ -46,7 +46,7 @@ Setting a view does not mean that it gets rendered immediately. This means that 
 {% tabs %}
 {% tab title="BoxLang" %}
 {% code title="handlers/main.cfc" %}
-```boxlang
+```js
 class
 {
 
@@ -112,7 +112,7 @@ So what happens if I DO NOT want the view rendered within a layout? Am I doomed?
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{
 
     function index(event,rc,prc){
@@ -159,7 +159,7 @@ If you need the view to be rendered in a **specific** layout, then use the `layo
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class name="general"{
 
     function index(event,rc,prc){
@@ -208,7 +208,7 @@ If you need the set a view to be rendered from a specific ColdBox Module then us
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class name="general"{
 
     function index( event, rc, prc ){
@@ -269,7 +269,7 @@ You can also tell the renderer not to render anything back to the user by using 
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class name="general"{
 
     function saveData(event,rc,prc){
@@ -308,7 +308,7 @@ You can also omit the explicit `event.setView()` if you want, ColdBox will then 
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class name="general"{
 
     function index( event, rc, prc ){

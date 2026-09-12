@@ -20,7 +20,7 @@ All of the methods must be implemented and they have their unique purposes as yo
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 /**
 *********************************************************************************
 * Copyright Since 2005 ColdBox Framework by Luis Majano and Ortus Solutions, Corp

@@ -213,7 +213,7 @@ We can also add the word `singleton` to the class declaration. This will tell **
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class singleton {
 
     function sayHello(){
@@ -260,7 +260,7 @@ This will put the instance of our services in the `variables` scope where we can
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class {
 
     property name='greeterService' inject='greeterService';

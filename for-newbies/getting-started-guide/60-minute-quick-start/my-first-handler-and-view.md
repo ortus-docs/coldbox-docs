@@ -42,7 +42,7 @@ Let's check out the handler code:
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{
 
     /**

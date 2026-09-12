@@ -15,7 +15,7 @@ Here is a sample interceptor that trims any content before it is renderer:
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{
 
     function postViewRender(event,interceptData){

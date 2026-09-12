@@ -27,7 +27,7 @@ route( "/admin/:action" )
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 // A concrete class, resolved by WireBox ID
 class singleton {
     property name="auth" inject="AuthService";

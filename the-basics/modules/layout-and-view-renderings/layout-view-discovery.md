@@ -48,7 +48,7 @@ Now, in my handler code I just want to render the view by using our typical `eve
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 // In a handler called simple.cfc
 class{
 

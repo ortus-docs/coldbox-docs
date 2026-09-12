@@ -34,7 +34,7 @@ If you are familiar with design patterns, custom interceptors can give you an im
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class extends="coldbox.system.Interceptor"{
 
     function onError( event, interceptData={} ){

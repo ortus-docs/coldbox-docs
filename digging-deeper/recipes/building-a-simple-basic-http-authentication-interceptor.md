@@ -39,7 +39,7 @@ This will create the `models/SecurityService` and the companion unit tests. Let'
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 /**
 * The base model test case will use the 'model' annotation as the instantiation path
 * and then create it, prepare it for mocking and then place it in the variables scope as 'model'. It is your
@@ -174,7 +174,7 @@ component extends="coldbox.system.testing.BaseModelTest" model="models.SecurityS
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class accessors="true" singleton{
 
     // Dependencies
@@ -279,7 +279,7 @@ So to make sure this works, here is our Interceptor Test Case with all possibili
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class extends="coldbox.system.testing.BaseInterceptorTest" interceptor="interceptors.SimpleSecurity" {
 
     /*********************************** LIFE CYCLE Methods ***********************************/
@@ -455,7 +455,7 @@ As you can see from our A,B, anc C tests that we use MockBox to mock the securit
 {% tabs %}
 {% tab title="BoxLang" %}
 {% code title="interceptors/SimpleSecurity.cfc" %}
-```boxlang
+```js
 /**
  * Intercepts with HTTP Basic Authentication
  */

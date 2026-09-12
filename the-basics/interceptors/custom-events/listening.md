@@ -4,7 +4,7 @@ Once your custom interception or event points are registered and classes are reg
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class{
 
     function onLog(event,data,buffer){

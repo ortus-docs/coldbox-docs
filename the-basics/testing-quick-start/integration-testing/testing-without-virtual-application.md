@@ -4,7 +4,7 @@ The `BaseTestCase` leverages an internal virtual ColdBox application so you can 
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class extends="coldbox.system.testing.BaseTestCase"{
     // Do not load the Virtual Application
     this.loadColdBox = false;

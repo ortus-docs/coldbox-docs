@@ -23,7 +23,7 @@ The intercepting method returns `boolean` or `void`. If boolean then it means so
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 class extends="coldbox.system.Interceptor"{
 
     function configure(){}
@@ -64,7 +64,7 @@ Also remember that all interceptors are created by WireBox, so you can use depen
 
 {% tabs %}
 {% tab title="BoxLang" %}
-```boxlang
+```js
 /**
 * Intercepts with HTTP Basic Authentication
 */
