@@ -124,6 +124,38 @@ BoxLang + `bx-ai` only. See [AI Gateway Routing](../../the-basics/routing/routin
 
 The `_method` form-field override (`GET`/`POST` browsers use to fake `PUT`/`PATCH`/`DELETE`) is now only honored when the *original* transport-level request is a `POST`. Previously, a plain `GET` request carrying `?_method=DELETE` was silently treated as a `DELETE` — enabling CSRF-style attacks via a link, an `<img>` tag, a crawler, or a browser prefetch. A new `event.getOriginalHTTPMethod()` returns the raw, un-spoofed verb when you need it. See [HTTP Method Spoofing](../../the-basics/routing/http-method-spoofing.md).
 
+### 🗄️ Route-Level Cache Rules — `Router.withCache()`
+
+A route-scoped alternative to handler `cache="true"` annotations, so caching can be declared where the URL is declared instead of buried on the handler action. `.withCache()` accepts the same knobs as the handler annotations — timeout, provider, suffix, include/exclude/filter — plus the Tier 1 HTTP caching primitives (`etag`, `etagWeak`, `lastModified`, `cacheControl`). A route that opts in takes full precedence over that event's handler-level cache annotations; routes that don't opt in fall through unchanged.
+
+```javascript
+route( "/products/:id" )
+    .withCache( timeout : 30, etag : true )
+    .toHandler( "products.show" );
+```
+
+See [Router.withCache()](../../the-basics/routing/routing-dsl/route-caching.md).
+
+### ⏰ Scheduler Timing Fixes
+
+Two related scheduler bugs are fixed:
+
+* A task combining `every()` with `startOnTime()`/`between()` now waits for the next aligned period boundary instead of firing immediately on registration (or every server/container restart).
+* A task combining `withNoOverlaps()` with `between()`/`startOnTime()` no longer misreads its `spacedDelay` unit — a `1`-minute task no longer re-fires every second.
+
+{% hint style="warning" %}
+The first fix is a behavior change for anyone currently relying on the old "fire immediately at registration" semantics for `every()` + `startOnTime()`/`between()`.
+{% endhint %}
+
+### 🌐 Full BoxLang Null-Runtime Support
+
+ColdBox now runs cleanly under BoxLang with `enableNullSupport` enabled, closing out the framework-wide gaps in null handling this setting exposes.
+
+### 🧭 Routing & Annotation Fixes
+
+* Fluent routes now correctly preserve their domain when grouped or resolved through nested routes.
+* Handler metadata annotations nested under other annotations are now read correctly on BoxLang.
+
 ### ⚡ Renderer & Routing Performance
 
 * A new `viewDiscoveryCaching` setting (on by default, independent of `viewCaching`) caches the filesystem work that locates view/layout files, benefiting every render regardless of whether view *output* caching is enabled. See [View Discovery Caching](../../the-basics/layouts-and-views/views/view-caching.md#view-discovery-caching).
@@ -144,7 +176,9 @@ The `_method` form-field override (`GET`/`POST` browsers use to fake `PUT`/`PATC
 
 First-class Server-Sent Events streaming - `event.sse()`, `SSEEmitter`, `Router.toSSE()`, interception points, `this.sse` settings ([#676](https://github.com/ColdBox/coldbox-platform/pull/676))
 
-AI Gateway routing - `Router.toAiGateway()` mounts a BoxLang AI Gateway's inbound events, verification handshake, and human-in-the-loop approval endpoints ([#694](https://github.com/ColdBox/coldbox-platform/pull/694))
+AI Gateway routing - `Router.toAiGateway()` mounts a BoxLang AI Gateway's inbound events, verification handshake, and human-in-the-loop approval endpoints ([COLDBOX-1435](https://ortussolutions.atlassian.net/browse/COLDBOX-1435), [#694](https://github.com/ColdBox/coldbox-platform/pull/694))
+
+[COLDBOX-1418](https://ortussolutions.atlassian.net/browse/COLDBOX-1418) Route-level cache rules via `Router.withCache()`
 
 ### Improvements
 
@@ -154,7 +188,9 @@ New `viewDiscoveryCaching` setting plus Renderer hot-path caching for view/layou
 
 Hot-path performance optimizations in `HandlerService`, `RoutingService`, and `Router` ([#665](https://github.com/ColdBox/coldbox-platform/pull/665))
 
-Interceptor chain now reports and honors short-circuiting via `announce()`'s return value; new `getRouteDefinitionKeys()` route-table introspection helper ([#677](https://github.com/ColdBox/coldbox-platform/pull/677))
+[COLDBOX-1447](https://ortussolutions.atlassian.net/browse/COLDBOX-1447) Interceptor chain now reports and honors short-circuiting via `announce()`'s return value; new `getRouteDefinitionKeys()` route-table introspection helper ([#677](https://github.com/ColdBox/coldbox-platform/pull/677))
+
+[COLDBOX-1440](https://ortussolutions.atlassian.net/browse/COLDBOX-1440) Full BoxLang null-runtime support (`enableNullSupport`)
 
 ### Bugs
 
@@ -162,8 +198,42 @@ Interceptor chain now reports and honors short-circuiting via `announce()`'s ret
 
 [COLDBOX-1411](https://ortussolutions.atlassian.net/browse/COLDBOX-1411) `this.EVENT_CACHE_SUFFIX` closures were evaluated once and frozen instead of per-request, letting different requests share a cache key
 
-`DataMarshaller` component made thread-safe ([#672](https://github.com/ColdBox/coldbox-platform/pull/672))
+[COLDBOX-1421](https://ortussolutions.atlassian.net/browse/COLDBOX-1421) Scheduled tasks using `every()` + `startOnTime()`/`between()` fired immediately instead of aligning to the next period boundary
+
+[COLDBOX-1434](https://ortussolutions.atlassian.net/browse/COLDBOX-1434) `ScheduledTask` combining `withNoOverlaps()` with a daily start time misread the `spacedDelay` unit, causing rapid re-fire
+
+[COLDBOX-1438](https://ortussolutions.atlassian.net/browse/COLDBOX-1438) Fluent route domain grouping/nesting not preserved
+
+[COLDBOX-1439](https://ortussolutions.atlassian.net/browse/COLDBOX-1439) Nested handler annotations not read correctly
+
+[COLDBOX-1446](https://ortussolutions.atlassian.net/browse/COLDBOX-1446) `addRoute()` missing `ai`/`aiRunnable`/`mcp`/`mcpServer` parameters
+
+[COLDBOX-1448](https://ortussolutions.atlassian.net/browse/COLDBOX-1448) `DataMarshaller` component made thread-safe
+
+[COLDBOX-1449](https://ortussolutions.atlassian.net/browse/COLDBOX-1449) `appHash` property missing default value
 
 Fixed a startup typo in `Bootstrap.cfc` ([#667](https://github.com/ColdBox/coldbox-platform/pull/667))
+
+### Tasks
+
+[COLDBOX-1450](https://ortussolutions.atlassian.net/browse/COLDBOX-1450) Deprecation markers for legacy tools and Adobe 2023 static scope ahead of v9
+{% endtab %}
+
+{% tab title="WireBox" %}
+### Bugs
+
+[COLDBOX-1420](https://ortussolutions.atlassian.net/browse/COLDBOX-1420) Explicit WireBox mapping was deleted when its first metadata lookup failed
+{% endtab %}
+
+{% tab title="CacheBox" %}
+### Bugs
+
+[COLDBOX-1422](https://ortussolutions.atlassian.net/browse/COLDBOX-1422) `BoxLangProvider` did not convert CacheBox's minute-based timeouts, causing objects to expire 60x too soon
+{% endtab %}
+
+{% tab title="LogBox" %}
+### Bugs
+
+[COLDBOX-1400](https://ortussolutions.atlassian.net/browse/COLDBOX-1400) Root appender could be called before LogBox finished initializing during loading
 {% endtab %}
 {% endtabs %}

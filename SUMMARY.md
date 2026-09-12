@@ -72,6 +72,7 @@
     * [Routing Conditions](the-basics/routing/routing-dsl/routing-conditions.md)
     * [Routing Namespaces](the-basics/routing/routing-dsl/routing-namespaces.md)
     * [Adding Data to a Route](the-basics/routing/routing-dsl/adding-data-to-a-route.md)
+    * [Route-Level Caching](the-basics/routing/routing-dsl/route-caching.md)
     * [Streaming Routes (SSE)](the-basics/routing/routing-dsl/sse-routes.md)
     * [AI & MCP Routing](the-basics/routing/routing-dsl/ai-routing.md)
     * [AI Gateway Routing](the-basics/routing/routing-dsl/ai-gateway-routing.md)
