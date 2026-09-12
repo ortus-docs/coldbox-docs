@@ -30,7 +30,39 @@ The injection DSL pattern is the following:
 
 If you have `parseParentSettings` set to true in your `ModuleConfig.cfc` (which is the default), ColdBox will look for a struct inside the `moduleSettings` struct of your `config/ColdBox.cfc` with a key equal to your module's `this.modelNamespace` (default is the module name) and merge them with your modules `settings` struct (as defined in your module's `configure()` method) with the parent settings overwritting the module settings. This allows a user of your module to easily overwrite specific settings for their needs.
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+// myModule/ModuleConfig.cfc
+class {
+  function configure() {
+    settings = {
+      someSetting = "default",
+      anotherSetting = "default"
+    };
+  }
+}
+
+// config/ColdBox.cfc
+class {
+  function configure() {
+    moduleSettings = {
+      myModule = {
+        someSetting = "overridden" 
+      }
+    };
+  }
+}
+
+// end result
+{
+  someSetting = "overridden",
+  anotherSetting = "default"
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 // myModule/ModuleConfig.cfc
 component {
   function configure() {
@@ -58,6 +90,8 @@ component {
   anotherSetting = "default"
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 If `parseParentSettings` is set to `false`, your module's `settings` will instead overwrite the settings set in the same `moduleSettings` struct.
 

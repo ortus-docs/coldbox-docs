@@ -2,8 +2,29 @@
 
 The basic configuration object has 1 method for application configuration called `configure()` where you will place all your configuration directives and settings:
 
+{% tabs %}
+{% tab title="BoxLang" %}
 {% code title="ColdBox.cfc" %}
-```javascript
+```boxlang
+/**
+* A simple CFC that configures a ColdBox application.  You can even extend, compose, strategize and do your OO goodness.
+*/
+class{
+
+    // Mandatory configuration method
+    function configure(){
+        coldbox = {
+          
+        };
+    }
+    
+}
+```
+{% endcode %}
+{% endtab %}
+{% tab title="CFML" %}
+{% code title="ColdBox.cfc" %}
+```cfscript
 /**
 * A simple CFC that configures a ColdBox application.  You can even extend, compose, strategize and do your OO goodness.
 */
@@ -19,6 +40,8 @@ component{
 }
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ## Directives
 

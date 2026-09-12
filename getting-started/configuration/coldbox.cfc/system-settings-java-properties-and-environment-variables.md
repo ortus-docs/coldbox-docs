@@ -14,12 +14,35 @@ If you are inside `config/ColdBox.cfc` or a `ModuleConfig.cfc` or a `config/Wire
 
 ## Accessing System Settings in `Application.cfc`
 
-If you would like to access these methods in your `Application.cfc`, create an instance of `coldbox.system.core.delegates.Env` and access them off of that component. This is required when adding a datasource from environment variables.
+If you would like to access these methods in your `Application.cfc`, create an instance of `coldbox.system.core.delegates.Env` and access them off of that class. This is required when adding a datasource from environment variables.
 
 Example:
 
+{% tabs %}
+{% tab title="BoxLang" %}
 {% code title="Application.cfc" %}
-```javascript
+```boxlang
+
+class {
+
+    variables.env = new coldbox.system.core.delegates.Env();
+
+    this.datasources[ "my_datasource" ] = {
+        driver = env.getSystemSetting( "DB_DRIVER" ),
+        host = env.getSystemSetting( "DB_HOST" ),
+        port = env.getSystemSetting( "DB_PORT" ),
+        database = env.getSystemSetting( "DB_DATABASE" ),
+        username = env.getSystemSetting( "DB_USERNAME" ),
+        password = env.getSystemSetting( "DB_PASSWORD" )
+    };
+
+}
+```
+{% endcode %}
+{% endtab %}
+{% tab title="CFML" %}
+{% code title="Application.cfc" %}
+```cfscript
 
 component {
 
@@ -37,7 +60,9 @@ component {
 }
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ## Accessing System Settings in other files
 
-If you need to access these configuration values in other components, consider adding the values to your [ColdBox settings](configuration-directives/settings.md) and injecting the values into your other components [via dependency injection.](../using-settings.md)
+If you need to access these configuration values in other classes, consider adding the values to your [ColdBox settings](configuration-directives/settings.md) and injecting the values into your other classes [via dependency injection.](../using-settings.md)

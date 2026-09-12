@@ -192,7 +192,21 @@ The closure receives the `eventHandlerBean` and the current `event` (request con
 
 We have provided an interception point in ColdBox that allows you to add variables into the request collection before a snapshot is made so you can influence the cache key of a cacheable event. What this means is that you can use it to mix in variables into the request collection that can make this event cache unique for a user, a specific language, country, etc. This is a great way to leverage event caching on multi-lingual or session based sites.
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class{
+
+    onRequestCapture( event, data, buffer, rc, prc ){
+        // Add user's locale to the request collection to influence event caching
+        rc._user_locale = getFWLocale();
+    }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component{
 
     onRequestCapture( event, data, buffer, rc, prc ){
@@ -202,6 +216,8 @@ component{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 With the simple example above, the user's locale will be added to all your event caching permutations and thus create entries for different languages.
 

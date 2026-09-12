@@ -14,13 +14,13 @@ So what does this mean? Plain and simply, you can decorate the ColdBox request c
 
 ### Creating The Decorator
 
-The very first step is to create your own request context decorator component. You can see in the diagram below of the ColdBox request context design pattern.
+The very first step is to create your own request context decorator class. You can see in the diagram below of the ColdBox request context design pattern.
 
 ![](../.gitbook/assets/RequestContextDecorator.png)
 
 
 
-Create a component that extends `coldbox.system.web.context.RequestContextDecorator`, this is to provide all the functionality of an original request context decorator as per the design pattern. Once you have done this, you will create a `configure()` method that you can use for custom configuration when the request context gets created by the framework. Then it’s up to you to add your own methods or override the original request context methods.
+Create a class that extends `coldbox.system.web.context.RequestContextDecorator`, this is to provide all the functionality of an original request context decorator as per the design pattern. Once you have done this, you will create a `configure()` method that you can use for custom configuration when the request context gets created by the framework. Then it’s up to you to add your own methods or override the original request context methods.
 
 {% hint style="success" %}
 **Tip**: In order to access the original request context object you will use the provided method called: `getRequestContext()`.
@@ -30,8 +30,46 @@ Create a component that extends `coldbox.system.web.context.RequestContextDecora
 
 The following is a simple decorator class (`MyDecorator.cfc`) that auto-trims values when calling the `getValue()` method.  You can override methods or create new ones.
 
+{% tabs %}
+{% tab title="BoxLang" %}
 {% code title="MyDecorator.cfc" %}
-```java
+```boxlang
+class extends="coldbox.system.web.context.RequestContextDecorator"{
+	
+	function configure(){
+
+		return this;
+	}
+
+	/**
+	 * @overriden
+	 * Get a value from the public or private request collection. and auto-trim it
+	 * @name The key name
+	 * @defaultValue default value
+	 * @private Private or public, defaults public.
+	 */
+	function getValue( required name, defaultValue, boolean private=false ){
+		var originalValue = "";
+
+        // Check if the value exists via original object, else return blank
+        if( getRequestContext().valueExists( arguments.name ) ){
+            originalValue = getRequestContext().getValue( argumentCollection=arguments );
+            // check if simple
+            if( isSimpleValue( originalValue ) ){
+                originalValue = trim( originalValue );
+            }
+        }
+
+        return originalValue;
+	}
+
+}
+```
+{% endcode %}
+{% endtab %}
+{% tab title="CFML" %}
+{% code title="MyDecorator.cfc" %}
+```cfscript
 component extends="coldbox.system.web.context.RequestContextDecorator"{
 	
 	function configure(){
@@ -64,6 +102,8 @@ component extends="coldbox.system.web.context.RequestContextDecorator"{
 }
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 As you can see from the code above, the possibilities to change behavior are endless. It is up to your specific requirements and it’s easy!
 

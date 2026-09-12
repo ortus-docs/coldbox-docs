@@ -65,7 +65,7 @@ any function getModuleSettings( required module, setting, defaultValue )
 ```
 {% endcode %}
 
-You can also get access to these methods in handlers via the ColdBox Controller component:
+You can also get access to these methods in handlers via the ColdBox Controller class:
 
 ```javascript
 controller.getSetting()
@@ -95,7 +95,21 @@ You can use the WireBox injection DSL to inject settings in your models or non-C
 * `coldbox:configSettings` : Inject a reference to the application settings structure
 * `coldbox:coldboxSettings` : Inject a reference to the ColdBox System settings structure
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class{
+
+    property name="mysetting"    inject="coldbox:setting:mysetting";
+    property name="path"         inject="coldbox:coldboxSetting:path";
+    property name="config"       inject="coldbox:configSettings";
+    property name="settings"     inject="coldbox:coldboxSettings";
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component{
 
     property name="mysetting"    inject="coldbox:setting:mysetting";
@@ -105,3 +119,5 @@ component{
 
 }
 ```
+{% endtab %}
+{% endtabs %}

@@ -46,7 +46,27 @@ This is a standard ColdBox interception point that can be used to intercept when
 
 Interceptors are designed to be decoupled classes that can react to announced events, thus an event-driven approach. You can have as many CFCs listening to the `onException` event and react accordingly without them ever knowing about each other and doing one job and one job only. This is a much more flexible and decoupled approach than calling a single event handler where you will procedurally decide what happens in an exception.
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class extends="coldbox.system.Interceptor"{
+
+    function onException(event, interceptData){
+        // Get the exception
+        var exception = arguments.interceptData.exception;
+
+        // Do some logging only for some type of error and relocate
+        if( exception.type eq "myType" ){
+            log.error( exception.message & exception.detail, exception );
+            // relocate
+            relocate( "page.invalidSave" );
+        }
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component extends="coldbox.system.Interceptor"{
 
     function onException(event, interceptData){
@@ -62,6 +82,8 @@ component extends="coldbox.system.Interceptor"{
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 Also remember that you need to register the interceptor in your configuration file or dynamically so ColdBox knows about it:
 
@@ -119,7 +141,28 @@ The `interceptData` argument receives the following variables:
 
 You must tell ColdBox that you want to override the invalid event (`override = true`) and you must set in the `ehBean` to tell ColdBox what event to execute:
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class extends="coldbox.system.Interceptor"{
+
+    function onInvalidEvent(event, interceptData){
+        // Log a warning
+        log.warn( "Invalid page detected: #arguments.interceptData.invalidEvent#");
+
+        // Set the invalid event to run
+        arguments.interceptData.ehBean
+            .setHandler("Main")
+            .setMethod("pageNotFound");
+
+        // Override
+        arguments.interceptData.override = true;
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component extends="coldbox.system.Interceptor"{
 
     function onInvalidEvent(event, interceptData){
@@ -136,6 +179,8 @@ component extends="coldbox.system.Interceptor"{
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 Also remember that you need to register the interceptor in your configuration file or dynamically so ColdBox knows about it:
 

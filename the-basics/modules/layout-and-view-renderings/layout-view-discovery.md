@@ -46,7 +46,23 @@ Let's do some real examples, I am building a simple module with 1 layout and 1 v
 
 Now, in my handler code I just want to render the view by using our typical `event.setView()` method calls or implicit views.
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+// In a handler called simple.cfc
+class{
+
+  function index(event){
+      // DO SOME CODE HERE
+
+        // Set the view to render with a layout
+      event.setView(view='simple/index',layout="main");
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 // In a handler called simple.cfc
 component{
 
@@ -58,3 +74,5 @@ component{
     }
 }
 ```
+{% endtab %}
+{% endtabs %}

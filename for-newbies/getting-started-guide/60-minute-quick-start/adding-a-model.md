@@ -18,7 +18,38 @@ coldbox create service name="ContactService" methods="getAll" --open
 
 This will create a `models/ContactService.cfc` with a `getAll()` method and a companion unit test at `tests/specs/unit/ContactServiceTest.cfc`. Let's open the model object:
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+/**
+ * I am a new Model Object
+ */
+class singleton accessors="true"{
+
+	// Properties
+	
+
+	/**
+	 * Constructor
+	 */
+	ContactService function init(){
+
+		return this;
+	}
+
+	/**
+	 * getAll
+	 */
+	function getAll(){
+
+	}
+
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 /**
  * I am a new Model Object
  */
@@ -45,15 +76,52 @@ component singleton accessors="true"{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 {% hint style="warning" %}
-Notice the `singleton` annotation on the component tag. This tells WireBox that this service should be cached for the entire application lifespan. If you remove the annotation, then the service will become a _transient_ object, which means that it will be re-created every time it is requested.
+Notice the `singleton` annotation on the class tag. This tells WireBox that this service should be cached for the entire application lifespan. If you remove the annotation, then the service will become a _transient_ object, which means that it will be re-created every time it is requested.
 {% endhint %}
 
 ## Add Some Data
 
 Let's mock an array of contacts so we can display them later. We can move this to a SQL call later.
 
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+/**
+ * I am a new Model Object
+ */
+class singleton accessors="true"{
+
+	// Properties
+	property name="data" type="array";
+
+	/**
+	 * Constructor
+	 */
+	ContactService function init(){
+	  variables.data = [
+            { "id"=1, "name"="coldbox" },
+            { "id"=2, "name"="superman" },
+            { "id"=3, "name"="batman" }
+          ];
+		return this;
+	}
+
+	/**
+	 * Get all the contacts
+	 */
+	function getAll(){
+	  return variables.data;
+	}
+
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
 ```cfscript
 /**
  * I am a new Model Object
@@ -85,6 +153,8 @@ component singleton accessors="true"{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 {% hint style="success" %}
 We also have created a project to mock any type of data: [MockDataCFC](https://www.forgebox.io/view/mockdatacfc). Just use CommandBox to install it: `install mockdatacfc`
@@ -104,6 +174,20 @@ This will create the `handler/contacts.cfc` handler with an `index()` action, th
 
 Let's open the handler and add a new ColdFusion `property` that will have a reference to our model object.
 
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class{ 
+
+    property name="contactService" inject="ContactService";
+
+    any function index( event, rc, prc ){ 
+        event.setView( "contacts/index" ); 
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
 ```cfscript
 component{ 
 
@@ -114,6 +198,8 @@ component{
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 Please note that `inject` annotation on the `property` definition. This tells WireBox what model to inject into the handler's `variables`scope.
 

@@ -8,7 +8,38 @@ coldbox create model name=ContactDAO persistence=singleton --open
 
 Then spice it up
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class accessors="true" singleton{
+
+    // Dependency Injection
+    property name="dsn" inject="coldbox:setting:contacts";
+
+    function init(){
+        return this;
+    }
+
+    query function getAll(){
+        var sql = "SELECT * FROM contacts";
+        return queryExecute( sql, {}, { datasource: dsn.name } );
+    }
+
+    query function getContact(required contactID){
+        var params = {
+            contactID: { value: arguments.contactID, cfsqltype: "numeric" }
+        };
+        var sql = "SELECT * FROM contacts where contactID = :contactID";
+        return queryExecute( sql, params, { datasource: dsn.name } );
+    }
+
+    ... ALL OTHER METHODS HERE FOR CRUD ....
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component accessors="true" singleton{
 
     // Dependency Injection
@@ -35,3 +66,5 @@ component accessors="true" singleton{
 
 }
 ```
+{% endtab %}
+{% endtabs %}

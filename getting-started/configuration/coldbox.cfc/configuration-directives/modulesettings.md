@@ -4,7 +4,24 @@
 
 This structure within config/Coldbox.cfc is used to house module configurations. Please refer to each module's documentation on how to create the configuration structures. Usually the keys will match the name of the module to be configured.
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class {
+
+     function configure() {
+
+         moduleSettings = {
+             myModule = {
+                someSetting = "overridden"
+             }
+        };
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component {
 
      function configure() {
@@ -17,6 +34,8 @@ component {
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Option 2: Config Object Override
 
@@ -26,7 +45,22 @@ The configuration CFC will have one configure() method that is expected to retur
 
 The following example overrides the original module configuration entirely:
 
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class{
+
+    function configure( original ){
+        return {
+            key : value
+        };
+    }
+
+}
 ```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component{
 
     function configure( original ){
@@ -37,10 +71,27 @@ component{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 For large module configs where only a few keys need to be changed, you can update the config by modifying the struct passed in as an argument and then returning the updated version.
 
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class{
+
+    function configure( original ){
+        // override only specific keys, not the entire config
+	original.users.requireEmailVerification = false;
+	return original;
+    }
+
+}
 ```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component{
 
     function configure( original ){
@@ -51,6 +102,8 @@ component{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Injections
 

@@ -23,8 +23,103 @@ The ColdBox Scheduler is built on top of the core async package Scheduler.
 
 Every ColdBox application has a global scheduler created for you by convention and registered with a WireBox ID of `appScheduler@coldbox`. However, you can have complete control of the scheduler by creating the following file: `config/Scheduler.cfc`. This is a simple CFC with a `configure()` method where you will define your tasks and several life-cycle methods.
 
+{% tabs %}
+{% tab title="BoxLang" %}
 {% code title="config/Scheduler.cfc" %}
-```javascript
+```boxlang
+class {
+
+    /**
+     * Configure the ColdBox Scheduler
+     */
+    function configure() {
+        /**
+         * --------------------------------------------------------------------------
+         * Configuration Methods
+         * --------------------------------------------------------------------------
+         * From here you can set global configurations for the scheduler
+         * - setTimezone( ) : change the timezone for ALL tasks
+         * - setExecutor( executorObject ) : change the executor if needed
+         * - setCacheName( "template" ) : Change the cachename for ALL tasks
+         * - setServerFixation( true ) : Set all tasks to run on one server
+         */
+
+
+
+        /**
+         * --------------------------------------------------------------------------
+         * Register Scheduled Tasks
+         * --------------------------------------------------------------------------
+         * You register tasks with the task() method and get back a ColdBoxScheduledTask object
+         * that you can use to register your tasks configurations.
+         */
+
+        task( "Clear Unregistered Users" )
+            .call( () => getInstance( "UserService" ).clearRecentUsers() )
+            .everyDayAt( "09:00" );
+
+        task( "Hearbeat" )
+            .call( () => runEvent( "main.heartbeat" ) )
+            .every( 5, "minutes" )
+            .onFailure( ( task, exception ) => {
+                getInstance( "System" ).sendBadHeartbeat( exception );
+            } );
+    }
+
+    /**
+     * Called before the scheduler is going to be shutdown
+     */
+    function onShutdown(){
+    }
+
+    /**
+     * Called after the scheduler has registered all schedules
+     */
+    function onStartup(){
+    }
+
+    /**
+     * Called whenever ANY task fails
+     *
+     * @task The task that got executed
+     * @exception The ColdFusion exception object
+     */
+    function onAnyTaskError( required task, required exception ){
+    }
+
+    /**
+     * Called whenever ANY task succeeds
+     *
+     * @task The task that got executed
+     * @result The result (if any) that the task produced
+     */
+    function onAnyTaskSuccess( required task, result ){
+    }
+
+    /**
+     * Called before ANY task runs
+     *
+     * @task The task about to be executed
+     */
+    function beforeAnyTask( required task ){
+    }
+
+    /**
+     * Called after ANY task runs
+     *
+     * @task The task that got executed
+     * @result The result (if any) that the task produced
+     */
+    function afterAnyTask( required task, result ){
+    }
+
+}
+```
+{% endcode %}
+{% endtab %}
+{% tab title="CFML" %}
+{% code title="config/Scheduler.cfc" %}
+```cfscript
 component {
 
     /**
@@ -114,6 +209,8 @@ component {
 }
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ### Life-Cycle Methods
 

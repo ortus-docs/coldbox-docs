@@ -67,6 +67,24 @@ Let's do a quick example.  Here is a `Person.cfc` that has two properties with a
 
 **Person.cfc**
 
+{% tabs %}
+{% tab title="BoxLang" %}
+{% code title="models/Person.cfc" lineNumbers="true" %}
+```boxlang
+class accessors="true"{
+
+    property name="name";
+    property name="email";
+
+    function init(){
+        setName('');
+        setEmail('');
+    }
+}
+```
+{% endcode %}
+{% endtab %}
+{% tab title="CFML" %}
 {% code title="models/Person.cfc" lineNumbers="true" %}
 ```cfscript
 component accessors="true"{
@@ -81,6 +99,8 @@ component accessors="true"{
 }
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 **editor.cfm**&#x20;
 
@@ -106,6 +126,29 @@ Here is an editor to submit a form to create the person.
 
 Here is an event handler to do the saving
 
+{% tabs %}
+{% tab title="BoxLang" %}
+{% code title="handlers/person.cfc" lineNumbers="true" %}
+```boxlang
+class{
+
+    function editor(event,rc,prc){
+        event.setView( "person/editor" );        
+    }
+
+    function save(event,rc,prc){
+
+        var person = populateModel( "Person" );
+
+        writeDump( person );
+        abort;
+    }
+
+}
+```
+{% endcode %}
+{% endtab %}
+{% tab title="CFML" %}
 {% code title="handlers/person.cfc" lineNumbers="true" %}
 ```cfscript
 component{
@@ -125,6 +168,8 @@ component{
 }
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 Run the code, and you will see that the populator matched the incoming variables into the model and thus binding it.
 

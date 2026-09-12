@@ -12,8 +12,57 @@ Please see the latest [API Docs](http://apidocs.ortussolutions.com/coldbox/5.0.0
 
 ## Application Router - `Router.cfc`
 
+{% tabs %}
+{% tab title="BoxLang" %}
 {% code title="config/Router.cfc" %}
-```javascript
+```boxlang
+class {
+
+	function configure() {
+		// Set Full Rewrites
+		setFullRewrites( true );
+
+		/**
+		 * --------------------------------------------------------------------------
+		 * App Routes
+		 * --------------------------------------------------------------------------
+		 *
+		 * Here is where you can register the routes for your web application!
+		 * Go get Funky!
+		 *
+		 */
+
+		// A nice healthcheck route example
+		route( "/healthcheck", function( event, rc, prc ) {
+			return "Ok!";
+		} );
+
+		// A nice RESTFul Route example
+		route( "/api/echo", function( event, rc, prc ) {
+			return {
+				"error" : false,
+				"data"  : "Welcome to my awesome API!"
+			};
+		} );
+
+		route(
+			pattern : "/api/contacts",
+			target  : "contacts.index",
+			name    : "api.contacts"
+		);
+
+		// Conventions based routing
+		route( ":handler/:action?" ).end();
+	}
+
+}
+
+```
+{% endcode %}
+{% endtab %}
+{% tab title="CFML" %}
+{% code title="config/Router.cfc" %}
+```cfscript
 component {
 
 	function configure() {
@@ -57,6 +106,8 @@ component {
 
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 The application router is a simple CFC that virtually inherits from the core ColdBox Router class and is configured via the `configure()` method.  It will be decorated with all the capabilities to work with any request much like any event handler or interceptor.  In this router you will be doing 1 of 2 things:
 

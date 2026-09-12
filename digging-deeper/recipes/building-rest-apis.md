@@ -91,7 +91,32 @@ Here in my handler, I have stubbed out actions for each of the operations I need
 
 **/handlers/api/user.cfc**
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class {
+
+  function index( event, rc, prc ) {
+    // List all users
+  }
+
+  function view( event, rc, prc ) {
+    // View a single user
+  }
+
+  function save( event, rc, prc ) {
+    // Save a user
+  }
+
+  function remove( event, rc, prc ) {
+    // Remove a user
+  }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component {
 
   function index( event, rc, prc ) {
@@ -112,6 +137,8 @@ component {
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Defining URL Routes
 
@@ -127,7 +154,33 @@ Install the `route-visualizer` module to visualize the router graphically. This 
 
 Let's add our new routes BEFORE the default route. We add them BEFORE because you must declare routes from the most specific to the most generic. Remember, routes fire in declared order.
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+// Map route to specific user.  Different verbs call different actions!
+class{
+
+    function configure(){
+        setFullRewrites( true );
+
+        // User Resource
+        route( "/api/user/:userID" )
+            .withAction( {
+                GET    = 'view',
+                POST   = 'save',
+                PUT    = 'save',
+                DELETE = 'remove'
+            } )
+            .toHandler( "api.user" );
+
+        route( ":handler/:action?" ).end();
+    }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 // Map route to specific user.  Different verbs call different actions!
 component{
 
@@ -149,6 +202,8 @@ component{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 You can see if that if action is a string, all HTTP verbs will be mapped there, however a `struct` can also be provided that maps different verbs to different actions. This gives you exact control over how the requests are routed. We recommend you check out our [Routing DSL guide](../../the-basics/routing/routing-dsl/) as you can build very expressive and detailed URL patterns.
 
@@ -426,7 +481,28 @@ In addition to having access to the entire request collection, the event object 
 
 **/interceptors/APISecurity.cfc**
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+/**
+* This interceptor secures all API requests
+*/
+class{
+    // This will only run when the event starts with "api."
+    function preProcess( event, interceptData, buffer ) eventPattern = '^api\.' {
+        var APIUser = event.getHTTPHeader( 'APIUser', 'default' );
+
+        // Only Honest Abe can access our API
+        if( APIUser != 'Honest Abe' ) {
+            // Every one else will get the error response from this event
+            event.overrideEvent( 'api.general.authFailed' );
+        }
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 /**
 * This interceptor secures all API requests
 */
@@ -443,6 +519,8 @@ component{
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 Register the interceptor with ColdBox in your `ColdBox.cfc`:
 
@@ -460,7 +538,24 @@ As you can see, there are many points to apply security to your API. One not cov
 
 In our route configuration we mapped HTTP verbs to handlers and actions, but what if users try to access resources directly with an invalid HTTP verb? You can easily enforce valid verbs (methods) by adding `this.allowedMethods` at the top of your handler. In this handler the `list()` method can only be accessed via a GET, and the `remove()` method can only be accessed via POST and DELETE.
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class{
+
+    this.allowedMethods = { 
+        remove = "POST,DELETE",
+        list   = "GET"
+    };
+
+    function list( event, rc, prc ){}
+
+    function remove( event, rc, prc ){}
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component{
 
     this.allowedMethods = { 
@@ -473,6 +568,8 @@ component{
     function remove( event, rc, prc ){}
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 The key is the name of the action and the value is a list of allowed HTTP methods. If the action is not listed in the structure, then it means allow all. If the request action HTTP method is not found in the list then it throws a 405 exception. You can catch this scenario and still return a properly-formatted response to your clients by using the `onError()` or the `onInvalidHTTPMethod()` convention in your handler or an exception handler which applies to the entire app.
 
@@ -549,7 +646,26 @@ coldbox = {
 
 Then create that action and put your exception handling code inside. You can choose to do error logging, notifications, or custom output here. You can even run other events.
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+// /handlers/main.cfc
+class {
+    function onException( event, rc, prc ){
+        // Log the exception via LogBox
+        log.error( prc.exception.getMessage() & prc.exception.getDetail(), prc.exception.getMemento() );
+
+        // Flash where the exception occurred
+        flash.put("exceptionURL", event.getCurrentRoutedURL() );
+
+        // Relocate to fail page
+        relocate("main.fail");
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 // /handlers/main.cfc
 component {
     function onException( event, rc, prc ){
@@ -564,6 +680,8 @@ component {
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ## ColdBox Relax
 

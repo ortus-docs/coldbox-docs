@@ -50,8 +50,59 @@ Once you get an instance to that scheduler you can begin to register tasks on it
 The name of the `ScheduledExecutor` will be `{schedulerName}-scheduler`
 {% endhint %}
 
+{% tabs %}
+{% tab title="BoxLang" %}
 {% code title="Application.cfc" %}
-```javascript
+```boxlang
+class{
+    
+    this.name = "My App";
+    
+    
+    function onApplicationStart(){
+        new wirebox.system.Injector();
+        application.asyncManager = application.wirebox.getInstance( "wirebox.system.async.AsyncManager" );
+        application.scheduler = application.asyncmanager.newScheduler( "appScheduler" );
+
+          /**
+           * --------------------------------------------------------------------------
+           * Register Scheduled Tasks
+           * --------------------------------------------------------------------------
+           * You register tasks with the task() method and get back a ColdBoxScheduledTask object
+           * that you can use to register your tasks configurations.
+           */
+          	
+          application.scheduler.task( "Clear Unregistered Users" )
+          	.call( () => application.wirebox.getInstance( "UsersService" ).clearRecentUsers() )
+          	.everyDayAt( "09:00" );
+          	
+          application.scheduler.task( "Hearbeat" )
+          	.call( () => runHeartBeat() )
+          	.every( 5, "minutes" )
+          	.onFailure( ( task, exception ) => {
+          			sendBadHeartbeat( exception );
+          	} );
+          
+          // Startup the scheduler
+          application.scheduler.startup();
+    
+    }
+
+
+    function onApplicationEnd( appScope ){
+        // When the app is restart or dies make sure you cleanup
+        appScope.scheduler.shutdown();
+        appScope.wirebox.shutdown();
+    }
+
+
+}
+```
+{% endcode %}
+{% endtab %}
+{% tab title="CFML" %}
+{% code title="Application.cfc" %}
+```cfscript
 component{
     
     this.name = "My App";
@@ -97,6 +148,8 @@ component{
 }
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ### Configuration Methods
 

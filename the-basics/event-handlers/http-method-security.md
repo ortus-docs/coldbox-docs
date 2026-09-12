@@ -37,7 +37,28 @@ If the request action HTTP method is not found in the approved list, it will loo
 You can listen for [global invalid HTTP](../../getting-started/configuration/coldbox.cfc/configuration-directives/) methods using the `coldbox.onInvalidHTTPMethodHandler` located in your `config/ColdBox.cfc.`
 {% endhint %}
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class{
+
+    this.allowedMethods = {
+        delete : "POST,DELETE",
+        list   : "GET"
+    };
+
+    function list(event,rc,prc){
+        // list only
+    }
+
+    function delete(event,rc,prc){
+        // do delete here.
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component{
 
     this.allowedMethods = {
@@ -54,6 +75,8 @@ component{
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
 If the **action** is not listed in the structure, then it means that we allow **all** HTTP methods. Just remember to either use the `onError()` or `onInvalidHTTPMethod()` method conventions or an exception handler to deal with the security exceptions.

@@ -53,7 +53,21 @@ As you can see, all views and layouts have direct reference to the request colle
 
 You can also inject the ColdBox Renderer into your models so you can render email templates, views, etc. directly from your model code:
 
-```java
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class{
+
+    property name="renderer" inject="coldbox:renderer";
+
+    function renderSomething(){
+        return renderer.view( view="mail/mymail", args={} );
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component{
 
     property name="renderer" inject="coldbox:renderer";
@@ -63,6 +77,8 @@ component{
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
 In previous versions you would need to use a `provider:` syntax due to the Renderer being a transient. This is no longer true in ColdBox 6.0.

@@ -19,7 +19,7 @@ The ColdBox controller object is bound to the framework release and as we all kn
 
 ## How does it work
 
-Create a component that extends `coldbox.system.web.ControllerDecorator`, this is to provide all the functionality of an original ColdBox Controller as per the design pattern. Once you have done this, you will create a `configure()` method that you can use for custom configuration when the Controller gets created by the framework on application start. Then it’s up to you to add your own methods or override the original methods. ([See API](https://apidocs.ortussolutions.com/coldbox/current)).&#x20;
+Create a class that extends `coldbox.system.web.ControllerDecorator`, this is to provide all the functionality of an original ColdBox Controller as per the design pattern. Once you have done this, you will create a `configure()` method that you can use for custom configuration when the Controller gets created by the framework on application start. Then it’s up to you to add your own methods or override the original methods. ([See API](https://apidocs.ortussolutions.com/coldbox/current)).&#x20;
 
 {% hint style="info" %}
 In order to access the original controller object you will use the provided method called: `getController().`
@@ -29,8 +29,30 @@ In order to access the original controller object you will use the provided meth
 
 Here is the Controller Decorator code:
 
+{% tabs %}
+{% tab title="BoxLang" %}
 {% code title="models/MyControllerDecorator.cfc" %}
-```javascript
+```boxlang
+class extends="coldbox.system.web.ControllerDecorator"{
+
+    function configure(){
+
+    }
+
+    function setNextEvent(){
+        // Add SSL eq true to ALL relocations
+        arguments.ssl = true;
+        // Send the relocation back to the existing controller
+        getController().setNextEvent( argumentCollection=arguments );
+    }
+
+}
+```
+{% endcode %}
+{% endtab %}
+{% tab title="CFML" %}
+{% code title="models/MyControllerDecorator.cfc" %}
+```cfscript
 component extends="coldbox.system.web.ControllerDecorator"{
 
     function configure(){
@@ -47,6 +69,8 @@ component extends="coldbox.system.web.ControllerDecorator"{
 }
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ### Configuration
 
