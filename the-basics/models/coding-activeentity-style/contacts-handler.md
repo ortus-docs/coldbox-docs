@@ -8,7 +8,51 @@ coldbox create handler name=contacts actions=index,editor,delete,save
 
 Then spice it up
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+/**
+* I am a new handler
+*/
+class{
+
+    function index(event,rc,prc){
+        prc.contacts = entityNew("Contact").list(sortOrder="lastName",asQuery=false);
+        event.setView("contacts/index");
+    }
+
+    function editor(event,rc,prc){
+        event.paramValue("id",0);
+        prc.contact = entityNew("Contact").get( rc.id );
+        event.setView("contacts/editor");
+    }
+
+    function delete(event,rc,prc){
+        event.paramValue("id",0);
+        entityNew("Contact").deleteByID( rc.id );
+        flash.put( "notice", "Contact Removed!" );
+        relocate("contacts");
+    }
+
+    function save(event,rc,prc){
+        event.paramValue("id",0);
+        var contact = populateModel( entityNew("Contact").get( rc.id ) );
+        if( contact.isValid() ){
+            contact.save();
+            flash.put( "notice", "Contact Saved!" );
+            relocate("contacts");
+        }
+        else{
+            flash.put( "errors", contact.getValidationResults().getAllErrors() );
+            return editor(event,rc,prc);
+        }
+    }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 /**
 * I am a new handler
 */
@@ -48,3 +92,5 @@ component{
 
 }
 ```
+{% endtab %}
+{% endtabs %}

@@ -32,7 +32,20 @@ If you are familiar with design patterns, custom interceptors can give you an im
 
 **Interceptor Example**
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class extends="coldbox.system.Interceptor"{
+
+    function onError( event, interceptData={} ){
+        // Listen to onError events
+    }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component extends="coldbox.system.Interceptor"{
 
     function onError( event, interceptData={} ){
@@ -41,6 +54,8 @@ component extends="coldbox.system.Interceptor"{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Resources
 

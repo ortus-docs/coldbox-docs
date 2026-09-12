@@ -18,7 +18,57 @@ This testing support class will create your model object, and decorate with mock
 
 Basic Setup
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+/**
+* The base model test case will use the 'model' annotation as the instantiation path
+* and then create it, prepare it for mocking and then place it in the variables scope as 'model'. It is your
+* responsibility to update the model annotation instantiation path and init your model.
+*/
+class extends="coldbox.system.testing.BaseModelTest" model="UserService"{
+
+    /*********************************** LIFE CYCLE Methods ***********************************/
+
+    function beforeAll(){
+        // setup the model
+        super.setup();        
+
+        // init the model object
+        model.init();
+    }
+
+    function afterAll(){
+    }
+
+    /*********************************** BDD SUITES ***********************************/
+
+    function run(){
+
+        describe( "UserService Suite", function(){
+
+            it( "should save", function(){
+
+            });
+
+            it( "should search", function(){
+
+            });
+
+            it( "should list", function(){
+
+            });
+
+
+        });
+
+    }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 /**
 * The base model test case will use the 'model' annotation as the instantiation path
 * and then create it, prepare it for mocking and then place it in the variables scope as 'model'. It is your
@@ -64,3 +114,5 @@ component extends="coldbox.system.testing.BaseModelTest" model="UserService"{
 
 }
 ```
+{% endtab %}
+{% endtabs %}

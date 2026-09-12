@@ -12,13 +12,26 @@ Here are the annotations you can add to your testing bundle CFC to change behavi
 
 **Examples**
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class extends="coldbox.system.testing.BaseTestCase" appMapping="/apps/MyApp"{}
+
+class extends="coldbox.system.testing.BaseTestCase"
+    appMapping="/apps/MyApp" 
+    configMapping="apps.MyApp.test.resources.Config"{}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component extends="coldbox.system.testing.BaseTestCase" appMapping="/apps/MyApp"{}
 
 component extends="coldbox.system.testing.BaseTestCase"
     appMapping="/apps/MyApp" 
     configMapping="apps.MyApp.test.resources.Config"{}
 ```
+{% endtab %}
+{% endtabs %}
 
 > **Caution** The `AppMapping` setting is the most important one. This is how your test connects to a location of a ColdBox application to test.
 

@@ -40,7 +40,24 @@ So /`main` will execute `main.index` and `/main/index` will execute `main.index`
 
 Let's check out the handler code:
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class{
+
+    /**
+     * Default Action
+     */
+     function index( event, rc, prc ){
+        event.setView( "hello/index" );
+     }
+
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component{
 
     /**
@@ -53,6 +70,8 @@ component{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 As you can see, a handler is a simple CFC with functions on them. Each function maps to an **action** that is executed via the URL. The default action in ColdBox is `index()`which receives three arguments:
 

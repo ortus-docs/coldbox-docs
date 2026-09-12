@@ -2,11 +2,22 @@
 
 The concept behind the ColdBox proxy is to create CFC's that extend our proxy class: `coldbox.system.remote.ColdboxProxy`. This will give you the ability to locate and talk to your running ColdBox application so you can proxy in requests from remote systems like Flex/Air, Event Gateways, ColdFusion REST/Soap Web Services and even CFC data binding.
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class extends="coldbox.system.remote.ColdboxProxy"{
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component extends="coldbox.system.remote.ColdboxProxy"{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 The concept of a [Proxy](http://en.wikipedia.org/wiki/Proxy_pattern) is to give access to another system. As Wikipedia mentions:
 
@@ -30,7 +41,27 @@ Most remote APIs are strongly typed so it makes sense to create as many ColdBox 
 
 Here is a sample proxy object that just proxies a remote call
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class extends="coldbox.system.remote.ColdboxProxy"{
+
+    /**
+    * Get user data
+    * @id The id of the user list to return
+    */
+    array function getData( required numeric id ){
+        arguments.event = "users.getListData";
+
+        var results = super.process( argumentCollection=arguments );
+
+        return results ?: [];
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component extends="coldbox.system.remote.ColdboxProxy"{
 
     /**
@@ -46,6 +77,8 @@ component extends="coldbox.system.remote.ColdboxProxy"{
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ## AppMapping
 

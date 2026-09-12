@@ -7,7 +7,7 @@ description: >-
 # Streaming Routes (SSE)
 
 {% hint style="warning" %}
-`toSSE()` requires **BoxLang**. It is not available on CFML engines.
+🚀 **BoxLang Exclusive** — `toSSE()` requires **BoxLang**. It is not available on CFML engines.
 {% endhint %}
 
 `toSSE()` terminates a route by handing it over to a [Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events) stream instead of a normal request/response cycle.

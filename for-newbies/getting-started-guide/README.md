@@ -209,9 +209,22 @@ coldbox create service GreeterService sayHello --open
 
 Let's finish implementing the `sayHello()` method by adding this return statement and save the file.
 
-We can also add the word `singleton` to the component declaration. This will tell **WireBox** to only create one instance of our service.
+We can also add the word `singleton` to the class declaration. This will tell **WireBox** to only create one instance of our service.
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class singleton {
+
+    function sayHello(){
+        return 'Hey you, have an awesome day!';
+    }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component singleton {
 
     function sayHello(){
@@ -220,6 +233,8 @@ component singleton {
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
 What is WireBox?
@@ -243,6 +258,19 @@ What is this magical injection? Injection is a way to get references of other ob
 
 This will put the instance of our services in the `variables` scope where we can access it in our action methods.
 
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class {
+
+    property name='greeterService' inject='greeterService';
+    property name='messageBox' inject='@cbmessagebox';
+
+    ...
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
 ```cfscript
 component {
 
@@ -252,6 +280,8 @@ component {
     ...
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 And now, in our `index` method, we'll set the output of our service into an `info` message.
 

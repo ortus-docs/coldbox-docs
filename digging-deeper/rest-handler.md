@@ -32,7 +32,29 @@ RestHandler API Docs
 
 This will give you access to our enhanced API of utilities and the native **response** object via the event object `getResponse()` method.
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class extends="coldbox.system.RestHandler"{
+
+  function index( event, rc, prc ){
+    event.getResponse()
+      .setData( "Hello from restful Land" );
+  }
+}
+
+class resthandler{
+
+  function index( event, rc, prc ){
+    event.getResponse()
+      .setData( "Hello from restful Land" );
+  }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component extends="coldbox.system.RestHandler"{
 
   function index( event, rc, prc ){
@@ -50,6 +72,8 @@ component resthandler{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 You will then leverage that response object ([https://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/Response.html](https://apidocs.ortussolutions.com/coldbox/current/index.html?coldbox/system/web/context/Response.html)) to do the following actions:
 
@@ -383,7 +407,24 @@ this.STATUS_TEXTS = {
 
 If you would like to extend or modify the behavior of the core `RestHandler` then you will have to create your own base handler that inherits from it. Then all of your concrete handlers will inherit from your very own handler.
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+// BaseHandler
+class extends="coldbox.system.Resthandler"{
+
+  // Modify it here
+
+}
+
+// Then make your own handlers extend from it
+class extends="BaseHandler"{
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 // BaseHandler
 component extends="coldbox.system.Resthandler"{
 
@@ -396,6 +437,8 @@ component extends="BaseHandler"{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Extending The **Response** Object
 

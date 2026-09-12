@@ -27,7 +27,39 @@ Here is a listing of all public properties that can be defined in a module.
 
 Below you can see an example of declarations for the configuration object:
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class{
+    // Module Properties
+    this.title      = "My Test Module";
+    this.author       = "Luis Majano";
+    this.webURL       = "http://www.coldbox.org";
+    this.description    = "A funky test module";
+    this.version      = "1.0.0";
+    // If true, looks for views in the parent first, if not found, then in the module. Else vice-versa
+    this.viewParentLookup   = true;
+    // If true, looks for layouts in the parent first, if not found, then in module. Else vice-versa
+    this.layoutParentLookup = true;
+    // The module entry point using SES
+    this.entryPoint     = "/testing";
+    this.inheritEntryPoint = true;
+    this.autoMapModels = true;
+    this.autoProcessModels = false;
+    this.modelNamespace = "store";
+    this.aliases = [ "store", "ecommerce", "shop" ];
+    this.cfmapping = "cbstore";
+    this.parseParentSettings = true;
+    this.dependencies = [ "JavaLoader", "CFCouchbase" ];
+    this.applicationHelper = [ "includes/mixins.cfm" ]
+
+    function configure(){
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component{
     // Module Properties
     this.title      = "My Test Module";
@@ -55,3 +87,5 @@ component{
     }
 }
 ```
+{% endtab %}
+{% endtabs %}

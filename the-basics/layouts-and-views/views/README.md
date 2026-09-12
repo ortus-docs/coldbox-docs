@@ -43,8 +43,28 @@ function setView(
 Setting a view does not mean that it gets rendered immediately. This means that it is deposited in the context of the request. Later on in the execution process, the framework will pick those variables up and do the actual rendering. To do immediate rendering, you will use the inline rendering methods described later.
 {% endhint %}
 
+{% tabs %}
+{% tab title="BoxLang" %}
 {% code title="handlers/main.cfc" %}
-```javascript
+```boxlang
+class
+{
+
+    function index(event,rc,prc){
+        // call some model for data and put into the request collection
+        prc.myQuery = getInstance('MyService').getData();
+        // set the view for rendering
+        event.setView( "general/index" );
+
+    }
+
+}
+```
+{% endcode %}
+{% endtab %}
+{% tab title="CFML" %}
+{% code title="handlers/main.cfc" %}
+```cfscript
 component
 {
 
@@ -59,6 +79,8 @@ component
 }
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 We use the `setView()` method to set the view `views/general/index.cfm` to be rendered. The cool thing about this is that we can override the view to be rendered anytime during the request flow. So, the last process to execute the `setView()` method is the one that counts. Also, notice a few things:
 
@@ -88,7 +110,29 @@ I am using our cool HTML Helper class, which is smart enough to render tables, d
 
 So what happens if I DO NOT want the view rendered within a layout? Am I doomed? Of course not, use the same method with the `noLayout` argument or `event.noLayout()` method:
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class{
+
+    function index(event,rc,prc){
+        // call some model for data and put into the request collection
+        prc.myQuery = getInstance('MyService').getData();
+        // set the view for rendering
+        event.setView( view="general/index", noLayout=true );
+    }
+
+    function index(event,rc,prc){
+        // call some model for data and put into the request collection
+        prc.myQuery = getInstance('MyService').getData();
+        // set the view for rendering
+        event.setView( "general/index" ).noLayout();
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component{
 
     function index(event,rc,prc){
@@ -106,12 +150,37 @@ component{
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Views With Layouts
 
 If you need the view to be rendered in a **specific** layout, then use the `layout` argument or the `setLayout()` method:
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class name="general"{
+
+    function index(event,rc,prc){
+        // call some model for data and put into the request collection
+        prc.myQuery = getInstance('MyService').getData();
+        // set the view for rendering
+        event.setView( view="general/index", layout="Ajax" );
+    }
+
+    function index(event,rc,prc){
+        // call some model for data and put into the request collection
+        prc.myQuery = getInstance('MyService').getData();
+        // set the view for rendering
+        event.setView( "general/index" ).setLayout( "Ajax" );
+    }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component name="general"{
 
     function index(event,rc,prc){
@@ -130,12 +199,32 @@ component name="general"{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Views From Modules
 
 If you need the set a view to be rendered from a specific ColdBox Module then use the `module` argument alongside any other argument combination:
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class name="general"{
+
+    function index( event, rc, prc ){
+
+        // call some model for data and put into the request collection
+        prc.myQuery = getInstance('MyService').getData();
+        // set the view for rendering
+        event.setView( view="general/index", module="shared-views" );
+
+    }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component name="general"{
 
     function index( event, rc, prc ){
@@ -149,6 +238,8 @@ component name="general"{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ### View Regions
 
@@ -176,7 +267,23 @@ Now that you have set the named region, you can evaluate it and render it it usi
 
 You can also tell the renderer not to render anything back to the user by using the `event.noRender()` method. Maybe you just took some input and need to gracefully shut down the request into the infamous white screen of death.
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class name="general"{
+
+    function saveData(event,rc,prc){
+        // do your work here …..
+
+        // set for no render
+        event.noRender();
+    }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component name="general"{
 
     function saveData(event,rc,prc){
@@ -188,6 +295,8 @@ component name="general"{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Implicit Views
 
@@ -197,6 +306,20 @@ You can also omit the explicit `event.setView()` if you want, ColdBox will then 
 **Tip:** This feature is more for convention purists than anything else. However, we do recommend, as best practice, explicitly declaring the view to be rendered when working with team environments, as everybody will know what happens.
 {% endhint %}
 
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class name="general"{
+
+    function index( event, rc, prc ){
+        // call some model for data and put into the request collection
+        prc.myQuery = getInstance( 'MyService' ).getData();    
+    }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
 ```cfscript
 component name="general"{
 
@@ -207,6 +330,8 @@ component name="general"{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 {% hint style="danger" %}
 **Caution:** If using implicit views, please note that the **name** of the view will **ALWAYS** be in lowercase. So please be aware of this **limitation**. I would suggest creating URL Mappings with explicit event declarations to control case and location. When using implicit views, you will also lose fine rendering control.

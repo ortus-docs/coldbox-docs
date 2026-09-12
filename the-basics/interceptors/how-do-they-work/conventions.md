@@ -21,7 +21,26 @@ The intercepting method returns `boolean` or `void`. If boolean then it means so
 * **True** means break the chain of execution, so no other interceptors in the chain will fire.
 * **False** or `void` continue execution
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class extends="coldbox.system.Interceptor"{
+
+    function configure(){}
+
+    boolean function afterConfigurationLoad(event,data,buffer){
+        if( getProperty('interceptorCompleted') eq false){
+            parseAndSet();    
+            setProperty('interceptorCompleted',true);
+        }
+
+        return false;
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component extends="coldbox.system.Interceptor"{
 
     function configure(){}
@@ -36,12 +55,60 @@ component extends="coldbox.system.Interceptor"{
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 Also remember that all interceptors are created by WireBox, so you can use dependency injection, configuration binder's, and even [AOP](http://wirebox.ortusbooks.com) on interceptor objects. Here is a more complex sample:
 
 **HTTP Security Example:**
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+/**
+* Intercepts with HTTP Basic Authentication
+*/
+class {
+
+    // Security Service
+    property name="securityService" inject="id:SecurityService";
+
+    void function configure(){
+        if( !propertyExists("enabled") ){
+            setProperty("enabled", true );
+        } 
+    }
+
+    void function preProcess(event,struct data, buffer){
+
+        // verify turned on
+        if( !getProperty("enabled") ){ return; }
+
+        // Verify Incoming Headers to see if we are authorizing already or we are already Authorized
+        if( !securityService.isLoggedIn() OR len( event.getHTTPHeader("Authorization","") ) ){
+
+            // Verify incoming authorization
+            var credentials = event.getHTTPBasicCredentials();
+            if( securityService.authorize(credentials.username, credentials.password) ){
+                // we are secured woot woot!
+                return;
+            };
+
+            // Not secure!
+            event.setHTTPHeader(name="WWW-Authenticate",value="basic realm=""Please enter your username and password for our Cool App!""");
+
+            // secured content data and skip event execution
+            event.renderData(data="<h1>Unathorized Access<p>Content Requires Authentication</p>",statusCode="401",statusText="Unauthorized")
+                .noExecution();
+        }    
+
+    }    
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 /**
 * Intercepts with HTTP Basic Authentication
 */
@@ -83,3 +150,5 @@ component {
 
 }
 ```
+{% endtab %}
+{% endtabs %}

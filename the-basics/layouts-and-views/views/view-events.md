@@ -13,7 +13,19 @@ All rendered views have associated events that are announced whenever the view i
 
 Here is a sample interceptor that trims any content before it is renderer:
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class{
+
+    function postViewRender(event,interceptData){
+        interceptData.renderedView = trim( interceptData.renderedView );
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component{
 
     function postViewRender(event,interceptData){
@@ -21,5 +33,7 @@ component{
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 Of course, I am pretty sure you will be more creative than that!

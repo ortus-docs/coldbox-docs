@@ -48,15 +48,26 @@ function usersAsPDF( event, rc, prc ) renderdata='pdf'{
 }
 ```
 
-### `renderdata` Component Annotation
+### `renderdata` Class Annotation
 
-You can also add the renderData annotation to the component definition and this will override the default of JSON. So if you want XML as the default, you can do this:
+You can also add the renderData annotation to the class definition and this will override the default of JSON. So if you want XML as the default, you can do this:
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class renderdata="xml"{
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component renderdata="xml"{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ### $renderData Convention
 
@@ -249,7 +260,36 @@ event.renderData( data= myConverter, contentType=myConverter.getContentType() );
 
 The CFC converter:
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class accessors="true"{
+
+    property name="data" type="mytype";
+    property name="contentType";
+
+    function init(){ 
+        setContentType("text");
+        return this; 
+    }
+
+    // The magical rendering
+    function $renderdata(){
+        var d = {
+            n = data.getName(),
+            a = data.getAge(),
+            c = data.getCoo(),
+            today = now()
+        };
+
+        return d.toString();
+    }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component accessors="true"{
 
     property name="data" type="mytype";
@@ -274,5 +314,7 @@ component accessors="true"{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 In this approach your `$renderdata()` function can be much more customizable than our internal serializers. Just remember to use the right contentType argument so the browser knows what to do with it.

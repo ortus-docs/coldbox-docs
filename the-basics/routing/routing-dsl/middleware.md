@@ -25,7 +25,26 @@ route( "/admin/:action" )
 * **A WireBox ID** - resolved via `getInstance()` on every request, so it respects whatever scope (singleton, prototype, etc) the mapping was registered with
 * **Any object** - WireBox-managed or not, as long as it has a method named after the point it runs at (`preProcess()` by default). No base class or interface required
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+// A concrete class, resolved by WireBox ID
+class singleton {
+    property name="auth" inject="AuthService";
+
+    function preProcess( event, rc, prc ){
+        if ( !auth.isLoggedIn() ) {
+            event.relocate( "login" );
+            return true;
+        }
+    }
+}
+// registered in WireBox as "RequireLogin"
+route( "/admin/:action" ).middleware( "RequireLogin" ).toHandler( "admin" );
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 // A concrete class, resolved by WireBox ID
 component singleton {
     property name="auth" inject="AuthService";
@@ -40,6 +59,8 @@ component singleton {
 // registered in WireBox as "RequireLogin"
 route( "/admin/:action" ).middleware( "RequireLogin" ).toHandler( "admin" );
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Where It Runs
 

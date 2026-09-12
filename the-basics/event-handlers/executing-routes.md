@@ -48,8 +48,27 @@ runRoute( "userData", { id=4 } )
 
 In the example above, the `userData` named route points to the `user.data` event.
 
+{% tabs %}
+{% tab title="BoxLang" %}
 {% code title="user.cfc" %}
-```javascript
+```boxlang
+class{
+
+    property name="userService" inject;
+
+    function data( event, rc, prc, id=0 ){
+        if( id == 0 )
+            return {};
+            
+        return userService.getData( id );
+    }
+}
+```
+{% endcode %}
+{% endtab %}
+{% tab title="CFML" %}
+{% code title="user.cfc" %}
+```cfscript
 component{
 
     property name="userService" inject;
@@ -63,6 +82,8 @@ component{
 }
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ### Module Routes
 

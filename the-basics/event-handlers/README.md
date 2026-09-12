@@ -47,10 +47,37 @@ coldbox.handlerCaching = false;
 
 Event handlers are CFCs that will respond to FORM posts, HTTP requests and/or remote requests (like Flex,Air, SOAP, REST) via an incoming RC variable called **event** or by [URL mappings](../routing/) (Which we saw in the previous section).
 
-### Components
+### Classes
 
+{% tabs %}
+{% tab title="BoxLang" %}
 {% code title="Main.cfc" %}
-```javascript
+```boxlang
+class extends="coldbox.system.EventHandler"{
+
+    /**
+     * Default Action
+     */
+    function index( event, rc, prc ){
+        prc.message = "Hello From ColdBox";
+        event.setView( "main/index");
+    }
+
+    /**
+     * Action returning complex data, converted to JSON automatically by ColdBox
+     */
+    function data( event, rc, prc ){
+        var data = getInstance( "MyModel" ).getArray();
+        return data;
+    }
+
+}
+```
+{% endcode %}
+{% endtab %}
+{% tab title="CFML" %}
+{% code title="Main.cfc" %}
+```cfscript
 component extends="coldbox.system.EventHandler"{
 
     /**
@@ -72,6 +99,8 @@ component extends="coldbox.system.EventHandler"{
 }
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
 You can also remove the inheritance from the CFC and WireBox will extend the `coldbox.system.EventHandler` for you using [Virtual Inheritance](https://wirebox.ortusbooks.com/advanced-topics/virtual-inheritance).
@@ -104,7 +133,28 @@ An action will usually do one of the following:
 
 The **default action** for all event handlers is called `index()`. This means that when you execute an event, you can omit the index if you so desire.
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+class extends="coldbox.system.EventHandler"{
+
+    function index( event, rc, prc ){
+        return "<h1> Hi from handler land!</h1>";
+    }
+
+    function save( event, rc, prc ){
+        getInstance( "MyService" ).save( rc );
+        relocate( "users/list" );
+    }
+
+    function myData( event, rc, prc ){
+        return ['coldbox', 'wirebox', 'cachebox', 'logbox'];
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component extends="coldbox.system.EventHandler"{
 
     function index( event, rc, prc ){
@@ -121,6 +171,8 @@ component extends="coldbox.system.EventHandler"{
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 #### Private Actions
 

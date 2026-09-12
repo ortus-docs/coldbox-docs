@@ -4,7 +4,22 @@ Interceptors are CFCs that extend the ColdBox Interceptor class (`coldbox.system
 
 ![](../../../.gitbook/assets/ColdBoxMajorClasses.jpg)
 
+{% tabs %}
+{% tab title="BoxLang" %}
+```boxlang
+/**
+* My Interceptor
+*/
+class extends="coldbox.system.Interceptor"{
+
+    function configure(){}
+
+    function preProcess( event, interceptData, buffer, rc, prc ){}
+}
 ```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 /**
 * My Interceptor
 */
@@ -15,6 +30,8 @@ component extends="coldbox.system.Interceptor"{
     function preProcess( event, interceptData, buffer, rc, prc ){}
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 > **Info** You can also remove the inheritance from the CFC (preferred method) and WireBox will extend the `coldbox.system.Interceptor` for you using [Virtual Inheritance](https://wirebox.ortusbooks.com/content/virtual_inheritance/).
 

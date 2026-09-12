@@ -50,8 +50,59 @@ Once you get an instance to that scheduler you can begin to register tasks on it
 The name of the `ScheduledExecutor` will be `{schedulerName}-scheduler`
 {% endhint %}
 
+{% tabs %}
+{% tab title="BoxLang" %}
 {% code title="Application.cfc" %}
-```javascript
+```boxlang
+class{
+    
+    this.name = "My App";
+    
+    
+    function onApplicationStart(){
+        new wirebox.system.Injector();
+        application.asyncManager = application.wirebox.getInstance( "wirebox.system.async.AsyncManager" );
+        application.scheduler = application.asyncmanager.newScheduler( "appScheduler" );
+
+          /**
+           * --------------------------------------------------------------------------
+           * Register Scheduled Tasks
+           * --------------------------------------------------------------------------
+           * You register tasks with the task() method and get back a ColdBoxScheduledTask object
+           * that you can use to register your tasks configurations.
+           */
+          	
+          application.scheduler.task( "Clear Unregistered Users" )
+          	.call( () => application.wirebox.getInstance( "UsersService" ).clearRecentUsers() )
+          	.everyDayAt( "09:00" );
+          	
+          application.scheduler.task( "Hearbeat" )
+          	.call( () => runHeartBeat() )
+          	.every( 5, "minutes" )
+          	.onFailure( ( task, exception ) => {
+          			sendBadHeartbeat( exception );
+          	} );
+          
+          // Startup the scheduler
+          application.scheduler.startup();
+    
+    }
+
+
+    function onApplicationEnd( appScope ){
+        // When the app is restart or dies make sure you cleanup
+        appScope.scheduler.shutdown();
+        appScope.wirebox.shutdown();
+    }
+
+
+}
+```
+{% endcode %}
+{% endtab %}
+{% tab title="CFML" %}
+{% code title="Application.cfc" %}
+```cfscript
 component{
     
     this.name = "My App";
@@ -97,6 +148,8 @@ component{
 }
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ### Configuration Methods
 
@@ -226,6 +279,7 @@ Ok, let's go over the frequency methods:
 | -------------------------------------- | ---------------------------------------------------------------------------- |
 | `every( period, timeunit )`            | Run the task every custom period of execution                                |
 | `spacedDelay( spacedDelay, timeunit )` | Run the task every custom period of execution but with NO overlaps           |
+| `everySecond()`                        | Run the task every second from the time it get's scheduled                   |
 | `everyMinute()`                        | Run the task every minute from the time it get's scheduled                   |
 | `everyHour()`                          | Run the task every hour from the time it get's scheduled                     |
 | `everyHourAt( minutes )`               | Set the period to be hourly at a specific minute mark and 00 seconds         |
@@ -252,6 +306,20 @@ Ok, let's go over the frequency methods:
 {% hint style="success" %}
 All `time` arguments are defaulted to midnight (00:00)
 {% endhint %}
+
+### Time Unit Methods
+
+If you find yourself calling `every( period, timeunit )` repeatedly with the same `timeunit`, you can instead chain one of these methods to set the time unit alone, leaving the period to be set (or defaulted) separately. Please note that the **last one called wins**.
+
+| Time Unit Method    | Description                          |
+| -------------------- | ------------------------------------ |
+| `inDays()`           | Set the time unit to days            |
+| `inHours()`          | Set the time unit to hours           |
+| `inMinutes()`        | Set the time unit to minutes         |
+| `inSeconds()`        | Set the time unit to seconds         |
+| `inMilliseconds()`   | Set the time unit to milliseconds    |
+| `inMicroseconds()`   | Set the time unit to microseconds    |
+| `inNanoseconds()`    | Set the time unit to nanoseconds     |
 
 ### Preventing Overlaps / Stacking
 
