@@ -1,14 +1,14 @@
 ---
-description: The ColdBox.cfc is the main applications' configuration object.
+description: The ColdBox.bx (or .cfc for CFML) is the main applications' configuration object.
 ---
 
-# ColdBox.cfc
+# ColdBox.bx (or .cfc for CFML)
 
 The ColdBox configuration class is the heart of your ColdBox application. It contains the initialization variables for your application and extra information used by third-party modules and ultimately how your application boots up. In itself, it is also an event listener or [ColdBox Interceptor](configuration-directives/interceptors.md), so it can listen to life-cycle events of your application.
 
 
 
-![ColdBox.cfc EcoSystem](../../../.gitbook/assets/Coldbox-cfc.jpg)
+![ColdBox.bx (or .cfc for CFML) EcoSystem](../../../.gitbook/assets/Coldbox-cfc.jpg)
 
 This class is instantiated by ColdBox and decorated at runtime so you can take advantage of some dependencies.  Here is a table of the automatic injection this object has:
 

@@ -10,11 +10,11 @@ The core conventions delineate the contract between ColdBox and **you** for file
 ## Directory/File Conventions
 
 * **/config** - Where configuration files are stored
-  * **/Coldbox.cfc** - Your application configuration object (_optional_ )
-  * **/CacheBox.cfc** - Your application CacheBox configuration (_optional_ )
-  * **/Router.cfc** - Your application URL Router (_optional_ )
-  * **/Scheduler.cfc** - Your application global task scheduler (optional)
-  * **/WireBox.cfc** - Your application WireBox Configuration (_optional_ )
+  * **/Coldbox.bx** (or `.cfc` for CFML) - Your application configuration object (_optional_ )
+  * **/CacheBox.bx** (or `.cfc` for CFML) - Your application CacheBox configuration (_optional_ )
+  * **/Router.bx** (or `.cfc` for CFML) - Your application URL Router (_optional_ )
+  * **/Scheduler.bx** (or `.cfc` for CFML) - Your application global task scheduler (optional)
+  * **/WireBox.bx** (or `.cfc` for CFML) - Your application WireBox Configuration (_optional_ )
 * **/handlers** - This holds the app's event handlers (controller layer)
 * **/includes** - For public assets, helpers and i18n resources
   * **/css** - This can hold your CSS (optional)
@@ -31,4 +31,4 @@ The core conventions delineate the contract between ColdBox and **you** for file
 
 ColdBox also has several execution conventions.  This means that we have a convention or a default for the event, action, and layout to be used if you do not tell it what to use:
 
-<table data-header-hidden><thead><tr><th width="179">Convention</th><th width="199.33333333333331">Default Value</th><th>Description</th></tr></thead><tbody><tr><td><strong>Convention</strong></td><td><strong>Default Value</strong></td><td><strong>Description</strong></td></tr><tr><td>Default Event</td><td><code>main.index</code></td><td>The default event to execute when no event is specified</td></tr><tr><td>Default Action</td><td><code>index()</code></td><td>The default action to execute in an event handler controller if none is specified</td></tr><tr><td>Default Layout</td><td><code>layouts/Main.cfm</code></td><td>The default system layout to use</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="179">Convention</th><th width="199.33333333333331">Default Value</th><th>Description</th></tr></thead><tbody><tr><td><strong>Convention</strong></td><td><strong>Default Value</strong></td><td><strong>Description</strong></td></tr><tr><td>Default Event</td><td><code>main.index</code></td><td>The default event to execute when no event is specified</td></tr><tr><td>Default Action</td><td><code>index()</code></td><td>The default action to execute in an event handler controller if none is specified</td></tr><tr><td>Default Layout</td><td><code>layouts/Main.bxm</code> (or <code>.cfm</code> for CFML)</td><td>The default system layout to use</td></tr></tbody></table>

@@ -76,7 +76,7 @@ component name="MyHandler"{
 Notice that we define a `cfproperty` with a name and `inject` attribute.  The `name` becomes the name of the variable in the `variables` scope and the `inject` annotation tells WireBox what to retrieve.  By default it retrieves model objects by name and path.
 
 {% hint style="success" %}
-**Tip:** The [injection DSL](./#injection) is vast and elegant.  Please refer to it.  Also note that you can create object aliases and references in your [config binder](https://wirebox.ortusbooks.com/configuration/configuring-wirebox): `config/WireBox.cfc`
+**Tip:** The [injection DSL](./#injection) is vast and elegant.  Please refer to it.  Also note that you can create object aliases and references in your [config binder](https://wirebox.ortusbooks.com/configuration/configuring-wirebox): `config/WireBox.bx` (or `.cfc` for CFML)
 {% endhint %}
 
 ## Requesting Model Objects
@@ -140,7 +140,7 @@ component{
 
 ## A practical example
 
-In this practical example we will see how to integrate with our model layer via WireBox, injections, and also requesting the objects. Let's say that we have a service object we have built called `FunkyService.cfc` and by convention we will place it in our applications `models` folder.
+In this practical example we will see how to integrate with our model layer via WireBox, injections, and also requesting the objects. Let's say that we have a service object we have built called `FunkyService.bx` (or `.cfc` for CFML) and by convention we will place it in our applications `models` folder.
 
 {% code title="Directory Layout" %}
 ```javascript
@@ -150,7 +150,7 @@ In this practical example we will see how to integrate with our model layer via 
 ```
 {% endcode %}
 
-**FunkyService.cfc**
+**FunkyService.bx** (or `.cfc` for CFML)
 
 {% tabs %}
 {% tab title="BoxLang" %}

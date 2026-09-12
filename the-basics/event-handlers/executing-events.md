@@ -90,5 +90,5 @@ runEvent( event="users.widget", eventArguments={ max=10, page=2 }, cache=true );
 ```
 
 {% hint style="success" %}
-**Tip**: You can disable event caching by using the `coldbox.eventCaching` directive in your `config/ColdBox.cfc`
+**Tip**: You can disable event caching by using the `coldbox.eventCaching` directive in your `config/ColdBox.bx` (or `.cfc` for CFML)
 {% endhint %}

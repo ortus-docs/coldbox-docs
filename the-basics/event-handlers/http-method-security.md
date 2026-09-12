@@ -34,7 +34,7 @@ this.allowedMethods = {
 If the request action HTTP method is not found in the approved list, it will look for a `onInvalidHTTPMethod()` on the handler and call it if found. Otherwise ColdBox throws a **405 exception** that is uniform across requests.
 
 {% hint style="info" %}
-You can listen for [global invalid HTTP](../../getting-started/configuration/coldbox.cfc/configuration-directives/) methods using the `coldbox.onInvalidHTTPMethodHandler` located in your `config/ColdBox.cfc.`
+You can listen for [global invalid HTTP](../../getting-started/configuration/coldbox.cfc/configuration-directives/) methods using the `coldbox.onInvalidHTTPMethodHandler` located in your `config/ColdBox.bx` (or `.cfc` for CFML).
 {% endhint %}
 
 {% tabs %}

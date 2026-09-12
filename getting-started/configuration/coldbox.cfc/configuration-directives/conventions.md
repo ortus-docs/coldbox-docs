@@ -30,5 +30,5 @@ Behind the scenes, each key you override above (if any) is translated into one o
 | `eventAction`       | `eventAction`         | `index`        |
 
 {% hint style="info" %}
-`configConvention` (default `config.Coldbox`, the dot-notation invocation path used to locate your `config/ColdBox.cfc`) is also a framework setting, but it is resolved before conventions are parsed and cannot be overridden via the `conventions` struct.
+`configConvention` (default `config.Coldbox`, the dot-notation invocation path used to locate your `config/ColdBox.bx` (or `.cfc` for CFML)) is also a framework setting, but it is resolved before conventions are parsed and cannot be overridden via the `conventions` struct.
 {% endhint %}

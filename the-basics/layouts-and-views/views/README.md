@@ -82,7 +82,7 @@ component
 {% endtab %}
 {% endtabs %}
 
-We use the `setView()` method to set the view `views/general/index.cfm` to be rendered. The cool thing about this is that we can override the view to be rendered anytime during the request flow. So, the last process to execute the `setView()` method is the one that counts. Also, notice a few things:
+We use the `setView()` method to set the view `views/general/index.bxm` (or `.cfm` for CFML) to be rendered. The cool thing about this is that we can override the view to be rendered anytime during the request flow. So, the last process to execute the `setView()` method is the one that counts. Also, notice a few things:
 
 * No extension is needed.
 * You can traverse directories by using `/` like normal `cfinclude` notation.
@@ -90,7 +90,7 @@ We use the `setView()` method to set the view `views/general/index.cfm` to be re
 * You did not specify a layout for the view, so the application's default layout (`Main`) will be used.
 
 {% hint style="danger" %}
-It is best practice that view locations should simulate the event. So, if the event is **general.index**, there should be a **general** folder in the root **views** folder with a view called **index.cfm/bxm**
+It is best practice that view locations should simulate the event. So, if the event is **general.index**, there should be a **general** folder in the root **views** folder with a view called **index.bxm/cfm**
 {% endhint %}
 
 **Let's look at the view code:**
@@ -300,7 +300,7 @@ component name="general"{
 
 ## Implicit Views
 
-You can also omit the explicit `event.setView()` if you want, ColdBox will then look for the view according to the executing event's syntax by convention. So if the incoming event is called `general.index` and no view is explicitly defined in your handler, ColdBox will look for a view in the `general` folder called `index.cfm`. We recommend matching event resolution to view resolution, even if you use implicit views.
+You can also omit the explicit `event.setView()` if you want, ColdBox will then look for the view according to the executing event's syntax by convention. So if the incoming event is called `general.index` and no view is explicitly defined in your handler, ColdBox will look for a view in the `general` folder called `index.bxm` (or `.cfm` for CFML). We recommend matching event resolution to view resolution, even if you use implicit views.
 
 {% hint style="success" %}
 **Tip:** This feature is more for convention purists than anything else. However, we do recommend, as best practice, explicitly declaring the view to be rendered when working with team environments, as everybody will know what happens.
@@ -339,7 +339,7 @@ component name="general"{
 
 ### Disabling Implicit Views
 
-You can also disable implicit views by using the `coldbox.implicitViews` configuration setting in your `config/ColdBox.cfc`. This is useful as implicit lookups are time-consuming.
+You can also disable implicit views by using the `coldbox.implicitViews` configuration setting in your `config/ColdBox.bx` (or `.cfc` for CFML). This is useful as implicit lookups are time-consuming.
 
 ```javascript
 coldbox.implicitViews = false;
@@ -347,7 +347,7 @@ coldbox.implicitViews = false;
 
 ### Case Sensitivity
 
-The ColdBox rendering engine can also be tweaked to use **case-insensitive** or **sensitive** implicit views by using the `coldbox.caseSensitiveImplicitViews` directive in your `config/ColdBox.cfc`. The default is to turn all implicit views to lowercase, so the value is always **false**.
+The ColdBox rendering engine can also be tweaked to use **case-insensitive** or **sensitive** implicit views by using the `coldbox.caseSensitiveImplicitViews` directive in your `config/ColdBox.bx` (or `.cfc` for CFML). The default is to turn all implicit views to lowercase, so the value is always **false**.
 
 ```javascript
 coldbox.caseSensitiveImplicitViews = true;

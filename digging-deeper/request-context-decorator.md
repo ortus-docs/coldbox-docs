@@ -28,7 +28,7 @@ Create a class that extends `coldbox.system.web.context.RequestContextDecorator`
 
 #### Declaration
 
-The following is a simple decorator class (`MyDecorator.cfc`) that auto-trims values when calling the `getValue()` method.  You can override methods or create new ones.
+The following is a simple decorator class (`MyDecorator.bx` (or `.cfc` for CFML)) that auto-trims values when calling the `getValue()` method.  You can override methods or create new ones.
 
 {% tabs %}
 {% tab title="BoxLang" %}
@@ -113,7 +113,7 @@ The request context decorator receives a reference to the ColdBox `controller` o
 
 ### Configuration
 
-Now that we have created our `MyDecorator.cfc` let's tell ColdBox to use the decorator open your `ColdBox.cfc` and add the following `coldbox` directive:
+Now that we have created our `MyDecorator.bx` (or `.cfc` for CFML) let's tell ColdBox to use the decorator open your `ColdBox.bx` (or `.cfc` for CFML) and add the following `coldbox` directive:
 
 ```java
 coldbox = {

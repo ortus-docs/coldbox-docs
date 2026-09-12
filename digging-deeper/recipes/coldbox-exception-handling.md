@@ -13,7 +13,7 @@ ColdBox provides you with several ways to handle different types of exceptions d
 
 ## Global Exception Handler
 
-The global exception handler will manage any runtime exception that occurs during the flow of a typical ColdBox request execution. This could be an exception at the handler, model, or view levels. This feature is activated by configuring the `coldbox.exceptionhandler` setting in your configuration `ColdBox.cfc`. The value of the setting is the event that will act as your global exception handler.
+The global exception handler will manage any runtime exception that occurs during the flow of a typical ColdBox request execution. This could be an exception at the handler, model, or view levels. This feature is activated by configuring the `coldbox.exceptionhandler` setting in your configuration `ColdBox.bx` (or `.cfc` for CFML). The value of the setting is the event that will act as your global exception handler.
 
 ```javascript
 coldbox = {
@@ -100,7 +100,7 @@ interceptors = [
 
 ## Global Invalid Event Handler
 
-The global invalid event handler allows you to configure an event to execute whenever ColdBox detects that the requested event does not exist. This is a great way to present the user with page not found exceptions and 404 error codes. The setting is called `coldbox.invalidEventHandler` and can be set in your configuration `ColdBox.cfc`. The value of the setting is the event that will handle these missing events.
+The global invalid event handler allows you to configure an event to execute whenever ColdBox detects that the requested event does not exist. This is a great way to present the user with page not found exceptions and 404 error codes. The setting is called `coldbox.invalidEventHandler` and can be set in your configuration `ColdBox.bx` (or `.cfc` for CFML). The value of the setting is the event that will handle these missing events.
 
 ```javascript
 coldbox = {
@@ -195,9 +195,9 @@ interceptors = [
 
 ## Global Missing Template Handler
 
-The global missing template handler allows you to configure an event to execute whenever ColdBox detects a request to a non-existent CFML page. This is a great way to present the user with page not found exceptions or actually use it to route the request in a dynamic matter, just like if those pages existed on disk. The setting is called `coldbox.missingTemplateHandler` and can be set in your configuration `ColdBox.cfc`. The value of the setting is the event that will handle these missing pages.
+The global missing template handler allows you to configure an event to execute whenever ColdBox detects a request to a non-existent CFML page. This is a great way to present the user with page not found exceptions or actually use it to route the request in a dynamic matter, just like if those pages existed on disk. The setting is called `coldbox.missingTemplateHandler` and can be set in your configuration `ColdBox.bx` (or `.cfc` for CFML). The value of the setting is the event that will handle these missing pages.
 
-> **Info** Note that in order for this functionality to work the method `onMissingTemplate()` must exist in the `Application.cfc` with the default ColdBox handler code.
+> **Info** Note that in order for this functionality to work the method `onMissingTemplate()` must exist in the `Application.bx` (or `.cfc` for CFML) with the default ColdBox handler code.
 
 ```javascript
 coldbox = {
@@ -224,7 +224,7 @@ function missingTemplate(event,rc,prc){
 
 ## Handler `onMissingAction()`
 
-This approach allows you to intercept at the handler level when someone requested an action (method) that does not exist in the specified handler. This is really useful when you want to respond to dynamic requests like `/page/contact-us, /page/hello`, where page points to a `Page.cfc` and the rest of the URL will try to match to an action that does not exist. You can then use that portion of the URL to lookup a dynamic record. However, you can also use it to detect when invalid actions are sent to a specific handler.
+This approach allows you to intercept at the handler level when someone requested an action (method) that does not exist in the specified handler. This is really useful when you want to respond to dynamic requests like `/page/contact-us, /page/hello`, where page points to a `Page.bx` (or `.cfc` for CFML) and the rest of the URL will try to match to an action that does not exist. You can then use that portion of the URL to lookup a dynamic record. However, you can also use it to detect when invalid actions are sent to a specific handler.
 
 ```javascript
 function onMissingAction(event,rc,prc,missingAction,eventArguments){

@@ -77,7 +77,7 @@ http://www.example.com/api/user
 GET, PUT, and DELETE methods should be **idempotent** which means repeated requests to the same URI don't do anything. Repeated POST calls however, would create multiple users.
 {% endhint %}
 
-In ColdBox, the easiest way to represent our `/api/user` resource is to create a handler called `user.cfc` in the `/handlers/api/` directory. In this instance, ColdBox will consider the `api` to be a handler package. You can leverage CommandBox for this:
+In ColdBox, the easiest way to represent our `/api/user` resource is to create a handler called `user.bx` (or `.cfc` for CFML) in the `/handlers/api/` directory. In this instance, ColdBox will consider the `api` to be a handler package. You can leverage CommandBox for this:
 
 ```bash
 coldbox create handler name=api.user actions=index,view,save,remove
@@ -89,7 +89,7 @@ coldbox create handler name=api.user actions=index,view,save,remove
 
 Here in my handler, I have stubbed out actions for each of the operations I need to perform against my user resource.
 
-**/handlers/api/user.cfc**
+**/handlers/api/user.bx** (or `.cfc` for CFML)
 
 {% tabs %}
 {% tab title="BoxLang" %}
@@ -144,7 +144,7 @@ component {
 
 Now that we have this skeleton in place to represent our user resource, let's move on to show how you can have full control of the URL as well as mapping HTTP verbs to specific handler actions.
 
-The default route for our `user.cfc` handler is `/api/user`, but what if we want the resource in the URL to be completely different than the handler name convention? To do this, use the `/config/Router.cfc.` file to declare URL routes we want the application to capture and define how to process them. This is your [URL Router](../../the-basics/routing/application-router.md) and it is your best friend!
+The default route for our `user.bx` (or `.cfc` for CFML) handler is `/api/user`, but what if we want the resource in the URL to be completely different than the handler name convention? To do this, use the `/config/Router.bx` (or `.cfc` for CFML) file to declare URL routes we want the application to capture and define how to process them. This is your [URL Router](../../the-basics/routing/application-router.md) and it is your best friend!
 
 {% hint style="success" %}
 Install the `route-visualizer` module to visualize the router graphically. This is a huuuuge help when building APIs or anything with routes.
@@ -381,7 +381,7 @@ function worldPeace( event, rc, prc ){
 
 ### Caching
 
-One of the great benefits of building your REST API on the ColdBox platform is tapping into awesome features such as event caching. Event caching allows you to cache the entire response for a resource using the incoming `FORM` and `URL` variables as the cache key. To enable event caching, set the following flag to true in your ColdBox config: `Coldbox.cfc`:
+One of the great benefits of building your REST API on the ColdBox platform is tapping into awesome features such as event caching. Event caching allows you to cache the entire response for a resource using the incoming `FORM` and `URL` variables as the cache key. To enable event caching, set the following flag to true in your ColdBox config: `Coldbox.bx` (or `.cfc` for CFML):
 
 {% code title="config/ColdBox.cfc" %}
 ```java
@@ -479,7 +479,7 @@ Remember interceptors can include an `eventPattern` annotation to limit what Col
 
 In addition to having access to the entire request collection, the event object also has handy methods such as `event.getHTTPHeader()` to pull specific headers from the HTTP request.
 
-**/interceptors/APISecurity.cfc**
+**/interceptors/APISecurity.bx** (or `.cfc` for CFML)
 
 {% tabs %}
 {% tab title="BoxLang" %}
@@ -522,7 +522,7 @@ component{
 {% endtab %}
 {% endtabs %}
 
-Register the interceptor with ColdBox in your `ColdBox.cfc`:
+Register the interceptor with ColdBox in your `ColdBox.bx` (or `.cfc` for CFML):
 
 {% code title="config/ColdBox.cfc" %}
 ```javascript
@@ -632,7 +632,7 @@ function onInvalidHTTPMethod( event, rc, prc, faultAction, eventArguments ){
 
 ### Global Exception Handler
 
-The global exception handler will get called for any runtime errors that happen anywhere in the typical flow of your application. This is like the `onError()` convention but covers the entire application. First, configure the event you want called in the `ColdBox.cfc` config file. The event must have the handler plus action that you want called.
+The global exception handler will get called for any runtime errors that happen anywhere in the typical flow of your application. This is like the `onError()` convention but covers the entire application. First, configure the event you want called in the `ColdBox.bx` (or `.cfc` for CFML) config file. The event must have the handler plus action that you want called.
 
 {% code title="config/ColdBox.cfc" %}
 ```javascript
@@ -695,7 +695,7 @@ install relax --saveDev
 
 **Please note:** Installing relax via CommandBox installs without the examples, if required you will need to obtain the examples from the Relax Github repo here: [https://github.com/ColdBox/coldbox-relax](https://github.com/ColdBox/coldbox-relax)
 
-To install the examples place them into the models directory in a subdirectory called 'resources' (as per the Github repo), then add the following `relax` structure to your `Coldbox.cfc` file:
+To install the examples place them into the models directory in a subdirectory called 'resources' (as per the Github repo), then add the following `relax` structure to your `Coldbox.bx` (or `.cfc` for CFML) file:
 
 ```javascript
 relax = {

@@ -1,6 +1,6 @@
 # Implicit Methods
 
-Every event handler controller has some **implicit** methods that if you create them, they come alive. Just like the implicit methods in `Application.cfc`
+Every event handler controller has some **implicit** methods that if you create them, they come alive. Just like the implicit methods in `Application.bx` (or `.cfc` for CFML)
 
 ## onMissingAction()
 

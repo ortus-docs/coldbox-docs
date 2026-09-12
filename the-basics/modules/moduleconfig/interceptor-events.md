@@ -4,7 +4,7 @@ The module configuration object is also treated as an Interceptor once it is cre
 
 ## Life-cycle Events
 
-There are two life-cycle callback events you can declare in your `ModuleConfig.cfc`:
+There are two life-cycle callback events you can declare in your `ModuleConfig.bx` (or `.cfc` for CFML):
 
 * `onLoad()` : Called when the module is loaded and activated
 * `onUnLoad()` : Called when the module is unloaded from memory

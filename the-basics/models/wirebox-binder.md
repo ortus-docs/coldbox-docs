@@ -1,6 +1,6 @@
 # WireBox Binder
 
-You can have an optional WireBox configuration binder that can fine-tune the WireBox engine and also where you can create object mappings, and even more model locations by convention. Usually you will find this binder by convention in your `config/WireBox.cfc` location and it looks like this:
+You can have an optional WireBox configuration binder that can fine-tune the WireBox engine and also where you can create object mappings, and even more model locations by convention. Usually you will find this binder by convention in your `config/WireBox.bx` (or `.cfc` for CFML) location and it looks like this:
 
 {% tabs %}
 {% tab title="BoxLang" %}
@@ -101,7 +101,7 @@ Please refer to the full Binder documentation: ([http://wirebox.ortusbooks.com/c
 
 ## Mappings
 
-By default, all objects that you place in the `models` folder are available to your application by their name. So if you create a new model object: `models/MyService.cfc`, you can refer to it as `MyService` in your application. However, if you create a model object: `models/security/SecurityService.cfc` it will be available as `security.SecurityService`. This is great and dandy, but when refactoring comes to play you will have to refactor all references to the dot-notation paths. This is where mappings come into play.
+By default, all objects that you place in the `models` folder are available to your application by their name. So if you create a new model object: `models/MyService.bx` (or `.cfc` for CFML), you can refer to it as `MyService` in your application. However, if you create a model object: `models/security/SecurityService.bx` (or `.cfc` for CFML) it will be available as `security.SecurityService`. This is great and dandy, but when refactoring comes to play you will have to refactor all references to the dot-notation paths. This is where mappings come into play.
 
 WireBox has several methods for mappings, the easiest of them are the following:
 

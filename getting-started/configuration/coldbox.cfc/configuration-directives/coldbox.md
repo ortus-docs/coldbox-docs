@@ -16,7 +16,7 @@ coldbox = {
 > **Info** : Please note that there are no mandatory settings as of ColdBox 4.2.0. If fact, you can remove the config file completely and your app will run. It will be impossible to reinit the app however without a reinit password set.
 
 {% hint style="danger" %}
-**Removed:** `appMapping` is **not** a `coldbox = {}` setting. The application mapping is configured via the `COLDBOX_APP_MAPPING` variable in your `Application.cfc`/`Application.bx`. See [Application.cfc](../../bootstrapper-application.cfc.md) for details.
+**Removed:** `appMapping` is **not** a `coldbox = {}` setting. The application mapping is configured via the `COLDBOX_APP_MAPPING` variable in your `Application.bx`/`Application.cfc`. See [Application.bx (or .cfc for CFML)](../../bootstrapper-application.cfc.md) for details.
 {% endhint %}
 
 ## Development Settings
@@ -70,7 +70,7 @@ coldbox={
 }
 ```
 
-These settings map 1-1 from ColdBox events to the `Application.cfc` life-cycle methods. The only one that is not is the `defaultEvent`, which selects what event the framework will execute when no incoming event is detected via URL/FORM or REMOTE executions.
+These settings map 1-1 from ColdBox events to the `Application.bx` (or `.cfc` for CFML) life-cycle methods. The only one that is not is the `defaultEvent`, which selects what event the framework will execute when no incoming event is detected via URL/FORM or REMOTE executions.
 
 ## Extension Points
 
@@ -240,7 +240,7 @@ When the incoming request body is a JSON payload, ColdBox will parse it and merg
 
 ## Async & Server-Sent Events Settings
 
-Unlike the settings above, `async` and `sse` are **not** nested inside the `coldbox = {}` struct - they are their own top-level structures in your `ColdBox.cfc`, right alongside `coldbox`, `conventions`, `interceptors`, etc.
+Unlike the settings above, `async` and `sse` are **not** nested inside the `coldbox = {}` struct - they are their own top-level structures in your `ColdBox.bx` (or `.cfc` for CFML), right alongside `coldbox`, `conventions`, `interceptors`, etc.
 
 ```javascript
 // Async Executor Settings
@@ -299,4 +299,4 @@ Activates the framework's debug mode, which enables more verbose/robust exceptio
 
 ### **exceptionEditor**
 
-The identifier of the IDE/editor used to build clickable "open file" links for stack trace entries in exception reports (e.g. `BugReport.cfm`). Defaults to `vscode`.
+The identifier of the IDE/editor used to build clickable "open file" links for stack trace entries in exception reports (e.g. `BugReport.bxm` (or `.cfm` for CFML)). Defaults to `vscode`.

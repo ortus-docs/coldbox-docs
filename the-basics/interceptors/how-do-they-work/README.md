@@ -43,9 +43,9 @@ coldbox create interceptor help
 
 ## Registration
 
-Interceptors can be registered in your `Coldbox.cfc` configuration file using the `interceptors` struct, or they can be registered manually via the system's interceptor service.
+Interceptors can be registered in your `Coldbox.bx` (or `.cfc` for CFML) configuration file using the `interceptors` struct, or they can be registered manually via the system's interceptor service.
 
-In `ColdBox.cfc`:
+In `ColdBox.bx` (or `.cfc` for CFML):
 
 ```
 // Interceptors registration

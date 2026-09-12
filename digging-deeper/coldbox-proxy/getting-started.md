@@ -27,7 +27,7 @@ The proxy will give you access to your entire ColdBox application assets but als
 
 Then your event handlers can respond to these requests just like normal requests and even return data back to the caller.
 
-> **Hint** The advanced ColdBox templates gives you a sample proxy object in your `remote/MyProxy.cfc` folder.
+> **Hint** The advanced ColdBox templates gives you a sample proxy object in your `remote/MyProxy.bx` (or `.cfc` for CFML) folder.
 
 ## Organization
 
@@ -82,7 +82,7 @@ component extends="coldbox.system.remote.ColdboxProxy"{
 
 ## AppMapping
 
-However, since some of these requests won't be done via HTTP but other protocols like Flex/Air binary protocols or event gateways, your ColdBox application must know where in your server the application is located in, so the `Application.cfc` methods fire. By default, when using HTTP calls, ColdBox can auto-locate your application with no issues at all, but with Flex/AIR or other protocols you must set this location in your `Application.cfc` via the `COLDBOX_APP_MAPPING` directive **ONLY if not in the webroot of an application**.
+However, since some of these requests won't be done via HTTP but other protocols like Flex/Air binary protocols or event gateways, your ColdBox application must know where in your server the application is located in, so the `Application.bx` (or `.cfc` for CFML) methods fire. By default, when using HTTP calls, ColdBox can auto-locate your application with no issues at all, but with Flex/AIR or other protocols you must set this location in your `Application.bx` (or `.cfc` for CFML) via the `COLDBOX_APP_MAPPING` directive **ONLY if not in the webroot of an application**.
 
 ```javascript
 COLDBOX_APP_MAPPING   = "";

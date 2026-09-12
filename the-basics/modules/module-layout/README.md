@@ -20,7 +20,7 @@ Created /Users/lmajano/tmp/myapp/modules_app/helloworld/views/home
 Created /Users/lmajano/tmp/myapp/modules_app/helloworld/views/home/index.cfm
 ```
 
-The layout of a ColdBox Module is optional except for one file: `ModuleConfig.cfc`. This is a simple class that boots up your module and tells the host application how your module is loaded, unloaded and behaves. If you are leveraging CommandBox then you can also declare a `box.json` for the module itself in order to declare dependencies and development dependencies for it.
+The layout of a ColdBox Module is optional except for one file: `ModuleConfig.bx` (or `.cfc` for CFML). This is a simple class that boots up your module and tells the host application how your module is loaded, unloaded and behaves. If you are leveraging CommandBox then you can also declare a `box.json` for the module itself in order to declare dependencies and development dependencies for it.
 
 Below are all the possible combinations of a module layout, you will notice that it is EXACTLY the same as a ColdBox application.
 
@@ -36,4 +36,4 @@ Below are all the possible combinations of a module layout, you will notice that
     + models    (optional)
 ```
 
-As you can see, the only mandatory resources for a module is the directory name in which it lives and a `ModuleConfig.cfc`. The module developer can choose to implement a simple module or a very complex module. All folders are optional and only what is used will be loaded. Not only are modules reusable and extensible, but you can easily create a module with dual functionality: A standalone application or a module. This is true reusability and flexibility. I don't know about you, but this is really exciting (Geek Alert!).
+As you can see, the only mandatory resources for a module is the directory name in which it lives and a `ModuleConfig.bx` (or `.cfc` for CFML). The module developer can choose to implement a simple module or a very complex module. All folders are optional and only what is used will be loaded. Not only are modules reusable and extensible, but you can easily create a module with dual functionality: A standalone application or a module. This is true reusability and flexibility. I don't know about you, but this is really exciting (Geek Alert!).

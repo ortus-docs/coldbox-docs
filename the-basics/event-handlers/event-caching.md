@@ -12,7 +12,7 @@ Important to note also, that any combination of URL/FORM parameters on an event 
 
 ## Enabling Event Caching
 
-To enable event caching, you will need to set a setting in your `ColdBox.cfc` called `coldbox.eventcaching` to `true`.
+To enable event caching, you will need to set a setting in your `ColdBox.bx` (or `.cfc` for CFML) called `coldbox.eventcaching` to `true`.
 
 ```javascript
  coldbox.eventCaching = true;
