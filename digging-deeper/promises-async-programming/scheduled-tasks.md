@@ -2,7 +2,7 @@
 
 ## Requirements
 
-The [async](./) package is what powers scheduled tasks and it can be available to any CFML application by using any of our standalone libraries and frameworks:
+The [async](./) package is what powers scheduled tasks and it can be available to any BoxLang or CFML application by using any of our standalone libraries and frameworks:
 
 * [CacheBox](https://forgebox.io/view/cachebox)
 * [ColdBox](https://forgebox.io/view/coldbox)
@@ -32,11 +32,11 @@ With our scheduled tasks you can run either one-off tasks or periodically tasks.
 
 To create a new scheduler you can call the Async Managers' `newScheduler( name )` method.  This will create a new `coldbox.system.async.tasks.Scheduler` object with the specified name you pass. It will also create a `ScheduledExecutor` for you with the default threads count inside the scheduler..  It will be then your responsibility to persist that scheduler so you can use it throughout your application process.
 
-{% embed url="https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/async/tasks/Scheduler.html" %}
+{% embed url="https://apidocs.ortussolutions.com/coldbox/current/coldbox/system/async/tasks/Scheduler.html" %}
 Scheduler API Docs
 {% endembed %}
 
-{% embed url="https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/async/executors/ScheduledExecutor.html" %}
+{% embed url="https://apidocs.ortussolutions.com/coldbox/current/coldbox/system/async/executors/ScheduledExecutor.html" %}
 ScheduledExecutor API Docs
 {% endembed %}
 
@@ -231,7 +231,7 @@ Once you call on this method, the scheduler will create a `ColdBoxScheduledTask`
 task( "my-task" )
 ```
 
-You can find the API Docs for this object here: [https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/async/tasks/ScheduledTask.html](https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/async/tasks/ScheduledTask.html)
+You can find the API Docs for this object here: [https://apidocs.ortussolutions.com/coldbox/current/coldbox/system/async/tasks/ScheduledTask.html](https://apidocs.ortussolutions.com/coldbox/current/coldbox/system/async/tasks/ScheduledTask.html)
 
 ### Task Closure/Lambda/Object
 
@@ -622,7 +622,7 @@ As you can see, now we are in [Scheduling Tasks](scheduled-tasks.md#scheduling-t
 2. We call the `start()` method manually, whenever we want to send the task into scheduling
 3. We get a `ScheduledFuture` result object so we can track the results of the schedule.
 
-{% embed url="https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/async/tasks/ScheduledFuture.html" %}
+{% embed url="https://apidocs.ortussolutions.com/coldbox/current/coldbox/system/async/tasks/ScheduledFuture.html" %}
 ScheduledFuture API Docs
 {% endembed %}
 
@@ -644,3 +644,79 @@ executor.newSchedule( task : function(){
 {% hint style="info" %}
 Remember you can set how many threads you want in a executor.  It doesn't even have to be a scheduled executor, but could be a cached one which can expand and contract according to work loads.
 {% endhint %}
+
+## BoxLang Native Scheduling
+
+Outside of a ColdBox application, BoxLang offers its own scheduling model, independent of the async package above. You get the same fluent task DSL (`every()`, `everyDayAt()`, `cron()`, `onFailure()`, etc.), but registered through a standalone `Scheduler.bx` class instead of the ColdBox `AsyncManager`.
+
+```js
+// schedulers/MyScheduler.bx
+class {
+
+    property name="scheduler"
+    property name="logger"
+
+    function configure() {
+        scheduler.setSchedulerName( "MyApp-Scheduler" )
+        scheduler.setTimezone( "UTC" )
+
+        scheduler.task( "cleanupExpiredSessions" )
+            .call( () => sessionService.cleanup() )
+            .every( 15, "minutes" )
+            .onFailure( ( task, error ) => logError( error.message ) )
+
+        scheduler.task( "dailyReport" )
+            .call( () => reportService.generate() )
+            .every( 1, "day" )
+            .startOn( "00:00" )
+    }
+
+    void function onStartup() {
+        logger.info( "Scheduler started: #scheduler.getSchedulerName()#" )
+    }
+
+    void function onShutdown() {
+        logger.info( "Scheduler shutting down" )
+    }
+
+    void function onAnyTaskError( required task, required exception ) {
+        logger.error( "Task '#task.getName()#' failed: #exception.message#" )
+    }
+
+}
+```
+
+Register it in `boxlang.json` so it starts automatically:
+
+```json
+{
+    "scheduler": {
+        "schedulers": [ "/path/to/schedulers/MyScheduler.bx" ]
+    }
+}
+```
+
+Or manage it programmatically with the scheduler BIFs:
+
+```js
+// Start from class path (creates, configures, registers, and starts)
+schedulerStart( className = "schedulers.MyScheduler", name = "MyApp-Scheduler", force = true )
+
+// Lookup / control
+schedulerGet( "MyApp-Scheduler" )
+schedulerStats( "MyApp-Scheduler" )
+schedulerRestart( "MyApp-Scheduler", force = false, timeout = 30 )
+schedulerShutdown( "MyApp-Scheduler", force = false, timeout = 30 )
+```
+
+Or trigger it from the CLI:
+
+```bash
+boxlang schedule /path/to/schedulers/MyScheduler.bx
+```
+
+{% hint style="success" %}
+**Which one should I use?** Inside a ColdBox app, prefer `config/Scheduler.cfc` (see [ColdBox Scheduled Tasks](../scheduled-tasks.md)) - it's managed by the framework's lifecycle and works the same on BoxLang or CFML. Outside ColdBox, use the native BoxLang `Scheduler.bx` + `boxlang.json` approach shown above.
+{% endhint %}
+
+See [BoxLang Scheduling](https://boxlang.ortusbooks.com/boxlang-framework/asynchronous-programming) for the complete native reference.

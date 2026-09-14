@@ -333,3 +333,72 @@ property name="taskScheduler" inject="executor";
 // Inject the `coldbox-tasks` as `taskScheduler`
 property name="taskScheduler" inject="executor:coldbox-tasks";
 ```
+
+## BoxLang Native Executors
+
+Outside of a ColdBox application, BoxLang manages executors natively through its `AsyncService` - no `AsyncManager` injection required.
+
+### Pre-Configured Runtime Executors
+
+BoxLang ships three pre-configured executors, accessible via `executorGet()`:
+
+| Name              | Default Type | Best For                          |
+| ----------------- | ------------ | ---------------------------------- |
+| `io-tasks`        | `virtual`    | I/O-bound work (HTTP, queries, file I/O) - the default executor for `asyncRun()`/`futureNew()` |
+| `cpu-tasks`       | `scheduled`, 20 threads | CPU-bound work (image processing, encryption, transforms) |
+| `scheduled-tasks` | `scheduled`, 20 threads | Cron/periodic scheduled tasks |
+
+```js
+var ioExecutor        = executorGet( "io-tasks" );
+var cpuExecutor       = executorGet( "cpu-tasks" );
+var scheduledExecutor = executorGet( "scheduled-tasks" );
+
+// Pass the executor name directly to asyncRun()/futureNew()
+asyncRun( () => cpuIntensiveWork(), "cpu-tasks" );
+futureNew( () => fetchData(), "io-tasks" );
+```
+
+You can override these in `boxlang.json`:
+
+```json
+{
+    "executors": {
+        "io-tasks":        { "type": "virtual" },
+        "cpu-tasks":       { "type": "scheduled", "threads": 10 },
+        "scheduled-tasks": { "type": "scheduled", "threads": 10 }
+    }
+}
+```
+
+### Executor Types via `executorNew()`
+
+BoxLang supports **seven** executor types (three more than ColdBox's four):
+
+* `virtual` : Java 21+ virtual threads - one thread per task, ideal for I/O-bound work
+* `fixed` : A predictable, bounded thread pool - same concept as ColdBox's `fixed`
+* `cached` : Grows/shrinks dynamically for bursty workloads - same concept as ColdBox's `cached`
+* `single` : Sequential, guaranteed-order execution - same concept as ColdBox's `single`
+* `scheduled` : Supports `scheduleOnce`, `scheduleAtFixedRate`, `scheduleWithFixedDelay` - same concept as ColdBox's `scheduled`
+* `fork_join` : Recursive divide-and-conquer algorithms
+* `work_stealing` : Auto load-balancing across threads
+
+```js
+var ioPool  = executorNew( "virtual", "my-io-pool" );
+var cpuPool = executorNew( type="fixed", name="cpu-pool", threads=8 );
+var dynPool = executorNew( "cached", "burst-pool" );
+var seqPool = executorNew( "single", "sequential-processor" );
+var fjPool  = executorNew( type="fork_join", name="fj-pool", parallelism=8 );
+var wsPool  = executorNew( type="work_stealing", name="load-balanced", parallelism=8 );
+
+// Scheduled execution
+var scheduler = executorNew( type="scheduled", name="scheduler", threads=5 );
+scheduler.scheduleAtFixedRate( () => healthCheck(), 0, 30, "seconds" );
+
+// Statistics - same idea as ColdBox's getExecutorStatusMap()
+var stats = ioPool.getStatistics();
+writeOutput( "Active threads: #stats.activeCount#" );
+```
+
+{% hint style="info" %}
+Conceptually, ColdBox's `virtual`/`fixed`/`cached`/`single`/`scheduled` executor types map directly to BoxLang's native ones of the same name - BoxLang just adds `fork_join` and `work_stealing` on top. See [BoxLang Asynchronous Programming](https://boxlang.ortusbooks.com/boxlang-framework/asynchronous-programming) for the full reference.
+{% endhint %}

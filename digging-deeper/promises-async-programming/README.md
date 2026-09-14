@@ -8,7 +8,7 @@ icon: clock
 
 ## Introduction
 
-ColdBox 6 introduces the concept of asynchronous and parallel programming using Futures and Executors for ColdFusion (CFML). We leverage the entire arsenal in the [JDK](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/package-summary.html) to bring you a wide array of features for your applications. From the ability to create asynchronous pipelines, to parallel work loads, work queues, and scheduled tasks.
+ColdBox introduces the concept of asynchronous and parallel programming using Futures and Executors for both **BoxLang** and CFML. We leverage the entire arsenal in the [JDK](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/package-summary.html) to bring you a wide array of features for your applications. From the ability to create asynchronous pipelines, to parallel work loads, work queues, and scheduled tasks.
 
 {% hint style="danger" %}
 **YOU DON'T NEED COLDBOX TO RUN ANY SCHEDULED TASKS OR ANY FEATURES OF THE ASYNC PACKAGE. YOU CAN USE ANY OF THE STANDALONE LIBRARIES BY USING CACHEBOX, WIREBOX OR LOGBOX STANDALONE.**
@@ -16,10 +16,29 @@ ColdBox 6 introduces the concept of asynchronous and parallel programming using 
 
 ![](../../.gitbook/assets/async-programming.png)
 
-Our async package `coldbox.system.async` is also available for all the standalone libraries: WireBox, CacheBox, and LogBox. This means that you can use the async capabilities in **ANY** ColdFusion (CFML) application, not only ColdBox HMVC applications.
+Our async package `coldbox.system.async` is also available for all the standalone libraries: WireBox, CacheBox, and LogBox. This means that you can use the async capabilities in **ANY** BoxLang or CFML application, not only ColdBox HMVC applications.
 
 {% hint style="success" %}
 We leverage Java `Executors`, `CompletableFutures` and much more classes from the concurrent packages in the JDK: [https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/package-summary.html](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/package-summary.html)
+{% endhint %}
+
+## 🚀 BoxLang Native Async Constructs
+
+BoxLang, our preferred language, ships with its **own native, language-level async framework** - you don't need ColdBox's `AsyncManager` at all if you're not in a ColdBox app. It includes `futureNew()`/`BoxFuture`, `asyncRun()`, `asyncAll()`, `asyncAny()`, `asyncAllApply()`, `executorNew()`/`executorGet()`, the `thread` component, and a standalone `Scheduler.bx` + `boxlang.json` scheduling model. See the official reference: [BoxLang Asynchronous Programming](https://boxlang.ortusbooks.com/boxlang-framework/asynchronous-programming).
+
+### Which One Should I Use?
+
+| Scenario | Preferred Approach |
+| --- | --- |
+| You are inside a **ColdBox application** (BoxLang or CFML) | ColdBox `AsyncManager` (Futures, Executors, `config/Scheduler.cfc`). It integrates with the module lifecycle, DI container, environment/server-fixation constraints, and works identically whether you run on BoxLang or a CFML engine. |
+| You are writing **plain BoxLang** outside of ColdBox (a script, a CLI tool, a microservice, another framework) | BoxLang's native `futureNew()`, `asyncRun()`, `asyncAll()`/`asyncAny()`/`asyncAllApply()`, `executorNew()`/`executorGet()`, and `Scheduler.bx` + `boxlang.json`. No framework dependency required. |
+| You need **I/O-bound concurrency** (HTTP calls, queries, file I/O) | Virtual threads: ColdBox's `virtual` executor type, or BoxLang's pre-configured `io-tasks` executor. |
+| You need **CPU-bound concurrency** (image processing, encryption, heavy transforms) | A fixed pool: ColdBox's `fixed`/`cpuIntensive`-style executor, or BoxLang's `cpu-tasks` executor. |
+| You need **cron-style, in-process scheduled tasks** for a ColdBox app | `config/Scheduler.cfc` (app or module level) - see [ColdBox Scheduled Tasks](../scheduled-tasks.md). |
+| You need **scheduling outside ColdBox** | A native BoxLang `Scheduler.bx` registered in `boxlang.json` or via `schedulerStart()`. |
+
+{% hint style="info" %}
+Both engines end up calling into the same JDK `CompletableFuture`/`ExecutorService` machinery under the hood, so the concepts (futures, executors, schedulers) transfer directly between the ColdBox API and BoxLang's native API - only the entry-point functions differ.
 {% endhint %}
 
 ## Sample Gallery
@@ -110,9 +129,9 @@ You get the picture. They exist, but they are not easy to deal with and the API 
 
 ![Runnables are Expensive](../../.gitbook/assets/runnables.png)
 
-#### `runAsync()` vs ColdBox Futures
+#### `runAsync()` vs ColdBox Futures (Legacy CFML Engines)
 
-ColdFusion 2018+ and Lucee 5+ both have introduced the concept of async programming via their `runAsync()` function. Lucee also has the concept of executing collections in parallel via the `each(), map(), filter()` operations as well.  However, there is much to be desired in their implementations. Here are a list of deficiencies of their current implementations:
+Adobe ColdFusion 2018+ and Lucee 5+ both introduced the concept of async programming via their `runAsync()` function. Lucee also has the concept of executing collections in parallel via the `each(), map(), filter()` operations as well. However, there is much to be desired in these CFML-engine implementations. Here are a list of deficiencies:
 
 * Backed by a custom wrapper to `java.util.concurrent.Future` and not Completable Futures
 * Simplistic error handler with no way to recover or continue executing pipelines after an exception
@@ -127,6 +146,10 @@ ColdFusion 2018+ and Lucee 5+ both have introduced the concept of async programm
 * No ability to delay the execution of tasks
 * Only works with closures, does not work on actually calling component methods
 * And so much more
+
+{% hint style="success" %}
+**BoxLang doesn't have any of these limitations.** Its native async engine (`futureNew()`, `asyncRun()`, `asyncAll()`, `asyncAny()`, `asyncAllApply()`, `executorNew()`) is built on real `CompletableFuture`s, supports combining/composing, timeouts, custom executors, virtual threads, and a full standalone scheduler - independent of ColdBox. See the "BoxLang Native Async Constructs" section above.
+{% endhint %}
 
 ### What are Executors?
 

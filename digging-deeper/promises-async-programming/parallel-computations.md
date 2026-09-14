@@ -125,3 +125,32 @@ function index( event, rc, prc ){
     );
 }
 ```
+
+## BoxLang Native Parallel Computations
+
+Outside of a ColdBox application, BoxLang provides the same capabilities as native BIFs - no `AsyncManager` needed:
+
+```js
+// asyncAll() - aggregate results from concurrent operations, in order
+var results = asyncAll([
+    () => fetchOrders( userId ),
+    () => fetchProfile( userId ),
+    () => fetchPreferences( userId )
+]).get();
+var [ orders, profile, prefs ] = results;
+
+// asyncAny() - race, return whichever completes first
+var fastestData = asyncAny([
+    () => primaryDatabase.query( sql ),
+    () => readOnlyReplica.query( sql ),
+    () => cache.get( cacheKey )
+]).get();
+
+// asyncAllApply() - parallel map() over an array or struct
+var processedUsers = asyncAllApply(
+    userIds,
+    ( userId ) => enhanceUserProfile( userId )
+);
+```
+
+`asyncAll()` is the native equivalent of `all()`, `asyncAny()` is the native equivalent of `anyOf()`, and `asyncAllApply()` is the native equivalent of `allApply()`. Pass a named executor (e.g. `"cpu-tasks"`) as needed - see [Executors](executors.md#boxlang-native-executors).

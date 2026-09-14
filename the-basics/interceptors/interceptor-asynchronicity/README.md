@@ -2,6 +2,10 @@
 
 In honor of one of my favorite bands and album, [The Police](http://en.wikipedia.org/wiki/Synchronicity_\(The_Police_album\)) - [Synchronicity](https://www.youtube.com/watch?v=Si5CSpUCDGY), we have some asynchronous capabilities in ColdBox Interceptors. These features are thanks to the sponsorship of \[Guardly] Inc, Alert, Connect, Stay Safe. So please make sure to check them out and thank them for sponsoring this great feature set. The core interceptor service and announcement methods have some arguments that can turn asynchronicity on or off and can return a structure of threading data.
 
+{% hint style="warning" %}
+This interceptor threading model is backed by the legacy `cfthread`/BoxLang `thread` primitive - a simple fire-and-forget or join-and-wait mechanism for **announcements specifically**. It predates and is unrelated to ColdBox's Futures/`AsyncManager` system covered in [Async Programming](../../../digging-deeper/promises-async-programming/README.md). For new composable async work (pipelines, combining results, custom executors), prefer Futures instead of these `announce()` flags. If you're on BoxLang and need explicit thread control outside of interceptors, BoxLang's native `thread` component is the modern equivalent of `cfthread`.
+{% endhint %}
+
 ```javascript
 any announce(state, data, async, asyncAll, asyncAllJoin, asyncJoinTimeout, asyncPriority);
 ```

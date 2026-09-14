@@ -4,6 +4,10 @@ description: To The Future with ColdBox Futures
 
 # Async Pipelines & Futures
 
+{% hint style="info" %}
+This page documents **ColdBox Futures**, powered by the `AsyncManager` and usable from any BoxLang or CFML application (ColdBox, WireBox, CacheBox, or LogBox standalone). If you are writing plain BoxLang outside of ColdBox, see [BoxLang Native Futures](#boxlang-native-futures) below for the native `futureNew()`/`BoxFuture` equivalent.
+{% endhint %}
+
 ## Creation Methods
 
 You will be able to create async pipelines and futures by using the following `AsyncManager` creation methods:
@@ -128,7 +132,7 @@ Completed futures are great for mocking and testing scenarios
 There are many many methods in the Java JDK that are implemented in the ColdBox Futures.  We have also added several new methods that play very nicely with our dynamic language.  Here is a collection of the currently implemented methods.
 
 {% hint style="warning" %}
-Always checkout the API docs for the latest methods and signatures: [https://apidocs.ortussolutions.com/coldbox/current](https://apidocs.ortussolutions.com/coldbox/current)
+Always checkout the API docs for the latest methods and signatures: [https://apidocs.ortussolutions.com/coldbox/current/coldbox/system/async/tasks/Future.html](https://apidocs.ortussolutions.com/coldbox/current/coldbox/system/async/tasks/Future.html)
 {% endhint %}
 
 | Method                                         | Returns                | Description                                                                                                                                                                                                                             |
@@ -156,14 +160,142 @@ Always checkout the API docs for the latest methods and signatures: [https://api
 
 ## Execution Status
 
+Every future can report on its own lifecycle so you can inspect it without blocking:
+
+```javascript
+f = newFuture( () => longRunningReport() );
+
+if ( f.isDone() ) {
+    // Completed (successfully, exceptionally, or cancelled)
+}
+
+if ( f.isCompletedExceptionally() ) {
+    // The task threw an exception
+}
+
+if ( f.isCancelled() ) {
+    // The task was cancelled before it completed
+}
+```
+
 ## Getting Values
+
+There are several ways to retrieve the value out of a future, ranging from blocking calls to safe, default-returning helpers:
+
+```javascript
+// Blocks until the future completes and returns the result
+var result = f.get();
+
+// Blocks up to a timeout (milliseconds)
+var result = f.get( 5000 );
+
+// Returns the result now if done, else returns the default value - never blocks
+var result = f.getNow( "N/A" );
+
+// Get the underlying native Java CompletableFuture
+var nativeFuture = f.getNative();
+```
 
 ## Future Pipelines
 
+The real power of futures is chaining multiple stages together into a pipeline, where each stage receives the result of the previous one:
+
+```javascript
+newFuture( () => loadRawData() )
+    .then( (data) => parseData( data ) )
+    .then( (parsed) => validate( parsed ) )
+    .thenAsync( (valid) => persist( valid ), async().getExecutor( "cpuIntensive" ) )
+    .then( (saved) => logResults( saved ) )
+    .get();
+```
+
+`then()`/`thenApply()` continues on the same thread as the previous stage (fast, lightweight transforms), while `thenAsync()`/`thenApplyAsync()` hands the stage off to an executor - by default the `ForkJoinPool.commonPool()`, or a custom executor you pass in.
+
 ## Cancelling Futures
+
+If a future hasn't completed yet, you can cancel it with `cancel()`. Any dependent stages further down the pipeline will complete exceptionally with a `CancellationException`:
+
+```javascript
+var f = newFuture( () => slowExternalCall() );
+
+// Somewhere else, decide it's no longer needed
+f.cancel();
+
+if ( f.isCancelled() ) {
+    log.info( "Future was cancelled before completion" );
+}
+```
 
 ## Exceptions
 
+Use `onException()`/`exceptionally()` to trap any error raised earlier in the pipeline and recover with a fallback value. Whatever the handler returns becomes the value passed to the next stage:
+
+```javascript
+newFuture( () => userService.getOrFail( rc.id ) )
+    .then( (user) => creditService.getCreditRating( user ) )
+    .onException( (ex) => {
+        log.error( "Credit lookup failed: #ex.message#" );
+        return defaultCreditRating();
+    } )
+    .then( (creditRating) => event.getResponse().setData( creditRating ) );
+```
+
+You can also force a future to complete exceptionally yourself with `completeExceptionally()`, which is useful in testing and mocking scenarios.
+
 ## Combining Futures
 
+`thenCombine()` lets two **independently executing** futures run in parallel and then merges their results once both are done - neither future waits on the other to *start*, only to finish:
+
+```javascript
+var bmi = newFuture( () => weightService.getWeight( rc.person ) )
+    .thenCombine(
+        newFuture( () => heightService.getHeight( rc.person ) ),
+        ( weight, height ) => {
+            var heightInMeters = arguments.height / 100;
+            return arguments.weight / ( heightInMeters * heightInMeters );
+        }
+    )
+    .get();
+```
+
 ## Composing Futures
+
+`thenCompose()` is used when the next stage of your pipeline **itself returns a future** (for example, calling another async operation) - it flattens the result instead of nesting a future inside a future:
+
+```javascript
+newFuture( () => userService.getOrFail( rc.id ) )
+    .thenCompose( (user) => creditService.getCreditRatingAsync( user ) )
+    .then( (creditRating) => event.getResponse().setData( creditRating ) )
+    .onException( (ex) => event.getResponse().setError( true ).setMessages( ex.toString() ) );
+```
+
+{% hint style="info" %}
+Rule of thumb: use `then()`/`thenApply()` when your function returns a plain value; use `thenCompose()` when your function returns another Future.
+{% endhint %}
+
+## BoxLang Native Futures
+
+If you're writing plain BoxLang outside of a ColdBox application, BoxLang ships an equivalent, language-native `futureNew()` BIF and `BoxFuture` object - no `AsyncManager` injection required:
+
+```js
+// Create and chain a pipeline natively
+var result = futureNew( () => loadRawData() )
+    .then( (data) => parseData( data ) )
+    .then( (parsed) => validate( parsed ) )
+    .onError( (ex) => rollback() )
+    .get();
+
+// Run on a specific pre-configured executor
+var future = futureNew( () => heavyCalculation(), "cpu-tasks" );
+
+// Safe retrieval helpers
+var value    = future.getOrDefault( "fallback" );
+var attempt  = future.getAsAttempt();
+
+// Timeout with a fallback instead of an exception
+var result = futureNew( () => slowExternalAPI() )
+    .completeOnTimeout( getDefaultData(), 3, "seconds" )
+    .get();
+```
+
+`BoxFuture` extends the JDK's `CompletableFuture`, so `then()`, `onError()`, `orTimeout()`, `exceptionally()`, `isDone()`, `isCancelled()`, and `cancel()` all work the same way conceptually as the ColdBox Future methods above. See [BoxLang Asynchronous Programming](https://boxlang.ortusbooks.com/boxlang-framework/asynchronous-programming) for the full native API.
