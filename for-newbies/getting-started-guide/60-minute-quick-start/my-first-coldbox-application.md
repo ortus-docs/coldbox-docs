@@ -33,7 +33,7 @@ Here are some of the major files and directory conventions you should know about
 
 Here are the major files you should know about:
 
-<table><thead><tr><th width="170">File</th><th width="133" data-type="checkbox">Convention</th><th width="123" data-type="checkbox">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>.cfconfig.json</td><td>true</td><td>false</td><td>Loads the CFML Engine settings</td></tr><tr><td>.cfformat.json</td><td>true</td><td>false</td><td>Formatting rules</td></tr><tr><td>.cflintrc</td><td>true</td><td>false</td><td>Linting rules</td></tr><tr><td>.env</td><td>true</td><td>false</td><td>Environment variables (Never commit)</td></tr><tr><td>.env.example</td><td>false</td><td>false</td><td>Example env file</td></tr><tr><td>Application.cfc</td><td>true</td><td>true</td><td>Your application bootstrap</td></tr><tr><td>box.json</td><td>true</td><td>false</td><td>Your CommandBox package descriptor</td></tr><tr><td>index.cfm</td><td>true</td><td>true</td><td>Front placeholder file</td></tr><tr><td>server.json</td><td>true</td><td>false</td><td>CommandBox server control</td></tr></tbody></table>
+<table><thead><tr><th width="170">File</th><th width="133" data-type="checkbox">Convention</th><th width="123" data-type="checkbox">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>.cfconfig.json</td><td>true</td><td>false</td><td>Loads the CFML Engine settings</td></tr><tr><td>.cfformat.json</td><td>true</td><td>false</td><td>Formatting rules</td></tr><tr><td>.cflintrc</td><td>true</td><td>false</td><td>Linting rules</td></tr><tr><td>.env</td><td>true</td><td>false</td><td>Environment variables (Never commit)</td></tr><tr><td>.env.example</td><td>false</td><td>false</td><td>Example env file</td></tr><tr><td>Application.bx (or .cfc for CFML)</td><td>true</td><td>true</td><td>Your application bootstrap</td></tr><tr><td>box.json</td><td>true</td><td>false</td><td>Your CommandBox package descriptor</td></tr><tr><td>index.bxm (or .cfm for CFML)</td><td>true</td><td>true</td><td>Front placeholder file</td></tr><tr><td>server.json</td><td>true</td><td>false</td><td>CommandBox server control</td></tr></tbody></table>
 
 Now let's start a server so we can see our application running:
 
@@ -43,7 +43,7 @@ server start
 
 ### Default Event
 
-This command will start a server with URL rewrites enabled, open a web browser for you, and execute the `index.cfm` which in turn executes the **default event** by convention in a ColdBox application: `main.index`. This is now our first runtime convention!
+This command will start a server with URL rewrites enabled, open a web browser for you, and execute the `index.bxm` (or `.cfm` for CFML) which in turn executes the **default event** by convention in a ColdBox application: `main.index`. This is now our first runtime convention!
 
 Instead of executing pages like in a traditional application, we always execute the same page but distinguish the event we want via [URL routing](../../../the-basics/routing/). When no mappings are present, we execute the default event by convention.
 
@@ -52,7 +52,7 @@ Instead of executing pages like in a traditional application, we always execute 
 {% endhint %}
 
 {% hint style="success" %}
-**Tip**: The default event can also be changed in the configuration file: `config/Coldbox.cfc`
+**Tip**: The default event can also be changed in the configuration file: `config/Coldbox.bx` (or `.cfc` for CFML)
 {% endhint %}
 
 ![](../../../.gitbook/assets/image.png)
@@ -63,8 +63,76 @@ Hooray, we have scaffolded our first application, started a server, and executed
 **Tip:** Type `coldbox create app help` to get help on all the options for creating ColdBox applications.
 {% endhint %}
 
-Let's open the handler and see the code, so open `handlers/main.cfc`
+Let's open the handler and see the code, so open `handlers/main.bx` (or `.cfc` for CFML)
 
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+class extends="coldbox.system.EventHandler" {
+
+	/**
+	 * Default Action
+	 */
+	function index( event, rc, prc ){
+		prc.welcomeMessage = "Welcome to ColdBox!";
+		event.setView( "main/index" );
+	}
+
+	/**
+	 * Produce some restfulf data
+	 */
+	function data( event, rc, prc ){
+		return [
+			{ "id" : createUUID(), "name" : "Luis" },
+			{ "id" : createUUID(), "name" : "Joe" },
+			{ "id" : createUUID(), "name" : "Bob" },
+			{ "id" : createUUID(), "name" : "Darth" }
+		];
+	}
+
+	/**
+	 * Relocation example
+	 */
+	function doSomething( event, rc, prc ){
+		relocate( "main.index" );
+	}
+
+	/**
+	 * --------------------------------------------------------------------------
+	 * Implicit Actions
+	 * --------------------------------------------------------------------------
+	 * All the implicit actions below MUST be declared in the config/Coldbox.cfc in order to fire.
+	 * https://coldbox.ortusbooks.com/getting-started/configuration/coldbox.cfc/configuration-directives/coldbox#implicit-event-settings
+	 */
+
+	function onAppInit( event, rc, prc ){
+	}
+
+	function onRequestStart( event, rc, prc ){
+	}
+
+	function onRequestEnd( event, rc, prc ){
+	}
+
+	function onSessionStart( event, rc, prc ){
+	}
+
+	function onSessionEnd( event, rc, prc ){
+		var sessionScope     = event.getValue( "sessionReference" );
+		var applicationScope = event.getValue( "applicationReference" );
+	}
+
+	function onException( event, rc, prc ){
+		event.setHTTPHeader( statusCode = 500 );
+		// Grab Exception From private request collection, placed by ColdBox Exception Handling
+		var exception = prc.exception;
+		// Place exception handler below:
+	}
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
 ```cfscript
 component extends="coldbox.system.EventHandler" {
 
@@ -129,6 +197,8 @@ component extends="coldbox.system.EventHandler" {
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 The action (function) we are interested in is the `index()` function.
 

@@ -1,6 +1,6 @@
 # Nested Layouts
 
-You can also wrap layouts within other layouts and get incredible reusability. This is accomplished by using the `layout()` method in the Renderer. As always, refer to the CFC API for the latest method arguments and capabilities.
+You can also wrap layouts within other layouts and get incredible reusability. This is accomplished by using the `layout()` method in the Renderer. As always, refer to the class API for the latest method arguments and capabilities.
 
 ```javascript
 layout([any layout], [any module=''], [any view=''], [struct args={}], [any viewModule=''], [boolean prePostExempt='false'])

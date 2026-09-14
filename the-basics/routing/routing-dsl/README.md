@@ -55,7 +55,8 @@ Modifiers will tell the routing service about certain restrictions, conditions o
 * `withDomain( domain )` - Map the route to a domain or subdomain
 * `withVerbs( verbs )` - Restrict the route to listen to only these HTTP Verbs
 * `packageResolver( toggle )` - Turn on/off convention for packages
-* `valuePairTranslator( toggle )` - Turn on/off automatic name value pair translations
+* `valuePairTranslation( toggle )` - Turn on/off automatic name value pair translations
+* `meta( map, overwrite=true )` - Appends a collection of metadata name-value pairs to the route, retrievable at runtime via `event.getCurrentRouteMeta()`
 * `middleware( target, [point="preProcess"] )` - Attach [route-scoped middleware](middleware.md): a closure, WireBox ID, object, or `middlewareGroup()` name
 * `withoutMiddleware( target )` - [Exclude](middleware-groups.md) inherited or own middleware by name, or `"*"` for all
 
@@ -76,3 +77,11 @@ Terminators finalize the routing process by registering the route in the Router.
 * `toMCP( [name] )` - Register a Model Context Protocol (MCP) server endpoint. **BoxLang + bx-ai only.**
 * `toAiGateway( [gateway], [session] )` - Expose a [BoxLang AI Gateway](ai-gateway-routing.md) over HTTP: inbound platform events, URL verification handshakes, and human-in-the-loop approvals. **BoxLang + bx-ai only.**
 * `toSSE( callback )` - Terminate the route with a [Server-Sent Events stream](sse-routes.md). **BoxLang only.**
+
+### Utility Methods
+
+A few extra methods on the router are not part of the pattern/modifier/terminator lifecycle, but are useful when you need to introspect or compose routing information:
+
+* `processWith( args )` - Merges the currently active [`group()`](routing-groups.md) options into the incoming route arguments. This is called automatically by every registration/modifier method, so you rarely need to call it yourself.
+* `composeRoutingUrl()` - Composes the fully qualified base URL for the server: protocol + host (or `x-forwarded-host` if present) + the routing app mapping
+* `composeRoutingPath()` - Returns just the routing app mapping portion (the `RoutingAppMapping` setting) used by `composeRoutingUrl()`

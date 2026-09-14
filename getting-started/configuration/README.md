@@ -1,13 +1,14 @@
 ---
 description: >-
-  Learn how to configure ColdBox programmatically via config/ColdBox.cfc.
-  Understand conventions over configuration and fine-grained control settings.
+  Learn how to configure ColdBox programmatically via config/ColdBox.bx (or
+  .cfc for CFML). Understand conventions over configuration and fine-grained
+  control settings.
 icon: code-simple
 ---
 
 # Configuration
 
-In this area we will learn how to configure ColdBox programmatically via the `config/ColdBox.cfc` file. Most of the configurations in ColdBox are pre-set thanks to it's conventions over configuration approach. So the majority of settings are for fine-grained control, third-party modules and more.
+In this area we will learn how to configure ColdBox programmatically via the `config/ColdBox.bx` (or `.cfc` for CFML) file. Most of the configurations in ColdBox are pre-set thanks to it's conventions over configuration approach. So the majority of settings are for fine-grained control, third-party modules and more.
 
 {% hint style="info" %}
 ColdBox relies on **conventions** instead of configurations.

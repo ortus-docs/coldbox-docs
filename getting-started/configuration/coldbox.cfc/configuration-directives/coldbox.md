@@ -9,13 +9,15 @@ coldbox = {
     // The name of the application
     appName     = "My App",
     // The name of the incoming URL/FORM/REMOTE variable that tells the framework what event to execute. Ex: index.cfm?event=users.list
-    eventName   = "event",
-    // The URI of the ColdBox application on the webserver. Use when ColdBox app exists within subdirectory from project root, otherwise can be omitted
-    appMapping  = ""
+    eventName   = "event"
 };
 ```
 
 > **Info** : Please note that there are no mandatory settings as of ColdBox 4.2.0. If fact, you can remove the config file completely and your app will run. It will be impossible to reinit the app however without a reinit password set.
+
+{% hint style="danger" %}
+**Removed:** `appMapping` is **not** a `coldbox = {}` setting. The application mapping is configured via the `COLDBOX_APP_MAPPING` variable in your `Application.bx`/`Application.cfc`. See [Application.bx (or .cfc for CFML)](../../bootstrapper-application.cfc.md) for details.
+{% endhint %}
 
 ## Development Settings
 
@@ -50,7 +52,7 @@ coldbox = {
 
 ### **handlersIndexAutoReload**
 
-Will scan the conventions directory for new handler CFCs on each request if activated. Use **false** for production, this is only a development true setting.
+Will scan the conventions directory for new handler classes on each request if activated. Use **false** for production, this is only a development true setting.
 
 ## Implicit Event Settings
 
@@ -68,7 +70,7 @@ coldbox={
 }
 ```
 
-These settings map 1-1 from ColdBox events to the `Application.cfc` life-cycle methods. The only one that is not is the `defaultEvent`, which selects what event the framework will execute when no incoming event is detected via URL/FORM or REMOTE executions.
+These settings map 1-1 from ColdBox events to the `Application.bx` (or `.cfc` for CFML) life-cycle methods. The only one that is not is the `defaultEvent`, which selects what event the framework will execute when no incoming event is detected via URL/FORM or REMOTE executions.
 
 ## Extension Points
 
@@ -118,11 +120,11 @@ The CF dot notation path of where to look for secondary events for your applicat
 
 ### **requestContextDecorator**
 
-The CF dot notation path of the CFC that will decorate the system Request Context object.
+The CF dot notation path of the class that will decorate the system Request Context object.
 
 ### **controllerDecorator**
 
-The CF dot notation path of the CFC that will decorate the system Controller
+The CF dot notation path of the class that will decorate the system Controller
 
 ## Exception Handling
 
@@ -169,6 +171,10 @@ coldbox = {
     eventCaching            = true,
     // Activate view  caching
     viewCaching              = true,
+    // Cache the discovery of views/layouts on disk (module/external locations, extensions, etc.)
+    viewDiscoveryCaching     = true,
+    // Merge an incoming JSON body payload into the RC collection
+    jsonPayloadToRC           = true,
     // Return RC struct on Flex/Soap Calls
     proxyReturnCollection     = false,
     // Activate implicit views
@@ -223,3 +229,74 @@ This is a boolean setting used when calling the ColdBox proxy's `process()` meth
 ### **viewCaching**
 
 This directive tells ColdBox that when views are rendered, the `cache=true` parameter will be obeyed. Turning on this setting will not cause any views to be cached unless you are also passing in the caching parameters to your `view()` or `event.setView()` calls.
+
+### **viewDiscoveryCaching**
+
+This directive is independent from `viewCaching` (which caches rendered **output**). It caches the **discovery** process the renderer uses to locate a view/layout on disk (module or external locations, file extension resolution, etc.), so it doesn't have to re-resolve the same view/layout path on every request. Defaults to **true**; you may want to disable it in development if you are actively moving views/layouts around.
+
+### **jsonPayloadToRC**
+
+When the incoming request body is a JSON payload, ColdBox will parse it and merge it into the `RC` (Request Collection) automatically, just like `FORM`/`URL` variables. Defaults to **true**. Set to **false** if you'd rather read the raw JSON body yourself via `event.getHTTPContent()`.
+
+## Async & Server-Sent Events Settings
+
+Unlike the settings above, `async` and `sse` are **not** nested inside the `coldbox = {}` struct - they are their own top-level structures in your `ColdBox.bx` (or `.cfc` for CFML), right alongside `coldbox`, `conventions`, `interceptors`, etc.
+
+```javascript
+// Async Executor Settings
+async = {
+    // Number of threads for the global app scheduler's executor
+    schedulerThreads = 20
+};
+
+// Server-Sent Events Settings (BoxLang only)
+sse = {
+    // Milliseconds between automatic keep-alive comments. Most proxies idle out at 60s.
+    keepAliveInterval = 30000,
+    // Client reconnect hint in milliseconds sent to the browser. 0 omits the field.
+    retry             = 0,
+    // CORS origin allowed to consume the stream
+    cors              = "*"
+};
+```
+
+### **async.schedulerThreads**
+
+The number of threads to allocate to the executor backing the global application [Scheduler](../../../../digging-deeper/scheduled-tasks.md) (`appScheduler@coldbox`). Defaults to **20**.
+
+### **sse.keepAliveInterval**
+
+Milliseconds between automatic keep-alive comments sent down an open [Server-Sent Events](../../../../the-basics/event-handlers/server-sent-events.md) stream so intermediary proxies don't idle it out. Defaults to **30000** (30 seconds). Set to `0` to disable. Can be overridden per-call on `event.sse()`.
+
+### **sse.retry**
+
+The client reconnect hint, in milliseconds, sent to the browser's `EventSource` so it knows how long to wait before automatically reconnecting after a dropped stream. Defaults to `0`, which omits the field entirely. Can be overridden per-call on `event.sse()`.
+
+### **sse.cors**
+
+The `Access-Control-Allow-Origin` value written for SSE responses. Defaults to `*` (allow all origins). Can be overridden per-call on `event.sse()`.
+
+## Environment & Debugging Settings
+
+```javascript
+coldbox = {
+    // The name of the currently detected environment
+    environment      = "production",
+    // Turn on/off debug mode for the framework
+    debugMode        = false,
+    // The IDE/Editor used to open file links in exception reports
+    exceptionEditor  = "vscode"
+}
+```
+
+### **environment**
+
+The name of the currently active [environment](environments.md). Defaults to `production` and is normally set for you by the environment detection process (regex matching, the `ENVIRONMENT` system/environment variable, or a custom `detectEnvironment()`), but you can also read/override it as a normal setting via `getSetting( "environment" )`.
+
+### **debugMode**
+
+Activates the framework's debug mode, which enables more verbose/robust exception reporting (e.g. the Whoops error handler) and other development-time conveniences. Defaults to **false**. Check it at runtime with `controller.inDebugMode()`. **Always leave this off in production.**
+
+### **exceptionEditor**
+
+The identifier of the IDE/editor used to build clickable "open file" links for stack trace entries in exception reports (e.g. `BugReport.bxm` (or `.cfm` for CFML)). Defaults to `vscode`.

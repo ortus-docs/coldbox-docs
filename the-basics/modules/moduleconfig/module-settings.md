@@ -28,9 +28,41 @@ The injection DSL pattern is the following:
 
 ## Overriding Module Settings
 
-If you have `parseParentSettings` set to true in your `ModuleConfig.cfc` (which is the default), ColdBox will look for a struct inside the `moduleSettings` struct of your `config/ColdBox.cfc` with a key equal to your module's `this.modelNamespace` (default is the module name) and merge them with your modules `settings` struct (as defined in your module's `configure()` method) with the parent settings overwritting the module settings. This allows a user of your module to easily overwrite specific settings for their needs.
+If you have `parseParentSettings` set to true in your `ModuleConfig.bx` (or `.cfc` for CFML) (which is the default), ColdBox will look for a struct inside the `moduleSettings` struct of your `config/ColdBox.bx` (or `.cfc` for CFML) with a key equal to your module's `this.modelNamespace` (default is the module name) and merge them with your modules `settings` struct (as defined in your module's `configure()` method) with the parent settings overwritting the module settings. This allows a user of your module to easily overwrite specific settings for their needs.
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+// myModule/ModuleConfig.cfc
+class {
+  function configure() {
+    settings = {
+      someSetting = "default",
+      anotherSetting = "default"
+    };
+  }
+}
+
+// config/ColdBox.cfc
+class {
+  function configure() {
+    moduleSettings = {
+      myModule = {
+        someSetting = "overridden" 
+      }
+    };
+  }
+}
+
+// end result
+{
+  someSetting = "overridden",
+  anotherSetting = "default"
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 // myModule/ModuleConfig.cfc
 component {
   function configure() {
@@ -58,6 +90,8 @@ component {
   anotherSetting = "default"
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 If `parseParentSettings` is set to `false`, your module's `settings` will instead overwrite the settings set in the same `moduleSettings` struct.
 
@@ -74,9 +108,9 @@ When considering overriding module settings, be mindful of the following order o
 /config/modules/{moduleName}.cfc       // environment override
 ```
 
-## Using Overridden Settings in your `ModuleConfig.cfc`
+## Using Overridden Settings in your `ModuleConfig.bx` (or `.cfc` for CFML)
 
-If you want to use the overridden settings in your `ModuleConfig.cfc`, you will need to use it in the `postModuleLoad` interceptor. Remember, all your modules register the `ModuleConfig.cfc` as an interceptor, so all you need to do is add the `postModuleLoad` function and you're off!
+If you want to use the overridden settings in your `ModuleConfig.bx` (or `.cfc` for CFML), you will need to use it in the `postModuleLoad` interceptor. Remember, all your modules register the `ModuleConfig.bx` (or `.cfc` for CFML) as an interceptor, so all you need to do is add the `postModuleLoad` function and you're off!
 
 ```javascript
 function postModuleLoad( event, interceptData, buffer, rc, prc ) {

@@ -7,7 +7,7 @@ By convention every ColdBox application will have two folders for modules:
 
 ## External Locations
 
-You can also have more external locations that ColdBox will scan for modules by leveraging the `coldbox.modulesExternalLocation` setting. This setting is an array of locations you want to tell ColdBox to look for modules in your `ColdBox.cfc`. Each array element is the instantiation location which can use ColdFusion mappings or an absolute reference from the root of your application.
+You can also have more external locations that ColdBox will scan for modules by leveraging the `coldbox.modulesExternalLocation` setting. This setting is an array of locations you want to tell ColdBox to look for modules in your `ColdBox.bx` (or `.cfc` for CFML). Each array element is the instantiation location which can use ColdFusion mappings or an absolute reference from the root of your application.
 
 > **Caution** Internally each of those entries will be expanded for you, so please be aware of this.
 

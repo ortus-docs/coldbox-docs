@@ -88,5 +88,27 @@ The request context object (**event**) also has some handy methods to tell you t
 
 * `getCurrentRouteName()` - Gives you the name of the current route, if any
 * `getCurrentRoute()` - Gives you the currently executed route
+* `getCurrentRouteRecord()` - Gives you the currently executed route's full record/struct
+* `getCurrentRouteMeta()` - Gives you the metadata struct assigned to the current route via the `meta()` modifier
 * `getCurrentRoutedURL()` - Gives you the complete routed URL pattern that matched the route
 * `getCurrentRoutedNamespace()` - Gives you the current routed namespace, if any
+* `routeIs( name )` - Boolean check to verify if the passed name is the same as the current route's name
+* `urlMatches( path, exact=false )` - Boolean check to test if the given `path` exists (or, when `exact` is `true`, matches exactly) within the currently routed URL
+* `urlMatchesExact( path )` - Boolean check, shortcut to `urlMatches( path, true )`, to test if the given `path` matches the currently routed URL exactly
+
+```javascript
+// Was this the "usermanager" route?
+if ( event.routeIs( "usermanager" ) ) {
+    // do something route-specific
+}
+
+// Does the routed URL contain "users/list" anywhere in it?
+if ( event.urlMatches( "users/list" ) ) {
+    // ...
+}
+
+// Does the routed URL match "users/list" exactly?
+if ( event.urlMatchesExact( "users/list" ) ) {
+    // ...
+}
+```

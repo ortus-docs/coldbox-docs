@@ -30,6 +30,21 @@ ColdBox [Hierarchical MVC ](https://en.wikipedia.org/wiki/Hierarchical_model%E2%
 
 It provides a set of reusable code and tools that can be used to increase your development productivity, as well as a development standard for working in team environments.
 
+### Explore the Platform
+
+<table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>🧭 <strong>Conventions over Configuration</strong></td><td>Predictable folder structure and naming so you spend time on features, not scaffolding</td><td><a href="getting-started/conventions.md">conventions.md</a></td></tr><tr><td>🚏 <strong>Modern Routing DSL</strong></td><td>A fluent router for resources, groups, middleware, route-level caching, and more</td><td><a href="the-basics/routing/README.md">README.md</a></td></tr><tr><td>🤖 <strong>AI-Native Routing</strong></td><td>First-class <code>toAi()</code>, <code>toMCP()</code>, and <code>toAiGateway()</code> terminators for building agentic APIs</td><td><a href="the-basics/routing/routing-dsl/ai-routing.md">ai-routing.md</a></td></tr><tr><td>📡 <strong>Real-Time Streaming</strong></td><td>Server-Sent Events as a first-class citizen, with a fluent emitter API</td><td><a href="the-basics/event-handlers/server-sent-events.md">server-sent-events.md</a></td></tr><tr><td>🧩 <strong>HMVC Modules</strong></td><td>Build self-contained, reusable application modules with their own routes, models, and views</td><td><a href="the-basics/modules/README.md">README.md</a></td></tr><tr><td>🔌 <strong>RESTful APIs</strong></td><td>Content negotiation, structured responses, and a dedicated REST handler base class</td><td><a href="digging-deeper/rest-handler.md">rest-handler.md</a></td></tr><tr><td>🎯 <strong>Event-Driven Interceptors</strong></td><td>Hook into the framework lifecycle or announce your own custom events</td><td><a href="the-basics/interceptors/README.md">README.md</a></td></tr><tr><td>⚡ <strong>Async &#x26; Parallel Programming</strong></td><td>Futures, schedulers, and parallel collection operations out of the box</td><td><a href="digging-deeper/promises-async-programming/README.md">README.md</a></td></tr><tr><td>🧪 <strong>Integration &#x26; Unit Testing</strong></td><td>TestBox-powered testing baked into every generated application</td><td><a href="the-basics/testing-quick-start/README.md">README.md</a></td></tr></tbody></table>
+
+### AI Capabilities
+
+ColdBox is built for the agentic era. Beyond `toAi()`/`toMCP()`/`toAiGateway()` routing above, the platform ships:
+
+* **[Agentic ColdBox](digging-deeper/ai/agentic-coldbox.md)** — a full AI development toolkit built into the `coldbox-cli`: guidelines, a 200+ skill registry, multi-agent support (Claude, Copilot, Cursor, Codex, Gemini, and more), and 30+ built-in MCP documentation servers
+* **[cbMCP](digging-deeper/ai/coldbox-mcp-server.md)** — live application introspection over MCP, so an AI agent can query your *running* app in real time (🚀 BoxLang only)
+* **Conversational context** on `toAi()` routes — automatic `userId`/`conversationId`/`threadId` threading for multi-turn agents
+* **AI Gateway routing** — mount a BoxLang AI Gateway (Slack, Telegram, WhatsApp, or a signed webhook) directly on a route
+
+Look for the 🚀 **BoxLang Exclusive** badge throughout these docs to spot features only available on the BoxLang runtime.
+
 ### What is BoxLang?
 
 **BoxLang** is a modern dynamic JVM language developed by the ColdBox team that can be deployed on multiple runtimes: operating system (Windows/Mac/\*nix/Embedded), web server, lambda, iOS, android, web assembly, and more. BoxLang combines many features from different programming languages, including Java, CFML, Python, Ruby, Go, and PHP, to provide developers with a modern, functional and expressive syntax.

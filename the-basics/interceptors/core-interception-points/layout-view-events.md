@@ -9,3 +9,4 @@
 | postViewRender     | All of the data above plus:               | This occurs after any view is rendered and passed the produced content                     |
 | preLayoutRender    | layout - The name of the layout to render | This occurs before any layout is rendered                                                  |
 | postLayoutRender   | Everything above plus:                    | This occurs after any layout is rendered and passed the produced content                   |
+| afterRendererInit  | {variables, this} - The Renderer's internal state and a reference to the Renderer object | This occurs once, right after the ColdBox `Renderer` object finishes its `startup()` routine on application load |

@@ -32,7 +32,7 @@ Every ColdBox application template comes with a pre-set testing harness under th
 - test.xml
 ```
 
-Every harness has its own unique `Application.cfc` which must mimic your application's settings because the tests run in a different memory space. It also comes with an HTML runner called `runner.cfm` and an ANT runner called `test.xml`. All your test bundles and specifications will go under the `specs` directory and in the appropriate sub-directories:
+Every harness has its own unique `Application.bx` (or `.cfc` for CFML) which must mimic your application's settings because the tests run in a different memory space. It also comes with an HTML runner called `runner.bxm` (or `.cfm` for CFML) and an ANT runner called `test.xml`. All your test bundles and specifications will go under the `specs` directory and in the appropriate sub-directories:
 
 ```
 + integration
@@ -161,13 +161,13 @@ component
 
 ## Executing The Runner
 
-To execute your application template tests and the generated tests just browse to the URL: `http://127.0.0.1:{port}/tests/runner.cfm` and you will get a full integration report:
+To execute your application template tests and the generated tests just browse to the URL: `http://127.0.0.1:{port}/tests/runner.bxm` (or `.cfm` for CFML) and you will get a full integration report:
 
 ![Test Runner](../../.gitbook/assets/template-tests-runner.png)
 
 Everything is already pre-wired for you and ready for you to do full life-cycle integration testing. This means that upon first request to the spec, a virtual ColdBox application will load and setup your application from where you can test any part of it. From executing events just like from the browser, or execution API requests just like any application.
 
-Sounds too good to be true? Let's try this out. Open the `handlers/Main.cfc` and look for the `index()` action. Let's change it to this:
+Sounds too good to be true? Let's try this out. Open the `handlers/Main.bx` (or `.cfc` for CFML) and look for the `index()` action. Let's change it to this:
 
 ```javascript
 function index( event, rc, prc ) {

@@ -7,7 +7,7 @@ description: >-
 # AI Gateway Routing
 
 {% hint style="warning" %}
-AI Gateway Routing requires **BoxLang** and the **bx-ai** module. It is not available on CFML engines.
+🚀 **BoxLang Exclusive** — AI Gateway Routing requires **BoxLang** and the **bx-ai** module. It is not available on CFML engines.
 {% endhint %}
 
 A **gateway** (bx-ai's `IGateway`) is a bidirectional adapter between an agent and a platform: Slack, Telegram, WhatsApp, a signed webhook of your own. It turns a platform's inbound payload into a normalized message, and turns the agent's output back into something that platform understands.

@@ -1,14 +1,14 @@
 # Interceptor Declaration
 
-Interceptors can be declared in the `Coldbox.cfc` configuration file or programmatically at runtime. If you register them in the configuration file, then you have control over the order in which they fire. If you register interceptors programmatically, you won't have control over the order of execution.
+Interceptors can be declared in the `Coldbox.bx` (or `.cfc` for CFML) configuration file or programmatically at runtime. If you register them in the configuration file, then you have control over the order in which they fire. If you register interceptors programmatically, you won't have control over the order of execution.
 
 In the configuration file, interceptors are declared as an array of structures in an element called `interceptors`. The elements of each interceptor structure are:
 
-* `class` - The required instantiation path of the CFC.
-* `name` - An optional unique name for the interceptor. If this is not passed then the name of the CFC will be used. We highly encourage the use of a name to avoid collisions.
+* `class` - The required instantiation path of the class.
+* `name` - An optional unique name for the interceptor. If this is not passed then the name of the class will be used. We highly encourage the use of a name to avoid collisions.
 * `properties` - A structure of configuration properties to be passed to the interceptor
 
-In `ColdBox.cfc`:
+In `ColdBox.bx` (or `.cfc` for CFML):
 
 ```
 // Interceptors registration

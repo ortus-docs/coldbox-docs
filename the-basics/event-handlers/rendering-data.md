@@ -48,15 +48,26 @@ function usersAsPDF( event, rc, prc ) renderdata='pdf'{
 }
 ```
 
-### `renderdata` Component Annotation
+### `renderdata` Class Annotation
 
-You can also add the renderData annotation to the component definition and this will override the default of JSON. So if you want XML as the default, you can do this:
+You can also add the renderData annotation to the class definition and this will override the default of JSON. So if you want XML as the default, you can do this:
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+class renderdata="xml"{
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component renderdata="xml"{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ### $renderData Convention
 
@@ -236,7 +247,7 @@ event.renderData( data=MyData, formats="xml,json,html,pdf", formatsRedirect={eve
 
 ### Custom Data Conversion
 
-You can do custom data conversion by convention when marshalling CFCs. If you pass in a CFC as the `data` argument and that CFC has a method called `$renderdata()`, then the marshalling utility will call that function for you instead of using the internal marshalling utilities. You can pass in the custom content type for encoding as well:
+You can do custom data conversion by convention when marshalling classes. If you pass in a class as the `data` argument and that class has a method called `$renderdata()`, then the marshalling utility will call that function for you instead of using the internal marshalling utilities. You can pass in the custom content type for encoding as well:
 
 ```javascript
 // get an instance of your custom converter
@@ -247,9 +258,38 @@ myConverter.setData( data );
 event.renderData( data= myConverter, contentType=myConverter.getContentType() );
 ```
 
-The CFC converter:
+The class converter:
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+class accessors="true"{
+
+    property name="data" type="mytype";
+    property name="contentType";
+
+    function init(){ 
+        setContentType("text");
+        return this; 
+    }
+
+    // The magical rendering
+    function $renderdata(){
+        var d = {
+            n = data.getName(),
+            a = data.getAge(),
+            c = data.getCoo(),
+            today = now()
+        };
+
+        return d.toString();
+    }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component accessors="true"{
 
     property name="data" type="mytype";
@@ -274,5 +314,7 @@ component accessors="true"{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 In this approach your `$renderdata()` function can be much more customizable than our internal serializers. Just remember to use the right contentType argument so the browser knows what to do with it.

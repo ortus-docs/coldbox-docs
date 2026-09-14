@@ -7,7 +7,7 @@ description: >-
 # AI Routing
 
 {% hint style="warning" %}
-AI Routing requires **BoxLang** and the **bx-ai** module. It is not available on CFML engines.
+🚀 **BoxLang Exclusive** — AI Routing requires **BoxLang** and the **bx-ai** module. It is not available on CFML engines.
 {% endhint %}
 
 ColdBox 8.1 introduces two powerful routing terminators for building AI-powered HTTP APIs:

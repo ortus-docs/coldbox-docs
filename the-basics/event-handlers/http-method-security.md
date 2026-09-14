@@ -34,10 +34,31 @@ this.allowedMethods = {
 If the request action HTTP method is not found in the approved list, it will look for a `onInvalidHTTPMethod()` on the handler and call it if found. Otherwise ColdBox throws a **405 exception** that is uniform across requests.
 
 {% hint style="info" %}
-You can listen for [global invalid HTTP](../../getting-started/configuration/coldbox.cfc/configuration-directives/) methods using the `coldbox.onInvalidHTTPMethodHandler` located in your `config/ColdBox.cfc.`
+You can listen for [global invalid HTTP](../../getting-started/configuration/coldbox.cfc/configuration-directives/) methods using the `coldbox.onInvalidHTTPMethodHandler` located in your `config/ColdBox.bx` (or `.cfc` for CFML).
 {% endhint %}
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+class{
+
+    this.allowedMethods = {
+        delete : "POST,DELETE",
+        list   : "GET"
+    };
+
+    function list(event,rc,prc){
+        // list only
+    }
+
+    function delete(event,rc,prc){
+        // do delete here.
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component{
 
     this.allowedMethods = {
@@ -54,6 +75,8 @@ component{
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
 If the **action** is not listed in the structure, then it means that we allow **all** HTTP methods. Just remember to either use the `onError()` or `onInvalidHTTPMethod()` method conventions or an exception handler to deal with the security exceptions.

@@ -2,7 +2,7 @@
 
 ## Views (Default Layout)
 
-The `event` object is the object that will let you set the views that you want to render, so please explore its API in the CFC Docs. To quickly set a view to render, do the following:
+The `event` object is the object that will let you set the views that you want to render, so please explore its API in the Class Docs. To quickly set a view to render, do the following:
 
 ```javascript
 event.setView( 'view' );

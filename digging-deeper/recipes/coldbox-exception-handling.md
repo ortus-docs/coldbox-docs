@@ -13,7 +13,7 @@ ColdBox provides you with several ways to handle different types of exceptions d
 
 ## Global Exception Handler
 
-The global exception handler will manage any runtime exception that occurs during the flow of a typical ColdBox request execution. This could be an exception at the handler, model, or view levels. This feature is activated by configuring the `coldbox.exceptionhandler` setting in your configuration `ColdBox.cfc`. The value of the setting is the event that will act as your global exception handler.
+The global exception handler will manage any runtime exception that occurs during the flow of a typical ColdBox request execution. This could be an exception at the handler, model, or view levels. This feature is activated by configuring the `coldbox.exceptionhandler` setting in your configuration `ColdBox.bx` (or `.cfc` for CFML). The value of the setting is the event that will act as your global exception handler.
 
 ```javascript
 coldbox = {
@@ -46,7 +46,27 @@ This is a standard ColdBox interception point that can be used to intercept when
 
 Interceptors are designed to be decoupled classes that can react to announced events, thus an event-driven approach. You can have as many CFCs listening to the `onException` event and react accordingly without them ever knowing about each other and doing one job and one job only. This is a much more flexible and decoupled approach than calling a single event handler where you will procedurally decide what happens in an exception.
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+class extends="coldbox.system.Interceptor"{
+
+    function onException(event, interceptData){
+        // Get the exception
+        var exception = arguments.interceptData.exception;
+
+        // Do some logging only for some type of error and relocate
+        if( exception.type eq "myType" ){
+            log.error( exception.message & exception.detail, exception );
+            // relocate
+            relocate( "page.invalidSave" );
+        }
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component extends="coldbox.system.Interceptor"{
 
     function onException(event, interceptData){
@@ -62,6 +82,8 @@ component extends="coldbox.system.Interceptor"{
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 Also remember that you need to register the interceptor in your configuration file or dynamically so ColdBox knows about it:
 
@@ -78,7 +100,7 @@ interceptors = [
 
 ## Global Invalid Event Handler
 
-The global invalid event handler allows you to configure an event to execute whenever ColdBox detects that the requested event does not exist. This is a great way to present the user with page not found exceptions and 404 error codes. The setting is called `coldbox.invalidEventHandler` and can be set in your configuration `ColdBox.cfc`. The value of the setting is the event that will handle these missing events.
+The global invalid event handler allows you to configure an event to execute whenever ColdBox detects that the requested event does not exist. This is a great way to present the user with page not found exceptions and 404 error codes. The setting is called `coldbox.invalidEventHandler` and can be set in your configuration `ColdBox.bx` (or `.cfc` for CFML). The value of the setting is the event that will handle these missing events.
 
 ```javascript
 coldbox = {
@@ -119,7 +141,28 @@ The `interceptData` argument receives the following variables:
 
 You must tell ColdBox that you want to override the invalid event (`override = true`) and you must set in the `ehBean` to tell ColdBox what event to execute:
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+class extends="coldbox.system.Interceptor"{
+
+    function onInvalidEvent(event, interceptData){
+        // Log a warning
+        log.warn( "Invalid page detected: #arguments.interceptData.invalidEvent#");
+
+        // Set the invalid event to run
+        arguments.interceptData.ehBean
+            .setHandler("Main")
+            .setMethod("pageNotFound");
+
+        // Override
+        arguments.interceptData.override = true;
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component extends="coldbox.system.Interceptor"{
 
     function onInvalidEvent(event, interceptData){
@@ -136,6 +179,8 @@ component extends="coldbox.system.Interceptor"{
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 Also remember that you need to register the interceptor in your configuration file or dynamically so ColdBox knows about it:
 
@@ -150,9 +195,9 @@ interceptors = [
 
 ## Global Missing Template Handler
 
-The global missing template handler allows you to configure an event to execute whenever ColdBox detects a request to a non-existent CFML page. This is a great way to present the user with page not found exceptions or actually use it to route the request in a dynamic matter, just like if those pages existed on disk. The setting is called `coldbox.missingTemplateHandler` and can be set in your configuration `ColdBox.cfc`. The value of the setting is the event that will handle these missing pages.
+The global missing template handler allows you to configure an event to execute whenever ColdBox detects a request to a non-existent CFML page. This is a great way to present the user with page not found exceptions or actually use it to route the request in a dynamic matter, just like if those pages existed on disk. The setting is called `coldbox.missingTemplateHandler` and can be set in your configuration `ColdBox.bx` (or `.cfc` for CFML). The value of the setting is the event that will handle these missing pages.
 
-> **Info** Note that in order for this functionality to work the method `onMissingTemplate()` must exist in the `Application.cfc` with the default ColdBox handler code.
+> **Info** Note that in order for this functionality to work the method `onMissingTemplate()` must exist in the `Application.bx` (or `.cfc` for CFML) with the default ColdBox handler code.
 
 ```javascript
 coldbox = {
@@ -179,7 +224,7 @@ function missingTemplate(event,rc,prc){
 
 ## Handler `onMissingAction()`
 
-This approach allows you to intercept at the handler level when someone requested an action (method) that does not exist in the specified handler. This is really useful when you want to respond to dynamic requests like `/page/contact-us, /page/hello`, where page points to a `Page.cfc` and the rest of the URL will try to match to an action that does not exist. You can then use that portion of the URL to lookup a dynamic record. However, you can also use it to detect when invalid actions are sent to a specific handler.
+This approach allows you to intercept at the handler level when someone requested an action (method) that does not exist in the specified handler. This is really useful when you want to respond to dynamic requests like `/page/contact-us, /page/hello`, where page points to a `Page.bx` (or `.cfc` for CFML) and the rest of the URL will try to match to an action that does not exist. You can then use that portion of the URL to lookup a dynamic record. However, you can also use it to detect when invalid actions are sent to a specific handler.
 
 ```javascript
 function onMissingAction(event,rc,prc,missingAction,eventArguments){

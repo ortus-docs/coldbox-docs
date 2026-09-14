@@ -1,12 +1,23 @@
 # Getting Started
 
-The concept behind the ColdBox proxy is to create CFC's that extend our proxy class: `coldbox.system.remote.ColdboxProxy`. This will give you the ability to locate and talk to your running ColdBox application so you can proxy in requests from remote systems like Flex/Air, Event Gateways, ColdFusion REST/Soap Web Services and even CFC data binding.
+The concept behind the ColdBox proxy is to create classes that extend our proxy class: `coldbox.system.remote.ColdboxProxy`. This will give you the ability to locate and talk to your running ColdBox application so you can proxy in requests from remote systems like Flex/Air, Event Gateways, ColdFusion REST/Soap Web Services and even CFC data binding.
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+class extends="coldbox.system.remote.ColdboxProxy"{
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component extends="coldbox.system.remote.ColdboxProxy"{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 The concept of a [Proxy](http://en.wikipedia.org/wiki/Proxy_pattern) is to give access to another system. As Wikipedia mentions:
 
@@ -16,7 +27,7 @@ The proxy will give you access to your entire ColdBox application assets but als
 
 Then your event handlers can respond to these requests just like normal requests and even return data back to the caller.
 
-> **Hint** The advanced ColdBox templates gives you a sample proxy object in your `remote/MyProxy.cfc` folder.
+> **Hint** The advanced ColdBox templates gives you a sample proxy object in your `remote/MyProxy.bx` (or `.cfc` for CFML) folder.
 
 ## Organization
 
@@ -30,7 +41,27 @@ Most remote APIs are strongly typed so it makes sense to create as many ColdBox 
 
 Here is a sample proxy object that just proxies a remote call
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+class extends="coldbox.system.remote.ColdboxProxy"{
+
+    /**
+    * Get user data
+    * @id The id of the user list to return
+    */
+    array function getData( required numeric id ){
+        arguments.event = "users.getListData";
+
+        var results = super.process( argumentCollection=arguments );
+
+        return results ?: [];
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component extends="coldbox.system.remote.ColdboxProxy"{
 
     /**
@@ -46,10 +77,12 @@ component extends="coldbox.system.remote.ColdboxProxy"{
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ## AppMapping
 
-However, since some of these requests won't be done via HTTP but other protocols like Flex/Air binary protocols or event gateways, your ColdBox application must know where in your server the application is located in, so the `Application.cfc` methods fire. By default, when using HTTP calls, ColdBox can auto-locate your application with no issues at all, but with Flex/AIR or other protocols you must set this location in your `Application.cfc` via the `COLDBOX_APP_MAPPING` directive **ONLY if not in the webroot of an application**.
+However, since some of these requests won't be done via HTTP but other protocols like Flex/Air binary protocols or event gateways, your ColdBox application must know where in your server the application is located in, so the `Application.bx` (or `.cfc` for CFML) methods fire. By default, when using HTTP calls, ColdBox can auto-locate your application with no issues at all, but with Flex/AIR or other protocols you must set this location in your `Application.bx` (or `.cfc` for CFML) via the `COLDBOX_APP_MAPPING` directive **ONLY if not in the webroot of an application**.
 
 ```javascript
 COLDBOX_APP_MAPPING   = "";

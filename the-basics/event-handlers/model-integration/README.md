@@ -21,7 +21,7 @@ Your event handlers can be **autowired** with dependencies from [WireBox](https:
 **Warning** As a rule of thumb, inject only **singletons** into **singletons**.  If not you can create unnecessary [scope-widening injection](https://wirebox.ortusbooks.com/advanced-topics/providers/scope-widening-injection) issues and memory leaks.
 {% endhint %}
 
-You will achieve this in your handlers via `property` injection, which is the concept of defining properties in the component with a special annotation called `inject`, which tells WireBox what reference to retrieve via the [WireBox Injection DSL](./#injection).  Let's say we have a **users** handler that needs to talk to a model called **UserService**. Here is the directory layout so we can see the conventions
+You will achieve this in your handlers via `property` injection, which is the concept of defining properties in the class with a special annotation called `inject`, which tells WireBox what reference to retrieve via the [WireBox Injection DSL](./#injection).  Let's say we have a **users** handler that needs to talk to a model called **UserService**. Here is the directory layout so we can see the conventions
 
 {% code title="Directory Layout" %}
 ```
@@ -34,8 +34,27 @@ You will achieve this in your handlers via `property` injection, which is the co
 
 Here is the event handler code to leverage the injection:
 
+{% tabs %}
+{% tab title="BoxLang" %}
 {% code title="users.cfc" %}
-```javascript
+```js
+class name="MyHandler"{
+    
+    // Dependency injection of the model: UserService -> variables.userService
+    property name="userService" inject="UserService";
+
+    function index( event, rc, prc ){
+        prc.data = userService.list()
+        event.setView( "users/index" );
+    }
+
+}
+```
+{% endcode %}
+{% endtab %}
+{% tab title="CFML" %}
+{% code title="users.cfc" %}
+```cfscript
 component name="MyHandler"{
     
     // Dependency injection of the model: UserService -> variables.userService
@@ -49,13 +68,15 @@ component name="MyHandler"{
 }
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 
 
 Notice that we define a `cfproperty` with a name and `inject` attribute.  The `name` becomes the name of the variable in the `variables` scope and the `inject` annotation tells WireBox what to retrieve.  By default it retrieves model objects by name and path.
 
 {% hint style="success" %}
-**Tip:** The [injection DSL](./#injection) is vast and elegant.  Please refer to it.  Also note that you can create object aliases and references in your [config binder](https://wirebox.ortusbooks.com/configuration/configuring-wirebox): `config/WireBox.cfc`
+**Tip:** The [injection DSL](./#injection) is vast and elegant.  Please refer to it.  Also note that you can create object aliases and references in your [config binder](https://wirebox.ortusbooks.com/configuration/configuring-wirebox): `config/WireBox.bx` (or `.cfc` for CFML)
 {% endhint %}
 
 ## Requesting Model Objects
@@ -64,8 +85,33 @@ Notice that we define a `cfproperty` with a name and `inject` attribute.  The `n
 
 The other approach to integrating with model objects is to request and use them as [associations](http://en.wikipedia.org/wiki/Association_\(object-oriented_programming\)) via the framework super type method: `getInstance()`, which in turn delegates to WireBox's `getInstance()` method.  We would recommend requesting objects if they are **transient** (have state) objects or stored in some other volatile storage scope (session, request, application, cache, etc). Retrieving of objects is okay, but if you will be dealing with mostly **singleton** objects or objects that are created only once, you will gain much more performance by using injection.
 
+{% tabs %}
+{% tab title="BoxLang" %}
 {% code title="users.cfc" %}
-```javascript
+```js
+class{
+
+    function index( event, rc, prc ){
+        // Request to use the user service, this would be best to inject instead 
+        // of requesting it.
+        prc.data = getInstance( "UserService" ).list();
+        event.setView( "users/index" );
+    }
+    
+    function save( event, rc, prc ){
+        // request a user transient object, populate it and save it.
+        prc.oUser = populateModel( getInstance( "User" ) );
+        userService.save( prc.oUser );
+        relocate( "users/index" );
+    }
+
+}
+```
+{% endcode %}
+{% endtab %}
+{% tab title="CFML" %}
+{% code title="users.cfc" %}
+```cfscript
 component{
 
     function index( event, rc, prc ){
@@ -85,6 +131,8 @@ component{
 }
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
 **Association** defines a relationship between classes of objects that allows one object instance to cause another to perform an action on its behalf. - 'wikipedia'
@@ -92,7 +140,7 @@ component{
 
 ## A practical example
 
-In this practical example we will see how to integrate with our model layer via WireBox, injections, and also requesting the objects. Let's say that we have a service object we have built called `FunkyService.cfc` and by convention we will place it in our applications `models` folder.
+In this practical example we will see how to integrate with our model layer via WireBox, injections, and also requesting the objects. Let's say that we have a service object we have built called `FunkyService.bx` (or `.cfc` for CFML) and by convention we will place it in our applications `models` folder.
 
 {% code title="Directory Layout" %}
 ```javascript
@@ -102,9 +150,36 @@ In this practical example we will see how to integrate with our model layer via 
 ```
 {% endcode %}
 
-**FunkyService.cfc**
+**FunkyService.bx** (or `.cfc` for CFML)
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+class singleton{
+
+    function init(){
+        return this;
+    }
+
+    function add(a,b){ 
+        return a+b; 
+    }
+
+    function getFunkyData(){
+        var data = [
+            {name="Luis", age="33"},
+            {name="Jim", age="99"},
+            {name="Alex", age="1"},
+            {name="Joe", age="23"}
+        ];
+        return data;
+    }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component singleton{
 
     function init(){
@@ -127,12 +202,34 @@ component singleton{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 Our funky service is not that funky after all, but it is simple. How do we interact with it? Let's build a Funky event handler and work with it.
 
 ### Injection
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+class{
+
+    // Injection via property
+    property name="funkyService" inject="FunkyService";
+
+    function index(event,rc,prc){
+
+        prc.data = funkyService.getFunkyData();
+
+        event.renderData( data=prc.data, type="xml" );
+    }    
+
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component{
 
     // Injection via property
@@ -148,6 +245,8 @@ component{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 By convention, I can create a **property** and annotate it with an `inject` attribute. ColdBox will look for that model object by the given name in the `models` folder, create it, persist it, wire it, and return it. If you execute it, you will get something like this:
 
@@ -201,7 +300,24 @@ Let's look at the requesting approach. We can either use the following approache
 
 **Via Facade Method**
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+class{
+
+    function index(event,rc,prc){
+
+        prc.data = getInstance( "FunkyService" ).getFunkyData();
+
+        event.renderData( data=prc.data, type="xml" );
+    }    
+
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component{
 
     function index(event,rc,prc){
@@ -214,10 +330,29 @@ component{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 **Directly via WireBox:**
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+class{
+
+    function index(event,rc,prc){
+
+        prc.data = wirebox.getInstance( "FunkyService" ).getFunkyData();
+
+        event.renderData( data=prc.data, type="xml" );
+    }    
+
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component{
 
     function index(event,rc,prc){
@@ -230,6 +365,8 @@ component{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 Both approaches do exactly the same thing. In reality `getInstance()` does a `wirebox.getInstance()` callback (Uncle Bob), but it is a facade method that is easier to remember. If you run this, you will also see that it works and everything is fine and dandy. However, the biggest difference between injection and usage can be seen with some practical math:
 

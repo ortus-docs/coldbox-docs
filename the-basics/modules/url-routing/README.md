@@ -8,7 +8,7 @@ this.entryPoint = "/mymodule";
 
 ## Parent Manual Routing
 
-You can also add these entry points manually in the host application's routing file: `config/Router.cfc`. However, you will lose all module portability. We do this by using a method called `addModuleRoutes()` method.
+You can also add these entry points manually in the host application's routing file: `config/Router.bx` (or `.cfc` for CFML). However, you will lose all module portability. We do this by using a method called `addModuleRoutes()` method.
 
 * `addModuleRoutes(pattern, module)` : Insert the module routes at this location in the configuration file with the applied URL pattern.
 
@@ -19,7 +19,7 @@ addModuleRoutes(pattern="/blog",module="simpleblog");
 addModuleRoutes(pattern="/admin",module="admin");
 ```
 
-What the previous method calls do is bind a static URL entry pattern to a module. So if the framework detects an incoming URL with the starting point to be /blog, it will then match the simpleblog routes. Once matched, it will now try to match the rest of the incoming URL with the module's custom routes. Let's do a full example, below are some custom routes for my blog module in its `ModuleConfig.cfc`:
+What the previous method calls do is bind a static URL entry pattern to a module. So if the framework detects an incoming URL with the starting point to be /blog, it will then match the simpleblog routes. Once matched, it will now try to match the rest of the incoming URL with the module's custom routes. Let's do a full example, below are some custom routes for my blog module in its `ModuleConfig.bx` (or `.cfc` for CFML):
 
 ```javascript
 // In my ModuleConfig.cfc

@@ -1,6 +1,6 @@
 # ORM
 
-You will first make sure your `contacts` datsource exists in the Administrator and then we can declare our ORM settings in our `Application.cfc`
+You will first make sure your `contacts` datsource exists in the Administrator and then we can declare our ORM settings in our `Application.bx` (or `.cfc` for CFML)
 
 ```javascript
 // ORM Settings
@@ -23,7 +23,7 @@ In this example, we also use `dbcreate="update"` as we want ColdFusion ORM to bu
 
 ## Activating ORM injections
 
-Now open your `ColdBox.cfc` and add the following to activate ORM injections inside of your `configure()` method.
+Now open your `ColdBox.bx` (or `.cfc` for CFML) and add the following to activate ORM injections inside of your `configure()` method.
 
 ```javascript
 orm = { injection = { enabled=true } };

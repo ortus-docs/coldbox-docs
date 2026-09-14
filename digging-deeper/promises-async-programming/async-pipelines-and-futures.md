@@ -59,7 +59,7 @@ There are two ways to start async computations with futures:
 1. Via the `newFuture()` constructor
 2. Via the `run()` method
 
-The constructor is the shortcut approach and only allows for closures to be defined as the task. The `run()` methods allows you to pass a CFC instance and a `method` name, which will then call that method as the initial computation.
+The constructor is the shortcut approach and only allows for closures to be defined as the task. The `run()` methods allows you to pass a class instance and a `method` name, which will then call that method as the initial computation.
 
 ```javascript
 // Constructor
@@ -79,8 +79,8 @@ Here are the `run()` method signatures:
  * - This method calls `supplyAsync()` in the Java API
  * - This future is asynchronously completed by a task running in the ForkJoinPool.commonPool() with the value obtained by calling the given Supplier.
  *
- * @supplier A CFC instance or closure or lambda or udf to execute and return the value to be used in the future
- * @method If the supplier is a CFC, then it executes a method on the CFC for you. Defaults to the `run()` method
+ * @supplier A class instance or closure or lambda or udf to execute and return the value to be used in the future
+ * @method If the supplier is a class, then it executes a method on the class for you. Defaults to the `run()` method
  * @executor An optional executor to use for asynchronous execution of the task
  *
  * @return The new completion stage (Future)

@@ -8,11 +8,11 @@ This is great for intercepting calls, pre/post processing, localized security, l
 
 | **Interceptor Method** | **Description**                                                    |
 | ---------------------- | ------------------------------------------------------------------ |
-| `preHandler()`         | Executes **before** any requested action (In the same handler CFC) |
+| `preHandler()`         | Executes **before** any requested action (In the same handler class) |
 | `pre{action}()`        | Executes **before** the `{action}` requested ONLY                  |
-| `postHandler()`        | Executes **after** any requested action (In the same handler CFC)  |
+| `postHandler()`        | Executes **after** any requested action (In the same handler class)  |
 | `post{action}()`       | Executes **after** the `{action}` requested ONLY                   |
-| `aroundHandler()`      | Executes **around** any request action (In the same handler CFC)   |
+| `aroundHandler()`      | Executes **around** any request action (In the same handler class)   |
 | `around{action}()`     | Executes **around** the `{action}` requested ONLY                  |
 
 ![](../../../.gitbook/assets/eventhandler-around.jpg)

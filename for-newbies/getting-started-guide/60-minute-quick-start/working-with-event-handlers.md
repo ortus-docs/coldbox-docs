@@ -5,7 +5,7 @@
 Event handlers are the _controller_ layer in ColdBox and is what you will be executing via the `URL`or a `FORM`post. All event handlers are **singletons**, which means they are cached for the duration of the application, so always remember to var scope your variables in your functions.
 
 {% hint style="success" %}
-**Tip:** For development we highly encourage you to turn handler caching **off** or you will have to reinit the application in every request, which is **annoying**. Open the `config/ColdBox.cfc` and look for the `coldbox.handlerCaching` setting. &#x20;
+**Tip:** For development we highly encourage you to turn handler caching **off** or you will have to reinit the application in every request, which is **annoying**. Open the `config/ColdBox.bx` (or `.cfc` for CFML) and look for the `coldbox.handlerCaching` setting. &#x20;
 
 
 
@@ -29,9 +29,71 @@ function development() {
 
 ## Handler Code
 
-Go open the `handlers/main.cfc` and let's explore the code.
+Go open the `handlers/main.bx` (or `.cfc` for CFML) and let's explore the code.
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+class extends="coldbox.system.EventHandler" {
+
+    /**
+     * Default Action
+     */
+    function index( event, rc, prc ) {
+        prc.welcomeMessage = "Welcome to ColdBox!";
+        event.setView( "main/index" );
+    }
+
+    /**
+     * Produce some restfulf data
+     */
+    function data( event, rc, prc ) {
+        return [
+            { "id" : createUUID(), name : "Luis" },
+            { "id" : createUUID(), name : "JOe" },
+            { "id" : createUUID(), name : "Bob" },
+            { "id" : createUUID(), name : "Darth" }
+        ];
+    }
+
+    /**
+     * Relocation example
+     */
+    function doSomething( event, rc, prc ) {
+        relocate( "main.index" );
+    }
+
+    /************************************** IMPLICIT ACTIONS *********************************************/
+
+    function onAppInit( event, rc, prc ) {
+    }
+
+    function onRequestStart( event, rc, prc ) {
+    }
+
+    function onRequestEnd( event, rc, prc ) {
+    }
+
+    function onSessionStart( event, rc, prc ) {
+    }
+
+    function onSessionEnd( event, rc, prc ) {
+        var sessionScope     = event.getValue( "sessionReference" );
+        var applicationScope = event.getValue( "applicationReference" );
+    }
+
+    function onException( event, rc, prc ) {
+        event.setHTTPHeader( statusCode = 500 );
+        // Grab Exception From private request collection, placed by ColdBox Exception Handling
+        var exception = prc.exception;
+        // Place exception handler below:
+    }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component extends="coldbox.system.EventHandler" {
 
     /**
@@ -89,6 +151,8 @@ component extends="coldbox.system.EventHandler" {
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 Let's recap: Every action in ColdBox receives three arguments:
 
@@ -98,13 +162,13 @@ Let's recap: Every action in ColdBox receives three arguments:
 
 ## Setting Views - Default Layout
 
-This line `event.setView( "main/index" )` in the `index` action told ColdBox to render a view back to the user found in `views/main/index.cfm`. &#x20;
+This line `event.setView( "main/index" )` in the `index` action told ColdBox to render a view back to the user found in `views/main/index.bxm` (or `.cfm` for CFML). &#x20;
 
-ColdBox also has the concept of layouts, which are essentially reusable views that can wrap up other views or layouts.  They allow you to reuse content to render views/layouts inside a specific location in the CFML content.  By convention, ColdBox looks for a layout called `layouts/Main.cfm.`  This is yet another convention, the default layout.  Your application can have many layouts or non-layouts at all.
+ColdBox also has the concept of layouts, which are essentially reusable views that can wrap up other views or layouts.  They allow you to reuse content to render views/layouts inside a specific location in the CFML content.  By convention, ColdBox looks for a layout called `layouts/Main.bxm` (or `.cfm` for CFML).  This is yet another convention, the default layout.  Your application can have many layouts or non-layouts at all.
 
 ## Working With Incoming Data
 
-Now, let's open the handler we created before called `handlers/hello.cfc` and add some public and private variables so our views can render the variables.
+Now, let's open the handler we created before called `handlers/hello.bx` (or `.cfc` for CFML) and add some public and private variables so our views can render the variables.
 
 ```cfscript
 function index( event, rc, prc ){
@@ -117,7 +181,7 @@ function index( event, rc, prc ){
 }
 ```
 
-Let's open the view now: `views/hello/index.cfm` and change it to this:
+Let's open the view now: `views/hello/index.bxm` (or `.cfm` for CFML) and change it to this:
 
 ```markup
 <cfoutput>
@@ -139,7 +203,7 @@ Now change the incoming URL to this: `http://localhost:{port}/hello/index?name=C
 
 ### Routing Params
 
-Now let's expect the name as part of the URL pattern; open the `config/Router.cfc` and let's add another route:
+Now let's expect the name as part of the URL pattern; open the `config/Router.bx` (or `.cfc` for CFML) and let's add another route:
 
 ```cfscript
 route( "/hello/:name" ).as( "hello" ).to( "hello" )

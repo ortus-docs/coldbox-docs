@@ -21,10 +21,105 @@ The ColdBox Scheduler is built on top of the core async package Scheduler.
 
 ## Global App Scheduler
 
-Every ColdBox application has a global scheduler created for you by convention and registered with a WireBox ID of `appScheduler@coldbox`. However, you can have complete control of the scheduler by creating the following file: `config/Scheduler.cfc`. This is a simple CFC with a `configure()` method where you will define your tasks and several life-cycle methods.
+Every ColdBox application has a global scheduler created for you by convention and registered with a WireBox ID of `appScheduler@coldbox`. However, you can have complete control of the scheduler by creating the following file: `config/Scheduler.cfc`. This is a simple class with a `configure()` method where you will define your tasks and several life-cycle methods.
 
+{% tabs %}
+{% tab title="BoxLang" %}
 {% code title="config/Scheduler.cfc" %}
-```javascript
+```js
+class {
+
+    /**
+     * Configure the ColdBox Scheduler
+     */
+    function configure() {
+        /**
+         * --------------------------------------------------------------------------
+         * Configuration Methods
+         * --------------------------------------------------------------------------
+         * From here you can set global configurations for the scheduler
+         * - setTimezone( ) : change the timezone for ALL tasks
+         * - setExecutor( executorObject ) : change the executor if needed
+         * - setCacheName( "template" ) : Change the cachename for ALL tasks
+         * - setServerFixation( true ) : Set all tasks to run on one server
+         */
+
+
+
+        /**
+         * --------------------------------------------------------------------------
+         * Register Scheduled Tasks
+         * --------------------------------------------------------------------------
+         * You register tasks with the task() method and get back a ColdBoxScheduledTask object
+         * that you can use to register your tasks configurations.
+         */
+
+        task( "Clear Unregistered Users" )
+            .call( () => getInstance( "UserService" ).clearRecentUsers() )
+            .everyDayAt( "09:00" );
+
+        task( "Hearbeat" )
+            .call( () => runEvent( "main.heartbeat" ) )
+            .every( 5, "minutes" )
+            .onFailure( ( task, exception ) => {
+                getInstance( "System" ).sendBadHeartbeat( exception );
+            } );
+    }
+
+    /**
+     * Called before the scheduler is going to be shutdown
+     */
+    function onShutdown(){
+    }
+
+    /**
+     * Called after the scheduler has registered all schedules
+     */
+    function onStartup(){
+    }
+
+    /**
+     * Called whenever ANY task fails
+     *
+     * @task The task that got executed
+     * @exception The ColdFusion exception object
+     */
+    function onAnyTaskError( required task, required exception ){
+    }
+
+    /**
+     * Called whenever ANY task succeeds
+     *
+     * @task The task that got executed
+     * @result The result (if any) that the task produced
+     */
+    function onAnyTaskSuccess( required task, result ){
+    }
+
+    /**
+     * Called before ANY task runs
+     *
+     * @task The task about to be executed
+     */
+    function beforeAnyTask( required task ){
+    }
+
+    /**
+     * Called after ANY task runs
+     *
+     * @task The task that got executed
+     * @result The result (if any) that the task produced
+     */
+    function afterAnyTask( required task, result ){
+    }
+
+}
+```
+{% endcode %}
+{% endtab %}
+{% tab title="CFML" %}
+{% code title="config/Scheduler.cfc" %}
+```cfscript
 component {
 
     /**
@@ -114,6 +209,8 @@ component {
 }
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ### Life-Cycle Methods
 
@@ -209,7 +306,11 @@ Every scheduler has the following injections available to you in the `variables`
 
 All **module schedulers** will have the following extra automatic injections:
 
-<table data-header-hidden><thead><tr><th width="150"></th><th></th></tr></thead><tbody><tr><td><strong>Property</strong></td><td><strong>Description</strong></td></tr><tr><td><code>moduleMapping</code></td><td>The module’s mapping</td></tr><tr><td><code>modulePath</code></td><td>The module’s path on disk</td></tr><tr><td><code>moduleSettings</code></td><td>The module’s settings structure</td></tr></tbody></table>
+| Property          | Description                         |
+| ----------------- | ------------------------------------ |
+| `moduleMapping`   | The module's mapping                 |
+| `modulePath`      | The module's path on disk            |
+| `moduleSettings`  | The module's settings structure      |
 
 ### Scheduler Methods
 
@@ -271,7 +372,7 @@ You can find the API Docs for this object here: [https://s3.amazonaws.com/apidoc
 
 ### Task Closure/Lambda/Object
 
-You register the callable event via the `call()` method on the task object. You can register a closure/lambda or a invokable CFC. If you register an object, then we will call on the object's `run()` method by default, but you can change it using the `method` argument and call any public/remote method.
+You register the callable event via the `call()` method on the task object. You can register a closure/lambda or a invokable class. If you register an object, then we will call on the object's `run()` method by default, but you can change it using the `method` argument and call any public/remote method.
 
 ```javascript
 // Lambda Syntax
@@ -319,6 +420,7 @@ Ok, let's go over the frequency methods:
 | -------------------------------------- | ---------------------------------------------------------------------------- |
 | `every( period, timeunit )`            | Run the task every custom period of execution                                |
 | `spacedDelay( spacedDelay, timeunit )` | Run the task every custom period of execution but with NO overlaps           |
+| `everySecond()`                        | Run the task every second from the time it get's scheduled                   |
 | `everyMinute()`                        | Run the task every minute from the time it get's scheduled                   |
 | `everyHour()`                          | Run the task every hour from the time it get's scheduled                     |
 | `everyHourAt( minutes )`               | Set the period to be hourly at a specific minute mark and 00 seconds         |
@@ -345,6 +447,20 @@ Ok, let's go over the frequency methods:
 {% hint style="success" %}
 All `time` arguments are defaulted to midnight (00:00)
 {% endhint %}
+
+### Time Unit Methods
+
+If you find yourself calling `every( period, timeunit )` repeatedly with the same `timeunit`, you can instead chain one of these methods to set the time unit alone, leaving the period to be set (or defaulted) separately. Please note that the **last one called wins**.
+
+| Time Unit Method    | Description                          |
+| -------------------- | ------------------------------------ |
+| `inDays()`           | Set the time unit to days            |
+| `inHours()`          | Set the time unit to hours           |
+| `inMinutes()`        | Set the time unit to minutes         |
+| `inSeconds()`        | Set the time unit to seconds         |
+| `inMilliseconds()`   | Set the time unit to milliseconds    |
+| `inMicroseconds()`   | Set the time unit to microseconds    |
+| `inNanoseconds()`    | Set the time unit to nanoseconds     |
 
 ### Preventing Overlaps / Stacking
 

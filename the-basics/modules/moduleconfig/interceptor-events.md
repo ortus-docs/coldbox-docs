@@ -4,7 +4,7 @@ The module configuration object is also treated as an Interceptor once it is cre
 
 ## Life-cycle Events
 
-There are two life-cycle callback events you can declare in your `ModuleConfig.cfc`:
+There are two life-cycle callback events you can declare in your `ModuleConfig.bx` (or `.cfc` for CFML):
 
 * `onLoad()` : Called when the module is loaded and activated
 * `onUnLoad()` : Called when the module is unloaded from memory
@@ -38,4 +38,4 @@ function preProcess(event, interceptData){
 }
 ```
 
-This is a powerful feature, you can create an entire module based on a single CFC and just treat it as an interceptor. So get your brain into gear and let the gas run, you are going for a ride baby!
+This is a powerful feature, you can create an entire module based on a single class and just treat it as an interceptor. So get your brain into gear and let the gas run, you are going for a ride baby!

@@ -267,9 +267,9 @@ Each executor registration is done as a struct with the name of the executor and
 * `type` : The executor type you want to register
 * `threads` : The number of threads to assign to the executor
 
-#### ModuleConfig.cfc
+#### ModuleConfig.bx (or .cfc for CFML)
 
-You can also do the same at a per-module level in your module's `ModuleConfig.cfc`.
+You can also do the same at a per-module level in your module's `ModuleConfig.bx` (or `.cfc` for CFML).
 
 ```javascript
 // In your ModuleConfig.cfc

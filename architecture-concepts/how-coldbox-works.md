@@ -6,7 +6,7 @@ icon: building
 
 # How ColdBox Works
 
-ColdBox uses both implicit and explicit invocation methods to execute events and render content back to a user. You have a single configuration CFC: `config/Coldbox.cfc`, from where you can configure your entire application and a set of folder/file conventions. This configuration file activates certain aspects of your application and configures all the implicit events that mostly reflect the events in the `Application.cfc` that ColdFusion exposes to you.
+ColdBox uses both implicit and explicit invocation methods to execute events and render content back to a user. You have a single configuration class: `config/Coldbox.bx` (or `.cfc` for CFML), from where you can configure your entire application and a set of folder/file conventions. This configuration file activates certain aspects of your application and configures all the implicit events that mostly reflect the events in the `Application.bx` (or `.cfc` for CFML) that ColdFusion exposes to you.
 
 > Remember that this framework will not solve all your problems. It is a standard and a foundation on which to develop on due to the software programming aspects that it provides. However, it is up to you to create GOOD code. This is not a magical framework that will make your code better. It will help you, but at the end of the day, it is your responsibility.
 
@@ -14,7 +14,7 @@ ColdBox uses both implicit and explicit invocation methods to execute events and
 
 ![](../.gitbook/assets/ColdBoxSimpleMVC.png)
 
-ColdBox is loaded by the `Application.cfc` and makes use of the Front Controller design pattern as its means of operation. This means that every request comes in through a single template, usually `index.cfm`. Once a request is received by the framework through this front controller, it will parse the request and redirect appropriately to the correct event handler controller by looking for an `event` variable in the URL or FORM scopes.
+ColdBox is loaded by the `Application.bx` (or `.cfc` for CFML) and makes use of the Front Controller design pattern as its means of operation. This means that every request comes in through a single template, usually `index.bxm` (or `.cfm` for CFML). Once a request is received by the framework through this front controller, it will parse the request and redirect appropriately to the correct event handler controller by looking for an `event` variable in the URL or FORM scopes.
 
 ## Request Context
 
@@ -36,13 +36,13 @@ Below you can see a UML diagram of the ColdBox Major Classes eco-system.
 
 A typical basic request to a ColdBox application looks like this:
 
-* HTTP(S) request is sent from browser to server `http://www.example.com/index.cfm?event=home.about`
+* HTTP(S) request is sent from browser to server `http://www.example.com/index.bxm?event=home.about` (or `.cfm` for CFML)
 * The request context is created for this request and FORM/URL scopes are populated into the request collection
 * The Main ColdBox Event is determined from the `event` variable (`home.about`). (handler is **home** and action is **about**, notice the period separator
-* Event handler controller action is run (`about()` method in `/handlers/home.cfc`)
+* Event handler controller action is run (`about()` method in `/handlers/home.bx` (or `.cfc` for CFML))
 * The event handler might call a model for business logic
-* The view set in the event is rendered (`/views/home/about.cfm`)
-* The view’s HTML is wrapped in the rendered layout (`/layouts/main.cfm`)
+* The view set in the event is rendered (`/views/home/about.bxm` (or `.cfm` for CFML))
+* The view’s HTML is wrapped in the rendered layout (`/layouts/main.bxm` (or `.cfm` for CFML))
 * Page is returned to the browser
 
 Below you can see the full life-cycle for MVC requests:

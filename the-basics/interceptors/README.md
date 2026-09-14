@@ -1,12 +1,12 @@
 ---
 description: >-
-  Interceptors are CFC listeners that enable aspect-oriented programming in ColdBox. Create interceptor chains for cross-cutting concerns like security, logging, and caching.
+  Interceptors are class listeners that enable aspect-oriented programming in ColdBox. Create interceptor chains for cross-cutting concerns like security, logging, and caching.
 icon: filter
 ---
 
 # Interceptors
 
-Interceptors are CFC listeners that react on incoming events. Events can be announced by the core framework or be custom events from your application. These interceptors can also be stacked to form interceptor chains that can be executed implicitly for you. This is a powerful feature that can help developers and framework contributors share and interact with their work. (Read more on [Intercepting Filters](http://www.corej2eepatterns.com/Patterns2ndEd/InterceptingFilter.htm))
+Interceptors are class listeners that react on incoming events. Events can be announced by the core framework or be custom events from your application. These interceptors can also be stacked to form interceptor chains that can be executed implicitly for you. This is a powerful feature that can help developers and framework contributors share and interact with their work. (Read more on [Intercepting Filters](http://www.corej2eepatterns.com/Patterns2ndEd/InterceptingFilter.htm))
 
 ![](../../.gitbook/assets/InterceptorChain.gif)
 
@@ -28,11 +28,24 @@ if( userCreated ){
 
 ![](../../.gitbook/assets/eventdriven.jpg)
 
-If you are familiar with design patterns, custom interceptors can give you an implementation of observer/observable listener objects, much like any event-driven system can provide you. In a nutshell, an observer is an object that is registered to listen for certain types of events, let's say as an example `onError` is a custom interception point and we create a CFC that has this `onError` method. Whenever in your application you announce or broadcast that an event of type onError occurred, this CFC will be called by the ColdBox interceptor service.
+If you are familiar with design patterns, custom interceptors can give you an implementation of observer/observable listener objects, much like any event-driven system can provide you. In a nutshell, an observer is an object that is registered to listen for certain types of events, let's say as an example `onError` is a custom interception point and we create a class that has this `onError` method. Whenever in your application you announce or broadcast that an event of type onError occurred, this class will be called by the ColdBox interceptor service.
 
 **Interceptor Example**
 
-```javascript
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+class extends="coldbox.system.Interceptor"{
+
+    function onError( event, interceptData={} ){
+        // Listen to onError events
+    }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 component extends="coldbox.system.Interceptor"{
 
     function onError( event, interceptData={} ){
@@ -41,6 +54,8 @@ component extends="coldbox.system.Interceptor"{
 
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Resources
 

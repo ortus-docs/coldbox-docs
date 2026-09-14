@@ -7,7 +7,7 @@ description: >-
 # Server-Sent Events
 
 {% hint style="warning" %}
-Server-Sent Events require **BoxLang**. `SSE()` is a core BoxLang BIF with no CFML equivalent.
+🚀 **BoxLang Exclusive** — Server-Sent Events require **BoxLang**. `SSE()` is a core BoxLang BIF with no CFML equivalent.
 {% endhint %}
 
 This page covers the full `event.sse()` API - useful when a handler streams conditionally, or you want more control than a route-level terminator gives you.

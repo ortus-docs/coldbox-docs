@@ -5,7 +5,7 @@ The framework provides you with the `relocate()` method that you can use to relo
 After calling relocate, further code will still be processed until you return from handler.
 
 {% hint style="info" %}
-Please see the [Super Type CFC Docs](http://apidocs.ortussolutions.com/coldbox/current) for further investigation of all the goodness of methods you have available.
+Please see the [Super Type Class Docs](http://apidocs.ortussolutions.com/coldbox/current) for further investigation of all the goodness of methods you have available.
 {% endhint %}
 
 ```javascript

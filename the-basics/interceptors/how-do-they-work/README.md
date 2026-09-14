@@ -1,10 +1,25 @@
 # How do they work?
 
-Interceptors are CFCs that extend the ColdBox Interceptor class (`coldbox.system.Interceptor`), implement a configuration method called `configure()`, and then contain methods for the events it will listen for. All interceptors are treated as **singletons** in your application, so make sure they are thread safe and var scoped.
+Interceptors are classes that extend the ColdBox Interceptor class (`coldbox.system.Interceptor`), implement a configuration method called `configure()`, and then contain methods for the events it will listen for. All interceptors are treated as **singletons** in your application, so make sure they are thread safe and var scoped.
 
 ![](../../../.gitbook/assets/ColdBoxMajorClasses.jpg)
 
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+/**
+* My Interceptor
+*/
+class extends="coldbox.system.Interceptor"{
+
+    function configure(){}
+
+    function preProcess( event, interceptData, buffer, rc, prc ){}
+}
 ```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
 /**
 * My Interceptor
 */
@@ -15,8 +30,10 @@ component extends="coldbox.system.Interceptor"{
     function preProcess( event, interceptData, buffer, rc, prc ){}
 }
 ```
+{% endtab %}
+{% endtabs %}
 
-> **Info** You can also remove the inheritance from the CFC (preferred method) and WireBox will extend the `coldbox.system.Interceptor` for you using [Virtual Inheritance](https://wirebox.ortusbooks.com/content/virtual_inheritance/).
+> **Info** You can also remove the inheritance from the class (preferred method) and WireBox will extend the `coldbox.system.Interceptor` for you using [Virtual Inheritance](https://wirebox.ortusbooks.com/content/virtual_inheritance/).
 
 You can use CommandBox to create interceptors as well:
 
@@ -26,9 +43,9 @@ coldbox create interceptor help
 
 ## Registration
 
-Interceptors can be registered in your `Coldbox.cfc` configuration file using the `interceptors` struct, or they can be registered manually via the system's interceptor service.
+Interceptors can be registered in your `Coldbox.bx` (or `.cfc` for CFML) configuration file using the `interceptors` struct, or they can be registered manually via the system's interceptor service.
 
-In `ColdBox.cfc`:
+In `ColdBox.bx` (or `.cfc` for CFML):
 
 ```
 // Interceptors registration
