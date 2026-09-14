@@ -1,6 +1,6 @@
 # Module Async Scheduling
 
-Modules can easily tie in to ColdBox's [async scheduling engine](../../digging-deeper/promises-async-programming/scheduled-tasks.md) by defining a `config/Scheduler.cfc` file.  This file only needs a `configure` method.  Inside the file, you can define tasks to run asynchronously on a schedule and ColdBox will take care of the rest.
+Modules can easily tie in to [ColdBox Scheduled Tasks](../../digging-deeper/scheduled-tasks.md#schedulers-for-modules) by defining a `config/Scheduler.cfc` file.  This file only needs a `configure` method.  Inside the file, you can define tasks to run asynchronously on a schedule and ColdBox will take care of the rest.
 
 {% tabs %}
 {% tab title="BoxLang" %}

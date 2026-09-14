@@ -258,7 +258,7 @@
   * [Async Pipelines & Futures](digging-deeper/promises-async-programming/async-pipelines-and-futures.md)
   * [Parallel Computations](digging-deeper/promises-async-programming/parallel-computations.md)
   * [Executors](digging-deeper/promises-async-programming/executors.md)
-  * [Scheduled Tasks](digging-deeper/promises-async-programming/scheduled-tasks.md)
+  * [Scheduled Tasks (Core Async Package)](digging-deeper/promises-async-programming/scheduled-tasks.md)
   * [ColdBox Scheduled Tasks](digging-deeper/scheduled-tasks.md)
 * [ColdBox Proxy](digging-deeper/coldbox-proxy/README.md)
   * [Getting Started](digging-deeper/coldbox-proxy/getting-started.md)

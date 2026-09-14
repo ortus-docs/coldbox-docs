@@ -1,4 +1,8 @@
-# Scheduled Tasks
+# Scheduled Tasks (Core Async Package)
+
+{% hint style="warning" %}
+**This is not the same page as** [**ColdBox Scheduled Tasks**](../scheduled-tasks.md)**.** This page documents the lower-level `Scheduler` shipped in the core `coldbox.system.async` package - usable standalone in any BoxLang/CFML app via WireBox, CacheBox, or LogBox, with no ColdBox required. If you **are** inside a ColdBox application, skip this page and use [ColdBox Scheduled Tasks](../scheduled-tasks.md) instead - it's a convention-based wrapper around this same `Scheduler` that ColdBox creates, persists, and manages for you automatically.
+{% endhint %}
 
 ## Requirements
 
@@ -13,7 +17,7 @@ The [async](./) package is what powers scheduled tasks and it can be available t
 **YOU DON'T NEED COLDBOX TO RUN ANY SCHEDULED TASKS OR ANY FEATURES OF THE ASYNC PACKAGE. YOU CAN USE ANY OF THE STANDALONE LIBRARIES ABOVE.**
 {% endhint %}
 
-However, if you use ColdBox, you get enhanced features and new functionality.  For example, the [ColdBox Scheduled Tasks](../scheduled-tasks.md) are an enhanced implementation of the core scheduled tasks we will be reviewing in this document.
+However, if you use ColdBox, you get enhanced features and new functionality: automatic creation/persistence of the scheduler, module-level schedulers, server fixation, and environment constraints. See [ColdBox Scheduled Tasks](../scheduled-tasks.md) - it is an enhanced, convention-based implementation of the core scheduler documented on this page.
 
 ## Introduction
 

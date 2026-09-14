@@ -34,8 +34,20 @@ BoxLang, our preferred language, ships with its **own native, language-level asy
 | You are writing **plain BoxLang** outside of ColdBox (a script, a CLI tool, a microservice, another framework) | BoxLang's native `futureNew()`, `asyncRun()`, `asyncAll()`/`asyncAny()`/`asyncAllApply()`, `executorNew()`/`executorGet()`, and `Scheduler.bx` + `boxlang.json`. No framework dependency required. |
 | You need **I/O-bound concurrency** (HTTP calls, queries, file I/O) | Virtual threads: ColdBox's `virtual` executor type, or BoxLang's pre-configured `io-tasks` executor. |
 | You need **CPU-bound concurrency** (image processing, encryption, heavy transforms) | A fixed pool: ColdBox's `fixed`/`cpuIntensive`-style executor, or BoxLang's `cpu-tasks` executor. |
-| You need **cron-style, in-process scheduled tasks** for a ColdBox app | `config/Scheduler.cfc` (app or module level) - see [ColdBox Scheduled Tasks](../scheduled-tasks.md). |
-| You need **scheduling outside ColdBox** | A native BoxLang `Scheduler.bx` registered in `boxlang.json` or via `schedulerStart()`. |
+
+### Three Different Schedulers - Don't Mix Them Up
+
+The word "scheduler" shows up in three unrelated places in our docs. Pick the row that matches where your code runs:
+
+| Where you are | What to use | Docs |
+| --- | --- | --- |
+| Inside a **ColdBox application** (BoxLang or CFML) | The convention-based `config/Scheduler.cfc` (app or module level), auto-registered and lifecycle-managed by ColdBox as `appScheduler@coldbox` | [ColdBox Scheduled Tasks](../scheduled-tasks.md) |
+| **Standalone WireBox/CacheBox/LogBox**, no ColdBox (BoxLang or CFML) | The core async package's `Scheduler` object, created manually via `AsyncManager.newScheduler()` and persisted by you | [Scheduled Tasks (Core Async Package)](scheduled-tasks.md) |
+| **Plain BoxLang**, no Ortus libraries at all | The native `Scheduler.bx` class registered in `boxlang.json`, or started with `schedulerStart()` | [Scheduled Tasks (Core Async Package) → BoxLang Native Scheduling](scheduled-tasks.md#boxlang-native-scheduling) |
+
+{% hint style="warning" %}
+**"ColdBox Scheduled Tasks" and "Scheduled Tasks (Core Async Package)" are two different pages.** The ColdBox one is the higher-level, convention-based layer built specifically for ColdBox HMVC apps. The Core Async Package one is the lower-level API it's built on top of, usable on its own without ColdBox. If you're inside a ColdBox app, use the ColdBox one - don't call `AsyncManager.newScheduler()` directly.
+{% endhint %}
 
 {% hint style="info" %}
 Both engines end up calling into the same JDK `CompletableFuture`/`ExecutorService` machinery under the hood, so the concepts (futures, executors, schedulers) transfer directly between the ColdBox API and BoxLang's native API - only the entry-point functions differ.

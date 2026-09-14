@@ -20,7 +20,11 @@ The ColdBox Scheduler is built on top of the core async package Scheduler.
 {% endhint %}
 
 {% hint style="info" %}
-**This page is for scheduling tasks inside a ColdBox application** (BoxLang or CFML) - it's the recommended approach whenever ColdBox is present, since it ties into the module lifecycle, environment constraints, and server fixation shown below. If you're writing plain BoxLang outside of ColdBox, use a native standalone `Scheduler.bx` + `boxlang.json` instead - see [BoxLang Native Scheduling](promises-async-programming/scheduled-tasks.md#boxlang-native-scheduling).
+**This page is for scheduling tasks inside a ColdBox application** (BoxLang or CFML) - it's the recommended approach whenever ColdBox is present, since it ties into the module lifecycle, environment constraints, and server fixation shown below.
+
+Not in a ColdBox app? Use one of these instead - don't use this page's `config/Scheduler.cfc` convention outside of ColdBox:
+* **Standalone WireBox/CacheBox/LogBox** (no ColdBox, BoxLang or CFML) → [Scheduled Tasks (Core Async Package)](promises-async-programming/scheduled-tasks.md)
+* **Plain BoxLang**, no Ortus libraries at all → [BoxLang Native Scheduling](promises-async-programming/scheduled-tasks.md#boxlang-native-scheduling)
 {% endhint %}
 
 ## Global App Scheduler
