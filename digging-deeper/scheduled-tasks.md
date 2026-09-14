@@ -19,6 +19,10 @@ The _ColdBox Scheduled Tasks_ offers a fresh, programmatic and human approach to
 The ColdBox Scheduler is built on top of the core async package Scheduler.
 {% endhint %}
 
+{% hint style="info" %}
+**This page is for scheduling tasks inside a ColdBox application** (BoxLang or CFML) - it's the recommended approach whenever ColdBox is present, since it ties into the module lifecycle, environment constraints, and server fixation shown below. If you're writing plain BoxLang outside of ColdBox, use a native standalone `Scheduler.bx` + `boxlang.json` instead - see [BoxLang Native Scheduling](promises-async-programming/scheduled-tasks.md#boxlang-native-scheduling).
+{% endhint %}
+
 ## Global App Scheduler
 
 Every ColdBox application has a global scheduler created for you by convention and registered with a WireBox ID of `appScheduler@coldbox`. However, you can have complete control of the scheduler by creating the following file: `config/Scheduler.cfc`. This is a simple class with a `configure()` method where you will define your tasks and several life-cycle methods.
@@ -368,7 +372,7 @@ Once you call on this method, the scheduler will create a `ColdBoxScheduledTask`
 task( "my-task" )
 ```
 
-You can find the API Docs for this object here: [https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/web/tasks/ColdBoxScheduledTask.html](https://s3.amazonaws.com/apidocs.ortussolutions.com/coldbox/6.4.0/coldbox/system/web/tasks/ColdBoxScheduledTask.html)
+You can find the API Docs for this object here: [https://apidocs.ortussolutions.com/coldbox/current/coldbox/system/web/tasks/ColdBoxScheduledTask.html](https://apidocs.ortussolutions.com/coldbox/current/coldbox/system/web/tasks/ColdBoxScheduledTask.html)
 
 ### Task Closure/Lambda/Object
 
