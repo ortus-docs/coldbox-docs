@@ -192,6 +192,22 @@ Hot-path performance optimizations in `HandlerService`, `RoutingService`, and `R
 
 [COLDBOX-1440](https://ortussolutions.atlassian.net/browse/COLDBOX-1440) Full BoxLang null-runtime support (`enableNullSupport`)
 
+[COLDBOX-1389](https://ortussolutions.atlassian.net/browse/COLDBOX-1389) New `body` argument on test methods for mocking incoming request bodies
+
+[COLDBOX-1399](https://ortussolutions.atlassian.net/browse/COLDBOX-1399) Scheduled-task stack traces are now logged when a task fails to load
+
+[COLDBOX-1403](https://ortussolutions.atlassian.net/browse/COLDBOX-1403) More defensive bootstrap and session-start handling
+
+[COLDBOX-1409](https://ortussolutions.atlassian.net/browse/COLDBOX-1409) `Response.setData()` gains `message` and `location` arguments
+
+[COLDBOX-1412](https://ortussolutions.atlassian.net/browse/COLDBOX-1412) Response object fluent builders and utility methods
+
+[COLDBOX-1396](https://ortussolutions.atlassian.net/browse/COLDBOX-1396) Scheduler and task-registration performance overhaul
+
+`isAjax` now detects Fetch metadata, not just `X-Requested-With` ([#662](https://github.com/ColdBox/coldbox-platform/pull/662))
+
+[COLDBOX-1397](https://ortussolutions.atlassian.net/browse/COLDBOX-1397) Global performance optimizations across startup and interception hot paths (in addition to PRs [#664](https://github.com/ColdBox/coldbox-platform/pull/664)/[#665](https://github.com/ColdBox/coldbox-platform/pull/665))
+
 ### Bugs
 
 [COLDBOX-1407](https://ortussolutions.atlassian.net/browse/COLDBOX-1407) `url.results` collision breaking `cache.getOrSet()` on any page loaded with `?results=...`
@@ -213,6 +229,30 @@ Hot-path performance optimizations in `HandlerService`, `RoutingService`, and `R
 [COLDBOX-1449](https://ortussolutions.atlassian.net/browse/COLDBOX-1449) `appHash` property missing default value
 
 Fixed a startup typo in `Bootstrap.cfc` ([#667](https://github.com/ColdBox/coldbox-platform/pull/667))
+
+[COLDBOX-1390](https://ortussolutions.atlassian.net/browse/COLDBOX-1390) Whoops zero-position `Right()` error when normalizing file content for error displays
+
+Whoops source panel indentation fix ([#661](https://github.com/ColdBox/coldbox-platform/pull/661))
+
+[COLDBOX-1392](https://ortussolutions.atlassian.net/browse/COLDBOX-1392) Regression when using Application Bootstrap via inheritance (app hash included app name before the application existed)
+
+[COLDBOX-1398](https://ortussolutions.atlassian.net/browse/COLDBOX-1398) `contentType()` null guard during event caching on some servlet deployments
+
+[COLDBOX-1401](https://ortussolutions.atlassian.net/browse/COLDBOX-1401) Scheduled task missing `getTimezon()` getter (BIF collision)
+
+[COLDBOX-1402](https://ortussolutions.atlassian.net/browse/COLDBOX-1402) Scheduled task `delay()` not honored
+
+[COLDBOX-1408](https://ortussolutions.atlassian.net/browse/COLDBOX-1408) BoxLang prime issue when storing handler metadata
+
+`Renderer.renderLayout` `LayoutNotFoundException` on empty layout (regression vs 7.x) ([#657](https://github.com/ColdBox/coldbox-platform/pull/657))
+
+Module convention routing no longer applies the optional-action fallback to mandatory-action routes ([#695](https://github.com/ColdBox/coldbox-platform/pull/695))
+
+Scheduler `onOneServer()` lock sized to the task's real cadence instead of the daily poll ([#696](https://github.com/ColdBox/coldbox-platform/pull/696))
+
+Wrong ForgeBox slug in the BoxLang AI module error message ([#656](https://github.com/ColdBox/coldbox-platform/pull/656))
+
+`ObjectPopulator` (ORM) and `SchemaInfo` null-prime/null-cast fixes for BoxLang runtime
 
 ### Tasks
 

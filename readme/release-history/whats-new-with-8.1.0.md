@@ -113,9 +113,13 @@ The full release notes per library can be found below. Just click on the library
 
 [COLDBOX-1384](https://ortussolutions.atlassian.net/browse/COLDBOX-1384) ColdBox proxy not disallowing `.bxm` proxies
 
+[COLDBOX-1372](https://ortussolutions.atlassian.net/browse/COLDBOX-1372) BoxLang compat: `onSessionEnd` throws errors when invoked outside a request
+
 ### Tasks
 
 [COLDBOX-1387](https://ortussolutions.atlassian.net/browse/COLDBOX-1387) Deprecate `this.cfmapping` on module configuration and use `this.classMapping` instead
+
+[COLDBOX-1379](https://ortussolutions.atlassian.net/browse/COLDBOX-1379) `BaseTestCase` now extends `BaseSpec` rather than the Compat TestCase
 {% endtab %}
 
 {% tab title="WireBox" %}
