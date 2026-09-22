@@ -1,5 +1,5 @@
 ---
-description: August 17, 2026
+description: September 22, 2026
 ---
 
 # What's New With 8.2.0
