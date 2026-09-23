@@ -37,26 +37,26 @@ Note that there is no model layer in the diagram. This is by design; the model w
 
 Below you can see a listing of the most commonly used methods in the request context object. Please note that when interacting with a collection you usually have an equal **private** collection method.
 
-* _buildLink()_ : Build a link in SES or non SES mode for you with tons of nice abstractions.
-* _clearCollection()_ : Clears the entire collection
-* _collectionAppend()_ : Append a collection overwriting or not
-* _getCollection()_ : Get a reference to the collection
-* _getEventName()_ : The event name in use in the application (e.g. do, event, fa)
-* _getSelf()_ : Returns index.cfm?event=
-* _getValue()_ : get a value
-* _getTrimValue()_ : get a value trimmed
-* _isProxyRequest()_ : flag if the request is an incoming proxy request
-* _isSES()_ : flag if ses is turned on
-* _isAjax()_ : Is this request ajax based or not
-* noRender(boolean) : flag that tells the framework to not render any html, just process and silently stop.
-* _overrideEvent()_ : Override the event in the collection
-* _paramValue()_: param a value in the collection
-* _removeValue()_ : remove a value
-* _setValue()_ : set a value
-* _setLayout()_ : Set the layout to use for this request
-* _setView()_ : Used to set a view to render
-* _valueExists()_ : Checks if a value exists in the collection.
-* _renderData()_ : Marshall data to JSON, JSONP, XML, WDDX, PDF, HTML, etc.
+* `buildLink()` : Build a link in SES or non SES mode for you with tons of nice abstractions.
+* `clearCollection()` : Clears the entire collection
+* `collectionAppend()` : Append a collection overwriting or not
+* `getCollection()` : Get a reference to the collection
+* `getEventName()` : The event name in use in the application (e.g. do, event, fa)
+* `getSelf()` : Returns index.cfm?event=
+* `getValue()` : get a value
+* `getTrimValue()` : get a value trimmed
+* `isProxyRequest()` : flag if the request is an incoming proxy request
+* `isSES()` : flag if ses is turned on
+* `isAjax()` : Is this request ajax based or not
+* `oRender(b`olean) : flag that tells the framework to not render any html, just process and silently stop.
+* `overrideEvent()` : Override the event in the collection
+* `paramValue()`: param a value in the collection
+* `removeValue()` : remove a value
+* `setValue()` : set a value
+* `setLayout()` : Set the layout to use for this request
+* `setView()` : Used to set a view to render
+* `valueExists()` : Checks if a value exists in the collection.
+* `renderData()` : Marshall data to JSON, JSONP, XML, WDDX, PDF, HTML, etc.
 
 Some Samples:
 

@@ -1,5 +1,5 @@
 ---
-description: Bootstrap ColdBox in Application.cfc using composition or inheritance to load the framework for your application.
+description: Bootstrap ColdBox in Application.bx (or .cfc for CFML) using composition or inheritance to load the framework for your application.
 ---
 
 # Bootstrapper - Application.bx (or .cfc for CFML)
@@ -146,6 +146,8 @@ class extends="coldbox.system.Bootstrap"{
     COLDBOX_APP_ROOT_PATH = getDirectoryFromPath( getCurrentTemplatePath() );
     // The web server mapping to this application. Used for remote purposes or static purposes
     COLDBOX_APP_MAPPING   = "";
+    // The web mapping to the application's web root, only needed for modern non-webroot templates
+    COLDBOX_WEB_MAPPING   = "";
     // COLDBOX PROPERTIES
     COLDBOX_CONFIG_FILE      = "";
     // COLDBOX APPLICATION KEY OVERRIDE
@@ -171,6 +173,8 @@ component extends="coldbox.system.Bootstrap"{
     COLDBOX_APP_ROOT_PATH = getDirectoryFromPath( getCurrentTemplatePath() );
     // The web server mapping to this application. Used for remote purposes or static purposes
     COLDBOX_APP_MAPPING   = "";
+    // The web mapping to the application's web root, only needed for modern non-webroot templates
+    COLDBOX_WEB_MAPPING   = "";
     // COLDBOX PROPERTIES
     COLDBOX_CONFIG_FILE      = "";
     // COLDBOX APPLICATION KEY OVERRIDE

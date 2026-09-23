@@ -20,7 +20,7 @@
 * [Configuration](getting-started/configuration/README.md)
   * [The ColdBox Class](getting-started/configuration/coldbox.cfc/README.md)
   * [Using Settings](getting-started/configuration/using-settings.md)
-  * [Bootstrapper - Application.cfc](getting-started/configuration/bootstrapper-application.cfc.md)
+  * [Bootstrapper](getting-started/configuration/bootstrapper.md)
 
 ## The Basics
 
