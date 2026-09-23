@@ -30,13 +30,14 @@ Use CbGenesis to see how the [Ecosystem](../ecosystem/README.md) modules fit tog
 
 | Template | Description |
 | --- | --- |
+| `cbgenesis` | Production-ready reference application with modern layout and BoxLang |
 | `boxlang` | **Recommended.** Native BoxLang app: secure non-root layout, Vite, `Build.bx`, Docker-ready |
-| `flat` | Traditional CFML-style layout — everything in the webroot |
+| `boxlang-desktop` | Cross-platform desktop app via the [BoxLang Desktop runtime](../digging-deeper/desktop-applications.md) |
+| `flat` | Traditional ColdBox layout — everything in the webroot |
 | `rest` | A base REST API using ColdBox |
 | `rest-hmvc` | An HMVC REST API using modules |
 | `supersimple` | Barebones conventions baby! |
-| `boxlang-desktop` | Cross-platform desktop app via the [BoxLang Desktop runtime](../digging-deeper/desktop-applications.md) |
-| `vite` | Vite-first frontend pipeline variant |
+| `tiered` | Tiered layout with separate webroot and app directories |
 
 ```bash
 coldbox create app myApp                  # Default template

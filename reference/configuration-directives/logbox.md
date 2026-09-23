@@ -47,4 +47,4 @@ logBox = {
 
 **ConfigFile**
 
-You can use a configuration class instead of inline configuration by using this setting. The default value is `config/LogBox.bx` (or `.cfc` for CFML), so by convention you can just use that location. If no values are defined or no config file exists, the default configuration file is `coldbox/system/web/config/LogBox.bx` (or `.cfc` for CFML).
+You can use a configuration class instead of inline configuration by using this setting. The default value is `config/LogBox.bx` (or `.cfc` for CFML), so by convention you can just use that location. If no values are defined or no config file exists, the framework uses its shipped default configuration at `/coldbox/system/web/config/LogBox.cfc`.

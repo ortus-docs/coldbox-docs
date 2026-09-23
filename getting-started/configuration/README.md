@@ -24,9 +24,11 @@ Please note that anytime you make any configuration changes or there are things 
 
 ```
 // reinit with no password
+index.bxm?fwreinit=1
 index.cfm?fwreinit=1
 
 // reinit with password
+index.bxm?fwreinit=mypass
 index.cfm?fwreinit=mypass
 ```
 

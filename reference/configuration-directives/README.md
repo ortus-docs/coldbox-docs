@@ -16,6 +16,8 @@ All application configuration lives in the **ColdBox class** (`config/ColdBox.bx
 | `interceptors` / `interceptorSettings` | Registered interceptors and their config | [ColdBox Directives](coldbox.md#interceptors) |
 | `layouts` / `layoutSettings` | Layout registrations and behavior | [ColdBox Directives](coldbox.md#layouts) |
 | `settings` | Custom application settings | [ColdBox Directives](coldbox.md#settings) |
+| `executors` | Named async executor pools for your app | [ColdBox Directives](coldbox.md#executors) |
+| `sse` | Server-Sent Events behavior (BoxLang only) | [ColdBox Directives](coldbox.md#executors--server-sent-events-settings) |
 | `modules` | Module loading and behavior | [Modules & Module Settings](modules-and-settings.md) |
 | `moduleSettings` | Per-module settings | [Modules & Module Settings](modules-and-settings.md#module-settings) |
 | `cachebox` | Caching — see the CacheBox book for the full DSL | [CacheBox Directive](cachebox.md) |

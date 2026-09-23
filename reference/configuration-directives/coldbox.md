@@ -141,8 +141,8 @@ coldbox = {
     invalidHTTPMethodHandler = "",
     // The handler to execute on invalid events
     invalidEventHandler = "",
-    // The default error template    
-    customErrorTemplate     = "/coldbox/system/exceptions/BugReport-Public.cfm"
+    // Custom error template (empty = framework fallback)
+    customErrorTemplate     = ""
 }
 ```
 
@@ -160,7 +160,7 @@ This is the event handler that will fire masking a non-existent event that gets 
 
 ### **customErrorTemplate**
 
-The relative path from the application's root level of where the custom error template exists. This template receives a key in the private request collection called `exception` that contains the exception. By default ColdBox does not show robust exceptions, you can turn on robust exceptions by choosing the following template:
+The relative path from the application's root level of where the custom error template exists. This template receives a key in the private request collection called `exception` that contains the exception. This setting defaults to an **empty string**, in which case the framework falls back to rendering `/coldbox/system/exceptions/BugReport-Public.cfm`. By default ColdBox does not show robust exceptions, you can turn on robust exceptions by choosing the following template:
 
 ```
 coldbox.customErrorTemplate = "/coldbox/system/exceptions/BugReport.cfm";
@@ -170,8 +170,8 @@ coldbox.customErrorTemplate = "/coldbox/system/exceptions/BugReport.cfm";
 
 ```javascript
 coldbox = {
-    // Persist handlers
-    handlerCaching             = false,
+    // Persist handlers (singletons) — defaults to true
+    handlerCaching             = true,
     // Activate event caching
     eventCaching            = true,
     // Activate view  caching
@@ -243,15 +243,17 @@ This directive is independent from `viewCaching` (which caches rendered **output
 
 When the incoming request body is a JSON payload, ColdBox will parse it and merge it into the `RC` (Request Collection) automatically, just like `FORM`/`URL` variables. Defaults to **true**. Set to **false** if you'd rather read the raw JSON body yourself via `event.getHTTPContent()`.
 
-## Async & Server-Sent Events Settings
+## Executors & Server-Sent Events Settings
 
-Unlike the settings above, `async` and `sse` are **not** nested inside the `coldbox = {}` struct - they are their own top-level structures in your `ColdBox.bx` (or `.cfc` for CFML), right alongside `coldbox`, `conventions`, `interceptors`, etc.
+Unlike the settings above, `executors` and `sse` are **not** nested inside the `coldbox = {}` struct - they are their own top-level structures in your `ColdBox.bx` (or `.cfc` for CFML), right alongside `coldbox`, `conventions`, `interceptors`, etc.
 
 ```javascript
-// Async Executor Settings
-async = {
-    // Number of threads for the global app scheduler's executor
-    schedulerThreads = 20
+// Async Executor Settings — declare your own thread pools
+executors = {
+    myPool = {
+        type    = "fixed",
+        threads = 10
+    }
 };
 
 // Server-Sent Events Settings (BoxLang only)
@@ -265,9 +267,20 @@ sse = {
 };
 ```
 
-### **async.schedulerThreads**
+### **executors**
 
-The number of threads to allocate to the executor backing the global application [Scheduler](../../digging-deeper/scheduled-tasks.md) (`appScheduler@coldbox`). Defaults to **20**.
+A struct of named executor pools that ColdBox creates and manages for you at startup. Each key becomes the executor's name, and each value is passed straight through to the AsyncManager's `newExecutor()`, so it accepts the same arguments — `type` (`fixed`, `single`, `cached`, `scheduled`, `work_stealing`, `virtual`) and `threads`. Once registered, a pool is available via `getAsyncManager().getExecutor( name )` or the `executor:{name}` WireBox injection namespace.
+
+```javascript
+executors = {
+    reportPool = { type = "fixed", threads = 5 },
+    ioPool     = { type = "cached" }
+};
+```
+
+See [Executors](../../digging-deeper/promises-async-programming/executors.md) for the full reference.
+
+> **Info** ColdBox also creates one internal, reserved executor named `coldbox-tasks` with **20** threads. The framework's own CacheBox, LogBox, and WireBox task schedulers use it, and it is created by the AsyncManager for you — you do **not** declare it in `executors`, and its thread count is a framework constant rather than an application setting.
 
 ### **sse.keepAliveInterval**
 
@@ -304,7 +317,7 @@ Activates the framework's debug mode, which enables more verbose/robust exceptio
 
 ### **exceptionEditor**
 
-The identifier of the IDE/editor used to build clickable "open file" links for stack trace entries in exception reports (e.g. `BugReport.bxm` (or `.cfm` for CFML)). Defaults to `vscode`.
+The identifier of the IDE/editor used to build clickable "open file" links for stack trace entries in exception reports (e.g. `BugReport.cfm`). Defaults to `vscode`.
 
 ---
 
@@ -392,7 +405,6 @@ function development(){
     // Override coldbox directives
     coldbox.handlerCaching = false;
     coldbox.eventCaching = false;
-    coldbox.debugPassword = "";
     coldbox.reinitPassword = "";
 
     // Add dev only interceptors
@@ -480,14 +492,9 @@ This structure configures the interceptor service in your application.
 ```javascript
 //Interceptor Settings
 interceptorSettings = {
-    throwOnInvalidStates = false,
     customInterceptionPoints = "onLogin,onWikiTranslation,onAppClose"
 };
 ```
-
-## `throwOnInvalidStates`
-
-This tells the interceptor service to throw an exception if the state announced for interception is not valid or does not exist. Defaults to **false**.
 
 ## `customInterceptionPoints`
 
