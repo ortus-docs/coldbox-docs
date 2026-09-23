@@ -1,5 +1,6 @@
 ---
 description: All the major information about ColdBox Releases
+icon: clock
 ---
 
 # Release History
