@@ -41,12 +41,12 @@ The word "scheduler" shows up in three unrelated places in our docs. Pick the ro
 
 | Where you are | What to use | Docs |
 | --- | --- | --- |
-| Inside a **ColdBox application** (BoxLang or CFML) | The convention-based `config/Scheduler.cfc` (app or module level), auto-registered and lifecycle-managed by ColdBox as `appScheduler@coldbox` | [ColdBox Scheduled Tasks](../scheduled-tasks.md) |
-| **Standalone WireBox/CacheBox/LogBox**, no ColdBox (BoxLang or CFML) | The core async package's `Scheduler` object, created manually via `AsyncManager.newScheduler()` and persisted by you | [Scheduled Tasks (Core Async Package)](scheduled-tasks.md) |
-| **Plain BoxLang**, no Ortus libraries at all | The native `Scheduler.bx` class registered in `boxlang.json`, or started with `schedulerStart()` | [Scheduled Tasks (Core Async Package) → BoxLang Native Scheduling](scheduled-tasks.md#boxlang-native-scheduling) |
+| Inside a **ColdBox application** (BoxLang or CFML) | The convention-based `config/Scheduler.bx` (app or module level), auto-registered and lifecycle-managed by ColdBox as `appScheduler@coldbox` | [ColdBox Scheduled Tasks](../scheduled-tasks.md) |
+| **Standalone WireBox/CacheBox/LogBox**, no ColdBox (BoxLang or CFML) | The core async package's `Scheduler` object, created manually via `AsyncManager.newScheduler()` and persisted by you | See below |
+| **Plain BoxLang**, no Ortus libraries at all | The native `Scheduler.bx` class registered in `boxlang.json`, or started with `schedulerStart()` | [BoxLang Asynchronous Programming](https://boxlang.ortusbooks.com/boxlang-framework/asynchronous-programming) |
 
 {% hint style="warning" %}
-**"ColdBox Scheduled Tasks" and "Scheduled Tasks (Core Async Package)" are two different pages.** The ColdBox one is the higher-level, convention-based layer built specifically for ColdBox HMVC apps. The Core Async Package one is the lower-level API it's built on top of, usable on its own without ColdBox. If you're inside a ColdBox app, use the ColdBox one - don't call `AsyncManager.newScheduler()` directly.
+**Inside a ColdBox app, always use the ColdBox Scheduled Tasks layer** - the higher-level, convention-based API built for ColdBox HMVC apps. Don't call `AsyncManager.newScheduler()` directly there; that's the lower-level standalone API for non-ColdBox usage of WireBox/CacheBox/LogBox.
 {% endhint %}
 
 {% hint style="info" %}

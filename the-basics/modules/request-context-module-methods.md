@@ -1,3 +1,7 @@
+---
+description: Request context module methods getCurrentModule() and getModuleRoot() for module-aware views, layouts, and assets.
+---
+
 # Request Context Module Methods
 
 The request context object (`event` parameter received in handlers/layouts/views) has also been expanded to have the following module methods:

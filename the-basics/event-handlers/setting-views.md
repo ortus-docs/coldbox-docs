@@ -1,3 +1,7 @@
+---
+description: Set views and layouts to render with event.setView() and event.setLayout(), or rely on implicit view conventions.
+---
+
 # Setting Views
 
 ## Views (Default Layout)

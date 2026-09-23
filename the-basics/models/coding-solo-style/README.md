@@ -1,3 +1,7 @@
+---
+description: Build a contacts example without ORM using a layered model with ContactService, ContactDAO, and Contact bean objects.
+---
+
 # Coding: Solo Style
 
 ![](https://github.com/ortus-docs/coldbox-docs/tree/97b8636ca1e8f4651f1021343c097bb3a7c2e9b9/.gitbook/assets/MVC%2Bobjects.png)

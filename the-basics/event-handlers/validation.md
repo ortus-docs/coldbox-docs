@@ -1,3 +1,7 @@
+---
+description: ColdBox validation is provided by the official cbValidation module, installable via box install cbvalidation.
+---
+
 # Validation
 
 ColdBox Core MVC does not have validation built-in but it is implemented via the official core `cbValidation` module. You can easily install the module in your application via:

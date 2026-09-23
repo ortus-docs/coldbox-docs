@@ -1,3 +1,7 @@
+---
+description: The configure() method defines module settings, parentSettings, conventions, datasources, interceptors, routes, and WireBox mappings.
+---
+
 # The configure() Method
 
 Once the public properties are set, we are now ready to configure our module. You will do this by creating a simple method called `configure()` and adding variables to the following configuration structures:
@@ -9,7 +13,7 @@ Once the public properties are set, we are now ready to configure our module. Yo
 | conventions         | struct           | A structure that explains the layout of the handlers, plugins, layouts and views of this module.                                                                                                                                                                                                                              |
 | datasources         | struct           | A structure of datasource metadata that will append and override the host application datasources configuration                                                                                                                                                                                                               |
 | interceptorSettings | struct           | A structure of settings for interceptor interactivity which includes the following sub-keys:                                                                                                                                                                                                                                  |
-| interceptors        | array of structs | An array of declared interceptor structures that should be loaded in the entire application. Follows the same pattern as the [ConfigurationCFC](http://wiki.coldbox.org/wiki/ConfigurationCFC.cfm) interceptor declarations.                                                                                                  |
+| interceptors        | array of structs | An array of declared interceptor structures that should be loaded in the entire application. Follows the same pattern as the ColdBox configuration class interceptor declarations.                                                                                                  |
 | layoutSettings      | struct           | A structure of elements that setup layout configuration data for the module with the following keys:                                                                                                                                                                                                                          |
 | routes              | array            | An array of declared URL routes or locations of routes for this module. The keys of the structure are the same as the _addRoute()_ method of the [SES interceptor](http://wiki.coldbox.org/wiki/URLMappings.cfm) or a simple string location to the routes file to include.                                                   |
 | wirebox             | struct           | A structure of [WireBox](http://wiki.coldbox.org/wiki/WireBox.cfm) configuration data, please refer to the \[WireBox Configuration]\([http://wiki.coldbox.org/wiki/WireBox.cfm#Configure()\_method](http://wiki.coldbox.org/wiki/WireBox.cfm#Configure\(\)_method)) area or just use the injected binder object for mappings. |

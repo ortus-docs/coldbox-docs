@@ -1,3 +1,7 @@
+---
+description: Mark interceptor methods with the async and asyncPriority annotations to run those interception points in a separate thread.
+---
+
 # Asynchronous Annotations
 
 We have also extended the interceptor registration process so you can annotate interception points to denote threading. You will do so with the following two annotations:

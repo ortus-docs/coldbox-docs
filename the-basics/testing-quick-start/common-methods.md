@@ -1,3 +1,7 @@
+---
+description: Common TestBox methods available in ColdBox tests — assertions, expectations, life-cycle, and spec grouping methods.
+---
+
 # Testing Methods
 
 ## BaseSpec

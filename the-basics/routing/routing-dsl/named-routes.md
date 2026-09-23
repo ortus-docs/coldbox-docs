@@ -1,3 +1,7 @@
+---
+description: Register named routes with the name argument or as() method and generate URLs to them later.
+---
+
 # Named Routes
 
 You can register routes in ColdBox with a human friendly name so you can reference them later for link generation and more. &#x20;

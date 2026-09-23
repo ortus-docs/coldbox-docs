@@ -325,11 +325,11 @@ router.getModulesRoutingTable()
 router.getModuleRoutingTable()
 
 // Replace with() and endWith() patterns:
-router.with( "api", function( route ) {
+router.with( "api", ( route ) => {
     route.get( "/users", "users.index" );
 } ).endWith();
 // With:
-router.group( { prefix: "api" }, function( route ) {
+router.group( { prefix: "api" }, ( route ) => {
     route.get( "/users", "users.index" );
 } );
 

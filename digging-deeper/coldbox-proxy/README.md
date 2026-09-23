@@ -1,4 +1,5 @@
 ---
+description: The ColdBox Proxy lets remote applications like Flex, AIR, SOAP/REST web services, and event gateways talk to ColdBox as a remote event-driven framework.
 icon: trillium
 ---
 

@@ -1,3 +1,7 @@
+---
+description: Override route detection with a pathInfoProvider() function in config/Router.cfc to customize the URI used for matching.
+---
+
 # Pathinfo Providers
 
 By default, the URL mapping processor will detect routes by looking at the `CGI.PATH_INFO` variable, but you can override this and provide your own function. This feature can be useful to set flags for each request based on a URL and then clean or parse the URL to a more generic form to allow for simple route declarations. Uses may include internationalization (i18n) and supporting multiple experiences based on devices such as Desktop, Tablet, Mobile and TV.&#x20;

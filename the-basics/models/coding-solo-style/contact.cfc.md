@@ -1,3 +1,7 @@
+---
+description: Define a Contact model object with properties and cbvalidation constraints for the solo-style coding example.
+---
+
 # Contact.cfc
 
 An object that represents a contact and self-validates using the `cbvalidation` module.

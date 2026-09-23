@@ -22,9 +22,9 @@ The ColdBox Scheduler is built on top of the core async package Scheduler.
 {% hint style="info" %}
 **This page is for scheduling tasks inside a ColdBox application** (BoxLang or CFML) - it's the recommended approach whenever ColdBox is present, since it ties into the module lifecycle, environment constraints, and server fixation shown below.
 
-Not in a ColdBox app? Use one of these instead - don't use this page's `config/Scheduler.cfc` convention outside of ColdBox:
-* **Standalone WireBox/CacheBox/LogBox** (no ColdBox, BoxLang or CFML) → [Scheduled Tasks (Core Async Package)](promises-async-programming/scheduled-tasks.md)
-* **Plain BoxLang**, no Ortus libraries at all → [BoxLang Native Scheduling](promises-async-programming/scheduled-tasks.md#boxlang-native-scheduling)
+Not in a ColdBox app?:
+* **Standalone WireBox/CacheBox/LogBox** (no ColdBox, BoxLang or CFML) → create the core async package's `Scheduler` manually via `AsyncManager.newScheduler()` and persist it yourself — see [Async Programming](promises-async-programming/README.md)
+* **Plain BoxLang**, no Ortus libraries at all → [BoxLang Native Scheduling](https://boxlang.ortusbooks.com/boxlang-framework/asynchronous-programming)
 {% endhint %}
 
 ## Global App Scheduler
@@ -390,7 +390,7 @@ task( "my-task" )
 
 // Closure Syntax
 task( "my-task" )
-    .call( function(){
+    .call( () => {
         // task here
     } )
     .everyHourAt( 45 );
@@ -551,30 +551,30 @@ We already saw that a scheduler has life-cycle methods, but a task can also have
 
 | Method                | Description                                                                                                                   |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `after( target )`     | <p>Store the closure to execute after the task executes<br></p><p><code>function( task, results )</code></p>                  |
-| `before( target )`    | <p>Store the closure to execute before the task executes<br></p><p><code>function( task )</code></p>                          |
-| `onFailure( target )` | <p>Store the closure to execute if there is a failure running the task<br></p><p><code>function( task, exception )</code></p> |
-| `onSuccess( target )` | <p>Store the closure to execute if the task completes successfully<br></p><p><code>function( task, results )</code></p>       |
+| `after( target )`     | <p>Store the closure to execute after the task executes<br></p><p><code>( task, results ) =></code></p>                  |
+| `before( target )`    | <p>Store the closure to execute before the task executes<br></p><p><code>( task ) =></code></p>                          |
+| `onFailure( target )` | <p>Store the closure to execute if there is a failure running the task<br></p><p><code>( task, exception ) =></code></p> |
+| `onSuccess( target )` | <p>Store the closure to execute if the task completes successfully<br></p><p><code>( task, results ) =></code></p>       |
 
 ```javascript
 task( "testharness-Heartbeat" )
-    .call( function() {
+    .call( () => {
             if ( randRange(1, 5) eq 1 ){
                  throw( message = "I am throwing up randomly!", type="RandomThrowup" );
             }
               writeDump( var='====> I am in a test harness test schedule!', output="console" );
         } )
         .every( "5", "seconds" )
-        .before( function( task ) {
+        .before( ( task ) => {
               writeDump( var='====> Running before the task!', output="console" );
         } )
-        .after( function( task, results ){
+        .after( ( task, results ) => {
               writeDump( var='====> Running after the task!', output="console" );
         } )
-        .onFailure( function( task, exception ){
+        .onFailure( ( task, exception ) => {
               writeDump( var='====> test schedule just failed!! #exception.message#', output="console" );
         } )
-        .onSuccess( function( task, results ){
+        .onSuccess( ( task, results ) => {
               writeDump( var="====> Test scheduler success : Stats: #task.getStats().toString()#", output="console" );
         } );
 ```
@@ -603,7 +603,7 @@ There are many ways to constrain the execution of a task. However, you can regis
 task( "my-task" )
     .call( () => getInstance( "securityService" ).cleanOldUsers() )
     .daily()
-    .when( function(){
+    .when( () => {
         // Can we run this task?
         return true;
     );
@@ -716,13 +716,13 @@ Thanks to the inspiration of [TestBox](https://testbox.ortusbooks.com/) where yo
 function configure(){
 
 	xtask( "Disabled Task" )
-		.call ( function(){
+		.call ( () => {
 			writeDump( var="Disabled", output="console" );
 		})
 		.every( 1, "second" );
 
 	task( "Scope Test" )
-		.call( function(){
+		.call( () => {
 			writeDump( var="****************************************************************************", output="console" );
 			writeDump( var="Scope Test (application) -> #getThreadName()# #application.keyList()#", output="console" );
 			writeDump( var="Scope Test (server) -> #getThreadName()# #server.keyList()#", output="console" );
@@ -734,7 +734,7 @@ function configure(){
 			writeDump( var="****************************************************************************", output="console" );
 		} )
 		.every( 60, "seconds" )
-		.onFailure( function( task, exception ){
+		.onFailure( ( task, exception ) => {
 			writeDump( var='====> Scope test failed (#getThreadName()#)!! #exception.message# #exception.stacktrace.left( 500 )#', output="console" );
 		} );
 

@@ -1,3 +1,7 @@
+---
+description: Load custom module routing files via the routes array or a config/Router.cfc loaded by convention.
+---
+
 # Module Routes Files
 
 A module can also include one or more custom routing files in order to take advantage of our routing DSL and also have better separation as they will be stored outside of the module configuration object. You do this by giving the path to the custom file to include in your routes structure:

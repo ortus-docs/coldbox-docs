@@ -1,3 +1,7 @@
+---
+description: Bootstrap ColdBox in Application.cfc using composition or inheritance to load the framework for your application.
+---
+
 # Bootstrapper - Application.bx (or .cfc for CFML)
 
 The `Application.bx` (or `.cfc` for CFML) is one of the most important files in your application as it is where you define all the implicit ColdFusion engine events, session, client scopes, ORM, etc. It is also how you tell ColdFusion to bootstrap the ColdBox Platform for your application. There are two ways to bootstrap your application:

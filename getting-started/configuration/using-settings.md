@@ -1,3 +1,7 @@
+---
+description: Retrieve ColdboxSettings and ConfigSettings from the ColdBox Controller with getSetting(), setSetting(), and settingExists().
+---
+
 # Using Settings
 
 ![](../../.gitbook/assets/ControllerWithSettingStructures.jpg)

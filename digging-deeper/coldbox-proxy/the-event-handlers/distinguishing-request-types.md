@@ -1,3 +1,7 @@
+---
+description: Use the request context's isProxyRequest() method to distinguish between normal MVC requests and ColdBox proxy requests.
+---
+
 # Distinguishing Request Types
 
 Now, what if you want to distinguish between a normal request and a proxy request? Well, the request context object, most commonly known as the event object has a method called:

@@ -1,3 +1,7 @@
+---
+description: Unit test interceptors in isolation with BaseInterceptorTest and pre-mocked controller, logger, and flash dependencies.
+---
+
 # Interceptor Testing
 
 You can test interceptors directly with no need of doing integration testing via the `BaseInterceptorTest`. This way you can unit test interceptors in isolation. All you need to do is the following:
@@ -44,9 +48,9 @@ class extends="coldbox.system.testing.BaseInterceptorTest" interceptor="intercep
 
     function run(){
 
-        describe( "interceptors.test", function(){
+        describe( "interceptors.test", () => {
 
-            it( "should configure correctly", function(){
+            it( "should configure correctly", () => {
                 interceptor.configure();
             });
 

@@ -1,3 +1,7 @@
+---
+description: ColdBox Elixir provides a fluent Gulp API for defining asset pipeline tasks using the includes and resources/assets conventions.
+---
+
 # ColdBox Elixir
 
 ## ColdBox Elixir
@@ -17,7 +21,7 @@ For example:
 
 ```javascript
 var elixir = require( 'coldbox-elixir' );
-elixir( function( mix ) {
+elixir( ( mix ) => {
     // Look in the 'resources/sass' folder
     mix.sass( 'app.scss' )
         // Look in the 'resourcess/css` folder
@@ -105,7 +109,7 @@ var elixir = require( 'coldbox-elixir' );
  |
  */
 
-elixir( function( mix ){
+elixir( ( mix ) => {
 
 } );
 ```

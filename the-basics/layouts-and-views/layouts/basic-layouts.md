@@ -1,3 +1,7 @@
+---
+description: A basic layout example that renders the set view with view() alongside direct header and footer view renderings.
+---
+
 # Basic Layouts
 
 ```markup

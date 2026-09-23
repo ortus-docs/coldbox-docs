@@ -1,3 +1,7 @@
+---
+description: Access the ColdBox Module Service via controller.getModuleService() or the coldbox:moduleService injection.
+---
+
 # Module Service
 
 The beauty of ColdBox Modules is that you have an internal module service that you can tap in order to dynamically interact with the ColdBox Modules. This service is available by talking to the main ColdBox controller and calling its `getModuleService()` method or via dependency injection.

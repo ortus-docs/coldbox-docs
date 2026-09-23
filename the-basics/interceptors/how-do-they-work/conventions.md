@@ -1,3 +1,7 @@
+---
+description: Interceptor listener methods receive event, data, buffer, rc, and prc arguments and return boolean to control chain execution.
+---
+
 # Conventions
 
 By convention, any interceptor class must create a method with the same name as the event they want to listen to. This method has a return type of `boolean` and receives 5 arguments. So let's explore their rules.

@@ -1,3 +1,7 @@
+---
+description: Add global application helper mixins from a module via the this.applicationHelper directive.
+---
+
 # Module Helpers
 
 Every module can declare an array of helper templates that contain **methods** that will be added as **global** application helpers.  This is a great way to collaborate global functions to the running MVC application.

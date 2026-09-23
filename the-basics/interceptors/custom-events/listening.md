@@ -1,3 +1,7 @@
+---
+description: Write interceptor listener methods for custom interception points once the points and classes are registered.
+---
+
 # Listening
 
 Once your custom interception or event points are registered and classes are registered then you can write the methods for listening to those events just like any other interceptor event:

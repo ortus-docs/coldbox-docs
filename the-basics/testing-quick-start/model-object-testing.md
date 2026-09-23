@@ -1,3 +1,7 @@
+---
+description: Unit test model objects with BaseModelTest and MockBox-provided mockLogger, mockLogBox, mockCacheBox, and mockWireBox.
+---
+
 # Model Object Testing
 
 You can test all your model objects directly with no need of doing integration testing. This way you can unit test model objects very very easily using great mocking capabilities. All you need to do is the following:
@@ -45,17 +49,17 @@ class extends="coldbox.system.testing.BaseModelTest" model="UserService"{
 
     function run(){
 
-        describe( "UserService Suite", function(){
+        describe( "UserService Suite", () => {
 
-            it( "should save", function(){
-
-            });
-
-            it( "should search", function(){
+            it( "should save", () => {
 
             });
 
-            it( "should list", function(){
+            it( "should search", () => {
+
+            });
+
+            it( "should list", () => {
 
             });
 

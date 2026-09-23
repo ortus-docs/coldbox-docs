@@ -4,7 +4,7 @@ description: The ColdBox.bx (or .cfc for CFML) is the main applications' configu
 
 # ColdBox.bx (or .cfc for CFML)
 
-The ColdBox configuration class is the heart of your ColdBox application. It contains the initialization variables for your application and extra information used by third-party modules and ultimately how your application boots up. In itself, it is also an event listener or [ColdBox Interceptor](configuration-directives/interceptors.md), so it can listen to life-cycle events of your application.
+The ColdBox configuration class is the heart of your ColdBox application. It contains the initialization variables for your application and extra information used by third-party modules and ultimately how your application boots up. In itself, it is also an event listener or [ColdBox Interceptor](../../../the-basics/interceptors/README.md), so it can listen to life-cycle events of your application.
 
 
 

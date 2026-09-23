@@ -1,4 +1,5 @@
 ---
+description: The HTML Helper is a core ColdBox class that abstracts the creation of HTML entities, available as the html object in layouts and views.
 icon: file-code
 ---
 

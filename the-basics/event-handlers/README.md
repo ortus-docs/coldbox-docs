@@ -107,7 +107,7 @@ You can also remove the inheritance from the class and WireBox will extend the `
 {% endhint %}
 
 {% hint style="info" %}
-Event Handlers are treated as singletons by ColdBox, so make sure you make them thread-safe and properly scoped. Persistence is controlled by the `coldbox.handlerCaching` [directive](../../getting-started/configuration/coldbox.cfc/configuration-directives/)
+Event Handlers are treated as singletons by ColdBox, so make sure you make them thread-safe and properly scoped. Persistence is controlled by the `coldbox.handlerCaching` [directive](../../reference/configuration-directives/coldbox.md)
 {% endhint %}
 
 ### Actions

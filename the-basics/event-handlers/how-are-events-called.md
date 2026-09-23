@@ -1,3 +1,7 @@
+---
+description: ColdBox determines events via the event variable using module:package.handler.action syntax, defaulting to main.index.
+---
+
 # How are events called?
 
 ![](<../../.gitbook/assets/request-lifecycle (1) (1).png>)
@@ -5,7 +9,7 @@
 Events are determined via a special variable that can be sent in via the FORM, URL, or REMOTELY called `event`. If no event is detected as an incoming variable, the framework will look in the configuration directives for the `DefaultEvent` and use that instead. If you did not set a `DefaultEvent` setting then the framework will use the following convention for you: `main.index`
 
 {% hint style="success" %}
-**Hint** : You can even change the `event` variable name by updating the `EventName` setting in your `coldbox` [configuration directive](../../getting-started/configuration/coldbox.cfc/configuration-directives/).
+**Hint** : You can even change the `event` variable name by updating the `EventName` setting in your `coldbox` [configuration directive](../../reference/configuration-directives/coldbox.md).
 {% endhint %}
 
 Please note that ColdBox supports both normal variable routing and [URL mapping routing](../routing/), usually referred to as pretty URLs.

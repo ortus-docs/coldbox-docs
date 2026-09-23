@@ -1,3 +1,7 @@
+---
+description: How ColdBox loads modules at startup — the Module Service calls registerAllModules() then activateAllModules().
+---
+
 # Module Lifecycle
 
 ![](../../../.gitbook/assets/ModulesLifecycle.jpg)

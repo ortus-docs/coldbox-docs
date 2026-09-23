@@ -1,3 +1,7 @@
+---
+description: Core layout and view interception points like preRender, postViewRender, and afterRendererInit with their intercept data structures.
+---
+
 # Layout-View Events
 
 | Interception Point | Intercept Structure                       | Description                                                                                |

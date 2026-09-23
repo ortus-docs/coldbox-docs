@@ -1,3 +1,7 @@
+---
+description: Simulate any HTTP verb in integration tests with request() and the get(), post(), put(), patch(), and delete() aliases.
+---
+
 # HTTP Testing Methods
 
 If you are building RESTFul services or you want to be able to simulate requests with other HTTP verbs that are not GET, then we have created a set of methods so you can test ANY HTTP method, param and even request headers.
@@ -147,9 +151,9 @@ function delete(
 ## Examples
 
 ```javascript
-story( "I want to authenticate a user via username/password and receive a JWT token", function(){
-	given( "a valid username and password", function(){
-		then( "I will be authenticated and will receive the JWT token", function(){
+story( "I want to authenticate a user via username/password and receive a JWT token", () => {
+	given( "a valid username and password", () => {
+		then( "I will be authenticated and will receive the JWT token", () => {
 			// Use a user in the seeded db
 			var event = this.post(
 				"/api/v1/login",
@@ -171,8 +175,8 @@ story( "I want to authenticate a user via username/password and receive a JWT to
 		} );
 	} );
 	
-	given( "invalid username and password", function(){
-		then( "I will receive a 401 invalid credentials exception ", function(){
+	given( "invalid username and password", () => {
+		then( "I will receive a 401 invalid credentials exception ", () => {
 			var event = this.post(
 				"/api/v1/login",
 				{ username : "invalid", password : "invalid" }
@@ -183,8 +187,8 @@ story( "I want to authenticate a user via username/password and receive a JWT to
 		} );
 	} );
 	
-	given( "an invalid token", function(){
-		then( "I should get an error", function(){
+	given( "an invalid token", () => {
+		then( "I should get an error", () => {
 			// Now Logout
 			var event = GET(
 				"/api/v1/whoami",

@@ -10,7 +10,7 @@ description: >-
 
 ```javascript
 route( "/admin/:action" )
-    .middleware( function( event, rc, prc ){
+    .middleware( ( event, rc, prc ) => {
         if ( !auth.isLoggedIn() ) {
             event.relocate( "login" );
             return true; // stop the remaining middleware for this route
@@ -21,7 +21,7 @@ route( "/admin/:action" )
 
 ## A Target Can Be
 
-* **A closure/lambda** - `function( event, rc, prc ){ ... }`, as above
+* **A closure/lambda** - `( event, rc, prc ) => { ... }`, as above
 * **A WireBox ID** - resolved via `getInstance()` on every request, so it respects whatever scope (singleton, prototype, etc) the mapping was registered with
 * **Any object** - WireBox-managed or not, as long as it has a method named after the point it runs at (`preProcess()` by default). No base class or interface required
 
@@ -91,7 +91,7 @@ route( "/api/orders" )
 Returning `true` from a target stops the **remaining middleware for that route at that point**. It does **not**, by itself, skip the handler or the render - call `event.relocate()`, `event.renderData().noExecution()`, or similar, exactly as you would from any other `preProcess`/`postProcess` interceptor:
 
 ```javascript
-route( "/admin/:action" ).middleware( function( event, rc, prc ){
+route( "/admin/:action" ).middleware( ( event, rc, prc ) => {
     if ( !auth.isLoggedIn() ) {
         event.relocate( "login" );
         return true; // no further middleware runs for this route
@@ -108,7 +108,7 @@ Middleware is a flat before/after dispatch, not a wrapping pipeline - a single t
 Attaching `middleware` to a [group](routing-groups.md) applies it to every route declared inside, ahead of each route's own middleware:
 
 ```javascript
-group( { pattern : "/api", middleware : [ "RequireApiKey" ] }, function(){
+group( { pattern : "/api", middleware : [ "RequireApiKey" ] }, () => {
     route( "/users" ).middleware( "RateLimiter" ).toHandler( "users" ); // RequireApiKey, then RateLimiter
     route( "/products" ).toHandler( "products" );                      // RequireApiKey only
 } );
@@ -117,8 +117,8 @@ group( { pattern : "/api", middleware : [ "RequireApiKey" ] }, function(){
 Nested groups compose outer-first:
 
 ```javascript
-group( { pattern : "/api", middleware : [ "RequireApiKey" ] }, function(){
-    group( { pattern : "/admin", middleware : [ "RequireAdmin" ] }, function(){
+group( { pattern : "/api", middleware : [ "RequireApiKey" ] }, () => {
+    group( { pattern : "/admin", middleware : [ "RequireAdmin" ] }, () => {
         route( "/users" ).toHandler( "users" ); // RequireApiKey, then RequireAdmin
     } );
 } );

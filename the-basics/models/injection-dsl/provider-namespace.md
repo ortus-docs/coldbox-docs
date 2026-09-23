@@ -1,3 +1,7 @@
+---
+description: provider injection DSL namespace for injecting object providers that delay construction of target mappings.
+---
+
 # Provider Namespace
 
 Injects providers of objects, meaning a proxy object that knows how to retrieve and construct the desired target object.  This is a great way to delay construction or deal with non-singleton objects without causing memory leaks.

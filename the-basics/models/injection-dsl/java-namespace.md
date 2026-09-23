@@ -1,3 +1,7 @@
+---
+description: java injection DSL namespace for injecting Java class references into your models.
+---
+
 # Java Namespace
 
 You can also request Java objects from the injection dsl.

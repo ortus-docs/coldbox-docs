@@ -1,3 +1,7 @@
+---
+description: Attach fixed RC and PRC values to matched routes with rc(), prc(), rcAppend(), and prcAppend().
+---
+
 # Adding Data to a Route
 
 Besides placeholders parsed from the URL itself, you can attach fixed values to the request collection whenever a route matches - useful for flags, defaults, or metadata your handler shouldn't have to guess at.

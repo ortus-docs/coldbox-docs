@@ -1,3 +1,7 @@
+---
+description: Use the super type getInstance() and populate() methods to retrieve and populate model objects.
+---
+
 # Super Type Usage Methods
 
 ![ColdBox Major Classes UML](../../.gitbook/assets/ColdBoxMajorClasses.jpg)

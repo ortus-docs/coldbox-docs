@@ -19,7 +19,7 @@ ColdBox [Hierarchical MVC ](https://en.wikipedia.org/wiki/Hierarchical_model%E2%
 * [Modern routing engine](https://coldbox.ortusbooks.com/the-basics/routing)
 * [RESTFul API ready](https://coldbox.ortusbooks.com/the-basics/event-handlers/rendering-data)
 * [A hierarchical approach to MVC using ColdBox Modules](https://coldbox.ortusbooks.com/hmvc/modules)
-* [Event-driven programming](getting-started/configuration/coldbox.cfc/configuration-directives/interceptors.md)
+* [Event-driven programming](the-basics/interceptors/README.md)
 * [Async and Parallel programming constructs](https://coldbox.ortusbooks.com/digging-deeper/promises-async-programming)
 * [Integration & Unit Testing](https://coldbox.ortusbooks.com/testing/testing-coldbox-applications)
 * [Included dependency injection](https://wirebox.ortusbooks.com)
@@ -84,10 +84,9 @@ We all make mistakes from time to time :) So why not let us know about it and he
 
 #### Jira Issue Tracking
 
+All platform issues — ColdBox Core, CacheBox, LogBox, and WireBox — are tracked in the single ColdBox Jira project:
+
 * [https://ortussolutions.atlassian.net/browse/COLDBOX](https://ortussolutions.atlassian.net/browse/COLDBOX)
-* [https://ortussolutions.atlassian.net/browse/WIREBOX](https://ortussolutions.atlassian.net/browse/WIREBOX)
-* [https://ortussolutions.atlassian.net/browse/LOGBOX](https://ortussolutions.atlassian.net/browse/LOGBOX)
-* [https://ortussolutions.atlassian.net/browse/CACHEBOX](https://ortussolutions.atlassian.net/browse/CACHEBOX)
 
 ### Professional Open Source
 

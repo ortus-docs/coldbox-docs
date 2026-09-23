@@ -1,3 +1,7 @@
+---
+description: Views are renderable templates set by handlers via event.setView() with options for layout, module, caching, and rendering regions.
+---
+
 # Views
 
 Views are HTML content that can be rendered inside a layout or by themselves. They can be rendered on-demand or set by an event handler. Views can also produce content apart from HTML, like JSON/XML/WDDX, via our view renderer, which we will discover. So get ready for some rendering goodness!

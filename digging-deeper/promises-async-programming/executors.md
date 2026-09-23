@@ -1,3 +1,7 @@
+---
+description: Register and manage fixed, single, cached, and scheduled executors in the ColdBox AsyncManager to run asynchronous tasks.
+---
+
 # Executors
 
 The ColdBox AsyncManager will allow you to register and manage different types of executors that can execute your very own tasks! Each executor acts as a singleton and can be configured uniquely. (See: [https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html))

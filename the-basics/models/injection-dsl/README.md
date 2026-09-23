@@ -1,3 +1,7 @@
+---
+description: Use the WireBox injection DSL via the inject attribute on properties, arguments, setters, or getInstance().
+---
+
 # Injection DSL
 
 Before we start building our objects, we need to understand how WireBox injects dependencies for us. You can define injections using the configuration inside the binder (like any other DI framework), but the easiest approach is to use our injection annotation and conventions (called the injection DSL). The injection DSL can be applied to `cfproperty`, `cfargument`, `cffunction` or called via `getInstance()` as we saw previously.

@@ -19,12 +19,9 @@ This project is open source, and as such, the maintainers give their free time t
 
 ### Bug Reporting
 
-Each of the main standalone frameworks in ColdBox has separate locations for submitting bug reports. Please also ensure that if you submit a pull request, you link it to the appropriate issue.
+All bug reports for the ColdBox platform — ColdBox Core, CacheBox, LogBox, and WireBox — are tracked in the single ColdBox Jira project. Please also ensure that if you submit a pull request, you link it to the appropriate issue.
 
-* ColdBox Core: [https://ortussolutions.atlassian.net/browse/COLDBOX](https://ortussolutions.atlassian.net/browse/COLDBOX)
-* CacheBox : [https://ortussolutions.atlassian.net/browse/CACHEBOX](https://ortussolutions.atlassian.net/browse/CACHEBOX)
-* LogBox : [https://ortussolutions.atlassian.net/browse/LOGBOX](https://ortussolutions.atlassian.net/browse/LOGBOX)
-* WireBox: [https://ortussolutions.atlassian.net/browse/WIREBOX](https://ortussolutions.atlassian.net/browse/WIREBOX)
+* ColdBox Platform: [https://ortussolutions.atlassian.net/browse/COLDBOX](https://ortussolutions.atlassian.net/browse/COLDBOX)
 
 If you file a bug report, your issue should contain a title, a clear description of the issue, a way to replicate the issue, and any support files we might need to replicate your issue. The goal of a bug report is to make it easy for yourself - and others - to replicate the bug and develop a fix for it. All issues that do not contain a way to replicate will not be addressed.
 
@@ -77,9 +74,9 @@ We recommend that anytime you hack on the core, you start the format watcher (`b
 
 You can also see the Ortus Coding Standards you must follow here: https://github.com/Ortus-Solutions/coding-standards.
 
-### CFC Docs With DocBox
+### Class Docs With DocBox
 
-All CFCs are self-documenting, and we leverage [DocBox](https://docbox.ortusbooks.com/) to document the entire software. All functions must be properly documented using the DocBox syntax: https://docbox.ortusbooks.com/getting-started/annotating-your-code
+All classes are self-documenting, and we leverage [DocBox](https://docbox.ortusbooks.com/) to document the entire software. All functions must be properly documented using the DocBox syntax: https://docbox.ortusbooks.com/getting-started/annotating-your-code
 
 ### Financial Contributions
 

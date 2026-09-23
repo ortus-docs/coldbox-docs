@@ -1,3 +1,7 @@
+---
+description: Interceptors are singleton classes that extend coldbox.system.Interceptor, implement configure(), and define methods for the events they listen to.
+---
+
 # How do they work?
 
 Interceptors are classes that extend the ColdBox Interceptor class (`coldbox.system.Interceptor`), implement a configuration method called `configure()`, and then contain methods for the events it will listen for. All interceptors are treated as **singletons** in your application, so make sure they are thread safe and var scoped.

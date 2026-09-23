@@ -1,3 +1,7 @@
+---
+description: withDomain() scopes routes to a domain or subdomain, with placeholders parsed into RC variables.
+---
+
 # Subdomain Routing
 
 `withDomain()` scopes a route to a specific domain or subdomain - useful for multi-tenant or SaaS applications.

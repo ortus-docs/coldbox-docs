@@ -1,3 +1,7 @@
+---
+description: The default :handler/:action? route resolves handlers, packages, and modules by convention.
+---
+
 # Routing By Convention
 
 Every router has a **default route** already defined for you in the application templates, which we refer to as routing by convention:

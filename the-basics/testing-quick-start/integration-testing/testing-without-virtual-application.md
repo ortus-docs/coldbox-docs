@@ -1,3 +1,7 @@
+---
+description: Set this.loadColdBox = false to use BaseTestCase for unit testing without loading the virtual application.
+---
+
 # Testing Without Virtual Application
 
 The `BaseTestCase` leverages an internal virtual ColdBox application so you can do integration testing. Meaning that whenever you extend from the `BaseTestCase` the virtual ColdBox will be loaded.  However,  you can tell the testing framework to **NOT** load it by using the `this.loadColdBox` variable:

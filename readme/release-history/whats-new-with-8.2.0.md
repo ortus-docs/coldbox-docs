@@ -14,7 +14,7 @@ Routes can now carry their own middleware chain instead of relying solely on app
 
 ```javascript
 route( "/admin/:action" )
-    .middleware( function( event, rc, prc ){
+    .middleware( ( event, rc, prc ) => {
         if ( !auth.isLoggedIn() ) {
             event.relocate( "login" );
             return true; // short-circuits the rest of this route's middleware
@@ -31,7 +31,7 @@ Two companion features round this out:
 ```javascript
 middlewareGroup( "api", [ "RequireApiKey", "RateLimiter" ] );
 
-group( { pattern : "/api", middleware : [ "api" ] }, function(){
+group( { pattern : "/api", middleware : [ "api" ] }, () => {
     route( "/users" ).toHandler( "users" );                              // runs "api"
     route( "/health" ).withoutMiddleware( "api" ).toHandler( "health" ); // opts out
 } );

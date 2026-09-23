@@ -1,3 +1,7 @@
+---
+description: Create custom Flash RAM scopes by extending AbstractFlashScope and implementing clearFlash(), saveFlash(), flashExists(), and getFlash().
+---
+
 # Creating Your Own Flash Scope
 
 The ColdBox Flash capabilities are very flexible and you can easily create your own Flash Implementations by doing two things:

@@ -1,3 +1,7 @@
+---
+description: Nest modules within modules to the Nth degree for packaging and delivery.
+---
+
 # Module Inception
 
 ![](../../.gitbook/assets/Modules.png)

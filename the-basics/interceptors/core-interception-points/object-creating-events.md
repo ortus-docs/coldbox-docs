@@ -1,3 +1,7 @@
+---
+description: Core object creation interception points afterHandlerCreation and afterInstanceCreation fired when handlers or WireBox objects are created.
+---
+
 # Object Creating Events
 
 | Interception Point    | Intercept Structure            | Description                                                                                  |

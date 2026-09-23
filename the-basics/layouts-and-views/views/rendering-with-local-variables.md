@@ -1,3 +1,7 @@
+---
+description: Pass encapsulated local data into view() and layout() renderings via the args struct argument.
+---
+
 # Rendering With Local Variables
 
 You can pass localized arguments to the `view() and layout()` methods in order to encapsulate the rendering via the `args` struct argument. Much like how you make method calls with arguments. Inside of your layouts and views you will receive the same `args` struct reference as well.

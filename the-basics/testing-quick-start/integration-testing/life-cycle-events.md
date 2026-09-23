@@ -1,3 +1,7 @@
+---
+description: Test life-cycle events beforeAll() and afterAll() load and destroy the virtual ColdBox application per test bundle.
+---
+
 # Life-Cycle Events
 
 ![](<../../../.gitbook/assets/ColdBox Virtual App Life-Cycle.png>)

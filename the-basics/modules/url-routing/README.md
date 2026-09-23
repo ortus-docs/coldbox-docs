@@ -1,3 +1,7 @@
+---
+description: Modules register URL entry points via this.entryPoint or addModuleRoutes() to resolve their own routing tables.
+---
+
 # URL Routing
 
 All modules have the capability to leverage URL routing in a portable manner. They will automatically register an entry point URL pattern via the `this.entryPoint` setting. If an incoming URL has that specific pattern, then it will search for the module's routing table for a match.

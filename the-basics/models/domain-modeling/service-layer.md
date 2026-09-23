@@ -1,3 +1,7 @@
+---
+description: Apply the service layer pattern so BookService encapsulates business logic instead of event handlers.
+---
+
 # Service Layer
 
 I want to apply best practices and use a service layer approach for my application and model design. I will then use these service objects in my handlers in order to handle the business logic for me. Repeat after me:

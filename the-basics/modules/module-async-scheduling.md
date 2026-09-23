@@ -1,3 +1,7 @@
+---
+description: Define scheduled tasks for a module in its config/Scheduler.cfc configure() method.
+---
+
 # Module Async Scheduling
 
 Modules can easily tie in to [ColdBox Scheduled Tasks](../../digging-deeper/scheduled-tasks.md#schedulers-for-modules) by defining a `config/Scheduler.cfc` file.  This file only needs a `configure` method.  Inside the file, you can define tasks to run asynchronously on a schedule and ColdBox will take care of the rest.
@@ -14,17 +18,17 @@ class {
         task( "unleashsdk-refresh-features" )
             .call( getInstance( "UnleashSDK@unleashsdk" ), "refreshFeatures" )
             .every( variables.settings.refreshInterval, "seconds" )
-            .before( function() {
+            .before( () => {
                 if ( log.canDebug() ) {
                     log.debug( "Starting to fetch new features from Unleash" );
                 } 
             } )
-            .onSuccess( function( task, results ) {
+            .onSuccess( ( task, results ) => {
                 if ( log.canInfo() ) {
                     log.info( "Successfully refreshed features", results );
                 }
             } )
-            .onFailure( function( task, exception ) {
+            .onFailure( ( task, exception ) => {
                 if ( log.canError() ) {
                     log.error(
                         "Exception when running task [unleashsdk-refresh-features]:",
@@ -37,12 +41,12 @@ class {
             .call( getInstance( "UnleashSDK@unleashsdk" ), "sendMetrics" )
             .every( variables.settings.metricsInterval, "seconds" )
             .delay( variables.settings.metricsInterval, "seconds" )
-            .before( function() {
+            .before( () => {
                 if ( log.canDebug() ) {
                     log.debug( "Starting to send metrics to Unleash" );
                 } 
             } )
-            .onSuccess( function( task, results ) {
+            .onSuccess( ( task, results ) => {
                 if ( log.canInfo() ) {
                     log.info(
                         "Successfully sent metrics to Unleash features",
@@ -50,7 +54,7 @@ class {
                     );
                 }
             } )
-            .onFailure( function( task, exception ) {
+            .onFailure( ( task, exception ) => {
                 if ( log.canError() ) {
                     log.error(
                         "Exception when running task [unleashsdk-send-metrics]:",

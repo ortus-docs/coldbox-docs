@@ -1,3 +1,7 @@
+---
+description: Module models are auto-registered in WireBox with a @moduleName namespace via mapDirectory().
+---
+
 # Models
 
 When you declare a module and you define a `models` folder then the framework automatically register all models in that folder for you using a namespace of `@moduleName`. This means that all models are registered according to their class name plus the namespace.

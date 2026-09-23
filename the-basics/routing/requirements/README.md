@@ -1,3 +1,7 @@
+---
+description: Routing requirements — enable full URL rewrites on Apache, nginx, IIS, or CommandBox to remove index.cfm from URLs.
+---
+
 # Requirements
 
 Routing is enabled by **default** in the ColdBox application templates in order to work with URL's like this:

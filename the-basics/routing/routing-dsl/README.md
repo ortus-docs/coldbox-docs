@@ -1,3 +1,7 @@
+---
+description: The ColdBox Routing DSL registers routes with initiator, modifier, and terminator methods in the Router.
+---
+
 # Routing DSL
 
 The ColdBox Routing DSL will be used to register routes for your application, which exists in your application or module router object.  Routing takes place using several methods inside the router, which are divided into the following 3 categories:

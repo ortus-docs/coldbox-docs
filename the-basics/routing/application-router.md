@@ -1,3 +1,7 @@
+---
+description: The application router at config/Router.cfc configures routing settings and registers routes with the ColdBox routing DSL.
+---
+
 # Application Router
 
 Every ColdBox application has a URL router and can be located by convention at `config/Router.cfc`.  This is called the **application router** and it is based on the router core class: `coldbox.system.web.routing.Router`.  Here is where you will configure router settings and define routes using our routing DSL.
@@ -33,12 +37,12 @@ class {
 		 */
 
 		// A nice healthcheck route example
-		route( "/healthcheck", function( event, rc, prc ) {
+		route( "/healthcheck", ( event, rc, prc ) => {
 			return "Ok!";
 		} );
 
 		// A nice RESTFul Route example
-		route( "/api/echo", function( event, rc, prc ) {
+		route( "/api/echo", ( event, rc, prc ) => {
 			return {
 				"error" : false,
 				"data"  : "Welcome to my awesome API!"

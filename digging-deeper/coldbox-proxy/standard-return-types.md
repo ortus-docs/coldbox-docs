@@ -1,3 +1,7 @@
+---
+description: The ProxyReturnCollection setting controls whether the ColdBox proxy returns handler results or the request collection structure from process().
+---
+
 # Standard Return Types
 
 The `ColdBox.bx` (or `.cfc` for CFML) has one setting that affects proxy operation:

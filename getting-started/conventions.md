@@ -20,7 +20,7 @@ The core conventions delineate the contract between ColdBox and **you** for file
   * **/css** - This can hold your CSS (optional)
   * **/js** - This can hold your JavaScript (optional)
 * **/layouts** - Your HTML layouts (view layer)
-* **/models** - This holds your app's CFCs  (model layer)
+* **/models** - This holds your app's classes  (model layer)
 * **/modules** - This holds the CommandBox tracked modules
 * **/modules\_app** - This holds your app's modules
 * **/tests** - Your test harness, including unit and integration testing

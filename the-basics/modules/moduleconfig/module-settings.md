@@ -1,3 +1,7 @@
+---
+description: Retrieve, inject, and override module settings with getModuleSettings(), the coldbox:moduleSettings DSL, and parseParentSettings.
+---
+
 # Module Settings
 
 ## Retrieving Module Settings

@@ -1,3 +1,7 @@
+---
+description: Render a layout from a module by passing the module argument to setLayout() or renderLayout().
+---
+
 # Layouts From A Module
 
 If you need the set layout to be rendered from a specific module then use the `module` argument from the `setLayout() or renderLayout()` methods:

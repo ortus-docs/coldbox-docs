@@ -1,3 +1,7 @@
+---
+description: Execute public or private events internally with runEvent(), including output caching and event arguments.
+---
+
 # Executing Events
 
 Apart from executing events from the URL/FORM or Remote interfaces, you can also execute events internally, either **public** or **private** from within your event handlers or from interceptors, other handlers, layouts or views.

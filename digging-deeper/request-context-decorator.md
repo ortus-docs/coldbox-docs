@@ -1,4 +1,5 @@
 ---
+description: Decorate the ColdBox request context by extending coldbox.system.web.context.RequestContextDecorator to add or override request context behavior.
 icon: waves-sine
 ---
 

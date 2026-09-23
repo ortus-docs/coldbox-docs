@@ -1,3 +1,7 @@
+---
+description: Integration testing loads a virtual ColdBox application to test real requests with execute() and request().
+---
+
 # Integration Testing
 
 ## Integration Testing
@@ -20,16 +24,16 @@ Here are the basics to follow for integration testing:
 ```javascript
 
 
-it( "can do a relocation", function() {
+it( "can do a relocation", () => {
 	var event = execute( event = "main.doSomething" );
 	expect( event.getValue( "relocate_event", "" ) ).toBe( "main.index" );
 } );
 
-it( "can startup executable code", function() {
+it( "can startup executable code", () => {
 	var event = execute( "main.onAppInit" );
 } );
 
-it( "can handle exceptions", function() {
+it( "can handle exceptions", () => {
 	// You need to create an exception bean first and place it on the request context FIRST as a setup.
 	var exceptionBean = createMock( "coldbox.system.web.context.ExceptionBean" ).init(
 		erroStruct   = structNew(),
@@ -47,22 +51,22 @@ it( "can handle exceptions", function() {
 	var event = execute( "main.onException" );
 } );
 
-describe( "Request Events", function() {
-	it( "fires on start", function() {
+describe( "Request Events", () => {
+	it( "fires on start", () => {
 		var event = execute( "main.onRequestStart" );
 	} );
 
-	it( "fires on end", function() {
+	it( "fires on end", () => {
 		var event = execute( "main.onRequestEnd" );
 	} );
 } );
 
-describe( "Session Events", function() {
-	it( "fires on start", function() {
+describe( "Session Events", () => {
+	it( "fires on start", () => {
 		var event = execute( "main.onSessionStart" );
 	} );
 
-	it( "fires on end", function() {
+	it( "fires on end", () => {
 		// Place a fake session structure here, it mimics what the handler receives
 		URL.sessionReference     = structNew();
 		URL.applicationReference = structNew();

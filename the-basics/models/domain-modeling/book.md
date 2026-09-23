@@ -1,3 +1,7 @@
+---
+description: Model a Book domain object and BookService with properties, behaviors, and service methods for the catalog.
+---
+
 # Book
 
 So what can `Book.cfc` do. It can have the following private properties:

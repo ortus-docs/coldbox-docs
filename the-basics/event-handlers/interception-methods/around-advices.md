@@ -1,3 +1,7 @@
+---
+description: Around advices like aroundHandler() and around{action}() hijack requested actions to surround them with custom logic.
+---
+
 # Around Advices
 
 ![](../../../.gitbook/assets/eventhandler-around.jpg)

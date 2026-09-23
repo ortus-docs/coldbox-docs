@@ -1,3 +1,7 @@
+---
+description: Implement contacts CRUD handler actions using ActiveEntity methods like list(), get(), deleteByID(), and populateModel().
+---
+
 # Contacts Handler
 
 That's right, go to the handler now, no need of data layers or services, we build them for you! This time, we show you the entire CRUD operations as Active Entity makes life easy!

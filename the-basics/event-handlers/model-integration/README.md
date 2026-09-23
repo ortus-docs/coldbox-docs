@@ -1,3 +1,7 @@
+---
+description: Talk to the model layer from event handlers via WireBox dependency injection or on-demand model object requests.
+---
+
 # Model Integration
 
 We have a complete section dedicated to the [Model Layer](../../models/), but we wanted to review a little here since event handlers need to talk to the model layer all the time. By default, you can interact with your models from your event handlers in two ways:

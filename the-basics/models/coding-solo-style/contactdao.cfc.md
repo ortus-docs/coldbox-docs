@@ -1,3 +1,7 @@
+---
+description: Build a singleton ContactDAO that queries the contacts datasource using queryExecute and injected ColdBox settings.
+---
+
 # ContactDAO.cfc
 
 Our Contact DAO will talk to the datasource object we declared and do a few queries. Notice that this object is a singleton and has some dependency injection.

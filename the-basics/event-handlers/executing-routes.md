@@ -1,3 +1,7 @@
+---
+description: Execute named routes internally with runRoute(), passing route params to events as action arguments.
+---
+
 # Executing Routes
 
 A part from using `runEvent()` to execute events, you can also abstract it by using the `runRoute()` method.  This method is fairly similar but with the added benefit of executing a NAMED route instead of the direct event it represents.  This gives you the added flexibility of abstracting the direct event and leveraging the named route.

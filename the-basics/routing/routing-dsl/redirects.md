@@ -1,3 +1,7 @@
+---
+description: Redirect routes with toRedirect() using a static target or a closure for dynamic destinations and status codes.
+---
+
 # Redirecting Routes
 
 Use `toRedirect()` to send one pattern to another location instead of executing an event.

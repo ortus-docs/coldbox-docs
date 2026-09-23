@@ -1,3 +1,7 @@
+---
+description: Deliver files to users, including binary files, with the request context's event.sendFile() method.
+---
+
 # Sending Files
 
 We all need to deliver files to users at one point in time. ColdBox makes it easy to deliver any type of file even binary files via the [Request Context's](../request-context.md) (event) `sendFile()` method.

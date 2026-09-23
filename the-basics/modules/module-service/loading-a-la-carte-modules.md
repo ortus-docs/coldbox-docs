@@ -1,3 +1,7 @@
+---
+description: Load modules from any reachable location with registerAndActivateModule( moduleName, instantiationPath ).
+---
+
 # Loading A-la-carte Modules
 
 You can also use the same module service methods to load ANY module in ANY ColdFusion reachable location. This is huge for applications that need granular control of loading and unloading of modules. You will do this with our magic method:

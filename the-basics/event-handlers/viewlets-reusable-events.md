@@ -1,3 +1,7 @@
+---
+description: Viewlets are self-sufficient reusable events rendered via runEvent() that pre-fetch their own data.
+---
+
 # Viewlets - Reusable Events
 
 A viewlet is a self sufficient view or a widget that can live on its own, its data is pre-fetched and can just be renderer anywhere in your system.

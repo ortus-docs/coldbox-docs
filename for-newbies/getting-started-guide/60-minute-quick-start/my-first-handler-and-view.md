@@ -1,3 +1,7 @@
+---
+description: Create your first event handler and view with coldbox create handler and execute it via ColdBox's conventional URL routing.
+---
+
 # My First Handler & View
 
 ## Handler Scaffolding

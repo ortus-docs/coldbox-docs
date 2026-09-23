@@ -1,3 +1,7 @@
+---
+description: Configure the default layout and fallback default view with the layoutSettings defaultLayout and defaultView directives.
+---
+
 # Default Layout
 
 ## Default Layout

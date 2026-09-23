@@ -1,3 +1,7 @@
+---
+description: Module locations — the modules and modules_app conventions plus external locations via modulesExternalLocation.
+---
+
 # Locations
 
 By convention every ColdBox application will have two folders for modules:

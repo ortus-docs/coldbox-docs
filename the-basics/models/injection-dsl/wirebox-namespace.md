@@ -1,3 +1,7 @@
+---
+description: wirebox injection DSL namespace for injecting the injector, binder, populator, properties, and scopes.
+---
+
 # WireBox Namespace
 
 Talk and get objects from the current WireBox injector.

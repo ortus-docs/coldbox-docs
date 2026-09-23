@@ -1,3 +1,7 @@
+---
+description: Wire the Contacts handler to the ContactService using populateModel, validateModel, and flash messaging.
+---
+
 # Contacts Handler
 
 Let's put all the layers together and make the handler talk to the model. I create different saving approaches, to showcase different integration techniques:

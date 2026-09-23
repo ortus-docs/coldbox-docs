@@ -1,3 +1,7 @@
+---
+description: Create the persistent Contacts ORM entity with primary key, properties, and validation constraints using CommandBox.
+---
+
 # Contacts.cfc
 
 Let's use CommandBox to build it:

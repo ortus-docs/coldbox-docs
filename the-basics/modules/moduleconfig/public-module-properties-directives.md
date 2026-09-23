@@ -1,3 +1,7 @@
+---
+description: Reference of public ModuleConfig properties such as entryPoint, aliases, dependencies, modelNamespace, and parseParentSettings.
+---
+
 # Public Module Properties
 
 Here is a listing of all public properties that can be defined in a module.

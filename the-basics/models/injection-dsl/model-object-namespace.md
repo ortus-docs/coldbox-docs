@@ -1,3 +1,7 @@
+---
+description: Default model/id injection DSL namespace for retrieving mapped objects by name or factory method.
+---
+
 # Models Namespace
 
 The default namespace is not specifying one. This namespace is used to retreive either named mappings or full component paths.

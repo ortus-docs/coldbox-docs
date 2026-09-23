@@ -1,3 +1,7 @@
+---
+description: Automatic URL extension detection stores formats like json, xml, or pdf in rc.format for RESTful responses.
+---
+
 # RESTFul Extension Detection
 
 ## Usage

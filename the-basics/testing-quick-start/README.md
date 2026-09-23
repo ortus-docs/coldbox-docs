@@ -85,34 +85,34 @@ component
 	/*********************************** BDD SUITES ***********************************/
 
 	function run() {
-		describe( "Main Handler", function() {
-			beforeEach( function( currentSpec ) {
+		describe( "Main Handler", () => {
+			beforeEach( ( currentSpec ) => {
 				// Setup as a new ColdBox request, VERY IMPORTANT. ELSE EVERYTHING LOOKS LIKE THE SAME REQUEST.
 				setup();
 			} );
 
-			it( "can render the homepage", function() {
+			it( "can render the homepage", () => {
 				var event = this.get( "main.index" );
 				expect( event.getValue( name = "welcomemessage", private = true ) ).toBe( "Welcome to ColdBox!" );
 			} );
 
-			it( "can render some restful data", function() {
+			it( "can render some restful data", () => {
 				var event = this.post( "main.data" );
 
 				debug( event.getHandlerResults() );
 				expect( event.getRenderedContent() ).toBeJSON();
 			} );
 
-			it( "can do a relocation", function() {
+			it( "can do a relocation", () => {
 				var event = execute( event = "main.doSomething" );
 				expect( event.getValue( "relocate_event", "" ) ).toBe( "main.index" );
 			} );
 
-			it( "can startup executable code", function() {
+			it( "can startup executable code", () => {
 				var event = execute( "main.onAppInit" );
 			} );
 
-			it( "can handle exceptions", function() {
+			it( "can handle exceptions", () => {
 				// You need to create an exception bean first and place it on the request context FIRST as a setup.
 				var exceptionBean = createMock( "coldbox.system.web.context.ExceptionBean" ).init(
 					erroStruct   = structNew(),
@@ -130,22 +130,22 @@ component
 				var event = execute( "main.onException" );
 			} );
 
-			describe( "Request Events", function() {
-				it( "fires on start", function() {
+			describe( "Request Events", () => {
+				it( "fires on start", () => {
 					var event = execute( "main.onRequestStart" );
 				} );
 
-				it( "fires on end", function() {
+				it( "fires on end", () => {
 					var event = execute( "main.onRequestEnd" );
 				} );
 			} );
 
-			describe( "Session Events", function() {
-				it( "fires on start", function() {
+			describe( "Session Events", () => {
+				it( "fires on start", () => {
 					var event = execute( "main.onSessionStart" );
 				} );
 
-				it( "fires on end", function() {
+				it( "fires on end", () => {
 					// Place a fake session structure here, it mimics what the handler receives
 					URL.sessionReference     = structNew();
 					URL.applicationReference = structNew();

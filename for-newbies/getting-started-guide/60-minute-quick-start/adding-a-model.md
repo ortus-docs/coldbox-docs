@@ -1,3 +1,7 @@
+---
+description: Create a service model with the coldbox create service CommandBox command and wire it into handlers via WireBox dependency injection.
+---
+
 # Adding A Model
 
 ![MVC](<../../../.gitbook/assets/MVC (1).png>)

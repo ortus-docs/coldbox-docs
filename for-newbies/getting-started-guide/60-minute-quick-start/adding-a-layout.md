@@ -1,3 +1,7 @@
+---
+description: Wrap views in reusable layouts like layouts/Main.cfm and control rendering with view(), event.setLayout(), or event.noLayout().
+---
+
 # Adding A Layout
 
 Every time the framework renders a view, it will try to leverage the default layout located in `layouts/Main.cfm` by convention. This is a reusable CFML template that gives format to your HTML output and contains the _location_ of where the view you want should be rendered.

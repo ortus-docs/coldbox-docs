@@ -1,3 +1,7 @@
+---
+description: Inspect interception states and points with interceptor service reporting methods like getStateContainer() and getInterceptionPoints().
+---
+
 # Reporting Methods
 
 There are several reporting and utility methods in the interceptor service that I recommend you explore. Below are some sample methods:

@@ -1,4 +1,5 @@
 ---
+description: Flash RAM persists variables across requests for the same user with discard(), keep(), and re-inflation into the RC or PRC scopes.
 icon: circle-bolt
 ---
 

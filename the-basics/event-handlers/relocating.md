@@ -1,3 +1,7 @@
+---
+description: Relocate user requests to other events, URLs, or URIs with the framework super type's relocate() method.
+---
+
 # Relocating
 
 The framework provides you with the `relocate()` method that you can use to relocate to other events thanks to the framework super type object, the grand daddy of all things ColdBox.

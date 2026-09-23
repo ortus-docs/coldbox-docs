@@ -1,3 +1,7 @@
+---
+description: Restrict event handler actions to specific HTTP verbs with the this.allowedMethods declarative structure.
+---
+
 # HTTP Method Security
 
 More often you will find that certain web operations need to be restricted in terms of what HTTP verb is used to access a resource. For example, you do not want form submissions to be done via **GET** but via **POST** or **PUT** operations. HTTP Verb recognition is also essential when building strong RESTFul APIs when security is needed as well.
@@ -34,7 +38,7 @@ this.allowedMethods = {
 If the request action HTTP method is not found in the approved list, it will look for a `onInvalidHTTPMethod()` on the handler and call it if found. Otherwise ColdBox throws a **405 exception** that is uniform across requests.
 
 {% hint style="info" %}
-You can listen for [global invalid HTTP](../../getting-started/configuration/coldbox.cfc/configuration-directives/) methods using the `coldbox.onInvalidHTTPMethodHandler` located in your `config/ColdBox.bx` (or `.cfc` for CFML).
+You can listen for [global invalid HTTP](../../reference/configuration-directives/coldbox.md) methods using the `coldbox.onInvalidHTTPMethodHandler` located in your `config/ColdBox.bx` (or `.cfc` for CFML).
 {% endhint %}
 
 {% tabs %}

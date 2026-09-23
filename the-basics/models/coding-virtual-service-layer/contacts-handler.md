@@ -1,3 +1,7 @@
+---
+description: Inject a virtual entityService:Contact into the Contacts handler to list, edit, delete, and save contacts.
+---
+
 # Contacts Handler
 
 That's right, go to the handler now, no need of data layers or services, we build them for you!

@@ -1,3 +1,7 @@
+---
+description: Cache event output in CacheBox's template cache by enabling coldbox.eventCaching and adding cache metadata to handler actions.
+---
+
 # Event Caching
 
 Event caching is extremely useful and easy to use. ColdBox will act like a cache proxy between your events and the clients requesting the events, much like squid, nginx or HA Proxy. All you need to do is add several metadata arguments to the action methods and the framework will cache the **output** of the event in the **template** cache provider in CacheBox. In other words, the event executes and produces output that the framework then caches. Subsequent calls to the same event with the same incoming RC variables will not do any processing, but just output the content back to the user.
@@ -181,7 +185,7 @@ getCache( "template" ).clearEvent('blog.dspBlog','id=12345')
 You can leverage the cache suffix property in handlers, declared as a closure, to add a dynamic suffix to the event's cache key. The closure is evaluated **on every request** - never memoized or frozen - so it's a great way to incorporate something that varies per request, like the user's language locale or session identifier, into the cache key.
 
 ```java
-this.EVENT_CACHE_SUFFIX = function( eventHandlerBean, event ){
+this.EVENT_CACHE_SUFFIX = ( eventHandlerBean, event ) => {
   return arguments.event.getValue( "locale", "en" );
 };
 ```

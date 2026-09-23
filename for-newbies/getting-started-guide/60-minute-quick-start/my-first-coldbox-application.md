@@ -1,3 +1,7 @@
+---
+description: Scaffold a ColdBox application with coldbox create app using official skeleton templates like Default, Rest, or SuperSimple.
+---
+
 # My First ColdBox Application
 
 The `coldbox create app` command enables you to create application skeletons using one of our official skeletons or [your own](../../../getting-started/application-templates.md). Here are the names of the common ones you can find in our Github Organization:

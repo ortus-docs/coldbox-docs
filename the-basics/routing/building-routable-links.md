@@ -1,3 +1,7 @@
+---
+description: Build routable links to events and routes with event.buildLink() and its queryString, translate, ssl, and baseURL arguments.
+---
+
 # Building Routable Links
 
 In your views, layouts and handlers you can use the `buildLink` method provided by the request context object (**event**) to build routable links in your application.

@@ -1,3 +1,7 @@
+---
+description: Return data from handler actions as JSON, HTML, or other formats via the renderdata annotation and event.renderData().
+---
+
 # Rendering Data
 
 Handler actions can return data back to its callers in many different formats. Either to create RESTFul services, or just send data that's not HTML back to the user. The different usages can be:

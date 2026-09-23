@@ -1,3 +1,7 @@
+---
+description: Create a singleton ContactService that uses ContactDAO, LogBox logging, and the WireBox object populator.
+---
+
 # ContactService.cfc
 
 Here is our service layer and we have added some logging just for fun :). Notice that this object is a singleton and has some dependency injection.

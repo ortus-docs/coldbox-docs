@@ -1,3 +1,7 @@
+---
+description: Render the contacts index and editor views using the html helper and entityFields for ORM entities.
+---
+
 # Views
 
 Here are the views as well, isn't it awesome that the views stay the same :), that means we did a good job abstracting our model and controllers.

@@ -1,3 +1,7 @@
+---
+description: Persist model objects in transient, singleton, cachebox, session, request, application, or custom scopes.
+---
+
 # Object Scopes
 
 You can very easily add persistence to your model+ objects via our annotations or binder configuration. The available scopes are:

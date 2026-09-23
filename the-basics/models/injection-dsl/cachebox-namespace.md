@@ -1,3 +1,7 @@
+---
+description: cachebox injection DSL namespace for retrieving CacheBox, named caches, and cached objects.
+---
+
 # CacheBox Namespace
 
 This DSL namespace is only active if using CacheBox or a ColdBox application context.

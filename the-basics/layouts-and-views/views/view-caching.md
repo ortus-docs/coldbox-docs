@@ -1,3 +1,7 @@
+---
+description: Cache rendered views in the template cache provider with the cache, cacheTimeout, cacheLastAccessTimeout, and cacheSuffix arguments.
+---
+
 # View Caching
 
 You can also pass in the caching arguments below and your view will be rendered once and then cached for further renderings. Every ColdBox application has two active cache regions: `default and template`. All view and event caching renderings go into the `template` cache.
@@ -79,3 +83,27 @@ coldbox = {
 {% hint style="info" %}
 Turning this off does not disable `viewCaching` - the two settings are independent. You'd disable `viewDiscoveryCaching` only if you're dynamically adding view files to a running application and need every request to re-check the filesystem for them.
 {% endhint %}
+
+## Clearing the View Cache Programmatically
+
+All view and event caching occurs in the `template` cache provider. Retrieve it from any handler, layout, view, or interceptor:
+
+```javascript
+// Directly
+var cache = cachebox.getCache( "template" )
+
+// Or via the WireBox injection DSL
+property name="cache" inject="cachebox:template"
+```
+
+Then purge what you need:
+
+| Method | Purpose |
+| --- | --- |
+| `clearView( viewSnippet )` | Clear views matching a snippet |
+| `clearViewMulti( viewSnippets )` | Clear multiple snippets (list or array) |
+| `clearAllViews( async )` | Clear all views |
+
+```javascript
+getCache( "template" ).clearView( "home" )
+```

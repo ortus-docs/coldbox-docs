@@ -1,3 +1,7 @@
+---
+description: Render a view once per item in a query or array with the view() collection, collectionAs, collectionStartRow, and collectionMaxRows arguments.
+---
+
 # Rendering Collections
 
 You have a few arguments in the `view()` method that deal with collection rendering. Meaning you can pass any array or query and the Renderer will iterate over that collection and render out the view as many times as the records in the colleciton.

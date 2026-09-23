@@ -1,3 +1,7 @@
+---
+description: Interact with Flash RAM via the flash scope object, persistVariables(), or the persistence arguments of the relocate() method.
+---
+
 # Using Flash RAM
 
 There are several ways to interact with the ColdBox Flash RAM:

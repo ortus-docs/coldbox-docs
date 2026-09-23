@@ -1,3 +1,7 @@
+---
+description: Test bundle annotations appMapping, configMapping, coldboxAppKey, loadColdBox, and unloadColdBox control the test application.
+---
+
 # Test Annotations
 
 Here are the annotations you can add to your testing bundle class to change behavior:

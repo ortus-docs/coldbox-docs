@@ -1,3 +1,7 @@
+---
+description: Parent application modules settings in ColdBox.bx — include and exclude lists that control which modules load.
+---
+
 # Parent Configuration
 
 There are a few parent application settings when dealing with modules. In your `ColdBox.bx` (or `.cfc` for CFML) you can have a `modules` structure with some configuration settings.

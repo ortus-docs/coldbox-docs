@@ -1,3 +1,7 @@
+---
+description: Declare AOP advice methods like preHandler(), postHandler(), and aroundHandler() in event handlers to intercept action execution.
+---
+
 # Interception Methods
 
 ![](<../../../.gitbook/assets/eventhandler-prepost (2) (2) (2) (1) (2).jpg>)

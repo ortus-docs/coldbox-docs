@@ -1,3 +1,7 @@
+---
+description: ModuleConfig acts as an interceptor with onLoad()/onUnLoad() life-cycle callbacks and custom interception points.
+---
+
 # Interceptor Events
 
 The module configuration object is also treated as an Interceptor once it is created and configured.

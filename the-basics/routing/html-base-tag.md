@@ -1,3 +1,7 @@
+---
+description: Use the HTML base tag with event.getHTMLBaseURL() so relative asset links resolve correctly under SES routing.
+---
+
 # HTML Base Tag
 
 The `base` tag in HTML allows you to tell the browser what is the base URL for assets in your application. This is something that is always missed when using frameworks that enable routing.

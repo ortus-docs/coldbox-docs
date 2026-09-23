@@ -1,3 +1,7 @@
+---
+description: coldbox injection DSL namespace for injecting the controller, services, settings, flash, router, and more.
+---
+
 # ColdBox Namespace
 
 Whenever your models need anything from the ColdBox application then you can leverage the `coldbox:` namespace for injections.

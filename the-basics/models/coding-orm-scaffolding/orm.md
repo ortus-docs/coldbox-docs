@@ -1,3 +1,7 @@
+---
+description: Enable CF ORM in the Application descriptor with ormSettings including dbcreate, flushAtRequestEnd, autoManageSession, and the cborm event handler.
+---
+
 # ORM
 
 You will first make sure your `contacts` datsource exists in the Administrator and then we can declare our ORM settings in our `Application.bx` (or `.cfc` for CFML)

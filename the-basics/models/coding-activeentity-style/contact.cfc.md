@@ -1,3 +1,7 @@
+---
+description: Define the Contact entity as a persistent component extending cborm.models.ActiveEntity with validation constraints.
+---
+
 # Contact.cfc
 
 An object that represents a contact and self-validates using [ColdBox Validation Module](https://github.com/coldbox-modules/cbox-validation/wiki), and is an awesome [ActiveEntity](https://coldbox.ortusbooks.com/the-basics/models/coding-activeentity-style) object. Let's use CommandBox to build it:

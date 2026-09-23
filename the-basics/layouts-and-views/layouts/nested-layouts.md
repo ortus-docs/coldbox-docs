@@ -1,3 +1,7 @@
+---
+description: Nest layouts within other layouts using the Renderer's layout() method for reusable layout and view combinations.
+---
+
 # Nested Layouts
 
 You can also wrap layouts within other layouts and get incredible reusability. This is accomplished by using the `layout()` method in the Renderer. As always, refer to the class API for the latest method arguments and capabilities.

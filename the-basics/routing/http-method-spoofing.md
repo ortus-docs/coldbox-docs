@@ -1,3 +1,7 @@
+---
+description: HTTP method spoofing via the _method form field lets POST forms execute PUT, PATCH, or DELETE actions.
+---
+
 # HTTP Method Spoofing
 
 Although we have access to all the HTTP verbs, modern browsers still only support **GET** and **POST**. With ColdBox and HTTP Method Spoofing, you can take advantage of **all** the HTTP verbs in your web forms.

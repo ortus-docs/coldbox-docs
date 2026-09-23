@@ -1,3 +1,7 @@
+---
+description: Announce custom interception events with the inherited announce() method and detect short-circuits from its boolean return value.
+---
+
 # Announcing Interceptions
 
 The last piece of the puzzle is how to announce events. You will do so via the inherited super type method `announce()` that all your handlers,plugins and even the interceptors themselves have or via the interceptor service `announce()` method. This method accepts an incoming data struct which will be broadcasted alongside your event:

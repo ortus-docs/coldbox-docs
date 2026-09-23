@@ -1,3 +1,7 @@
+---
+description: Configure the WireBox binder in config/WireBox.cfc with scan locations, custom DSLs, and object mappings.
+---
+
 # WireBox Binder
 
 You can have an optional WireBox configuration binder that can fine-tune the WireBox engine and also where you can create object mappings, and even more model locations by convention. Usually you will find this binder by convention in your `config/WireBox.bx` (or `.cfc` for CFML) location and it looks like this:

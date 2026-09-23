@@ -1,3 +1,7 @@
+---
+description: Inject custom UDF helpers into layouts, views, and handlers via the applicationHelper and viewsHelper settings or includeUDF().
+---
+
 # Helpers UDF's
 
 ColdBox provides you with a way to actually inject your layouts/views with custom UDF's, so they can act as helpers. This is called mixin methods and can be done via the `includeUDF()` method in the supertype or via the following settings:

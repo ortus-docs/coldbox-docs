@@ -1,3 +1,7 @@
+---
+description: Index of route terminator methods — to(), toHandler(), toView(), toResponse(), toRedirect(), resources(), and more.
+---
+
 # Terminators At a Glance
 
 This page used to hold every route terminator in one long document. It's now split into focused pages - use this as an index:

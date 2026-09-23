@@ -1,3 +1,7 @@
+---
+description: URL pattern placeholders — alphanumeric, optional (?), and numeric :name-numeric variables parsed into the request collection.
+---
+
 # Pattern Placeholders
 
 ## Alphanumeric Placeholders

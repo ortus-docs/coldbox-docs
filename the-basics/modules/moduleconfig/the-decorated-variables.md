@@ -1,3 +1,7 @@
+---
+description: ColdBox decorates ModuleConfig at runtime with private variables — controller, wirebox, log, binder, cachebox, and moduleMapping.
+---
+
 # The Decorated Variables
 
 ![](../../../.gitbook/assets/ModuleConfig.jpg)
@@ -12,8 +16,8 @@ At runtime, the configuration object will be created by ColdBox and decorated wi
 | controller    | A reference to the application's ColdBox Controller                                                                    |
 | log           | A pre-configured LogBox Logger object for this specific class object (`coldbox.system.logging.Logger`)                 |
 | logBox        | A Reference to LogBox                                                                                                  |
-| moduleMapping | The `moduleMapping` setting of the current module. This is the path needed in order to instantiate CFCs in the module. |
+| moduleMapping | The `moduleMapping` setting of the current module. This is the path needed in order to instantiate classes in the module. |
 | modulePath    | The absolute path to the current loading module                                                                        |
 | wirebox       | A Reference to WireBox                                                                                                 |
 
-You can use any of these private variables to create module settings, load CFCs, add binder mappings, etc.
+You can use any of these private variables to create module settings, load classes, add binder mappings, etc.

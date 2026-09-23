@@ -17,7 +17,7 @@ middlewareGroup( "api", [ "RequireApiKey", "RateLimiter" ] );
 
 route( "/orders" ).middleware( "api" ).toHandler( "orders" );
 
-group( { pattern : "/api", middleware : [ "api" ] }, function(){
+group( { pattern : "/api", middleware : [ "api" ] }, () => {
     route( "/users" ).toHandler( "users" );
 } );
 ```
@@ -33,7 +33,7 @@ Groups are flat - a member can't itself be the name of another group. Each entry
 `withoutMiddleware()` opts a single route out of middleware it would otherwise inherit - from an enclosing group, or from its own earlier `.middleware()` calls.
 
 ```javascript
-group( { pattern : "/api", middleware : [ "api" ] }, function(){
+group( { pattern : "/api", middleware : [ "api" ] }, () => {
     route( "/users" ).toHandler( "users" );                              // runs "api"
     route( "/health" ).withoutMiddleware( "api" ).toHandler( "health" ); // opts out
 } );

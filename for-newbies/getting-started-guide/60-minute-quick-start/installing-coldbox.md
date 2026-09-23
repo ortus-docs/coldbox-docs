@@ -1,3 +1,7 @@
+---
+description: Install the CommandBox CLI and use it to install ColdBox, start servers, and scaffold applications.
+---
+
 # Installing ColdBox
 
 **Welcome to the world of ColdBox!**&#x20;

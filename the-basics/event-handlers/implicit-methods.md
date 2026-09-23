@@ -1,3 +1,7 @@
+---
+description: Implicit handler methods onMissingAction() and onError() provide virtual events and localized error handling in event handlers.
+---
+
 # Implicit Methods
 
 Every event handler controller has some **implicit** methods that if you create them, they come alive. Just like the implicit methods in `Application.bx` (or `.cfc` for CFML)

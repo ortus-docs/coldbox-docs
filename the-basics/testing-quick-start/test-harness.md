@@ -1,3 +1,7 @@
+---
+description: The ColdBox test harness — the tests folder with Application.bx, runner, resources, and specs directories.
+---
+
 # Test Harness
 
 Every ColdBox application template comes with a nice test harness inside of a `tests` folder.
@@ -100,7 +104,7 @@ class {
  */
 component {
 
-	// APPLICATION CFC PROPERTIES
+	// APPLICATION CLASS PROPERTIES
 	this.name                 = "ColdBoxTestingSuite";
 	this.sessionManagement    = true;
 	this.setClientCookies     = true;

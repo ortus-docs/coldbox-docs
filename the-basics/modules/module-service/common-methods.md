@@ -1,3 +1,7 @@
+---
+description: Common Module Service methods — reloadAll, unload, registerModule, activateModule, and registerAndActivateModule.
+---
+
 # Common Methods
 
 Here are the most common methods you can use to manage modules:

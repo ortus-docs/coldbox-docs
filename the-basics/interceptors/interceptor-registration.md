@@ -1,3 +1,7 @@
+---
+description: Register interceptors programmatically at runtime with the interceptor service registerInterceptor() and registerInterceptionPoint() methods.
+---
+
 # Interceptor Registration
 
 You can also register classes as interceptors programmatically by talking to the application's Interceptor Service that lives inside the main ColdBox controller. You can access this service like so:

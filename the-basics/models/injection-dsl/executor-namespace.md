@@ -1,3 +1,7 @@
+---
+description: executor injection DSL namespace for injecting asynchronous executor thread pools by name.
+---
+
 # Executor Namespace
 
 The executor namespace is both available in ColdBox and WireBox standalone and it is used to get references to created asynchronous executor thread pools.

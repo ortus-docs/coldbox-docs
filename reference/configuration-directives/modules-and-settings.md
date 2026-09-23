@@ -1,0 +1,163 @@
+---
+description: The modules and moduleSettings configuration directives — module behavior and per-module settings.
+icon: cubes
+---
+
+# Modules & Module Settings
+
+The `modules` structure is used to configure the behavior of [ColdBox Modules](../../the-basics/modules/).
+
+```javascript
+modules = {
+    // Will auto reload the modules in each request. Great for development but can cause some loading/re-loading issues
+    autoReload = true,
+    // An array of modules to load ONLY
+    include = [],
+    // An array of modules to EXCLUDE for operation
+    exclude = [ "paidModule1", "paidModule2" ]
+};
+```
+
+> **Danger** Please be very careful when using the `autoReload` flag as module routing can be impaired and thread consistency will also suffer. This is PURELY a development flag that you can use at your own risk.
+
+---
+
+# ModuleSettings
+
+## Option 1: Coldbox Config
+
+This structure within `config/Coldbox.bx` (or `.cfc` for CFML) is used to house module configurations. Please refer to each module's documentation on how to create the configuration structures. Usually the keys will match the name of the module to be configured.
+
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+class {
+
+     function configure() {
+
+         moduleSettings = {
+             myModule = {
+                someSetting = "overridden"
+             }
+        };
+    }
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
+component {
+
+     function configure() {
+
+         moduleSettings = {
+             myModule = {
+                someSetting = "overridden"
+             }
+        };
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Option 2: Config Object Override
+
+Starting in ColdBox 7, you can store module configurations as their own configuration file within the application’s config folder outside of the `config/Coldbox.bx` (or `.cfc` for CFML). The naming convention is `config/modules/{moduleName}.bx` (or `.cfc` for CFML)
+
+The configuration class will have one configure() method that is expected to return a struct of configuration settings as you did before in the moduleSettings
+
+The following example overrides the original module configuration entirely:
+
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+class{
+
+    function configure( original ){
+        return {
+            key : value
+        };
+    }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
+component{
+
+    function configure( original ){
+        return {
+            key : value
+        };
+    }
+
+}
+```
+{% endtab %}
+{% endtabs %}
+
+For large module configs where only a few keys need to be changed, you can update the config by modifying the struct passed in as an argument and then returning the updated version.
+
+{% tabs %}
+{% tab title="BoxLang" %}
+```js
+class{
+
+    function configure( original ){
+        // override only specific keys, not the entire config
+	original.users.requireEmailVerification = false;
+	return original;
+    }
+
+}
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
+component{
+
+    function configure( original ){
+        // override only specific keys, not the entire config
+	original.users.requireEmailVerification = false;
+	return original;
+    }
+
+}
+```
+{% endtab %}
+{% endtabs %}
+
+### Injections
+
+Just like a ModuleConfig this configuration override also gets many injections:
+
+* controller
+* coldboxVersion
+* appMapping
+* moduleMapping
+* modulePath
+* logBox
+* log
+* wirebox
+* binder
+* cachebox
+* getJavaSystem
+* getSystemSetting
+* getSystemProperty
+* getEnv
+* appRouter
+* router
+
+### Env Support
+
+This module configuration object will also inherit the `ModuleConfig.bx` (or `.cfc` for CFML) behavior that if you create methods with the same name as the environment you are on, it will execute it for you as well.
+
+```
+function development( original ){
+   // add overides to the original struct
+}
+```
+
+Then you can change the original struct as you see fit for that environment.

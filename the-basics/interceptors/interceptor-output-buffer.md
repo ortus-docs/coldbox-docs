@@ -1,3 +1,7 @@
+---
+description: Produce output cleanly from interception points using the per-event request output buffer argument with append() and clear().
+---
+
 # Interceptor Output Buffer
 
 Every interception point receives a unique request output buffer that can be used to elegantly produce output. Once the interception point is executed, the interceptor service will check to see if the output buffer has content, if it does it will advice to write the output to the ColdFusion output stream. This way, you can produce output very cleanly from your interception points, without adding any messy-encapsulation breaking `output=true` tags to your interceptors. (**BAD PRACTICE**). This is an elegant solution that can work for both core and custom interception points.

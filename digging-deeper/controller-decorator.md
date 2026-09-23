@@ -1,4 +1,5 @@
 ---
+description: Decorate the ColdBox Controller by extending coldbox.system.web.ControllerDecorator to add or override framework behavior per application.
 icon: tree-christmas
 ---
 

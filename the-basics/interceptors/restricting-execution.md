@@ -1,3 +1,7 @@
+---
+description: Restrict an interception method to matching events with the eventPattern regex annotation.
+---
+
 # Restricting Execution
 
 You can restrict the execution of an interception point by using the `eventpattern` annotation. This annotation will be placed in the function and the value is a regular expression that the interceptor service uses to match against the incoming event. If the regex matches, the interception function executes, else it skips it. This is a great way for you to create interceptors that only fire not only for the specific interception point you want, but also on the specific incoming event.

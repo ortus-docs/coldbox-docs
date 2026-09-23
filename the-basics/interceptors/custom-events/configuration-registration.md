@@ -1,3 +1,7 @@
+---
+description: Register custom interception points in the ColdBox configuration via interceptorSettings and the customInterceptionPoints key.
+---
+
 # Configuration Registration
 
 In the `ColdBox.bx` (or `.cfc` for CFML) configuration file, there is a structure called `interceptorSettings` with two keys:

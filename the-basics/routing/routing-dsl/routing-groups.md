@@ -1,3 +1,7 @@
+---
+description: Group routes with the group() method to share pattern prefixes, targets, middleware, and other options.
+---
+
 # Routing Groups
 
 There will be a time where your routes will become very verbose and you would like to group them into logical declarations.  These groupings can also help you **prefixes** repetitive patterns in many routes with a single declarative construct.  These needs are met with the `group()` method in the router.
@@ -20,7 +24,7 @@ route( pattern="/news/v/:slug", target="public.news.view" );
 As you can see from the routes above, we have lots of repetitive code that we can clean out. So let's look at the same routes but using some nice grouping action.
 
 ```javascript
-group( { pattern="/news", target="public.news." }, function(){
+group( { pattern="/news", target="public.news." }, () => {
 	route( "/", "index" )
 	.route( "/recent", "recent" )
 	.route( "/removed", "removed" )
@@ -37,7 +41,7 @@ The **options** struct can contain any values that you can use within the closur
 A group's `options` struct isn't limited to `pattern`/`target`. Any modifier a route accepts can be shared the same way - `handler`, `module`, `namespace`, `domain`, and `middleware` all apply to every route declared inside the body:
 
 ```javascript
-group( { pattern : "/api", middleware : [ "RequireApiKey" ] }, function(){
+group( { pattern : "/api", middleware : [ "RequireApiKey" ] }, () => {
     route( "/users" ).toHandler( "users" );
     route( "/products" ).toHandler( "products" );
 } );

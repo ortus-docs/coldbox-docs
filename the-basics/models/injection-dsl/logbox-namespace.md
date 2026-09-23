@@ -1,3 +1,7 @@
+---
+description: logbox injection DSL namespace for injecting LogBox, the root logger, or named category loggers.
+---
+
 # LogBox Namespace
 
 This DSL namespace interacts with the loaded LogBox instance.

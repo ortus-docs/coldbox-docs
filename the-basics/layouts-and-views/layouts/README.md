@@ -1,3 +1,7 @@
+---
+description: Layouts are HTML shells in the layouts folder that wrap the main view set via event.setView() and can nest other layouts.
+---
+
 # Layouts
 
 ![](../../../.gitbook/assets/LayoutViewCombinations.png)

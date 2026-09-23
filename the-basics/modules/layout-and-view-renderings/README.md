@@ -1,3 +1,7 @@
+---
+description: Control module layout and view rendering overrides with the viewParentLookup and layoutParentLookup properties.
+---
+
 # Layout and View Renderings
 
 The ColdBox rendering engine has been adapted to support module renderings and also to support multiple discovery algorithms when rendering module layouts and views. When you declare a module you can declare two of its public properties to determine how rendering overrides occur. These properties are:

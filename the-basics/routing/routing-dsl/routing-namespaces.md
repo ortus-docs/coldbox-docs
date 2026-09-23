@@ -1,3 +1,7 @@
+---
+description: Namespaces group routes under a virtual URL entry point via addNamespace() or route().toNamespaceRouting().
+---
+
 # Routing Namespaces
 
 You can create a-la-carte namespaces for URL routes. **Namespaces** are cool groupings of routes according to a specific URL entry point. So you can say that all URLs that start with `/testing` will be found in the **testing** namespace and it will iterate through the namespace routes until it matches one of them.&#x20;
@@ -17,7 +21,7 @@ Once you declare the namespace you can use the grouping functionality to declare
 ```javascript
 // Via Grouping
 route( "/news" ).toNamespaceRouting( "blog" )
-	.group( { namespace = "blog" }, function(){
+	.group( { namespace = "blog" }, () => {
 		route( "/", "blog.index" )
   		.route( "/:year-numeric?/:month-numeric?/:day-numeric?", "blog.archives" );
 	} );

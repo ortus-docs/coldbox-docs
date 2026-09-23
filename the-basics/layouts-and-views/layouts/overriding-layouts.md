@@ -1,3 +1,7 @@
+---
+description: Change the rendering layout programmatically with event.setLayout() or the layout argument of event.setView().
+---
+
 # Overriding Layouts
 
 Ok, now that we have started to get funky, let's keep going. How can I change the layout on the fly for a specific view? Very easily, using yet another new method from the event object, called `setLayout()` or the `layout` argument to the `setView()` method.

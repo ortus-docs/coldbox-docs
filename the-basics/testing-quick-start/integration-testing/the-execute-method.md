@@ -1,3 +1,7 @@
+---
+description: The execute() method runs a ColdBox event or route in a test and returns the request context for assertions.
+---
+
 # The execute() Method
 
 The `execute()` method is your way of making requests in to your ColdBox application. It can take the following parameters:
@@ -17,7 +21,7 @@ The `execute()` method is your way of making requests in to your ColdBox applica
 This method will execute any ColdBox event/route just like if it's coming from the browser or mobile app. You will get back a request context object from which you can then do assertions with it.
 
 ```javascript
-it( "can render some restful data", function() {
+it( "can render some restful data", () => {
     var event = execute( "main.data" );
 
     debug( event.getHandlerResults() );
@@ -36,7 +40,7 @@ The `execute()` method has an argument called `renderResults` which defaults to 
 Then you can easily assert what the content would have been for an event.
 
 ```javascript
-it( "can render users", function(){
+it( "can render users", () => {
 
    var event = execute( event="rest.api.users", renderResults=true );
    
@@ -63,7 +67,7 @@ function list( event, rc, prc ){
 **The spec**
 
 ```javascript
-it( "+homepage renders", function(){
+it( "+homepage renders", () => {
     var event = execute( event="main.list", renderResults=true );
     
     // From value
@@ -88,7 +92,7 @@ function data( event, rc, prc ){
 **The spec**
 
 ```javascript
-it( "can render data", function(){
+it( "can render data", () => {
     var event = execute( event="main.data", renderResults=true );
     
     // From value
@@ -132,7 +136,7 @@ relocate_{argumentName}
 * `statusCode`
 
 ```javascript
-it( "can do a relocation", function() {
+it( "can do a relocation", () => {
     var event = execute( event = "main.doSomething" );
     expect( event.getValue( "relocate_event", "" ) ).toBe( "main.index" );
 } );
@@ -143,33 +147,33 @@ it( "can do a relocation", function() {
 If you are building multi-tenant applications with ColdBox and are leveraging [domain and subdomain routing](https://coldbox.ortusbooks.com/the-basics/routing/routing-dsl/subdomain-routing), then you can easily use the `domain` argument to simulate the domain in play for THAT specific spec execution.
 
 ```javascript
-describe( "subdomain routing", function(){
-	beforeEach( function(){
+describe( "subdomain routing", () => {
+	beforeEach( () => {
 		setup();
 	} );
 	
-	it( "can match on a specific domain", function(){
+	it( "can match on a specific domain", () => {
 		var event = execute( route: "/", domain: "subdomain-routing.dev" );
 		var rc    = event.getCollection();
 		expect( rc ).toHaveKey( "event" );
 		expect( rc.event ).toBe( "subdomain.index" );
 	} );
 	
-	it( "skips if the domain is not matched", function(){
+	it( "skips if the domain is not matched", () => {
 		var event = execute( route: "/", domain: "not-the-correct-domain.dev" );
 		var rc    = event.getCollection();
 		expect( rc ).toHaveKey( "event" );
 		expect( rc.event ).toBe( "main.index" );
 	} );
 	
-	it( "can match on a domain with wildcards", function(){
+	it( "can match on a domain with wildcards", () => {
 		var event = execute( route: "/", domain: "luis.forgebox.dev" );
 		var rc    = event.getCollection();
 		expect( rc ).toHaveKey( "event" );
 		expect( rc.event ).toBe( "subdomain.show" );
 	} );
 	
-	it( "provides any matched values in the domain in the rc", function(){
+	it( "provides any matched values in the domain in the rc", () => {
 		var event = execute( route: "/", domain: "luis.forgebox.dev" );
 		var rc    = event.getCollection();
 		expect( rc ).toHaveKey( "username" );

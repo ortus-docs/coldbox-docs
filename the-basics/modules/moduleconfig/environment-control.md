@@ -1,3 +1,7 @@
+---
+description: Per-environment overrides in ModuleConfig — environment-named methods like dev() run after configure().
+---
+
 # Environment Control
 
 If you are using per-environment control in your parent application via the `ColdBox.bx` (or `.cfc` for CFML), you can also use that in your Module Configuration object. So the same conventions that are used in the parent configuration can be used in the module; having the name of the environment match a method name in your module config. So if the following environments are declared in your parent configuration file and the **dev** environment is detected, the `dev()` method is called in your configuration object:

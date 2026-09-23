@@ -1,3 +1,7 @@
+---
+description: Core module interception points such as preModuleLoad, postModuleRegistration, and afterModuleActivations with their intercept data structures.
+---
+
 # Module Events
 
 | Interception Point | Intercept Structure                        | Description                                                  |

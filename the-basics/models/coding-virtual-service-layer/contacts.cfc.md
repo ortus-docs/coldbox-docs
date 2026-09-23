@@ -1,3 +1,7 @@
+---
+description: Scaffold a persistent Contact ORM entity with a primary key, properties, and validation constraints.
+---
+
 # Contacts.cfc
 
 Let's use CommandBox to build it:

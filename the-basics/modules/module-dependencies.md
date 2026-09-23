@@ -1,3 +1,7 @@
+---
+description: Declare module dependencies with this.dependencies so required modules register and activate first.
+---
+
 # Module Dependencies
 
 Modules can declare other module dependencies in the `ModuleConfig.bx` (or `.cfc` for CFML) via the `this.dependencies` property. This means that **before** the declared module is activated, the dependencies will be registered and activated **FIRST** and then the declared module will load.

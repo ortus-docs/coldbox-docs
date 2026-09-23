@@ -1,5 +1,6 @@
 ---
 description: Compose ColdBox superpowers into any object via WireBox delegation
+icon: puzzle-piece
 ---
 
 # Delegates

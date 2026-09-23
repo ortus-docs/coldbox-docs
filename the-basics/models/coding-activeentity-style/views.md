@@ -1,3 +1,7 @@
+---
+description: Contact index and editor views rendered with the html helper and flash messages in the ActiveEntity example.
+---
+
 # Views
 
 Here are the views as well, which are pre-created via CommandBox handler creation command.

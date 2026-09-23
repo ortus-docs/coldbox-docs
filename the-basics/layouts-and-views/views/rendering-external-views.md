@@ -1,3 +1,7 @@
+---
+description: Render views outside the application views conventions with the externalView() method.
+---
+
 # Rendering External Views
 
 So what if I want to render a view outside of my application without using the setting explained above? Well, you use the `externalView()` method.

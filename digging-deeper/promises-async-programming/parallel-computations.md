@@ -1,3 +1,7 @@
+---
+description: Run parallel computations with the AsyncManager's all(), allApply(), anyOf(), and withTimeout() methods backed by Java CompletableFuture.
+---
+
 # Parallel Computations
 
 Here are some of the methods that will allow you to do parallel computations. Please note that the `asyncManager()` has shortcuts to these methods, but we always recommend using them via a new future, because then you can have further constructor options like: custom executor, debugging, loading CFML context and much more.
@@ -88,10 +92,10 @@ var data = [1,2, ... 100 ];
 var results = asyncManager().all( data );
 
 // Process multiple futures
-var f1 = asyncManager.newFuture( function(){
+var f1 = asyncManager.newFuture( () => {
     return "hello";
 } );
-var f2 = asyncManager.newFuture( function(){
+var f2 = asyncManager.newFuture( () => {
     return "world!";
 } );
 var aResults = asyncManager.newFuture()

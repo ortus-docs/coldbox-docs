@@ -1,10 +1,14 @@
+---
+description: withCondition() attaches a runtime closure check so a matched route only fires when the condition returns true.
+---
+
 # Routing Conditions
 
 `withCondition()` attaches a runtime check to a route. Even if the URL pattern matches, the route only fires if the closure returns `true`.
 
 ```javascript
 route( "/go/firefox" )
-    .withCondition( function( requestString ){
+    .withCondition( ( requestString ) => {
         return findNoCase( "Firefox", cgi.HTTP_USER_AGENT ) ? true : false;
     } )
     .to( "firefox.index" );

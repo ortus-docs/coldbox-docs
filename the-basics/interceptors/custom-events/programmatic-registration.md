@@ -1,3 +1,7 @@
+---
+description: Register new custom interception points at runtime with the interceptor service appendInterceptionPoints() method.
+---
+
 # Programmatic Registration
 
 You can use the interceptor service to register new events or interception points via the `appendInterceptionPoints()` method. This way you can dynamically register events in your system:

@@ -1,3 +1,7 @@
+---
+description: Register and announce your own custom interception points in addition to the core events announced by the ColdBox framework.
+---
+
 # Custom Events
 
 In addition to all the events announced by the framework, you can also register your own custom events.

@@ -1,3 +1,7 @@
+---
+description: Sample rewrite rules for Apache .htaccess, nginx, and IIS that enable full SES URLs in ColdBox.
+---
+
 # Rewrite Rules
 
 Here are just a few of those rewrite rules for you for major rewrite engines. You can spice them up as needed.

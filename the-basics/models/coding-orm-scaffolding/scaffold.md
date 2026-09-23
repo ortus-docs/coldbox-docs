@@ -1,3 +1,7 @@
+---
+description: Generate a RESTful handler and CRUD views for an entity with the coldbox create orm-crud CommandBox command.
+---
+
 # Scaffold
 
 Now let us relish in the power of the `orm-crud` command:

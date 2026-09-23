@@ -1,3 +1,7 @@
+---
+description: Render views and layouts on demand from handlers, interceptors, or views with the Renderer methods view(), externalView(), and layout().
+---
+
 # Rendering Views
 
 ## Rendering Methods

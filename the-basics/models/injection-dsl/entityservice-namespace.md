@@ -1,3 +1,7 @@
+---
+description: entityService injection DSL namespace for injecting BaseORMService or VirtualEntityService objects from cborm.
+---
+
 # EntityService Namespace
 
 

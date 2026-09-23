@@ -1,3 +1,7 @@
+---
+description: ColdBox testing classes — BaseTestCase for integration tests plus BaseModelTest, BaseInterceptorTest, and BaseHandlerTest.
+---
+
 # ColdBox Testing Classes
 
 ![ColdBox Testing Classes](../../.gitbook/assets/TestingClasses.png)

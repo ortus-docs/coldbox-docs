@@ -1,3 +1,7 @@
+---
+description: Event handlers are ColdBox's singleton controller layer executed via URL or FORM posts; disable handlerCaching during development.
+---
+
 # Working with Events
 
 ![](../../../.gitbook/assets/ColdBoxSimpleMVC.png)

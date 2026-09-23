@@ -1,3 +1,7 @@
+---
+description: The ModuleConfig.bx class is the boot code of a ColdBox module and must define a configure() method.
+---
+
 # ModuleConfig
 
 The module configuration object: `ModuleConfig.bx` (or `.cfc` for CFML) is the boot code of your module and where you can tell the host application how this module will behave. This is a simple class, no inheritance needed, because it is decorated with methods and variables by ColdBox at runtime.

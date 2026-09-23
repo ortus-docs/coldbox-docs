@@ -1,3 +1,7 @@
+---
+description: Render module layouts and views explicitly with the Renderer layout() and view() module argument.
+---
+
 # Explicit Module Renderings
 
 You can also explicitly render layouts or views directly from a module via the Renderer plugin's `layout()` and `view()` methods. These methods now can take an extra argument called module.

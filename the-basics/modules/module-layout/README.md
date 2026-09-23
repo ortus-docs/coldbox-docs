@@ -1,3 +1,7 @@
+---
+description: Anatomy of a ColdBox module — ModuleConfig.cfc plus optional handlers, views, layouts, models, and interceptors.
+---
+
 # Module Layout
 
 In order to create a module you must first create a nicely named directory within the modules conventions directory. For example, let's build a simple _hello world_ module. CommandBox to the rescue!

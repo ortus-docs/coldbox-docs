@@ -1,3 +1,7 @@
+---
+description: Application life cycle interception points include afterConfigurationLoad, preReinit, onException, onRequestCapture, preProcess, and postProcess.
+---
+
 # Application Life Cycle Events
 
 | Interception Point     | Intercept Structure                                     | Description                                                                                                                                                                                                                                                                                      |

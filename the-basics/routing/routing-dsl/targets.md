@@ -1,3 +1,7 @@
+---
+description: Route targets send matched requests to an event with to(), a handler with toHandler(), a view, or an inline response.
+---
+
 # Sending Requests Somewhere
 
 Once a route matches, it has to send the request somewhere. This page covers the four ways to do that: an **event**, a **handler**, a **view**, or an inline **response**.
