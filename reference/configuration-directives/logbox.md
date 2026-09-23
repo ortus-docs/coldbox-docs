@@ -13,11 +13,11 @@ The `logbox` structure is based on the LogBox declaration DSL and configures log
 //LogBox DSL
 logBox = {
     // The configuration file without fileextension to use for operation, instead of using this structure
-    configFile = "config/LogBox", 
+    configFile = "config/LogBox",
     // Appenders
     appenders = {
         appenderName = {
-            class="class.to.appender", 
+            class="class.to.appender",
             layout="class.to.layout",
             levelMin=0,
             levelMax=4,

@@ -445,13 +445,13 @@ flash = {
     // constructor properties for the flash scope implementation
     properties = {},
     // automatically inflate flash data into the RC scope at the beginning of a request
-    inflateToRC = true, 
+    inflateToRC = true,
     // automatically inflate flash data into the PRC scope at the beginning of a request
-    inflateToPRC = false, 
+    inflateToPRC = false,
     // automatically purge flash data for you
-    autoPurge = true, 
+    autoPurge = true,
     // automatically save flash scopes at end of a request and on relocations.
-    autoSave = true 
+    autoSave = true
 };
 ```
 
@@ -465,7 +465,7 @@ This is an array of interceptor definitions that you will use to register in you
 //Register interceptors as an array, we need order
 interceptors = [
 
-    { 
+    {
         // The class instantiation path
         class="",
         // The alias to register in WireBox, if not defined it uses the name of the class
@@ -513,7 +513,7 @@ Before any renderings occur or lookups, the framework will check this array of a
 ```javascript
 //Register Layouts
 layouts = [
-    { 
+    {
         // The alias of a layout
         name="",
         // The layout file
