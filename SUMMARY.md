@@ -4,10 +4,10 @@
   * [Contributing Guide](readme/contributing-guide.md)
   * [About This Book](readme/about-this-book/README.md)
     * [Author](readme/about-this-book/author.md)
-  * [Release History](readme/release-history/README.md)
-    * [What's New With 8.2.0](readme/release-history/whats-new-with-8.2.0.md)
-    * [What's New With 8.1.0](readme/release-history/whats-new-with-8.1.0.md)
-    * [What's New With 8.0.0](readme/release-history/whats-new-with-8.0.0.md)
+* [Release History](readme/release-history/README.md)
+  * [What's New With 8.2.0](readme/release-history/whats-new-with-8.2.0.md)
+  * [What's New With 8.1.0](readme/release-history/whats-new-with-8.1.0.md)
+  * [What's New With 8.0.0](readme/release-history/whats-new-with-8.0.0.md)
   * [Upgrading to ColdBox 8](readme/upgrading-to-coldbox-8.md)
 
 ## Getting Started
