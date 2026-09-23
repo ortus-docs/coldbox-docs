@@ -4,6 +4,11 @@
   * [Contributing Guide](readme/contributing-guide.md)
   * [About This Book](readme/about-this-book/README.md)
     * [Author](readme/about-this-book/author.md)
+  * [Release History](readme/release-history/README.md)
+    * [What's New With 8.2.0](readme/release-history/whats-new-with-8.2.0.md)
+    * [What's New With 8.1.0](readme/release-history/whats-new-with-8.1.0.md)
+    * [What's New With 8.0.0](readme/release-history/whats-new-with-8.0.0.md)
+  * [Upgrading to ColdBox 8](readme/upgrading-to-coldbox-8.md)
 
 ## Getting Started
 
@@ -20,6 +25,7 @@
 * [Configuration](getting-started/configuration/README.md)
   * [The ColdBox Class](getting-started/configuration/coldbox.cfc/README.md)
   * [Using Settings](getting-started/configuration/using-settings.md)
+  * [System Settings](getting-started/system-settings.md)
   * [Bootstrapper](getting-started/configuration/bootstrapper.md)
 
 ## The Basics
@@ -200,6 +206,20 @@
   * [Module Helpers](the-basics/modules/module-helpers.md)
   * [Module Bundles](the-basics/modules/module-bundles.md)
   * [Module Inception](the-basics/modules/module-inception.md)
+* [Testing Quick Start](the-basics/testing-quick-start/README.md)
+  * [Test Harness](the-basics/testing-quick-start/test-harness.md)
+  * [Testing Classes](the-basics/testing-quick-start/coldbox-testing-classes.md)
+  * [Testing Methods](the-basics/testing-quick-start/common-methods.md)
+  * [Integration Testing](the-basics/testing-quick-start/integration-testing/README.md)
+    * [Test Annotations](the-basics/testing-quick-start/integration-testing/test-annotations.md)
+    * [Life-Cycle Events](the-basics/testing-quick-start/integration-testing/life-cycle-events.md)
+    * [Request Setup()](the-basics/testing-quick-start/integration-testing/test-setup.md)
+    * [The execute() Method](the-basics/testing-quick-start/integration-testing/the-execute-method.md)
+    * [HTTP Testing Methods](the-basics/testing-quick-start/integration-testing/http-testing-methods.md)
+    * [Testing Without Virtual Application](the-basics/testing-quick-start/integration-testing/testing-without-virtual-application.md)
+  * [Interceptor Testing](the-basics/testing-quick-start/interceptor-testing.md)
+  * [Model Object Testing](the-basics/testing-quick-start/model-object-testing.md)
+  * [Tips & Tricks](the-basics/testing-quick-start/tips-and-tricks.md)
 
 ## Digging Deeper
 
@@ -252,23 +272,6 @@
 * [API Documentation](ecosystem/api-documentation.md)
 * [i18n](ecosystem/i18n.md)
 
-## Testing
-
-* [Testing Quick Start](the-basics/testing-quick-start/README.md)
-  * [Test Harness](the-basics/testing-quick-start/test-harness.md)
-  * [Testing Classes](the-basics/testing-quick-start/coldbox-testing-classes.md)
-  * [Testing Methods](the-basics/testing-quick-start/common-methods.md)
-  * [Integration Testing](the-basics/testing-quick-start/integration-testing/README.md)
-    * [Test Annotations](the-basics/testing-quick-start/integration-testing/test-annotations.md)
-    * [Life-Cycle Events](the-basics/testing-quick-start/integration-testing/life-cycle-events.md)
-    * [Request Setup()](the-basics/testing-quick-start/integration-testing/test-setup.md)
-    * [The execute() Method](the-basics/testing-quick-start/integration-testing/the-execute-method.md)
-    * [HTTP Testing Methods](the-basics/testing-quick-start/integration-testing/http-testing-methods.md)
-    * [Testing Without Virtual Application](the-basics/testing-quick-start/integration-testing/testing-without-virtual-application.md)
-  * [Interceptor Testing](the-basics/testing-quick-start/interceptor-testing.md)
-  * [Model Object Testing](the-basics/testing-quick-start/model-object-testing.md)
-  * [Tips & Tricks](the-basics/testing-quick-start/tips-and-tricks.md)
-
 ## Reference
 
 * [Overview](reference/README.md)
@@ -278,21 +281,12 @@
   * [LogBox Directive](reference/configuration-directives/logbox.md)
   * [WireBox Directive](reference/configuration-directives/wirebox.md)
   * [Modules & Module Settings](reference/configuration-directives/modules-and-settings.md)
-* [System Settings](reference/system-settings.md)
 * [Deployment](reference/deployment/README.md)
   * [BoxLang Runtimes](reference/deployment/boxlang-runtimes.md)
   * [Adobe & Lucee](reference/deployment/other-engines.md)
 * [Engine Support & Differences](reference/engine-support.md)
 * [Companion Frameworks](reference/companion-frameworks.md)
 * [API Documentation](reference/api-documentation.md)
-
-## Release & Upgrade
-
-* [Release History](readme/release-history/README.md)
-  * [What's New With 8.2.0](readme/release-history/whats-new-with-8.2.0.md)
-  * [What's New With 8.1.0](readme/release-history/whats-new-with-8.1.0.md)
-  * [What's New With 8.0.0](readme/release-history/whats-new-with-8.0.0.md)
-* [Upgrading to ColdBox 8](readme/upgrading-to-coldbox-8.md)
 
 ## Tutorials
 

@@ -1,10 +1,10 @@
 ---
-description: The application router at config/Router.cfc configures routing settings and registers routes with the ColdBox routing DSL.
+description: The application router at config/Router configures routing settings and registers routes with the ColdBox routing DSL.
 ---
 
 # Application Router
 
-Every ColdBox application has a URL router and can be located by convention at `config/Router.cfc`.  This is called the **application router** and it is based on the router core class: `coldbox.system.web.routing.Router`.  Here is where you will configure router settings and define routes using our routing DSL.
+Every ColdBox application has a URL router and can be located by convention at `config/Router.bx|cfc`.  This is called the **application router** and it is based on the router core class: `coldbox.system.web.routing.Router`.  Here is where you will configure router settings and define routes using our routing DSL.
 
 {% hint style="info" %}
 Please see the latest [API Docs](http://apidocs.ortussolutions.com/coldbox/5.0.0/coldbox/system/web/routing/Router.html) for investigating all the methods and properties of the Router.
@@ -14,11 +14,11 @@ Please see the latest [API Docs](http://apidocs.ortussolutions.com/coldbox/5.0.0
 **Tip:** Unlike previous versions of ColdBox, the new routing services in ColdBox 5 are automatically configured to detect the base URLs and support multi-domain hosting. There is no more need to tell the Router about your base URL.
 {% endhint %}
 
-## Application Router - `Router.cfc`
+## Application Router - `Router.bx|cfc`
 
 {% tabs %}
 {% tab title="BoxLang" %}
-{% code title="config/Router.cfc" %}
+{% code title="config/Router.bx" %}
 ```js
 class {
 

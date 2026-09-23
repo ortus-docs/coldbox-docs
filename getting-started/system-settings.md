@@ -1,5 +1,6 @@
 ---
 description: Access Java system properties and server environment variables with getSystemSetting(), getSystemProperty(), and getEnv().
+icon: settings
 ---
 
 # System Settings (Java Properties and Environment Variables)

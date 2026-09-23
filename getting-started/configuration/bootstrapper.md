@@ -36,6 +36,8 @@ class{
     COLDBOX_APP_ROOT_PATH = getDirectoryFromPath( getCurrentTemplatePath() );
     // The web server mapping to this application. Used for remote purposes or static purposes
     COLDBOX_APP_MAPPING   = "";
+    // The web mapping to the application's web root, only needed for modern non-webroot templates
+    COLDBOX_WEB_MAPPING   = "";
     // COLDBOX PROPERTIES
     COLDBOX_CONFIG_FILE      = "";
     // COLDBOX APPLICATION KEY OVERRIDE
@@ -45,7 +47,14 @@ class{
 
     // application start
     public boolean function onApplicationStart(){
-        application.cbBootstrap = new coldbox.system.Bootstrap( COLDBOX_CONFIG_FILE, COLDBOX_APP_ROOT_PATH, COLDBOX_APP_KEY, COLDBOX_APP_MAPPING, COLDBOX_FAIL_FAST );
+        application.cbBootstrap = new coldbox.system.Bootstrap(
+            COLDBOX_CONFIG_FILE,
+            COLDBOX_APP_ROOT_PATH,
+            COLDBOX_APP_KEY,
+            COLDBOX_APP_MAPPING,
+            COLDBOX_FAIL_FAST,
+            COLDBOX_WEB_MAPPING
+        );
         application.cbBootstrap.loadColdbox();
         return true;
     }
@@ -68,6 +77,11 @@ class{
 
     public boolean function onMissingTemplate( template ){
         return application.cbBootstrap.onMissingTemplate( argumentCollection=arguments );
+    }
+
+    // application end
+    public void function onApplicationEnd( struct appScope ){
+        arguments.appScope.cbBootStrap.onApplicationEnd( argumentCollection=arguments );
     }
 
 }
@@ -88,6 +102,8 @@ component{
     COLDBOX_APP_ROOT_PATH = getDirectoryFromPath( getCurrentTemplatePath() );
     // The web server mapping to this application. Used for remote purposes or static purposes
     COLDBOX_APP_MAPPING   = "";
+    // The web mapping to the application's web root, only needed for modern non-webroot templates
+    COLDBOX_WEB_MAPPING   = "";
     // COLDBOX PROPERTIES
     COLDBOX_CONFIG_FILE      = "";
     // COLDBOX APPLICATION KEY OVERRIDE
@@ -97,7 +113,14 @@ component{
 
     // application start
     public boolean function onApplicationStart(){
-        application.cbBootstrap = new coldbox.system.Bootstrap( COLDBOX_CONFIG_FILE, COLDBOX_APP_ROOT_PATH, COLDBOX_APP_KEY, COLDBOX_APP_MAPPING, COLDBOX_FAIL_FAST );
+        application.cbBootstrap = new coldbox.system.Bootstrap(
+            COLDBOX_CONFIG_FILE,
+            COLDBOX_APP_ROOT_PATH,
+            COLDBOX_APP_KEY,
+            COLDBOX_APP_MAPPING,
+            COLDBOX_FAIL_FAST,
+            COLDBOX_WEB_MAPPING
+        );
         application.cbBootstrap.loadColdbox();
         return true;
     }
@@ -120,6 +143,11 @@ component{
 
     public boolean function onMissingTemplate( template ){
         return application.cbBootstrap.onMissingTemplate( argumentCollection=arguments );
+    }
+
+    // application end
+    public void function onApplicationEnd( struct appScope ){
+        arguments.appScope.cbBootStrap.onApplicationEnd( argumentCollection=arguments );
     }
 
 }
@@ -194,8 +222,9 @@ You can set some variables in the `Application.bx` (or `.cfc` for CFML) that can
 | **Variable**            | **Default**          | **Description**                                                                                                                                                                                                                                                                                                                               |
 | ----------------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `COLDBOX_APP_ROOT_PATH` | App Directory        | Automatically set for you. This path tells the framework what is the base root location of your application and where it should start looking for all the agreed upon conventions. You usualy will never change this, but you can.                                                                                                            |
-| `COLDBOX_APP_MAPPING`   | `/`                  | The application mapping is ESSENTIAL when dealing with Flex or Remote (SOAP) applications. This is the location of the application from the root of the web root. So if your app is at the root, leave this setting blank. If your application is embedded in a sub-folder like MyApp, then this setting will be auto-calculated to `/MyApp`. |
-| `COLDBOX_CONFIG_FILE`   | `config/ColdBox.bx` (or `.cfc` for CFML) | The absolute or relative path to the configuration class file to load. This bypasses the conventions and uses the configuration file of your choice.                                                                                                                                                                                            |
+| `COLDBOX_APP_MAPPING`   | Empty                | The application mapping is ESSENTIAL when dealing with Flex or Remote (SOAP) applications. This is the location of the application from the root of the web root. So if your app is at the root, leave this setting blank. If your application is embedded in a sub-folder like MyApp, then this setting will be auto-calculated to `/MyApp`. |
+| `COLDBOX_WEB_MAPPING`   | Empty                | The web mapping to the application's web root. Only needed for **modern non-webroot templates**, where the application's physical root does not map directly to its web-visible root (for example a `test-harness` folder served under a different web path). When set, it takes precedence over `COLDBOX_APP_MAPPING` for routing purposes. |
+| `COLDBOX_CONFIG_FILE`   | Empty (convention)   | The absolute or relative path to the configuration class file to load. This bypasses the conventions and uses the configuration file of your choice.                                                                                                                                                                                            |
 | `COLDBOX_APP_KEY`       | `cbController`       | The name of the key the framework will store the application controller under in the application scope.                                                                                                                                                                                                                                       |
 | `COLDBOX_FAIL_FAST`     | `true`               | By default if an app is reiniting and a request hits it, we will fail fast with a message. This can be a boolean indicator or a closure.                                                                                                                                                                                                      |
 
@@ -204,5 +233,6 @@ You can set some variables in the `Application.bx` (or `.cfc` for CFML) that can
 The Boostrapper also leverages a default locking timeout of 30 seconds when doing loading operations. You can modify this timeout by calling the `setLockTimeout()` method on the Bootsrapper object.
 
 ```javascript
-application.bootstrapper.setLockTimeout( 10 );
+// `cbBootstrap` is the reference used in the examples above
+application.cbBootstrap.setLockTimeout( 10 );
 ```
