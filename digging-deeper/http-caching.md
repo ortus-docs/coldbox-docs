@@ -2,7 +2,7 @@
 description: >-
   Conditional-GET (ETag/Last-Modified) and Cache-Control support, usable in
   any handler or piggybacked automatically on event caching.
-icon: cache
+icon: server
 ---
 
 # HTTP Caching
