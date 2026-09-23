@@ -206,7 +206,7 @@
   * [Module Helpers](the-basics/modules/module-helpers.md)
   * [Module Bundles](the-basics/modules/module-bundles.md)
   * [Module Inception](the-basics/modules/module-inception.md)
-* [Testing Quick Start](the-basics/testing-quick-start/README.md)
+* [Testing](the-basics/testing-quick-start/README.md)
   * [Test Harness](the-basics/testing-quick-start/test-harness.md)
   * [Testing Classes](the-basics/testing-quick-start/coldbox-testing-classes.md)
   * [Testing Methods](the-basics/testing-quick-start/common-methods.md)
