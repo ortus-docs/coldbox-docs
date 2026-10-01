@@ -79,7 +79,7 @@ class extends="coldbox.system.testing.BrowserTestCase" {
 }
 ```
 
-`beforeAll()` and `afterAll()` work exactly like in any [integration test](../integration-testing/README.md): keep the `super` calls so the virtual application loads and unloads. You do not need a super call to close the browser: the inherited `closeBrowser()` method carries the `afterAll` annotation and runs after your own `afterAll()`.
+`beforeAll()` and `afterAll()` work exactly like in any [integration test](../integration-testing/README.md): keep the `super` calls so the virtual application loads and unloads. You do not need a super call to close the browser: the inherited `closeBrowser()` method carries the `afterAll` annotation and runs after your own `afterAll()`. If your `afterAll()` throws or a spec calls `abort`, the browser still closes when the TestBox run ends, and bx-playwright closes anything left open when the module unloads or the JVM stops.
 
 ## Class Annotations
 
