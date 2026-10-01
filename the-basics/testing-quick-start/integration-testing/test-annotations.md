@@ -19,11 +19,12 @@ Here are the annotations you can add to your testing bundle class to change beha
 {% tabs %}
 {% tab title="BoxLang" %}
 ```js
-class extends="coldbox.system.testing.BaseTestCase" appMapping="/apps/MyApp"{}
+@appMapping( "/apps/MyApp" )
+class extends="coldbox.system.testing.BaseTestCase" {}
 
-class extends="coldbox.system.testing.BaseTestCase"
-    appMapping="/apps/MyApp" 
-    configMapping="apps.MyApp.test.resources.Config"{}
+@appMapping( "/apps/MyApp" )
+@configMapping( "apps.MyApp.test.resources.Config" )
+class extends="coldbox.system.testing.BaseTestCase" {}
 ```
 {% endtab %}
 {% tab title="CFML" %}
