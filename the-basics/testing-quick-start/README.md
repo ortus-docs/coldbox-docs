@@ -211,7 +211,9 @@ testbox watch
 Integration tests simulate requests inside a virtual application. When you need to test what users really see, forms, JavaScript, cookies and full login flows, use **browser tests**: `coldbox.system.testing.BrowserTestCase` drives a real browser against your running application with [bx-playwright](https://bxplaywright.boxlang.io), and adds named route helpers and `loginAs()`/`logout()` shortcuts.
 
 ```javascript
-class extends="coldbox.system.testing.BrowserTestCase" appMapping="/root" baseURL="http://127.0.0.1:8080" {
+@appMapping( "/root" )
+@baseURL( "http://127.0.0.1:8080" )
+class extends="coldbox.system.testing.BrowserTestCase" {
 
 	function run() {
 		describe( "Home page", () => {

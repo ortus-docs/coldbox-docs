@@ -72,7 +72,9 @@ box testbox run
 ```
 
 ```javascript
-class extends="coldbox.system.testing.BrowserTestCase" appMapping="/root" baseURL="http://127.0.0.1:8080" {
+@appMapping( "/root" )
+@baseURL( "http://127.0.0.1:8080" )
+class extends="coldbox.system.testing.BrowserTestCase" {
 	// ...
 }
 ```

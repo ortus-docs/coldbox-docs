@@ -17,7 +17,9 @@ ColdBox 8.3.0 is a feature release that brings **real-browser testing** to ColdB
 `coldbox.system.testing.BrowserTestCase` extends `BaseTestCase`, so it loads your application virtually like any integration test and knows your routes and settings, while it drives a real Chromium, Firefox or WebKit browser against your **running** application:
 
 ```javascript
-class extends="coldbox.system.testing.BrowserTestCase" appMapping="/root" baseURL="http://127.0.0.1:8080" {
+@appMapping( "/root" )
+@baseURL( "http://127.0.0.1:8080" )
+class extends="coldbox.system.testing.BrowserTestCase" {
 
 	function run() {
 		describe( "Users", () => {

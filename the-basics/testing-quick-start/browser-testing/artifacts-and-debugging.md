@@ -14,7 +14,9 @@ A failing browser spec is only as useful as what it leaves behind. bx-playwright
 Artifacts are **off** by default. Turn them on with a bx-playwright profile, for example the built-in `ci` profile, which runs headless and keeps a screenshot, a trace and a video of every failure:
 
 ```javascript
-class extends="coldbox.system.testing.BrowserTestCase" appMapping="/root" browserProfile="ci" {
+@appMapping( "/root" )
+@browserProfile( "ci" )
+class extends="coldbox.system.testing.BrowserTestCase" {
 	// ...
 }
 ```
@@ -75,14 +77,16 @@ You can step through the spec action by action and see the page before and after
 Run the bundle with the `debug` profile to watch the browser: it opens a **visible** browser, slows every action down by 250 milliseconds and records every artifact.
 
 ```javascript
-class extends="coldbox.system.testing.BrowserTestCase" appMapping="/root" browserProfile="debug" {
+@appMapping( "/root" )
+@browserProfile( "debug" )
+class extends="coldbox.system.testing.BrowserTestCase" {
 	// ...
 }
 ```
 
 Other helpers:
 
-* `browserProfile="headed"` or `BX_PLAYWRIGHT_HEADLESS=false`: a visible browser at full speed.
+* `@browserProfile( "headed" )` or `BX_PLAYWRIGHT_HEADLESS=false`: a visible browser at full speed.
 * `page.snapshot()` prints the accessibility tree of the page, handy to find the right selector.
 * `bxPlaywright codegen http://127.0.0.1:8080` records your clicks as BoxLang code you can paste into a spec.
 * `debug( page.url() )` or `debug( page.content() )` adds values to the TestBox debug output.

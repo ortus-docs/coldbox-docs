@@ -15,7 +15,9 @@ A browser spec is a BDD bundle that extends `coldbox.system.testing.BrowserTestC
 /**
  * tests/specs/browser/ContactBrowserSpec.bx
  */
-class extends="coldbox.system.testing.BrowserTestCase" appMapping="/root" baseURL="http://127.0.0.1:8080" {
+@appMapping( "/root" )
+@baseURL( "http://127.0.0.1:8080" )
+class extends="coldbox.system.testing.BrowserTestCase" {
 
 	function beforeAll() {
 		// Loads the virtual ColdBox application: keep the super call
@@ -89,11 +91,10 @@ Every [BaseTestCase annotation](../integration-testing/test-annotations.md) work
 | `browserProfile` | bx-playwright profiles for the bundle browser, a list such as `ci,mobile`. Empty uses `BX_PLAYWRIGHT_PROFILE` or your module settings |
 
 ```javascript
-class extends="coldbox.system.testing.BrowserTestCase"
-	appMapping="/root"
-	baseURL="http://127.0.0.1:8080"
-	browserProfile="firefox,dark"
-{
+@appMapping( "/root" )
+@baseURL( "http://127.0.0.1:8080" )
+@browserProfile( "firefox,dark" )
+class extends="coldbox.system.testing.BrowserTestCase" {
 	// ...
 }
 ```
