@@ -91,3 +91,7 @@ coldbox create integration-test help
 ```
 
 > **Info** Please also note that whenever you create a handler, interceptor or model with CommandBox it will automatically create the integration or unit test for you.
+
+### Going Further: Real Browsers
+
+Integration tests never run a browser: no HTML is parsed, no JavaScript runs and no cookies travel between requests. On BoxLang, [Browser Testing](../browser-testing/README.md) extends `BaseTestCase` with `BrowserTestCase`, which drives a real browser against your running application while keeping access to your routes and settings.

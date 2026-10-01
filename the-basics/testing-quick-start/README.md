@@ -206,6 +206,31 @@ testbox watch
 **Tip:** Run a `testbox run ?` and a `testbox watch ?` to get help on these wonderful commands. They have tons of other arguments you can use.
 {% endhint %}
 
+## Browser Testing
+
+Integration tests simulate requests inside a virtual application. When you need to test what users really see, forms, JavaScript, cookies and full login flows, use **browser tests**: `coldbox.system.testing.BrowserTestCase` drives a real browser against your running application with [bx-playwright](https://bxplaywright.boxlang.io), and adds named route helpers and `loginAs()`/`logout()` shortcuts.
+
+```javascript
+class extends="coldbox.system.testing.BrowserTestCase" appMapping="/root" baseURL="http://127.0.0.1:8080" {
+
+	function run() {
+		describe( "Home page", () => {
+			it( "welcomes visitors", () => {
+				browse( ( page ) => {
+					page.visit( "/" )
+					expect( page ).toSee( "Welcome to ColdBox!" )
+				} )
+			} )
+		} )
+	}
+
+}
+```
+
+{% hint style="info" %}
+🚀 **BoxLang Exclusive**: browser testing requires BoxLang and the bx-playwright module. On CFML engines, exclude your browser specs folder from the runner. See the [Browser Testing](browser-testing/README.md) guide.
+{% endhint %}
+
 ## What's Next
 
 We have a fully dedicated section on [testing](/broken/pages/-LA-Uh37LFUNwo6aCR4O), please visit it for in-depth information.
