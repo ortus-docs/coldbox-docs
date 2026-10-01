@@ -44,10 +44,6 @@ jobs:
         with:
           install: commandbox-boxlang
 
-      # A fresh, random token for every run: nothing to store or leak
-      - name: Generate the browser testing token
-        run: echo "BROWSER_TESTING_TOKEN=$( openssl rand -hex 32 )" >> "$GITHUB_ENV"
-
       - name: Install dependencies
         run: box install
 
@@ -95,12 +91,10 @@ Adapt it to your project:
 
 * The `server.json` of the application must install bx-playwright in the server (`"onServerInitialInstall": "install bx-playwright --noSave"`) and listen on the port your specs use as `baseURL`, here `8080`. See [Setup](setup.md).
 * `box testbox run` needs the runner URL in your `box.json` (`testbox.runner`), see the [Testing quick start](../README.md#commandbox-runner).
-* The server inherits `ENVIRONMENT`, `BROWSER_TESTING_TOKEN` and `BX_PLAYWRIGHT_PROFILE` from the job, and so do the specs running inside it: the [token reaches both sides](authentication.md#configure-the-module).
+* The server inherits `ENVIRONMENT` and `BX_PLAYWRIGHT_PROFILE` from the job, and so do the specs running inside it.
+* Store the passwords of your test users as CI secrets, and read them in your saved session setup. See [Authentication](authentication.md#test-users-and-passwords).
 * Open a downloaded trace locally with `bxPlaywright show-trace trace.zip`.
 
-{% hint style="warning" %}
-The token is generated per run and the server only lives as long as the job. Never reuse this setup to expose a `testing` server outside the CI runner. See the [security model](authentication.md#security-model).
-{% endhint %}
 
 ## With the BoxLang Runner
 

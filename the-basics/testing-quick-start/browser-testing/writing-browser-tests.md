@@ -111,7 +111,6 @@ See [bx-playwright Profiles](https://bxplaywright.boxlang.io/profiles/) for the 
 | `routeURL( name, [params] )` | The path of a named route. See [Named Routes](named-routes.md) |
 | `visitRoute( page, name, [params] )` | Visits a named route |
 | `assertRouteIs( page, name, [params] )` | Asserts the page is on a named route |
-| `loginAs( page, id )` / `logout( page )` | Logs a user in or out. See [Authentication](authentication.md) |
 
 The bundle shares **one browser**, started on first use and closed after the bundle, while every `browse()` call gets new, isolated pages. Tests never leak cookies or sessions into each other.
 
@@ -126,7 +125,7 @@ Declare one argument per page. Each page has its own session, so you can test in
 ```javascript
 it( "keeps every user in their own session", () => {
 	browse( ( admin, guest ) => {
-		loginAs( admin, 1 )
+		visitRoute( admin, "login" ).fill( "Email", "admin@example.com" ).fill( "Password", "secret" ).click( "Sign in" )
 		visitRoute( admin, "dashboard" )
 		visitRoute( guest, "dashboard" )
 

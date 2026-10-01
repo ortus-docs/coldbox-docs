@@ -19,7 +19,7 @@ Browser testing is **BoxLang only**. On CFML engines exclude your browser specs 
 | --- | --- |
 | BoxLang | 1.17 or later |
 | Java | 21 or later |
-| ColdBox | 8.3.0 or later (`BrowserTestCase` and the `BrowserTesting` module) |
+| ColdBox | 8.3.0 or later (`BrowserTestCase`) |
 | TestBox | 7.2.0 or later (`testbox.system.browser` support and matchers) |
 | bx-playwright | Latest |
 
@@ -111,18 +111,6 @@ The base URL is resolved in this order:
 2. The `--web-server-url` of the BoxLang runner
 3. The bx-playwright `baseURL` setting or the `BX_PLAYWRIGHT_BASEURL` environment variable
 
-## Run the Application in the Testing Environment
-
-The [`loginAs()` and `logout()` helpers](authentication.md) only work when the application under test runs in the ColdBox `testing` environment. The simplest way is the `ENVIRONMENT` environment variable, which ColdBox reads at startup when your configuration has no `detectEnvironment()` method:
-
-```bash
-export ENVIRONMENT=testing
-export BROWSER_TESTING_TOKEN=$( openssl rand -hex 32 )
-box server start
-```
-
-You can also map a host name to the environment with the `environments` directive of your ColdBox class, for example `testing : "^127\.0\.0\.1"`.
-
 ## Organize Your Specs
 
 Keep browser specs in their own folder so you can run, exclude or parallelize them separately:
@@ -146,7 +134,7 @@ if ( !structKeyExists( server, "boxlang" ) ) {
 }
 ```
 
-On BoxLang without bx-playwright, nothing needs excluding: every spec that calls `browse()`, `visitRoute()`, `loginAs()` or `logout()` is skipped with the reason (`bx-playwright is not installed: install-bx-module bx-playwright`).
+On BoxLang without bx-playwright, nothing needs excluding: every spec that calls `browse()` or `visitRoute()` is skipped with the reason (`bx-playwright is not installed: install-bx-module bx-playwright`).
 
 ## See Also
 

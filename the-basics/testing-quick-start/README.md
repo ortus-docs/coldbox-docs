@@ -208,7 +208,7 @@ testbox watch
 
 ## Browser Testing
 
-Integration tests simulate requests inside a virtual application. When you need to test what users really see, forms, JavaScript, cookies and full login flows, use **browser tests**: `coldbox.system.testing.BrowserTestCase` drives a real browser against your running application with [bx-playwright](https://bxplaywright.boxlang.io), and adds named route helpers and `loginAs()`/`logout()` shortcuts.
+Integration tests simulate requests inside a virtual application. When you need to test what users really see, forms, JavaScript, cookies and full login flows, use **browser tests**: `coldbox.system.testing.BrowserTestCase` drives a real browser against your running application with [bx-playwright](https://bxplaywright.boxlang.io), and adds named route helpers.
 
 ```javascript
 @appMapping( "/root" )

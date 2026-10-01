@@ -25,7 +25,6 @@ class extends="coldbox.system.testing.BrowserTestCase" {
 		describe( "Users", () => {
 			it( "shows a user", () => {
 				browse( ( page ) => {
-					loginAs( page, 1 )
 					visitRoute( page, "users.show", { id : 5 } )
 					assertRouteIs( page, "users.show" )
 					expect( page ).toSee( "User 5" )
@@ -57,27 +56,26 @@ assertRouteIs( page, "users.show", { id : 5 } )    // user 5
 
 `assertRouteIs()` matches the route pattern and its constraints, ignores case, the trailing slash, the query string and the hash like ColdBox routing does, and waits for redirects. See [Named Routes](../../the-basics/testing-quick-start/browser-testing/named-routes.md).
 
-### 🔐 BrowserTesting Core Module: loginAs() and logout()
+### 🔐 Logged-In Tests With Saved Sessions
 
-A new core module exposes test-only `GET /__browser-testing/login/:id` and `GET /__browser-testing/logout` endpoints that call the `login` and `logout` closures you configure in `moduleSettings.browserTesting`. `loginAs( page, id )` and `logout( page )` call them with the page cookies, so specs skip the login form:
+Pages behind a login use bx-playwright **saved sessions**: log in once through your real login page, then start any `browse()` call already logged in. There are no test-only login endpoints, so your application ships no backdoor:
 
 ```javascript
-// config/ColdBox.bx
-function testing() {
-	variables.moduleSettings.browserTesting = {
-		enabled : true,
-		token   : getSystemSetting( "BROWSER_TESTING_TOKEN", "" ),
-		login   : ( id, event, rc, prc ) => { session.userId = id },
-		logout  : ( event, rc, prc ) => { session.delete( "userId" ) }
-	}
-}
+this.playwright().session( "admin", ( page ) => {
+	visitRoute( page, "login" ).fill( "Email", "admin@example.com" ).fill( "Password", "secret" ).click( "Sign in" )
+} )
+
+browse( ( page ) => {
+	visitRoute( page, "admin.dashboard" )
+	expect( page ).toSee( "Dashboard" )
+}, { session : "admin" } )
 ```
 
-The endpoints answer a plain `404 Not Found` unless **every** check passes: the environment is `testing`, the module is `enabled`, a `token` is configured and sent in the `X-Browser-Testing-Token` header (compared in constant time), and the closure is set. See [Authentication](../../the-basics/testing-quick-start/browser-testing/authentication.md) for the full security model.
+See [Authentication](../../the-basics/testing-quick-start/browser-testing/authentication.md).
 
 ### 🔗 Module Route Links Fixed
 
-`event.route( "name@module" )` built module route links without a slash between the module entry point and the route pattern, for example `__browser-testinglogin/3/`. Module links now always join them with a single slash.
+`event.route( "name@module" )` built module route links without a slash between the module entry point and the route pattern, for example `bloglogin/3/` instead of `blog/login/3/`. Module links now always join them with a single slash.
 
 ## Release Notes
 
@@ -85,9 +83,8 @@ The endpoints answer a plain `404 Not Found` unless **every** check passes: the 
 {% tab title="ColdBox" %}
 ### New Features
 
-`coldbox.system.testing.BrowserTestCase` (BoxLang): browser tests for ColdBox applications built on TestBox browser support and bx-playwright, with `browse()`, `this.playwright()`, `browserAvailable()`, the `browserProfile` and `baseURL` annotations, the TestBox browser matchers, and the ColdBox helpers `routeURL()`, `visitRoute()`, `assertRouteIs()`, `loginAs()` and `logout()` ([#708](https://github.com/ColdBox/coldbox-platform/pull/708))
+`coldbox.system.testing.BrowserTestCase` (BoxLang): browser tests for ColdBox applications built on TestBox browser support and bx-playwright, with `browse()`, `this.playwright()`, `browserAvailable()`, the `browserProfile` and `baseURL` annotations, the TestBox browser matchers, and the ColdBox helpers `routeURL()`, `visitRoute()` and `assertRouteIs()` ([#708](https://github.com/ColdBox/coldbox-platform/pull/708))
 
-`BrowserTesting` core module: test-only login and logout endpoints for browser tests, locked to the `testing` environment, an explicit `enabled` flag, a token and the configured closures ([#708](https://github.com/ColdBox/coldbox-platform/pull/708))
 
 ### Bugs
 

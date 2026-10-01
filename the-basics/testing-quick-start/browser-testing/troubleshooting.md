@@ -34,30 +34,12 @@ bxPlaywright install chromium --with-deps
 
 The browsers live in `~/.boxlang/playwright` of the user that **runs the tests**. If your server runs as another user (a service account, a container), install them as that user, or point both to the same folder with the `BX_PLAYWRIGHT_HOME` environment variable.
 
-## loginAs() Answers 404 Not Found
+## The Saved Session Is Not Logged In
 
-`BrowserTestCase.BrowserTestingUnavailable: loginAs() failed calling [/__browser-testing/login/1/]. The endpoint answered 404 Not Found`
-
-The running application refused the request. A `404` is deliberate: the module never tells a caller which check failed. Check them one by one on the **running** application:
-
-1. **Environment**: the application runs in the `testing` environment. Dump `getSetting( "environment" )` in a view, or check that `ENVIRONMENT=testing` is set for the server process. Reinitialize the application (`?fwreinit=1`) after changing it.
-2. **Enabled**: `moduleSettings.browserTesting.enabled` is `true` in that environment.
-3. **Token**: the running application and the test runner see the **same** `BROWSER_TESTING_TOKEN`. A server started before you exported the variable does not see it.
-4. **Closure**: the `login` (or `logout`) closure is set.
-
-See [Authentication](authentication.md#security-model) for the full security model.
-
-## loginAs() Says the Token Is Empty
-
-`moduleSettings.browserTesting.token is empty in the test application`
-
-`loginAs()` reads the token from the **virtual** application your spec loads with `appMapping`. That application detects its own environment: make sure the test runner also sees `ENVIRONMENT=testing` and `BROWSER_TESTING_TOKEN`, or that your configuration enables the module for the environment the tests run in.
-
-## The User Is Not Logged In After loginAs()
-
-* Did you log in on the right page? `loginAs()` logs in the **page you pass**: every other page of the same `browse()` call has its own cookies.
-* Does your login closure persist the login in the session or a cookie? The endpoint response sets the cookies on the page context; a login stored in `prc` is gone at the end of the request.
-* Do the endpoint and the next visit use the same host? A cookie set for `127.0.0.1` is not sent to `localhost`. Use one host name in `baseURL` and your SES base URL.
+* Does the setup closure really log in? End it with an assertion, such as `expect( page ).toSee( "Dashboard" )`, so a failed login fails there instead of in every spec.
+* Did the session expire on the server? A saved session never expires by default: pass `maxAge` (minutes) below your application session timeout, or `refresh : true`. See [Authentication](authentication.md#reusing-and-refreshing-sessions).
+* Do the setup and the specs use the same host? A cookie set for `127.0.0.1` is not sent to `localhost`. Use one host name in `baseURL` and your SES base URL.
+* Did you pass the session? Only `browse()` calls with `{ session : "name" }` start logged in.
 
 ## Route Paths Are Wrong
 

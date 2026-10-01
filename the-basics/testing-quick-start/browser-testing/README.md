@@ -18,15 +18,22 @@ Integration tests with `BaseTestCase` simulate a request inside a virtual ColdBo
 @baseURL( "http://127.0.0.1:8080" )
 class extends="coldbox.system.testing.BrowserTestCase" {
 
+	function beforeAll() {
+		super.beforeAll()
+		// Log in once through the login page, reused by every browse() call with { session : "admin" }
+		this.playwright().session( "admin", ( page ) => {
+			visitRoute( page, "login" ).fill( "Email", "admin@example.com" ).fill( "Password", "secret" ).click( "Sign in" )
+		} )
+	}
+
 	function run() {
 		describe( "Users", () => {
 			it( "shows a user profile to a logged in admin", () => {
 				browse( ( page ) => {
-					loginAs( page, 1 )
 					visitRoute( page, "users.show", { id : 5 } )
 					assertRouteIs( page, "users.show" )
 					expect( page ).toSee( "User 5" )
-				} )
+				}, { session : "admin" } )
 			} )
 		} )
 	}
@@ -43,13 +50,11 @@ flowchart LR
     Spec["BrowserTestCase spec"] -->|appMapping| Virtual["Virtual ColdBox app<br/>(routes, settings)"]
     Spec -->|browse()| PW["bx-playwright<br/>Chromium"]
     PW -->|HTTP| Server["Running ColdBox app<br/>(baseURL)"]
-    Spec -->|loginAs() / logout()| BT["BrowserTesting module<br/>/__browser-testing"]
-    BT --> Server
 ```
 
 * **TestBox** provides the browser support: `browse()`, one shared browser per bundle, isolated pages, browser matchers such as `toSee()` and `toHaveTitle()`, and screenshots and traces attached to failed specs.
 * **bx-playwright** provides the browser and its fluent API: `page.visit()`, `fill()`, `click()`, locators and retrying assertions.
-* **ColdBox** adds what only the framework knows: [named routes](named-routes.md) (`routeURL()`, `visitRoute()`, `assertRouteIs()`) and [authentication shortcuts](authentication.md) (`loginAs()`, `logout()`) through the test-only `BrowserTesting` core module.
+* **ColdBox** adds what only the framework knows: [named routes](named-routes.md) (`routeURL()`, `visitRoute()`, `assertRouteIs()`) For pages behind a login, bx-playwright [saved sessions](authentication.md) log in once through your real login page and reuse the session.
 
 ## Integration Tests or Browser Tests?
 
@@ -72,7 +77,7 @@ A good suite has many integration tests and a smaller set of browser tests that 
 | [Setup](setup.md) | Install bx-playwright and a browser, the version requirements, and how to run your application for the browser |
 | [Writing Browser Tests](writing-browser-tests.md) | A complete spec, `browse()`, the class annotations and the browser matchers |
 | [Named Routes](named-routes.md) | `routeURL()`, `visitRoute()` and `assertRouteIs()`, including module routes |
-| [Authentication](authentication.md) | `loginAs()` and `logout()`, the `BrowserTesting` module and its security model |
+| [Authentication](authentication.md) | Logged-in tests with bx-playwright saved sessions |
 | [Artifacts & Debugging](artifacts-and-debugging.md) | Screenshots and traces of failed specs, the trace viewer and the `debug` profile |
 | [Continuous Integration](continuous-integration.md) | A complete GitHub Actions workflow |
 | [Troubleshooting](troubleshooting.md) | Common errors and how to fix them |
