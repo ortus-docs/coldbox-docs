@@ -58,6 +58,8 @@ visitRoute( page, "users.show", { id : 5 } )
 | `assertRouteIs( page, "users.show" )` | The page path matches the route **pattern**: any value of its placeholders passes (`/users/5`, `/users/abc`) |
 | `assertRouteIs( page, "users.show", { id : 5 } )` | The page path is the path of `routeURL( "users.show", { id : 5 } )` |
 
+A route with optional placeholders, such as `route( "/posts/:id?" ).as( "posts" )`, matches with and without them: `assertRouteIs( page, "posts" )` passes on `/posts` and on `/posts/12`.
+
 Like ColdBox routing, the match:
 
 * ignores case and the trailing slash (`/users/5`, `/users/5/` and `/USERS/5` all match)

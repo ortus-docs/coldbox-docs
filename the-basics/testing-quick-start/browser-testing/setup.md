@@ -134,7 +134,7 @@ if ( !structKeyExists( server, "boxlang" ) ) {
 }
 ```
 
-On BoxLang without bx-playwright, nothing needs excluding: every spec that calls `browse()` or `visitRoute()` is skipped with the reason (`bx-playwright is not installed: install-bx-module bx-playwright`).
+On BoxLang without bx-playwright, nothing needs excluding: every spec that calls `browse()` is skipped with the reason (`bx-playwright is not installed: install-bx-module bx-playwright`).
 
 ## See Also
 
