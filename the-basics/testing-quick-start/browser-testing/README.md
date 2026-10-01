@@ -80,4 +80,4 @@ A good suite has many integration tests and a smaller set of browser tests that 
 * [Integration Testing](../integration-testing/README.md)
 * [Testing Classes](../coldbox-testing-classes.md)
 * [bx-playwright documentation](https://bxplaywright.boxlang.io)
-* [TestBox documentation](https://testbox.ortusbooks.com)
+* [TestBox Browser Testing guide](https://testbox.ortusbooks.com/browser-testing)

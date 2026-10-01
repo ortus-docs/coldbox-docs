@@ -172,7 +172,7 @@ expect( page.locator( ".alert-danger" ) ).toBeHidden()
 expect( page.locator( "table tbody tr" ) ).toHaveCount( 10 )
 ```
 
-The bx-playwright inline assertions, such as `page.assertSee()` or `page.assertPathIs()`, work too: their `Playwright.AssertionFailed` errors count as spec failures, not errors. See the [TestBox documentation](https://testbox.ortusbooks.com) for the matchers in depth and [bx-playwright Assertions](https://bxplaywright.boxlang.io/assertions/) for every inline assertion.
+The bx-playwright inline assertions, such as `page.assertSee()` or `page.assertPathIs()`, work too: their `Playwright.AssertionFailed` errors count as spec failures, not errors. See [TestBox Browser Matchers](https://testbox.ortusbooks.com/browser-testing/browser-matchers) for the matchers in depth and [bx-playwright Assertions](https://bxplaywright.boxlang.io/assertions/) for every inline assertion.
 
 {% hint style="info" %}
 Browser specs are not thread safe: do not use `asyncAll` in suites that browse.
