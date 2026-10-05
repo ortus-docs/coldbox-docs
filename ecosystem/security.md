@@ -1,11 +1,11 @@
 ---
-description: Secure ColdBox applications with cbsecurity — rule-driven authorization, JWT, sessions, CSRF, and passkeys.
+description: Secure ColdBox applications with cbsecurity: rule-driven authorization, annotations, route middleware, JWT, sessions and CSRF.
 icon: lock
 ---
 
 # Security
 
-ColdBox security is delivered by the **cbsecurity** module family: a rule-driven engine that guards routes and handlers with authentication and authorization, over sessions or JWT.
+ColdBox security is delivered by the **cbsecurity** module family: an engine that guards routes and handlers with authentication and authorization, over sessions or JWT. It is the recommended default, see the [Security](../digging-deeper/security/README.md) section for the full picture.
 
 ```bash
 box install cbsecurity
@@ -15,59 +15,54 @@ box install cbsecurity
 
 ## Quick Example
 
-Declare rules in your `ColdBox` class and cbsecurity enforces them before your handlers run:
+Declare a rule in your `ColdBox` class and cbsecurity enforces it before your handlers run:
 
 ```javascript
 // config/ColdBox.bx
-cbsecurity : {
-    rules : [
-        { secureList : "^/admin", permissions : "admin" },
-        { secureList : "^/api",   permissions : "api:read" }
-    ],
-    rulesSource : "model",
-    validator   : "CBAuthValidator@cbauth"
+moduleSettings = {
+    cbauth : { userServiceClass : "UserService" },
+    cbsecurity : {
+        firewall : {
+            invalidAuthenticationEvent : "main.login",
+            invalidAuthorizationEvent  : "main.unauthorized",
+            rules : [ { secureList : "^admin", permissions : "ADMIN" } ]
+        }
+    }
 }
 ```
 
+Or secure a single action with an annotation, or a route with middleware:
+
 ```javascript
-// Secure a single action with an annotation
-function delete( event, rc, prc ) secured="admin" {
+// Annotation
+function delete( event, rc, prc ) secured="ADMIN" {
     userService.delete( rc.id )
 }
+
+// config/Router.bx
+route( "/admin" )
+    .middleware( "Authorized@cbsecurity" )
+    .meta( { permissions : "ADMIN" } )
+    .to( "admin.index" )
 ```
 
 ## The Family
 
 | Module | Role |
 | --- | --- |
-| `cbsecurity` | The rules engine, validators, and firewall |
-| `cbauth` | Authentication service — `authenticate()`, `isLoggedIn()`, `getUser()` |
+| `cbsecurity` | The firewall, annotations, route middleware, validators, JWT and security headers |
+| `cbauth` | Authentication service: `authenticate()`, `isLoggedIn()`, `getUser()` |
 | `cbcsrf` | CSRF tokens for forms and AJAX |
 | `cbsecurity-passkeys` | WebAuthn/passkey login |
 | `cbSSO` | Single sign-on across multiple ColdBox apps |
 
-```javascript
-// CSRF protection in a form
-<input type="hidden" name="_token" value="#csrfToken()#">
-```
+## When to Use It
 
-```javascript
-// Verify in the handler
-if ( !csrfVerify( rc._token ) ) {
-    relocate( "login" )
-}
-```
-
-## Best Practices
-
-- **Validate everything from `rc`** — treat all URL/FORM input as hostile; pair with [cbvalidation](validation.md)
-- **PRC for internals, RC for input** — never trust `rc` to carry server-side state
-- **Set a `reinitPassword`** in production and never expose `?fwreinit=1` publicly
-- **Prefer JWT for APIs** — cbsecurity's JWT validator removes server session affinity
-- **Hash passwords with `bcrypt`** (`box install bcrypt`), never with plain hashing functions
+Use cbsecurity for any application with users. Reach for a custom interceptor only for behavior cbsecurity does not cover, and keep it consistent with the firewall's [best practices](../digging-deeper/security/best-practices.md).
 
 ## See Also
 
+- [Security](../digging-deeper/security/README.md) and [Security Best Practices](../digging-deeper/security/best-practices.md)
+- [Route Middleware](../the-basics/routing/routing-dsl/middleware.md)
 - [HTTP Method Security](../the-basics/event-handlers/http-method-security.md)
-- [Route Middleware](../the-basics/routing/routing-dsl/middleware.md) — route-scoped guards
-- [HTTP Method Spoofing](../the-basics/routing/http-method-spoofing.md) — hardening notes
+- [Validation](validation.md)

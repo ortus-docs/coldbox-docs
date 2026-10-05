@@ -47,6 +47,19 @@ group( { pattern : "/api", middleware : [ "RequireApiKey" ] }, () => {
 } );
 ```
 
+A group can also share route [metadata](README.md) with a `meta` struct. Every route inside the group inherits it, a route's own `meta()` values win on a conflict, and an inner group overrides an outer one:
+
+```javascript
+group( { pattern : "/admin", meta : { permissions : "ADMIN", area : "admin" } }, () => {
+    route( "/users" ).toHandler( "users" )                                         // { permissions: "ADMIN", area: "admin" }
+    route( "/reports" ).meta( { permissions : "REPORTS" } ).toHandler( "reports" ) // { permissions: "REPORTS", area: "admin" }
+} );
+```
+
+{% hint style="info" %}
+Group-level `meta` requires ColdBox 8.3+. Metadata is merged shallowly: a nested struct inside `meta` is replaced, not merged.
+{% endhint %}
+
 {% hint style="success" %}
 **Next:** see [Route Middleware](middleware.md) for how a shared `middleware` list actually runs, and [Middleware Groups & Exclusions](middleware-groups.md) for reusing one by name across unrelated groups.
 {% endhint %}

@@ -124,6 +124,29 @@ group( { pattern : "/api", middleware : [ "RequireApiKey" ] }, () => {
 } );
 ```
 
+## Securing Routes With cbsecurity
+
+The [cbsecurity](../../../digging-deeper/security/README.md) module ships ready-made middleware, so you do not write login and permission checks yourself. Permissions and roles are declared in the route's `meta()`:
+
+```javascript
+route( "/account" ).middleware( "Authenticated@cbsecurity" ).to( "account.index" )
+
+route( "/admin" )
+    .middleware( "Authorized@cbsecurity" )
+    .meta( { permissions : "ADMIN" } )
+    .to( "admin.index" )
+```
+
+See the cbsecurity [Route Middleware guide](https://coldbox-security.ortusbooks.com/usage/route-middleware) for the full list.
+
+## Testing Routes With Middleware
+
+The integration test helpers (`execute()`, `get()`, `post()` and friends) run route middleware in the same order as a real request, so you can assert on a blocked or redirected route.
+
+{% hint style="info" %}
+Running route middleware inside `execute()` requires ColdBox 8.3+. On earlier versions the middleware is skipped in integration tests.
+{% endhint %}
+
 {% hint style="success" %}
 **Next:** reusing the same middleware list by name across unrelated routes, and opting a route out of what it would otherwise inherit - see [Middleware Groups & Exclusions](middleware-groups.md).
 {% endhint %}
