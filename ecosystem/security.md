@@ -1,5 +1,5 @@
 ---
-description: Secure ColdBox applications with cbsecurity: rule-driven authorization, annotations, route middleware, JWT, sessions and CSRF.
+description: Secure ColdBox applications with cbsecurity, covering rule-driven authorization, annotations, route middleware, JWT, sessions and CSRF.
 icon: lock
 ---
 

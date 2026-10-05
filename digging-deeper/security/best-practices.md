@@ -1,5 +1,5 @@
 ---
-description: A practical checklist for hardening ColdBox applications: secure by default, protect secrets, defend forms and APIs, and verify it with tests.
+description: A practical checklist for hardening ColdBox applications, from secure by default and protected secrets to defended forms and APIs.
 icon: list-check
 ---
 
