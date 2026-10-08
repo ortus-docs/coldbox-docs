@@ -222,7 +222,45 @@ route( "/admin" )
     .to( "admin.index" )
 ```
 
-See the cbsecurity [Route Middleware guide](https://coldbox-security.ortusbooks.com/usage/route-middleware) for the full list.
+### cbsecurity Middleware Reference
+
+Every cbsecurity middleware is a WireBox ID you pass to `middleware()`. Parameters go in the route's `meta()`, because modules load after the router. Each name links to its cbsecurity guide.
+
+| WireBox ID | What it does | Route `meta()` keys |
+| --- | --- | --- |
+| [`Authenticated@cbsecurity`](https://coldbox-security.ortusbooks.com/usage/route-middleware) | The user must be logged in. | none |
+| [`Authorized@cbsecurity`](https://coldbox-security.ortusbooks.com/usage/route-middleware) | Logged in and has the permissions or roles. | `permissions`, `roles`, `mode` |
+| [`JwtAuth@cbsecurity`](https://coldbox-security.ortusbooks.com/usage/route-middleware) | Like `Authorized`, authenticating with a JWT. | `permissions`, `mode` |
+| [`BasicAuth@cbsecurity`](https://coldbox-security.ortusbooks.com/usage/route-middleware) | Like `Authorized`, authenticating with HTTP Basic. | `permissions`, `roles`, `mode` |
+| [`Throttle@cbsecurity`](https://coldbox-security.ortusbooks.com/usage/route-middleware/throttle) | Rate limits requests, answering `429` over the limit. | `throttle` |
+| [`ApiKey@cbsecurity`](https://coldbox-security.ortusbooks.com/usage/route-middleware/api-key) | Requires an API key from the `x-api-key` header or `apiKey` request key. | `apiKeys`, `apiKeyHeader`, `apiKeyParam` |
+| [`AllowedIPs@cbsecurity`](https://coldbox-security.ortusbooks.com/usage/route-middleware/ip-filtering) | Only listed IPs and CIDR ranges get in. | `allowedIps` |
+| [`DenyIPs@cbsecurity`](https://coldbox-security.ortusbooks.com/usage/route-middleware/ip-filtering) | Blocks listed IPs and CIDR ranges. | `denyIps` |
+| [`EnsureHttps@cbsecurity`](https://coldbox-security.ortusbooks.com/usage/route-middleware/ensure-https) | Redirects to HTTPS, or denies non `GET` requests. | `redirectToHttps` |
+| [`VerifyCsrf@cbsecurity`](https://coldbox-security.ortusbooks.com/usage/route-middleware/verify-csrf) | Verifies a CSRF token on unsafe requests. | `csrfKey` |
+| [`Honeypot@cbsecurity`](https://coldbox-security.ortusbooks.com/usage/route-middleware/honeypot) | Catches spam bots with a hidden form field. | `honeypotField`, `honeypotSilent` |
+| [`Signed@cbsecurity`](https://coldbox-security.ortusbooks.com/usage/route-middleware/signed-urls) | Only lets valid, unexpired signed URLs through. | none |
+
+Stack them. They run in the order you list them, so put cheap checks first:
+
+```javascript
+route( "/api/orders" )
+    .middleware( [ "DenyIPs@cbsecurity", "Throttle@cbsecurity", "JwtAuth@cbsecurity" ] )
+    .meta( {
+        denyIps     : "198.51.100.0/24",
+        throttle    : { maxAttempts : 120, decaySeconds : 60 },
+        permissions : "ORDERS_READ"
+    } )
+    .to( "orders.index" )
+```
+
+The authentication middleware send denied requests through the cbsecurity firewall's invalid action (redirect, override or block). The others answer directly with a JSON error and the right status code.
+
+{% hint style="info" %}
+`Throttle@cbsecurity` and `Signed@cbsecurity` also come with models and helpers you can use outside routes: `RateLimiter@cbsecurity`, `UrlSigner@cbsecurity` and the `signedRoute()`, `signedUrl()` and `hasValidSignature()` helpers.
+{% endhint %}
+
+Defaults for these middleware (trusted proxies, API key header, throttle limiters, the signing secret) live in the cbsecurity [route middleware settings](https://coldbox-security.ortusbooks.com/getting-started/configuration/middleware). The full guide is the cbsecurity [Route Middleware](https://coldbox-security.ortusbooks.com/usage/route-middleware) page.
 
 ## Testing Routes With Middleware
 

@@ -84,6 +84,26 @@ cbsecurity sends these by default: `X-Content-Type-Options`, `X-Frame-Options`, 
 * Set a `reinitPassword` and never expose `?fwreinit=1` publicly.
 * Leave the cbsecurity visualizer disabled (its default), or turn on `visualizer.secured` and give it a `securityRule`.
 
+## Defend Against Abuse
+
+Route middleware from cbsecurity covers the common abuse cases without a rules file:
+
+* **Brute force and scraping:** `Throttle@cbsecurity`, with a strict named limiter on login and password reset routes.
+* **Machine to machine endpoints:** `ApiKey@cbsecurity`, or `JwtAuth@cbsecurity` when you need to know who is calling.
+* **Admin areas:** `AllowedIPs@cbsecurity` next to your authentication middleware.
+* **Public forms:** `Honeypot@cbsecurity` plus `Throttle@cbsecurity`.
+* **Cleartext traffic:** `EnsureHttps@cbsecurity`.
+* **Links that must not be guessed or edited:** `Signed@cbsecurity` with `signedRoute()` for email verification, password resets and temporary downloads. Keep the signing secret in an environment variable.
+
+```javascript
+route( "/login" )
+    .middleware( [ "EnsureHttps@cbsecurity", "Throttle@cbsecurity" ] )
+    .meta( { throttle : { maxAttempts : 5, decaySeconds : 60 } } )
+    .to( "sessions.create" )
+```
+
+See the [middleware reference](../../the-basics/routing/routing-dsl/middleware.md#cbsecurity-middleware-reference) for every middleware and its settings.
+
 ## Observe Denials
 
 cbsecurity announces `cbSecurity_onInvalidAuthentication` and `cbSecurity_onInvalidAuthorization` for every denied request, whether it came from a rule, an annotation or route middleware. Listen to them to log, alert or rate limit.
