@@ -124,6 +124,91 @@ group( { pattern : "/api", middleware : [ "RequireApiKey" ] }, () => {
 } );
 ```
 
+## Registering Named Middleware
+
+`registerMiddleware( name, target )` gives a single closure, lambda, object, or WireBox ID a name, so you can reference it from many routes without repeating it. The target is any of the [targets above](#a-target-can-be), and the optional third argument is the point (`preProcess` by default, or `postProcess`).
+
+{% tabs %}
+{% tab title="BoxLang" %}
+```javascript
+registerMiddleware( "OnlyJson", ( event, rc, prc ) => {
+    if ( !event.isAjax() ) {
+        event.renderData( type = "json", data = { "error" : "JSON only" }, statusCode = 406 ).noExecution()
+        return true
+    }
+} )
+
+route( "/api/orders" ).middleware( "OnlyJson" ).toHandler( "orders" )
+
+group( { pattern : "/api", middleware : [ "OnlyJson" ] }, () => {
+    route( "/users" ).toHandler( "users" )
+    route( "/feed.xml" ).withoutMiddleware( "OnlyJson" ).toHandler( "feed" ) // opts out
+} )
+```
+{% endtab %}
+{% tab title="CFML" %}
+```cfscript
+registerMiddleware( "OnlyJson", function( event, rc, prc ){
+    if ( !event.isAjax() ) {
+        event.renderData( type = "json", data = { "error" : "JSON only" }, statusCode = 406 ).noExecution();
+        return true;
+    }
+} );
+
+route( "/api/orders" ).middleware( "OnlyJson" ).toHandler( "orders" );
+
+group( { pattern : "/api", middleware : [ "OnlyJson" ] }, function(){
+    route( "/users" ).toHandler( "users" );
+    route( "/feed.xml" ).withoutMiddleware( "OnlyJson" ).toHandler( "feed" ); // opts out
+} );
+```
+{% endtab %}
+{% endtabs %}
+
+A registered name works anywhere a [middleware group](middleware-groups.md) name does: in `.middleware()`, in a group's `middleware` option, and in `withoutMiddleware( name )`. Under the hood it is stored as a one-member group in the same namespace, and `registerMiddleware()` returns the router so calls can be chained.
+
+### Registering Several at Once
+
+Pass a struct of `name : target` pairs. Every entry uses the same point (`preProcess` unless you pass one):
+
+```javascript
+registerMiddleware( {
+    auth     : "Authenticated@cbsecurity",
+    onlyJson : ( event, rc, prc ) => { /* ... */ }
+} )
+```
+
+{% hint style="info" %}
+CFML does not allow mixing positional and named arguments. To pass `force` with the struct form, name every argument: `registerMiddleware( name = { auth : "Authenticated@cbsecurity" }, force = true )`.
+{% endhint %}
+
+### Duplicate Names
+
+Registering a name that is already taken, either by another `registerMiddleware()` call or by a `middlewareGroup()`, throws a `Router.DuplicateMiddleware` exception. Pass `force = true` to replace the existing definition. A bulk call is all or nothing: if any name is a duplicate, nothing from that call is registered. A missing or empty name or target throws `Router.InvalidMiddleware`.
+
+```javascript
+registerMiddleware( "auth", "Authenticated@cbsecurity" )
+registerMiddleware( "auth", "Other" )                        // throws Router.DuplicateMiddleware
+registerMiddleware( "auth", "Other", "preProcess", true )    // overwrites
+```
+
+{% hint style="danger" %}
+**Register the name before referencing it.** Like `middlewareGroup()`, the name is resolved immediately when `.middleware()` or `group()` runs, not at request time. A name that is not registered yet is silently treated as a literal WireBox ID. Routes declared before a `force` overwrite keep the old definition.
+{% endhint %}
+
+### Middleware From Modules
+
+The registry belongs to the router that registered it, and modules do not share one. A module that ships middleware should register it as a WireBox mapping and let apps reference the WireBox ID, as `Authenticated@cbsecurity` does. An application can then give that ID a short local name:
+
+```javascript
+registerMiddleware( "auth", "Authenticated@cbsecurity" )
+route( "/account" ).middleware( "auth" ).to( "account.index" )
+```
+
+{% hint style="info" %}
+`registerMiddleware()` requires ColdBox 8.3+.
+{% endhint %}
+
 ## Securing Routes With cbsecurity
 
 The [cbsecurity](../../../digging-deeper/security/README.md) module ships ready-made middleware, so you do not write login and permission checks yourself. Permissions and roles are declared in the route's `meta()`:
@@ -148,5 +233,5 @@ Running route middleware inside `execute()` requires ColdBox 8.3+. On earlier ve
 {% endhint %}
 
 {% hint style="success" %}
-**Next:** reusing the same middleware list by name across unrelated routes, and opting a route out of what it would otherwise inherit - see [Middleware Groups & Exclusions](middleware-groups.md).
+**Next:** reusing the same middleware list by name across unrelated routes (bundles registered with `middlewareGroup()`), and opting a route out of what it would otherwise inherit - see [Middleware Groups & Exclusions](middleware-groups.md).
 {% endhint %}
