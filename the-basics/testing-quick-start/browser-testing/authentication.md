@@ -13,8 +13,9 @@ There are no test-only login endpoints and nothing to enable in your application
 
 ```javascript
 @appMapping( "/root" )
+@browser
 @baseURL( "http://127.0.0.1:8080" )
-class extends="coldbox.system.testing.BrowserTestCase" {
+class extends="coldbox.system.testing.BaseTestCase" {
 
 	function beforeAll() {
 		super.beforeAll()
@@ -55,7 +56,7 @@ class extends="coldbox.system.testing.BrowserTestCase" {
 
 ```mermaid
 sequenceDiagram
-    participant Spec as BrowserTestCase
+    participant Spec as Browser spec
     participant Setup as Setup page
     participant App as Running ColdBox app
     participant Page as Spec page

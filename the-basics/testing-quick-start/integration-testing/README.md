@@ -94,4 +94,4 @@ coldbox create integration-test help
 
 ### Going Further: Real Browsers
 
-Integration tests never run a browser: no HTML is parsed, no JavaScript runs and no cookies travel between requests. On BoxLang, [Browser Testing](../browser-testing/README.md) extends `BaseTestCase` with `BrowserTestCase`, which drives a real browser against your running application while keeping access to your routes and settings.
+Integration tests never run a browser: no HTML is parsed, no JavaScript runs and no cookies travel between requests. On BoxLang, [Browser Testing](../browser-testing/README.md) adds the `@browser` annotation to a `BaseTestCase` spec, so it drives a real browser against your running application while keeping access to your routes and settings.

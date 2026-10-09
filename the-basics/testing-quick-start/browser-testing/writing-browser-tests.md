@@ -1,13 +1,13 @@
 ---
 description: >-
-  Write a BrowserTestCase spec: annotations, browse(), the bx-playwright page
-  API and the TestBox browser matchers.
+  Write a browser spec with BaseTestCase and the @browser annotation: browse(),
+  the bx-playwright page API and the TestBox browser matchers.
 icon: pen-to-square
 ---
 
 # Writing Browser Tests
 
-A browser spec is a BDD bundle that extends `coldbox.system.testing.BrowserTestCase`. You open pages with `browse()`, drive them with the [bx-playwright page API](https://bxplaywright.boxlang.io/browsing/), and verify them with `expect()` and the browser matchers.
+A browser spec is a BDD bundle that extends `coldbox.system.testing.BaseTestCase` and carries the `@browser` annotation (or `@browserProfile` or `@baseURL`), which tells TestBox to attach its browser support. You open pages with `browse()`, drive them with the [bx-playwright page API](https://bxplaywright.boxlang.io/browsing/), and verify them with `expect()` and the browser matchers.
 
 ## A Complete Spec
 
@@ -16,8 +16,9 @@ A browser spec is a BDD bundle that extends `coldbox.system.testing.BrowserTestC
  * tests/specs/browser/ContactBrowserSpec.bx
  */
 @appMapping( "/root" )
+@browser
 @baseURL( "http://127.0.0.1:8080" )
-class extends="coldbox.system.testing.BrowserTestCase" {
+class extends="coldbox.system.testing.BaseTestCase" {
 
 	function beforeAll() {
 		// Loads the virtual ColdBox application: keep the super call
@@ -79,35 +80,42 @@ class extends="coldbox.system.testing.BrowserTestCase" {
 }
 ```
 
-`beforeAll()` and `afterAll()` work exactly like in any [integration test](../integration-testing/README.md): keep the `super` calls so the virtual application loads and unloads. You do not need a super call to close the browser: the inherited `closeBrowser()` method carries the `afterAll` annotation and runs after your own `afterAll()`. If your `afterAll()` throws or a spec calls `abort`, the browser stays open until the next test run that opens a browser, which closes it first. bx-playwright also closes anything left open when the module unloads or the JVM stops.
+`beforeAll()` and `afterAll()` work exactly like in any [integration test](../integration-testing/README.md): keep the `super` calls so the virtual application loads and unloads. You do not need to close the browser: the TestBox runner closes the bundle browser after the bundle, even when your `afterAll()` throws. If a spec calls `abort`, the browser stays open until the next test run that opens a browser, which closes it first. bx-playwright also closes anything left open when the module unloads or the JVM stops.
 
 ## Class Annotations
 
-Every [BaseTestCase annotation](../integration-testing/test-annotations.md) works (`appMapping`, `webMapping`, `configMapping`, `coldboxAppKey`, `loadColdBox`, `unloadColdBox`), plus two browser annotations:
+Every [BaseTestCase annotation](../integration-testing/test-annotations.md) works (`appMapping`, `webMapping`, `configMapping`, `coldboxAppKey`, `loadColdBox`, `unloadColdBox`), plus the browser annotations. Any of the three turns browser support on, and they are inherited from the classes your spec extends (see [Turning On Browser Support](README.md#turning-on-browser-support)):
 
 | Annotation | Description |
 | --- | --- |
+| `browser` | Turns browser support on, with the bx-playwright default profile |
 | `baseURL` | The URL of your running application. Relative visits such as `page.visit( "/login" )` resolve against it. Defaults to the `--web-server-url` of the BoxLang runner, then to the bx-playwright `baseURL` setting or `BX_PLAYWRIGHT_BASEURL` |
 | `browserProfile` | bx-playwright profiles for the bundle browser, a list such as `ci,mobile`. Empty uses `BX_PLAYWRIGHT_PROFILE` or your module settings |
 
 ```javascript
 @appMapping( "/root" )
+@browser
 @baseURL( "http://127.0.0.1:8080" )
 @browserProfile( "firefox,dark" )
-class extends="coldbox.system.testing.BrowserTestCase" {
+class extends="coldbox.system.testing.BaseTestCase" {
 	// ...
 }
 ```
 
-See [bx-playwright Profiles](https://bxplaywright.boxlang.io/profiles/) for the built-in browsers, devices, screens and modes.
+`@browserProfile` and `@baseURL` turn browser support on by themselves, so `@browser` is optional next to them, but it keeps the intent obvious. See [bx-playwright Profiles](https://bxplaywright.boxlang.io/profiles/) for the built-in browsers, devices, screens and modes.
 
 ## The Browser Methods
+
+TestBox mixes the browser methods into the spec. The route helpers come from `BaseTestCase`. Methods your spec declares itself are kept.
 
 | Method | Description |
 | --- | --- |
 | `browse( callback, [options] )` | Runs the callback with fresh pages, one per declared argument, each in its own browser context (its own cookies and storage). Closes them when the callback ends. `options` are bx-playwright context options such as `viewport`, `locale` or `colorScheme`. Returns the callback result |
 | `this.playwright()` | The bx-playwright manager of the bundle, created on first use with the `browserProfile` and `baseURL` annotations |
 | `browserAvailable()` | `true` on BoxLang with bx-playwright installed. Handy for `skip` arguments |
+| `ensureBrowserInstalled()` | Asks bx-playwright to install the browser of the bundle profile when it is missing, and returns the installation details |
+| `getBrowserSupport()` | The TestBox browser support of the bundle. `getBrowserSupport().getUnavailableReason()` explains why browser testing is not available |
+| `closeBrowser()` | Closes the bundle browser. The runner calls it for you after the bundle |
 | `routeURL( name, [params] )` | The path of a named route. See [Named Routes](named-routes.md) |
 | `visitRoute( page, name, [params] )` | Visits a named route |
 | `assertRouteIs( page, name, [params] )` | Asserts the page is on a named route |
@@ -151,7 +159,7 @@ describe(
 
 ## The Browser Matchers
 
-TestBox registers its browser matchers for every `BrowserTestCase` bundle. They delegate to the retrying bx-playwright assertions, so they **wait** until the condition is true or the assertion timeout expires (5 seconds by default). Every matcher has a `not` form, such as `notToSee()`, which waits too.
+TestBox registers its browser matchers for every bundle with a browser annotation. They delegate to the retrying bx-playwright assertions, so they **wait** until the condition is true or the assertion timeout expires (5 seconds by default). Every matcher has a `not` form, such as `notToSee()`, which waits too.
 
 | Matcher | Target | Passes when |
 | --- | --- | --- |

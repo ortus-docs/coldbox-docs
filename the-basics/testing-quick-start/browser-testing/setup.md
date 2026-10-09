@@ -19,8 +19,8 @@ Browser testing is **BoxLang only**. On CFML engines exclude your browser specs 
 | --- | --- |
 | BoxLang | 1.17 or later |
 | Java | 21 or later |
-| ColdBox | 8.3.0 or later (`BrowserTestCase`) |
-| TestBox | 7.2.0 or later (`testbox.system.browser` support and matchers) |
+| ColdBox | 8.3.0 or later (`BaseTestCase` route helpers) |
+| TestBox | 7.2.0 or later, with annotation-driven browser support ([TestBox#222](https://github.com/Ortus-Solutions/TestBox/pull/222)) |
 | bx-playwright | Latest |
 
 ```bash
@@ -73,8 +73,9 @@ box testbox run
 
 ```javascript
 @appMapping( "/root" )
+@browser
 @baseURL( "http://127.0.0.1:8080" )
-class extends="coldbox.system.testing.BrowserTestCase" {
+class extends="coldbox.system.testing.BaseTestCase" {
 	// ...
 }
 ```
@@ -99,7 +100,7 @@ TestBox's BoxLang runner can start the web server for you, wait until it answers
 
 The `--web-server-url` also becomes the **default `baseURL`** of every browser bundle, so you can leave the annotation out.
 
-`BrowserTestCase` still loads your ColdBox application virtually, so running it from the CLI needs the `bx-web-support` module in the BoxLang OS runtime (`install-bx-module bx-web-support`). See the [BoxLang CLI Runner](https://testbox.ortusbooks.com/getting-started/running-tests/boxlang-cli-runner) guide.
+A browser spec extends `BaseTestCase` and still loads your ColdBox application virtually, so running it from the CLI needs the `bx-web-support` module in the BoxLang OS runtime (`install-bx-module bx-web-support`). See the [BoxLang CLI Runner](https://testbox.ortusbooks.com/getting-started/running-tests/boxlang-cli-runner) guide.
 
 {% endtab %}
 
@@ -118,7 +119,7 @@ Keep browser specs in their own folder so you can run, exclude or parallelize th
 ```
 tests/
   specs/
-    browser/        <- BrowserTestCase bundles (.bx)
+    browser/        <- browser bundles (.bx, BaseTestCase + @browser)
     integration/
     unit/
 ```

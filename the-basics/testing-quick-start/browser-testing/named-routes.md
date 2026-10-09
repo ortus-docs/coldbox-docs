@@ -7,7 +7,7 @@ icon: route
 
 # Named Routes
 
-Hard-coded URLs make browser tests brittle: change a route pattern and every spec that visits it breaks. `BrowserTestCase` builds URLs from your **named routes** instead, using the same `event.route()` your views use, so specs follow your router.
+Hard-coded URLs make browser tests brittle: change a route pattern and every spec that visits it breaks. `BaseTestCase` builds URLs from your **named routes** instead, using the same `event.route()` your views use, so specs follow your router.
 
 ```javascript
 // config/Router.bx

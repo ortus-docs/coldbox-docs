@@ -15,8 +15,9 @@ Artifacts are **off** by default. Turn them on with a bx-playwright profile, for
 
 ```javascript
 @appMapping( "/root" )
+@browser
 @browserProfile( "ci" )
-class extends="coldbox.system.testing.BrowserTestCase" {
+class extends="coldbox.system.testing.BaseTestCase" {
 	// ...
 }
 ```
@@ -78,8 +79,9 @@ Run the bundle with the `debug` profile to watch the browser: it opens a **visib
 
 ```javascript
 @appMapping( "/root" )
+@browser
 @browserProfile( "debug" )
-class extends="coldbox.system.testing.BrowserTestCase" {
+class extends="coldbox.system.testing.BaseTestCase" {
 	// ...
 }
 ```

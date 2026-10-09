@@ -18,9 +18,19 @@ The browser methods skip the running spec with a reason when browser testing is 
 | `Browser specs need the BoxLang engine` | The tests run on Lucee or Adobe ColdFusion. Run them on BoxLang, or exclude your browser folder on other engines (see [Setup](setup.md#running-on-several-engines)) |
 | `bx-playwright is not installed: install-bx-module bx-playwright` | The module is missing in the runtime **that runs the tests**. For a CommandBox server, install it in the server, then restart it |
 
+## browse() Is Not Defined
+
+An error saying that `browse()`, `browserAvailable()` or `this.playwright()` does not exist means TestBox did not attach browser support to the spec:
+
+* **The browser annotation is missing.** Add `@browser`, `@browserProfile` or `@baseURL` on the lines above `class`, on the spec or a class it extends. Extending `BaseTestCase` alone does not turn browser support on.
+* **Your TestBox release has no annotation-driven browser support.** Browser specs need a TestBox release with [TestBox#222](https://github.com/Ortus-Solutions/TestBox/pull/222). On older releases the annotations do nothing and `browse()` is not defined. Update TestBox (see [Setup](setup.md#requirements)).
+* **The engine is not BoxLang.** The runner only attaches browser support on BoxLang.
+
+To see why browser testing is not available on a spec that has the methods, call `getBrowserSupport().getUnavailableReason()`.
+
 ## The Bundle Does Not Compile on CFML
 
-`BrowserTestCase` is a BoxLang class. A bundle that extends it cannot load on a CFML engine, so the runner reports an error instead of a skip. Keep browser specs in their own folder and exclude it on CFML engines, like the ColdBox platform does in its `tests/runner.cfm`.
+Browser specs are BoxLang classes (`.bx`). A bundle written in BoxLang cannot load on a CFML engine, so the runner reports an error instead of a skip. Keep browser specs in their own folder and exclude it on CFML engines, like the ColdBox platform does in its `tests/runner.cfm`.
 
 ## Executable Doesn't Exist / Browser Fails to Start
 
@@ -67,7 +77,7 @@ A matcher or `assertRouteIs()` waits up to the bx-playwright assertion timeout (
 
 ## Matchers Are Not Found
 
-`toSee()` and the other browser matchers are registered by `BrowserTestCase`. In a spec that extends another base class, register them yourself:
+`toSee()` and the other browser matchers are registered by TestBox for every bundle with a browser annotation (see [browse() Is Not Defined](#browse-is-not-defined)). In a spec without one, register them yourself:
 
 ```javascript
 addMatchers( new testbox.system.browser.BrowserMatchers() )

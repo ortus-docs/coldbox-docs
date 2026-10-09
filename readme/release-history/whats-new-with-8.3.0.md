@@ -4,22 +4,23 @@ description: Upcoming release
 
 # What's New With 8.3.0
 
-ColdBox 8.3.0 is a feature release that brings **real-browser testing** to ColdBox applications on BoxLang: a new `BrowserTestCase` base class built on TestBox browser support and the bx-playwright module, named route helpers, and test-only login and logout endpoints with a locked-down security model. It also fixes module named route links.
+ColdBox 8.3.0 is a feature release that brings **real-browser testing** to ColdBox applications on BoxLang: annotate any `BaseTestCase` with `@browser` and it drives a real browser through TestBox browser support and the bx-playwright module, with named route helpers in `BaseTestCase` and logged-in tests through bx-playwright saved sessions. It also fixes module named route links.
 
 ## Major Highlights
 
-### 🌐 Browser Testing With BrowserTestCase (BoxLang)
+### 🌐 Browser Testing With @browser (BoxLang)
 
 {% hint style="warning" %}
-🚀 **BoxLang Exclusive**: browser testing requires **BoxLang**, **TestBox 7.2.0+** and the **bx-playwright** module. `BrowserTestCase` is a BoxLang class: on CFML engines exclude your browser specs folder from the runner. On BoxLang without bx-playwright, browser specs are skipped.
+🚀 **BoxLang Exclusive**: browser testing requires **BoxLang**, a TestBox release with annotation-driven browser support (**TestBox 7.2.0+**, [TestBox#222](https://github.com/Ortus-Solutions/TestBox/pull/222)) and the **bx-playwright** module. On older TestBox releases the annotations do nothing and `browse()` is not defined. Browser specs are BoxLang classes: on CFML engines exclude your browser specs folder from the runner. On BoxLang without bx-playwright, browser specs are skipped.
 {% endhint %}
 
-`coldbox.system.testing.BrowserTestCase` extends `BaseTestCase`, so it loads your application virtually like any integration test and knows your routes and settings, while it drives a real Chromium, Firefox or WebKit browser against your **running** application:
+There is no separate browser test class. Annotate any `coldbox.system.testing.BaseTestCase` spec with `@browser`, `@browserProfile` or `@baseURL` (on the class or a class it extends) and TestBox attaches its browser support. The spec still loads your application virtually like any integration test and knows your routes and settings, while it drives a real Chromium, Firefox or WebKit browser against your **running** application:
 
 ```javascript
 @appMapping( "/root" )
+@browser
 @baseURL( "http://127.0.0.1:8080" )
-class extends="coldbox.system.testing.BrowserTestCase" {
+class extends="coldbox.system.testing.BaseTestCase" {
 
 	function run() {
 		describe( "Users", () => {
@@ -36,8 +37,8 @@ class extends="coldbox.system.testing.BrowserTestCase" {
 }
 ```
 
-* **`browse()`**, **`this.playwright()`** and **`browserAvailable()`** from TestBox browser support: one browser per bundle, fresh isolated pages per call, closed automatically after the bundle.
-* The **`baseURL`** and **`browserProfile`** class annotations.
+* **`browse()`**, **`this.playwright()`**, **`browserAvailable()`**, `ensureBrowserInstalled()`, `getBrowserSupport()` and `closeBrowser()`, mixed into the spec by the TestBox runner: one browser per bundle, fresh isolated pages per call, closed by the runner after the bundle, even when `afterAll()` throws.
+* The **`browser`**, **`baseURL`** and **`browserProfile`** class annotations, inherited from the classes your spec extends. `BaseModelTest`, `BaseInterceptorTest` or any other spec can browse the same way.
 * The TestBox **browser matchers**: `toHaveTitle()`, `toHaveURL()`, `toHavePath()`, `toSee()`, `toHaveText()`, `toBeVisible()`, `toBeHidden()`, `toHaveCount()` and `toHaveValue()`, all retrying and all with `not` forms.
 * Screenshots, traces and videos of failed specs **attached** to the spec in your reports.
 
@@ -45,7 +46,7 @@ See the [Browser Testing](../../the-basics/testing-quick-start/browser-testing/R
 
 ### 🧭 Named Route Helpers
 
-Browser specs build URLs from your router instead of hard-coding them:
+`BaseTestCase` now has helpers so browser specs build URLs from your router instead of hard-coding them:
 
 ```javascript
 routeURL( "users.show", { id : 5 } )               // /users/5/
@@ -83,7 +84,7 @@ See [Authentication](../../the-basics/testing-quick-start/browser-testing/authen
 {% tab title="ColdBox" %}
 ### New Features
 
-`coldbox.system.testing.BrowserTestCase` (BoxLang): browser tests for ColdBox applications built on TestBox browser support and bx-playwright, with `browse()`, `this.playwright()`, `browserAvailable()`, the `browserProfile` and `baseURL` annotations, the TestBox browser matchers, and the ColdBox helpers `routeURL()`, `visitRoute()` and `assertRouteIs()` ([#708](https://github.com/ColdBox/coldbox-platform/pull/708))
+Browser testing for ColdBox applications (BoxLang), built on TestBox browser support and bx-playwright: annotate any `BaseTestCase` with `@browser`, `@browserProfile` or `@baseURL` and it gets TestBox's `browse()`, `this.playwright()`, `browserAvailable()` and browser matchers, while it still loads your application like any integration test. `BaseTestCase` adds the ColdBox helpers `routeURL()`, `visitRoute()` and `assertRouteIs()` for named routes, including module routes. Logged-in tests use bx-playwright saved sessions. Needs a TestBox release with annotation-driven browser support ([TestBox#222](https://github.com/Ortus-Solutions/TestBox/pull/222)) ([#708](https://github.com/ColdBox/coldbox-platform/pull/708))
 
 
 ### Bugs
