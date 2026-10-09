@@ -28,6 +28,10 @@ group( { pattern : "/api", middleware : [ "api" ] }, () => {
 
 Groups are flat - a member can't itself be the name of another group. Each entry is a concrete closure, WireBox ID, or object.
 
+{% hint style="success" %}
+To name just one closure, lambda, or WireBox ID, use [`registerMiddleware()`](middleware.md#registering-named-middleware). It shares this namespace, so a name cannot be both a group and registered middleware unless you pass `force = true`.
+{% endhint %}
+
 ## Excluding Inherited Middleware
 
 `withoutMiddleware()` opts a single route out of middleware it would otherwise inherit - from an enclosing group, or from its own earlier `.middleware()` calls.
