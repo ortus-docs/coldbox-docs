@@ -24,6 +24,7 @@ route( "/admin/:action" )
 * **A closure/lambda** - `( event, rc, prc ) => { ... }`, as above
 * **A WireBox ID** - resolved via `getInstance()` on every request, so it respects whatever scope (singleton, prototype, etc) the mapping was registered with
 * **Any object** - WireBox-managed or not, as long as it has a method named after the point it runs at (`preProcess()` by default). No base class or interface required
+* **A registered name** - a name given to any of the above with [`registerMiddleware()`](#registering-named-middleware), or a [`middlewareGroup()`](middleware-groups.md) name
 
 {% tabs %}
 {% tab title="BoxLang" %}
@@ -75,6 +76,8 @@ route( "/api/reports" ).middleware( "AuditLog", "postProcess" ).to( "reports.ind
 ```
 
 Route middleware runs **after** the global `preProcess` announce and **before** the global `postProcess` announce - global interceptors stay the outermost layer, route-specific work happens closest to the handler.
+
+Route middleware also runs in integration tests: `BaseTestCase.execute()` and the `get()`, `post()` and other HTTP helpers run it in the same order (since ColdBox 8.3.0). See [The execute() Method](../../testing-quick-start/integration-testing/the-execute-method.md#route-middleware).
 
 ## Multiple Targets
 

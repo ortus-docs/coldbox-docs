@@ -33,6 +33,21 @@ it( "can render some restful data", () => {
 **WARNING:** Please note that this method is limited to simulating `GET` operations. If you are building RESTFul services, then you will need to use our [HTTP Testing Methods](http-testing-methods.md) discussed next.
 {% endhint %}
 
+## Route Middleware
+
+When you execute a **route**, with `execute( route = "/admin" )` or the `get()`, `post()` and other [HTTP testing methods](http-testing-methods.md), the route-scoped [middleware](../../routing/routing-dsl/middleware.md) attached to it runs exactly like in a real request: after the global `preProcess` announcement and before the global `postProcess` announcement. A route protected by middleware is protected in your tests too:
+
+```javascript
+it( "blocks anonymous users from the admin", () => {
+    var event = get( "/admin" );
+    expect( event.getRenderData().statusCode ).toBe( 403 );
+} );
+```
+
+{% hint style="info" %}
+Route middleware runs in tests since ColdBox 8.3.0. Before that, `execute()` ran only the global interceptors, so a test could reach the handler of a route its middleware would have blocked.
+{% endhint %}
+
 ## Rendering Results
 
 The `execute()` method has an argument called `renderResults` which defaults to **false**. If you pass in **true** then ColdBox will go through the normal rendering procedures and save the results in a request collection variable called: `cbox_rendered_content` and expose to you a method in the request context called `getRenderedContent()`. It will even work with `renderData()` or if you are returning RESTful information.

@@ -35,6 +35,12 @@ component name="MyService" scope="request"{}
 component name="MyService" scope="session"{}
 ```
 
+The `session`, `server` and `application` scopes are implemented by the `coldbox.system.ioc.scopes.EngineScopes` class. It was named `CFScopes` before ColdBox 8.3.0 and there is no alias for the old name, so update any custom scope that extends or references `CFScopes`. The scope names in your annotations and binder are unchanged.
+
+{% hint style="info" %}
+Singleton, engine (`session`, `server`, `application`) and CacheBox scoped objects are stored before they are wired, so circular dependencies resolve. Since ColdBox 8.3.0, other threads that ask for an object while it is still wiring wait until its dependencies are injected instead of receiving a half-wired instance.
+{% endhint %}
+
 > **Hint** Pease note that using annotations is optional, you can configure every object in our configuration binder as well.
 
 * Persistence DSL: [http://wirebox.ortusbooks.com/configuration/mapping-dsl/persistence-dsl](http://wirebox.ortusbooks.com/configuration/mapping-dsl/persistence-dsl)

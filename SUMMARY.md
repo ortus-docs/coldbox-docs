@@ -5,6 +5,7 @@
   * [About This Book](readme/about-this-book/README.md)
     * [Author](readme/about-this-book/author.md)
 * [Release History](readme/release-history/README.md)
+  * [What's New With 8.3.0](readme/release-history/whats-new-with-8.3.0.md)
   * [What's New With 8.2.0](readme/release-history/whats-new-with-8.2.0.md)
   * [What's New With 8.1.0](readme/release-history/whats-new-with-8.1.0.md)
   * [What's New With 8.0.0](readme/release-history/whats-new-with-8.0.0.md)
@@ -219,6 +220,14 @@
     * [Testing Without Virtual Application](the-basics/testing-quick-start/integration-testing/testing-without-virtual-application.md)
   * [Interceptor Testing](the-basics/testing-quick-start/interceptor-testing.md)
   * [Model Object Testing](the-basics/testing-quick-start/model-object-testing.md)
+  * [Browser Testing](the-basics/testing-quick-start/browser-testing/README.md)
+    * [Setup](the-basics/testing-quick-start/browser-testing/setup.md)
+    * [Writing Browser Tests](the-basics/testing-quick-start/browser-testing/writing-browser-tests.md)
+    * [Named Routes](the-basics/testing-quick-start/browser-testing/named-routes.md)
+    * [Authentication](the-basics/testing-quick-start/browser-testing/authentication.md)
+    * [Artifacts & Debugging](the-basics/testing-quick-start/browser-testing/artifacts-and-debugging.md)
+    * [Continuous Integration](the-basics/testing-quick-start/browser-testing/continuous-integration.md)
+    * [Troubleshooting](the-basics/testing-quick-start/browser-testing/troubleshooting.md)
   * [Tips & Tricks](the-basics/testing-quick-start/tips-and-tricks.md)
 
 ## Digging Deeper

@@ -1,5 +1,5 @@
 ---
-description: ColdBox testing classes — BaseTestCase for integration tests plus BaseModelTest, BaseInterceptorTest, and BaseHandlerTest.
+description: "ColdBox testing classes: BaseTestCase for integration tests plus BaseModelTest, BaseInterceptorTest, BaseHandlerTest, plus browser testing on BoxLang with the @browser annotation."
 ---
 
 # ColdBox Testing Classes
@@ -12,3 +12,6 @@ From that superclass, we have our own ColdBox `BaseTestCase` , our base class fo
 
 <table><thead><tr><th width="260">Test Class</th><th>Description</th></tr></thead><tbody><tr><td><code>BaseTestCase</code></td><td>Used for Integration Testing</td></tr><tr><td><code>BaseModelTest</code></td><td>Used for model object unit testing</td></tr><tr><td><code>BaseInterceptorTest</code></td><td>Used for interceptor unit testing</td></tr><tr><td><code>BaseHandlerTest</code></td><td>Used for isolated handler unit testing</td></tr></tbody></table>
 
+{% hint style="info" %}
+🚀 **Browser Testing (BoxLang)**: there is no separate browser test class. Add the `@browser` annotation (or `@browserProfile` or `@baseURL`) to a `BaseTestCase` spec, or any other spec, and TestBox drives a real browser against your running application with bx-playwright. `BaseTestCase` provides the named route helpers `routeURL()`, `visitRoute()` and `assertRouteIs()`. Browser specs are BoxLang classes and need the bx-playwright module, so keep them in their own folder and exclude it from the runner on CFML engines. See [Browser Testing](browser-testing/README.md).
+{% endhint %}
