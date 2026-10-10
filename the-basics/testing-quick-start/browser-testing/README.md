@@ -78,7 +78,7 @@ When a spec has one of them, the TestBox runner (BoxLang only) mixes into the sp
 
 Methods the spec declares itself are kept. The runner closes the bundle browser after the bundle, even when `afterAll()` throws.
 
-The ColdBox route helpers `routeURL()`, `visitRoute()` and `assertRouteIs()` live in `BaseTestCase` itself, so they work in every ColdBox test. `BaseModelTest`, `BaseInterceptorTest` or any other spec can browse the same way: add the annotation.
+`browse()` works in any annotated spec, including `BaseModelTest` or `BaseInterceptorTest` specs. The ColdBox route helpers `routeURL()`, `visitRoute()` and `assertRouteIs()` live in `BaseTestCase` and build URLs from the loaded application, so they need a spec that loads ColdBox: a `BaseTestCase` with `loadColdBox` left at its default of `true`.
 
 {% hint style="warning" %}
 Browser specs need a TestBox release with annotation-driven browser support ([TestBox#222](https://github.com/Ortus-Solutions/TestBox/pull/222)). On older TestBox releases the annotations do nothing and `browse()` is not defined.

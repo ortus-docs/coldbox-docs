@@ -60,6 +60,10 @@ visitRoute( page, "users.show", { id : 5 } )
 
 A route with optional placeholders, such as `route( "/posts/:id?" ).as( "posts" )`, matches with and without them: `assertRouteIs( page, "posts" )` passes on `/posts` and on `/posts/12`.
 
+{% hint style="warning" %}
+Optional placeholders are only fully supported **without** params. `routeURL()`, `visitRoute()` and `assertRouteIs()` build the path with `event.route()`, which resolves a route like `/posts/:id?` to its base path and drops the optional param: `routeURL( "posts", { id : 12 } )` returns `/posts/`, not `/posts/12/`. To visit or assert a specific optional value, build the path yourself, for example `page.visit( routeURL( "posts" ) & "12" )`, or give that URL its own named route.
+{% endhint %}
+
 Like ColdBox routing, the match:
 
 * ignores case and the trailing slash (`/users/5`, `/users/5/` and `/USERS/5` all match)

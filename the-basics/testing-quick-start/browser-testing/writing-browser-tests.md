@@ -84,7 +84,7 @@ class extends="coldbox.system.testing.BaseTestCase" {
 
 ## Class Annotations
 
-Every [BaseTestCase annotation](../integration-testing/test-annotations.md) works (`appMapping`, `webMapping`, `configMapping`, `coldboxAppKey`, `loadColdBox`, `unloadColdBox`), plus the browser annotations. Any of the three turns browser support on, and they are inherited from the classes your spec extends (see [Turning On Browser Support](README.md#turning-on-browser-support)):
+Every [BaseTestCase annotation](../integration-testing/test-annotations.md) works (`appMapping`, `webMapping`, `configMapping`, `loadColdBox`, `unloadColdBox`), plus the browser annotations. Any of the three turns browser support on, and they are inherited from the classes your spec extends (see [Turning On Browser Support](README.md#turning-on-browser-support)):
 
 | Annotation | Description |
 | --- | --- |

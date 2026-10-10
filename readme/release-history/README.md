@@ -36,6 +36,10 @@ If you need professional support, please contact [Ortus Solutions](https://www.o
 
 In this section, you will find the release notes and links for each version's documentation. If you are looking for the release notes of previous major versions, use the version switcher at the top left of this documentation book.
 
+* [Version 8.3.0](whats-new-with-8.3.0.md): browser testing with `@browser`, `Router.registerMiddleware()`, group route `meta`, route middleware in integration tests and thread-safe WireBox scope wiring
+* [Version 8.2.0 - September 2026](whats-new-with-8.2.0.md): route-scoped middleware, HTTP caching primitives, Server-Sent Events and AI gateway routing
+* [Version 8.1.0 - April 2026](whats-new-with-8.1.0.md): AI and MCP routing with `toAi()` and `toMCP()`
+* [Version 8.0.0 - October 2025](whats-new-with-8.0.0.md): major release with BX-ColdBox and ColdBox BoxLang PRIME, new application templates and virtual thread executors
 * [Version 7.0 - May 2023](https://coldbox.ortusbooks.com/v/v7.x/intro/release-history/whats-new-with-7.0.0)
 * [Version 6.0 - August 2020](https://coldbox.ortusbooks.com/v/v6.x/intro/release-history/whats-new-with-6.0.0)
 * [Version 5.0 - July 2018](https://coldbox.ortusbooks.com/v/v5.x/intro/introduction/whats-new-with-5.0.0)

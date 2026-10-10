@@ -4,17 +4,17 @@ description: Upcoming release
 
 # What's New With 8.3.0
 
-ColdBox 8.3.0 is a feature release that brings **real-browser testing** to ColdBox applications on BoxLang: annotate any `BaseTestCase` with `@browser` and it drives a real browser through TestBox browser support and the bx-playwright module, with named route helpers in `BaseTestCase` and logged-in tests through bx-playwright saved sessions. It also fixes module named route links.
+ColdBox 8.3.0 is a feature release focused on testing and route composition: **real-browser testing** of ColdBox applications on BoxLang, named route middleware with `Router.registerMiddleware()`, route metadata shared by a whole `group()`, and integration tests that now run route middleware exactly like a real request. It also hardens WireBox scope wiring under concurrency and fixes a set of engine-specific and scheduler bugs.
 
 ## Major Highlights
 
 ### 🌐 Browser Testing With @browser (BoxLang)
 
 {% hint style="warning" %}
-🚀 **BoxLang Exclusive**: browser testing requires **BoxLang**, a TestBox release with annotation-driven browser support (**TestBox 7.2.0+**, [TestBox#222](https://github.com/Ortus-Solutions/TestBox/pull/222)) and the **bx-playwright** module. On older TestBox releases the annotations do nothing and `browse()` is not defined. Browser specs are BoxLang classes: on CFML engines exclude your browser specs folder from the runner. On BoxLang without bx-playwright, browser specs are skipped.
+🚀 **BoxLang Exclusive**: browser testing requires **BoxLang**, the **bx-playwright** module and a TestBox release with annotation-driven browser support (**TestBox 7.2.0+**, [TestBox#222](https://github.com/Ortus-Solutions/TestBox/pull/222)). On older TestBox releases the annotations do nothing and `browse()` is not defined.
 {% endhint %}
 
-There is no separate browser test class. Annotate any `coldbox.system.testing.BaseTestCase` spec with `@browser`, `@browserProfile` or `@baseURL` (on the class or a class it extends) and TestBox attaches its browser support. The spec still loads your application virtually like any integration test and knows your routes and settings, while it drives a real Chromium, Firefox or WebKit browser against your **running** application:
+There is no separate browser test class. Annotate any `coldbox.system.testing.BaseTestCase` spec with `@browser`, `@browserProfile` or `@baseURL` and TestBox attaches its browser support: `browse()`, `this.playwright()`, `browserAvailable()` and the retrying browser matchers. The spec still loads your application like any integration test, so it knows your routes, while it drives a real browser against your **running** application. `BaseTestCase` adds the named route helpers `routeURL()`, `visitRoute()` and `assertRouteIs()`, module routes included, and logged-in tests use bx-playwright saved sessions.
 
 ```javascript
 @appMapping( "/root" )
@@ -27,7 +27,7 @@ class extends="coldbox.system.testing.BaseTestCase" {
 			it( "shows a user", () => {
 				browse( ( page ) => {
 					visitRoute( page, "users.show", { id : 5 } )
-					assertRouteIs( page, "users.show" )
+					assertRouteIs( page, "users.show", { id : 5 } )
 					expect( page ).toSee( "User 5" )
 				} )
 			} )
@@ -37,58 +37,118 @@ class extends="coldbox.system.testing.BaseTestCase" {
 }
 ```
 
-* **`browse()`**, **`this.playwright()`**, **`browserAvailable()`**, `ensureBrowserInstalled()`, `getBrowserSupport()` and `closeBrowser()`, mixed into the spec by the TestBox runner: one browser per bundle, fresh isolated pages per call, closed by the runner after the bundle, even when `afterAll()` throws.
-* The **`browser`**, **`baseURL`** and **`browserProfile`** class annotations, inherited from the classes your spec extends. `BaseModelTest`, `BaseInterceptorTest` or any other spec can browse the same way.
-* The TestBox **browser matchers**: `toHaveTitle()`, `toHaveURL()`, `toHavePath()`, `toSee()`, `toHaveText()`, `toBeVisible()`, `toBeHidden()`, `toHaveCount()` and `toHaveValue()`, all retrying and all with `not` forms.
-* Screenshots, traces and videos of failed specs **attached** to the spec in your reports.
+See the [Browser Testing](../../the-basics/testing-quick-start/browser-testing/README.md) guide, including [Named Routes](../../the-basics/testing-quick-start/browser-testing/named-routes.md) and [Authentication](../../the-basics/testing-quick-start/browser-testing/authentication.md).
 
-See the [Browser Testing](../../the-basics/testing-quick-start/browser-testing/README.md) guide.
+### 🏷️ Named Route Middleware: `registerMiddleware()`
 
-### 🧭 Named Route Helpers
-
-`BaseTestCase` now has helpers so browser specs build URLs from your router instead of hard-coding them:
+`Router.registerMiddleware()` registers a closure, lambda, object instance or WireBox ID under a name, so routes and groups reference it by that name instead of repeating the target. A registered name works everywhere a `middlewareGroup()` name does: `.middleware()`, a group's `middleware` option and `.withoutMiddleware()`. Pass a struct of `name : target` pairs to register several at once.
 
 ```javascript
-routeURL( "users.show", { id : 5 } )               // /users/5/
-visitRoute( page, "posts@blog" )                   // module routes too
-assertRouteIs( page, "users.show" )                // any user
-assertRouteIs( page, "users.show", { id : 5 } )    // user 5
+function configure(){
+    registerMiddleware( "onlyJson", ( event, rc, prc ) => {
+        if ( !event.isAjax() ) {
+            event.renderData( type = "json", data = { "error" : "JSON only" }, statusCode = 406 ).noExecution();
+        }
+    } );
+
+    group( { pattern : "/api", middleware : [ "onlyJson" ] }, () => {
+        route( "/users" ).toHandler( "users" );
+        route( "/health" ).withoutMiddleware( "onlyJson" ).toHandler( "health" );
+    } );
+}
 ```
 
-`assertRouteIs()` matches the route pattern and its constraints, ignores case, the trailing slash, the query string and the hash like ColdBox routing does, and waits for redirects. See [Named Routes](../../the-basics/testing-quick-start/browser-testing/named-routes.md).
+Registering a name that already exists, including a `middlewareGroup()` name, throws `Router.DuplicateMiddleware` unless you pass `force = true`. Like `middlewareGroup()`, register names before the routes that reference them. This release also fixes passing a component instance directly to `.middleware()` on engines where `isStruct()` is true for components. See [Middleware Groups & Exclusions](../../the-basics/routing/routing-dsl/middleware-groups.md#named-middleware).
 
-### 🔐 Logged-In Tests With Saved Sessions
+### 🧩 Group Route Metadata: `meta`
 
-Pages behind a login use bx-playwright **saved sessions**: log in once through your real login page, then start any `browse()` call already logged in. There are no test-only login endpoints, so your application ships no backdoor:
+`group()` now accepts a `meta` struct that every route inside the group inherits. Nested groups merge outer-first and a route's own `.meta()` values win on conflict, so one group can declare the metadata your middleware or security rules consume.
 
 ```javascript
-this.playwright().session( "admin", ( page ) => {
-	visitRoute( page, "login" ).fill( "Email", "admin@example.com" ).fill( "Password", "secret" ).click( "Sign in" )
-} )
+group( { pattern : "/admin", meta : { permissions : "ADMIN" } }, () => {
+    route( "/users" ).to( "admin.users" );                                      // { permissions : "ADMIN" }
+    route( "/reports" ).meta( { permissions : "REPORTS" } ).to( "admin.reports" ); // route wins
+} );
 
-browse( ( page ) => {
-	visitRoute( page, "admin.dashboard" )
-	expect( page ).toSee( "Dashboard" )
-}, { session : "admin" } )
+// In a handler or middleware
+var perms = event.getCurrentRouteMeta().permissions;
 ```
 
-See [Authentication](../../the-basics/testing-quick-start/browser-testing/authentication.md).
+See [Routing Groups](../../the-basics/routing/routing-dsl/routing-groups.md#sharing-route-metadata).
 
-### 🔗 Module Route Links Fixed
+### 🧪 Integration Tests Run Route Middleware
 
-`event.route( "name@module" )` built module route links without a slash between the module entry point and the route pattern, for example `bloglogin/3/` instead of `blog/login/3/`. Module links now always join them with a single slash.
+`BaseTestCase.execute()`, and the `get()`, `post()` and other HTTP helpers built on it, now run route-scoped middleware registered with `.middleware()`, in the same order as a real request: after the global `preProcess` announcement and before the global `postProcess` announcement. A route protected by middleware is now protected in your integration tests too.
+
+```javascript
+it( "blocks anonymous users from the admin", () => {
+    var event = get( "/admin" );
+    expect( event.getRenderData().statusCode ).toBe( 403 );
+} );
+```
+
+{% hint style="warning" %}
+If you have integration tests that hit routes with middleware attached, those tests now see the middleware. A test that expected to reach the handler of a protected route without satisfying its middleware will now be blocked, exactly like a real request.
+{% endhint %}
+
+See [The execute() Method](../../the-basics/testing-quick-start/integration-testing/the-execute-method.md#route-middleware).
+
+### 🔒 Thread-Safe WireBox Scope Wiring
+
+Singleton, engine (application, session, server) and CacheBox scopes store an object before wiring it so circular dependencies resolve. Other threads could read that object before its dependencies were injected and get a half-wired instance. A single wiring lock per injector now makes other threads wait until wiring completes, while the wiring thread still resolves circular dependencies. Circular partners also stay marked as wiring until the outermost build completes, across all scopes.
+
+### ⏰ Scheduler: `onOneServer()` Calendar Tasks No Longer Drift
+
+Calendar tasks (`everyDayAt()`, `everyHourAt()`, `everyWeekOn()`, `everyMonthOn()`, `everyYearOn()` and the business-day helpers) combined with `onOneServer()` drifted to the scheduler's restart time after a restart. They now keep their configured wall-clock time. Plain `every( n, unit )` tasks still sync with the cluster lock.
+
+### ⚠️ Compatibility: `CFScopes` Renamed to `EngineScopes`
+
+The WireBox scope class that stores objects in the application, session and server scopes was renamed from `coldbox.system.ioc.scopes.CFScopes` to `coldbox.system.ioc.scopes.EngineScopes`. The scope **names** you use in `scope="session"`, `scope="application"`, `scope="server"` or `.into( this.SCOPES.SESSION )` are unchanged, so most applications are not affected.
+
+{% hint style="danger" %}
+There is no alias for the old class: `CFScopes.cfc` was removed. If you extend, instantiate or reference `coldbox.system.ioc.scopes.CFScopes` directly, for example in a custom scope, change it to `coldbox.system.ioc.scopes.EngineScopes`.
+{% endhint %}
 
 ## Release Notes
 
 {% tabs %}
 {% tab title="ColdBox" %}
-### New Features
+### Added
 
-Browser testing for ColdBox applications (BoxLang), built on TestBox browser support and bx-playwright: annotate any `BaseTestCase` with `@browser`, `@browserProfile` or `@baseURL` and it gets TestBox's `browse()`, `this.playwright()`, `browserAvailable()` and browser matchers, while it still loads your application like any integration test. `BaseTestCase` adds the ColdBox helpers `routeURL()`, `visitRoute()` and `assertRouteIs()` for named routes, including module routes. Logged-in tests use bx-playwright saved sessions. Needs a TestBox release with annotation-driven browser support ([TestBox#222](https://github.com/Ortus-Solutions/TestBox/pull/222)) ([#708](https://github.com/ColdBox/coldbox-platform/pull/708))
+[COLDBOX-1457](https://ortussolutions.atlassian.net/browse/COLDBOX-1457) Browser testing for ColdBox apps: `@browser`, `@browserProfile` and `@baseURL` on `BaseTestCase` and the named route helpers `routeURL()`, `visitRoute()` and `assertRouteIs()` (BoxLang, TestBox 7.2.0+, bx-playwright) ([#708](https://github.com/ColdBox/coldbox-platform/pull/708))
 
+[COLDBOX-1459](https://ortussolutions.atlassian.net/browse/COLDBOX-1459) `group()` accepts a `meta` struct inherited by every route inside it; nested groups merge outer-first and a route's own `meta()` wins ([#714](https://github.com/ColdBox/coldbox-platform/pull/714))
 
-### Bugs
+[COLDBOX-1460](https://ortussolutions.atlassian.net/browse/COLDBOX-1460) `Router.registerMiddleware()` registers a closure, lambda, object instance or WireBox ID as named route middleware, singly or as a struct; duplicates throw `Router.DuplicateMiddleware` unless `force = true` ([#719](https://github.com/ColdBox/coldbox-platform/pull/719))
+
+### Fixed
+
+[COLDBOX-1459](https://ortussolutions.atlassian.net/browse/COLDBOX-1459) `BaseTestCase.execute()` and the HTTP helpers built on it did not run route-scoped middleware ([#714](https://github.com/ColdBox/coldbox-platform/pull/714))
+
+[COLDBOX-1460](https://ortussolutions.atlassian.net/browse/COLDBOX-1460) Passing a component instance as route middleware failed on engines where `isStruct()` is true for components ([#719](https://github.com/ColdBox/coldbox-platform/pull/719))
+
+[COLDBOX-1456](https://ortussolutions.atlassian.net/browse/COLDBOX-1456) `Bootstrap.onSessionStart()` ran the session start handler on a controller that was still loading during a reinit; it now skips the event until the controller is initiated ([#716](https://github.com/ColdBox/coldbox-platform/pull/716))
+
+[COLDBOX-1454](https://ortussolutions.atlassian.net/browse/COLDBOX-1454) Interceptor buffer pool race between a request and its async `announce()` thread ("can not pop Element from array, array is empty") ([#705](https://github.com/ColdBox/coldbox-platform/pull/705))
+
+[COLDBOX-1453](https://ortussolutions.atlassian.net/browse/COLDBOX-1453) `RestHandler.onEntityNotFoundException()` threw `MissingArgumentException` on Adobe ColdFusion 2023 ([#704](https://github.com/ColdBox/coldbox-platform/pull/704))
+
+[COLDBOX-1458](https://ortussolutions.atlassian.net/browse/COLDBOX-1458) `onOneServer()` calendar tasks (`everyDayAt()`, `everyMonthOn()`, etc.) drifted to the scheduler's restart time after a restart ([#713](https://github.com/ColdBox/coldbox-platform/pull/713))
 
 `event.route( "name@module" )` built module route links without a slash between the module entry point and the route pattern ([#708](https://github.com/ColdBox/coldbox-platform/pull/708))
+
+Adobe ColdFusion: a request context decorator copied the `this` reference of the original context, so its inherited methods ran against the original context and missed the decorator's own state and mocks ([#708](https://github.com/ColdBox/coldbox-platform/pull/708))
+{% endtab %}
+
+{% tab title="WireBox" %}
+### Changed
+
+The `CFScopes` scope class was renamed to `EngineScopes` (`coldbox.system.ioc.scopes.EngineScopes`). Scope names are unchanged; there is no alias for the old class path ([#715](https://github.com/ColdBox/coldbox-platform/pull/715))
+
+### Fixed
+
+[COLDBOX-1455](https://ortussolutions.atlassian.net/browse/COLDBOX-1455) Singleton, engine (application, session, server) and CacheBox scopes handed objects to other threads before their dependencies were wired; a single wiring lock now makes other threads wait ([#715](https://github.com/ColdBox/coldbox-platform/pull/715))
+
+A circular partner was released to other threads before the outer object finished wiring; keys now stay marked until the outermost build completes, tracked on the injector across all scopes ([#718](https://github.com/ColdBox/coldbox-platform/pull/718))
 {% endtab %}
 {% endtabs %}
