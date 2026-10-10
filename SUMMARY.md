@@ -240,6 +240,8 @@
   * [Parallel Computations](digging-deeper/promises-async-programming/parallel-computations.md)
   * [Executors](digging-deeper/promises-async-programming/executors.md)
 * [Scheduled Tasks](digging-deeper/scheduled-tasks.md)
+* [Security](digging-deeper/security/README.md)
+  * [Security Best Practices](digging-deeper/security/best-practices.md)
 * [ColdBox Proxy](digging-deeper/coldbox-proxy/README.md)
   * [Getting Started](digging-deeper/coldbox-proxy/getting-started.md)
   * [The Base Proxy Object](digging-deeper/coldbox-proxy/the-base-proxy-object.md)

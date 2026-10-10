@@ -38,7 +38,7 @@ The **options** struct can contain any values that you can use within the closur
 
 ## Sharing More Than Patterns
 
-A group's `options` struct isn't limited to `pattern`/`target`. Any modifier a route accepts can be shared the same way - `handler`, `module`, `namespace`, `domain`, `middleware`, and `meta` all apply to every route declared inside the body:
+A group's `options` struct isn't limited to `pattern`/`target`. Any modifier a route accepts can be shared the same way - `handler`, `module`, `namespace`, `domain`, and `middleware` all apply to every route declared inside the body:
 
 ```javascript
 group( { pattern : "/api", middleware : [ "RequireApiKey" ] }, () => {
@@ -47,20 +47,18 @@ group( { pattern : "/api", middleware : [ "RequireApiKey" ] }, () => {
 } );
 ```
 
-## Sharing Route Metadata
-
-A `meta` struct in the group options is merged into the [metadata](README.md) of every route declared inside the body, so one group can declare the data your handlers, middleware or security rules read with `event.getCurrentRouteMeta()`. Nested groups merge outer-first, an inner group overrides an outer one, and a route's own `.meta()` values win on conflict:
+A group can also share route [metadata](README.md) with a `meta` struct. Every route inside the group inherits it, a route's own `meta()` values win on a conflict, and an inner group overrides an outer one:
 
 ```javascript
-group( { pattern : "/admin", meta : { permissions : "ADMIN", audit : true } }, () => {
-    route( "/users" ).to( "admin.users" );                   // { permissions : "ADMIN", audit : true }
-    route( "/reports" )
-        .meta( { permissions : "REPORTS" } )
-        .to( "admin.reports" );                             // { permissions : "REPORTS", audit : true }
+group( { pattern : "/admin", meta : { permissions : "ADMIN", area : "admin" } }, () => {
+    route( "/users" ).toHandler( "users" )                                         // { permissions: "ADMIN", area: "admin" }
+    route( "/reports" ).meta( { permissions : "REPORTS" } ).toHandler( "reports" ) // { permissions: "REPORTS", area: "admin" }
 } );
 ```
 
-The merge is shallow: a key holding a struct or array is replaced, not deep merged. Group `meta` is available since ColdBox 8.3.0.
+{% hint style="info" %}
+Group-level `meta` requires ColdBox 8.3+. Metadata is merged shallowly: a nested struct inside `meta` is replaced, not merged.
+{% endhint %}
 
 {% hint style="success" %}
 **Next:** see [Route Middleware](middleware.md) for how a shared `middleware` list actually runs, and [Middleware Groups & Exclusions](middleware-groups.md) for reusing one by name across unrelated groups.

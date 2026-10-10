@@ -58,7 +58,7 @@ function configure(){
 }
 ```
 
-Registering a name that already exists, including a `middlewareGroup()` name, throws `Router.DuplicateMiddleware` unless you pass `force = true`. Like `middlewareGroup()`, register names before the routes that reference them. This release also fixes passing a component instance directly to `.middleware()` on engines where `isStruct()` is true for components. See [Middleware Groups & Exclusions](../../the-basics/routing/routing-dsl/middleware-groups.md#named-middleware).
+Registering a name that already exists, including a `middlewareGroup()` name, throws `Router.DuplicateMiddleware` unless you pass `force = true`. Like `middlewareGroup()`, register names before the routes that reference them. This release also fixes passing a component instance directly to `.middleware()` on engines where `isStruct()` is true for components. See [Registering Named Middleware](../../the-basics/routing/routing-dsl/middleware.md#registering-named-middleware).
 
 ### 🧩 Group Route Metadata: `meta`
 
@@ -74,7 +74,7 @@ group( { pattern : "/admin", meta : { permissions : "ADMIN" } }, () => {
 var perms = event.getCurrentRouteMeta().permissions;
 ```
 
-See [Routing Groups](../../the-basics/routing/routing-dsl/routing-groups.md#sharing-route-metadata).
+See [Routing Groups](../../the-basics/routing/routing-dsl/routing-groups.md).
 
 ### 🧪 Integration Tests Run Route Middleware
 
