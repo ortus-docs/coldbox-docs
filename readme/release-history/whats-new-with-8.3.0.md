@@ -115,7 +115,7 @@ There is no alias for the old class: `CFScopes.cfc` was removed. If you extend, 
 {% tab title="ColdBox" %}
 ### Added
 
-[COLDBOX-1457](https://ortussolutions.atlassian.net/browse/COLDBOX-1457) Browser testing for ColdBox apps: `@browser`, `@browserProfile` and `@baseURL` on `BaseTestCase` and the named route helpers `routeURL()`, `visitRoute()` and `assertRouteIs()` (BoxLang, TestBox 7.2.0+, bx-playwright) ([#708](https://github.com/ColdBox/coldbox-platform/pull/708))
+[COLDBOX-1457](https://ortussolutions.atlassian.net/browse/COLDBOX-1457) Browser testing for ColdBox apps: `@browser`, `@browserProfile` and `@baseURL` on `BaseTestCase` and the named route helpers `routeURL()`, `visitRoute()` and `assertRouteIs()` (BoxLang, TestBox 7.2.0+, bx-playwright) ([#708](https://github.com/ColdBox/coldbox-platform/pull/708), [#720](https://github.com/ColdBox/coldbox-platform/pull/720))
 
 [COLDBOX-1459](https://ortussolutions.atlassian.net/browse/COLDBOX-1459) `group()` accepts a `meta` struct inherited by every route inside it; nested groups merge outer-first and a route's own `meta()` wins ([#714](https://github.com/ColdBox/coldbox-platform/pull/714))
 
@@ -135,9 +135,9 @@ There is no alias for the old class: `CFScopes.cfc` was removed. If you extend, 
 
 [COLDBOX-1458](https://ortussolutions.atlassian.net/browse/COLDBOX-1458) `onOneServer()` calendar tasks (`everyDayAt()`, `everyMonthOn()`, etc.) drifted to the scheduler's restart time after a restart ([#713](https://github.com/ColdBox/coldbox-platform/pull/713))
 
-`event.route( "name@module" )` built module route links without a slash between the module entry point and the route pattern ([#708](https://github.com/ColdBox/coldbox-platform/pull/708))
+`event.route( "name@module" )` built module route links without a slash between the module entry point and the route pattern ([#708](https://github.com/ColdBox/coldbox-platform/pull/708), [#720](https://github.com/ColdBox/coldbox-platform/pull/720))
 
-Adobe ColdFusion: a request context decorator copied the `this` reference of the original context, so its inherited methods ran against the original context and missed the decorator's own state and mocks ([#708](https://github.com/ColdBox/coldbox-platform/pull/708))
+Adobe ColdFusion: a request context decorator copied the `this` reference of the original context, so its inherited methods ran against the original context and missed the decorator's own state and mocks ([#708](https://github.com/ColdBox/coldbox-platform/pull/708), [#720](https://github.com/ColdBox/coldbox-platform/pull/720))
 {% endtab %}
 
 {% tab title="WireBox" %}

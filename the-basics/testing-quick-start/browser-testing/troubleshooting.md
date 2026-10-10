@@ -55,7 +55,7 @@ The browsers live in `~/.boxlang/playwright` of the user that **runs the tests**
 
 `visitRoute()` lands on a 404 page, or `assertRouteIs()` fails with a path that has an extra or missing prefix such as `/index.cfm`.
 
-`routeURL()` builds paths from the SES base URL of the **virtual** application. When the server under test uses another prefix, set the one the browser needs in a `beforeEach()`:
+`routeURL()` builds paths from the web root, from the SES base URL of the **virtual** application without its `appMapping`. When the app is served from a sub folder, add the `webMapping` annotation to the spec (`@webMapping( "/shop" )`). When the server under test uses another prefix, set the one the browser needs in a `beforeEach()`:
 
 ```javascript
 beforeEach( ( currentSpec ) => {
@@ -64,6 +64,12 @@ beforeEach( ( currentSpec ) => {
 ```
 
 Check what a route builds with `debug( routeURL( "users.show", { id : 5 } ) )`.
+
+## No ColdBox Application
+
+`BaseTestCase.NoColdBoxApp: The route helpers need a loaded ColdBox application`
+
+The route helpers read the routes of the application your spec loads. Extend `coldbox.system.testing.BaseTestCase` (or `BaseIntegrationTest`) and keep `loadColdbox` on. A `BaseModelTest`, or a test with `loadColdbox=false`, has no routes.
 
 ## Unknown Named Route
 

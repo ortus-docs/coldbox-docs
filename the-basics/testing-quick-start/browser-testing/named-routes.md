@@ -7,7 +7,7 @@ icon: route
 
 # Named Routes
 
-Hard-coded URLs make browser tests brittle: change a route pattern and every spec that visits it breaks. `BaseTestCase` builds URLs from your **named routes** instead, using the same `event.route()` your views use, so specs follow your router.
+Hard-coded URLs make browser tests brittle: change a route pattern and every spec that visits it breaks. `BaseTestCase` builds URLs from your **named routes** instead, read from the router of the application your spec loads, so specs follow your router.
 
 ```javascript
 // config/Router.bx
@@ -27,7 +27,7 @@ it( "opens a user from the list", () => {
 
 ## routeURL()
 
-`routeURL( name, [params] )` returns the **path** of a named route, without scheme and host. It is built by ColdBox's own `event.route()`, so it includes the routing prefix of your application and, for module routes, the module entry point.
+`routeURL( name, [params] )` returns the **path** of a named route from the web root, without scheme and host. It includes the front controller when your app uses one (`/index.cfm`), the module entry point for module routes, and the route pattern with your params filled in. The `appMapping` of the spec is not part of it: it is a mapping, not a web path (see [Different URL Prefixes](#different-url-prefixes)).
 
 ```javascript
 routeURL( "users.show", { id : 5 } )   // /users/5/
@@ -36,7 +36,7 @@ routeURL( "posts@blog" )               // /blog/posts/
 routeURL( "blog:posts" )               // /blog/posts/
 ```
 
-It throws an `InvalidArgumentException` when the named route does not exist, so a renamed route fails loudly. Because the result is a path, it resolves against the spec `baseURL` when you visit it, and you can use it anywhere you need a link, for example `page.visit( routeURL( "search" ) & "?q=coldbox" )`.
+It throws an `InvalidArgumentException` when the named route or its module does not exist, so a renamed route fails loudly. The helpers need a loaded application: in a test that does not load ColdBox (`loadColdbox=false`), they throw `BaseTestCase.NoColdBoxApp`. Because the result is a path, it resolves against the spec `baseURL` when you visit it, and you can use it anywhere you need a link, for example `page.visit( routeURL( "search" ) & "?q=coldbox" )`.
 
 ## visitRoute()
 
@@ -58,11 +58,13 @@ visitRoute( page, "users.show", { id : 5 } )
 | `assertRouteIs( page, "users.show" )` | The page path matches the route **pattern**: any value of its placeholders passes (`/users/5`, `/users/abc`) |
 | `assertRouteIs( page, "users.show", { id : 5 } )` | The page path is the path of `routeURL( "users.show", { id : 5 } )` |
 
-A route with optional placeholders, such as `route( "/posts/:id?" ).as( "posts" )`, matches with and without them: `assertRouteIs( page, "posts" )` passes on `/posts` and on `/posts/12`.
+A route with optional placeholders, such as `route( "/posts/:id?" ).as( "posts" )`, matches with and without them: `assertRouteIs( page, "posts" )` passes on `/posts` and on `/posts/12`. With params, the helpers use the longest form the params fill:
 
-{% hint style="warning" %}
-Optional placeholders are only fully supported **without** params. `routeURL()`, `visitRoute()` and `assertRouteIs()` build the path with `event.route()`, which resolves a route like `/posts/:id?` to its base path and drops the optional param: `routeURL( "posts", { id : 12 } )` returns `/posts/`, not `/posts/12/`. To visit or assert a specific optional value, build the path yourself, for example `page.visit( routeURL( "posts" ) & "12" )`, or give that URL its own named route.
-{% endhint %}
+```javascript
+routeURL( "posts" )                  // /posts/
+routeURL( "posts", { id : 12 } )     // /posts/12/
+assertRouteIs( page, "posts", { id : 12 } )
+```
 
 Like ColdBox routing, the match:
 
@@ -104,7 +106,19 @@ ColdBox 8.3.0 also fixes `event.route( "name@module" )`, which built module link
 
 ## Different URL Prefixes
 
-`routeURL()` uses the SES base URL of the **virtual** application your spec loads. If the server under test reaches the application through a different prefix, for example `/index.cfm` when URL rewrites are off, set the base URL the paths should use in a `beforeEach()`:
+`routeURL()` builds paths from the web root, from the SES base URL of the **virtual** application your spec loads, without its `appMapping`. When the application is served from a sub folder, tell the spec with the `webMapping` annotation, and the paths keep it:
+
+```javascript
+@appMapping( "/root" )
+@webMapping( "/shop" )
+@browser
+@baseURL( "http://127.0.0.1:8080" )
+class extends="coldbox.system.testing.BaseTestCase" {
+	// routeURL( "users.show", { id : 5 } ) is /shop/users/5/
+}
+```
+
+If the server under test reaches the application through another prefix, for example `/index.cfm` when URL rewrites are off, set the base URL the paths should use in a `beforeEach()`:
 
 ```javascript
 beforeEach( ( currentSpec ) => {
