@@ -30,18 +30,18 @@ box install testbox@^7.2.0 --saveDev
 
 ## Install bx-playwright and a Browser
 
-bx-playwright ships a `bxPlaywright` command line tool that downloads the Playwright driver, a small Node.js distribution and the browsers.
+bx-playwright ships a `bxplaywright` command line tool that downloads the Playwright driver, a small Node.js distribution and the browsers.
 
 ```bash
 # The module and its CLI for the BoxLang OS runtime
 install-bx-module bx-playwright
 
 # Driver + Node.js + Chromium, then check everything
-bxPlaywright install
-bxPlaywright doctor
+bxplaywright install
+bxplaywright doctor
 ```
 
-Need more browsers? `bxPlaywright install firefox webkit`. On Linux CI machines add `--with-deps` to also install the operating system libraries the browsers need. Everything is stored in `~/.boxlang/playwright`, shared by every BoxLang runtime of the same user.
+Need more browsers? `bxplaywright install firefox webkit`. On Linux CI machines add `--with-deps` to also install the operating system libraries the browsers need. Everything is stored in `~/.boxlang/playwright`, shared by every BoxLang runtime of the same user.
 
 The module must also be loaded by the BoxLang runtime that **runs your tests**. If your tests run in a CommandBox BoxLang server (with the `commandbox-boxlang` module), install it in that server, for example from your `server.json`, the same way the ColdBox platform installs its BoxLang modules:
 
