@@ -34,7 +34,7 @@ jobs:
           distribution: temurin
           java-version: "21"
 
-      # BoxLang OS runtime + bx-playwright, for the bxPlaywright CLI
+      # BoxLang OS runtime + bx-playwright, for the bxplaywright CLI
       - uses: ortus-boxlang/setup-boxlang@main
         with:
           version: latest
@@ -61,8 +61,8 @@ jobs:
       - name: Install Chromium
         run: |
           export PATH="$HOME/.boxlang/bin:$PATH"
-          bxPlaywright install chromium --with-deps
-          bxPlaywright doctor
+          bxplaywright install chromium --with-deps
+          bxplaywright doctor
 
       - name: Start the application
         run: |
@@ -93,7 +93,7 @@ Adapt it to your project:
 * `box testbox run` needs the runner URL in your `box.json` (`testbox.runner`), see the [Testing quick start](../README.md#commandbox-runner).
 * The server inherits `ENVIRONMENT` and `BX_PLAYWRIGHT_PROFILE` from the job, and so do the specs running inside it.
 * Store the passwords of your test users as CI secrets, and read them in your saved session setup. See [Authentication](authentication.md#test-users-and-passwords).
-* Open a downloaded trace locally with `bxPlaywright show-trace trace.zip`.
+* Open a downloaded trace locally with `bxplaywright show-trace trace.zip`.
 
 
 ## With the BoxLang Runner

@@ -7,7 +7,7 @@ icon: life-ring
 
 # Troubleshooting
 
-Start with `bxPlaywright doctor`: it checks the driver, Node.js and the installed browsers. Then find your symptom below.
+Start with `bxplaywright doctor`: it checks the driver, Node.js and the installed browsers. Then find your symptom below.
 
 ## Every Browser Spec Is Skipped
 
@@ -37,9 +37,9 @@ Browser specs are BoxLang classes (`.bx`). A bundle written in BoxLang cannot lo
 The browser is not installed, or its system libraries are missing:
 
 ```bash
-bxPlaywright install chromium
+bxplaywright install chromium
 # Linux, CI or containers: also install the operating system libraries
-bxPlaywright install chromium --with-deps
+bxplaywright install chromium --with-deps
 ```
 
 The browsers live in `~/.boxlang/playwright` of the user that **runs the tests**. If your server runs as another user (a service account, a container), install them as that user, or point both to the same folder with the `BX_PLAYWRIGHT_HOME` environment variable.

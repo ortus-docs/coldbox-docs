@@ -68,7 +68,7 @@ it( "renders the invoice", () => {
 A trace records every action, network request, console message and DOM snapshot of a context. Open it in the Playwright trace viewer:
 
 ```bash
-bxPlaywright show-trace path/to/trace.zip
+bxplaywright show-trace path/to/trace.zip
 ```
 
 You can step through the spec action by action and see the page before and after each one: usually the fastest way to understand a failure that only happens in CI.
@@ -90,7 +90,7 @@ Other helpers:
 
 * `@browserProfile( "headed" )` or `BX_PLAYWRIGHT_HEADLESS=false`: a visible browser at full speed.
 * `page.snapshot()` prints the accessibility tree of the page, handy to find the right selector.
-* `bxPlaywright codegen http://127.0.0.1:8080` records your clicks as BoxLang code you can paste into a spec.
+* `bxplaywright codegen http://127.0.0.1:8080` records your clicks as BoxLang code you can paste into a spec.
 * `debug( page.url() )` or `debug( page.content() )` adds values to the TestBox debug output.
 * Focus a single spec with `fit()` or `fdescribe()` while you work on it.
 
