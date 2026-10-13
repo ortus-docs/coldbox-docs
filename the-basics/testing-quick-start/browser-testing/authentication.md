@@ -11,6 +11,8 @@ Most journeys worth testing happen behind a login. Filling the login form in eve
 
 There are no test-only login endpoints and nothing to enable in your application: the browser logs in exactly like a user does, so your application ships no backdoor.
 
+<figure><img src="../../../.gitbook/assets/coldbox-saved-sessions.gif" alt="A spec saving a login session in beforeAll() and reusing it in browse(), a guest sent to the login page, and the passing run"><figcaption><p>Log in once with a saved session and reuse it in every spec</p></figcaption></figure>
+
 ```javascript
 @appMapping( "/root" )
 @browser

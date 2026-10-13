@@ -9,6 +9,8 @@ icon: route
 
 Hard-coded URLs make browser tests brittle: change a route pattern and every spec that visits it breaks. `BaseTestCase` builds URLs from your **named routes** instead, read from the router of the application your spec loads, so specs follow your router.
 
+<figure><img src="../../../.gitbook/assets/coldbox-named-routes.gif" alt="A spec using routeURL(), visitRoute() and assertRouteIs(), the browser following the routes, and a wrong route failure"><figcaption><p>Named routes in a browser spec, and the message of a wrong route</p></figcaption></figure>
+
 ```javascript
 // config/Router.bx
 route( "/users/:id" ).as( "users.show" ).to( "users.show" )
