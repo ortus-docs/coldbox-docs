@@ -10,6 +10,10 @@ ColdBox 8.3.0 is a feature release focused on testing and route composition: **r
 
 ### 🌐 Browser Testing With @browser (BoxLang)
 
+{% file src="../../.gitbook/assets/coldbox-browser-testing.mp4" %}
+Browser testing in ColdBox 8.3, in 45 seconds
+{% endfile %}
+
 {% hint style="warning" %}
 🚀 **BoxLang Exclusive**: browser testing requires **BoxLang**, the **bx-playwright** module and a TestBox release with annotation-driven browser support (**TestBox 7.2.0+**, [TestBox#222](https://github.com/Ortus-Solutions/TestBox/pull/222)). On older TestBox releases the annotations do nothing and `browse()` is not defined.
 {% endhint %}
@@ -36,6 +40,10 @@ class extends="coldbox.system.testing.BaseTestCase" {
 
 }
 ```
+
+<figure><img src="../../.gitbook/assets/coldbox-named-routes.gif" alt="A spec using routeURL(), visitRoute() and assertRouteIs(), the browser following the routes, and a wrong route failure"><figcaption><p>Named routes in a browser spec, and the message of a wrong route</p></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/coldbox-saved-sessions.gif" alt="A spec saving a login session in beforeAll() and reusing it in browse(), a guest sent to the login page, and the passing run"><figcaption><p>Log in once with a saved session and reuse it in every spec</p></figcaption></figure>
 
 See the [Browser Testing](../../the-basics/testing-quick-start/browser-testing/README.md) guide, including [Named Routes](../../the-basics/testing-quick-start/browser-testing/named-routes.md) and [Authentication](../../the-basics/testing-quick-start/browser-testing/authentication.md).
 

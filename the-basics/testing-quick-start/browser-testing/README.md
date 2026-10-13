@@ -14,6 +14,10 @@ icon: browser
 
 Integration tests with `BaseTestCase` simulate a request inside a virtual ColdBox application: they are fast and precise, but no HTML is ever parsed, no JavaScript runs and no cookie travels between requests. Browser tests close that gap. Add the `@browser` annotation to a `coldbox.system.testing.BaseTestCase` spec and it drives a real Chromium, Firefox or WebKit browser, through [bx-playwright](https://bxplaywright.boxlang.io), against your **running** application, so you can test what your users actually see: forms, redirects, sessions, JavaScript widgets and full login flows.
 
+{% file src="../../../.gitbook/assets/coldbox-browser-testing.mp4" %}
+Browser testing in ColdBox 8.3, in 45 seconds
+{% endfile %}
+
 ```javascript
 @appMapping( "/root" )
 @browser
