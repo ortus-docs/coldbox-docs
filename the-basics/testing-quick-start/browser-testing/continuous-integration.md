@@ -96,20 +96,22 @@ Adapt it to your project:
 * Open a downloaded trace locally with `bxplaywright show-trace trace.zip`.
 
 
-## With the BoxLang Runner
+## With the BoxLang MiniServer
 
-If your tests run with TestBox's BoxLang runner instead, let it start and stop the web server. Replace the last steps with:
+Without CommandBox, serve the application with the BoxLang MiniServer and call the HTML runner. The runner answers with `x-testbox-totalFail` and `x-testbox-totalError` headers, so the job can fail on them. Replace the last steps with:
 
 ```yaml
       - name: Run the browser tests
         run: |
-          ./testbox/run --directory=tests.specs.browser \
-            --web-server="boxlang-miniserver --port 8080" \
-            --web-server-url=http://127.0.0.1:8080 \
-            --retries=1
+          install-bx-module bx-playwright
+          install-bx-module bx-esapi
+          boxlang-miniserver --port 8080 --rewrites &
+          until curl -s -o /dev/null http://127.0.0.1:8080/; do sleep 2; done
+          curl -s -D headers.txt "http://127.0.0.1:8080/tests/runner.bxm?directory=tests.specs.browser&reporter=text"
+          ! grep -qiE "^x-testbox-total(Fail|Error): [1-9]" headers.txt
 ```
 
-The runner waits until the URL answers (60 seconds by default, `--web-server-timeout`), uses it as the default `baseURL` of your bundles, stops the server after the tests, and exits with code `1` if the server never answers.
+TestBox's BoxLang CLI runner (`./testbox/run`) and its `--web-server` options cannot run `BaseTestCase` specs yet, because ColdBox needs the `cgi` scope of a web request (see [Setup](setup.md#run-your-application)).
 
 ## Tips
 
