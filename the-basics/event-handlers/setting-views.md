@@ -38,7 +38,7 @@ You can also use the `setView(), setLayout()` methods to tell the framework whic
 function index( event, rc, prc ){
     // Inline
     event.setView( view="main/index", layout="2columns" );
-    
+
     // Concatenated
     event.setView( "main/index" )
         .setLayout( "2columns" );
@@ -52,7 +52,7 @@ You can also tell the framework to set a view for rendering by itself with no la
 ```javascript
 function index( event, rc, prc ){
     // Inline
-    event.setView( view="widgets/users", nolayout=true );   
+    event.setView( view="widgets/users", nolayout=true );
 }
 ```
 

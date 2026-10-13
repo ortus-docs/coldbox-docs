@@ -219,7 +219,7 @@ switch( rc.format ){
     case "json" : case "jsonp" : case "xml" : {
         event.renderData(data=mydata, type=rc.format);
         break;
-    } 
+    }
     case "pdf" : {
         event.renderData(data=view("even/action"), type="pdf");
         break;
@@ -272,9 +272,9 @@ class accessors="true"{
     property name="data" type="mytype";
     property name="contentType";
 
-    function init(){ 
+    function init(){
         setContentType("text");
-        return this; 
+        return this;
     }
 
     // The magical rendering
@@ -299,9 +299,9 @@ component accessors="true"{
     property name="data" type="mytype";
     property name="contentType";
 
-    function init(){ 
+    function init(){
         setContentType("text");
-        return this; 
+        return this;
     }
 
     // The magical rendering
