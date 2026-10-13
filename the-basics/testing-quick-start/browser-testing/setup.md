@@ -82,34 +82,47 @@ class extends="coldbox.system.testing.BaseTestCase" {
 
 {% endtab %}
 
-{% tab title="BoxLang Runner" %}
+{% tab title="BoxLang MiniServer" %}
 
-TestBox's BoxLang runner can start the web server for you, wait until it answers, run the tests and stop it afterwards:
+Serve your application with the BoxLang MiniServer and run the tests through TestBox's HTML runner on the same server. Copy `testbox/bx/tests/runner.bxm` to `tests/runner.bxm` if your app does not have a runner yet.
 
 ```bash
-./testbox/run --directory=tests.specs.browser \
-    --web-server="boxlang-miniserver --port 8080" \
-    --web-server-url=http://localhost:8080
+# The server runtime loads the modules your app and specs use
+install-bx-module bx-playwright
+install-bx-module bx-esapi
+boxlang-miniserver --port 8080 --rewrites
 ```
 
-| Option | Default | Description |
-| --- | --- | --- |
-| `--web-server` | | Shell command that starts the web server before the tests |
-| `--web-server-url` | `http://localhost:8080` | URL polled until it answers with a status below 500 |
-| `--web-server-timeout` | `60` | Seconds to wait for the server; the runner exits with code `1` when it does not answer |
+Open `http://127.0.0.1:8080/tests/runner.bxm?directory=tests.specs.browser`, or run it from a terminal:
 
-The `--web-server-url` also becomes the **default `baseURL`** of every browser bundle, so you can leave the annotation out.
+```bash
+curl -s "http://127.0.0.1:8080/tests/runner.bxm?directory=tests.specs.browser&reporter=text"
+```
 
-A browser spec extends `BaseTestCase` and still loads your ColdBox application virtually, so running it from the CLI needs the `bx-web-support` module in the BoxLang OS runtime (`install-bx-module bx-web-support`). See the [BoxLang CLI Runner](https://testbox.ortusbooks.com/getting-started/running-tests/boxlang-cli-runner) guide.
+```javascript
+@browser
+@baseURL( "http://127.0.0.1:8080" )
+class extends="coldbox.system.testing.BaseTestCase" {
+	// ...
+}
+```
 
 {% endtab %}
 
 {% endtabs %}
 
+{% hint style="warning" %}
+**Run `BaseTestCase` browser specs through a web runner.** TestBox's BoxLang CLI runner (`./testbox/run`) cannot run them yet: the spec loads your ColdBox application virtually, and ColdBox reads the `cgi` scope, which only exists in a web request. Use the HTML runner of the server that serves your application, as above. The `--web-server` options of the CLI runner work for plain TestBox browser specs that do not extend `BaseTestCase`.
+{% endhint %}
+
+{% hint style="info" %}
+ColdBox builds links with `encodeForURL()`, which BoxLang provides through the **bx-esapi** module. If your pages fail with `Function [encodeForURL] not found`, install it in the runtime that serves your application: `install-bx-module bx-esapi`.
+{% endhint %}
+
 The base URL is resolved in this order:
 
 1. The `baseURL` annotation of the spec class (or a class it extends)
-2. The `--web-server-url` of the BoxLang runner
+2. The `--web-server-url` of the BoxLang CLI runner, for specs it can run
 3. The bx-playwright `baseURL` setting or the `BX_PLAYWRIGHT_BASEURL` environment variable
 
 ## Organize Your Specs

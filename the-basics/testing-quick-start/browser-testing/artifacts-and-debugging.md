@@ -96,14 +96,9 @@ Other helpers:
 
 ## Rerun Only What Failed
 
-The BoxLang runner remembers failures. `--failed` reruns only the bundles and specs that failed or errored in the last run:
+In the web runner, the HTML reports (`Simple`, `Min`, `Dot`, `Doc`) show a **Run Failed** button next to **Run All** when something failed. Its link reruns only the failed specs and is built from the report, so the runner keeps no state.
 
-```bash
-./testbox/run --directory=tests.specs.browser
-./testbox/run --directory=tests.specs.browser --failed
-```
-
-In the web runner, the HTML reports (`Simple`, `Min`, `Dot`, `Doc`) show a **Run Failed** button next to **Run All** when something failed. Its link reruns only the failed specs and is built from the report, so the runner keeps no state. From code, `results.getFailedTargets()` returns the same bundles and spec ids on every engine. See [Run All and Run Failed](https://testbox.ortusbooks.com/digging-deeper/reporters#run-all-and-run-failed) in the TestBox docs.
+TestBox's BoxLang CLI runner has the same feature as `./testbox/run --failed`, for specs it can run: `BaseTestCase` specs need a web runner (see [Setup](setup.md#run-your-application)). From code, `results.getFailedTargets()` returns the same bundles and spec ids on every engine. See [Run All and Run Failed](https://testbox.ortusbooks.com/digging-deeper/reporters#run-all-and-run-failed) in the TestBox docs.
 
 ## See Also
 
