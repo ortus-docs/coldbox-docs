@@ -237,7 +237,7 @@ Where you need to param the incoming format extension, then do a switch and do s
 event.renderData( data=MyData, formats="xml,json,html,pdf" );
 ```
 
-That's it! ColdBox will figure out how to deal with all the passed in formats for you that `renderdata` can use. By convention it will use the name of the incoming event as the view that will be rendered for HTML and PDF; implicit views. If the event was users.list, then the view would be views/users/list.cfm. However, you can tell us which view you like if it is named different:
+That's it! ColdBox will figure out how to deal with all the passed in formats for you that `renderdata` can use. For HTML and PDF, it can use the incoming event name to find a view by convention when implicit views are enabled. **Since ColdBox 8.3.0, implicit views are disabled by default.** Set `formatsView` to select a view explicitly, or set `coldbox.implicitViews = true` to retain convention-based resolution. If the event is `users.list`, the conventional view is `views/users/list.bxm` (or `views/users/list.cfm` for CFML).
 
 ```javascript
 event.renderData( data=MyData, formats="xml,json,html,pdf", formatsView="data/MyView" );

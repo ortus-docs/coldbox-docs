@@ -658,6 +658,10 @@ task( "my-task" )
 This feature **ONLY** works when you are using a distributed cache like redis, mongo, elastic, couchbase or a JDBC CacheBox provider in CacheBox.
 {% endhint %}
 
+{% hint style="warning" %}
+**Changed in ColdBox 8.3.0:** Calendar schedules (`everyDayAt()`, `everyHourAt()`, `everyWeekOn()`, `everyMonthOn()`, `everyYearOn()` and the business-day helpers) keep their configured wall-clock time after a scheduler restart when combined with `onOneServer()`. Interval schedules created with `every( n, unit )` continue to synchronize with the cluster lock.
+{% endhint %}
+
 #### Changing the Cache Provider
 
 By default this feature leverages the `template` cache provider in CacheBox. However, you can change which cache provider will be used for storing the locking and tracking entries.

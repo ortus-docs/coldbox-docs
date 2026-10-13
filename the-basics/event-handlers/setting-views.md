@@ -21,7 +21,13 @@ event.setView( 'mydirectory/myView' );
 The views you set will use the default layout defined in your configuration file which by default is the `layouts/Main.cfm`
 
 {% hint style="info" %}
-We recommend that you set your views following the naming convention of your event. If your event is **users.index**, your view should be **users/index**. This will go a long way with maintainability and consistency and also will activate **implicit views** where you don't even have to use the set view method call.
+We recommend that you set your views following the naming convention of your event. If your event is **users.index**, your view should be **users/index**. This helps maintain consistency and makes convention-based rendering straightforward when implicit views are enabled.
+{% endhint %}
+
+{% hint style="warning" %}
+**Changed in ColdBox 8.3.0:** `coldbox.implicitViews` defaults to `false`. Matching an event name to a view name does not select that view unless implicit views are enabled; otherwise, call `event.setView()` explicitly. To preserve the previous behavior, set `coldbox.implicitViews = true` in your ColdBox class.
+
+Enabling implicit views can make a view reachable through event resolution without its handler explicitly selecting it. Review access controls before enabling this setting. Implicit view discovery also adds lookup work.
 {% endhint %}
 
 ## View With Custom Layouts

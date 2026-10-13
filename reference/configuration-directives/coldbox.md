@@ -213,7 +213,7 @@ This is useful to be set to false in development and true in production. This te
 
 ### **implicitViews**
 
-Allows you to use implicit views in your application and view dispatching. You can get a performance boost if you disable this setting.
+Allows ColdBox to select a view by convention from the current event when a handler does not call `event.setView()`. This setting defaults to `false` in ColdBox 8.3.0 and later. Set it to `true` to preserve the earlier convention-based behavior; otherwise, select views explicitly. Disabling implicit views avoids the additional discovery and lookup work. See [Setting Views](../../the-basics/event-handlers/setting-views.md) for behavior and access-control considerations.
 
 ### identifierProvider
 
