@@ -1,5 +1,5 @@
 ---
-description: Upcoming release
+description: October 13, 2026
 ---
 
 # What's New With 8.3.0
@@ -109,10 +109,23 @@ The WireBox scope class that stores objects in the application, session and serv
 There is no alias for the old class: `CFScopes.cfc` was removed. If you extend, instantiate or reference `coldbox.system.ioc.scopes.CFScopes` directly, for example in a custom scope, change it to `coldbox.system.ioc.scopes.EngineScopes`.
 {% endhint %}
 
+### ⚠️ Breaking Change: Implicit Views Disabled by Default
+
+`coldbox.implicitViews` now defaults to `false`. Handlers that relied on ColdBox automatically resolving a view from the event name, without calling `event.setView()`, will no longer render that view unless implicit views are explicitly enabled. To preserve the previous behavior, set `coldbox.implicitViews = true` in your `config/ColdBox.bx` or `config/ColdBox.cfc`; otherwise, update handlers to select their views explicitly with `event.setView()`.
+
+{% hint style="warning" %}
+Implicit views trade explicit control for convention. Enabling them allows a view to be selected through event resolution without an explicit view declaration, which can expose views that were not intended to be directly reachable and may bypass access-control decisions implemented only in handlers. Review view access and authorization before enabling this setting. Implicit resolution also requires additional view discovery and lookup work, so it can add request-time overhead; leaving it disabled avoids that cost.
+{% endhint %}
+
 ## Release Notes
 
 {% tabs %}
 {% tab title="ColdBox" %}
+
+### Changed
+
+`coldbox.implicitViews` now defaults to `false`; applications that depend on convention-based implicit view resolution must explicitly set it to `true` or use `event.setView()`.
+
 ### Added
 
 [COLDBOX-1457](https://ortussolutions.atlassian.net/browse/COLDBOX-1457) Browser testing for ColdBox apps: `@browser`, `@browserProfile` and `@baseURL` on `BaseTestCase` and the named route helpers `routeURL()`, `visitRoute()` and `assertRouteIs()` (BoxLang, TestBox 7.2.0+, bx-playwright) ([#708](https://github.com/ColdBox/coldbox-platform/pull/708), [#720](https://github.com/ColdBox/coldbox-platform/pull/720))
