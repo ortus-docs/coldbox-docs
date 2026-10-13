@@ -183,7 +183,7 @@ coldbox = {
     // Return RC struct on Flex/Soap Calls
     proxyReturnCollection     = false,
     // Activate implicit views
-    implicitViews           = true,
+    implicitViews           = false,
     // Case for implicit views
     caseSensitiveImplicitViews = true,
     // Auto register all model objects in the `models` folder into WireBox

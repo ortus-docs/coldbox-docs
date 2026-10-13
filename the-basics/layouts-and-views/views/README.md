@@ -304,20 +304,21 @@ component name="general"{
 
 ## Implicit Views
 
-You can also omit the explicit `event.setView()` if you want, ColdBox will then look for the view according to the executing event's syntax by convention. So if the incoming event is called `general.index` and no view is explicitly defined in your handler, ColdBox will look for a view in the `general` folder called `index.bxm` (or `.cfm` for CFML). We recommend matching event resolution to view resolution, even if you use implicit views.
+You can also omit the explicit `event.setView()` if you want, ColdBox will then look for the view according to the executing event's syntax by convention if you have enabled `implicitViews` in your configuration. So if the incoming event is called `general.index` and no view is explicitly defined in your handler, ColdBox will look for a view in the `general` folder called `index.bxm` (or `.cfm` for CFML). We recommend matching event resolution to view resolution, even if you use implicit views.
 
-{% hint style="success" %}
-**Tip:** This feature is more for convention purists than anything else. However, we do recommend, as best practice, explicitly declaring the view to be rendered when working with team environments, as everybody will know what happens.
+{% hint style="warning" %}
+**Warning:** We recommend you be cautious with this feature as it allows you to execute any view within your application without explicit declaration or control over which views are rendered.  It will bypass any security or access control you may have in place for your views.
 {% endhint %}
 
 {% tabs %}
 {% tab title="BoxLang" %}
 ```js
-class name="general"{
+@name( "General" )
+class{
 
     function index( event, rc, prc ){
         // call some model for data and put into the request collection
-        prc.myQuery = getInstance( 'MyService' ).getData();    
+        prc.myQuery = getInstance( 'MyService' ).getData()
     }
 
 }
@@ -329,7 +330,7 @@ component name="general"{
 
     function index( event, rc, prc ){
         // call some model for data and put into the request collection
-        prc.myQuery = getInstance( 'MyService' ).getData();    
+        prc.myQuery = getInstance( 'MyService' ).getData();
     }
 
 }
@@ -341,12 +342,12 @@ component name="general"{
 **Caution:** If using implicit views, please note that the **name** of the view will **ALWAYS** be in lowercase. So please be aware of this **limitation**. I would suggest creating URL Mappings with explicit event declarations to control case and location. When using implicit views, you will also lose fine rendering control.
 {% endhint %}
 
-### Disabling Implicit Views
+### Disabling/Enabling Implicit Views
 
-You can also disable implicit views by using the `coldbox.implicitViews` configuration setting in your `config/ColdBox.bx` (or `.cfc` for CFML). This is useful as implicit lookups are time-consuming.
+You can also disable/enable implicit views by using the `coldbox.implicitViews` configuration setting in your `config/ColdBox.bx` (or `.cfc` for CFML). This is useful as implicit lookups are time-consuming.
 
 ```javascript
-coldbox.implicitViews = false;
+coldbox.implicitViews = true
 ```
 
 ### Case Sensitivity
@@ -354,5 +355,5 @@ coldbox.implicitViews = false;
 The ColdBox rendering engine can also be tweaked to use **case-insensitive** or **sensitive** implicit views by using the `coldbox.caseSensitiveImplicitViews` directive in your `config/ColdBox.bx` (or `.cfc` for CFML). The default is to turn all implicit views to lowercase, so the value is always **false**.
 
 ```javascript
-coldbox.caseSensitiveImplicitViews = true;
+coldbox.caseSensitiveImplicitViews = true
 ```
